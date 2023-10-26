@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 import java.util.Objects;
 
-public class HelloController {
+public class LoginController {
     public Button login;
     public PasswordField password;
     public TextField username;

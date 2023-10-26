@@ -7,14 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Login extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println("Prova Andre Ciaooo ");
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 750, 750);
-        System.out.println("Da mantenere");
         stage.setTitle("Access Login");
         stage.setScene(scene);
         stage.show();
