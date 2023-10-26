@@ -12,6 +12,8 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         System.out.println("Prova");
+        System.out.println("\n");
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 750, 750);
         stage.setTitle("Access Login");
