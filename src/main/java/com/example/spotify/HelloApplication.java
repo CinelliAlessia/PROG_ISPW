@@ -14,6 +14,7 @@ public class HelloApplication extends Application {
         System.out.println("Prova Andre Ciao ");
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 750, 750);
+        System.out.println("Da mantenere");
         stage.setTitle("Access Login");
         stage.setScene(scene);
         stage.show();
