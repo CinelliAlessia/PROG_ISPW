@@ -18,7 +18,7 @@ public class LoginCtrlGrafico {
     private Label textLogin;
 
     public  void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("homePage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/login.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 1080, 700);
         stage.setTitle("Access Login");
@@ -35,7 +35,7 @@ public class LoginCtrlGrafico {
             textLogin.setText("Credenziali corrette");
             // ora dovrei permettere "all'utente" di visualizzare la homePage
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("homePage.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/registrazione.fxml")); // DA CAMBIARE VIEW
                 Scene scene = new Scene(loader.load());
                 Stage stage = (Stage) login.getScene().getWindow(); // Ottieni la finestra corrente
                 stage.setScene(scene);
@@ -50,7 +50,7 @@ public class LoginCtrlGrafico {
     @FXML
     protected void onRegisterClick() throws IOException {
         // questo non dovrebbe essere cosi, ma dovrei creare una istanza del controller grafico del register, e poi utilizzare il metodo start(?)
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("registrazione.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/registrazione.fxml"));
         Scene scene = new Scene(loader.load());
         Stage stage = (Stage) login.getScene().getWindow(); // Ottieni la finestra corrente
         stage.setScene(scene);
