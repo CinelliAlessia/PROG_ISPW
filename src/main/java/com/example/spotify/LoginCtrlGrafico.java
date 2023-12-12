@@ -28,7 +28,6 @@ public class LoginCtrlGrafico {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void onLoginClick() {
         String user = username.getText();
@@ -39,7 +38,7 @@ public class LoginCtrlGrafico {
             textLogin.setText("Credenziali corrette");
             // ora dovrei permettere "all'utente" di visualizzare la homePage
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("registrazione.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("homePage.fxml"));
                 Scene scene = new Scene(loader.load());
                 Stage stage = (Stage) login.getScene().getWindow(); // Ottieni la finestra corrente
                 stage.setScene(scene);
@@ -50,6 +49,15 @@ public class LoginCtrlGrafico {
         } else {
             textLogin.setText("Credenziali errate");
         }
+    }
+    @FXML
+    protected void onRegisterClick() throws IOException {
+        // questo non dovrebbe essere cosi, ma dovrei creare una istanza del controller grafico del register, e poi utilizzare il metodo start(?)
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("registrazione.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = (Stage) login.getScene().getWindow(); // Ottieni la finestra corrente
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
