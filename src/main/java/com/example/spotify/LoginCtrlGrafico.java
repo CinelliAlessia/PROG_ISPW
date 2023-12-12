@@ -39,7 +39,7 @@ public class LoginCtrlGrafico {
             textLogin.setText("Credenziali corrette");
             // ora dovrei permettere "all'utente" di visualizzare la homePage
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("homePage.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("registrazione.fxml"));
                 Scene scene = new Scene(loader.load());
                 Stage stage = (Stage) login.getScene().getWindow(); // Ottieni la finestra corrente
                 stage.setScene(scene);
