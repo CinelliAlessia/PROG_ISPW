@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 import java.util.Objects;
 
-public class LoginController {
+public class LoginCtrlGrafico {
     public Button login;
     public PasswordField password;
     public TextField username;
@@ -17,12 +17,14 @@ public class LoginController {
 
     @FXML
     protected void onLoginClick() {
-        if(Objects.equals(username.getText(), "admin")){
-            if(Objects.equals(password.getText(), "1234")){
-                textLogin.setText("Credenziali corrette");
-            }
+        String user = username.getText();
+        String pass = password.getText();
+        LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
+        if (loginCtrlApp.processLogin(user,pass)) {
+            textLogin.setText("Credenziali corrette");
+        } else {
+            textLogin.setText("Credenziali errate");
         }
-
     }
 
 }

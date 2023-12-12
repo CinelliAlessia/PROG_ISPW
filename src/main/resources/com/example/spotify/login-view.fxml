@@ -8,7 +8,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.spotify.LoginCtrlGrafico">
 
     <Button fx:id="login" layoutX="371.0" layoutY="272.0" mnemonicParsing="false" onAction="#onLoginClick" text="Login" />
     <PasswordField fx:id="password" layoutX="409.0" layoutY="188.0" prefHeight="25.0" prefWidth="149.0" promptText="Password" />
