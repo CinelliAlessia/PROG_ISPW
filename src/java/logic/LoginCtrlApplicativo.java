@@ -1,4 +1,4 @@
-package com.example.spotify;
+package logic;
 
 public class LoginCtrlApplicativo {
     // implemento la logica dello use case

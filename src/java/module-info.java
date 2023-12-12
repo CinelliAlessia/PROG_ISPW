@@ -3,6 +3,6 @@ module com.example.spotify {
     requires javafx.fxml;
 
 
-    opens com.example.spotify to javafx.fxml;
-    exports com.example.spotify;
+    opens logic to javafx.fxml;
+    exports logic;
 }

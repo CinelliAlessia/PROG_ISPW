@@ -1,4 +1,4 @@
-package com.example.spotify;
+package logic;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

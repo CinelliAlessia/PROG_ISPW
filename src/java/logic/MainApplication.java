@@ -1,4 +1,4 @@
-package com.example.spotify;
+package logic;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
