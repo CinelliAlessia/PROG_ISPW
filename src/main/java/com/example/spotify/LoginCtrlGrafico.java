@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.util.Objects;
 
 public class LoginCtrlGrafico {
     public Button login;
@@ -20,7 +19,7 @@ public class LoginCtrlGrafico {
         String user = username.getText();
         String pass = password.getText();
         LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
-        if (loginCtrlApp.processLogin(user,pass)) {
+        if (loginCtrlApp.verificaCredenziali(user,pass)) {
             textLogin.setText("Credenziali corrette");
         } else {
             textLogin.setText("Credenziali errate");
