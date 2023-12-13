@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class LoginCtrlGrafico {
     public Button login;
+    public Button register;
     public PasswordField password;
     public TextField username;
     @FXML
@@ -19,30 +20,25 @@ public class LoginCtrlGrafico {
 
     public  void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/login.fxml"));
-
         Scene scene = new Scene(fxmlLoader.load(), 1080, 700);
         stage.setTitle("Access Login");
         stage.setScene(scene);
         stage.show();
     }
     @FXML
-    protected void onLoginClick() {
+    protected void onLoginClick() throws IOException {
         String user = username.getText();
         String pass = password.getText();
         LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
         // se credenziali ok
         if (loginCtrlApp.verificaCredenziali(user,pass)) {
             textLogin.setText("Credenziali corrette");
+
             // ora dovrei permettere "all'utente" di visualizzare la homePage
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homePage.fxml")); // DA CAMBIARE VIEW
-                Scene scene = new Scene(loader.load());
-                Stage stage = (Stage) login.getScene().getWindow(); // Ottieni la finestra corrente
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Stage stage = (Stage) login.getScene().getWindow();
+            HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
+            homePageCGUI.start(stage);
+
         } else {
             textLogin.setText("Credenziali errate");
         }
@@ -50,11 +46,16 @@ public class LoginCtrlGrafico {
     @FXML
     protected void onRegisterClick() throws IOException {
         // questo non dovrebbe essere cosi, ma dovrei creare una istanza del controller grafico del register, e poi utilizzare il metodo start(?)
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/registrazione.fxml"));
-        Scene scene = new Scene(loader.load());
-        Stage stage = (Stage) login.getScene().getWindow(); // Ottieni la finestra corrente
-        stage.setScene(scene);
-        stage.show();
+        Stage stage = (Stage) register.getScene().getWindow();
+        RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();
+        registrazioneCtrlGrafico.start(stage);
     }
 
+    @FXML
+    protected void onGuestClick() throws IOException {
+        // questo non dovrebbe essere cosi, ma dovrei creare una istanza del controller grafico del register, e poi utilizzare il metodo start(?)
+        Stage stage = (Stage) register.getScene().getWindow();
+        RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();
+        registrazioneCtrlGrafico.start(stage);
+    }
 }

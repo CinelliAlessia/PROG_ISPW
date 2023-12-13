@@ -11,8 +11,8 @@ public class RegistrazioneCtrlGrafico {
     public  void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/registrazione.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 1080, 700);
-        stage.setTitle("Access Login");
+        Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
+        stage.setTitle("Registrazione");
         stage.setScene(scene);
         stage.show();
     }

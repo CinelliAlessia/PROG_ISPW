@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HomePageCtrlGrafico {
-
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/homePage.fxml"));
 

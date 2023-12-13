@@ -21,7 +21,7 @@
     <ImageView fitHeight="74.0" fitWidth="79.0" layoutX="263.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../photo/spotify.png" />
     </ImageView>
-    <Button layoutX="90.0" layoutY="145.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Registrazione" />
+    <Button fx:id="register" layoutX="90.0" layoutY="145.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Registrazione" />
     <Button layoutX="71.0" layoutY="209.0" mnemonicParsing="false" text="Continua come Host" />
    <Separator layoutX="296.0" layoutY="124.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="9.0" />
     <padding>
