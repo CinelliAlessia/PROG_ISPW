@@ -18,9 +18,9 @@ public class LoginCtrlGrafico {
     @FXML
     private Label textLogin;
 
-    public  void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1080, 700);
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/login2.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Access Login");
         stage.setScene(scene);
         stage.show();
