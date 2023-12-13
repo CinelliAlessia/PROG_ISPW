@@ -22,6 +22,7 @@ public class LoginCtrlGrafico {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/login2.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Access Login");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
