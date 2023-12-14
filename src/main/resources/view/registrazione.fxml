@@ -13,12 +13,12 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.RegistrazioneCtrlGrafico">
 
     <!-- Pulsante di registrazione -->
-    <Button layoutX="607.0" layoutY="590.0" mnemonicParsing="false" text="Registrati" />
+    <Button layoutX="604.0" layoutY="590.0" mnemonicParsing="false" text="Registrati" />
 
     <!-- Barra del titolo -->
-    <AnchorPane layoutX="524.0" layoutY="-31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Button fx:id="back" onAction="#onBackClick" text="Back" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="13.0" />
-        <Text fill="#00ff1a" layoutX="602.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRAZIONE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="14.0">
+    <AnchorPane layoutX="524.0" layoutY="-31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Button fx:id="back" layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="14.0" />
+        <Text fill="#00ff1a" layoutX="571.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRAZIONE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -26,8 +26,8 @@
     </AnchorPane>
 
     <!-- Selezione dei generi musicali -->
-    <HBox layoutX="889.0" layoutY="212.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+    <HBox layoutX="725.0" layoutY="207.0" prefHeight="307.0" prefWidth="522.0" spacing="20.0">
+        <VBox prefHeight="307.0" prefWidth="271.0" spacing="5.0">
             <CheckBox mnemonicParsing="false" text="Pop" />
             <CheckBox mnemonicParsing="false" text="Indie" />
             <CheckBox mnemonicParsing="false" text="Classic" />
@@ -46,7 +46,7 @@
     </HBox>
 
     <!-- Campi di ingresso -->
-    <HBox layoutX="232.0" layoutY="244.0" spacing="20.0" AnchorPane.leftAnchor="232.0">
+    <HBox layoutX="160.0" layoutY="244.0" prefHeight="167.0" prefWidth="365.0" spacing="20.0" AnchorPane.leftAnchor="160.0">
         <AnchorPane>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Utente" textAlignment="RIGHT" wrappingWidth="108" AnchorPane.topAnchor="5.0" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="RIGHT" wrappingWidth="106" AnchorPane.topAnchor="35.0" />
