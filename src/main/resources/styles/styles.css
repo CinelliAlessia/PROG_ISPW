@@ -1,0 +1,5 @@
+/* styles.css */
+.button {
+    -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+    -fx-text-fill: white; /* Colore del testo bianco */
+}
