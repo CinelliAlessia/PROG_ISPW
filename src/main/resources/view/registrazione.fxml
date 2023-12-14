@@ -13,9 +13,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.RegistrazioneCtrlGrafico">
 
     <!-- Pulsante di registrazione -->
-    <Button layoutX="604.0" layoutY="590.0" mnemonicParsing="false" text="Registrati" />
+    <Button layoutX="604.0" layoutY="590.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Registrati" />
 
-    <!-- Barra del titolo -->
+    <!-- Barra del titolo TopPage -->
     <AnchorPane layoutX="524.0" layoutY="-31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Button fx:id="back" layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="14.0" />
         <Text fill="#00ff1a" layoutX="571.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRAZIONE">
@@ -25,7 +25,7 @@
         </Text>
     </AnchorPane>
 
-    <!-- Selezione dei generi musicali -->
+    <!-- Selezione dei generi musicali - CheckBox -->
     <HBox layoutX="725.0" layoutY="207.0" prefHeight="307.0" prefWidth="522.0" spacing="20.0">
         <VBox prefHeight="307.0" prefWidth="271.0" spacing="5.0">
             <CheckBox mnemonicParsing="false" text="Pop" />
@@ -54,10 +54,11 @@
             <Text layoutX="964.8" strokeType="OUTSIDE" strokeWidth="0.0" text="Conferma Password" textAlignment="RIGHT" wrappingWidth="121.19993895292282" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="95.0" />
         </AnchorPane>
         <VBox spacing="5.0">
-            <TextField promptText="Nome" />
-            <TextField promptText="Email" />
-            <PasswordField promptText="Password" />
-            <PasswordField promptText="Conferma Password" />
+            <TextField fx:id="name" promptText="Nome" />
+            <TextField fx:id="email" promptText="Email" />
+            <PasswordField fx:id="password" promptText="Password" />
+            <PasswordField fx:id="conf_password" promptText="Conferma Password" />
         </VBox>
     </HBox>
+   <Text fx:id="error_pw" fill="RED" layoutX="523.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LE PASSWORD NON CORRISPONDONO" visible="false" />
 </AnchorPane>
