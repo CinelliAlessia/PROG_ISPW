@@ -1,8 +1,9 @@
-package logic;
+package veiw;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import start.MainApplication;
 
 import java.io.IOException;
 

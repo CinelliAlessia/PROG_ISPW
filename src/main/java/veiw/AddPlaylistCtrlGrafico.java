@@ -1,4 +1,4 @@
-package logic;
+package veiw;
 
 public class AddPlaylistCtrlGrafico {
 }

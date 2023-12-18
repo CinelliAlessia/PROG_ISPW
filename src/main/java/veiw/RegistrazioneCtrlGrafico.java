@@ -1,5 +1,6 @@
-package logic;
+package veiw;
 
+import controllerApplicativo.RegistrazioneCtrlApplicativo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,9 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import start.MainApplication;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class RegistrazioneCtrlGrafico {
 
@@ -18,7 +19,6 @@ public class RegistrazioneCtrlGrafico {
     public Text error_pw;
 
     private String user_name,user_email,user_password, user_conf_pw;
-
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/registrazione.fxml"));

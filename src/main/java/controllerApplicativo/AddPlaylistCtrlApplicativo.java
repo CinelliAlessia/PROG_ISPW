@@ -1,4 +1,4 @@
-package logic;
+package controllerApplicativo;
 
 public class AddPlaylistCtrlApplicativo {
 }
