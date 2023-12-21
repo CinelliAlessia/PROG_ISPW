@@ -10,8 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import start.MainApplication;
-import view.HomePageCtrlGrafico;
-import view.LoginCtrlGrafico;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +19,7 @@ public class RegistrazioneCtrlGrafico {
     public Button back;
     public TextField name, email, password, conf_password;
     public Text error_pw;
+    private ArrayList <String> preferences;
     //-----------------------------------
     private String user_name,user_email,user_password, user_conf_pw; // Dati
 
@@ -83,5 +82,25 @@ public class RegistrazioneCtrlGrafico {
         /*password in chiaro*/
         user_password = password.getText();
         user_conf_pw = conf_password.getText();
+    }
+
+    private UserBean getData2(){
+        //controlla se ha inserito davvero qualcosa
+        user_name = name.getText();
+        user_email = email.getText();
+
+        /*password in chiaro*/
+        user_password = password.getText();
+        user_conf_pw = conf_password.getText();
+
+        if(user_name.isEmpty() || user_email.isEmpty() || user_password.isEmpty() || user_conf_pw.isEmpty()) {
+            error_pw.setText("CAMPI VUOTI");
+            error_pw.setVisible(true);
+            return null;
+        } else {
+            UserBean userBeanInfo = new UserBean(user_name,user_email,user_password,preferences);
+            return userBeanInfo;
+        }
+
     }
 }

@@ -7,9 +7,6 @@ module logic {
     exports controllerApplicativo;
     opens controllerApplicativo to javafx.fxml;
 
-    exports engineering;
-    opens engineering to javafx.fxml;
-
     exports view;
     opens view to javafx.fxml;
 
