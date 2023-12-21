@@ -19,7 +19,7 @@
     </properties>
 
     <dependencies>
-        <dependency> <!-- DA TOGLIERE SE NON USIAMO MONGOBD -->
+        <dependency> <!-- DA TOGLIERE SE NON USIAMO MONGOBD  1.41.0 -->
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>3.12.14</version> <!-- Verifica la versione più recente su https://mongodb.github.io/mongo-java-driver/ -->

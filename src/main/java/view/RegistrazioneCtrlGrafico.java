@@ -13,6 +13,8 @@ import start.MainApplication;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistrazioneCtrlGrafico {
     // ---------Nodi interfaccia----------
@@ -49,15 +51,15 @@ public class RegistrazioneCtrlGrafico {
 
         // Questo dovrebbe essere fatto qui, senza chiamare il ctrl applicativo
 
-        if(!reg_CtrlApp.verificaPassword(user_password,user_conf_pw)){
+        if(verificaPassword(user_password,user_conf_pw)){
             // i campi password e conferma password non corrispondono
             error_pw.setText("LE PASSWORD NON CORRISPONDONO");
             error_pw.setVisible(true);
-        } else if (!reg_CtrlApp.verificaEmailCorrect(user_email)) {
+        } else if (verificaEmailCorrect(user_email)) {
             //Controllo se email è corretto
             error_pw.setText("EMAIL NON VALIDA");
             error_pw.setVisible(true);
-        } else if(!reg_CtrlApp.verificaRegistrazioneEsistente(user_password,user_conf_pw)){
+        } else if(verificaRegistrazioneEsistente(user_password,user_conf_pw)){
             //Controllo se non è già registrato
             error_pw.setText("UTENTE GIA REGISTRATO");
             error_pw.setVisible(true);
@@ -71,7 +73,6 @@ public class RegistrazioneCtrlGrafico {
             HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
             homePageCtrlGrafico.start(stage);
         }
-
     }
 
     private void getData(){
@@ -84,8 +85,24 @@ public class RegistrazioneCtrlGrafico {
         user_conf_pw = conf_password.getText();
     }
 
+    @FXML
+    protected void onRegisterClick2() throws IOException {
+        UserBean userBean;
+        userBean = getData2();
+
+        if(userBean != null){
+            RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
+            reg_CtrlApp.registerUserDB(userBean); // passaggio al ctrl applicativo
+
+            //Se tutto è stato fatto è possibile impostare la scena
+            Stage stage = (Stage) back.getScene().getWindow();
+            HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
+            homePageCtrlGrafico.start(stage);
+        }
+    }
+
     private UserBean getData2(){
-        //controlla se ha inserito davvero qualcosa
+        //Prendo i dati
         user_name = name.getText();
         user_email = email.getText();
 
@@ -96,11 +113,62 @@ public class RegistrazioneCtrlGrafico {
         if(user_name.isEmpty() || user_email.isEmpty() || user_password.isEmpty() || user_conf_pw.isEmpty()) {
             error_pw.setText("CAMPI VUOTI");
             error_pw.setVisible(true);
-            return null;
+        } else if(!verificaPassword(user_password,user_conf_pw)){
+            // i campi password e conferma password non corrispondono
+            error_pw.setText("LE PASSWORD NON CORRISPONDONO");
+            error_pw.setVisible(true);
+        } else if (!verificaEmailCorrect(user_email)) {
+            //Controllo se email è corretto
+            error_pw.setText("EMAIL NON VALIDA");
+            error_pw.setVisible(true);
+        } else if(!verificaRegistrazioneEsistente(user_password,user_conf_pw)){
+            //Controllo se non è già registrato
+            error_pw.setText("UTENTE GIA REGISTRATO");
+            error_pw.setVisible(true);
         } else {
             UserBean userBeanInfo = new UserBean(user_name,user_email,user_password,preferences);
             return userBeanInfo;
         }
 
+        return null;
+    }
+
+
+
+    private boolean verificaPassword(String password, String confermaPassword) {
+        if (password.equals(confermaPassword)) {
+            // La password e la conferma password corrispondono
+            // Esegui azioni appropriate (visualizza un messaggio, ecc.)
+            return true;
+        } else {
+            // La registrazione può procedere
+            // Chiamata al modello o al sistema di persistenza per salvare i dati
+            return false;
+        }
+    }
+
+    //idem grafico
+    private boolean verificaEmailCorrect(String email) {
+        /*Controllo basico se ha almeno una @ e un punto dopo la @? */
+        // Definisci il pattern per una email valida
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
+        // Crea un oggetto Pattern
+        Pattern pattern = Pattern.compile(emailRegex);
+
+        // Crea un oggetto Matcher con la stringa email da verificare
+        Matcher matcher = pattern.matcher(email);
+
+        // Verifica se il formato dell'email è valido
+        return matcher.matches();
+    }
+
+    //DA IMPLEMENTARE
+    private boolean verificaRegistrazioneEsistente(String password, String confermaPassword) {
+        // La password e la conferma password non corrispondono
+        // Esegui azioni appropriate (visualizza un messaggio, ecc.)
+        // La registrazione può procedere
+        // Chiamata al modello o al sistema di persistenza per salvare i dati
+        return password.equals(confermaPassword);
     }
 }
