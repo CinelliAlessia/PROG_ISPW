@@ -1,0 +1,36 @@
+Index: src/main/java/logic/MainApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MainApplication extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();\r\n        loginCtrlGrafico.start(stage);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/logic/MainApplication.java b/src/main/java/logic/MainApplication.java
+--- a/src/main/java/logic/MainApplication.java	(revision 2cb202ebcadaebeffe5a83321f97dfa5779f1e42)
++++ b/src/main/java/logic/MainApplication.java	(date 1702482026878)
+@@ -6,6 +6,7 @@
+ 
+ public class MainApplication extends Application {
+ 
++
+     @Override
+     public void start(Stage stage) throws IOException {
+         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
+Index: src/main/java/logic/HomePageCtrlGrafico.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class HomePageCtrlGrafico {\r\n    public void start(Stage stage) throws IOException {\r\n        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(\"/view/homePage.fxml\"));\r\n\r\n        Scene scene = new Scene(fxmlLoader.load(), 1080, 720);\r\n        stage.setTitle(\"Home Page\");\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/logic/HomePageCtrlGrafico.java b/src/main/java/logic/HomePageCtrlGrafico.java
+--- a/src/main/java/logic/HomePageCtrlGrafico.java	(revision 2cb202ebcadaebeffe5a83321f97dfa5779f1e42)
++++ b/src/main/java/logic/HomePageCtrlGrafico.java	(date 1702482031306)
+@@ -9,7 +9,6 @@
+ public class HomePageCtrlGrafico {
+     public void start(Stage stage) throws IOException {
+         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/homePage.fxml"));
+-
+         Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
+         stage.setTitle("Home Page");
+         stage.setScene(scene);

@@ -1,0 +1,64 @@
+Index: src/main/resources/styles/styles.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* styles.css */\r\n.button {\r\n    -fx-background-color: #4CAF50; /* Colore di sfondo verde */\r\n    -fx-text-fill: white; /* Colore del testo bianco */\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+--- a/src/main/resources/styles/styles.css	
++++ b/src/main/resources/styles/styles.css	
+@@ -2,4 +2,4 @@
+ .button {
+     -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+     -fx-text-fill: white; /* Colore del testo bianco */
+-}
++}
+\ No newline at end of file
+Index: src/main/java/logic/LoginBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/logic/LoginBean.java b/src/main/java/logic/LoginBean.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/logic/LoginBean.java	
+@@ -0,0 +1,22 @@
++package logic;
++
++public class LoginBean {
++    private String email;
++    private String password;
++
++    public void setEmail(String email) {
++        this.email = email;
++    }
++
++    public void setPassword(String password) {
++        this.password = password;
++    }
++
++    public String getEmail() {
++        return email;
++    }
++
++    public String getPassword() {
++        return password;
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"workspaceImportForciblyTurnedOn\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">

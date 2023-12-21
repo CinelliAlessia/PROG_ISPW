@@ -1,7 +1,7 @@
-package veiw;
+package view;
 
 import controllerApplicativo.LoginCtrlApplicativo;
-import engineering.LoginBean;
+import engineering.bean.LoginBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

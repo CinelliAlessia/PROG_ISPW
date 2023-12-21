@@ -5,21 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/UserBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/logic/MongoDBConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_JSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/LoginBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/LoginBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/veiw/RegistrazioneCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,38 +43,42 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2ZoVPF9GIOXZOMXQACOzvhMkf5x" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApplication.executor": "Run",
-    "Application.MongoDBConnector.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Program Files/Java/jdk-21",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37587237",
-    "settings.editor.selected.configurable": "configurable.group.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MongoDBConnector.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Java/jdk-21&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37587237&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\Desktop\ISPW\Progetto\PROG_ISPW\src\main\resources" />
       <recent name="C:\Users\cinel\Desktop\Università\ISPW\Progetto\PROG_ISPW\src\main\java\logic" />
     </key>
   </component>

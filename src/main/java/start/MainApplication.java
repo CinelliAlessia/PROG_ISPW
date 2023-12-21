@@ -1,6 +1,6 @@
 package start;
 
-import veiw.LoginCtrlGrafico;
+import view.LoginCtrlGrafico;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import java.io.IOException;

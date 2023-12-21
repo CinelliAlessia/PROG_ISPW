@@ -1,6 +1,6 @@
 package controllerApplicativo;
 
-import engineering.LoginBean;
+import engineering.bean.LoginBean;
 
 public class LoginCtrlApplicativo {
     // implemento la logica dello use case

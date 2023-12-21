@@ -1,0 +1,35 @@
+Index: src/main/java/logic/MainApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MainApplication extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();\r\n        loginCtrlGrafico.start(stage);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/logic/MainApplication.java b/src/main/java/logic/MainApplication.java
+--- a/src/main/java/logic/MainApplication.java	(revision 42d41c40200a26d975dfda32bed7c285e2153a44)
++++ b/src/main/java/logic/MainApplication.java	(date 1702552375218)
+@@ -6,6 +6,7 @@
+ 
+ public class MainApplication extends Application {
+ 
++
+     @Override
+     public void start(Stage stage) throws IOException {
+         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
+Index: src/main/resources/styles/styles.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* styles.css */\r\n.button {\r\n    -fx-background-color: #4CAF50; /* Colore di sfondo verde */\r\n    -fx-text-fill: white; /* Colore del testo bianco */\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+--- a/src/main/resources/styles/styles.css	(revision 42d41c40200a26d975dfda32bed7c285e2153a44)
++++ b/src/main/resources/styles/styles.css	(date 1702552380478)
+@@ -2,4 +2,4 @@
+ .button {
+     -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+     -fx-text-fill: white; /* Colore del testo bianco */
+-}
++}
+\ No newline at end of file

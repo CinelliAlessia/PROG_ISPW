@@ -1,4 +1,4 @@
-package engineering;
+package engineering.bean;
 
 public class LoginBean {
 

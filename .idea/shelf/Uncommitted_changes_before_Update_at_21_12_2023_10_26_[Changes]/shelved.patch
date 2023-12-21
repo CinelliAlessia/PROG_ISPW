@@ -1,0 +1,110 @@
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module logic {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n    exports controllerApplicativo;\r\n    opens controllerApplicativo to javafx.fxml;\r\n    exports engineering;\r\n    opens engineering to javafx.fxml;\r\n    exports start;\r\n    opens start to javafx.fxml;\r\n    exports veiw;\r\n    opens veiw to javafx.fxml;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
++++ b/src/main/java/module-info.java	(date 1703150776572)
+@@ -4,10 +4,12 @@
+ 
+     exports controllerApplicativo;
+     opens controllerApplicativo to javafx.fxml;
+-    exports engineering;
+-    opens engineering to javafx.fxml;
++    exports engineering.dao;
++    opens engineering.dao to javafx.fxml;
+     exports start;
+     opens start to javafx.fxml;
+     exports veiw;
+     opens veiw to javafx.fxml;
++    exports engineering.bean;
++    opens engineering.bean to javafx.fxml;
+ }
+\ No newline at end of file
+Index: src/main/java/veiw/LoginCtrlGrafico.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package veiw;\r\n\r\nimport controllerApplicativo.LoginCtrlApplicativo;\r\nimport engineering.LoginBean;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.*;\r\nimport javafx.stage.Stage;\r\nimport start.MainApplication;\r\n\r\nimport java.io.IOException;\r\nimport java.util.regex.Matcher;\r\nimport java.util.regex.Pattern;\r\n\r\nimport static java.lang.System.exit;\r\n\r\npublic class LoginCtrlGrafico {\r\n    public Button login, register;\r\n    public PasswordField password;\r\n    public TextField username;\r\n    @FXML\r\n    private Label textLogin;\r\n\r\n    public void start(Stage stage) throws IOException {\r\n        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(\"/view/login.fxml\"));\r\n        Scene scene = new Scene(fxmlLoader.load());\r\n        stage.setTitle(\"Access Login\");\r\n        stage.setResizable(false);\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n    @FXML\r\n    protected void onLoginClick() throws IOException {\r\n\r\n        String email = username.getText();\r\n        String pass = password.getText();\r\n\r\n        if (!verificaEmailCorrect(email)){\r\n            // Controlli se i parametri scritti sono funzionanti\r\n            textLogin.isVisible();\r\n            textLogin.setText(\"Email non valida\");\r\n            exit(0);\r\n        }\r\n\r\n        // Creo la bean e imposto i parametri\r\n        LoginBean loginBean = new LoginBean(email,pass);\r\n\r\n        // se credenziali ok --> questo va qua?\r\n        LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();\r\n\r\n        if (loginCtrlApp.verificaCredenziali(loginBean)) {\r\n            /*Credenziali corrette, mostro la home page*/\r\n            Stage stage = (Stage) login.getScene().getWindow();\r\n            HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();\r\n            homePageCGUI.start(stage);\r\n\r\n        } else {\r\n            /*Credenziali non valide*/\r\n            textLogin.isVisible();\r\n            textLogin.setText(\"Credenziali errate\");\r\n        }\r\n    }\r\n    @FXML\r\n    protected void onRegisterClick() throws IOException { // Non devo fa controlli\r\n        Stage stage = (Stage) register.getScene().getWindow();\r\n        RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();\r\n        registrazioneCtrlGrafico.start(stage);\r\n    }\r\n\r\n    @FXML\r\n    protected void onGuestClick() throws IOException { // Non devo fa controlli\r\n        Stage stage = (Stage) register.getScene().getWindow();\r\n        RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();\r\n        registrazioneCtrlGrafico.start(stage);\r\n    }\r\n\r\n    /*Questo va qua? non c'è riuso di codice*/\r\n    public boolean verificaEmailCorrect(String email) {\r\n        /*Controllo basico se ha almeno una @ e un punto dopo la @? */\r\n        // Definisci il pattern per una email valida\r\n        String emailRegex = \"^[a-zA-Z0-9_+&*-]+(?:\\\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,7}$\";\r\n\r\n        // Crea un oggetto Pattern\r\n        Pattern pattern = Pattern.compile(emailRegex);\r\n\r\n        // Crea un oggetto Matcher con la stringa email da verificare\r\n        Matcher matcher = pattern.matcher(email);\r\n\r\n        // Verifica se il formato dell'email è valido\r\n        return matcher.matches();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/veiw/LoginCtrlGrafico.java b/src/main/java/veiw/LoginCtrlGrafico.java
+--- a/src/main/java/veiw/LoginCtrlGrafico.java	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
++++ b/src/main/java/veiw/LoginCtrlGrafico.java	(date 1702914034488)
+@@ -1,7 +1,7 @@
+ package veiw;
+ 
+ import controllerApplicativo.LoginCtrlApplicativo;
+-import engineering.LoginBean;
++import engineering.bean.LoginBean;
+ import javafx.fxml.FXML;
+ import javafx.fxml.FXMLLoader;
+ import javafx.scene.Scene;
+Index: src/main/resources/styles/styles.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* styles.css */\r\n.button {\r\n    -fx-background-color: #4CAF50; /* Colore di sfondo verde */\r\n    -fx-text-fill: white; /* Colore del testo bianco */\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+--- a/src/main/resources/styles/styles.css	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
++++ b/src/main/resources/styles/styles.css	(date 1702912306497)
+@@ -2,4 +2,4 @@
+ .button {
+     -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+     -fx-text-fill: white; /* Colore del testo bianco */
+-}
++}
+\ No newline at end of file
+Index: src/main/java/controllerApplicativo/LoginCtrlApplicativo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package controllerApplicativo;\r\n\r\nimport engineering.LoginBean;\r\n\r\npublic class LoginCtrlApplicativo {\r\n    // implemento la logica dello use case\r\n    public boolean verificaCredenziali(LoginBean bean) {\r\n        // Esempio di verifica delle credenziali rigida\r\n        // Credenziali errate\r\n        return bean.getEmail().equals(\"admin@gmail.com\") && bean.getPassword().equals(\"1234\"); // Credenziali corrette\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java b/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java
+--- a/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
++++ b/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java	(date 1702914034454)
+@@ -1,6 +1,6 @@
+ package controllerApplicativo;
+ 
+-import engineering.LoginBean;
++import engineering.bean.LoginBean;
+ 
+ public class LoginCtrlApplicativo {
+     // implemento la logica dello use case
+Index: src/main/java/engineering/dao/UserDAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/engineering/dao/UserDAO.java b/src/main/java/engineering/dao/UserDAO.java
+new file mode 100644
+--- /dev/null	(date 1702914034514)
++++ b/src/main/java/engineering/dao/UserDAO.java	(date 1702914034514)
+@@ -0,0 +1,4 @@
++package engineering.dao;
++
++public class UserDAO {
++}
+Index: src/main/java/engineering/LoginBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/engineering/LoginBean.java b/src/main/java/engineering/bean/LoginBean.java
+rename from src/main/java/engineering/LoginBean.java
+rename to src/main/java/engineering/bean/LoginBean.java
+--- a/src/main/java/engineering/LoginBean.java	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
++++ b/src/main/java/engineering/bean/LoginBean.java	(date 1702914034469)
+@@ -1,4 +1,4 @@
+-package engineering;
++package engineering.bean;
+ 
+ public class LoginBean {
+ 
