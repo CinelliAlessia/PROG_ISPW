@@ -66,7 +66,7 @@ public class RegistrazioneCtrlGrafico {
         } else{
             //Salvo utente
             UserBean bean = new UserBean(user_name, user_email,user_password, new ArrayList<String>());
-            reg_CtrlApp.registerUserAndrea(bean); // passaggio al ctrl applicativo
+            reg_CtrlApp.registerUser(bean); // passaggio al ctrl applicativo
 
             //Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) back.getScene().getWindow();
@@ -92,7 +92,7 @@ public class RegistrazioneCtrlGrafico {
 
         if(userBean != null){
             RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
-            reg_CtrlApp.registerUserDB(userBean); // passaggio al ctrl applicativo
+            reg_CtrlApp.registerUser(userBean); // passaggio al ctrl applicativo
 
             //Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) back.getScene().getWindow();

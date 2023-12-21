@@ -7,7 +7,7 @@ import model.User;
 import org.bson.Document;
 
 
-public class UserDAOMONGO implements UserDAO{
+public class UserDAO_MONGO implements UserDAO{
 
     private static final String USER_EMAIL = "userEmail";
     private static final String USER_NAME = "name";
@@ -18,7 +18,7 @@ public class UserDAOMONGO implements UserDAO{
 
 
 
-    public void insertUser(User user){
+    public void saveUser(User user){
         MongoClient mongoClient = new MongoClient(HOST, PORT);
         MongoDatabase database = mongoClient.getDatabase("Spotify");
         MongoCollection<Document> collection = database.getCollection("User");
@@ -30,5 +30,20 @@ public class UserDAOMONGO implements UserDAO{
 
         collection.insertOne(document);
         mongoClient.close();
+    }
+
+    @Override
+    public void deleteUser(User userIstance) {
+
+    }
+
+    @Override
+    public void retreiveUserByUserName(String userName) {
+
+    }
+
+    @Override
+    public void retreiveUserByUserId(String userId) {
+
     }
 }
