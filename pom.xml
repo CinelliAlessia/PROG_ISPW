@@ -19,6 +19,11 @@
     </properties>
 
     <dependencies>
+        <dependency> <!-- DA TOGLIERE SE NON USIAMO MONGOBD -->
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.12.14</version> <!-- Verifica la versione più recente su https://mongodb.github.io/mongo-java-driver/ -->
+        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -42,6 +47,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -55,6 +61,7 @@
                     <target>21</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
