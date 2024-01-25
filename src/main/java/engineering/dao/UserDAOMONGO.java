@@ -34,4 +34,24 @@ public class UserDAOMONGO implements UserDAO{
     public String getPasswordByEmail(String email) {
         return null;
     }
+
+    @Override
+    public void saveUser(User userInstance) {
+
+    }
+
+    @Override
+    public void deleteUser(User userIstance) {
+
+    }
+
+    @Override
+    public void retreiveUserByUserName(String userName) {
+
+    }
+
+    @Override
+    public void retreiveUserByUserId(String userId) {
+
+    }
 }

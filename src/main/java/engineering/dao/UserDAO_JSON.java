@@ -13,6 +13,17 @@ import java.nio.file.Paths;
 
 public class UserDAO_JSON implements UserDAO {
     private static final String BASE_DIRECTORY = "src/main/resources/persistence/users";
+
+    @Override
+    public void insertUser(User user) {
+
+    }
+
+    @Override
+    public String getPasswordByEmail(String email) {
+        return null;
+    }
+
     public void saveUser(User user){
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
