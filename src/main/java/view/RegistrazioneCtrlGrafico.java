@@ -45,7 +45,7 @@ public class RegistrazioneCtrlGrafico {
     }
 
     @FXML
-    protected void onRegisterClick2() throws IOException {
+    protected void onRegisterClick() throws IOException {
         getData();
         RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
 
@@ -77,7 +77,7 @@ public class RegistrazioneCtrlGrafico {
         }
     }
 
-    private void getData2(){
+    private void getData(){
         //controlla se ha inserito davvero qualcosa
         user_name = name.getText();
         user_email = email.getText();
@@ -88,13 +88,13 @@ public class RegistrazioneCtrlGrafico {
     }
 
     @FXML
-    protected void onRegisterClick() throws IOException, EmailAlreadyInUse, SQLException, ClassNotFoundException {
+    protected void onRegisterClick2() throws IOException {
         UserBean userBean;
-        userBean = getData();
+        userBean = getData2();
 
         if(userBean != null){
             RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
-            reg_CtrlApp.registerUserDB2(userBean); // passaggio al ctrl applicativo
+            reg_CtrlApp.registerUserDB(userBean); // passaggio al ctrl applicativo
 
             //Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) back.getScene().getWindow();
@@ -103,7 +103,7 @@ public class RegistrazioneCtrlGrafico {
         }
     }
 
-    private UserBean getData(){
+    private UserBean getData2(){
         //Prendo i dati
         user_name = name.getText();
         user_email = email.getText();

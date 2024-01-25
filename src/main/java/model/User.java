@@ -30,12 +30,12 @@
             return nome;
         }
 
-        public String getPass() {
-            return pass;
-        }
-
         public String getEmail() {
             return email;
+        }
+
+        public String getPass() {
+            return pass;
         }
 
         public ArrayList<String> getPref() {
