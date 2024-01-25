@@ -15,7 +15,7 @@ public class RegistrazioneCtrlApplicativo {
     public void registerUserAndrea(UserBean bean) {
         User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), bean.getPreferences());
         UserDAO_JSON dao = new UserDAO_JSON();
-        dao.registerUserAndrea(user);
+        dao.insertUser(user);
     }
 
     public void registerUserDB(UserBean bean) {
