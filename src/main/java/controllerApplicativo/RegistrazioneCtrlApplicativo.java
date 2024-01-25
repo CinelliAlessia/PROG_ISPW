@@ -1,26 +1,32 @@
 package controllerApplicativo;
 
-import java.util.ArrayList;
-
 import engineering.bean.UserBean;
-import engineering.dao.UserDAOmongo;
+import engineering.dao.UserDAO;
+import engineering.dao.UserDAOMONGO;
 import engineering.dao.UserDAO_JSON;
+import engineering.dao.UserDAO_mySQL;
+import engineering.exceptions.EmailAlreadyInUse;
 import model.User;
+
+import java.sql.SQLException;
 
 public class RegistrazioneCtrlApplicativo {
 
     public void registerUserAndrea(UserBean bean) {
-        String nome = bean.getNome(), mail = bean.getEmail(), pass = bean.getPass();
-        ArrayList<String> pref = bean.getPreferences();
-        User user = new User(nome,mail,pass,pref);
+        User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), bean.getPreferences());
         UserDAO_JSON dao = new UserDAO_JSON();
         dao.registerUserAndrea(user);
     }
 
     public void registerUserDB(UserBean bean) {
-        User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), new ArrayList<>());
-        UserDAOmongo userDAOmongo = new UserDAOmongo();
+        User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), bean.getPreferences());
+        UserDAO userDAOmongo = new UserDAOMONGO();
         userDAOmongo.insertUser(user);
+    }
+
+    public void registerUserDB2(UserBean bean) throws EmailAlreadyInUse, SQLException, ClassNotFoundException {
+        User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), bean.getPreferences());
+        UserDAO_mySQL.insertUser(user);
     }
 
 }

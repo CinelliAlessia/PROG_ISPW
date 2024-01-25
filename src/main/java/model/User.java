@@ -29,5 +29,17 @@
         public String getNome() {
             return nome;
         }
+
+        public String getPass() {
+            return pass;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public ArrayList<String> getPref() {
+            return pref;
+        }
     }
 

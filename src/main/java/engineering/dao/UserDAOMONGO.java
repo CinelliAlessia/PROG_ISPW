@@ -16,8 +16,6 @@ public class UserDAOMONGO implements UserDAO{
     private static final String HOST = "localhost";
     private static final int PORT = 27017;
 
-
-
     public void insertUser(User user){
         MongoClient mongoClient = new MongoClient(HOST, PORT);
         MongoDatabase database = mongoClient.getDatabase("Spotify");
@@ -30,5 +28,10 @@ public class UserDAOMONGO implements UserDAO{
 
         collection.insertOne(document);
         mongoClient.close();
+    }
+
+    @Override
+    public String getPasswordByEmail(String email) {
+        return null;
     }
 }

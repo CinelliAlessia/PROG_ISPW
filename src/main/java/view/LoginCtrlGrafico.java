@@ -2,6 +2,7 @@ package view;
 
 import controllerApplicativo.LoginCtrlApplicativo;
 import engineering.bean.LoginBean;
+import engineering.bean.UserBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -51,6 +52,7 @@ public class LoginCtrlGrafico {
 
         if (loginCtrlApp.verificaCredenziali(loginBean)) {
             /*Credenziali corrette, mostro la home page*/
+            // DOvrei popolare la userBean(?)
             Stage stage = (Stage) login.getScene().getWindow();
             HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
             homePageCGUI.start(stage);

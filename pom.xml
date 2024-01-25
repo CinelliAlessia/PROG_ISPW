@@ -19,6 +19,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version> <!-- Assicurati di utilizzare la versione corretta -->
+        </dependency>
+
         <dependency> <!-- DA TOGLIERE SE NON USIAMO MONGOBD  1.41.0 -->
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>

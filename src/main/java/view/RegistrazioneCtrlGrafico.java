@@ -2,6 +2,7 @@ package view;
 
 import controllerApplicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.UserBean;
+import engineering.exceptions.EmailAlreadyInUse;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import start.MainApplication;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -43,7 +45,7 @@ public class RegistrazioneCtrlGrafico {
     }
 
     @FXML
-    protected void onRegisterClick() throws IOException {
+    protected void onRegisterClick2() throws IOException {
         getData();
         RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
 
@@ -75,7 +77,7 @@ public class RegistrazioneCtrlGrafico {
         }
     }
 
-    private void getData(){
+    private void getData2(){
         //controlla se ha inserito davvero qualcosa
         user_name = name.getText();
         user_email = email.getText();
@@ -86,13 +88,13 @@ public class RegistrazioneCtrlGrafico {
     }
 
     @FXML
-    protected void onRegisterClick2() throws IOException {
+    protected void onRegisterClick() throws IOException, EmailAlreadyInUse, SQLException, ClassNotFoundException {
         UserBean userBean;
-        userBean = getData2();
+        userBean = getData();
 
         if(userBean != null){
             RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
-            reg_CtrlApp.registerUserDB(userBean); // passaggio al ctrl applicativo
+            reg_CtrlApp.registerUserDB2(userBean); // passaggio al ctrl applicativo
 
             //Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) back.getScene().getWindow();
@@ -101,7 +103,7 @@ public class RegistrazioneCtrlGrafico {
         }
     }
 
-    private UserBean getData2(){
+    private UserBean getData(){
         //Prendo i dati
         user_name = name.getText();
         user_email = email.getText();

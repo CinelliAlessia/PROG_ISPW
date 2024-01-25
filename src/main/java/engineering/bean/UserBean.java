@@ -8,6 +8,7 @@ public class UserBean {
     private String pass;
     private ArrayList <String> preferences;
 
+    public UserBean(){}
     public UserBean(String nome, String email, String pass, ArrayList<String> preferences){
         setNome(nome);
         setEmail(email);
