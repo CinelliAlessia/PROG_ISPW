@@ -3,12 +3,12 @@
     import java.util.ArrayList;
 
     public class User {
-        private String nome, email,password;
+        private String nome, email, password;
         private ArrayList<String> pref;
-        public User(String nome, String email, String pass, ArrayList preferences){
+        public User(String nome, String email, String password, ArrayList preferences){
             setNome(nome);
             setEmail(email);
-            setPassword(pass);
+            setPassword(password);
             setPreferences(preferences);
         }
         public void setEmail(String email) {
