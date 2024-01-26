@@ -27,7 +27,7 @@ public class QueryLogin {
 
     public static void insertGeneriMusicali(Statement stmt, String userEmail, ArrayList<String> generiMusicali) throws SQLException {
         // Costruisci la query di inserimento
-        StringBuilder query = new StringBuilder("INSERT INTO generi_musicali (Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative, user_email) VALUES (");
+        StringBuilder query = new StringBuilder("INSERT INTO generi_musicali (Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative, email) VALUES (");
 
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
 

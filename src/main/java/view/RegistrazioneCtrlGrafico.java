@@ -36,8 +36,6 @@ public class RegistrazioneCtrlGrafico {
 
     @FXML
     public CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
-    // Aggiungi checkbox per altri generi musicali
-
 
     private ArrayList<String> preferences;
     private String user_email, user_password, user_conf_pw; // Dati
@@ -70,6 +68,7 @@ public class RegistrazioneCtrlGrafico {
             RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
             reg_CtrlApp.registerUserDB(userBean); //uso metodo controller per registrare un utente sul DB
             reg_CtrlApp.registerUserFS(userBean); //uso metodo controller per registrare un utente sul FS
+
             // Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) registrazione.getScene().getWindow();
             HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
