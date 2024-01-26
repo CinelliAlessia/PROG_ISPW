@@ -16,13 +16,58 @@ public class UserDAO_JSON implements UserDAO {
 
     @Override
     public void insertUser(User user) {
+        // Costruisci il percorso della directory dell'utente (presumibilmente basandoti sulla mail come nome utente)
+        Path userDirectory = Paths.get(BASE_DIRECTORY, user.getEmail());
 
+        try {
+            // Crea la directory con il nome dell'utente se non esiste
+            Files.createDirectories(userDirectory);
+
+            // Costruisci il percorso del file userInfo.json
+            Path userInfoFile = userDirectory.resolve("userInfo.json");
+
+            // Usa Gson per convertire l'oggetto User in una rappresentazione JSON
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String json = gson.toJson(user);
+
+            // Scrivi il JSON nel file userInfo.json
+            Files.writeString(userInfoFile, json);
+
+            System.out.println("Utente inserito con successo!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @Override
     public String getPasswordByEmail(String email) {
+        // Costruisci il percorso del file userInfo.json per l'utente (presumibilmente basandoti sulla mail come nome utente)
+        Path userInfoFile = Paths.get(BASE_DIRECTORY, email, "userInfo.json");
+
+        // Verifica se il file userInfo.json esiste
+        if (Files.exists(userInfoFile)) {
+            try {
+                // Leggi il contenuto del file
+                String content = Files.readString(userInfoFile);
+
+                // Usa Gson per deserializzare il contenuto JSON e ottenere l'utente
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                User user = gson.fromJson(content, User.class);
+
+                // Restituisci la password dell'utente
+                return user.getPassword();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Utente non trovato o file userInfo.json mancante.");
+        }
+
+        // Se qualcosa va storto o l'utente non esiste, restituisci null
         return null;
     }
+
 
     public void saveUser(User user){
 

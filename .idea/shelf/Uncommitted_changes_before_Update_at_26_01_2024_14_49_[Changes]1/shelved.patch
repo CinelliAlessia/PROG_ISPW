@@ -1,0 +1,102 @@
+Index: src/main/java/engineering/query/QueryLogin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//\r\n// Source code recreated from a .class file by IntelliJ IDEA\r\n// (powered by FernFlower decompiler)\r\n//\r\n\r\npackage engineering.query;\r\n\r\nimport model.User;\r\n\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.sql.Statement;\r\nimport java.util.ArrayList;\r\n\r\npublic class QueryLogin {\r\n    private QueryLogin() {\r\n    }\r\n\r\n    // Metodo di INSERIMENTO in database\r\n    public static void registerUser(Statement stmt, User user) throws SQLException {\r\n        String name = user.getNome();\r\n        String email = user.getEmail();\r\n        String pw = user.getPass();\r\n        String insertStatement = String.format(\"INSERT INTO User (username, email, password) VALUES ('%s','%s','%s')\", name, email, pw);\r\n        insertGeneriMusicali(stmt,email,user.getPref());\r\n        stmt.executeUpdate(insertStatement);\r\n    }\r\n\r\n    public static void insertGeneriMusicali(Statement stmt, String userEmail, ArrayList<String> generiMusicali) throws SQLException {\r\n        // Costruisci la query di inserimento\r\n        StringBuilder query = new StringBuilder(\"INSERT INTO generimusicali (user_email, Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, Reb, Country, Alternative) VALUES \");\r\n        query.append(String.format(\"('%s',\", userEmail));\r\n\r\n        // Aggiungi i valori booleani alla query\r\n        for (String genere : generiMusicali) {\r\n            query.append(String.format(\" '%d',\", generiMusicali.contains(genere) ? 1 : 0));\r\n        }\r\n\r\n        // Rimuovi l'ultima virgola\r\n        query.deleteCharAt(query.length() - 1);\r\n\r\n        // Completa la query\r\n        query.append(\")\");\r\n\r\n        // Esegui la query\r\n        stmt.executeUpdate(query.toString());\r\n    }\r\n\r\n\r\n    // Query per prendere la email, utilizzata nella registrazione per vedere se l'email è già registrata\r\n    public static ResultSet loginUser(Statement stmt, String username) throws SQLException {\r\n        String sql = \"SELECT * FROM user WHERE Username = '\" + username + \"';\";\r\n        return stmt.executeQuery(sql);\r\n    }\r\n\r\n\r\n    // Query per prendere la password della email passata come argomento\r\n    public static ResultSet getUserPassword(Statement stmt, String email) throws SQLException {\r\n        String query = \"SELECT password FROM user WHERE email = '\" + email + \"'\";\r\n        return stmt.executeQuery(query);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/engineering/query/QueryLogin.java b/src/main/java/engineering/query/QueryLogin.java
+--- a/src/main/java/engineering/query/QueryLogin.java	
++++ b/src/main/java/engineering/query/QueryLogin.java	
+@@ -20,7 +20,7 @@
+     public static void registerUser(Statement stmt, User user) throws SQLException {
+         String name = user.getNome();
+         String email = user.getEmail();
+-        String pw = user.getPass();
++        String pw = user.getPassword();
+         String insertStatement = String.format("INSERT INTO User (username, email, password) VALUES ('%s','%s','%s')", name, email, pw);
+         insertGeneriMusicali(stmt,email,user.getPref());
+         stmt.executeUpdate(insertStatement);
+Index: src/main/java/engineering/dao/UserDAOMONGO.java
+===================================================================
+diff --git a/src/main/java/engineering/dao/UserDAOMONGO.java b/src/main/java/engineering/dao/UserDAOMONGO.java
+deleted file mode 100644
+--- a/src/main/java/engineering/dao/UserDAOMONGO.java	
++++ /dev/null	
+@@ -1,57 +0,0 @@
+-package engineering.dao;
+-
+-import com.mongodb.MongoClient;
+-import com.mongodb.client.MongoCollection;
+-import com.mongodb.client.MongoDatabase;
+-import model.User;
+-import org.bson.Document;
+-
+-
+-public class UserDAOMONGO implements UserDAO{
+-
+-    private static final String USER_EMAIL = "userEmail";
+-    private static final String USER_NAME = "name";
+-    private static final String USER_PASSWORD = "password";
+-    private static final String USER_PREF = "pref";
+-    private static final String HOST = "localhost";
+-    private static final int PORT = 27017;
+-
+-    public void insertUser(User user){
+-        MongoClient mongoClient = new MongoClient(HOST, PORT);
+-        MongoDatabase database = mongoClient.getDatabase("Spotify");
+-        MongoCollection<Document> collection = database.getCollection("User");
+-
+-        Document document = new Document(USER_NAME, user.getNome())
+-                .append(USER_EMAIL, user.getEmail())
+-                .append(USER_PASSWORD, user.getPass())
+-                .append(USER_PREF, user.getPref());
+-
+-        collection.insertOne(document);
+-        mongoClient.close();
+-    }
+-
+-    @Override
+-    public String getPasswordByEmail(String email) {
+-        return null;
+-    }
+-
+-    @Override
+-    public void saveUser(User userInstance) {
+-
+-    }
+-
+-    @Override
+-    public void deleteUser(User userIstance) {
+-
+-    }
+-
+-    @Override
+-    public void retreiveUserByUserName(String userName) {
+-
+-    }
+-
+-    @Override
+-    public void retreiveUserByUserId(String userId) {
+-
+-    }
+-}
+Index: src/main/resources/persistence/users/ale/info.json
+===================================================================
+diff --git a/src/main/resources/persistence/users/ale/info.json b/src/main/resources/persistence/users/ale/info.json
+deleted file mode 100644
+--- a/src/main/resources/persistence/users/ale/info.json	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-{
+-  "nome": "ale",
+-  "email": "ale@gm.com",
+-  "pass": "cia",
+-  "pref": []
+-}
+-{
+-  "nome": "ale",
+-  "email": "ciao@a.it",
+-  "pass": "cia",
+-  "pref": []
+-}

@@ -15,10 +15,10 @@ public class QueryLogin {
     public static void registerUser(Statement stmt, User user) throws SQLException {
         String name = user.getNome();
         String email = user.getEmail();
-        String pw = user.getPass();
+        String password = user.getPassword();
 
         // Esegui prima l'inserimento nella tabella 'user'
-        String insertUserStatement = String.format("INSERT INTO user (username, email, password) VALUES ('%s','%s','%s')", name, email, pw);
+        String insertUserStatement = String.format("INSERT INTO user (username, email, password) VALUES ('%s','%s','%s')", name, email, password);
         stmt.executeUpdate(insertUserStatement);
 
         // Poi inserisci i generi musicali nella tabella 'generi_musicali'

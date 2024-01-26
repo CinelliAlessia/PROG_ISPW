@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class UserBean {
     private String nome;
     private String email;
-    private String pass;
+    private String password;
     private ArrayList <String> preferences;
 
     public UserBean(){}
     public UserBean(String nome, String email, String pass, ArrayList<String> preferences){
         setNome(nome);
         setEmail(email);
-        setPass(pass);
+        setPassword(pass);
         setPreferences(preferences);
     }
     public void setEmail(String email) {
@@ -23,8 +23,8 @@ public class UserBean {
         this.nome = nome;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String pass) {
+        this.password = pass;
     }
     public void setPreferences(ArrayList<String> preferences) {
         this.preferences = preferences;
@@ -38,8 +38,8 @@ public class UserBean {
         return email;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
     public ArrayList<String> getPreferences() {

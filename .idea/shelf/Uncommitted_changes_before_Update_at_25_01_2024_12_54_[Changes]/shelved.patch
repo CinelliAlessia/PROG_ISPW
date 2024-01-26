@@ -1,0 +1,1023 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44_[Changes]1/shelved.patch	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,112 +0,0 @@
+-Index: src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package controllerApplicativo;\r\n\r\nimport java.util.regex.Matcher;\r\nimport java.util.regex.Pattern;\r\n\r\npublic class RegistrazioneCtrlApplicativo {\r\n    public boolean verificaPassword(String password, String confermaPassword) {\r\n        if (password.equals(confermaPassword)) {\r\n            // La password e la conferma password corrispondono\r\n            // Esegui azioni appropriate (visualizza un messaggio, ecc.)\r\n            return true;\r\n        } else {\r\n            // La registrazione può procedere\r\n            // Chiamata al modello o al sistema di persistenza per salvare i dati\r\n            return false;\r\n        }\r\n    }\r\n\r\n    public boolean verificaEmailCorrect(String email) {\r\n        /*Controllo basico se ha almeno una @ e un punto dopo la @? */\r\n        // Definisci il pattern per una email valida\r\n        String emailRegex = \"^[a-zA-Z0-9_+&*-]+(?:\\\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,7}$\";\r\n\r\n        // Crea un oggetto Pattern\r\n        Pattern pattern = Pattern.compile(emailRegex);\r\n\r\n        // Crea un oggetto Matcher con la stringa email da verificare\r\n        Matcher matcher = pattern.matcher(email);\r\n\r\n        // Verifica se il formato dell'email è valido\r\n        return matcher.matches();\r\n    }\r\n\r\n    //DA IMPLEMENTARE\r\n    public boolean verificaRegistrazioneEsistente(String password, String confermaPassword) {\r\n        if (password.equals(confermaPassword)) {\r\n            // La password e la conferma password non corrispondono\r\n            // Esegui azioni appropriate (visualizza un messaggio, ecc.)\r\n            return true;\r\n        } else {\r\n            // La registrazione può procedere\r\n            // Chiamata al modello o al sistema di persistenza per salvare i dati\r\n            return false;\r\n        }\r\n    }\r\n\r\n    public void registerUser(String name, String email, String password){\r\n\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java b/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java
+---- a/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java	
+-+++ b/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java	
+-@@ -45,6 +45,8 @@
+-     }
+- 
+-     public void registerUser(String name, String email, String password){
+-+        //Tutti i  controlli sono andati a buon fine, ora si può procedere con l'aggiunta nel database
+-+
+- 
+-     }
+- }
+-Index: src/main/java/start/MainApplication.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package start;\r\n\r\nimport veiw.LoginCtrlGrafico;\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MainApplication extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();\r\n        loginCtrlGrafico.start(stage);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/start/MainApplication.java b/src/main/java/start/MainApplication.java
+---- a/src/main/java/start/MainApplication.java	
+-+++ b/src/main/java/start/MainApplication.java	
+-@@ -1,6 +1,6 @@
+- package start;
+- 
+--import veiw.LoginCtrlGrafico;
+-+import view.LoginCtrlGrafico;
+- import javafx.application.Application;
+- import javafx.stage.Stage;
+- import java.io.IOException;
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5ab3b5b7-0136-4bcd-b52a-626b23fdea42\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/engineering/UserBean.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/logic/MongoDBConnector.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.github/workflows/build.yml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.gitignore\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/encodings.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/model/User.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/model/User.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/module-info.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/veiw/RegistrazioneCtrlGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/veiw/RegistrazioneCtrlGrafico.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2ZoVPF9GIOXZOMXQACOzvhMkf5x\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.MainApplication.executor\": \"Run\",\r\n    \"Application.MongoDBConnector.executor\": \"Run\",\r\n    \"Downloaded.Files.Path.Enabled\": \"false\",\r\n    \"Repository.Attach.Annotations\": \"false\",\r\n    \"Repository.Attach.JavaDocs\": \"false\",\r\n    \"Repository.Attach.Sources\": \"false\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"jdk.selected.JAVA_MODULE\": \"21\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Program Files/Java/jdk-21\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.37587237\",\r\n    \"settings.editor.selected.configurable\": \"configurable.group.editor\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\cinel\\Desktop\\Università\\ISPW\\Progetto\\PROG_ISPW\\src\\main\\java\\logic\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"PROG_ISPW\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"PROG_ISPW\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5ab3b5b7-0136-4bcd-b52a-626b23fdea42\" name=\"Changes\" comment=\"\" />\r\n      <created>1703088395878</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1703088395878</updated>\r\n      <workItem from=\"1703088399448\" duration=\"14000\" />\r\n      <workItem from=\"1703142487444\" duration=\"4686000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	
+-+++ b/.idea/workspace.xml	
+-@@ -4,22 +4,14 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="">
+--      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/UserBean.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/src/main/java/logic/MongoDBConnector.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+--      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiunto Bean User e prove di MongoDB">
+-+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/veiw/RegistrazioneCtrlGrafico.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/main/java/veiw/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -110,11 +102,32 @@
+-       <option name="presentableId" value="Default" />
+-       <updated>1703088395878</updated>
+-       <workItem from="1703088399448" duration="14000" />
+--      <workItem from="1703142487444" duration="4686000" />
+-+      <workItem from="1703142487444" duration="6426000" />
+-+    </task>
+-+    <task id="LOCAL-00001" summary="Aggiunto Bean User e prove di MongoDB">
+-+      <option name="closed" value="true" />
+-+      <created>1703150671818</created>
+-+      <option name="number" value="00001" />
+-+      <option name="presentableId" value="LOCAL-00001" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1703150671818</updated>
+-     </task>
+-+    <task id="LOCAL-00002" summary="Aggiunto Bean User e prove di MongoDB">
+-+      <option name="closed" value="true" />
+-+      <created>1703150689252</created>
+-+      <option name="number" value="00002" />
+-+      <option name="presentableId" value="LOCAL-00002" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1703150689252</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="3" />
+-     <servers />
+-   </component>
+-   <component name="TypeScriptGeneratedFilesManager">
+-     <option name="version" value="3" />
+-   </component>
+-+  <component name="VcsManagerConfiguration">
+-+    <MESSAGE value="Aggiunto Bean User e prove di MongoDB" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto Bean User e prove di MongoDB" />
+-+  </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09_[Changes]/shelved.patch	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,35 +0,0 @@
+-Index: src/main/java/logic/MainApplication.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MainApplication extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();\r\n        loginCtrlGrafico.start(stage);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/logic/MainApplication.java b/src/main/java/logic/MainApplication.java
+---- a/src/main/java/logic/MainApplication.java	(revision 64ac3231b6195e5f8c8c0287aba243a6ebb4876e)
+-+++ b/src/main/java/logic/MainApplication.java	(date 1702560330490)
+-@@ -6,6 +6,7 @@
+- 
+- public class MainApplication extends Application {
+- 
+-+
+-     @Override
+-     public void start(Stage stage) throws IOException {
+-         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
+-Index: src/main/resources/styles/styles.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>/* styles.css */\r\n.button {\r\n    -fx-background-color: #4CAF50; /* Colore di sfondo verde */\r\n    -fx-text-fill: white; /* Colore del testo bianco */\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+---- a/src/main/resources/styles/styles.css	(revision 64ac3231b6195e5f8c8c0287aba243a6ebb4876e)
+-+++ b/src/main/resources/styles/styles.css	(date 1702560330513)
+-@@ -2,4 +2,4 @@
+- .button {
+-     -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+-     -fx-text-fill: white; /* Colore del testo bianco */
+--}
+-+}
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11__Changes_1.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_18_12_2023_16_11_[Changes]1" date="1702912324176" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 18/12/2023 16:11 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25_[Changes]1/shelved.patch	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,302 +0,0 @@
+-Index: src/main/java/logic/MainApplication.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MainApplication extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();\r\n        loginCtrlGrafico.start(stage);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/logic/MainApplication.java b/src/main/java/logic/MainApplication.java
+---- a/src/main/java/logic/MainApplication.java	
+-+++ b/src/main/java/logic/MainApplication.java	
+-@@ -6,6 +6,7 @@
+- 
+- public class MainApplication extends Application {
+- 
+-+
+-     @Override
+-     public void start(Stage stage) throws IOException {
+-         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
+-Index: src/main/resources/styles/styles.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>/* styles.css */\r\n.button {\r\n    -fx-background-color: #4CAF50; /* Colore di sfondo verde */\r\n    -fx-text-fill: white; /* Colore del testo bianco */\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+---- a/src/main/resources/styles/styles.css	
+-+++ b/src/main/resources/styles/styles.css	
+-@@ -2,4 +2,4 @@
+- .button {
+-     -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+-     -fx-text-fill: white; /* Colore del testo bianco */
+--}
+-+}
+-\ No newline at end of file
+-Index: pom.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>㰿硭氠癥牳楯渽∱⸰∠敮捯摩湧㴢啔䘭㠢㼾ഊ㱰牯橥捴⁸浬湳㴢桴瑰㨯⽭慶敮\u2E61灡捨攮潲术偏䴯㐮〮〢ഊ††††⁸浬湳㩸獩㴢桴瑰㨯⽷睷\u2E77㌮潲术㈰〱⽘䵌卣桥浡\u2D69湳瑡湣攢ഊ††††⁸獩㩳捨敭慌潣慴楯渽≨瑴瀺⼯浡癥渮慰慣桥\u2E6F牧⽐位⼴⸰⸰\u2068瑴灳㨯⽭慶敮\u2E61灡捨攮潲术硳搯浡癥渭㐮〮〮硳搢㸍ਠ†‼浯摥汖敲獩潮㸴⸰⸰㰯浯摥汖敲獩潮㸍\u0A0Dਠ†‼杲潵灉搾捯洮數慭灬攼⽧牯異䥤㸍ਠ†‼慲瑩晡捴䥤㹳灯瑩晹㰯慲瑩晡捴䥤㸍ਠ†‼癥牳楯渾ㄮ〭华䅐午佔㰯癥牳楯渾ഊ††㱮慭放獰潴楦礼⽮慭放ഊഊ††㱰牯灥牴楥猾ഊ††††㱰牯橥捴\u2E62畩汤\u2E73潵牣故湣潤楮朾啔䘭㠼⽰牯橥捴\u2E62畩汤\u2E73潵牣故湣潤楮朾ഊ††††㱪畮楴\u2E76敲獩潮㸵⸹⸲㰯橵湩琮癥牳楯渾ഊഊ††††㱳潮慲\u2E6F牧慮楺慴楯渾浺污污㰯獯湡爮潲条湩穡瑩潮㸍ਠ†††‼獯湡爮桯獴\u2E75牬㹨瑴灳㨯⽳潮慲捬潵搮楯㰯獯湡爮桯獴\u2E75牬㸍\u0A0Dਠ†‼⽰牯灥牴楥猾ഊഊ††㱤数敮摥湣楥猾ഊ††††㱤数敮摥湣社ഊ††††††㱧牯異䥤㹯牧\u2E6F灥湪晸㰯杲潵灉搾ഊ††††††㱡牴楦慣瑉搾橡癡晸ⵣ潮瑲潬猼⽡牴楦慣瑉搾ഊ††††††㱶敲獩潮㸲ㄭ敡⬲㐼⽶敲獩潮㸍ਠ†††‼⽤数敮摥湣社ഊ††††㱤数敮摥湣社ഊ††††††㱧牯異䥤㹯牧\u2E6F灥湪晸㰯杲潵灉搾ഊ††††††㱡牴楦慣瑉搾橡癡晸ⵦ硭氼⽡牴楦慣瑉搾ഊ††††††㱶敲獩潮㸲ㄭ敡⬲㐼⽶敲獩潮㸍ਠ†††‼⽤数敮摥湣社ഊഊ††††㱤数敮摥湣社ഊ††††††㱧牯異䥤㹯牧\u2E6A畮楴\u2E6A異楴敲㰯杲潵灉搾ഊ††††††㱡牴楦慣瑉搾橵湩琭橵灩瑥爭慰椼⽡牴楦慣瑉搾ഊ††††††㱶敲獩潮㸤筪畮楴\u2E76敲獩潮紼⽶敲獩潮㸍ਠ†††††‼獣潰放瑥獴㰯獣潰放ഊ††††㰯摥灥湤敮捹㸍ਠ†††‼摥灥湤敮捹㸍ਠ†††††‼杲潵灉搾潲朮橵湩琮橵灩瑥爼⽧牯異䥤㸍ਠ†††††‼慲瑩晡捴䥤㹪畮楴\u2D6A異楴敲ⵥ湧楮攼⽡牴楦慣瑉搾ഊ††††††㱶敲獩潮㸤筪畮楴\u2E76敲獩潮紼⽶敲獩潮㸍ਠ†††††‼獣潰放瑥獴㰯獣潰放ഊ††††㰯摥灥湤敮捹㸍ਠ†‼⽤数敮摥湣楥猾ഊഊ††㱢畩汤㸍ਠ†††‼灬畧楮猾ഊ††††††㱰汵杩渾ഊ††††††††㱧牯異䥤㹯牧\u2E61灡捨攮浡癥渮灬畧楮猼⽧牯異䥤㸍ਠ†††††††‼慲瑩晡捴䥤㹭慶敮ⵣ潭灩汥爭灬畧楮㰯慲瑩晡捴䥤㸍ਠ†††††††‼癥牳楯渾㌮ㄱ⸰㰯癥牳楯渾ഊ††††††††㱣潮晩杵牡瑩潮㸍ਠ†††††††††‼獯畲捥㸲ㄼ⽳潵牣放ഊ††††††††††㱴慲来琾㈱㰯瑡牧整㸍ਠ†††††††‼⽣潮晩杵牡瑩潮㸍ਠ†††††‼⽰汵杩渾ഊ††††††㱰汵杩渾ഊ††††††††㱧牯異䥤㹯牧\u2E6F灥湪晸㰯杲潵灉搾ഊ††††††††㱡牴楦慣瑉搾橡癡晸\u2D6D慶敮⵰汵杩渼⽡牴楦慣瑉搾ഊ††††††††㱶敲獩潮㸰⸰⸸㰯癥牳楯渾ഊ††††††††㱥硥捵瑩潮猾ഊ††††††††††㱥硥捵瑩潮㸍ਠ†††††††††††‼ℭⴠ䑥晡畬琠捯湦楧畲慴楯渠景爠牵湮楮朠睩瑨㨠浶渠捬敡渠橡癡晸㩲畮\u202Dⴾഊ††††††††††††㱩搾摥晡畬琭捬椼⽩搾ഊ††††††††††††㱣潮晩杵牡瑩潮㸍ਠ†††††††††††††‼浡楮䍬慳猾汯杩振䵡楮䅰灬楣慴楯渼⽭慩湃污獳㸍ਠ†††††††††††††‼污畮捨敲㹡灰㰯污畮捨敲㸍ਠ†††††††††††††‼橬楮歚楰乡浥㹡灰㰯橬楮歚楰乡浥㸍ਠ†††††††††††††‼橬楮歉浡来乡浥㹡灰㰯橬楮歉浡来乡浥㸍ਠ†††††††††††††‼湯䵡湐慧敳㹴牵攼⽮潍慮偡来猾ഊ††††††††††††††㱳瑲楰䑥扵朾瑲略㰯獴物灄敢畧㸍ਠ†††††††††††††‼湯䡥慤敲䙩汥猾瑲略㰯湯䡥慤敲䙩汥猾ഊ††††††††††††㰯捯湦楧畲慴楯渾ഊ††††††††††㰯數散畴楯渾ഊ††††††††㰯數散畴楯湳㸍ਠ†††††‼⽰汵杩渾ഊ††††㰯灬畧楮猾ഊ††㰯扵楬搾ഊ㰯灲潪散琾
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/pom.xml b/pom.xml
+---- a/pom.xml	
+-+++ b/pom.xml	
+-@@ -1,1 +1,80 @@
+--㰿硭氠癥牳楯渽∱⸰∠敮捯摩湧㴢啔䘭㠢㼾ഊ㱰牯橥捴⁸浬湳㴢桴瑰㨯⽭慶敮⹡灡捨攮潲术偏䴯㐮〮〢ഊ††††⁸浬湳㩸獩㴢桴瑰㨯⽷睷⹷㌮潲术㈰〱⽘䵌卣桥浡⵩湳瑡湣攢ഊ††††⁸獩㩳捨敭慌潣慴楯渽≨瑴瀺⼯浡癥渮慰慣桥⹯牧⽐位⼴⸰⸰⁨瑴灳㨯⽭慶敮⹡灡捨攮潲术硳搯浡癥渭㐮〮〮硳搢㸍ਠ†‼浯摥汖敲獩潮㸴⸰⸰㰯浯摥汖敲獩潮㸍਍ਠ†‼杲潵灉搾捯洮數慭灬攼⽧牯異䥤㸍ਠ†‼慲瑩晡捴䥤㹳灯瑩晹㰯慲瑩晡捴䥤㸍ਠ†‼癥牳楯渾ㄮ〭华䅐午佔㰯癥牳楯渾ഊ††㱮慭放獰潴楦礼⽮慭放ഊഊ††㱰牯灥牴楥猾ഊ††††㱰牯橥捴⹢畩汤⹳潵牣故湣潤楮朾啔䘭㠼⽰牯橥捴⹢畩汤⹳潵牣故湣潤楮朾ഊ††††㱪畮楴⹶敲獩潮㸵⸹⸲㰯橵湩琮癥牳楯渾ഊഊ††††㱳潮慲⹯牧慮楺慴楯渾浺污污㰯獯湡爮潲条湩穡瑩潮㸍ਠ†††‼獯湡爮桯獴⹵牬㹨瑴灳㨯⽳潮慲捬潵搮楯㰯獯湡爮桯獴⹵牬㸍਍ਠ†‼⽰牯灥牴楥猾ഊഊ††㱤数敮摥湣楥猾ഊ††††㱤数敮摥湣社ഊ††††††㱧牯異䥤㹯牧⹯灥湪晸㰯杲潵灉搾ഊ††††††㱡牴楦慣瑉搾橡癡晸ⵣ潮瑲潬猼⽡牴楦慣瑉搾ഊ††††††㱶敲獩潮㸲ㄭ敡⬲㐼⽶敲獩潮㸍ਠ†††‼⽤数敮摥湣社ഊ††††㱤数敮摥湣社ഊ††††††㱧牯異䥤㹯牧⹯灥湪晸㰯杲潵灉搾ഊ††††††㱡牴楦慣瑉搾橡癡晸ⵦ硭氼⽡牴楦慣瑉搾ഊ††††††㱶敲獩潮㸲ㄭ敡⬲㐼⽶敲獩潮㸍ਠ†††‼⽤数敮摥湣社ഊഊ††††㱤数敮摥湣社ഊ††††††㱧牯異䥤㹯牧⹪畮楴⹪異楴敲㰯杲潵灉搾ഊ††††††㱡牴楦慣瑉搾橵湩琭橵灩瑥爭慰椼⽡牴楦慣瑉搾ഊ††††††㱶敲獩潮㸤筪畮楴⹶敲獩潮紼⽶敲獩潮㸍ਠ†††††‼獣潰放瑥獴㰯獣潰放ഊ††††㰯摥灥湤敮捹㸍ਠ†††‼摥灥湤敮捹㸍ਠ†††††‼杲潵灉搾潲朮橵湩琮橵灩瑥爼⽧牯異䥤㸍ਠ†††††‼慲瑩晡捴䥤㹪畮楴⵪異楴敲ⵥ湧楮攼⽡牴楦慣瑉搾ഊ††††††㱶敲獩潮㸤筪畮楴⹶敲獩潮紼⽶敲獩潮㸍ਠ†††††‼獣潰放瑥獴㰯獣潰放ഊ††††㰯摥灥湤敮捹㸍ਠ†‼⽤数敮摥湣楥猾ഊഊ††㱢畩汤㸍ਠ†††‼灬畧楮猾ഊ††††††㱰汵杩渾ഊ††††††††㱧牯異䥤㹯牧⹡灡捨攮浡癥渮灬畧楮猼⽧牯異䥤㸍ਠ†††††††‼慲瑩晡捴䥤㹭慶敮ⵣ潭灩汥爭灬畧楮㰯慲瑩晡捴䥤㸍ਠ†††††††‼癥牳楯渾㌮ㄱ⸰㰯癥牳楯渾ഊ††††††††㱣潮晩杵牡瑩潮㸍ਠ†††††††††‼獯畲捥㸲ㄼ⽳潵牣放ഊ††††††††††㱴慲来琾㈱㰯瑡牧整㸍ਠ†††††††‼⽣潮晩杵牡瑩潮㸍ਠ†††††‼⽰汵杩渾ഊ††††††㱰汵杩渾ഊ††††††††㱧牯異䥤㹯牧⹯灥湪晸㰯杲潵灉搾ഊ††††††††㱡牴楦慣瑉搾橡癡晸⵭慶敮⵰汵杩渼⽡牴楦慣瑉搾ഊ††††††††㱶敲獩潮㸰⸰⸸㰯癥牳楯渾ഊ††††††††㱥硥捵瑩潮猾ഊ††††††††††㱥硥捵瑩潮㸍ਠ†††††††††††‼ℭⴠ䑥晡畬琠捯湦楧畲慴楯渠景爠牵湮楮朠睩瑨㨠浶渠捬敡渠橡癡晸㩲畮‭ⴾഊ††††††††††††㱩搾摥晡畬琭捬椼⽩搾ഊ††††††††††††㱣潮晩杵牡瑩潮㸍ਠ†††††††††††††‼浡楮䍬慳猾汯杩振䵡楮䅰灬楣慴楯渼⽭慩湃污獳㸍ਠ†††††††††††††‼污畮捨敲㹡灰㰯污畮捨敲㸍ਠ†††††††††††††‼橬楮歚楰乡浥㹡灰㰯橬楮歚楰乡浥㸍ਠ†††††††††††††‼橬楮歉浡来乡浥㹡灰㰯橬楮歉浡来乡浥㸍ਠ†††††††††††††‼湯䵡湐慧敳㹴牵攼⽮潍慮偡来猾ഊ††††††††††††††㱳瑲楰䑥扵朾瑲略㰯獴物灄敢畧㸍ਠ†††††††††††††‼湯䡥慤敲䙩汥猾瑲略㰯湯䡥慤敲䙩汥猾ഊ††††††††††††㰯捯湦楧畲慴楯渾ഊ††††††††††㰯數散畴楯渾ഊ††††††††㰯數散畴楯湳㸍ਠ†††††‼⽰汵杩渾ഊ††††㰯灬畧楮猾ഊ††㰯扵楬搾ഊ㰯灲潪散琾
+-\ No newline at end of file
+-+<?xml version="1.0" encoding="UTF-8"?>
+-+<project xmlns="http://maven.apache.org/POM/4.0.0"
+-+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+-+    <modelVersion>4.0.0</modelVersion>
+-+
+-+    <groupId>com.example</groupId>
+-+    <artifactId>spotify</artifactId>
+-+    <version>1.0-SNAPSHOT</version>
+-+    <name>spotify</name>
+-+
+-+    <properties>
+-+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-+        <junit.version>5.9.2</junit.version>
+-+
+-+        <sonar.organization>mzlala</sonar.organization>
+-+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+-+
+-+    </properties>
+-+
+-+    <dependencies>
+-+        <dependency>
+-+            <groupId>org.openjfx</groupId>
+-+            <artifactId>javafx-controls</artifactId>
+-+            <version>21-ea+24</version>
+-+        </dependency>
+-+        <dependency>
+-+            <groupId>org.openjfx</groupId>
+-+            <artifactId>javafx-fxml</artifactId>
+-+            <version>21-ea+24</version>
+-+        </dependency>
+-+
+-+        <dependency>
+-+            <groupId>org.junit.jupiter</groupId>
+-+            <artifactId>junit-jupiter-api</artifactId>
+-+            <version>${junit.version}</version>
+-+            <scope>test</scope>
+-+        </dependency>
+-+        <dependency>
+-+            <groupId>org.junit.jupiter</groupId>
+-+            <artifactId>junit-jupiter-engine</artifactId>
+-+            <version>${junit.version}</version>
+-+            <scope>test</scope>
+-+        </dependency>
+-+    </dependencies>
+-+
+-+    <build>
+-+        <plugins>
+-+            <plugin>
+-+                <groupId>org.apache.maven.plugins</groupId>
+-+                <artifactId>maven-compiler-plugin</artifactId>
+-+                <version>3.11.0</version>
+-+                <configuration>
+-+                    <source>21</source>
+-+                    <target>21</target>
+-+                </configuration>
+-+            </plugin>
+-+            <plugin>
+-+                <groupId>org.openjfx</groupId>
+-+                <artifactId>javafx-maven-plugin</artifactId>
+-+                <version>0.0.8</version>
+-+                <executions>
+-+                    <execution>
+-+                        <!-- Default configuration for running with: mvn clean javafx:run -->
+-+                        <id>default-cli</id>
+-+                        <configuration>
+-+                            <mainClass>logic/MainApplication</mainClass>
+-+                            <launcher>app</launcher>
+-+                            <jlinkZipName>app</jlinkZipName>
+-+                            <jlinkImageName>app</jlinkImageName>
+-+                            <noManPages>true</noManPages>
+-+                            <stripDebug>true</stripDebug>
+-+                            <noHeaderFiles>true</noHeaderFiles>
+-+                        </configuration>
+-+                    </execution>
+-+                </executions>
+-+            </plugin>
+-+        </plugins>
+-+    </build>
+-+</project>
+-\ No newline at end of file
+-Index: src/main/resources/view/login.fxml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>㰿硭氠癥牳楯渽∱⸰∠敮捯摩湧㴢啔䘭㠢㼾ഊഊ㰿業灯牴\u206A慶慦砮獣敮攮污祯畴⸪㼾ഊ㰿業灯牴\u206A慶慦砮獣敮攮業慧攮⨿㸍਼㽩浰潲琠橡癡晸\u2E73捥湥\u2E63潮瑲潬⸪㼾ഊ㰿業灯牴\u206A慶慦砮獣敮攮瑥硴⸪㼾ഊഊ㱁湣桯牐慮攠灲敦䡥楧桴㴢㜲〮〢⁰牥晗楤瑨㴢ㄲ㠰⸰∠獴祬敳桥整猽≀⸮⽳瑹汥猯獴祬敳\u2E63獳∠硭汮猽≨瑴瀺⼯橡癡晸\u2E63潭⽪慶慦砢ഊ††††††硭汮猺晸㴢桴瑰㨯⽪慶慦砮捯洯晸浬∠晸㩣潮瑲潬汥爽≬潧楣⹌潧楮䍴牬䝲慦楣漢㸍ਠ†‼䥭慧敖楥眠晩瑈敩杨琽∱㔲⸰∠晩瑗楤瑨㴢ㄹ㈮〢\u206C慹潵瑘㴢㈹㠮〢\u206C慹潵瑙㴢㈰㤮〢⁰楣歏湂潵湤猽≴牵攢⁰牥獥牶敒慴楯㴢瑲略∍ਠ†††††††䅮捨潲偡湥\u2E6C敦瑁湣桯爽∲㤸⸰∠䅮捨潲偡湥\u2E72楧桴䅮捨潲㴢㠳〮〢⁁湣桯牐慮攮瑯灁湣桯爽∲〹⸰∾ഊ††††㱉浡来⁵牬㴢䀮ⸯ灨潴漯獰潴楦礮灮朢 㸍ਠ†‼⽉浡来噩敷㸍ਠ†‼䅮捨潲偡湥\u206C慹潵瑘㴢㠸㔮〢\u206C慹潵瑙㴢㈰〮〢\u206D慸䡥楧桴㴢ⵉ湦楮楴礢\u206D慸坩摴栽∭䥮晩湩瑹∠浩湈敩杨琽∭䥮晩湩瑹∠浩湗楤瑨㴢ⵉ湦楮楴礢ഊ††††††††灲敦䡥楧桴㴢㌱㔮〢⁰牥晗楤瑨㴢㈸㘮〢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㈰〢⁁湣桯牐慮攮瑯灁湣桯爽∲〰⸰∾ഊ††††㱂畴瑯渠晸㩩搽≬潧楮∠污祯畴堽∱㔸⸰∠污祯畴夽∲㌶⸰∠浮敭潮楣偡牳楮朽≦慬獥∠潮䅣瑩潮㴢⍯湌潧楮䍬楣欢⁴數琽≌潧楮∍ਠ†††††††⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㜰⸰∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∱〰⸰∠䅮捨潲偡湥\u2E72楧桴䅮捨潲㴢\u3130〮〢 㸍ਠ†††‼偡獳睯牤䙩敬搠晸㩩搽≰慳獷潲搢\u206C慹潵瑘㴢ㄴ㤮〢\u206C慹潵瑙㴢ㄷ〮〢⁰牥晈敩杨琽∳〮〢⁰牥晗楤瑨㴢ㄵ〮〢⁰牯浰瑔數琽≐慳獷潲搢ഊ†††††††††††⁁湣桯牐慮攮物杨瑁湣桯爽∲〮〢⁁湣桯牐慮攮瑯灁湣桯爽∱㘰⸰∠⼾ഊ††††㱔數瑆楥汤\u2066砺楤㴢畳敲湡浥∠污祯畴堽∱㐹⸰∠污祯畴夽∸ㄮ〢⁰牥晈敩杨琽∳〮〢⁰牥晗楤瑨㴢ㄵ〮〢⁰牯浰瑔數琽≅浡楬∍ਠ†††††††††䅮捨潲偡湥\u2E72楧桴䅮捨潲㴢㈰⸰∠䅮捨潲偡湥\u2E74潰䅮捨潲㴢㠰⸰∠⼾ഊ††††㱌慢敬\u206C慹潵瑘㴢㈰⸰∠污祯畴夽∸㘮〢⁰牥晈敩杨琽∱㜮〢⁰牥晗楤瑨㴢㜱⸰∠瑥硴㴢啳敲湡浥∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∲〮〢ഊ†††††††⁁湣桯牐慮攮瑯灁湣桯爽∸㘮〢 㸍ਠ†††‼䱡扥氠污祯畴堽∲〮〢\u206C慹潵瑙㴢ㄶ㘮〢⁰牥晈敩杨琽∱㜮〢⁰牥晗楤瑨㴢㜱⸰∠瑥硴㴢偡獳睯牤∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∲〮〢ഊ†††††††⁁湣桯牐慮攮瑯灁湣桯爽∱㘶⸰∠⼾ഊ††††㱌慢敬\u2066砺楤㴢瑥硴䱯杩渢\u206C慹潵瑘㴢ㄳ㌮〢\u206C慹潵瑙㴢㈸〮〢⁰牥晈敩杨琽∱㜮〢⁰牥晗楤瑨㴢㤶⸰∠瑥硴䙩汬㴢剅䐢ഊ†††††††⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㌰⸰∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∸〮〢⁁湣桯牐慮攮物杨瑁湣桯爽∸〮〢㸍ਠ†††††‼景湴㸍ਠ†††††††‼䙯湴\u2073楺攽∱㠮〢 㸍ਠ†††††‼⽦潮琾ഊ††††㰯䱡扥氾ഊ††㰯䅮捨潲偡湥㸍ਠ†‼䅮捨潲偡湥\u206C慹潵瑘㴢㈵㔮〢\u206C慹潵瑙㴢㐱㤮〢⁰牥晈敩杨琽∱㔲⸰∠灲敦坩摴栽∲㌸⸰∠䅮捨潲偡湥\u2E62潴瑯流湣桯爽∱㔱⸰∍ਠ†††††††⁁湣桯牐慮攮瑯灁湣桯爽∴ㄹ⸰∾ഊ††††㱂畴瑯渠晸㩩搽≲敧楳瑥爢\u206D湥浯湩捐慲獩湧㴢晡汳攢\u206F湁捴楯渽∣潮剥杩獴敲䍬楣欢⁰牥晈敩杨琽∳〮〢⁰牥晗楤瑨㴢ㄵ〮〢ഊ††††††††瑥硴㴢剥杩獴牡穩潮攢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㈰⸰∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∴〮〢⁁湣桯牐慮攮物杨瑁湣桯爽∴〮〢ഊ††††††††䅮捨潲偡湥\u2E74潰䅮捨潲㴢\u3130〮〢 㸍ਠ†††‼䉵瑴潮\u206C慹潵瑘㴢㐰⸰∠污祯畴夽∶㘮〢\u206D湥浯湩捐慲獩湧㴢晡汳攢⁰牥晈敩杨琽∳〮〢⁰牥晗楤瑨㴢ㄵ〮〢⁴數琽≃潮瑩湵愠捯浥⁇略獴∍ਠ†††††††⁁湣桯牐慮攮汥晴䅮捨潲㴢㐰⸰∠䅮捨潲偡湥\u2E72楧桴䅮捨潲㴢㐰⸰∠䅮捨潲偡湥\u2E74潰䅮捨潲㴢㈰⸰∠⼾ഊ††㰯䅮捨潲偡湥㸍ਠ†‼䅮捨潲偡湥⁰牥晈敩杨琽∶㘮〢⁰牥晗楤瑨㴢ㄲ㠰⸰∠䅮捨潲偡湥\u2E62潴瑯流湣桯爽∶㜵⸰∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∰⸰∠䅮捨潲偡湥\u2E72楧桴䅮捨潲㴢〮〢ഊ††††††††䅮捨潲偡湥\u2E74潰䅮捨潲㴢〮〢㸍ਠ†††‼呥硴\u2066楬氽∣〰晦ㅡ∠污祯畴堽∶〲⸰∠污祯畴夽∲㠮〢\u2073瑲潫敔祰攽≏啔卉䑅∠獴牯步坩摴栽∰⸰∠瑥硴㴢䱏䝉丢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢ㄴ⸰∍ਠ††††††⁁湣桯牐慮攮汥晴䅮捨潲㴢㘰〮〢⁁湣桯牐慮攮物杨瑁湣桯爽∶〰⸰∠䅮捨潲偡湥\u2E74潰䅮捨潲㴢ㄴ⸰∾ഊ††††††㱦潮琾ഊ††††††††㱆潮琠湡浥㴢卹獴敭⁂潬搢\u2073楺攽∱㠮〢 㸍ਠ†††††‼⽦潮琾ഊ††††㰯呥硴㸍ਠ†‼⽁湣桯牐慮放ഊ㰯䅮捨潲偡湥㸍�
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/view/login.fxml b/src/main/resources/view/login.fxml
+---- a/src/main/resources/view/login.fxml	
+-+++ b/src/main/resources/view/login.fxml	
+-@@ -1,1 +1,50 @@
+--㰿硭氠癥牳楯渽∱⸰∠敮捯摩湧㴢啔䘭㠢㼾ഊഊ㰿業灯牴⁪慶慦砮獣敮攮污祯畴⸪㼾ഊ㰿業灯牴⁪慶慦砮獣敮攮業慧攮⨿㸍਼㽩浰潲琠橡癡晸⹳捥湥⹣潮瑲潬⸪㼾ഊ㰿業灯牴⁪慶慦砮獣敮攮瑥硴⸪㼾ഊഊ㱁湣桯牐慮攠灲敦䡥楧桴㴢㜲〮〢⁰牥晗楤瑨㴢ㄲ㠰⸰∠獴祬敳桥整猽≀⸮⽳瑹汥猯獴祬敳⹣獳∠硭汮猽≨瑴瀺⼯橡癡晸⹣潭⽪慶慦砢ഊ††††††硭汮猺晸㴢桴瑰㨯⽪慶慦砮捯洯晸浬∠晸㩣潮瑲潬汥爽≬潧楣⹌潧楮䍴牬䝲慦楣漢㸍ਠ†‼䥭慧敖楥眠晩瑈敩杨琽∱㔲⸰∠晩瑗楤瑨㴢ㄹ㈮〢⁬慹潵瑘㴢㈹㠮〢⁬慹潵瑙㴢㈰㤮〢⁰楣歏湂潵湤猽≴牵攢⁰牥獥牶敒慴楯㴢瑲略∍ਠ†††††††䅮捨潲偡湥⹬敦瑁湣桯爽∲㤸⸰∠䅮捨潲偡湥⹲楧桴䅮捨潲㴢㠳〮〢⁁湣桯牐慮攮瑯灁湣桯爽∲〹⸰∾ഊ††††㱉浡来⁵牬㴢䀮ⸯ灨潴漯獰潴楦礮灮朢 㸍ਠ†‼⽉浡来噩敷㸍ਠ†‼䅮捨潲偡湥⁬慹潵瑘㴢㠸㔮〢⁬慹潵瑙㴢㈰〮〢⁭慸䡥楧桴㴢ⵉ湦楮楴礢⁭慸坩摴栽∭䥮晩湩瑹∠浩湈敩杨琽∭䥮晩湩瑹∠浩湗楤瑨㴢ⵉ湦楮楴礢ഊ††††††††灲敦䡥楧桴㴢㌱㔮〢⁰牥晗楤瑨㴢㈸㘮〢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㈰〢⁁湣桯牐慮攮瑯灁湣桯爽∲〰⸰∾ഊ††††㱂畴瑯渠晸㩩搽≬潧楮∠污祯畴堽∱㔸⸰∠污祯畴夽∲㌶⸰∠浮敭潮楣偡牳楮朽≦慬獥∠潮䅣瑩潮㴢⍯湌潧楮䍬楣欢⁴數琽≌潧楮∍ਠ†††††††⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㜰⸰∠䅮捨潲偡湥⹬敦瑁湣桯爽∱〰⸰∠䅮捨潲偡湥⹲楧桴䅮捨潲㴢㄰〮〢 㸍ਠ†††‼偡獳睯牤䙩敬搠晸㩩搽≰慳獷潲搢⁬慹潵瑘㴢ㄴ㤮〢⁬慹潵瑙㴢ㄷ〮〢⁰牥晈敩杨琽∳〮〢⁰牥晗楤瑨㴢ㄵ〮〢⁰牯浰瑔數琽≐慳獷潲搢ഊ†††††††††††⁁湣桯牐慮攮物杨瑁湣桯爽∲〮〢⁁湣桯牐慮攮瑯灁湣桯爽∱㘰⸰∠⼾ഊ††††㱔數瑆楥汤⁦砺楤㴢畳敲湡浥∠污祯畴堽∱㐹⸰∠污祯畴夽∸ㄮ〢⁰牥晈敩杨琽∳〮〢⁰牥晗楤瑨㴢ㄵ〮〢⁰牯浰瑔數琽≅浡楬∍ਠ†††††††††䅮捨潲偡湥⹲楧桴䅮捨潲㴢㈰⸰∠䅮捨潲偡湥⹴潰䅮捨潲㴢㠰⸰∠⼾ഊ††††㱌慢敬⁬慹潵瑘㴢㈰⸰∠污祯畴夽∸㘮〢⁰牥晈敩杨琽∱㜮〢⁰牥晗楤瑨㴢㜱⸰∠瑥硴㴢啳敲湡浥∠䅮捨潲偡湥⹬敦瑁湣桯爽∲〮〢ഊ†††††††⁁湣桯牐慮攮瑯灁湣桯爽∸㘮〢 㸍ਠ†††‼䱡扥氠污祯畴堽∲〮〢⁬慹潵瑙㴢ㄶ㘮〢⁰牥晈敩杨琽∱㜮〢⁰牥晗楤瑨㴢㜱⸰∠瑥硴㴢偡獳睯牤∠䅮捨潲偡湥⹬敦瑁湣桯爽∲〮〢ഊ†††††††⁁湣桯牐慮攮瑯灁湣桯爽∱㘶⸰∠⼾ഊ††††㱌慢敬⁦砺楤㴢瑥硴䱯杩渢⁬慹潵瑘㴢ㄳ㌮〢⁬慹潵瑙㴢㈸〮〢⁰牥晈敩杨琽∱㜮〢⁰牥晗楤瑨㴢㤶⸰∠瑥硴䙩汬㴢剅䐢ഊ†††††††⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㌰⸰∠䅮捨潲偡湥⹬敦瑁湣桯爽∸〮〢⁁湣桯牐慮攮物杨瑁湣桯爽∸〮〢㸍ਠ†††††‼景湴㸍ਠ†††††††‼䙯湴⁳楺攽∱㠮〢 㸍ਠ†††††‼⽦潮琾ഊ††††㰯䱡扥氾ഊ††㰯䅮捨潲偡湥㸍ਠ†‼䅮捨潲偡湥⁬慹潵瑘㴢㈵㔮〢⁬慹潵瑙㴢㐱㤮〢⁰牥晈敩杨琽∱㔲⸰∠灲敦坩摴栽∲㌸⸰∠䅮捨潲偡湥⹢潴瑯流湣桯爽∱㔱⸰∍ਠ†††††††⁁湣桯牐慮攮瑯灁湣桯爽∴ㄹ⸰∾ഊ††††㱂畴瑯渠晸㩩搽≲敧楳瑥爢⁭湥浯湩捐慲獩湧㴢晡汳攢⁯湁捴楯渽∣潮剥杩獴敲䍬楣欢⁰牥晈敩杨琽∳〮〢⁰牥晗楤瑨㴢ㄵ〮〢ഊ††††††††瑥硴㴢剥杩獴牡穩潮攢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㈰⸰∠䅮捨潲偡湥⹬敦瑁湣桯爽∴〮〢⁁湣桯牐慮攮物杨瑁湣桯爽∴〮〢ഊ††††††††䅮捨潲偡湥⹴潰䅮捨潲㴢㄰〮〢 㸍ਠ†††‼䉵瑴潮⁬慹潵瑘㴢㐰⸰∠污祯畴夽∶㘮〢⁭湥浯湩捐慲獩湧㴢晡汳攢⁰牥晈敩杨琽∳〮〢⁰牥晗楤瑨㴢ㄵ〮〢⁴數琽≃潮瑩湵愠捯浥⁇略獴∍ਠ†††††††⁁湣桯牐慮攮汥晴䅮捨潲㴢㐰⸰∠䅮捨潲偡湥⹲楧桴䅮捨潲㴢㐰⸰∠䅮捨潲偡湥⹴潰䅮捨潲㴢㈰⸰∠⼾ഊ††㰯䅮捨潲偡湥㸍ਠ†‼䅮捨潲偡湥⁰牥晈敩杨琽∶㘮〢⁰牥晗楤瑨㴢ㄲ㠰⸰∠䅮捨潲偡湥⹢潴瑯流湣桯爽∶㜵⸰∠䅮捨潲偡湥⹬敦瑁湣桯爽∰⸰∠䅮捨潲偡湥⹲楧桴䅮捨潲㴢〮〢ഊ††††††††䅮捨潲偡湥⹴潰䅮捨潲㴢〮〢㸍ਠ†††‼呥硴⁦楬氽∣〰晦ㅡ∠污祯畴堽∶〲⸰∠污祯畴夽∲㠮〢⁳瑲潫敔祰攽≏啔卉䑅∠獴牯步坩摴栽∰⸰∠瑥硴㴢䱏䝉丢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢ㄴ⸰∍ਠ††††††⁁湣桯牐慮攮汥晴䅮捨潲㴢㘰〮〢⁁湣桯牐慮攮物杨瑁湣桯爽∶〰⸰∠䅮捨潲偡湥⹴潰䅮捨潲㴢ㄴ⸰∾ഊ††††††㱦潮琾ഊ††††††††㱆潮琠湡浥㴢卹獴敭⁂潬搢⁳楺攽∱㠮〢 㸍ਠ†††††‼⽦潮琾ഊ††††㰯呥硴㸍ਠ†‼⽁湣桯牐慮放ഊ㰯䅮捨潲偡湥㸍�
+-\ No newline at end of file
+-+<?xml version="1.0" encoding="UTF-8"?>
+-+
+-+<?import javafx.scene.layout.*?>
+-+<?import javafx.scene.image.*?>
+-+<?import javafx.scene.control.*?>
+-+<?import javafx.scene.text.*?>
+-+
+-+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx"
+-+            xmlns:fx="http://javafx.com/fxml" fx:controller="logic.LoginCtrlGrafico">
+-+    <ImageView fitHeight="152.0" fitWidth="192.0" layoutX="298.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true"
+-+               AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="830.0" AnchorPane.topAnchor="209.0">
+-+        <Image url="@../photo/spotify.png" />
+-+    </ImageView>
+-+    <AnchorPane layoutX="885.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+-+                prefHeight="315.0" prefWidth="286.0" AnchorPane.bottomAnchor="200" AnchorPane.topAnchor="200.0">
+-+        <Button fx:id="login" layoutX="158.0" layoutY="236.0" mnemonicParsing="false" onAction="#onLoginClick" text="Login"
+-+                AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+-+        <PasswordField fx:id="password" layoutX="149.0" layoutY="170.0" prefHeight="30.0" prefWidth="150.0" promptText="Password"
+-+                       AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="160.0" />
+-+        <TextField fx:id="username" layoutX="149.0" layoutY="81.0" prefHeight="30.0" prefWidth="150.0" promptText="Email"
+-+                   AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0" />
+-+        <Label layoutX="20.0" layoutY="86.0" prefHeight="17.0" prefWidth="71.0" text="Username" AnchorPane.leftAnchor="20.0"
+-+               AnchorPane.topAnchor="86.0" />
+-+        <Label layoutX="20.0" layoutY="166.0" prefHeight="17.0" prefWidth="71.0" text="Password" AnchorPane.leftAnchor="20.0"
+-+               AnchorPane.topAnchor="166.0" />
+-+        <Label fx:id="textLogin" layoutX="133.0" layoutY="280.0" prefHeight="17.0" prefWidth="96.0" textFill="RED"
+-+               AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0">
+-+            <font>
+-+                <Font size="18.0" />
+-+            </font>
+-+        </Label>
+-+    </AnchorPane>
+-+    <AnchorPane layoutX="255.0" layoutY="419.0" prefHeight="152.0" prefWidth="238.0" AnchorPane.bottomAnchor="151.0"
+-+                AnchorPane.topAnchor="419.0">
+-+        <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="30.0" prefWidth="150.0"
+-+                text="Registrazione" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0"
+-+                AnchorPane.topAnchor="100.0" />
+-+        <Button layoutX="40.0" layoutY="66.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Continua come Guest"
+-+                AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0" />
+-+    </AnchorPane>
+-+    <AnchorPane prefHeight="66.0" prefWidth="1280.0" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+-+                AnchorPane.topAnchor="0.0">
+-+        <Text fill="#00ff1a" layoutX="602.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" AnchorPane.bottomAnchor="14.0"
+-+              AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="14.0">
+-+            <font>
+-+                <Font name="System Bold" size="18.0" />
+-+            </font>
+-+        </Text>
+-+    </AnchorPane>
+-+</AnchorPane>
+-Index: src/main/resources/view/homePage.fxml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>㰿硭氠癥牳楯渽∱⸰∠敮捯摩湧㴢啔䘭㠢㼾ഊഊ㰿業灯牴\u206A慶慦砮獣敮攮捯湴牯氮⨿㸍਼㽩浰潲琠橡癡晸\u2E73捥湥\u2E6C慹潵琮⨿㸍\u0A0D਼䅮捨潲偡湥⁰牥晈敩杨琽∷㈰⸰∠灲敦坩摴栽∱㈸〮〢\u2073瑹汥獨敥瑳㴢䀮ⸯ獴祬敳⽳瑹汥献捳猢⁸浬湳㴢桴瑰㨯⽪慶慦砮捯洯橡癡晸∍ਠ†††††⁸浬湳㩦砽≨瑴瀺⼯橡癡晸\u2E63潭⽦硭氢\u2066砺捯湴牯汬敲㴢汯杩挮䡯浥偡来䍴牬䝲慦楣漢㸍ਠ†‼呡扬敖楥眠污祯畴堽∱㈲⸰∠污祯畴夽∵ㄮ〢⁰牥晈敩杨琽∳ㄶ⸰∠灲敦坩摴栽∳㔶⸰∠䅮捨潲偡湥\u2E62潴瑯流湣桯爽∷㔮〢⁁湣桯牐慮攮汥晴䅮捨潲㴢㌵〮〢ഊ†††††††⁁湣桯牐慮攮物杨瑁湣桯爽∳㔰⸰∠䅮捨潲偡湥\u2E74潰䅮捨潲㴢㠰⸰∾ഊ††††㱣潬畭湳㸍ਠ†††††‼呡扬敃潬畭渠灲敦坩摴栽∱㜵⸰∠瑥硴㴢乯浥∠⼾ഊ††††††㱔慢汥䍯汵浮⁰牥晗楤瑨㴢㜵⸰∠瑥硴㴢䅵瑯牥∠⼾ഊ††††㰯捯汵浮猾ഊ††㰯呡扬敖楥眾ഊ††㱁湣桯牐慮攠灲敦䡥楧桴㴢㈰〮〢⁰牥晗楤瑨㴢㈰〮〢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㘵〮〢⁁湣桯牐慮攮汥晴䅮捨潲㴢〮〢⁁湣桯牐慮攮物杨瑁湣桯爽∰⸰∍ਠ†††††††⁁湣桯牐慮攮瑯灁湣桯爽∰⸰∾ഊ††††㱔數瑆楥汤⁰牥晈敩杨琽∲㘮〢⁰牥晗楤瑨㴢㌵㘮〢⁰牯浰瑔數琽≓敡牣栠䡥牥∠䅮捨潲偡湥\u2E62潴瑯流湣桯爽∲〮〢⁁湣桯牐慮攮汥晴䅮捨潲㴢㌵〮〢ഊ†††††††††⁁湣桯牐慮攮物杨瑁湣桯爽∳㔰⸰∠䅮捨潲偡湥\u2E74潰䅮捨潲㴢㈰⸰∠⼾ഊ††††㱂畴瑯渠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢䅣捯畮琢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㈰⸰∠䅮捨潲偡湥\u2E72楧桴䅮捨潲㴢㔰⸰∠䅮捨潲偡湥\u2E74潰䅮捨潲㴢㈰⸰∠⼾ഊ††㰯䅮捨潲偡湥㸍਼⽁湣桯牐慮放ഊ
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/view/homePage.fxml b/src/main/resources/view/homePage.fxml
+---- a/src/main/resources/view/homePage.fxml	
+-+++ b/src/main/resources/view/homePage.fxml	
+-@@ -1,1 +1,21 @@
+--㰿硭氠癥牳楯渽∱⸰∠敮捯摩湧㴢啔䘭㠢㼾ഊഊ㰿業灯牴⁪慶慦砮獣敮攮捯湴牯氮⨿㸍਼㽩浰潲琠橡癡晸⹳捥湥⹬慹潵琮⨿㸍਍਼䅮捨潲偡湥⁰牥晈敩杨琽∷㈰⸰∠灲敦坩摴栽∱㈸〮〢⁳瑹汥獨敥瑳㴢䀮ⸯ獴祬敳⽳瑹汥献捳猢⁸浬湳㴢桴瑰㨯⽪慶慦砮捯洯橡癡晸∍ਠ†††††⁸浬湳㩦砽≨瑴瀺⼯橡癡晸⹣潭⽦硭氢⁦砺捯湴牯汬敲㴢汯杩挮䡯浥偡来䍴牬䝲慦楣漢㸍ਠ†‼呡扬敖楥眠污祯畴堽∱㈲⸰∠污祯畴夽∵ㄮ〢⁰牥晈敩杨琽∳ㄶ⸰∠灲敦坩摴栽∳㔶⸰∠䅮捨潲偡湥⹢潴瑯流湣桯爽∷㔮〢⁁湣桯牐慮攮汥晴䅮捨潲㴢㌵〮〢ഊ†††††††⁁湣桯牐慮攮物杨瑁湣桯爽∳㔰⸰∠䅮捨潲偡湥⹴潰䅮捨潲㴢㠰⸰∾ഊ††††㱣潬畭湳㸍ਠ†††††‼呡扬敃潬畭渠灲敦坩摴栽∱㜵⸰∠瑥硴㴢乯浥∠⼾ഊ††††††㱔慢汥䍯汵浮⁰牥晗楤瑨㴢㜵⸰∠瑥硴㴢䅵瑯牥∠⼾ഊ††††㰯捯汵浮猾ഊ††㰯呡扬敖楥眾ഊ††㱁湣桯牐慮攠灲敦䡥楧桴㴢㈰〮〢⁰牥晗楤瑨㴢㈰〮〢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㘵〮〢⁁湣桯牐慮攮汥晴䅮捨潲㴢〮〢⁁湣桯牐慮攮物杨瑁湣桯爽∰⸰∍ਠ†††††††⁁湣桯牐慮攮瑯灁湣桯爽∰⸰∾ഊ††††㱔數瑆楥汤⁰牥晈敩杨琽∲㘮〢⁰牥晗楤瑨㴢㌵㘮〢⁰牯浰瑔數琽≓敡牣栠䡥牥∠䅮捨潲偡湥⹢潴瑯流湣桯爽∲〮〢⁁湣桯牐慮攮汥晴䅮捨潲㴢㌵〮〢ഊ†††††††††⁁湣桯牐慮攮物杨瑁湣桯爽∳㔰⸰∠䅮捨潲偡湥⹴潰䅮捨潲㴢㈰⸰∠⼾ഊ††††㱂畴瑯渠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢䅣捯畮琢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢㈰⸰∠䅮捨潲偡湥⹲楧桴䅮捨潲㴢㔰⸰∠䅮捨潲偡湥⹴潰䅮捨潲㴢㈰⸰∠⼾ഊ††㰯䅮捨潲偡湥㸍਼⽁湣桯牐慮放ഊ
+-\ No newline at end of file
+-+<?xml version="1.0" encoding="UTF-8"?>
+-+
+-+<?import javafx.scene.control.*?>
+-+<?import javafx.scene.layout.*?>
+-+
+-+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx"
+-+            xmlns:fx="http://javafx.com/fxml" fx:controller="logic.HomePageCtrlGrafico">
+-+    <TableView layoutX="122.0" layoutY="51.0" prefHeight="316.0" prefWidth="356.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="350.0"
+-+               AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="80.0">
+-+        <columns>
+-+            <TableColumn prefWidth="175.0" text="Nome" />
+-+            <TableColumn prefWidth="75.0" text="Autore" />
+-+        </columns>
+-+    </TableView>
+-+    <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+-+                AnchorPane.topAnchor="0.0">
+-+        <TextField prefHeight="26.0" prefWidth="356.0" promptText="Search Here" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="350.0"
+-+                   AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0" />
+-+        <Button mnemonicParsing="false" text="Account" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
+-+    </AnchorPane>
+-+</AnchorPane>
+-Index: src/main/resources/view/registrazione.fxml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>㰿硭氠癥牳楯渽∱⸰∠敮捯摩湧㴢啔䘭㠢㼾ഊഊ㰿業灯牴\u206A慶慦砮獣敮攮捯湴牯氮䉵瑴潮㼾ഊ㰿業灯牴\u206A慶慦砮獣敮攮捯湴牯氮䍨散歂潸㼾ഊ㰿業灯牴\u206A慶慦砮獣敮攮捯湴牯氮偡獳睯牤䙩敬搿㸍਼㽩浰潲琠橡癡晸\u2E73捥湥\u2E63潮瑲潬\u2E54數瑆楥汤㼾ഊ㰿業灯牴\u206A慶慦砮獣敮攮污祯畴⹁湣桯牐慮政㸍਼㽩浰潲琠橡癡晸\u2E73捥湥\u2E6C慹潵琮䡂潸㼾ഊ㰿業灯牴\u206A慶慦砮獣敮攮污祯畴\u2E56䉯砿㸍਼㽩浰潲琠橡癡晸\u2E73捥湥\u2E74數琮䙯湴㼾ഊ㰿業灯牴\u206A慶慦砮獣敮攮瑥硴\u2E54數琿㸍\u0A0D਼䅮捨潲偡湥\u206D慸䡥楧桴㴢ⵉ湦楮楴礢\u206D慸坩摴栽∭䥮晩湩瑹∠浩湈敩杨琽∭䥮晩湩瑹∠浩湗楤瑨㴢ⵉ湦楮楴礢⁰牥晈敩杨琽∷㈰⸰∠灲敦坩摴栽∱㈸〮〢\u2073瑹汥獨敥瑳㴢䀮ⸯ獴祬敳⽳瑹汥献捳猢⁸浬湳㴢桴瑰㨯⽪慶慦砮捯洯橡癡晸⼲ㄢ⁸浬湳㩦砽≨瑴瀺⼯橡癡晸\u2E63潭⽦硭氯ㄢ\u2066砺捯湴牯汬敲㴢汯杩挮剥杩獴牡穩潮敃瑲汇牡晩捯∾ഊഊ††㰡ⴭ⁐畬獡湴攠摩\u2072敧楳瑲慺楯湥\u202Dⴾഊ††㱂畴瑯渠污祯畴堽∶〷⸰∠污祯畴夽∵㤰⸰∠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢剥杩獴牡瑩∠⼾ഊഊ††㰡ⴭ⁂慲牡\u2064敬⁴楴潬漠ⴭ㸍ਠ†‼䅮捨潲偡湥\u206C慹潵瑘㴢㔲㐮〢\u206C慹潵瑙㴢ⴳㄮ〢⁰牥晈敩杨琽∲〰⸰∠灲敦坩摴栽∲〰⸰∠䅮捨潲偡湥\u2E62潴瑯流湣桯爽∶㜵⸰∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∰⸰∠䅮捨潲偡湥\u2E72楧桴䅮捨潲㴢〮〢⁁湣桯牐慮攮瑯灁湣桯爽∰⸰∾ഊ††††㱂畴瑯渠晸㩩搽≢慣欢\u206F湁捴楯渽∣潮䉡捫䍬楣欢⁴數琽≂慣欢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢ㄳ⸰∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∱〮〢⁁湣桯牐慮攮瑯灁湣桯爽∱㌮〢 㸍ਠ†††‼呥硴\u2066楬氽∣〰晦ㅡ∠污祯畴堽∶〲⸰∠污祯畴夽∲㠮〢\u2073瑲潫敔祰攽≏啔卉䑅∠獴牯步坩摴栽∰⸰∠瑥硴㴢剅䝉協剁婉低䔢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢ㄴ⸰∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∶〰⸰∠䅮捨潲偡湥\u2E72楧桴䅮捨潲㴢㘰〮〢⁁湣桯牐慮攮瑯灁湣桯爽∱㐮〢㸍ਠ†††††‼景湴㸍ਠ†††††††‼䙯湴\u206E慭攽≓祳瑥洠䉯汤∠獩穥㴢ㄸ⸰∠⼾ഊ††††††㰯景湴㸍ਠ†††‼⽔數琾ഊ††㰯䅮捨潲偡湥㸍\u0A0Dਠ†‼ℭⴠ卥汥穩潮攠摥椠来湥物\u206D畳楣慬椠ⴭ㸍ਠ†‼䡂潸\u206C慹潵瑘㴢㠸㤮〢\u206C慹潵瑙㴢㈱㈮〢⁰牥晈敩杨琽∱〰⸰∠灲敦坩摴栽∲〰⸰∠獰慣楮朽∲〮〢㸍ਠ†††‼噂潸⁰牥晈敩杨琽∲〰⸰∠灲敦坩摴栽∱〰⸰∠獰慣楮朽∵⸰∾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢偯瀢 㸍ਠ†††††‼䍨散歂潸\u206D湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≉湤楥∠⼾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢䍬慳獩挢 㸍ਠ†††††‼䍨散歂潸\u206D湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≒潣欢 㸍ਠ†††††‼䍨散歂潸\u206D湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≅汥捴牯湩挢 㸍ਠ†††††‼䍨散歂潸\u206D湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≈潵獥∠⼾ഊ††††㰯噂潸㸍ਠ†††‼噂潸⁰牥晈敩杨琽∲〰⸰∠灲敦坩摴栽∱〰⸰∠獰慣楮朽∵⸰∾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢䡩瀠䡯瀢 㸍ਠ†††††‼䍨散歂潸\u206D湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≊慺稢 㸍ਠ†††††‼䍨散歂潸\u206D湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≁捵獴楣∠⼾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢剅䈢 㸍ਠ†††††‼䍨散歂潸\u206D湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≃潵湴特∠⼾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢䅬瑥牮慴楶攢 㸍ਠ†††‼⽖䉯砾ഊ††㰯䡂潸㸍\u0A0Dਠ†‼ℭⴠ䍡浰椠摩\u2069湧牥獳漠ⴭ㸍ਠ†‼䡂潸\u206C慹潵瑘㴢㈳㈮〢\u206C慹潵瑙㴢㈴㐮〢\u2073灡捩湧㴢㈰⸰∠䅮捨潲偡湥\u2E6C敦瑁湣桯爽∲㌲⸰∾ഊ††††㱁湣桯牐慮放ഊ††††††㱔數琠獴牯步呹灥㴢何呓䥄䔢\u2073瑲潫敗楤瑨㴢〮〢⁴數琽≎潭攠啴敮瑥∠瑥硴䅬楧湭敮琽≒䥇䡔∠睲慰灩湧坩摴栽∱〸∠䅮捨潲偡湥\u2E74潰䅮捨潲㴢㔮〢 㸍ਠ†††††‼呥硴\u2073瑲潫敔祰攽≏啔卉䑅∠獴牯步坩摴栽∰⸰∠瑥硴㴢䕭慩氢⁴數瑁汩杮浥湴㴢剉䝈吢⁷牡灰楮杗楤瑨㴢\u3130㘢⁁湣桯牐慮攮瑯灁湣桯爽∳㔮〢 㸍ਠ†††††‼呥硴\u2073瑲潫敔祰攽≏啔卉䑅∠獴牯步坩摴栽∰⸰∠瑥硴㴢偡獳睯牤∠瑥硴䅬楧湭敮琽≒䥇䡔∠睲慰灩湧坩摴栽∱〷∠䅮捨潲偡湥\u2E74潰䅮捨潲㴢㘵⸰∠⼾ഊ††††††㱔數琠污祯畴堽∹㘴⸸∠獴牯步呹灥㴢何呓䥄䔢\u2073瑲潫敗楤瑨㴢〮〢⁴數琽≃潮晥牭愠偡獳睯牤∠瑥硴䅬楧湭敮琽≒䥇䡔∠睲慰灩湧坩摴栽∱㈱⸱㤹㤳㠹㔲㤲㈸㈢⁁湣桯牐慮攮汥晴䅮捨潲㴢〮〢⁁湣桯牐慮攮瑯灁湣桯爽∹㔮〢 㸍ਠ†††‼⽁湣桯牐慮放ഊ††††㱖䉯砠獰慣楮朽∵⸰∾ഊ††††††㱔數瑆楥汤⁰牯浰瑔數琽≎潭攢 㸍ਠ†††††‼呥硴䙩敬搠灲潭灴呥硴㴢䕭慩氢 㸍ਠ†††††‼偡獳睯牤䙩敬搠灲潭灴呥硴㴢偡獳睯牤∠⼾ഊ††††††㱐慳獷潲摆楥汤⁰牯浰瑔數琽≃潮晥牭愠偡獳睯牤∠⼾ഊ††††㰯噂潸㸍ਠ†‼⽈䉯砾ഊ㰯䅮捨潲偡湥㸍�
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/view/registrazione.fxml b/src/main/resources/view/registrazione.fxml
+---- a/src/main/resources/view/registrazione.fxml	
+-+++ b/src/main/resources/view/registrazione.fxml	
+-@@ -1,1 +1,63 @@
+--㰿硭氠癥牳楯渽∱⸰∠敮捯摩湧㴢啔䘭㠢㼾ഊഊ㰿業灯牴⁪慶慦砮獣敮攮捯湴牯氮䉵瑴潮㼾ഊ㰿業灯牴⁪慶慦砮獣敮攮捯湴牯氮䍨散歂潸㼾ഊ㰿業灯牴⁪慶慦砮獣敮攮捯湴牯氮偡獳睯牤䙩敬搿㸍਼㽩浰潲琠橡癡晸⹳捥湥⹣潮瑲潬⹔數瑆楥汤㼾ഊ㰿業灯牴⁪慶慦砮獣敮攮污祯畴⹁湣桯牐慮政㸍਼㽩浰潲琠橡癡晸⹳捥湥⹬慹潵琮䡂潸㼾ഊ㰿業灯牴⁪慶慦砮獣敮攮污祯畴⹖䉯砿㸍਼㽩浰潲琠橡癡晸⹳捥湥⹴數琮䙯湴㼾ഊ㰿業灯牴⁪慶慦砮獣敮攮瑥硴⹔數琿㸍਍਼䅮捨潲偡湥⁭慸䡥楧桴㴢ⵉ湦楮楴礢⁭慸坩摴栽∭䥮晩湩瑹∠浩湈敩杨琽∭䥮晩湩瑹∠浩湗楤瑨㴢ⵉ湦楮楴礢⁰牥晈敩杨琽∷㈰⸰∠灲敦坩摴栽∱㈸〮〢⁳瑹汥獨敥瑳㴢䀮ⸯ獴祬敳⽳瑹汥献捳猢⁸浬湳㴢桴瑰㨯⽪慶慦砮捯洯橡癡晸⼲ㄢ⁸浬湳㩦砽≨瑴瀺⼯橡癡晸⹣潭⽦硭氯ㄢ⁦砺捯湴牯汬敲㴢汯杩挮剥杩獴牡穩潮敃瑲汇牡晩捯∾ഊഊ††㰡ⴭ⁐畬獡湴攠摩⁲敧楳瑲慺楯湥‭ⴾഊ††㱂畴瑯渠污祯畴堽∶〷⸰∠污祯畴夽∵㤰⸰∠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢剥杩獴牡瑩∠⼾ഊഊ††㰡ⴭ⁂慲牡⁤敬⁴楴潬漠ⴭ㸍ਠ†‼䅮捨潲偡湥⁬慹潵瑘㴢㔲㐮〢⁬慹潵瑙㴢ⴳㄮ〢⁰牥晈敩杨琽∲〰⸰∠灲敦坩摴栽∲〰⸰∠䅮捨潲偡湥⹢潴瑯流湣桯爽∶㜵⸰∠䅮捨潲偡湥⹬敦瑁湣桯爽∰⸰∠䅮捨潲偡湥⹲楧桴䅮捨潲㴢〮〢⁁湣桯牐慮攮瑯灁湣桯爽∰⸰∾ഊ††††㱂畴瑯渠晸㩩搽≢慣欢⁯湁捴楯渽∣潮䉡捫䍬楣欢⁴數琽≂慣欢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢ㄳ⸰∠䅮捨潲偡湥⹬敦瑁湣桯爽∱〮〢⁁湣桯牐慮攮瑯灁湣桯爽∱㌮〢 㸍ਠ†††‼呥硴⁦楬氽∣〰晦ㅡ∠污祯畴堽∶〲⸰∠污祯畴夽∲㠮〢⁳瑲潫敔祰攽≏啔卉䑅∠獴牯步坩摴栽∰⸰∠瑥硴㴢剅䝉協剁婉低䔢⁁湣桯牐慮攮扯瑴潭䅮捨潲㴢ㄴ⸰∠䅮捨潲偡湥⹬敦瑁湣桯爽∶〰⸰∠䅮捨潲偡湥⹲楧桴䅮捨潲㴢㘰〮〢⁁湣桯牐慮攮瑯灁湣桯爽∱㐮〢㸍ਠ†††††‼景湴㸍ਠ†††††††‼䙯湴⁮慭攽≓祳瑥洠䉯汤∠獩穥㴢ㄸ⸰∠⼾ഊ††††††㰯景湴㸍ਠ†††‼⽔數琾ഊ††㰯䅮捨潲偡湥㸍਍ਠ†‼ℭⴠ卥汥穩潮攠摥椠来湥物⁭畳楣慬椠ⴭ㸍ਠ†‼䡂潸⁬慹潵瑘㴢㠸㤮〢⁬慹潵瑙㴢㈱㈮〢⁰牥晈敩杨琽∱〰⸰∠灲敦坩摴栽∲〰⸰∠獰慣楮朽∲〮〢㸍ਠ†††‼噂潸⁰牥晈敩杨琽∲〰⸰∠灲敦坩摴栽∱〰⸰∠獰慣楮朽∵⸰∾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢偯瀢 㸍ਠ†††††‼䍨散歂潸⁭湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≉湤楥∠⼾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢䍬慳獩挢 㸍ਠ†††††‼䍨散歂潸⁭湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≒潣欢 㸍ਠ†††††‼䍨散歂潸⁭湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≅汥捴牯湩挢 㸍ਠ†††††‼䍨散歂潸⁭湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≈潵獥∠⼾ഊ††††㰯噂潸㸍ਠ†††‼噂潸⁰牥晈敩杨琽∲〰⸰∠灲敦坩摴栽∱〰⸰∠獰慣楮朽∵⸰∾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢䡩瀠䡯瀢 㸍ਠ†††††‼䍨散歂潸⁭湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≊慺稢 㸍ਠ†††††‼䍨散歂潸⁭湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≁捵獴楣∠⼾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢剅䈢 㸍ਠ†††††‼䍨散歂潸⁭湥浯湩捐慲獩湧㴢晡汳攢⁴數琽≃潵湴特∠⼾ഊ††††††㱃桥捫䉯砠浮敭潮楣偡牳楮朽≦慬獥∠瑥硴㴢䅬瑥牮慴楶攢 㸍ਠ†††‼⽖䉯砾ഊ††㰯䡂潸㸍਍ਠ†‼ℭⴠ䍡浰椠摩⁩湧牥獳漠ⴭ㸍ਠ†‼䡂潸⁬慹潵瑘㴢㈳㈮〢⁬慹潵瑙㴢㈴㐮〢⁳灡捩湧㴢㈰⸰∠䅮捨潲偡湥⹬敦瑁湣桯爽∲㌲⸰∾ഊ††††㱁湣桯牐慮放ഊ††††††㱔數琠獴牯步呹灥㴢何呓䥄䔢⁳瑲潫敗楤瑨㴢〮〢⁴數琽≎潭攠啴敮瑥∠瑥硴䅬楧湭敮琽≒䥇䡔∠睲慰灩湧坩摴栽∱〸∠䅮捨潲偡湥⹴潰䅮捨潲㴢㔮〢 㸍ਠ†††††‼呥硴⁳瑲潫敔祰攽≏啔卉䑅∠獴牯步坩摴栽∰⸰∠瑥硴㴢䕭慩氢⁴數瑁汩杮浥湴㴢剉䝈吢⁷牡灰楮杗楤瑨㴢㄰㘢⁁湣桯牐慮攮瑯灁湣桯爽∳㔮〢 㸍ਠ†††††‼呥硴⁳瑲潫敔祰攽≏啔卉䑅∠獴牯步坩摴栽∰⸰∠瑥硴㴢偡獳睯牤∠瑥硴䅬楧湭敮琽≒䥇䡔∠睲慰灩湧坩摴栽∱〷∠䅮捨潲偡湥⹴潰䅮捨潲㴢㘵⸰∠⼾ഊ††††††㱔數琠污祯畴堽∹㘴⸸∠獴牯步呹灥㴢何呓䥄䔢⁳瑲潫敗楤瑨㴢〮〢⁴數琽≃潮晥牭愠偡獳睯牤∠瑥硴䅬楧湭敮琽≒䥇䡔∠睲慰灩湧坩摴栽∱㈱⸱㤹㤳㠹㔲㤲㈸㈢⁁湣桯牐慮攮汥晴䅮捨潲㴢〮〢⁁湣桯牐慮攮瑯灁湣桯爽∹㔮〢 㸍ਠ†††‼⽁湣桯牐慮放ഊ††††㱖䉯砠獰慣楮朽∵⸰∾ഊ††††††㱔數瑆楥汤⁰牯浰瑔數琽≎潭攢 㸍ਠ†††††‼呥硴䙩敬搠灲潭灴呥硴㴢䕭慩氢 㸍ਠ†††††‼偡獳睯牤䙩敬搠灲潭灴呥硴㴢偡獳睯牤∠⼾ഊ††††††㱐慳獷潲摆楥汤⁰牯浰瑔數琽≃潮晥牭愠偡獳睯牤∠⼾ഊ††††㰯噂潸㸍ਠ†‼⽈䉯砾ഊ㰯䅮捨潲偡湥㸍�
+-\ No newline at end of file
+-+<?xml version="1.0" encoding="UTF-8"?>
+-+
+-+<?import javafx.scene.control.Button?>
+-+<?import javafx.scene.control.CheckBox?>
+-+<?import javafx.scene.control.PasswordField?>
+-+<?import javafx.scene.control.TextField?>
+-+<?import javafx.scene.layout.AnchorPane?>
+-+<?import javafx.scene.layout.HBox?>
+-+<?import javafx.scene.layout.VBox?>
+-+<?import javafx.scene.text.Font?>
+-+<?import javafx.scene.text.Text?>
+-+
+-+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.RegistrazioneCtrlGrafico">
+-+
+-+    <!-- Pulsante di registrazione -->
+-+    <Button layoutX="607.0" layoutY="590.0" mnemonicParsing="false" text="Registrati" />
+-+
+-+    <!-- Barra del titolo -->
+-+    <AnchorPane layoutX="524.0" layoutY="-31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-+        <Button fx:id="back" onAction="#onBackClick" text="Back" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="13.0" />
+-+        <Text fill="#00ff1a" layoutX="602.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRAZIONE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="14.0">
+-+            <font>
+-+                <Font name="System Bold" size="18.0" />
+-+            </font>
+-+        </Text>
+-+    </AnchorPane>
+-+
+-+    <!-- Selezione dei generi musicali -->
+-+    <HBox layoutX="889.0" layoutY="212.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+-+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+-+            <CheckBox mnemonicParsing="false" text="Pop" />
+-+            <CheckBox mnemonicParsing="false" text="Indie" />
+-+            <CheckBox mnemonicParsing="false" text="Classic" />
+-+            <CheckBox mnemonicParsing="false" text="Rock" />
+-+            <CheckBox mnemonicParsing="false" text="Electronic" />
+-+            <CheckBox mnemonicParsing="false" text="House" />
+-+        </VBox>
+-+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+-+            <CheckBox mnemonicParsing="false" text="Hip Hop" />
+-+            <CheckBox mnemonicParsing="false" text="Jazz" />
+-+            <CheckBox mnemonicParsing="false" text="Acustic" />
+-+            <CheckBox mnemonicParsing="false" text="REB" />
+-+            <CheckBox mnemonicParsing="false" text="Country" />
+-+            <CheckBox mnemonicParsing="false" text="Alternative" />
+-+        </VBox>
+-+    </HBox>
+-+
+-+    <!-- Campi di ingresso -->
+-+    <HBox layoutX="232.0" layoutY="244.0" spacing="20.0" AnchorPane.leftAnchor="232.0">
+-+        <AnchorPane>
+-+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Utente" textAlignment="RIGHT" wrappingWidth="108" AnchorPane.topAnchor="5.0" />
+-+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="RIGHT" wrappingWidth="106" AnchorPane.topAnchor="35.0" />
+-+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="RIGHT" wrappingWidth="107" AnchorPane.topAnchor="65.0" />
+-+            <Text layoutX="964.8" strokeType="OUTSIDE" strokeWidth="0.0" text="Conferma Password" textAlignment="RIGHT" wrappingWidth="121.19993895292282" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="95.0" />
+-+        </AnchorPane>
+-+        <VBox spacing="5.0">
+-+            <TextField promptText="Nome" />
+-+            <TextField promptText="Email" />
+-+            <PasswordField promptText="Password" />
+-+            <PasswordField promptText="Conferma Password" />
+-+        </VBox>
+-+    </HBox>
+-+</AnchorPane>
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12__Changes_.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_14_12_2023_12_12_[Changes]" date="1702552380883" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 14/12/2023 12:12 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12_[Changes]/shelved.patch	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,121 +0,0 @@
+-Index: src/main/java/logic/MainApplication.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MainApplication extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();\r\n        loginCtrlGrafico.start(stage);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/logic/MainApplication.java b/src/main/java/logic/MainApplication.java
+---- a/src/main/java/logic/MainApplication.java	(revision 8eedbeeed402ad31ca1992c4fc0e1dcb9b522fc4)
+-+++ b/src/main/java/logic/MainApplication.java	(date 1702551809984)
+-@@ -6,6 +6,7 @@
+- 
+- public class MainApplication extends Application {
+- 
+-+
+-     @Override
+-     public void start(Stage stage) throws IOException {
+-         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
+-Index: src/main/resources/view/login.fxml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.PasswordField?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<AnchorPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\"\r\n            prefHeight=\"720.0\" prefWidth=\"1280.0\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"logic.LoginCtrlGrafico\">\r\n    <ImageView fitHeight=\"74.0\" fitWidth=\"79.0\" layoutX=\"600.0\" layoutY=\"56.0\" pickOnBounds=\"true\" preserveRatio=\"true\"\r\n               AnchorPane.leftAnchor=\"603.0\" AnchorPane.rightAnchor=\"603.0\" AnchorPane.topAnchor=\"56.0\">\r\n        <Image url=\"@../photo/spotify.png\" />\r\n    </ImageView>\r\n    <AnchorPane layoutX=\"750.0\" layoutY=\"238.0\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\"\r\n                minWidth=\"-Infinity\" prefHeight=\"315.0\" prefWidth=\"286.0\" AnchorPane.bottomAnchor=\"200.0\"\r\n                AnchorPane.topAnchor=\"200.4\">\r\n        <Button fx:id=\"login\" layoutX=\"158.0\" layoutY=\"236.0\" mnemonicParsing=\"false\" onAction=\"#onLoginClick\"\r\n                text=\"Login\" AnchorPane.bottomAnchor=\"70.0\" AnchorPane.leftAnchor=\"100.0\"\r\n                AnchorPane.rightAnchor=\"100.0\"/>\r\n        <PasswordField fx:id=\"password\" layoutX=\"149.0\" layoutY=\"170.0\" prefHeight=\"30.0\" prefWidth=\"150.0\"\r\n                       promptText=\"Password\" AnchorPane.rightAnchor=\"20.0\" AnchorPane.topAnchor=\"160.0\"/>\r\n        <TextField fx:id=\"username\" layoutX=\"149.0\" layoutY=\"81.0\" prefHeight=\"30.0\" prefWidth=\"150.0\"\r\n                   promptText=\"Email\" AnchorPane.rightAnchor=\"20.0\" AnchorPane.topAnchor=\"80.0\"/>\r\n        <Label layoutX=\"20.0\" layoutY=\"86.0\" prefHeight=\"17.0\" prefWidth=\"71.0\" text=\"Username\"\r\n               AnchorPane.leftAnchor=\"20.0\" AnchorPane.topAnchor=\"86.0\"/>\r\n        <Label layoutX=\"20.0\" layoutY=\"166.0\" prefHeight=\"17.0\" prefWidth=\"71.0\" text=\"Password\"\r\n               AnchorPane.leftAnchor=\"20.0\" AnchorPane.topAnchor=\"166.0\"/>\r\n        <Label fx:id=\"textLogin\" layoutX=\"133.0\" layoutY=\"280.0\" prefHeight=\"17.0\" prefWidth=\"96.0\" textFill=\"RED\"\r\n               AnchorPane.bottomAnchor=\"30.0\" AnchorPane.leftAnchor=\"80.0\" AnchorPane.rightAnchor=\"80.0\">\r\n          <font>\r\n              <Font size=\"18.0\"/>\r\n          </font>\r\n        </Label>\r\n    </AnchorPane>\r\n    <AnchorPane layoutX=\"205.0\" layoutY=\"276.0\" prefHeight=\"320.0\" prefWidth=\"238.0\" AnchorPane.bottomAnchor=\"200.0\"\r\n                AnchorPane.topAnchor=\"200.0\">\r\n        <Button fx:id=\"register\" mnemonicParsing=\"false\" onAction=\"#onRegisterClick\" prefHeight=\"30.0\" prefWidth=\"150.0\"\r\n                text=\"Registrazione\" AnchorPane.bottomAnchor=\"80.0\" AnchorPane.leftAnchor=\"40.0\"\r\n                AnchorPane.rightAnchor=\"40.0\"/>\r\n        <Button mnemonicParsing=\"false\" prefHeight=\"30.0\" prefWidth=\"150.0\" text=\"Continua come Host\"\r\n                AnchorPane.leftAnchor=\"40.0\" AnchorPane.rightAnchor=\"40.0\" AnchorPane.topAnchor=\"80.0\"/>\r\n    </AnchorPane>\r\n</AnchorPane>\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/view/login.fxml b/src/main/resources/view/login.fxml
+---- a/src/main/resources/view/login.fxml	(revision 8eedbeeed402ad31ca1992c4fc0e1dcb9b522fc4)
+-+++ b/src/main/resources/view/login.fxml	(date 1702552087071)
+-@@ -1,47 +1,36 @@
+- <?xml version="1.0" encoding="UTF-8"?>
+- 
+--<?import javafx.scene.control.Button?>
+--<?import javafx.scene.control.Label?>
+--<?import javafx.scene.control.PasswordField?>
+--<?import javafx.scene.control.TextField?>
+--<?import javafx.scene.image.Image?>
+--<?import javafx.scene.image.ImageView?>
+--<?import javafx.scene.layout.AnchorPane?>
+--<?import javafx.scene.text.Font?>
+-+<?import javafx.scene.control.*?>
+-+<?import javafx.scene.image.*?>
+-+<?import javafx.scene.layout.*?>
+-+<?import javafx.scene.text.*?>
+- 
+--<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+--            prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginCtrlGrafico">
+--    <ImageView fitHeight="74.0" fitWidth="79.0" layoutX="600.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true"
+--               AnchorPane.leftAnchor="603.0" AnchorPane.rightAnchor="603.0" AnchorPane.topAnchor="56.0">
+-+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.LoginCtrlGrafico">
+-+    <ImageView fitHeight="152.0" fitWidth="192.0" layoutX="298.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="830.0" AnchorPane.topAnchor="209.0">
+-         <Image url="@../photo/spotify.png" />
+-     </ImageView>
+--    <AnchorPane layoutX="750.0" layoutY="238.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+--                minWidth="-Infinity" prefHeight="315.0" prefWidth="286.0" AnchorPane.bottomAnchor="200.0"
+--                AnchorPane.topAnchor="200.4">
+--        <Button fx:id="login" layoutX="158.0" layoutY="236.0" mnemonicParsing="false" onAction="#onLoginClick"
+--                text="Login" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="100.0"
+--                AnchorPane.rightAnchor="100.0"/>
+--        <PasswordField fx:id="password" layoutX="149.0" layoutY="170.0" prefHeight="30.0" prefWidth="150.0"
+--                       promptText="Password" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="160.0"/>
+--        <TextField fx:id="username" layoutX="149.0" layoutY="81.0" prefHeight="30.0" prefWidth="150.0"
+--                   promptText="Email" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0"/>
+--        <Label layoutX="20.0" layoutY="86.0" prefHeight="17.0" prefWidth="71.0" text="Username"
+--               AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="86.0"/>
+--        <Label layoutX="20.0" layoutY="166.0" prefHeight="17.0" prefWidth="71.0" text="Password"
+--               AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="166.0"/>
+--        <Label fx:id="textLogin" layoutX="133.0" layoutY="280.0" prefHeight="17.0" prefWidth="96.0" textFill="RED"
+--               AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0">
+--          <font>
+--              <Font size="18.0"/>
+--          </font>
+-+    <AnchorPane layoutX="885.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="286.0" AnchorPane.bottomAnchor="200.39999999999998" AnchorPane.topAnchor="200.0">
+-+        <Button fx:id="login" layoutX="158.0" layoutY="236.0" mnemonicParsing="false" onAction="#onLoginClick" text="Login" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+-+        <PasswordField fx:id="password" layoutX="149.0" layoutY="170.0" prefHeight="30.0" prefWidth="150.0" promptText="Password" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="160.0" />
+-+        <TextField fx:id="username" layoutX="149.0" layoutY="81.0" prefHeight="30.0" prefWidth="150.0" promptText="Email" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0" />
+-+        <Label layoutX="20.0" layoutY="86.0" prefHeight="17.0" prefWidth="71.0" text="Username" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="86.0" />
+-+        <Label layoutX="20.0" layoutY="166.0" prefHeight="17.0" prefWidth="71.0" text="Password" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="166.0" />
+-+        <Label fx:id="textLogin" layoutX="133.0" layoutY="280.0" prefHeight="17.0" prefWidth="96.0" textFill="RED" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0">
+-+            <font>
+-+                <Font size="18.0" />
+-+            </font>
+-         </Label>
+-     </AnchorPane>
+--    <AnchorPane layoutX="205.0" layoutY="276.0" prefHeight="320.0" prefWidth="238.0" AnchorPane.bottomAnchor="200.0"
+--                AnchorPane.topAnchor="200.0">
+--        <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="30.0" prefWidth="150.0"
+--                text="Registrazione" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="40.0"
+--                AnchorPane.rightAnchor="40.0"/>
+--        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Continua come Host"
+--                AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="80.0"/>
+-+    <AnchorPane layoutX="255.0" layoutY="419.0" prefHeight="152.0" prefWidth="238.0" AnchorPane.bottomAnchor="151.0" AnchorPane.topAnchor="419.0">
+-+        <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="30.0" prefWidth="150.0" text="Registrazione" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="100.0" />
+-+        <Button layoutX="40.0" layoutY="66.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Continua come Guest" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0" />
+-     </AnchorPane>
+--</AnchorPane>
+-+    <AnchorPane prefHeight="66.0" prefWidth="1280.0" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+-+        <Text fill="#00ff1a" layoutX="602.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="14.0">
+-+            <font>
+-+                <Font name="System Bold" size="18.0" />
+-+            </font>
+-+        </Text>
+-+    </AnchorPane>
+-+
+-+</AnchorPane>
+-\ No newline at end of file
+-Index: src/main/resources/styles/styles.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+-new file mode 100644
+---- /dev/null	(date 1702552038360)
+-+++ b/src/main/resources/styles/styles.css	(date 1702552038360)
+-@@ -0,0 +1,5 @@
+-+/* styles.css */
+-+.button {
+-+    -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+-+    -fx-text-fill: white; /* Colore del testo bianco */
+-+}
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56_[Changes]/shelved.patch	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,35 +0,0 @@
+-Index: src/main/java/logic/MainApplication.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MainApplication extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();\r\n        loginCtrlGrafico.start(stage);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/logic/MainApplication.java b/src/main/java/logic/MainApplication.java
+---- a/src/main/java/logic/MainApplication.java	(revision 42d41c40200a26d975dfda32bed7c285e2153a44)
+-+++ b/src/main/java/logic/MainApplication.java	(date 1702552375218)
+-@@ -6,6 +6,7 @@
+- 
+- public class MainApplication extends Application {
+- 
+-+
+-     @Override
+-     public void start(Stage stage) throws IOException {
+-         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
+-Index: src/main/resources/styles/styles.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>/* styles.css */\r\n.button {\r\n    -fx-background-color: #4CAF50; /* Colore di sfondo verde */\r\n    -fx-text-fill: white; /* Colore del testo bianco */\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+---- a/src/main/resources/styles/styles.css	(revision 42d41c40200a26d975dfda32bed7c285e2153a44)
+-+++ b/src/main/resources/styles/styles.css	(date 1702552380478)
+-@@ -2,4 +2,4 @@
+- .button {
+-     -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+-     -fx-text-fill: white; /* Colore del testo bianco */
+--}
+-+}
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56__Changes_.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_14_12_2023_12_56_[Changes]" date="1702555019041" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 14/12/2023 12:56 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03_[Changes]/shelved.patch	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,36 +0,0 @@
+-Index: src/main/java/logic/MainApplication.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MainApplication extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();\r\n        loginCtrlGrafico.start(stage);\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/logic/MainApplication.java b/src/main/java/logic/MainApplication.java
+---- a/src/main/java/logic/MainApplication.java	(revision 2cb202ebcadaebeffe5a83321f97dfa5779f1e42)
+-+++ b/src/main/java/logic/MainApplication.java	(date 1702482026878)
+-@@ -6,6 +6,7 @@
+- 
+- public class MainApplication extends Application {
+- 
+-+
+-     @Override
+-     public void start(Stage stage) throws IOException {
+-         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
+-Index: src/main/java/logic/HomePageCtrlGrafico.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package logic;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class HomePageCtrlGrafico {\r\n    public void start(Stage stage) throws IOException {\r\n        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(\"/view/homePage.fxml\"));\r\n\r\n        Scene scene = new Scene(fxmlLoader.load(), 1080, 720);\r\n        stage.setTitle(\"Home Page\");\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/logic/HomePageCtrlGrafico.java b/src/main/java/logic/HomePageCtrlGrafico.java
+---- a/src/main/java/logic/HomePageCtrlGrafico.java	(revision 2cb202ebcadaebeffe5a83321f97dfa5779f1e42)
+-+++ b/src/main/java/logic/HomePageCtrlGrafico.java	(date 1702482031306)
+-@@ -9,7 +9,6 @@
+- public class HomePageCtrlGrafico {
+-     public void start(Stage stage) throws IOException {
+-         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/homePage.fxml"));
+--
+-         Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
+-         stage.setTitle("Home Page");
+-         stage.setScene(scene);
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26__Changes_.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_21_12_2023_10_26_[Changes]" date="1703150865027" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 21/12/2023 10:26 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26_[Changes]/shelved.patch	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,110 +0,0 @@
+-Index: src/main/java/module-info.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>module logic {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n    exports controllerApplicativo;\r\n    opens controllerApplicativo to javafx.fxml;\r\n    exports engineering;\r\n    opens engineering to javafx.fxml;\r\n    exports start;\r\n    opens start to javafx.fxml;\r\n    exports veiw;\r\n    opens veiw to javafx.fxml;\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+---- a/src/main/java/module-info.java	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
+-+++ b/src/main/java/module-info.java	(date 1703150776572)
+-@@ -4,10 +4,12 @@
+- 
+-     exports controllerApplicativo;
+-     opens controllerApplicativo to javafx.fxml;
+--    exports engineering;
+--    opens engineering to javafx.fxml;
+-+    exports engineering.dao;
+-+    opens engineering.dao to javafx.fxml;
+-     exports start;
+-     opens start to javafx.fxml;
+-     exports veiw;
+-     opens veiw to javafx.fxml;
+-+    exports engineering.bean;
+-+    opens engineering.bean to javafx.fxml;
+- }
+-\ No newline at end of file
+-Index: src/main/java/veiw/LoginCtrlGrafico.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package veiw;\r\n\r\nimport controllerApplicativo.LoginCtrlApplicativo;\r\nimport engineering.LoginBean;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.*;\r\nimport javafx.stage.Stage;\r\nimport start.MainApplication;\r\n\r\nimport java.io.IOException;\r\nimport java.util.regex.Matcher;\r\nimport java.util.regex.Pattern;\r\n\r\nimport static java.lang.System.exit;\r\n\r\npublic class LoginCtrlGrafico {\r\n    public Button login, register;\r\n    public PasswordField password;\r\n    public TextField username;\r\n    @FXML\r\n    private Label textLogin;\r\n\r\n    public void start(Stage stage) throws IOException {\r\n        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(\"/view/login.fxml\"));\r\n        Scene scene = new Scene(fxmlLoader.load());\r\n        stage.setTitle(\"Access Login\");\r\n        stage.setResizable(false);\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n    @FXML\r\n    protected void onLoginClick() throws IOException {\r\n\r\n        String email = username.getText();\r\n        String pass = password.getText();\r\n\r\n        if (!verificaEmailCorrect(email)){\r\n            // Controlli se i parametri scritti sono funzionanti\r\n            textLogin.isVisible();\r\n            textLogin.setText(\"Email non valida\");\r\n            exit(0);\r\n        }\r\n\r\n        // Creo la bean e imposto i parametri\r\n        LoginBean loginBean = new LoginBean(email,pass);\r\n\r\n        // se credenziali ok --> questo va qua?\r\n        LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();\r\n\r\n        if (loginCtrlApp.verificaCredenziali(loginBean)) {\r\n            /*Credenziali corrette, mostro la home page*/\r\n            Stage stage = (Stage) login.getScene().getWindow();\r\n            HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();\r\n            homePageCGUI.start(stage);\r\n\r\n        } else {\r\n            /*Credenziali non valide*/\r\n            textLogin.isVisible();\r\n            textLogin.setText(\"Credenziali errate\");\r\n        }\r\n    }\r\n    @FXML\r\n    protected void onRegisterClick() throws IOException { // Non devo fa controlli\r\n        Stage stage = (Stage) register.getScene().getWindow();\r\n        RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();\r\n        registrazioneCtrlGrafico.start(stage);\r\n    }\r\n\r\n    @FXML\r\n    protected void onGuestClick() throws IOException { // Non devo fa controlli\r\n        Stage stage = (Stage) register.getScene().getWindow();\r\n        RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();\r\n        registrazioneCtrlGrafico.start(stage);\r\n    }\r\n\r\n    /*Questo va qua? non c'è riuso di codice*/\r\n    public boolean verificaEmailCorrect(String email) {\r\n        /*Controllo basico se ha almeno una @ e un punto dopo la @? */\r\n        // Definisci il pattern per una email valida\r\n        String emailRegex = \"^[a-zA-Z0-9_+&*-]+(?:\\\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,7}$\";\r\n\r\n        // Crea un oggetto Pattern\r\n        Pattern pattern = Pattern.compile(emailRegex);\r\n\r\n        // Crea un oggetto Matcher con la stringa email da verificare\r\n        Matcher matcher = pattern.matcher(email);\r\n\r\n        // Verifica se il formato dell'email è valido\r\n        return matcher.matches();\r\n    }\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/veiw/LoginCtrlGrafico.java b/src/main/java/veiw/LoginCtrlGrafico.java
+---- a/src/main/java/veiw/LoginCtrlGrafico.java	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
+-+++ b/src/main/java/veiw/LoginCtrlGrafico.java	(date 1702914034488)
+-@@ -1,7 +1,7 @@
+- package veiw;
+- 
+- import controllerApplicativo.LoginCtrlApplicativo;
+--import engineering.LoginBean;
+-+import engineering.bean.LoginBean;
+- import javafx.fxml.FXML;
+- import javafx.fxml.FXMLLoader;
+- import javafx.scene.Scene;
+-Index: src/main/resources/styles/styles.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>/* styles.css */\r\n.button {\r\n    -fx-background-color: #4CAF50; /* Colore di sfondo verde */\r\n    -fx-text-fill: white; /* Colore del testo bianco */\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+---- a/src/main/resources/styles/styles.css	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
+-+++ b/src/main/resources/styles/styles.css	(date 1702912306497)
+-@@ -2,4 +2,4 @@
+- .button {
+-     -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+-     -fx-text-fill: white; /* Colore del testo bianco */
+--}
+-+}
+-\ No newline at end of file
+-Index: src/main/java/controllerApplicativo/LoginCtrlApplicativo.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package controllerApplicativo;\r\n\r\nimport engineering.LoginBean;\r\n\r\npublic class LoginCtrlApplicativo {\r\n    // implemento la logica dello use case\r\n    public boolean verificaCredenziali(LoginBean bean) {\r\n        // Esempio di verifica delle credenziali rigida\r\n        // Credenziali errate\r\n        return bean.getEmail().equals(\"admin@gmail.com\") && bean.getPassword().equals(\"1234\"); // Credenziali corrette\r\n    }\r\n\r\n\r\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java b/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java
+---- a/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
+-+++ b/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java	(date 1702914034454)
+-@@ -1,6 +1,6 @@
+- package controllerApplicativo;
+- 
+--import engineering.LoginBean;
+-+import engineering.bean.LoginBean;
+- 
+- public class LoginCtrlApplicativo {
+-     // implemento la logica dello use case
+-Index: src/main/java/engineering/dao/UserDAO.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/engineering/dao/UserDAO.java b/src/main/java/engineering/dao/UserDAO.java
+-new file mode 100644
+---- /dev/null	(date 1702914034514)
+-+++ b/src/main/java/engineering/dao/UserDAO.java	(date 1702914034514)
+-@@ -0,0 +1,4 @@
+-+package engineering.dao;
+-+
+-+public class UserDAO {
+-+}
+-Index: src/main/java/engineering/LoginBean.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/engineering/LoginBean.java b/src/main/java/engineering/bean/LoginBean.java
+-rename from src/main/java/engineering/LoginBean.java
+-rename to src/main/java/engineering/bean/LoginBean.java
+---- a/src/main/java/engineering/LoginBean.java	(revision 22f55003b11794ead1e55f0460377ab005ead8d2)
+-+++ b/src/main/java/engineering/bean/LoginBean.java	(date 1702914034469)
+-@@ -1,4 +1,4 @@
+--package engineering;
+-+package engineering.bean;
+- 
+- public class LoginBean {
+- 
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09__Changes_.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_15_12_2023_15_09_[Changes]" date="1702649348327" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 15/12/2023 15:09 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03__Changes_.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_14_12_2023_12_03_[Changes]" date="1702551828090" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 14/12/2023 12:03 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_1.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_21_12_2023_10_44_[Changes]1" date="1703151960373" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 21/12/2023 10:44 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11_[Changes]1/shelved.patch	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,64 +0,0 @@
+-Index: src/main/resources/styles/styles.css
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>/* styles.css */\r\n.button {\r\n    -fx-background-color: #4CAF50; /* Colore di sfondo verde */\r\n    -fx-text-fill: white; /* Colore del testo bianco */\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/resources/styles/styles.css b/src/main/resources/styles/styles.css
+---- a/src/main/resources/styles/styles.css	
+-+++ b/src/main/resources/styles/styles.css	
+-@@ -2,4 +2,4 @@
+- .button {
+-     -fx-background-color: #4CAF50; /* Colore di sfondo verde */
+-     -fx-text-fill: white; /* Colore del testo bianco */
+--}
+-+}
+-\ No newline at end of file
+-Index: src/main/java/logic/LoginBean.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/logic/LoginBean.java b/src/main/java/logic/LoginBean.java
+-new file mode 100644
+---- /dev/null	
+-+++ b/src/main/java/logic/LoginBean.java	
+-@@ -0,0 +1,22 @@
+-+package logic;
+-+
+-+public class LoginBean {
+-+    private String email;
+-+    private String password;
+-+
+-+    public void setEmail(String email) {
+-+        this.email = email;
+-+    }
+-+
+-+    public void setPassword(String password) {
+-+        this.password = password;
+-+    }
+-+
+-+    public String getEmail() {
+-+        return email;
+-+    }
+-+
+-+    public String getPassword() {
+-+        return password;
+-+    }
+-+}
+-Index: .idea/misc.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"workspaceImportForciblyTurnedOn\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/misc.xml b/.idea/misc.xml
+---- a/.idea/misc.xml	
+-+++ b/.idea/misc.xml	
+-@@ -1,4 +1,3 @@
+--<?xml version="1.0" encoding="UTF-8"?>
+- <project version="4">
+-   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-   <component name="MavenProjectsManager">
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25__Changes_1.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ /dev/null	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_14_12_2023_14_25_[Changes]1" date="1702560337902" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 14/12/2023 14:25 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5ab3b5b7-0136-4bcd-b52a-626b23fdea42\" name=\"Changes\" comment=\"Merge corretto, persistenze file e db\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/configuration.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_1.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_1.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMONGO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_MONGO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_JSON.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_JSON.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/model/User.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/model/User.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"Interface\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;mzlala&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"abec164f-27d4-42ac-a43d-09f2629c05d4\" />\r\n        <option name=\"url\" value=\"https://github.com/mzlala/PROG_ISPW.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2ZoVPF9GIOXZOMXQACOzvhMkf5x\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.MongoDBConnector.executor&quot;: &quot;Run&quot;,\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Desktop/ISPW/Materiale Prof/peristencyExample&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.37587237&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\andre\\Desktop\\ISPW\\Progetto\\PROG_ISPW\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\cinel\\Desktop\\Università\\ISPW\\Progetto\\PROG_ISPW\\src\\main\\java\\logic\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"StartByMain\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"start.MainApplication\" />\r\n      <module name=\"spotify\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"PROG_ISPW\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"PROG_ISPW\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5ab3b5b7-0136-4bcd-b52a-626b23fdea42\" name=\"Changes\" comment=\"\" />\r\n      <created>1703088395878</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1703088395878</updated>\r\n      <workItem from=\"1703088399448\" duration=\"14000\" />\r\n      <workItem from=\"1703142487444\" duration=\"4686000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Merge corretto, persistenze file e db\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703152476839</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703152476840</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Merge corretto, persistenze file e db\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Merge corretto, persistenze file e db\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6f0f3bb12e292428358f8edb0d4ac32095994084)
++++ b/.idea/workspace.xml	(date 1706183671817)
+@@ -5,17 +5,17 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Merge corretto, persistenze file e db">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/configuration.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/generi musicali" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_03_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_12_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_12_56_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25_[Changes]1/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_12_2023_15_09_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11_[Changes]1/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_26_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44_[Changes]1/shelved.patch" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMONGO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_MONGO.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_JSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_JSON.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -142,7 +142,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1703152476840</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="Merge corretto, persistenze file e db">
++      <option name="closed" value="true" />
++      <created>1703170070901</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1703170070901</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+diff --git a/src/main/resources/generi musicali b/src/main/resources/generi musicali
+new file mode 100644
