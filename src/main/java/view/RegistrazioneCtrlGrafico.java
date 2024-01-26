@@ -68,8 +68,8 @@ public class RegistrazioneCtrlGrafico {
 
         if (userBean != null) {
             RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
-            reg_CtrlApp.registerUserDB(userBean);
-
+            reg_CtrlApp.registerUserDB(userBean); //uso metodo controller per registrare un utente sul DB
+            reg_CtrlApp.registerUserFS(userBean); //uso metodo controller per registrare un utente sul FS
             // Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) registrazione.getScene().getWindow();
             HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
@@ -146,8 +146,8 @@ public class RegistrazioneCtrlGrafico {
         return preferences;
     }
 
-    // Mostra un messaggio di errore nell'interfaccia utente.
     private void showError(String message) {
+        // Mostra un messaggio di errore nell'interfaccia utente.
         error_field.setText(message);
         error_field.setVisible(true);
     }

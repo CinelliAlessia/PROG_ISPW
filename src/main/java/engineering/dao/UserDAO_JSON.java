@@ -16,8 +16,9 @@ public class UserDAO_JSON implements UserDAO {
 
     @Override
     public void insertUser(User user) {
+        // Utilizzato per aggiungere un utente al file system
         // Costruisci il percorso della directory dell'utente (presumibilmente basandoti sulla mail come nome utente)
-        Path userDirectory = Paths.get(BASE_DIRECTORY, user.getEmail());
+        Path userDirectory = Paths.get(BASE_DIRECTORY, user.getEmail() );
 
         try {
             // Crea la directory con il nome dell'utente se non esiste
@@ -38,7 +39,6 @@ public class UserDAO_JSON implements UserDAO {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public String getPasswordByEmail(String email) {
@@ -68,35 +68,9 @@ public class UserDAO_JSON implements UserDAO {
         return null;
     }
 
-
-    public void saveUser(User user){
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(user);
-
-        Path userDirectory = Paths.get(BASE_DIRECTORY, user.getNome());
-
-        try {
-            // Crea la directory con il nome del'utente per l'utente se non esiste
-            Files.createDirectories(userDirectory);
-
-            // Crea un file JSON per l'utente (es. "playlist.json")
-            String fileName = "info.json";
-            Path userFile = userDirectory.resolve(fileName);
-
-            // Scrivi il JSON nel file
-            FileWriter fileWriter = new FileWriter(userFile.toString(), true);
-            fileWriter.write(json + "\n");
-            fileWriter.close();
-
-            System.out.println("Utente registrato con successo!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     @Override
     public void deleteUser(User userInstance) {
-        Path userDirectory = Paths.get(BASE_DIRECTORY, userInstance.getNome());
+        Path userDirectory = Paths.get(BASE_DIRECTORY, userInstance.getEmail());
 
         try {
             Files.walk(userDirectory)
@@ -111,6 +85,7 @@ public class UserDAO_JSON implements UserDAO {
         }
     }
     @Override
+    // questa funzione assume di avere un FS dove le cartelle sono nominate tramite username
     public void retreiveUserByUserName(String username) {
         Path userDirectory = Paths.get(BASE_DIRECTORY, username);
 
