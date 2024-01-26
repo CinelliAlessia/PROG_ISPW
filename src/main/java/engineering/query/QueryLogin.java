@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package engineering.query;
 
 import model.User;
@@ -21,38 +16,37 @@ public class QueryLogin {
         String name = user.getNome();
         String email = user.getEmail();
         String pw = user.getPass();
-        String insertStatement = String.format("INSERT INTO User (username, email, password) VALUES ('%s','%s','%s')", name, email, pw);
-        insertGeneriMusicali(stmt,email,user.getPref());
-        stmt.executeUpdate(insertStatement);
+
+        // Esegui prima l'inserimento nella tabella 'user'
+        String insertUserStatement = String.format("INSERT INTO user (username, email, password) VALUES ('%s','%s','%s')", name, email, pw);
+        stmt.executeUpdate(insertUserStatement);
+
+        // Poi inserisci i generi musicali nella tabella 'generi_musicali'
+        insertGeneriMusicali(stmt, email, user.getPref());
     }
 
     public static void insertGeneriMusicali(Statement stmt, String userEmail, ArrayList<String> generiMusicali) throws SQLException {
         // Costruisci la query di inserimento
-        StringBuilder query = new StringBuilder("INSERT INTO generimusicali (user_email, Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, Reb, Country, Alternative) VALUES ");
-        query.append(String.format("('%s',", userEmail));
+        StringBuilder query = new StringBuilder("INSERT INTO generi_musicali (Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative, user_email) VALUES (");
+
+        String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
 
         // Aggiungi i valori booleani alla query
-        for (String genere : generiMusicali) {
-            query.append(String.format(" '%d',", generiMusicali.contains(genere) ? 1 : 0));
+        for (String genere : genres) {
+            query.append(generiMusicali.contains(genere) ? "1, " : "0, ");
         }
 
-        // Rimuovi l'ultima virgola
-        query.deleteCharAt(query.length() - 1);
-
-        // Completa la query
-        query.append(")");
+        query.append(String.format("'%s')", userEmail));
 
         // Esegui la query
         stmt.executeUpdate(query.toString());
     }
 
-
     // Query per prendere la email, utilizzata nella registrazione per vedere se l'email è già registrata
     public static ResultSet loginUser(Statement stmt, String username) throws SQLException {
-        String sql = "SELECT * FROM user WHERE Username = '" + username + "';";
+        String sql = "SELECT * FROM user WHERE username = '" + username + "';";
         return stmt.executeQuery(sql);
     }
-
 
     // Query per prendere la password della email passata come argomento
     public static ResultSet getUserPassword(Statement stmt, String email) throws SQLException {

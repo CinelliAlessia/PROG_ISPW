@@ -1,8 +1,6 @@
 package controllerApplicativo;
 
 import engineering.bean.UserBean;
-import engineering.dao.UserDAO;
-import engineering.dao.UserDAOMONGO;
 import engineering.dao.UserDAO_JSON;
 import engineering.dao.UserDAO_mySQL;
 import engineering.exceptions.EmailAlreadyInUse;
@@ -18,15 +16,9 @@ public class RegistrazioneCtrlApplicativo {
         dao.insertUser(user);
     }
 
-    public void registerUserDBMongo(UserBean bean) {
-        User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), bean.getPreferences());
-        UserDAO userDAOmongo = new UserDAOMONGO();
-        userDAOmongo.insertUser(user);
-    }
-
     public void registerUserDB(UserBean bean) throws EmailAlreadyInUse, SQLException, ClassNotFoundException {
         User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), bean.getPreferences());
-        UserDAO_mySQL.insertUser(user);
+        UserDAO_mySQL.insertUser(user); // Qui devo chiamare UserDao qaundo farò implements
     }
 
 }

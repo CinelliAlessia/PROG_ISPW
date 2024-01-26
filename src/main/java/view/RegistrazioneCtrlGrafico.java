@@ -126,7 +126,7 @@ public class RegistrazioneCtrlGrafico {
             preferences.add("House");
         }
         if (hipHop.isSelected()) {
-            preferences.add("Hip Hop");
+            preferences.add("HipHop");
         }
         if (jazz.isSelected()) {
             preferences.add("Jazz");

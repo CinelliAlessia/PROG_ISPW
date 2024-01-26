@@ -56,7 +56,6 @@ public class LoginCtrlGrafico {
             Stage stage = (Stage) login.getScene().getWindow();
             HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
             homePageCGUI.start(stage);
-
         } else { /*Credenziali non valide*/
             textLogin.isVisible();
             textLogin.setText("Credenziali errate");
