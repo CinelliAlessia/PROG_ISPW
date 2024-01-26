@@ -8,20 +8,6 @@ import model.User;
 public class LoginCtrlApplicativo {
     // implemento la logica dello use case
 
-    /* public boolean verificaCredenziali(LoginBean bean) {
-        // Esempio di verifica delle credenziali rigida
-        // Credenziali errate
-        return bean.getEmail().equals("admin@gmail.com") && bean.getPassword().equals("1234"); // Credenziali corrette
-    }*/
-
-    /*
-    private final UserDAO userDAO; // Inizializzato nel costruttore o mediante injection.
-
-    public LoginCtrlApplicativo(UserDAO userDAO) {
-        this.userDAO = userDAO;
-    }*/
-
-
     public LoginCtrlApplicativo() {
     }
 

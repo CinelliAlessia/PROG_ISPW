@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -20,16 +22,29 @@ import java.util.regex.Pattern;
 
 public class RegistrazioneCtrlGrafico {
     // ---------Nodi interfaccia----------
-    public Button back;
-    public TextField name, email, password, conf_password;
-    public Text error_pw;
-    private ArrayList <String> preferences;
-    //-----------------------------------
-    private String user_name,user_email,user_password, user_conf_pw; // Dati
+    @FXML
+    public Button back, registrazione;
 
+    @FXML
+    public TextField name, email;
+
+    @FXML
+    public PasswordField password, conf_password;
+
+    @FXML
+    public Text error_field;
+
+    @FXML
+    public CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
+    // Aggiungi checkbox per altri generi musicali
+
+
+    private ArrayList<String> preferences;
+    private String user_email, user_password, user_conf_pw; // Dati
+
+    // Inizia la visualizzazione della finestra di registrazione.
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/registrazione.fxml"));
-
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Registrazione");
@@ -37,6 +52,7 @@ public class RegistrazioneCtrlGrafico {
         stage.show();
     }
 
+    // Gestisce l'evento di clic sul pulsante di ritorno (back).
     @FXML
     protected void onBackClick() throws IOException {
         Stage stage = (Stage) back.getScene().getWindow();
@@ -44,133 +60,116 @@ public class RegistrazioneCtrlGrafico {
         loginCtrlGrafico.start(stage);
     }
 
+    // Gestisce l'evento di clic sul pulsante di registrazione.
     @FXML
-    protected void onRegisterClick() throws IOException {
-        getData();
-        RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
+    protected void onRegisterClick() throws IOException, EmailAlreadyInUse, SQLException, ClassNotFoundException {
 
-        /*ANDREA DICE CHE CHIAMI A FARE 3 VOLTE SE PUOI FARLO FARE DIRETTAMENTE A LUI*/
+        UserBean userBean = getData();
 
-        // Questo dovrebbe essere fatto qui, senza chiamare il ctrl applicativo
-
-        if(verificaPassword(user_password,user_conf_pw)){
-            // i campi password e conferma password non corrispondono
-            error_pw.setText("LE PASSWORD NON CORRISPONDONO");
-            error_pw.setVisible(true);
-        } else if (verificaEmailCorrect(user_email)) {
-            //Controllo se email è corretto
-            error_pw.setText("EMAIL NON VALIDA");
-            error_pw.setVisible(true);
-        } else if(verificaRegistrazioneEsistente(user_password,user_conf_pw)){
-            //Controllo se non è già registrato
-            error_pw.setText("UTENTE GIA REGISTRATO");
-            error_pw.setVisible(true);
-        } else{
-            //Salvo utente
-            UserBean bean = new UserBean(user_name, user_email,user_password, new ArrayList<String>());
-            reg_CtrlApp.registerUserAndrea(bean); // passaggio al ctrl applicativo
-
-            //Se tutto è stato fatto è possibile impostare la scena
-            Stage stage = (Stage) back.getScene().getWindow();
-            HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
-            homePageCtrlGrafico.start(stage);
-        }
-    }
-
-    private void getData(){
-        //controlla se ha inserito davvero qualcosa
-        user_name = name.getText();
-        user_email = email.getText();
-
-        /*password in chiaro*/
-        user_password = password.getText();
-        user_conf_pw = conf_password.getText();
-    }
-
-    @FXML
-    protected void onRegisterClick2() throws IOException {
-        UserBean userBean;
-        userBean = getData2();
-
-        if(userBean != null){
+        if (userBean != null) {
             RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
-            reg_CtrlApp.registerUserDB(userBean); // passaggio al ctrl applicativo
+            reg_CtrlApp.registerUserDB(userBean);
 
-            //Se tutto è stato fatto è possibile impostare la scena
-            Stage stage = (Stage) back.getScene().getWindow();
+            // Se tutto è stato fatto è possibile impostare la scena
+            Stage stage = (Stage) registrazione.getScene().getWindow();
             HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
             homePageCtrlGrafico.start(stage);
         }
     }
 
-    private UserBean getData2(){
-        //Prendo i dati
-        user_name = name.getText();
-        user_email = email.getText();
+    // Ottiene i dati inseriti dall'utente dalla GUI e restituisce un oggetto UserBean.
+    private UserBean getData() {    // Prendo i dati
 
-        /*password in chiaro*/
+        String user_name = name.getText().trim();
+        user_email = email.getText().trim();
         user_password = password.getText();
         user_conf_pw = conf_password.getText();
 
-        if(user_name.isEmpty() || user_email.isEmpty() || user_password.isEmpty() || user_conf_pw.isEmpty()) {
-            error_pw.setText("CAMPI VUOTI");
-            error_pw.setVisible(true);
-        } else if(!verificaPassword(user_password,user_conf_pw)){
-            // i campi password e conferma password non corrispondono
-            error_pw.setText("LE PASSWORD NON CORRISPONDONO");
-            error_pw.setVisible(true);
+        preferences = retriveCheckList();
+
+        if (user_name.isEmpty() || user_email.isEmpty() || user_password.isEmpty() || user_conf_pw.isEmpty()) {
+            showError("CAMPI VUOTI");
+        } else if (!verificaPassword(user_password, user_conf_pw)) {
+            showError("LE PASSWORD NON CORRISPONDONO");
         } else if (!verificaEmailCorrect(user_email)) {
-            //Controllo se email è corretto
-            error_pw.setText("EMAIL NON VALIDA");
-            error_pw.setVisible(true);
-        } else if(!verificaRegistrazioneEsistente(user_password,user_conf_pw)){
-            //Controllo se non è già registrato
-            error_pw.setText("UTENTE GIA REGISTRATO");
-            error_pw.setVisible(true);
+            showError("EMAIL NON VALIDA");
+        } else if (!verificaRegistrazioneEsistente(user_email)) {
+            showError("UTENTE GIA REGISTRATO");
         } else {
-            UserBean userBeanInfo = new UserBean(user_name,user_email,user_password,preferences);
-            return userBeanInfo;
+            return new UserBean(user_name, user_email, user_password, preferences);
         }
 
         return null;
     }
 
+    private ArrayList<String> retriveCheckList(){
+        // Inizializza la lista dei generi musicali selezionati
+        preferences = new ArrayList<>();
 
-
-    private boolean verificaPassword(String password, String confermaPassword) {
-        if (password.equals(confermaPassword)) {
-            // La password e la conferma password corrispondono
-            // Esegui azioni appropriate (visualizza un messaggio, ecc.)
-            return true;
-        } else {
-            // La registrazione può procedere
-            // Chiamata al modello o al sistema di persistenza per salvare i dati
-            return false;
+        // Aggiungi i generi musicali selezionati alla lista
+        if (pop.isSelected()) {
+            preferences.add("Pop");
         }
+        if (indie.isSelected()) {
+            preferences.add("Indie");
+        }
+        if (classic.isSelected()) {
+            preferences.add("Classic");
+        }
+        if (rock.isSelected()) {
+            preferences.add("Rock");
+        }
+        if (electronic.isSelected()) {
+            preferences.add("Electronic");
+        }
+        if (house.isSelected()) {
+            preferences.add("House");
+        }
+        if (hipHop.isSelected()) {
+            preferences.add("Hip Hop");
+        }
+        if (jazz.isSelected()) {
+            preferences.add("Jazz");
+        }
+        if (acoustic.isSelected()) {
+            preferences.add("Acoustic");
+        }
+        if (reb.isSelected()) {
+            preferences.add("REB");
+        }
+        if (country.isSelected()) {
+            preferences.add("Country");
+        }
+        if (alternative.isSelected()) {
+            preferences.add("Alternative");
+        }
+        return preferences;
     }
 
-    //idem grafico
+    // Mostra un messaggio di errore nell'interfaccia utente.
+    private void showError(String message) {
+        error_field.setText(message);
+        error_field.setVisible(true);
+    }
+
+    // Verifica se le password inserite coincidono.
+    private boolean verificaPassword(String password, String confermaPassword) {
+        return password.equals(confermaPassword);
+    }
+
+    // Verifica la correttezza del formato dell'indirizzo email.
     private boolean verificaEmailCorrect(String email) {
-        /*Controllo basico se ha almeno una @ e un punto dopo la @? */
-        // Definisci il pattern per una email valida
+        // Controllo basico se ha almeno una @ e un punto dopo la @?
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-
-        // Crea un oggetto Pattern
         Pattern pattern = Pattern.compile(emailRegex);
-
-        // Crea un oggetto Matcher con la stringa email da verificare
         Matcher matcher = pattern.matcher(email);
-
-        // Verifica se il formato dell'email è valido
         return matcher.matches();
     }
 
-    //DA IMPLEMENTARE
-    private boolean verificaRegistrazioneEsistente(String password, String confermaPassword) {
-        // La password e la conferma password non corrispondono
-        // Esegui azioni appropriate (visualizza un messaggio, ecc.)
-        // La registrazione può procedere
-        // Chiamata al modello o al sistema di persistenza per salvare i dati
-        return password.equals(confermaPassword);
+    // DA IMPLEMENTARE
+    // Verifica se l'indirizzo email è già registrato nel sistema.
+    private boolean verificaRegistrazioneEsistente(String email) {
+        // Dobbiamo fare una query?
+        return true;
     }
 }

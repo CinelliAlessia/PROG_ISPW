@@ -18,13 +18,13 @@ public class RegistrazioneCtrlApplicativo {
         dao.insertUser(user);
     }
 
-    public void registerUserDB(UserBean bean) {
+    public void registerUserDBMongo(UserBean bean) {
         User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), bean.getPreferences());
         UserDAO userDAOmongo = new UserDAOMONGO();
         userDAOmongo.insertUser(user);
     }
 
-    public void registerUserDB2(UserBean bean) throws EmailAlreadyInUse, SQLException, ClassNotFoundException {
+    public void registerUserDB(UserBean bean) throws EmailAlreadyInUse, SQLException, ClassNotFoundException {
         User user = new User(bean.getNome(), bean.getEmail(), bean.getPass(), bean.getPreferences());
         UserDAO_mySQL.insertUser(user);
     }

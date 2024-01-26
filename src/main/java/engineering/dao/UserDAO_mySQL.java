@@ -23,19 +23,16 @@ public class UserDAO_mySQL {
 
             String username = user.getEmail();
             ResultSet rs = QueryLogin.loginUser(stmt, username);
-            if (rs.first()) {
+            if (rs.next()) {
                 throw new EmailAlreadyInUse("This username is already in use!");
             }
 
             QueryLogin.registerUser(stmt, user);
-            stmt.close();
         } finally {
             if (stmt != null) {
                 stmt.close();
             }
-
         }
-
     }
 
     public String getPasswordByEmail(String email) {
@@ -70,6 +67,4 @@ public class UserDAO_mySQL {
 
         return null; // Se non trovi una corrispondenza
     }
-
-
 }

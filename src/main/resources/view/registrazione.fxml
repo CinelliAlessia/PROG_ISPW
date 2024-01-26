@@ -13,7 +13,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RegistrazioneCtrlGrafico">
 
     <!-- Pulsante di registrazione -->
-    <Button layoutX="604.0" layoutY="590.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Registrati" />
+    <Button fx:id="registrazione" layoutX="604.0" layoutY="590.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Registrati" />
 
     <!-- Barra del titolo TopPage -->
     <AnchorPane layoutX="524.0" layoutY="-31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -28,20 +28,20 @@
     <!-- Selezione dei generi musicali - CheckBox -->
     <HBox layoutX="725.0" layoutY="207.0" prefHeight="307.0" prefWidth="522.0" spacing="20.0">
         <VBox prefHeight="307.0" prefWidth="271.0" spacing="5.0">
-            <CheckBox mnemonicParsing="false" text="Pop" />
-            <CheckBox mnemonicParsing="false" text="Indie" />
-            <CheckBox mnemonicParsing="false" text="Classic" />
-            <CheckBox mnemonicParsing="false" text="Rock" />
-            <CheckBox mnemonicParsing="false" text="Electronic" />
-            <CheckBox mnemonicParsing="false" text="House" />
+            <CheckBox fx:id="pop" mnemonicParsing="false" text="Pop" />
+            <CheckBox fx:id="indie" mnemonicParsing="false" text="Indie" />
+            <CheckBox fx:id="classic" mnemonicParsing="false" text="Classic" />
+            <CheckBox fx:id="rock" mnemonicParsing="false" text="Rock" />
+            <CheckBox fx:id="electronic" mnemonicParsing="false" text="Electronic" />
+            <CheckBox fx:id="house" mnemonicParsing="false" text="House" />
         </VBox>
         <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
-            <CheckBox mnemonicParsing="false" text="Hip Hop" />
-            <CheckBox mnemonicParsing="false" text="Jazz" />
-            <CheckBox mnemonicParsing="false" text="Acustic" />
-            <CheckBox mnemonicParsing="false" text="REB" />
-            <CheckBox mnemonicParsing="false" text="Country" />
-            <CheckBox mnemonicParsing="false" text="Alternative" />
+            <CheckBox fx:id="hipHop" mnemonicParsing="false" text="Hip Hop" />
+            <CheckBox fx:id="jazz" mnemonicParsing="false" text="Jazz" />
+            <CheckBox fx:id="acoustic" mnemonicParsing="false" text="Acustic" />
+            <CheckBox fx:id="reb" mnemonicParsing="false" text="REB" />
+            <CheckBox fx:id="country" mnemonicParsing="false" text="Country" />
+            <CheckBox fx:id="alternative" mnemonicParsing="false" text="Alternative" />
         </VBox>
     </HBox>
 
@@ -60,5 +60,5 @@
             <PasswordField fx:id="conf_password" promptText="Conferma Password" />
         </VBox>
     </HBox>
-   <Text fx:id="error_pw" fill="RED" layoutX="523.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LE PASSWORD NON CORRISPONDONO" visible="false" />
+   <Text fx:id="error_field" fill="RED" layoutX="523.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LE PASSWORD NON CORRISPONDONO" visible="false" />
 </AnchorPane>

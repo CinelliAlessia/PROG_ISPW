@@ -35,7 +35,7 @@
         <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="30.0" prefWidth="150.0"
                 text="Registrazione" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0"
                 AnchorPane.topAnchor="100.0" />
-        <Button layoutX="40.0" layoutY="66.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Continua come Guest"
+        <Button layoutX="40.0" layoutY="66.0" mnemonicParsing="false" onAction="#onGuestClick" prefHeight="30.0" prefWidth="150.0" text="Continua come Guest"
                 AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0" />
     </AnchorPane>
     <AnchorPane prefHeight="66.0" prefWidth="1280.0" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"

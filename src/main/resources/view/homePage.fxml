@@ -16,6 +16,6 @@
                 AnchorPane.topAnchor="0.0">
         <TextField prefHeight="26.0" prefWidth="356.0" promptText="Search Here" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="350.0"
                    AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0" />
-        <Button mnemonicParsing="false" text="Account" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
+        <Button mnemonicParsing="false" text="Account" onAction="#onAccountClick" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
     </AnchorPane>
 </AnchorPane>

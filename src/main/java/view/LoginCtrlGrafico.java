@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 import static java.lang.System.exit;
 
 public class LoginCtrlGrafico {
-    public Button login, register;
+    public Button login, register, account;
     public PasswordField password;
     public TextField username;
     @FXML
@@ -37,8 +37,7 @@ public class LoginCtrlGrafico {
         String email = username.getText();
         String pass = password.getText();
 
-        if (!verificaEmailCorrect(email)){
-            // Controlli se i parametri scritti sono funzionanti
+        if (!verificaEmailCorrect(email)){ // Controlli se i parametri scritti sono funzionanti
             textLogin.isVisible();
             textLogin.setText("Email non valida");
             exit(0);
@@ -51,14 +50,14 @@ public class LoginCtrlGrafico {
         LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
 
         if (loginCtrlApp.verificaCredenziali(loginBean)) {
+            System.out.println("CREDENZIALI CORRETTE");
             /*Credenziali corrette, mostro la home page*/
-            // DOvrei popolare la userBean(?)
+            // Dovrei popolare la userBean(?)
             Stage stage = (Stage) login.getScene().getWindow();
             HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
             homePageCGUI.start(stage);
 
-        } else {
-            /*Credenziali non valide*/
+        } else { /*Credenziali non valide*/
             textLogin.isVisible();
             textLogin.setText("Credenziali errate");
         }
@@ -72,10 +71,12 @@ public class LoginCtrlGrafico {
 
     @FXML
     protected void onGuestClick() throws IOException { // Non devo fa controlli
-        Stage stage = (Stage) register.getScene().getWindow();
-        RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();
-        registrazioneCtrlGrafico.start(stage);
+        Stage stage = (Stage) login.getScene().getWindow();
+        HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
+        homePageCGUI.start(stage);
     }
+
+
 
     /*Questo va qua? non c'è riuso di codice*/
     public boolean verificaEmailCorrect(String email) {
