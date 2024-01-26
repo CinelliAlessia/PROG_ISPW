@@ -3,19 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml" fx:controller="view.HomePageCtrlGrafico">
-    <TableView layoutX="122.0" layoutY="51.0" prefHeight="316.0" prefWidth="356.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="350.0"
-               AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="80.0">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HomePageCtrlGrafico">
+    <TableView layoutX="122.0" layoutY="51.0" prefHeight="316.0" prefWidth="356.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="80.0">
         <columns>
             <TableColumn prefWidth="175.0" text="Nome" />
-            <TableColumn prefWidth="75.0" text="Autore" />
+            <TableColumn prefWidth="195.79998779296875" text="Autore" />
+         <TableColumn prefWidth="125.00006103515625" text="Link" />
         </columns>
     </TableView>
-    <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                AnchorPane.topAnchor="0.0">
-        <TextField prefHeight="26.0" prefWidth="356.0" promptText="Search Here" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="350.0"
-                   AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0" />
-        <Button mnemonicParsing="false" text="Account" onAction="#onAccountClick" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TextField prefHeight="26.0" prefWidth="356.0" promptText="Search Here" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0" />
+        <Button mnemonicParsing="false" onAction="#onAccountClick" text="Account" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
     </AnchorPane>
 </AnchorPane>
