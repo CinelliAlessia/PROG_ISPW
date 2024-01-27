@@ -14,7 +14,7 @@ public class AccountCtrlGrafico {
 
     public Label usernameText;
     @FXML
-    private Button back, addButton;;
+    private Button back, addButton;
 
     public void initialize() {
         // Deve avere un userBean per compilare tutte le informazioni
