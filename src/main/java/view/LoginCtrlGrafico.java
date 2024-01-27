@@ -2,7 +2,6 @@ package view;
 
 import controllerApplicativo.LoginCtrlApplicativo;
 import engineering.bean.LoginBean;
-import engineering.bean.UserBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,9 +16,13 @@ import java.util.regex.Pattern;
 import static java.lang.System.exit;
 
 public class LoginCtrlGrafico {
-    public Button login, register, account;
-    public PasswordField password;
-    public TextField username;
+    @FXML
+    private Button login, register;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private TextField username;
+
     @FXML
     private Label textLogin;
 
@@ -74,7 +77,6 @@ public class LoginCtrlGrafico {
         HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
         homePageCGUI.start(stage);
     }
-
 
 
     /*Questo va qua? non c'è riuso di codice*/

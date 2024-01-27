@@ -1,13 +1,24 @@
 package view;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import start.MainApplication;
 
 import java.io.IOException;
 
 public class AccountCtrlGrafico {
+
+    public Label usernameText;
+    @FXML
+    private Button back, addButton;;
+
+    public void initialize() {
+        // Deve avere un userBean per compilare tutte le informazioni
+    }
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/account.fxml"));
@@ -18,4 +29,23 @@ public class AccountCtrlGrafico {
         stage.show();
     }
 
+
+    @FXML
+    public void onSaveClick() {
+    }
+
+    @FXML
+    public void onBackClick() throws IOException {
+        Stage stage = (Stage) back.getScene().getWindow();
+        HomePageCtrlGrafico home = new HomePageCtrlGrafico();
+        home.start(stage);
+    }
+
+
+    @FXML
+    public void addPlaylistClick() throws IOException {
+        Stage stage = (Stage) addButton.getScene().getWindow();
+        AddPlaylistCtrlGrafico addPlaylist = new AddPlaylistCtrlGrafico();
+        addPlaylist.start(stage);
+    }
 }

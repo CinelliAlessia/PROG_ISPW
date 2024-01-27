@@ -23,25 +23,26 @@ import java.util.regex.Pattern;
 public class RegistrazioneCtrlGrafico {
     // ---------Nodi interfaccia----------
     @FXML
-    public Button back, registrazione;
+    private Button back, registrazione;
 
     @FXML
-    public TextField name, email;
+    private TextField name, email;
 
     @FXML
-    public PasswordField password, conf_password;
+    private PasswordField password, conf_password;
 
     @FXML
-    public Text error_field;
+    private Text error_field;
 
     @FXML
-    public CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
+    private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
 
     private ArrayList<String> preferences;
-    private String user_email, user_password, user_conf_pw; // Dati
+
 
     // Inizia la visualizzazione della finestra di registrazione.
     public void start(Stage stage) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/registrazione.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
@@ -50,13 +51,24 @@ public class RegistrazioneCtrlGrafico {
         stage.show();
     }
 
-    // Gestisce l'evento di clic sul pulsante di ritorno (back).
+    /**
+     * Gestisce l'evento di clic sul pulsante di ritorno (back).
+     * Chiude la finestra corrente e avvia la schermata di login.
+     *
+     * @throws IOException Se si verifica un errore durante il caricamento della schermata di login.
+     */
     @FXML
     protected void onBackClick() throws IOException {
+        // Ottiene il riferimento alla finestra corrente
         Stage stage = (Stage) back.getScene().getWindow();
+
+        // Crea un nuovo controller grafico per la schermata di login
         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
+
+        // Avvia la schermata di login
         loginCtrlGrafico.start(stage);
     }
+
 
     // Gestisce l'evento di clic sul pulsante di registrazione.
     @FXML
@@ -69,6 +81,11 @@ public class RegistrazioneCtrlGrafico {
             reg_CtrlApp.registerUserDB(userBean); //uso metodo controller per registrare un utente sul DB
             reg_CtrlApp.registerUserFS(userBean); //uso metodo controller per registrare un utente sul FS
 
+            // Ho eliminato il metodo controlla se email esistente perché lo fa gia la query, ma è importante riuscire
+            // a prendere l'esito della query prima di cambiare stage, dobbiamo assicurarci che tutto vada bene.
+
+            //quando andiamo alla home, dobbiamo portarci il bean, dato che l'utente esiste
+
             // Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) registrazione.getScene().getWindow();
             HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
@@ -80,9 +97,10 @@ public class RegistrazioneCtrlGrafico {
     private UserBean getData() {    // Prendo i dati
 
         String user_name = name.getText().trim();
-        user_email = email.getText().trim();
-        user_password = password.getText();
-        user_conf_pw = conf_password.getText();
+        String user_email = email.getText().trim();
+        String user_password = password.getText();
+        // Dati
+        String user_conf_pw = conf_password.getText();
 
         preferences = retriveCheckList();
 
@@ -92,8 +110,6 @@ public class RegistrazioneCtrlGrafico {
             showError("LE PASSWORD NON CORRISPONDONO");
         } else if (!verificaEmailCorrect(user_email)) {
             showError("EMAIL NON VALIDA");
-        } else if (!verificaRegistrazioneEsistente(user_email)) {
-            showError("UTENTE GIA REGISTRATO");
         } else {
             return new UserBean(user_name, user_email, user_password, preferences);
         }
@@ -165,10 +181,4 @@ public class RegistrazioneCtrlGrafico {
         return matcher.matches();
     }
 
-    // DA IMPLEMENTARE
-    // Verifica se l'indirizzo email è già registrato nel sistema.
-    private boolean verificaRegistrazioneEsistente(String email) {
-        // Dobbiamo fare una query?
-        return true;
-    }
 }

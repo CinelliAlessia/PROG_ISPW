@@ -5,7 +5,7 @@
     public class User {
         private String nome, email, password;
         private ArrayList<String> pref;
-        public User(String nome, String email, String password, ArrayList preferences){
+        public User(String nome, String email, String password, ArrayList<String> preferences){
             setNome(nome);
             setEmail(email);
             setPassword(password);
@@ -40,7 +40,7 @@
         }
 
         public String getPassword() {
-            return null;
+            return password;
         }
     }
 

@@ -11,13 +11,16 @@ import java.io.IOException;
 
 public class HomePageCtrlGrafico {
 
-    public Button account;
+    @FXML
+    private Button account, addButton;
+
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/homePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Home Page");
         stage.setScene(scene);
+
         stage.show();
     }
 
@@ -26,5 +29,12 @@ public class HomePageCtrlGrafico {
         Stage stage = (Stage) account.getScene().getWindow();
         AccountCtrlGrafico accountCGUI = new AccountCtrlGrafico();
         accountCGUI.start(stage);
+    }
+
+    @FXML
+    public void addPlaylistClick() throws IOException {
+        Stage stage = (Stage) addButton.getScene().getWindow();
+        AddPlaylistCtrlGrafico addPlaylist = new AddPlaylistCtrlGrafico();
+        addPlaylist.start(stage);
     }
 }

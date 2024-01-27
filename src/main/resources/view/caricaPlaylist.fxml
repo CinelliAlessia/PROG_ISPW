@@ -1,50 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml" fx:controller="view.LoginCtrlGrafico">
-    <ImageView fitHeight="152.0" fitWidth="192.0" layoutX="298.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true"
-               AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="830.0" AnchorPane.topAnchor="209.0">
-        <Image url="@../photo/spotify.png" />
-    </ImageView>
-    <AnchorPane layoutX="885.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                prefHeight="315.0" prefWidth="286.0" AnchorPane.bottomAnchor="200" AnchorPane.topAnchor="200.0">
-        <Button fx:id="login" layoutX="158.0" layoutY="236.0" mnemonicParsing="false" onAction="#onLoginClick" text="Login"
-                AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
-        <PasswordField fx:id="password" layoutX="149.0" layoutY="170.0" prefHeight="30.0" prefWidth="150.0" promptText="Password"
-                       AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="160.0" />
-        <TextField fx:id="username" layoutX="149.0" layoutY="81.0" prefHeight="30.0" prefWidth="150.0" promptText="Email"
-                   AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0" />
-        <Label layoutX="20.0" layoutY="86.0" prefHeight="17.0" prefWidth="71.0" text="Username" AnchorPane.leftAnchor="20.0"
-               AnchorPane.topAnchor="86.0" />
-        <Label layoutX="20.0" layoutY="166.0" prefHeight="17.0" prefWidth="71.0" text="Password" AnchorPane.leftAnchor="20.0"
-               AnchorPane.topAnchor="166.0" />
-        <Label fx:id="textLogin" layoutX="133.0" layoutY="280.0" prefHeight="17.0" prefWidth="96.0" textFill="RED"
-               AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-    </AnchorPane>
-    <AnchorPane layoutX="255.0" layoutY="419.0" prefHeight="152.0" prefWidth="238.0" AnchorPane.bottomAnchor="151.0"
-                AnchorPane.topAnchor="419.0">
-        <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="30.0" prefWidth="150.0"
-                text="Registrazione" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0"
-                AnchorPane.topAnchor="100.0" />
-        <Button layoutX="40.0" layoutY="66.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Continua come Guest"
-                AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0" />
-    </AnchorPane>
-    <AnchorPane prefHeight="66.0" prefWidth="1280.0" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                AnchorPane.topAnchor="0.0">
-        <Text fill="#00ff1a" layoutX="602.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" AnchorPane.bottomAnchor="14.0"
-              AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="14.0">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddPlaylistCtrlGrafico">
+
+    <!-- Barra del titolo TopPage -->
+    <AnchorPane layoutX="524.0" layoutY="-31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Text fill="#00ff1a" layoutX="571.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carica la Tua Playlist">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Text>
+
+        <!-- Pulsante Account -->
+        <Button fx:id="account" mnemonicParsing="false" onAction="#onAccountClick" text="Account" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+
+        <!-- Pulsante Back -->
+        <Button fx:id="back" mnemonicParsing="false" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
     </AnchorPane>
+
+    <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
+        <Label text="Carica la Tua Playlist">
+        </Label>
+
+        <HBox spacing="10.0">
+            <Label text="Titolo:" />
+            <TextField fx:id="titleField" />
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="Link Playlist:" />
+            <TextField fx:id="linkField" />
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="Generi Musicali:" />
+            <AnchorPane>
+                <CheckBox fx:id="pop" mnemonicParsing="false" text="Pop" AnchorPane.leftAnchor="0.0" />
+                <CheckBox fx:id="indie" mnemonicParsing="false" text="Indie" AnchorPane.leftAnchor="80.0" />
+                <CheckBox fx:id="classic" mnemonicParsing="false" text="Classic" AnchorPane.leftAnchor="160.0" />
+                <CheckBox fx:id="rock" mnemonicParsing="false" text="Rock" AnchorPane.leftAnchor="240.0" />
+                <CheckBox fx:id="electronic" mnemonicParsing="false" text="Electronic" AnchorPane.leftAnchor="320.0" />
+                <CheckBox fx:id="house" mnemonicParsing="false" text="House" AnchorPane.leftAnchor="400.0" />
+                <CheckBox fx:id="hipHop" mnemonicParsing="false" text="Hip Hop" AnchorPane.leftAnchor="480.0" />
+                <CheckBox fx:id="jazz" mnemonicParsing="false" text="Jazz" AnchorPane.leftAnchor="560.0" />
+                <CheckBox fx:id="acoustic" mnemonicParsing="false" text="Acustic" AnchorPane.leftAnchor="640.0" />
+                <CheckBox fx:id="reb" mnemonicParsing="false" text="REB" AnchorPane.leftAnchor="720.0" />
+                <CheckBox fx:id="country" mnemonicParsing="false" text="Country" AnchorPane.leftAnchor="800.0" />
+                <CheckBox fx:id="alternative" mnemonicParsing="false" text="Alternative" AnchorPane.leftAnchor="880.0" />
+            </AnchorPane>
+        </HBox>
+        <Button text="Carica Playlist" onAction="#onUploadClick" />
+    </VBox>
 </AnchorPane>

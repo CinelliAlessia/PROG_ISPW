@@ -1,10 +1,8 @@
 package controllerApplicativo;
 
 import engineering.bean.LoginBean;
-import engineering.dao.UserDAO; // Assumendo che tu abbia una classe UserDAO per gestire l'accesso al database.
 import engineering.dao.UserDAO_JSON;
 import engineering.dao.UserDAO_mySQL;
-import model.User;
 
 public class LoginCtrlApplicativo {
     // implemento la logica dello use case
