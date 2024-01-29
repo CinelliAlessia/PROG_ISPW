@@ -3,20 +3,19 @@ package engineering.bean;
 import java.util.ArrayList;
 
 public class UserBean {
-    private String username;
-    private String email;
+    private String username, email, password;
     private ArrayList<String> preferences;
-    private boolean supervisor;
-    private boolean registered;
+    private boolean supervisor, registered;
 
     public UserBean() {
         registered = false;
         supervisor = false;
     }
 
-    public UserBean(String nome, String email, ArrayList<String> preferences, boolean isSupervisor, boolean isRegistered) {
+    public UserBean(String nome, String email, String password,ArrayList<String> preferences, boolean isSupervisor, boolean isRegistered) {
         setUsername(nome);
         setEmail(email);
+        setPassword(password);
         setPreferences(preferences);
         supervisor = isSupervisor;
         registered = isRegistered;
@@ -60,5 +59,13 @@ public class UserBean {
 
     public boolean isRegistered() {
         return registered;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

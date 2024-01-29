@@ -1,17 +1,21 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Playlist {
     private String playlistName, link, username, email;
+    private ArrayList<String> playlist_genre;
 
     public Playlist(){
 
     }
-    public Playlist(String playlistName,String link, String username, String email){
+    public Playlist(String playlistName,String link, String username, String email,ArrayList<String> playlist_genre){
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
         setUsername(username);
     }
+
 
     public void setLink(String link) {
         this.link = link;
@@ -43,5 +47,13 @@ public class Playlist {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setPlaylist_genre(ArrayList<String> playlist_genre) {
+        this.playlist_genre = playlist_genre;
+    }
+
+    public ArrayList<String> getPlaylist_genre() {
+        return playlist_genre;
     }
 }

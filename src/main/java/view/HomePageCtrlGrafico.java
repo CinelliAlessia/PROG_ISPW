@@ -18,7 +18,18 @@ public class HomePageCtrlGrafico {
     private UserBean userBean;
 
     public void start(Stage stage, UserBean user) throws IOException {
-        userBean = user;
+        if(user == null){
+            System.out.println("Guest mode, dovremmo rendere invisibili dei tasti");
+            account.setVisible(false);
+            addButton.setVisible(false);
+            userBean = null;
+        } else {
+            System.out.println("Utente registrato, ma devo recuperare da LoginBean tutto lo user bean");
+            // vado in home page
+            userBean = user;
+        }
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/homePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);

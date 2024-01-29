@@ -1,7 +1,9 @@
 package view;
 
+import controllerApplicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
+import engineering.exceptions.PlaylistNameAlreadyInUse;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +14,7 @@ import javafx.stage.Stage;
 import start.MainApplication;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AddPlaylistCtrlGrafico {
@@ -47,20 +50,21 @@ public class AddPlaylistCtrlGrafico {
     public void onBackClick() throws IOException {
         Stage stage = (Stage) back.getScene().getWindow();
         HomePageCtrlGrafico home = new HomePageCtrlGrafico();
-        home.start(stage);
+        home.start(stage,userBean);
     }
 
     @FXML
-    public void onUploadClick() {
+    public void onUploadClick() throws SQLException, PlaylistNameAlreadyInUse {
         String link_playlist = link.getText();
         String titolo = title.getText();
 
         ArrayList<String> playlist_genre = retriveCheckList();
 
-
         // Verifica che i campi non sono vuoti ###############
 
-        PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getNome(), titolo, link_playlist, playlist_genre);
+        PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, link_playlist, playlist_genre);
+        AddPlaylistCtrlApplicativo addPlaylist = new AddPlaylistCtrlApplicativo();
+        addPlaylist.insertPlaylist(playlistBean);
     }
 
     private ArrayList<String> retriveCheckList(){

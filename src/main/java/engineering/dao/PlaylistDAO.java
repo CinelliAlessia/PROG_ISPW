@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 public class PlaylistDAO {
     /*L'inserimento di una playlist prima controlla che ci sia già il link all'interno del DB, successivamente inserisce*/
-    public static void insertPlaylist(Playlist playlist) throws SQLException, PlaylistNameAlreadyInUse {
+    public void insertPlaylist(Playlist playlist) throws SQLException, PlaylistNameAlreadyInUse {
         Statement stmt = null;
         Connection conn = null;
 

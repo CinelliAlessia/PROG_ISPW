@@ -67,7 +67,7 @@ public class RegistrazioneCtrlGrafico {
         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
 
         // Avvia la schermata di login
-        loginCtrlGrafico.start(stage,null);
+        loginCtrlGrafico.start(stage);
     }
 
 
@@ -113,7 +113,7 @@ public class RegistrazioneCtrlGrafico {
         } else if (!verificaEmailCorrect(user_email)) {
             showError("EMAIL NON VALIDA");
         } else {
-            return new UserBean(user_name, user_email,preferences,false,false);
+            return new UserBean(user_name, user_email, user_password,preferences,false,false);
         }
 
         return null;
