@@ -3,12 +3,10 @@
     import java.util.ArrayList;
 
     public class User {
-        private String userName, email, password;
-        protected boolean supervisor;
-        protected boolean registered;
+        private String username, email, password;
         private ArrayList<String> pref;
-        public User(String nome, String email, String password, ArrayList<String> preferences){
-            setUserName(nome);
+        public User(String username, String email, String password, ArrayList<String> preferences){
+            setUsername(username);
             setEmail(email);
             setPassword(password);
             setPreferences(preferences);
@@ -25,8 +23,8 @@
             this.email = email;
         }
 
-        public void setUserName(String userName) {
-            this.userName = userName;
+        public void setUsername(String username) {
+            this.username = username;
         }
 
         public void setPassword(String password) {
@@ -36,13 +34,14 @@
             this.pref = preferences;
         }
 
-        public String getUserName() {
-            return userName;
+        public String getUsername() {
+            return username;
         }
 
         public String getEmail() {
             return email;
         }
+
 
         public ArrayList<String> getPref() {
             return pref;

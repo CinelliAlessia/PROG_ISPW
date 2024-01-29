@@ -21,6 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegistrazioneCtrlGrafico {
+
     // ---------Nodi interfaccia----------
     @FXML
     private Button back, registrazione;
@@ -66,7 +67,7 @@ public class RegistrazioneCtrlGrafico {
         LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
 
         // Avvia la schermata di login
-        loginCtrlGrafico.start(stage);
+        loginCtrlGrafico.start(stage,null);
     }
 
 
@@ -89,7 +90,7 @@ public class RegistrazioneCtrlGrafico {
             // Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) registrazione.getScene().getWindow();
             HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
-            homePageCtrlGrafico.start(stage);
+            homePageCtrlGrafico.start(stage,userBean);
         }
     }
 
@@ -99,6 +100,7 @@ public class RegistrazioneCtrlGrafico {
         String user_name = name.getText().trim();
         String user_email = email.getText().trim();
         String user_password = password.getText();
+
         // Dati
         String user_conf_pw = conf_password.getText();
 
@@ -111,7 +113,7 @@ public class RegistrazioneCtrlGrafico {
         } else if (!verificaEmailCorrect(user_email)) {
             showError("EMAIL NON VALIDA");
         } else {
-            return new UserBean(user_name, user_email, user_password, preferences);
+            return new UserBean(user_name, user_email,preferences,false,false);
         }
 
         return null;

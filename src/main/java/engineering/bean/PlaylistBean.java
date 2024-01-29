@@ -1,18 +1,24 @@
-package model;
+package engineering.bean;
 
-public class Playlist {
-    private String playlistName, link, username, email;
+import model.Playlist;
 
-    public Playlist(){
+import java.security.PublicKey;
+import java.util.ArrayList;
+
+public class PlaylistBean {
+    private String username, email, link, playlistName;
+    private ArrayList<String> playlist_genre;
+
+    public PlaylistBean(){
 
     }
-    public Playlist(String playlistName,String link, String username, String email){
+
+    public PlaylistBean(String email, String username, String playlistName, String link, ArrayList<String> playlist_genre){
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
         setUsername(username);
     }
-
     public void setLink(String link) {
         this.link = link;
     }

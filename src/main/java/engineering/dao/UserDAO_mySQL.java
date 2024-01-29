@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class UserDAO_mySQL {
 
     // Metodo per inserire un User nel database
-    public static void insertUser(User user) throws ClassNotFoundException, SQLException, EmailAlreadyInUse {
+    public static void insertUser(User user) throws SQLException, EmailAlreadyInUse {
         Statement stmt = null;
         Connection conn = null;
 
@@ -21,10 +21,10 @@ public class UserDAO_mySQL {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            String username = user.getEmail();
-            ResultSet rs = QueryLogin.loginUser(stmt, username);
+            String email = user.getEmail();
+            ResultSet rs = QueryLogin.loginUser(stmt, email);
             if (rs.next()) {
-                throw new EmailAlreadyInUse("This username is already in use!");
+                throw new EmailAlreadyInUse("This email is already in use!");
             }
 
             QueryLogin.registerUser(stmt, user);
