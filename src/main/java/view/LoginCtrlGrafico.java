@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import start.MainApplication;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,7 +27,6 @@ public class LoginCtrlGrafico {
 
     @FXML
     private Label textLogin;
-    private UserBean userBean;
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/login.fxml"));
@@ -37,40 +37,43 @@ public class LoginCtrlGrafico {
         stage.show();
     }
     @FXML
-    protected void onLoginClick() throws IOException {
+    protected void onLoginClick() throws IOException, SQLException {
 
-        // ------------------- Recupero informazioni dalla schermata di login --------------------
+        /* ------ Recupero informazioni dalla schermata di login ------ */
         String email = username.getText();
         String pass = password.getText();
 
-        // ------------------- Verifica dei parametri inseriti (validità sintattica) -------------
+        /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
         if (!checkMailCorrectness(email)){
             textLogin.isVisible();
             textLogin.setText("Email non valida");
             exit(0);
-        }
+        } else {
+            /* ------ Creo la bean e imposto i parametri ------ */
+            LoginBean loginBean = new LoginBean(email,pass);
 
-        // ---------------------- Creo la bean e imposto i parametri -------------------
-        LoginBean loginBean = new LoginBean(email,pass);
+            /* ------ Creo istanza del Login controller applicativo e utilizzo i metodi di verifica credenziali ------ */
+            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
 
-        // ------ Creo istanza del Login controller applicativo e utilizzo i metodi di verifica credenziali -----------
+            if (loginCtrlApp.verificaCredenziali(loginBean)) {
+                /* --------------- Credenziali corrette -------------- */
+                System.out.println("CREDENZIALI CORRETTE -> Recupero l'istanza di bean ");
 
-        LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
+                UserBean userBean = loginCtrlApp.loadUser(loginBean);
 
-        if (loginCtrlApp.verificaCredenziali(loginBean)) {
-            System.out.println("CREDENZIALI CORRETTE");
-            /* --------------- Credenziali corrette, mostro la home page -------------- */
-            // ################ Dovrei popolare la userBean(?) ################ --> e se lo fa lui?
-            UserBean userBean = new UserBean();
-            userBean.setEmail(email);
-            //userBean.setRegistered(); // Indica che l'utente con cui sto accedendo è registrato
+                if(userBean != null){
+                    //userBean.setRegistered(); // Indica che l'utente con cui sto accedendo è registrato
+                    System.out.println("Utente registrato, ho recuperato tutto lo user bean");
 
-            Stage stage = (Stage) login.getScene().getWindow();
-            HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
-            homePageCGUI.start(stage, userBean);
-        } else { /* --------------- Credenziali non valide --------------*/
-            textLogin.isVisible();
-            textLogin.setText("Credenziali errate");
+                    /* --------------- Mostro la home page -------------- */
+                    Stage stage = (Stage) login.getScene().getWindow();
+                    HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
+                    homePageCGUI.start(stage, userBean);
+                }
+            } else { /* --------------- Credenziali non valide --------------*/
+                textLogin.isVisible();
+                textLogin.setText("Credenziali errate");
+            }
         }
     }
     @FXML
@@ -85,7 +88,7 @@ public class LoginCtrlGrafico {
         // Devo aprire direttamente la home page, ma devo propagare l'informazione dell'accesso Guest
         Stage stage = (Stage) login.getScene().getWindow();
         HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
-        homePageCGUI.start(stage,null);
+        //homePageCGUI.start(stage,null);
     }
     /*Questo va qua? non c'è riuso di codice*/
     public boolean checkMailCorrectness(String email) {

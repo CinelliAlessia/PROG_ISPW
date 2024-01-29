@@ -17,4 +17,5 @@ public class Queries {
     public static final String SELECT_LINK_QUERY = "SELECT * FROM all_playlist WHERE link = '%s'";
 
 
+    public static final String SELECT_GENRED_USER_QUERY = "SELECT * FROM generi_musicali WHERE email = '%s'";
 }

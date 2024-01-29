@@ -9,13 +9,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class UserDAO_mySQL {
 
-    // Metodo per inserire un User nel database
-    public static void insertUser(User user) throws SQLException, EmailAlreadyInUse {
+    // Metodo per inserire un User nel database al momento della registrazione
+    public static void insertUser(User user) throws EmailAlreadyInUse {
         Statement stmt = null;
-        Connection conn = null;
+        Connection conn;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -26,11 +27,19 @@ public class UserDAO_mySQL {
             if (rs.next()) {
                 throw new EmailAlreadyInUse("This email is already in use!");
             }
-
+            rs.close();
             QueryLogin.registerUser(stmt, user);
+        } catch (SQLException e) {
+            // Gestisci l'eccezione
+            e.printStackTrace();
         } finally {
-            if (stmt != null) {
-                stmt.close();
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                // Gestisci l'eccezione
+                e.printStackTrace();
             }
         }
     }
@@ -45,8 +54,11 @@ public class UserDAO_mySQL {
             ResultSet rs = QueryLogin.getUserPassword(stmt, email);
 
             if (rs.next()) {
-                return rs.getString("password");
+                String pw = rs.getString("password");
+                rs.close();
+                return pw;
             }
+
         } catch (SQLException e) {
             // Gestisci l'eccezione
             e.printStackTrace();
@@ -56,9 +68,6 @@ public class UserDAO_mySQL {
                 if (stmt != null) {
                     stmt.close();
                 }
-                if (conn != null) {
-                    conn.close();
-                }
             } catch (SQLException e) {
                 // Gestisci l'eccezione
                 e.printStackTrace();
@@ -66,5 +75,58 @@ public class UserDAO_mySQL {
         }
 
         return null; // Se non trovi una corrispondenza
+    }
+
+    public static User loadUser(String userEmail) throws SQLException {
+        Statement stmt = null;
+        Connection conn;
+        User user;
+
+        String username = "", email="", password="";
+        ResultSet resultSet = null, resultSet2 = null;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            resultSet = QueryLogin.loginUser(stmt, userEmail);
+
+            if (resultSet.next()) {
+               username = resultSet.getString("username");
+               email = resultSet.getString("email");
+               password = resultSet.getString("password");
+            }
+            resultSet.close();
+
+            resultSet2 = QueryLogin.retrivePrefByEmail(stmt, userEmail);
+            ArrayList<String> preferences = new ArrayList<>();
+
+            if (resultSet2.next()) {
+                // Aggiungi i generi musicali all'ArrayList solo se sono impostati a true
+                if (resultSet2.getBoolean("Pop")) preferences.add("Pop");
+                if (resultSet2.getBoolean("Indie")) preferences.add("Indie");
+                if (resultSet2.getBoolean("Classic")) preferences.add("Classic");
+                if (resultSet2.getBoolean("Rock")) preferences.add("Rock");
+                if (resultSet2.getBoolean("Electronic")) preferences.add("Electronic");
+                if (resultSet2.getBoolean("House")) preferences.add("House");
+                if (resultSet2.getBoolean("HipHop")) preferences.add("Hip Hop");
+                if (resultSet2.getBoolean("Jazz")) preferences.add("Jazz");
+                if (resultSet2.getBoolean("Acoustic")) preferences.add("Acoustic");
+                if (resultSet2.getBoolean("REB")) preferences.add("REB");
+                if (resultSet2.getBoolean("Country")) preferences.add("Country");
+                if (resultSet2.getBoolean("Alternative")) preferences.add("Alternative");
+            }
+            resultSet2.close();
+
+            user = new User(username, email, password, preferences);
+
+        } finally {
+            assert resultSet != null;
+            resultSet.close();
+            assert resultSet2 != null;
+            resultSet2.close();
+        }
+        // Chiudi gli Statement e la connessione
+        return user;
     }
 }

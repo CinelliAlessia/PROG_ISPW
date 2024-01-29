@@ -52,9 +52,15 @@ public class QueryLogin {
         return stmt.executeQuery(sql);
     }
 
+    public static ResultSet retrivePrefByEmail(Statement stmt, String email) throws SQLException{
+        String sql = String.format(Queries.SELECT_GENRED_USER_QUERY, email);
+        return stmt.executeQuery(sql);
+    }
+
     // Query per prendere la password della email passata come argomento
     public static ResultSet getUserPassword(Statement stmt, String email) throws SQLException {
         String query = String.format(Queries.SELECT_PASSWORD_QUERY, email);
         return stmt.executeQuery(query);
     }
+
 }
