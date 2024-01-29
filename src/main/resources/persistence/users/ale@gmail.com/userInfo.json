@@ -1,0 +1,12 @@
+{
+  "username": "ale",
+  "email": "ale@gmail.com",
+  "password": "ciao",
+  "pref": [
+    "Pop",
+    "Indie",
+    "Rock"
+  ],
+  "supervisor": false,
+  "registered": true
+}

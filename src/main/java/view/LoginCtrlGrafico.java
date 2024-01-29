@@ -28,8 +28,7 @@ public class LoginCtrlGrafico {
     private Label textLogin;
     private UserBean userBean;
 
-    public void start(Stage stage, UserBean user) throws IOException {
-        userBean = user;
+    public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Access Login");
@@ -61,10 +60,11 @@ public class LoginCtrlGrafico {
         if (loginCtrlApp.verificaCredenziali(loginBean)) {
             System.out.println("CREDENZIALI CORRETTE");
             /* --------------- Credenziali corrette, mostro la home page -------------- */
-            // ################ Dovrei popolare la userBean(?) ################
+            // ################ Dovrei popolare la userBean(?) ################ --> e se lo fa lui?
             UserBean userBean = new UserBean();
             userBean.setEmail(email);
-            userBean.setRegistered(); // Indica che l'utente con cui sto accedendo è registrato
+            //userBean.setRegistered(); // Indica che l'utente con cui sto accedendo è registrato
+
             Stage stage = (Stage) login.getScene().getWindow();
             HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
             homePageCGUI.start(stage, userBean);
@@ -85,7 +85,7 @@ public class LoginCtrlGrafico {
         // Devo aprire direttamente la home page, ma devo propagare l'informazione dell'accesso Guest
         Stage stage = (Stage) login.getScene().getWindow();
         HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
-        homePageCGUI.start(stage);
+        homePageCGUI.start(stage,null);
     }
     /*Questo va qua? non c'è riuso di codice*/
     public boolean checkMailCorrectness(String email) {

@@ -18,6 +18,7 @@ public class PlaylistBean {
         setLink(link);
         setPlaylistName(playlistName);
         setUsername(username);
+        setPlaylist_genre(playlist_genre);
     }
     public void setLink(String link) {
         this.link = link;
@@ -49,5 +50,13 @@ public class PlaylistBean {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setPlaylist_genre(ArrayList<String> playlist_genre) {
+        this.playlist_genre = playlist_genre;
+    }
+
+    public ArrayList<String> getPlaylist_genre() {
+        return playlist_genre;
     }
 }
