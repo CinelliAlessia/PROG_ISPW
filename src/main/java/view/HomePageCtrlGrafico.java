@@ -1,5 +1,6 @@
 package view;
 
+import engineering.bean.UserBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,7 +15,10 @@ public class HomePageCtrlGrafico {
     @FXML
     private Button account, addButton;
 
-    public void start(Stage stage) throws IOException {
+    private UserBean userBean;
+
+    public void start(Stage stage, UserBean user) throws IOException {
+        userBean = user;
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/homePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
@@ -28,13 +32,13 @@ public class HomePageCtrlGrafico {
     protected void onAccountClick() throws IOException { // Non devo fa controlli
         Stage stage = (Stage) account.getScene().getWindow();
         AccountCtrlGrafico accountCGUI = new AccountCtrlGrafico();
-        accountCGUI.start(stage);
+        accountCGUI.start(stage, userBean);
     }
 
     @FXML
     public void addPlaylistClick() throws IOException {
         Stage stage = (Stage) addButton.getScene().getWindow();
         AddPlaylistCtrlGrafico addPlaylist = new AddPlaylistCtrlGrafico();
-        addPlaylist.start(stage);
+        addPlaylist.start(stage, userBean);
     }
 }

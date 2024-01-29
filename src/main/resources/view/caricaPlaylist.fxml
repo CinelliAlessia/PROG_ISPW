@@ -27,11 +27,11 @@
 
         <HBox spacing="10.0">
             <Label text="Titolo:" />
-            <TextField fx:id="titleField" />
+            <TextField fx:id="title" />
         </HBox>
         <HBox spacing="10.0">
             <Label text="Link Playlist:" />
-            <TextField fx:id="linkField" />
+            <TextField fx:id="link" />
         </HBox>
         <HBox spacing="10.0">
             <Label text="Generi Musicali:" />
