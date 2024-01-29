@@ -12,13 +12,12 @@ public class UserBean {
         supervisor = false;
     }
 
-    public UserBean(String nome, String email, String password,ArrayList<String> preferences, boolean isSupervisor, boolean isRegistered) {
+    public UserBean(String nome, String email,ArrayList<String> preferences, boolean isSupervisor /*,boolean isRegistered */) {
         setUsername(nome);
         setEmail(email);
-        setPassword(password);
         setPreferences(preferences);
         supervisor = isSupervisor;
-        registered = isRegistered;
+        //registered = isRegistered;
     }
 
     public void setEmail(String email) {
@@ -59,13 +58,5 @@ public class UserBean {
 
     public boolean isRegistered() {
         return registered;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPassword() {
-        return password;
     }
 }

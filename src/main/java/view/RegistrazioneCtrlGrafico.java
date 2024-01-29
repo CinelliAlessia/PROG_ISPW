@@ -1,6 +1,7 @@
 package view;
 
 import controllerApplicativo.RegistrazioneCtrlApplicativo;
+import engineering.bean.RegistrationBean;
 import engineering.bean.UserBean;
 import engineering.exceptions.EmailAlreadyInUse;
 import javafx.fxml.FXML;
@@ -75,17 +76,20 @@ public class RegistrazioneCtrlGrafico {
     @FXML
     protected void onRegisterClick() throws IOException, EmailAlreadyInUse, SQLException, ClassNotFoundException {
 
+        RegistrationBean regBean = getData();
         UserBean userBean = getData();
 
-        if (userBean != null) {
+        if (regBean != null) {
+
             RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
-            reg_CtrlApp.registerUserDB(userBean); //uso metodo controller per registrare un utente sul DB
-            reg_CtrlApp.registerUserFS(userBean); //uso metodo controller per registrare un utente sul FS
+            //############ questo va corretto con una sola chiamata ###############
+            reg_CtrlApp.registerUserDB(regBean); //uso metodo controller per registrare un utente sul DB
+            reg_CtrlApp.registerUserFS(regBean); //uso metodo controller per registrare un utente sul FS
 
             // Ho eliminato il metodo controlla se email esistente perché lo fa gia la query, ma è importante riuscire
             // a prendere l'esito della query prima di cambiare stage, dobbiamo assicurarci che tutto vada bene.
 
-            //quando andiamo alla home, dobbiamo portarci il bean, dato che l'utente esiste
+            // quando andiamo alla home, dobbiamo portarci il bean con le informazioni dell'utente.
 
             // Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) registrazione.getScene().getWindow();
@@ -95,7 +99,7 @@ public class RegistrazioneCtrlGrafico {
     }
 
     // Ottiene i dati inseriti dall'utente dalla GUI e restituisce un oggetto UserBean.
-    private UserBean getData() {    // Prendo i dati
+    private RegistrationBean getData() {    // Prendo i dati
 
         String user_name = name.getText().trim();
         String user_email = email.getText().trim();
@@ -113,7 +117,7 @@ public class RegistrazioneCtrlGrafico {
         } else if (!verificaEmailCorrect(user_email)) {
             showError("EMAIL NON VALIDA");
         } else {
-            return new UserBean(user_name, user_email, user_password,preferences,false,false);
+            return new RegistrationBean(user_name, user_email,user_password,preferences,false);
         }
 
         return null;

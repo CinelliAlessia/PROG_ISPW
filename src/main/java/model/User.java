@@ -6,7 +6,7 @@
         private String username, email, password;
         private ArrayList<String> pref;
 
-        protected boolean supervisor, registered;
+        protected boolean supervisor,registered;
 
         public User(String username, String email, String password, ArrayList<String> preferences){
             setUsername(username);
