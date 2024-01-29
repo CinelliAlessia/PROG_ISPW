@@ -2,6 +2,7 @@ package view;
 
 import controllerApplicativo.LoginCtrlApplicativo;
 import engineering.bean.LoginBean;
+import engineering.bean.UserBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,7 +23,6 @@ public class LoginCtrlGrafico {
     private PasswordField password;
     @FXML
     private TextField username;
-
     @FXML
     private Label textLogin;
 
@@ -37,29 +37,35 @@ public class LoginCtrlGrafico {
     @FXML
     protected void onLoginClick() throws IOException {
 
+        // ------------------- Recupero informazioni dalla schermata di login --------------------
         String email = username.getText();
         String pass = password.getText();
 
-        if (!verificaEmailCorrect(email)){ // Controlli se i parametri scritti sono funzionanti
+        // ------------------- Verifica dei parametri inseriti (validità sintattica) -------------
+        if (!checkMailCorrectness(email)){
             textLogin.isVisible();
             textLogin.setText("Email non valida");
             exit(0);
         }
 
-        // Creo la bean e imposto i parametri
+        // ---------------------- Creo la bean e imposto i parametri -------------------
         LoginBean loginBean = new LoginBean(email,pass);
 
-        // se credenziali ok --> questo va qua?
+        // ------ Creo istanza del Login controller applicativo e utilizzo i metodi di verifica credenziali -----------
+
         LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
 
         if (loginCtrlApp.verificaCredenziali(loginBean)) {
             System.out.println("CREDENZIALI CORRETTE");
-            /*Credenziali corrette, mostro la home page*/
-            // Dovrei popolare la userBean(?)
+            /* --------------- Credenziali corrette, mostro la home page -------------- */
+            // ################ Dovrei popolare la userBean(?) ################
+            UserBean userBean = new UserBean();
+            userBean.setEmail(email);
+            userBean.setRegistered(); // Indica che l'utente con cui sto accedendo è registrato
             Stage stage = (Stage) login.getScene().getWindow();
             HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
             homePageCGUI.start(stage);
-        } else { /*Credenziali non valide*/
+        } else { /* --------------- Credenziali non valide --------------*/
             textLogin.isVisible();
             textLogin.setText("Credenziali errate");
         }
@@ -70,17 +76,15 @@ public class LoginCtrlGrafico {
         RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();
         registrazioneCtrlGrafico.start(stage);
     }
-
     @FXML
-    protected void onGuestClick() throws IOException { // Non devo fa controlli
+    protected void onGuestClick() throws IOException {
+        // Devo aprire direttamente la home page, ma devo propagare l'informazione dell'accesso Guest
         Stage stage = (Stage) login.getScene().getWindow();
         HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
         homePageCGUI.start(stage);
     }
-
-
     /*Questo va qua? non c'è riuso di codice*/
-    public boolean verificaEmailCorrect(String email) {
+    public boolean checkMailCorrectness(String email) {
         /*Controllo basico se ha almeno una @ e un punto dopo la @? */
         // Definisci il pattern per una email valida
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
@@ -94,4 +98,5 @@ public class LoginCtrlGrafico {
         // Verifica se il formato dell'email è valido
         return matcher.matches();
     }
+
 }

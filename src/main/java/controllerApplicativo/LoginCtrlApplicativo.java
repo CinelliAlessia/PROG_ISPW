@@ -10,7 +10,6 @@ public class LoginCtrlApplicativo {
     public LoginCtrlApplicativo() {
     }
 
-
     // Implementa la logica dello use case
     public boolean verificaCredenziali(LoginBean bean) {
         UserDAO_mySQL userDAO = new UserDAO_mySQL();

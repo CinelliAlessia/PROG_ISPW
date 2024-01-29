@@ -11,13 +11,13 @@ import java.sql.SQLException;
 public class RegistrazioneCtrlApplicativo {
 
     public void registerUserFS(UserBean bean) {
-        User user = new User(bean.getNome(), bean.getEmail(), bean.getPassword(), bean.getPreferences());
+        User user = new User(bean.getUserName(), bean.getEmail(), bean.getPreferences());
         UserDAO_JSON dao = new UserDAO_JSON();
         dao.insertUser(user); // passiamo al DAO
     }
 
     public void registerUserDB(UserBean bean) throws EmailAlreadyInUse, SQLException, ClassNotFoundException {
-        User user = new User(bean.getNome(), bean.getEmail(), bean.getPassword(), bean.getPreferences());
+        User user = new User(bean.getUserName(), bean.getEmail(), bean.getPreferences());
         UserDAO_mySQL.insertUser(user); // Qui devo chiamare UserDao quando farò implements
     }
 
