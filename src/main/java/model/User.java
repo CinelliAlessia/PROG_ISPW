@@ -3,20 +3,30 @@
     import java.util.ArrayList;
 
     public class User {
-        private String nome, email, password;
+        private String userName, email, password;
+        protected boolean supervisor;
+        protected boolean registered;
         private ArrayList<String> pref;
         public User(String nome, String email, String password, ArrayList<String> preferences){
-            setNome(nome);
+            setUserName(nome);
             setEmail(email);
             setPassword(password);
             setPreferences(preferences);
+            supervisor = false;
+            registered = true;
+        }
+        public boolean isSupervisor(){ //Restituisce false per User e Guest, true per Supervisor
+            return supervisor;
+        }
+        public boolean isRegistered(){ //Restituisce false Guest, true per User e Supervisor
+            return registered;
         }
         public void setEmail(String email) {
             this.email = email;
         }
 
-        public void setNome(String nome) {
-            this.nome = nome;
+        public void setUserName(String userName) {
+            this.userName = userName;
         }
 
         public void setPassword(String password) {
@@ -26,14 +36,13 @@
             this.pref = preferences;
         }
 
-        public String getNome() {
-            return nome;
+        public String getUserName() {
+            return userName;
         }
 
         public String getEmail() {
             return email;
         }
-
 
         public ArrayList<String> getPref() {
             return pref;
