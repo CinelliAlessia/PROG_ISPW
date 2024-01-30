@@ -13,7 +13,10 @@ public class Queries {
     public static final String SELECT_PASSWORD_QUERY = "SELECT password FROM user WHERE email = '%s'";
 
     /* ---------- QUERY PLAYLIST ---------- */
-    public static final String INSERT_PLAYLIST_QUERY = "INSERT INTO playlist_utente (email, nome_utente, nome_playlist, link) VALUES ('%s','%s','%s','%s')";
+    public static final String INSERT_PLAYLIST_QUERY = "INSERT INTO playlist_utente (email, nome_utente, nome_playlist, link, id_playlist_genre) VALUES ('%s','%s','%s','%s','%d')";
+    public static final String INSERT_ALL_PLAYLIST_QUERY = "INSERT INTO all_playlist (nome_playlist, link) VALUES ('%s','%s')";
+
+    public static final String INSERT_GENERI_MUSICALI_PLAYLIST_QUERY = "INSERT INTO generi_musicali (id, Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative, email) VALUES ('%d', %s)";
     public static final String SELECT_LINK_QUERY = "SELECT * FROM all_playlist WHERE link = '%s'";
 
 

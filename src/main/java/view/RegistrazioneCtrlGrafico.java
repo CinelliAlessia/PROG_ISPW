@@ -13,7 +13,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import start.MainApplication;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -94,7 +93,7 @@ public class RegistrazioneCtrlGrafico {
             // Se tutto è stato fatto è possibile impostare la scena
             Stage stage = (Stage) registrazione.getScene().getWindow();
             HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
-            homePageCtrlGrafico.start(stage,userBean);
+            //homePageCtrlGrafico.start(stage,userBean);
         }
     }
 

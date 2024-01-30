@@ -5,16 +5,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import start.MainApplication;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class AccountCtrlGrafico{
 
@@ -31,39 +33,16 @@ public class AccountCtrlGrafico{
     private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz,
             acoustic, reb, country, alternative;
 
-    private UserBean userBean;
+    public volatile UserBean userBean;
 
     public void setUserBean(UserBean user) {
         // Deve avere un userBean per compilare tutte le informazioni
-        userBean = user;
+        this.userBean = user;
         System.out.println("ACG setUserBean: " + userBean);
     }
 
-
-    public void start(Stage stage, UserBean user) throws IOException {
-        System.out.println("ACG ho ricevuto " + user + " lo imposto");
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/account.fxml"));
-
-        setUserBean(user);
-
-        Scene scene = new Scene(fxmlLoader.load());
-
-        // Imposta il valore di userBean nel controller
-        //AccountCtrlGrafico controller = fxmlLoader.getController(); //Returns the controller associated with the root object.
-        //controller.
-
-        stage.setResizable(false);
-        stage.setTitle("My Account");
-        stage.setScene(scene);
-        stage.show();
-
-        System.out.println("ACG prima dello inizialize" + user + " lo imposto");
-
-        inizializeData(); //Qui in inizialize conosce userbean
-    }
-
-    protected void inizializeData(){
+    public void initializeData(UserBean user){
+        this.userBean = user;
 
         System.out.println("ACG in inizializeData: " + userBean);
 
@@ -75,7 +54,7 @@ public class AccountCtrlGrafico{
 
         usernameText.setText(username);
 
-        /*supervisorText.setText("FALSE");
+        supervisorText.setText("FALSE");
         emailText.setText(userBean.getEmail());
 
         ArrayList<String> preferences = userBean.getPreferences();
@@ -91,7 +70,7 @@ public class AccountCtrlGrafico{
         acoustic.setSelected(preferences.contains("Acoustic"));
         reb.setSelected(preferences.contains("REB"));
         country.setSelected(preferences.contains("Country"));
-        alternative.setSelected(preferences.contains("Alternative"));*/
+        alternative.setSelected(preferences.contains("Alternative"));
     }
 
 
@@ -112,21 +91,23 @@ public class AccountCtrlGrafico{
         HomePageCtrlGrafico homeController = fxmlLoader.getController();
 
         // Chiamare il metodo start del controller HomePageCtrlGrafico
-        homeController.start(stage, userBean);
+        //homeController.start(stage, userBean);
     }
 
 
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/addPlaylist.fxml"));
-        Stage stage = (Stage) addButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load());
+        System.out.println("ACG userBean: " + userBean);
 
-        // Ottieni l'istanza corrente del controller AddPlaylistCtrlGrafico
-        AddPlaylistCtrlGrafico addPlaylistController = fxmlLoader.getController();
-
-        // Chiamare il metodo start del controller AddPlaylistCtrlGrafico
-        addPlaylistController.start(stage, userBean);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/caricaPlaylist.fxml"));
+        Parent root = loader.load();
+        loader.<AddPlaylistCtrlGrafico>getController().setUserBean(userBean);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Carica Playlist");
+        stage.setScene(scene);
+        stage.show();
     }
 }

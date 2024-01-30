@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Update with error">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/BackControllerGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/database.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/database.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.mwb.beforefix" beforeDir="false" afterPath="$PROJECT_DIR$/database.mwb.beforefix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/AddPlaylistCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/AddPlaylistCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/userInfo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -67,7 +76,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.MainApplication.executor": "Run",
     "Application.MongoDBConnector.executor": "Run",
-    "Application.StartByMain.executor": "Run",
+    "Application.StartByMain.executor": "Debug",
     "Downloaded.Files.Path.Enabled": "false",
     "OverrideImplement.generate.javadoc": "true",
     "Repository.Attach.Annotations": "false",
@@ -174,7 +183,9 @@
       <workItem from="1706548582802" duration="3054000" />
       <workItem from="1706556718106" duration="9320000" />
       <workItem from="1706600729068" duration="16941000" />
-      <workItem from="1706620899009" duration="8891000" />
+      <workItem from="1706620899009" duration="12289000" />
+      <workItem from="1706634398060" duration="2262000" />
+      <workItem from="1706639484242" duration="4256000" />
     </task>
     <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
       <option name="closed" value="true" />
@@ -320,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706621487644</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Update with error">
+      <option name="closed" value="true" />
+      <created>1706630474328</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1706630474328</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

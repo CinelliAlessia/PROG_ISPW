@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -66,9 +67,22 @@ public class LoginCtrlGrafico {
                     System.out.println("Utente registrato, ho recuperato tutto lo user bean");
 
                     /* --------------- Mostro la home page -------------- */
-                    Stage stage = (Stage) login.getScene().getWindow();
-                    HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
-                    homePageCGUI.start(stage, userBean);
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homePage.fxml"));
+                    Parent root = loader.load();
+                    loader.<HomePageCtrlGrafico>getController().setUserBean(userBean);
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                    stage.setResizable(false);
+                    stage.setTitle("Home Page");
+                    stage.setScene(scene);
+                    stage.show();
+
+
+                    //homePageCGUI.start(stage, userBean);
+
+
+
                 }
             } else { /* --------------- Credenziali non valide --------------*/
                 textLogin.isVisible();
@@ -78,7 +92,6 @@ public class LoginCtrlGrafico {
     }
     @FXML
     protected void onRegisterClick(ActionEvent event) throws IOException { // Non devo fa controlli
-
         Stage stage = (Stage) register.getScene().getWindow();
         RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();
         registrazioneCtrlGrafico.start(stage);
@@ -90,7 +103,7 @@ public class LoginCtrlGrafico {
         // Devo aprire direttamente la home page, ma devo propagare l'informazione dell'accesso Guest
         Stage stage = (Stage) guest.getScene().getWindow();
         HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
-        homePageCGUI.start(stage,null);
+        //homePageCGUI.start(stage,null);
     }
     /*Questo va qua? non c'è riuso di codice*/
     public boolean checkMailCorrectness(String email) {

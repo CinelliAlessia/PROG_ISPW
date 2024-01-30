@@ -1,11 +1,11 @@
 {
   "username": "ale",
   "email": "ale@gmail.com",
-  "password": "ciao",
+  "password": "ale",
   "pref": [
     "Pop",
     "Indie",
-    "Rock"
+    "Jazz"
   ],
   "supervisor": false,
   "registered": true

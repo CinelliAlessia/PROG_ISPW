@@ -9,11 +9,12 @@ public class Playlist {
     public Playlist(){
 
     }
-    public Playlist(String playlistName,String link, String username, String email,ArrayList<String> playlist_genre){
+    public Playlist(String email, String username, String playlistName, String link, ArrayList<String> playlist_genre){
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
         setUsername(username);
+        setPlaylist_genre(playlist_genre);
     }
 
 

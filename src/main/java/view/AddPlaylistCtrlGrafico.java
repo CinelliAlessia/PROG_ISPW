@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import start.MainApplication;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,30 +25,25 @@ public class AddPlaylistCtrlGrafico {
     @FXML
     private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
 
-    private UserBean userBean;
-    public void start(Stage stage, UserBean user) throws IOException {
-        userBean = user;
+    public UserBean userBean;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/caricaPlaylist.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setResizable(false);
-        stage.setTitle("Carica Playlist");
-        stage.setScene(scene);
-        stage.show();
+    public void setUserBean(UserBean user) {
+        this.userBean = user;
+        System.out.println("HCG impostato user bean: " + userBean);
     }
 
     @FXML
     protected void onAccountClick() throws IOException, InterruptedException { // Non devo fa controlli
         Stage stage = (Stage) account.getScene().getWindow();
         AccountCtrlGrafico accountCGUI = new AccountCtrlGrafico();
-        accountCGUI.start(stage,userBean);
+        //accountCGUI.start(stage,userBean);
     }
 
     @FXML
     public void onBackClick() throws IOException {
         Stage stage = (Stage) back.getScene().getWindow();
         HomePageCtrlGrafico home = new HomePageCtrlGrafico();
-        home.start(stage,userBean);
+        //home.start(stage,userBean);
     }
 
     @FXML
@@ -60,7 +54,7 @@ public class AddPlaylistCtrlGrafico {
         ArrayList<String> playlist_genre = retriveCheckList();
 
         // Verifica che i campi non sono vuoti ###############
-
+        System.out.println("AddP: "+userBean.getEmail()+ " " + userBean.getUsername()+ " " + titolo + " " + link_playlist + " " + playlist_genre);
         PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, link_playlist, playlist_genre);
         AddPlaylistCtrlApplicativo addPlaylist = new AddPlaylistCtrlApplicativo();
         addPlaylist.insertPlaylist(playlistBean);

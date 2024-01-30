@@ -4,62 +4,68 @@ import engineering.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HomePageCtrlGrafico {
+public class HomePageCtrlGrafico implements Initializable {
 
     @FXML
     private Button account, addButton;
 
-    private UserBean userBean;
+    public UserBean userBean;
 
-/*quando utilizzi fxmlLoader.load(), viene creato un nuovo controller associato al file FXML, e questo nuovo controller è quello che viene ottenuto con fxmlLoader.getController().
+    public void setUserBean(UserBean user) {
+        this.userBean = user;
+        System.out.println("HCG impostato user bean: " + userBean);
+    }
 
-Prima della tua modifica, il codice sembrava cercare di impostare userBean direttamente nel controller corrente (quello che stai utilizzando nel metodo start). Tuttavia, questo non stava influenzando il nuovo controller associato alla vista appena creata, e quindi userBean rimaneva null nel nuovo controller.
+    @FXML
+    protected void onAccountClick(ActionEvent event) throws IOException {
 
-Dopo la modifica, hai spostato la logica di impostazione di userBean direttamente nel nuovo controller associato alla vista. */
-    public void start(Stage stage, UserBean user) throws IOException {
-        if(user == null) {
-            System.out.println("Guest mode, dovremmo rendere invisibili dei tasti");
-            account.setVisible(false);
-            addButton.setVisible(false);
-        }
+        System.out.println("HCG userBean: " + userBean);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/homePage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        // Imposta il valore di userBean nel controller
-        HomePageCtrlGrafico controller = fxmlLoader.getController();
-        controller.setUserBean(user);
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/account.fxml"));
+        Parent root = loader.load();
+        loader.<AccountCtrlGrafico>getController().initializeData(userBean);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
-        stage.setTitle("Home Page");
+        stage.setTitle("Account");
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    protected void onAccountClick(ActionEvent event) throws IOException {
-        System.out.println("HCG on Account Click: Bean: " + userBean);
-
-        Stage stage = (Stage) account.getScene().getWindow();
-        AccountCtrlGrafico accountCtrlGrafico = new AccountCtrlGrafico();
-        accountCtrlGrafico.start(stage,userBean);
-    }
-
-    public void setUserBean(UserBean user) {
-        this.userBean = user;
-    }
-
-    @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage) addButton.getScene().getWindow();
-        AddPlaylistCtrlGrafico addPlaylist = new AddPlaylistCtrlGrafico();
-        addPlaylist.start(stage, userBean);
+
+        System.out.println("HCG userBean: " + userBean);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/caricaPlaylist.fxml"));
+        Parent root = loader.load();
+        loader.<AddPlaylistCtrlGrafico>getController().setUserBean(userBean);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Carica Playlist");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if
+     *                  the root object was not localized.
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
     }
 }
