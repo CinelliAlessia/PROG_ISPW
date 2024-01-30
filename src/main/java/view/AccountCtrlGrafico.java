@@ -3,6 +3,7 @@ package view;
 import engineering.bean.UserBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -12,17 +13,26 @@ import javafx.stage.Stage;
 import start.MainApplication;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class AccountCtrlGrafico {
+public class AccountCtrlGrafico implements Initializable {
+
+    // ...
+
+
+    @FXML
     public Button saveButton;
+
     @FXML
     private Label usernameText, supervisorText, emailText;
-    @FXML
-    private Text username;
+
     @FXML
     private Button back, addButton;
-    @FXML private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz,
+
+    @FXML
+    private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz,
             acoustic, reb, country, alternative;
 
 
@@ -30,33 +40,58 @@ public class AccountCtrlGrafico {
 
     public void setUserBean(UserBean user) {
         // Deve avere un userBean per compilare tutte le informazioni
-        this.userBean = user;
-        System.out.println("ACG setUserBean: " + this.userBean);
+        userBean = user;
+        System.out.println("ACG setUserBean: " + userBean);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Chiamato dopo l'iniezione FXML
+        //inizializeData();
     }
 
 
     public void start(Stage stage, UserBean user) throws IOException {
         System.out.println("ACG ho ricevuto " + user + " lo imposto");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/account.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/account.fxml"));
+
+        setUserBean(user);
+
         Scene scene = new Scene(fxmlLoader.load());
 
         // Imposta il valore di userBean nel controller
-        AccountCtrlGrafico controller = fxmlLoader.getController(); //Returns the controller associated with the root object.
-        controller.setUserBean(user);
+        //AccountCtrlGrafico controller = fxmlLoader.getController(); //Returns the controller associated with the root object.
+        //controller.
+
 
         stage.setResizable(false);
         stage.setTitle("My Account");
         stage.setScene(scene);
         stage.show();
+
+        System.out.println("ACG prima dello inizialize" + user + " lo imposto");
+
+        inizializeData(); //Qui in inizialize conosce userbean
     }
 
-    public void inizializeData(){
-        usernameText.setText(userBean.getUsername());
-        supervisorText.setText("FALSE");
+    protected void inizializeData(){
+
+        System.out.println("ACG in inizializeData: " + userBean);
+
+        System.out.println(userBean.getEmail()+ " " + userBean.getUsername() +" "+userBean.getPreferences());
+
+        String username = userBean.getUsername();
+
+        System.out.println(usernameText.getText());
+
+        usernameText.setText(username);
+
+        /*supervisorText.setText("FALSE");
         emailText.setText(userBean.getEmail());
 
         ArrayList<String> preferences = userBean.getPreferences();
+
         pop.setSelected(preferences.contains("Pop"));
         indie.setSelected(preferences.contains("Indie"));
         classic.setSelected(preferences.contains("Classic"));
@@ -68,7 +103,7 @@ public class AccountCtrlGrafico {
         acoustic.setSelected(preferences.contains("Acoustic"));
         reb.setSelected(preferences.contains("REB"));
         country.setSelected(preferences.contains("Country"));
-        alternative.setSelected(preferences.contains("Alternative"));
+        alternative.setSelected(preferences.contains("Alternative"));*/
     }
 
 

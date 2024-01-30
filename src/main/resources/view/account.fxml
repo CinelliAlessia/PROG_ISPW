@@ -21,12 +21,11 @@
 
         <AnchorPane layoutX="84.8" layoutY="84.8" prefHeight="122.0" prefWidth="467.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
             <Label layoutX="2.0" layoutY="46.0" style="-fx-font-size: 18px;" text="Nome Utente:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Label fx:id="usernameText" layoutY="30.0" style="-fx-font-size: 18px;" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="5.0" />
+            <Label fx:id="usernameText" text="ciao" layoutY="30.0" style="-fx-font-size: 18px;" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="5.0" />
             <Label style="-fx-font-size: 18px;" text="Email:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="50.0" />
             <Label fx:id="emailText" style="-fx-font-size: 18px;" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="50.0" />
             <Label style="-fx-font-size: 18px;" text="Supervisor:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="95.0" />
             <Label fx:id="supervisorText" style="-fx-font-size: 18px;" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="95.0" />
-            <Text fx:id="username" layoutX="382.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="54.4" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
         </AnchorPane>
 
         <!-- Generi musicali -->

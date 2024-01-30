@@ -30,7 +30,7 @@ Dopo la modifica, hai spostato la logica di impostazione di userBean direttament
             addButton.setVisible(false);
         }
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/homePage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/homePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         // Imposta il valore di userBean nel controller
@@ -45,10 +45,10 @@ Dopo la modifica, hai spostato la logica di impostazione di userBean direttament
 
 
     @FXML
-    protected void onAccountClick() throws IOException, InterruptedException {
+    protected void onAccountClick() throws IOException {
         System.out.println("HCG on Account Click: Bean: " + userBean);
 
-        Stage stage = (Stage) account.getScene().getWindow();
+        /* Stage stage = (Stage) account.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/account.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -57,7 +57,11 @@ Dopo la modifica, hai spostato la logica di impostazione di userBean direttament
         AccountCtrlGrafico accountCtrlGrafico = fxmlLoader.getController();
 
         // Chiamare il metodo start del controller AddPlaylistCtrlGrafico
-        accountCtrlGrafico.start(stage, userBean);
+        accountCtrlGrafico.start(stage, userBean);*/
+
+        Stage stage = (Stage) account.getScene().getWindow();
+        AccountCtrlGrafico accountCtrlGrafico = new AccountCtrlGrafico();
+        accountCtrlGrafico.start(stage,userBean);
     }
 
     public void setUserBean(UserBean user) {

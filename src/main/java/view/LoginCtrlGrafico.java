@@ -19,7 +19,7 @@ import static java.lang.System.exit;
 
 public class LoginCtrlGrafico {
     @FXML
-    private Button login, register;
+    private Button login, register,guest;
     @FXML
     private PasswordField password;
     @FXML
@@ -29,7 +29,7 @@ public class LoginCtrlGrafico {
     private Label textLogin;
 
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Access Login");
         stage.setResizable(false);
@@ -47,7 +47,6 @@ public class LoginCtrlGrafico {
         if (!checkMailCorrectness(email)){
             textLogin.isVisible();
             textLogin.setText("Email non valida");
-            exit(0);
         } else {
             /* ------ Creo la bean e imposto i parametri ------ */
             LoginBean loginBean = new LoginBean(email,pass);
@@ -86,9 +85,9 @@ public class LoginCtrlGrafico {
     @FXML
     protected void onGuestClick() throws IOException {
         // Devo aprire direttamente la home page, ma devo propagare l'informazione dell'accesso Guest
-        Stage stage = (Stage) login.getScene().getWindow();
+        Stage stage = (Stage) guest.getScene().getWindow();
         HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
-        //homePageCGUI.start(stage,null);
+        homePageCGUI.start(stage,null);
     }
     /*Questo va qua? non c'è riuso di codice*/
     public boolean checkMailCorrectness(String email) {

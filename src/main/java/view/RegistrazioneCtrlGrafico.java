@@ -45,7 +45,7 @@ public class RegistrazioneCtrlGrafico {
     // Inizia la visualizzazione della finestra di registrazione.
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/registrazione.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/registrazione.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Registrazione");

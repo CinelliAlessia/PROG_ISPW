@@ -31,7 +31,7 @@ public class AddPlaylistCtrlGrafico {
     public void start(Stage stage, UserBean user) throws IOException {
         userBean = user;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/caricaPlaylist.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/caricaPlaylist.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Carica Playlist");
