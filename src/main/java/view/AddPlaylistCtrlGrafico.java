@@ -40,7 +40,7 @@ public class AddPlaylistCtrlGrafico {
     }
 
     @FXML
-    protected void onAccountClick() throws IOException { // Non devo fa controlli
+    protected void onAccountClick() throws IOException, InterruptedException { // Non devo fa controlli
         Stage stage = (Stage) account.getScene().getWindow();
         AccountCtrlGrafico accountCGUI = new AccountCtrlGrafico();
         accountCGUI.start(stage,userBean);

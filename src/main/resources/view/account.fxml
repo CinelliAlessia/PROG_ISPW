@@ -8,7 +8,7 @@
 
     <!-- Barra del titolo TopPage -->
     <AnchorPane layoutX="524.0" layoutY="-31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Button id="ButtonBack" fx:id="back" layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="14.0" />
+        <Button id="ButtonBack" fx:id="back" layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="14.0"/>
         <Text fill="#00ff1a" layoutX="571.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IL MIO ACCOUNT">
             <font>
                 <Font name="System Bold" size="18.0" />

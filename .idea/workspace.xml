@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Update, reg_CA ha un errore in corso di risoluzione.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/RegistrationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiornamento view account.fxml&#10;aggiunta possibilità di retrive User dal DB">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aleale@gmail.com/userInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2024_16_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2024_16_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_01_2024_09_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_01_2024_09_38__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_01_2024_14_37__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/database.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/database.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/HomePageCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/HomePageCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,6 +177,9 @@
       <workItem from="1706517459267" duration="7516000" />
       <workItem from="1706526250959" duration="4120000" />
       <workItem from="1706535196911" duration="3325000" />
+      <workItem from="1706548582802" duration="3054000" />
+      <workItem from="1706556718106" duration="9320000" />
+      <workItem from="1706600729068" duration="4311000" />
     </task>
     <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
       <option name="closed" value="true" />
@@ -289,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706530385163</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Aggiornamento view account.fxml&#10;aggiunta possibilità di retrive User dal DB">
+      <option name="closed" value="true" />
+      <created>1706566320863</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1706566320863</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +338,8 @@
     <MESSAGE value="Aggiornate le view.&#10;Aggiunti dei metodi nei controller grafici.&#10;Correzione di warning semplici." />
     <MESSAGE value="Update" />
     <MESSAGE value="Update, reg_CA ha un errore in corso di risoluzione." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update, reg_CA ha un errore in corso di risoluzione." />
+    <MESSAGE value="Aggiornamento view account.fxml&#10;aggiunta possibilità di retrive User dal DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiornamento view account.fxml&#10;aggiunta possibilità di retrive User dal DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
