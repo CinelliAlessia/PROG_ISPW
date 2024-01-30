@@ -1,9 +1,11 @@
 package view;
 
 import engineering.bean.UserBean;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -13,14 +15,8 @@ import javafx.stage.Stage;
 import start.MainApplication;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-public class AccountCtrlGrafico implements Initializable {
-
-    // ...
-
+public class AccountCtrlGrafico{
 
     @FXML
     public Button saveButton;
@@ -35,19 +31,12 @@ public class AccountCtrlGrafico implements Initializable {
     private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz,
             acoustic, reb, country, alternative;
 
-
     private UserBean userBean;
 
     public void setUserBean(UserBean user) {
         // Deve avere un userBean per compilare tutte le informazioni
         userBean = user;
         System.out.println("ACG setUserBean: " + userBean);
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Chiamato dopo l'iniezione FXML
-        //inizializeData();
     }
 
 
@@ -63,7 +52,6 @@ public class AccountCtrlGrafico implements Initializable {
         // Imposta il valore di userBean nel controller
         //AccountCtrlGrafico controller = fxmlLoader.getController(); //Returns the controller associated with the root object.
         //controller.
-
 
         stage.setResizable(false);
         stage.setTitle("My Account");
@@ -108,11 +96,11 @@ public class AccountCtrlGrafico implements Initializable {
 
 
     @FXML
-    public void onSaveClick() {
+    public void onSaveClick(ActionEvent event) {
     }
 
     @FXML
-    public void onBackClick() throws IOException {
+    public void onBackClick(ActionEvent event) throws IOException {
         System.out.println("AGC on Back Click: Bean: " + userBean);
 
         Stage stage = (Stage) back.getScene().getWindow();
@@ -129,10 +117,10 @@ public class AccountCtrlGrafico implements Initializable {
 
 
     @FXML
-    public void addPlaylistClick() throws IOException {
-        Stage stage = (Stage) addButton.getScene().getWindow();
+    public void addPlaylistClick(ActionEvent event) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/addPlaylist.fxml"));
+        Stage stage = (Stage) addButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
 
         // Ottieni l'istanza corrente del controller AddPlaylistCtrlGrafico

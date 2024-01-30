@@ -3,19 +3,18 @@ package view;
 import controllerApplicativo.LoginCtrlApplicativo;
 import engineering.bean.LoginBean;
 import engineering.bean.UserBean;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import start.MainApplication;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static java.lang.System.exit;
 
 public class LoginCtrlGrafico {
     @FXML
@@ -28,6 +27,7 @@ public class LoginCtrlGrafico {
     @FXML
     private Label textLogin;
 
+
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -36,8 +36,9 @@ public class LoginCtrlGrafico {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
-    protected void onLoginClick() throws IOException, SQLException {
+    protected void onLoginClick(ActionEvent event) throws IOException, SQLException {
 
         /* ------ Recupero informazioni dalla schermata di login ------ */
         String email = username.getText();
@@ -76,14 +77,16 @@ public class LoginCtrlGrafico {
         }
     }
     @FXML
-    protected void onRegisterClick() throws IOException { // Non devo fa controlli
+    protected void onRegisterClick(ActionEvent event) throws IOException { // Non devo fa controlli
+
         Stage stage = (Stage) register.getScene().getWindow();
         RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();
         registrazioneCtrlGrafico.start(stage);
     }
 
     @FXML
-    protected void onGuestClick() throws IOException {
+    protected void onGuestClick(ActionEvent event) throws IOException {
+
         // Devo aprire direttamente la home page, ma devo propagare l'informazione dell'accesso Guest
         Stage stage = (Stage) guest.getScene().getWindow();
         HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();

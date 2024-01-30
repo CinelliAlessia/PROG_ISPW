@@ -1,13 +1,13 @@
 package view;
 
-import controllerApplicativo.HomePageCtrlApplicativo;
 import engineering.bean.UserBean;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import start.MainApplication;
 
 import java.io.IOException;
 
@@ -43,21 +43,9 @@ Dopo la modifica, hai spostato la logica di impostazione di userBean direttament
         stage.show();
     }
 
-
     @FXML
-    protected void onAccountClick() throws IOException {
+    protected void onAccountClick(ActionEvent event) throws IOException {
         System.out.println("HCG on Account Click: Bean: " + userBean);
-
-        /* Stage stage = (Stage) account.getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/account.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        // Ottieni l'istanza corrente del controller AddPlaylistCtrlGrafico
-        AccountCtrlGrafico accountCtrlGrafico = fxmlLoader.getController();
-
-        // Chiamare il metodo start del controller AddPlaylistCtrlGrafico
-        accountCtrlGrafico.start(stage, userBean);*/
 
         Stage stage = (Stage) account.getScene().getWindow();
         AccountCtrlGrafico accountCtrlGrafico = new AccountCtrlGrafico();
@@ -69,7 +57,7 @@ Dopo la modifica, hai spostato la logica di impostazione di userBean direttament
     }
 
     @FXML
-    public void addPlaylistClick() throws IOException {
+    public void addPlaylistClick(ActionEvent event) throws IOException {
         Stage stage = (Stage) addButton.getScene().getWindow();
         AddPlaylistCtrlGrafico addPlaylist = new AddPlaylistCtrlGrafico();
         addPlaylist.start(stage, userBean);

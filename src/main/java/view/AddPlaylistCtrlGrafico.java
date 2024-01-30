@@ -26,7 +26,6 @@ public class AddPlaylistCtrlGrafico {
     @FXML
     private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
 
-
     private UserBean userBean;
     public void start(Stage stage, UserBean user) throws IOException {
         userBean = user;
