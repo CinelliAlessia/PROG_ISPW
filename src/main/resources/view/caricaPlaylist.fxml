@@ -13,16 +13,13 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddPlaylistCtrlGrafico">
+<BorderPane prefWidth="1280.0" prefHeight="720.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddPlaylistCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
         <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <Label layoutX="570.0" layoutY="40.0" text="CARICA LA PLAYLIST" textAlignment="CENTER" AnchorPane.topAnchor="20.0" stylesheets="@../styles/title.css"/>
-
+            <Label layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="CARICA LA PLAYLIST" textAlignment="CENTER" AnchorPane.topAnchor="20.0" />
 
             <!-- Pulsanti Account e Back -->
             <Button fx:id="back" mnemonicParsing="false" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="15.0" />
@@ -33,7 +30,7 @@
     <center>
         <!-- Campo Dati -->
         <HBox alignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
-            <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
+            <GridPane alignment="CENTER" hgap="15.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="15.0">
                 <Label text="Titolo:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                 <TextField fx:id="title" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
@@ -48,7 +45,7 @@
                <RowConstraints />
             </rowConstraints>
             <padding>
-               <Insets left="50.0" />
+               <Insets left="150.0" />
             </padding>
             </GridPane>
 
@@ -73,24 +70,24 @@
                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                         <CheckBox fx:id="hipHop" text="Hip Hop" />
                         <CheckBox fx:id="jazz" text="Jazz" />
-                        <CheckBox fx:id="acoustic" text="Acustic" />
+                        <CheckBox fx:id="acoustic" text="Acoustic" />
                         <CheckBox fx:id="reb" text="REB" />
                         <CheckBox fx:id="country" text="Country" />
                         <CheckBox fx:id="alternative" text="Alternative" />
                     </VBox>
                 </HBox>
-            <padding>
-               <Insets right="50.0" />
-            </padding>
+            <HBox.margin>
+               <Insets right="150.0" />
+            </HBox.margin>
             </VBox>
         </HBox>
     </center>
 
 
     <bottom>
-        <Button onAction="#onUploadClick" text="Carica Playlist" BorderPane.alignment="BOTTOM_RIGHT">
+        <Button alignment="CENTER" contentDisplay="CENTER" onAction="#onUploadClick" text="Carica Playlist" textAlignment="CENTER" textOverrun="CLIP" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="50.0" right="50.0" />
+            <Insets bottom="50.0" />
          </BorderPane.margin></Button>
     </bottom>
 
