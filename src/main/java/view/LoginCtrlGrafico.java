@@ -26,9 +26,6 @@ public class LoginCtrlGrafico {
     @FXML
     private Label textLogin;
 
-    public void start(Stage stage) throws IOException {
-
-    }
     @FXML
     protected void onLoginClick(ActionEvent event) throws IOException, SQLException {
 

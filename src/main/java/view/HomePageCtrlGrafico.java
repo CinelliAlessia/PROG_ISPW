@@ -38,19 +38,6 @@ public class HomePageCtrlGrafico {
 
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
-
-        System.out.println("HCG userBean: " + userBean);
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlName.UPLOAD_PLAYLIST_FXML));
-        Parent root = loader.load();
-
-        loader.<AddPlaylistCtrlGrafico>getController().setUserBean(userBean);
-
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        stage.setTitle("Carica Playlist");
-        stage.setScene(scene);
-        stage.show();
+        SceneController.getInstance().<AddPlaylistCtrlGrafico>goToScene(event, FxmlName.UPLOAD_PLAYLIST_FXML,userBean);
     }
 }

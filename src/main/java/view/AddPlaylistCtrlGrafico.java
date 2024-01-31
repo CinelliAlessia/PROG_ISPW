@@ -4,6 +4,8 @@ import controllerApplicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
 import engineering.exceptions.PlaylistNameAlreadyInUse;
+import engineering.others.FxmlName;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,10 +23,9 @@ public class AddPlaylistCtrlGrafico {
     @FXML
     private TextField title, link;
     @FXML
-    private Button back, account;
+    private Button back;
     @FXML
     private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
-
     public UserBean userBean;
 
     public void setUserBean(UserBean user) {
@@ -33,21 +34,11 @@ public class AddPlaylistCtrlGrafico {
     }
 
     @FXML
-    protected void onAccountClick() throws IOException, InterruptedException { // Non devo fa controlli
-        Stage stage = (Stage) account.getScene().getWindow();
-        AccountCtrlGrafico accountCGUI = new AccountCtrlGrafico();
-        //accountCGUI.start(stage,userBean);
+    public void onBackClick(ActionEvent event) throws IOException {
+        SceneController.getInstance().goBack(event);
     }
-
     @FXML
-    public void onBackClick() throws IOException {
-        Stage stage = (Stage) back.getScene().getWindow();
-        HomePageCtrlGrafico home = new HomePageCtrlGrafico();
-        //home.start(stage,userBean);
-    }
-
-    @FXML
-    public void onUploadClick() throws SQLException, PlaylistNameAlreadyInUse {
+    public void onUploadClick(ActionEvent event) throws SQLException, PlaylistNameAlreadyInUse {
         String link_playlist = link.getText();
         String titolo = title.getText();
 
@@ -59,7 +50,6 @@ public class AddPlaylistCtrlGrafico {
         AddPlaylistCtrlApplicativo addPlaylist = new AddPlaylistCtrlApplicativo();
         addPlaylist.insertPlaylist(playlistBean);
     }
-
     private ArrayList<String> retriveCheckList(){
         // Inizializza la lista dei generi musicali selezionati
         ArrayList<String> preferences = new ArrayList<>();

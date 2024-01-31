@@ -3,6 +3,7 @@ package view;
 import controllerApplicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
+import engineering.others.FxmlName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,12 +37,13 @@ public class AccountCtrlGrafico{
     private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz,
             acoustic, reb, country, alternative;
 
-    public volatile UserBean userBean;
+    public UserBean userBean;
 
     public void setUserBean(UserBean user) {
         // Deve avere un userBean per compilare tutte le informazioni
         this.userBean = user;
         System.out.println("ACG setUserBean: " + userBean);
+        initializeData(userBean);
     }
 
     public void initializeData(UserBean user){
@@ -79,47 +81,20 @@ public class AccountCtrlGrafico{
     public void retrivePlaylist() throws SQLException {
 
         ArrayList<PlaylistBean> playlistsBean = AddPlaylistCtrlApplicativo.retriveList();
-
-
-
     }
-
 
     @FXML
     public void onSaveClick(ActionEvent event) {
 
     }
-
     @FXML
     public void onBackClick(ActionEvent event) throws IOException {
-        System.out.println("AGC on Back Click: Bean: " + userBean);
-
-        Stage stage = (Stage) back.getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/view/homePage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        // Ottieni l'istanza corrente del controller HomePageCtrlGrafico
-        HomePageCtrlGrafico homeController = fxmlLoader.getController();
-
-        // Chiamare il metodo start del controller HomePageCtrlGrafico
-        //homeController.start(stage, userBean);
+        SceneController.getInstance().goBack(event);
     }
-
 
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
 
-        System.out.println("ACG userBean: " + userBean);
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/caricaPlaylist.fxml"));
-        Parent root = loader.load();
-        loader.<AddPlaylistCtrlGrafico>getController().setUserBean(userBean);
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        stage.setTitle("Carica Playlist");
-        stage.setScene(scene);
-        stage.show();
+        SceneController.getInstance().<AddPlaylistCtrlGrafico>goToScene(event, FxmlName.UPLOAD_PLAYLIST_FXML,userBean);
     }
 }
