@@ -19,14 +19,10 @@
     <top>
         <!-- Barra del titolo TopPage -->
         <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Button fx:id="back" layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.0" />
             <Label layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="CARICA LA PLAYLIST" textAlignment="CENTER" AnchorPane.topAnchor="20.0" />
-
-            <!-- Pulsanti Account e Back -->
-            <Button fx:id="back" mnemonicParsing="false" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="15.0" />
-
         </AnchorPane>
     </top>
-
     <center>
         <!-- Campo Dati -->
         <HBox alignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
@@ -85,10 +81,11 @@
 
 
     <bottom>
-        <Button alignment="CENTER" contentDisplay="CENTER" onAction="#onUploadClick" text="Carica Playlist" textAlignment="CENTER" textOverrun="CLIP" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="50.0" />
-         </BorderPane.margin></Button>
+        <AnchorPane>
+            <!-- Bottone Salva -->
+            <Button layoutX="600.0" layoutY="650.0" onAction="#onUploadClick" text="Carica Playlist" alignment="CENTER"
+                     contentDisplay="CENTER"  textAlignment="CENTER" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" />
+        </AnchorPane>
     </bottom>
 
 </BorderPane>

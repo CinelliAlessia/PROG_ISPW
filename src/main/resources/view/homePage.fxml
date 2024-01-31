@@ -58,10 +58,9 @@
     </center>
 
     <bottom>
-        <!-- Pulsante + -->
-        <Button fx:id="addButton" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" onAction="#addPlaylistClick" style="-fx-background-radius: 50%; -fx-font-size: 18px;" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" BorderPane.alignment="BOTTOM_RIGHT">
-         <BorderPane.margin>
-            <Insets bottom="50.0" right="50.0" />
-         </BorderPane.margin></Button>
+        <AnchorPane>
+            <!-- Pulsante + -->
+            <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" onAction="#addPlaylistClick" prefHeight="50.0" prefWidth="50.0" text="+" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0" />
+        </AnchorPane>
     </bottom>
 </BorderPane>

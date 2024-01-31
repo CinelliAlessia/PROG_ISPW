@@ -6,7 +6,6 @@ import engineering.bean.UserBean;
 import engineering.exceptions.PlaylistNameAlreadyInUse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
@@ -20,8 +19,6 @@ public class AddPlaylistCtrlGrafico {
     private TextField title;
     @FXML
     private TextField link;
-    @FXML
-    private Button back;
     @FXML
     private CheckBox pop;
     @FXML
