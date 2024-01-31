@@ -6,10 +6,16 @@
     -fx-font-size: 16px;
     -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
     -fx-pref-height: 40px; /* Regola l'altezza desiderata del bottone */
-    -fx-pref-width: 150px; /* Regola la larghezza desiderata del bottone */
+    -fx-pref-width: 140px; /* Regola la larghezza desiderata del bottone */
     -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
     -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
 }
+
+#addButton {
+    -fx-background-radius: 50%;
+    -fx-font-size: 18px;
+}
+
 
 /* Colore di sfondo per i campi di testo e aree di input */
 .text-field, .text-area{
@@ -43,8 +49,6 @@
     -fx-text-fill: white;
 }
 
-
-
 /* Colore di sfondo per la barra di navigazione */
 #navigationBar {
     -fx-background-color: #1DB954;
@@ -57,3 +61,6 @@
 }
 
 /* Altri stili e colori personalizzati possono essere aggiunti secondo le tue preferenze */
+#guest {
+    -fx-pref-width: 200px; /* Regola la larghezza desiderata del bottone */
+}

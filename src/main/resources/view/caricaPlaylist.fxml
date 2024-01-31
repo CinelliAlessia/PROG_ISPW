@@ -21,14 +21,10 @@
     <top>
         <!-- Barra del titolo TopPage -->
         <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <Text fill="#00ff1a" layoutX="571.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carica la Tua Playlist" AnchorPane.topAnchor="15.0">
-                <font>
-                    <Font name="System Bold" size="18.0" />
-                </font>
-            </Text>
+            <Label layoutX="570.0" layoutY="40.0" text="CARICA LA PLAYLIST" textAlignment="CENTER" AnchorPane.topAnchor="20.0" stylesheets="@../styles/title.css"/>
+
 
             <!-- Pulsanti Account e Back -->
-            <Button fx:id="account" mnemonicParsing="false" onAction="#onAccountClick" text="Account" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0" />
             <Button fx:id="back" mnemonicParsing="false" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="15.0" />
 
         </AnchorPane>

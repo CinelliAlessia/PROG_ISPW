@@ -16,62 +16,53 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginCtrlGrafico">
     <top>
         <!-- Barra del titolo TopPage -->
-        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <Text fill="#00ff1a" layoutX="571.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" textOrigin="CENTER">
-                <font>
-                    <Font name="System Bold" size="18.0" />
-                </font>
-            </Text>
+        <AnchorPane layoutX="524.0" layoutY="-31.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+            <Label layoutX="570.0" layoutY="40.0" text="LOGIN" textAlignment="CENTER" AnchorPane.topAnchor="20.0" stylesheets="@../styles/title.css"/>
+
         </AnchorPane>
 
     </top>
 
     <right>
-
-        <AnchorPane layoutX="885.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" AnchorPane.bottomAnchor="200" AnchorPane.topAnchor="200.0" BorderPane.alignment="CENTER_RIGHT">
-            <Button layoutX="158.0" layoutY="236.0" mnemonicParsing="false" onAction="#onLoginClick" text="Login" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
-            <PasswordField fx:id="password" layoutX="149.0" layoutY="170.0" prefHeight="30.0" prefWidth="150.0" promptText="Password" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="160.0" />
-            <TextField fx:id="username" layoutX="149.0" layoutY="81.0" prefHeight="30.0" prefWidth="150.0" promptText="Email" AnchorPane.rightAnchor="20.0" />
+        <AnchorPane layoutX="885.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" AnchorPane.bottomAnchor="200" AnchorPane.topAnchor="200.0" BorderPane.alignment="CENTER_RIGHT">
+                  <VBox alignment="CENTER" layoutX="4.099999904632568" layoutY="3.0999908447265625" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                      <Button fx:id="login" mnemonicParsing="false" onAction="#onLoginClick" text="Login" />
+                      <Label fx:id="errorLabel" textAlignment="JUSTIFY" textFill="RED" textOverrun="CLIP" />
+                  </VBox>
+            <PasswordField fx:id="password" layoutX="149.0" layoutY="170.0" prefHeight="30.0" promptText="Password" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="160.0" />
+            <TextField fx:id="username" layoutX="149.0" layoutY="81.0" prefHeight="30.0" promptText="Email" AnchorPane.rightAnchor="20.0" />
             <Label layoutX="20.0" layoutY="86.0" text="Username" AnchorPane.leftAnchor="20.0" />
-            <Label layoutX="20.0" layoutY="166.0" prefHeight="17.0" prefWidth="71.0" text="Password" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="166.0" />
-            <Label fx:id="textLogin" layoutX="133.0" layoutY="280.0" prefHeight="17.0" prefWidth="96.0" textFill="RED" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0">
-                <font>
-                    <Font size="18.0" />
-                </font>
-            </Label>
-         <BorderPane.margin>
-            <Insets right="150.0" />
-         </BorderPane.margin>
+            <Label layoutX="20.0" layoutY="166.0" text="Password" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="165.0" />
+            <BorderPane.margin>
+                <Insets right="150.0" />
+            </BorderPane.margin>
         </AnchorPane>
 
     </right>
 
     <left>
-      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="151.0" AnchorPane.topAnchor="419.0" BorderPane.alignment="CENTER_LEFT">
-         <children>
-              <ImageView fitHeight="152.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../photo/spotify.png" />
-              </ImageView>
-               <Button fx:id="guest" alignment="CENTER" mnemonicParsing="false" onAction="#onGuestClick" text="Continua come Guest" textAlignment="CENTER" wrapText="true">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
+        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+              minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" AnchorPane.bottomAnchor="151.0"
+              AnchorPane.topAnchor="419.0" BorderPane.alignment="CENTER_LEFT">
+            <BorderPane.margin>
+                <Insets left="150.0"/>
+            </BorderPane.margin>
+            <ImageView fitHeight="160.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../photo/spotify.png"/>
+            </ImageView>
+            <Button fx:id="guest" ellipsisString="" mnemonicParsing="false" onAction="#onGuestClick"
+                    text="Continua come Guest" textAlignment="CENTER" textOverrun="CLIP">
+                <VBox.margin>
+                    <Insets top="20.0"/>
+                </VBox.margin>
             </Button>
-               <Button fx:id="register" alignment="CENTER" mnemonicParsing="false" onAction="#onRegisterClick" text="Registrazione" textAlignment="CENTER">
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
+            <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterClick" text="Registrazione"
+                    textAlignment="CENTER">
+                <VBox.margin>
+                    <Insets top="50.0"/>
+                </VBox.margin>
             </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets left="150.0" />
-         </BorderPane.margin>
-      </VBox>
-
-
+        </VBox>
     </left>
-
-
-
 
 </BorderPane>
