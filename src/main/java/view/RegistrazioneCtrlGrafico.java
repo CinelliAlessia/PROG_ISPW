@@ -4,7 +4,12 @@ import controllerApplicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.RegistrationBean;
 import engineering.bean.UserBean;
 import engineering.exceptions.EmailAlreadyInUse;
+import engineering.others.FxmlName;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
@@ -38,7 +43,6 @@ public class RegistrazioneCtrlGrafico {
 
     private ArrayList<String> preferences;
 
-
     /**
      * Gestisce l'evento di clic sul pulsante di ritorno (back).
      * Chiude la finestra corrente e avvia la schermata di login.
@@ -46,24 +50,15 @@ public class RegistrazioneCtrlGrafico {
      * @throws IOException Se si verifica un errore durante il caricamento della schermata di login.
      */
     @FXML
-    protected void onBackClick() throws IOException {
-        // Ottiene il riferimento alla finestra corrente
-        Stage stage = (Stage) back.getScene().getWindow();
-
-        // Crea un nuovo controller grafico per la schermata di login
-        LoginCtrlGrafico loginCtrlGrafico = new LoginCtrlGrafico();
-
-        // Avvia la schermata di login
-        loginCtrlGrafico.start(stage);
+    protected void onBackClick(ActionEvent event) throws IOException {
+        SceneController.getInstance().goBack(event);
     }
-
-
     // Gestisce l'evento di clic sul pulsante di registrazione.
     @FXML
-    protected void onRegisterClick() throws IOException, EmailAlreadyInUse, SQLException, ClassNotFoundException {
+    protected void onRegisterClick(ActionEvent event) throws IOException, EmailAlreadyInUse, SQLException, ClassNotFoundException {
 
         RegistrationBean regBean = getData();
-        UserBean userBean = getData();
+        UserBean userBean = new UserBean();
 
         if (regBean != null) {
 
@@ -72,15 +67,19 @@ public class RegistrazioneCtrlGrafico {
             reg_CtrlApp.registerUserDB(regBean); //uso metodo controller per registrare un utente sul DB
             reg_CtrlApp.registerUserFS(regBean); //uso metodo controller per registrare un utente sul FS
 
+            System.out.println("Utente registrato con successo");
+
+            userBean.setEmail(regBean.getEmail());
+            userBean.setPreferences(regBean.getPreferences());
+            userBean.setUsername(regBean.getUsername());
+            System.out.println("Recuperate informazioni per user bean");
+
+            /* --------------- Mostro la home page -------------- */
+            SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlName.HOME_PAGE_FXML,userBean);
+
             // Ho eliminato il metodo controlla se email esistente perché lo fa gia la query, ma è importante riuscire
             // a prendere l'esito della query prima di cambiare stage, dobbiamo assicurarci che tutto vada bene.
 
-            // quando andiamo alla home, dobbiamo portarci il bean con le informazioni dell'utente.
-
-            // Se tutto è stato fatto è possibile impostare la scena
-            Stage stage = (Stage) registrazione.getScene().getWindow();
-            HomePageCtrlGrafico homePageCtrlGrafico = new HomePageCtrlGrafico();
-            //homePageCtrlGrafico.start(stage,userBean);
         }
     }
 
@@ -100,7 +99,7 @@ public class RegistrazioneCtrlGrafico {
             showError("CAMPI VUOTI");
         } else if (!verificaPassword(user_password, user_conf_pw)) {
             showError("LE PASSWORD NON CORRISPONDONO");
-        } else if (!verificaEmailCorrect(user_email)) {
+        } else if (!checkMailCorrectness(user_email)) {
             showError("EMAIL NON VALIDA");
         } else {
             return new RegistrationBean(user_name, user_email,user_password,preferences,false, true);
@@ -165,7 +164,7 @@ public class RegistrazioneCtrlGrafico {
     }
 
     // Verifica la correttezza del formato dell'indirizzo email.
-    private boolean verificaEmailCorrect(String email) {
+    private boolean checkMailCorrectness(String email) {
         // Controllo basico se ha almeno una @ e un punto dopo la @?
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);

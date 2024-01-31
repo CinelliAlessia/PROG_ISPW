@@ -19,7 +19,7 @@ public class LoginCtrlApplicativo {
         UserDAO_mySQL userDAO = new UserDAO_mySQL();
         String passwordFromDB = userDAO.getPasswordByEmail(bean.getEmail());
 
-        //Stessa cosa anche per il file system, ma qui(?)
+        // Stessa cosa anche per il file system, ma qui(?)
         UserDAO_JSON userDAOFS = new UserDAO_JSON();
         String passwordFromFS = userDAOFS.getPasswordByEmail(bean.getEmail());
 
@@ -32,4 +32,7 @@ public class LoginCtrlApplicativo {
         return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor(),true);
     }
 
+    public UserBean loadUserByEmailFromFS(String email) {
+        return null;
+    }
 }

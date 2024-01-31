@@ -23,9 +23,17 @@ public class SceneController {
         }
         return sceneController ;
     }
+    @FXML
+    public void goBack(ActionEvent event) {
+        if (!sceneStack.isEmpty()) {
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(sceneStack.pop()); // Pop the last scene from stack
+            stage.show();
+        }
+    }
 
     @FXML
-    public void goToScene(ActionEvent event) {
+    public void pushCurrentScene(ActionEvent event) {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
     }
@@ -35,25 +43,27 @@ public class SceneController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
-        Scene scene = new Scene(root);
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
-        stage.setScene(scene);
-        stage.show();
+
+        Scene scene = new Scene(root);  // Creo scena a partire dal Parent
+        stage.setScene(scene);      // Imposto la scena sullo stage
+        stage.show();      // Mostro la scena (nuova)
     }
     @FXML
-    private <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean, Class<T> controllerType) throws IOException {
+    <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
         T controller = loader.getController();
         setUserBean(controller, userBean);
 
-        Scene scene = new Scene(root);
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
-        stage.setScene(scene);
-        stage.show();
+
+        Scene scene = new Scene(root);  // Creo scena a partire dal Parent
+        stage.setScene(scene);      // Imposto la scena sullo stage
+        stage.show();      // Mostro la scena (nuova)
     }
 
     private void setUserBean(Object controller, UserBean userBean) {
@@ -62,16 +72,6 @@ public class SceneController {
             setUserBeanMethod.invoke(controller, userBean);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.fillInStackTrace(); // Trattamento dell'eccezione
-        }
-    }
-
-
-    @FXML
-    private void goBack(ActionEvent event) {
-        if (!sceneStack.isEmpty()) {
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(sceneStack.pop()); // Pop the last scene from stack
-            stage.show();
         }
     }
 }

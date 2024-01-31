@@ -2,6 +2,7 @@ package engineering.dao;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import model.Supervisor;
 import model.User;
 
 import java.io.File;

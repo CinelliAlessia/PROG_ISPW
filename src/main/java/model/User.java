@@ -14,13 +14,9 @@
             setPassword(password);
             setPreferences(preferences);
             supervisor = false;
-            registered = true;
         }
         public boolean isSupervisor(){ //Restituisce false per User e Guest, true per Supervisor
             return supervisor;
-        }
-        public boolean isRegistered(){ //Restituisce false Guest, true per User e Supervisor
-            return registered;
         }
         public void setEmail(String email) {
             this.email = email;

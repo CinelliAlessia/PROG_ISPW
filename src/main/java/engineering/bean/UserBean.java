@@ -5,10 +5,9 @@ import java.util.ArrayList;
 public class UserBean {
     private String username, email, password;
     private ArrayList<String> preferences;
-    private boolean supervisor, registered;
+    private boolean supervisor;
 
     public UserBean() {
-        registered = false;
         supervisor = false;
     }
 
@@ -17,7 +16,6 @@ public class UserBean {
         setEmail(email);
         setPreferences(preferences);
         supervisor = isSupervisor;
-        registered = isRegistered;
     }
 
     public void setEmail(String email) {
@@ -35,9 +33,8 @@ public class UserBean {
     public void setSupervisor() {
         this.supervisor = true;
     }
-
-    public void setRegistered() {
-        this.registered = true;
+    public boolean isSupervisor() {
+        return supervisor;
     }
 
     public String getUsername() {
@@ -52,11 +49,5 @@ public class UserBean {
         return preferences;
     }
 
-    public boolean isSupervisor() {
-        return supervisor;
-    }
 
-    public boolean isRegistered() {
-        return registered;
-    }
 }

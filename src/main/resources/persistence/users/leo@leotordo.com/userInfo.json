@@ -1,0 +1,11 @@
+{
+  "username": "leopariano",
+  "email": "leo@leotordo.com",
+  "password": "leoleo",
+  "pref": [
+    "Rock",
+    "Jazz"
+  ],
+  "supervisor": false,
+  "registered": false
+}

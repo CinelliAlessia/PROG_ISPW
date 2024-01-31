@@ -3,6 +3,7 @@ package view;
 import controllerApplicativo.LoginCtrlApplicativo;
 import engineering.bean.LoginBean;
 import engineering.bean.UserBean;
+import engineering.others.FxmlName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,20 +23,12 @@ public class LoginCtrlGrafico {
     private PasswordField password;
     @FXML
     private TextField username;
-
     @FXML
     private Label textLogin;
 
-
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Access Login");
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
-    }
 
+    }
     @FXML
     protected void onLoginClick(ActionEvent event) throws IOException, SQLException {
 
@@ -59,23 +52,14 @@ public class LoginCtrlGrafico {
                 System.out.println("CREDENZIALI CORRETTE -> Recupero l'istanza di bean ");
 
                 UserBean userBean = loginCtrlApp.loadUser(loginBean);
+                //################### Inserire il caricamento da FS ############
 
                 if(userBean != null){
                     //userBean.setRegistered(); // Indica che l'utente con cui sto accedendo è registrato
                     System.out.println("Utente registrato, ho recuperato tutto lo user bean");
 
                     /* --------------- Mostro la home page -------------- */
-
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homePage.fxml"));
-                    Parent root = loader.load();
-                    loader.<HomePageCtrlGrafico>getController().setUserBean(userBean);
-
-                    Scene scene = new Scene(root);
-                    Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                    //stage.setResizable(false); ///##############################################
-                    stage.setTitle("Home Page");
-                    stage.setScene(scene);
-                    stage.show();
+                    SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlName.HOME_PAGE_FXML,userBean);
 
                 }
             } else { /* --------------- Credenziali non valide --------------*/
@@ -86,34 +70,12 @@ public class LoginCtrlGrafico {
     }
     @FXML
     protected void onRegisterClick(ActionEvent event) throws IOException {
-        SceneController.getInstance().goToScene(event,"/view/login.fxml");
-
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        //stage.setResizable(false); ///##############################################
-        stage.setTitle("Registrazione");
-        stage.setScene(scene);
-        stage.show();
+        //Push della scena corrente nello stack delle scene e show della scena seguente
+        SceneController.getInstance().goToScene(event, FxmlName.REGISTRATION_FXML);
     }
-
     @FXML
     protected void onGuestClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homePage.fxml"));
-        Parent root = loader.load();
-        loader.<HomePageCtrlGrafico>getController().setUserBean(null);
-
-        SceneController.getInstance().goToScene(event);
-
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        //stage.setResizable(false); ///##############################################
-        stage.setTitle("Home Page");
-        stage.setScene(scene);
-        stage.show();
+        SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlName.HOME_PAGE_FXML,null);
     }
 
     public boolean checkMailCorrectness(String email) {
