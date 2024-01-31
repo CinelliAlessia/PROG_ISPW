@@ -1,37 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HomePageCtrlGrafico">
-<!-- Barra del titolo TopPage -->
-    <AnchorPane layoutX="524.0" layoutY="-31.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Text fill="#00ff1a" layoutX="571.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </Text>
+<BorderPane stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HomePageCtrlGrafico">
+    <top>
+        <!-- Barra del titolo TopPage -->
+        <AnchorPane minWidth="-Infinity" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Text fill="#00ff1a" strokeWidth="0.0" text="HOME" textAlignment="CENTER" textOrigin="TOP" x="500.0" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Text>
 
-        <!-- Pulsante Account -->
-        <Button fx:id="account" mnemonicParsing="false" onAction="#onAccountClick" text="Account" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
-    </AnchorPane>
+            <!-- Pulsante Account -->
+            <Button fx:id="account" mnemonicParsing="false" onAction="#onAccountClick" text="Account" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0" />
+        </AnchorPane>
+    </top>
+    
+    <center>
+        <VBox>
+            <!-- Barra di ricerca -->
+            <HBox alignment="TOP_CENTER" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
+                <TextField prefWidth="800.0" promptText="Cerca qui" />
+                <Button fx:id="searchButton" mnemonicParsing="false" text="Cerca" />
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+            <padding>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            </HBox>
 
-    <!-- Barra di ricerca -->
-    <HBox alignment="CENTER" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
-        <TextField prefWidth="800.0" promptText="Cerca qui" />
-        <Button fx:id="searchButton" mnemonicParsing="false" text="Cerca" />
-    </HBox>
+            <!-- Tabella Playlist -->
+            <TableView layoutX="50.0" layoutY="80.0" prefHeight="500.0" prefWidth="1180.0" AnchorPane.bottomAnchor="75.0">
+                <columns>
+                    <TableColumn prefWidth="300.0" text="Nome Playlist" />
+                    <TableColumn prefWidth="300.0" text="Autore" />
+                    <TableColumn prefWidth="300.0" text="Link" />
+                </columns>
+            </TableView>
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" />
+         </BorderPane.margin>
+        </VBox>
 
-    <!-- Tabella Playlist -->
-    <TableView layoutX="50.0" layoutY="80.0" prefHeight="500.0" prefWidth="1180.0" AnchorPane.bottomAnchor="75.0">
-        <columns>
-            <TableColumn prefWidth="300.0" text="Nome Playlist" />
-            <TableColumn prefWidth="300.0" text="Autore" />
-            <TableColumn prefWidth="300.0" text="Link" />
-        </columns>
-    </TableView>
 
-    <!-- Pulsante + -->
-    <Button fx:id="addButton" onAction="#addPlaylistClick" text="+" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" style="-fx-background-radius: 50%; -fx-font-size: 18px;" />
-</AnchorPane>
+
+    </center>
+
+    <bottom>
+        <!-- Pulsante + -->
+        <Button fx:id="addButton" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" onAction="#addPlaylistClick" style="-fx-background-radius: 50%; -fx-font-size: 18px;" text="+" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" BorderPane.alignment="BOTTOM_RIGHT">
+         <BorderPane.margin>
+            <Insets bottom="50.0" right="50.0" />
+         </BorderPane.margin></Button>
+    </bottom>
+</BorderPane>

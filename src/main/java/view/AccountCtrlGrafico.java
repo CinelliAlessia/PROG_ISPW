@@ -94,7 +94,7 @@ public class AccountCtrlGrafico{
 
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
-
-        SceneController.getInstance().<AddPlaylistCtrlGrafico>goToScene(event, FxmlName.UPLOAD_PLAYLIST_FXML,userBean);
+        SceneController.getInstance().goToScene(event, FxmlName.UPLOAD_PLAYLIST_FXML, userBean);
+        System.out.println("ACG userBean: " + userBean);
     }
 }
