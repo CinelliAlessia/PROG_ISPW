@@ -44,19 +44,19 @@ public class PlaylistDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            ResultSet rs = QueryPlaylist.retrivePlaylstUser(stmt);
-            ArrayList<Integer> id_playlists = new ArrayList<>();
+            ResultSet rs = QueryPlaylist.retrivePlaylistUser(stmt);
+            ArrayList<Integer> idPlaylists = new ArrayList<>();
 
             while (rs.next()) {
-                id_playlists.add(rs.getInt("id_playlist_genred"));
+                idPlaylists.add(rs.getInt("id_playlist_genred"));
             }
 
             rs.close();
 
             List<Playlist> playlists = new ArrayList<>();
 
-            for (int i : id_playlists) {
-                ResultSet resultSet = QueryPlaylist.retriveGenredPlaylist(stmt, i);
+            for (int i : idPlaylists) {
+                ResultSet resultSet = QueryPlaylist.retriveGenrePlaylist(stmt, i);
 
                 while (resultSet.next()) {
                     Playlist playlist = new Playlist();
@@ -69,7 +69,7 @@ public class PlaylistDAO {
                     ArrayList<String> genres = new ArrayList<>();
                     // Popola la lista dei generi
 
-                    playlist.setPlaylist_genre(genres);
+                    playlist.setPlaylistGenre(genres);
 
                     playlists.add(playlist);
                 }

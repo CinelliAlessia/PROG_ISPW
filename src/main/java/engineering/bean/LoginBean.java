@@ -2,7 +2,8 @@ package engineering.bean;
 
 public class LoginBean {
 
-    private String email, password;
+    private String email;
+    private String password;
 
     public LoginBean(String email, String password){
         setEmail(email);

@@ -1,30 +1,33 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Playlist {
-    public int id;
-    private String playlistName, link, username, email;
-    private ArrayList<String> playlist_genre;
+    private int id;
+    private String playlistName;
+    private String link;
+    private String username;
+    private String email;
+    private List<String> playlistGenre;
 
     public Playlist(){
 
     }
-    public Playlist(String email, String username, String playlistName, String link, ArrayList<String> playlist_genre){
+    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre){
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
         setUsername(username);
-        setPlaylist_genre(playlist_genre);
+        setPlaylistGenre(playlistGenre);
     }
 
-    public Playlist(String email, String username, String playlistName, String link, ArrayList<String> playlist_genre,int id){ //SI DOVRA FARE UN
+    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, int id){ //SI DOVRA FARE UN
         // UNICO COSTRUTTORE NON DUE; L?HO FATTO PER VEDERE SE FUNZIONA; L'ID MI SERVE NEL DB
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
         setUsername(username);
-        setPlaylist_genre(playlist_genre);
+        setPlaylistGenre(playlistGenre);
         setId(id);
     }
 
@@ -60,12 +63,12 @@ public class Playlist {
         return email;
     }
 
-    public void setPlaylist_genre(ArrayList<String> playlist_genre) {
-        this.playlist_genre = playlist_genre;
+    public void setPlaylistGenre(List<String> playlistGenre) {
+        this.playlistGenre = playlistGenre;
     }
 
-    public ArrayList<String> getPlaylist_genre() {
-        return playlist_genre;
+    public List<String> getPlaylistGenre() {
+        return playlistGenre;
     }
 
     public void setId(int id) {

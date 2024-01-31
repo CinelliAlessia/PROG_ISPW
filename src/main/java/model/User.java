@@ -1,14 +1,17 @@
     package model;
 
-    import java.util.ArrayList;
+    import java.util.List;
 
     public class User {
-        private String username, email, password;
-        private ArrayList<String> pref;
+        private String username;
+        private String email;
+        private String password;
+        private List<String> pref;
 
-        protected boolean supervisor,registered;
+        protected boolean supervisor;
+        protected boolean registered;
 
-        public User(String username, String email, String password, ArrayList<String> preferences){
+        public User(String username, String email, String password, List<String> preferences){
             setUsername(username);
             setEmail(email);
             setPassword(password);
@@ -29,7 +32,7 @@
         public void setPassword(String password) {
             this.password = password;
         }
-        public void setPreferences(ArrayList<String> preferences) {
+        public void setPreferences(List<String> preferences) {
             this.pref = preferences;
         }
 
@@ -42,7 +45,7 @@
         }
 
 
-        public ArrayList<String> getPref() {
+        public List<String> getPref() {
             return pref;
         }
 

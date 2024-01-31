@@ -6,21 +6,12 @@ import engineering.bean.UserBean;
 import engineering.others.FxmlName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import start.MainApplication;
-
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.List;
 
 public class AccountCtrlGrafico{
 
@@ -28,16 +19,37 @@ public class AccountCtrlGrafico{
     public Button saveButton;
 
     @FXML
-    private Label usernameText, supervisorText, emailText;
-
+    private Label usernameText;
     @FXML
-    private Button back, addButton;
-
+    private Label supervisorText;
     @FXML
-    private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz,
-            acoustic, reb, country, alternative;
+    private Label emailText;
+    @FXML
+    private CheckBox pop;
+    @FXML
+    private CheckBox indie;
+    @FXML
+    private CheckBox classic;
+    @FXML
+    private CheckBox rock;
+    @FXML
+    private CheckBox electronic;
+    @FXML
+    private CheckBox house;
+    @FXML
+    private CheckBox hipHop;
+    @FXML
+    private CheckBox jazz;
+    @FXML
+    private CheckBox acoustic;
+    @FXML
+    private CheckBox reb;
+    @FXML
+    private CheckBox country;
+    @FXML
+    private CheckBox alternative;
 
-    public UserBean userBean;
+    private UserBean userBean;
 
     public void setUserBean(UserBean user) {
         // Deve avere un userBean per compilare tutte le informazioni
@@ -49,7 +61,7 @@ public class AccountCtrlGrafico{
     public void initializeData(UserBean user){
         this.userBean = user;
 
-        System.out.println("ACG in inizializeData: " + userBean);
+        System.out.println("ACG in initializeData: " + userBean);
 
         System.out.println(userBean.getEmail()+ " " + userBean.getUsername() +" "+userBean.getPreferences());
 
@@ -62,7 +74,7 @@ public class AccountCtrlGrafico{
         supervisorText.setText("FALSE");
         emailText.setText(userBean.getEmail());
 
-        ArrayList<String> preferences = userBean.getPreferences();
+        List<String> preferences = userBean.getPreferences();
 
         pop.setSelected(preferences.contains("Pop"));
         indie.setSelected(preferences.contains("Indie"));
@@ -79,16 +91,16 @@ public class AccountCtrlGrafico{
     }
 
     public void retrivePlaylist() throws SQLException {
-
-        ArrayList<PlaylistBean> playlistsBean = AddPlaylistCtrlApplicativo.retriveList();
+        List<PlaylistBean> playlistsBean = AddPlaylistCtrlApplicativo.retriveList();
+        // TODO document why this method is empty
     }
 
     @FXML
     public void onSaveClick(ActionEvent event) {
-
+        // TODO document why this method is empty
     }
     @FXML
-    public void onBackClick(ActionEvent event) throws IOException {
+    public void onBackClick(ActionEvent event) {
         SceneController.getInstance().goBack(event);
     }
 

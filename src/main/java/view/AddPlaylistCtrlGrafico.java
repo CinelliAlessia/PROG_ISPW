@@ -4,29 +4,47 @@ import controllerApplicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
 import engineering.exceptions.PlaylistNameAlreadyInUse;
-import engineering.others.FxmlName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AddPlaylistCtrlGrafico {
 
     @FXML
-    private TextField title, link;
+    private TextField title;
+    @FXML
+    private TextField link;
     @FXML
     private Button back;
     @FXML
-    private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
-    public UserBean userBean;
+    private CheckBox pop;
+    @FXML
+    private CheckBox indie;
+    @FXML
+    private CheckBox classic;
+    @FXML
+    private CheckBox rock;
+    @FXML
+    private CheckBox electronic;
+    @FXML
+    private CheckBox house;
+    @FXML
+    private CheckBox hipHop;
+    @FXML
+    private CheckBox jazz;
+    @FXML
+    private CheckBox acoustic;
+    @FXML
+    private CheckBox reb;
+    @FXML
+    private CheckBox country;
+    @FXML
+    private CheckBox alternative;
+    private UserBean userBean;
 
     public void setUserBean(UserBean user) {
         this.userBean = user;
@@ -34,21 +52,24 @@ public class AddPlaylistCtrlGrafico {
     }
 
     @FXML
-    public void onBackClick(ActionEvent event) throws IOException {
+    public void onBackClick(ActionEvent event) {
         SceneController.getInstance().goBack(event);
     }
     @FXML
     public void onUploadClick(ActionEvent event) throws SQLException, PlaylistNameAlreadyInUse {
-        String link_playlist = link.getText();
+        String linkPlaylist = link.getText();
         String titolo = title.getText();
 
-        ArrayList<String> playlist_genre = retriveCheckList();
+        ArrayList<String> playlistGenre = retriveCheckList();
 
         // Verifica che i campi non sono vuoti ###############
-        System.out.println("AddP: "+userBean.getEmail()+ " " + userBean.getUsername()+ " " + titolo + " " + link_playlist + " " + playlist_genre);
-        PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, link_playlist, playlist_genre);
+        System.out.println("AddP: "+userBean.getEmail()+ " " + userBean.getUsername()+ " " + titolo + " " + linkPlaylist + " " + playlistGenre);
+        PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, playlistGenre);
         AddPlaylistCtrlApplicativo addPlaylist = new AddPlaylistCtrlApplicativo();
         addPlaylist.insertPlaylist(playlistBean);
+
+        //Dopo il caricamento mostriamo la home page oppure l'account?
+
     }
     private ArrayList<String> retriveCheckList(){
         // Inizializza la lista dei generi musicali selezionati

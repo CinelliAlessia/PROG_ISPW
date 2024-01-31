@@ -39,7 +39,7 @@ public class UserDAO_mySQL implements UserDAO{
                 }
             } catch (SQLException e) {
                 // Gestisci l'eccezione
-                e.printStackTrace();
+                e.fillInStackTrace();
             }
         }
     }
@@ -61,7 +61,7 @@ public class UserDAO_mySQL implements UserDAO{
 
         } catch (SQLException e) {
             // Gestisci l'eccezione
-            e.printStackTrace();
+            e.fillInStackTrace();
         } finally {
             // Chiudi le risorse (ResultSet, Statement, Connection)
             try {
@@ -70,7 +70,7 @@ public class UserDAO_mySQL implements UserDAO{
                 }
             } catch (SQLException e) {
                 // Gestisci l'eccezione
-                e.printStackTrace();
+                e.fillInStackTrace();
             }
         }
 
@@ -78,27 +78,27 @@ public class UserDAO_mySQL implements UserDAO{
     }
 
     /**
-     * @param userIstance
+     * @param userInstance
      */
     @Override
-    public void deleteUser(User userIstance) {
-
+    public void deleteUser(User userInstance) {
+        // TODO document why this method is empty
     }
 
     /**
      * @param userName
      */
     @Override
-    public void retreiveUserByUserName(String userName) {
-
+    public void retrieveUserByUserName(String userName) {
+        // TODO document why this method is empty
     }
 
     /**
      * @param userId
      */
     @Override
-    public void retreiveUserByUserId(String userId) {
-
+    public void retrieveUserByUserId(String userId) {
+        // TODO document why this method is empty
     }
 
     public static User loadUser(String userEmail) throws SQLException {

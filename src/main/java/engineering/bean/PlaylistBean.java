@@ -1,24 +1,25 @@
 package engineering.bean;
 
-import model.Playlist;
-
-import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlaylistBean {
-    private String username, email, link, playlistName;
-    private ArrayList<String> playlist_genre;
+    private String username;
+    private String email;
+    private String link;
+    private String playlistName;
+    private List<String> playlistGenre;
 
     public PlaylistBean(){
 
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, ArrayList<String> playlist_genre){
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre){
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
         setUsername(username);
-        setPlaylist_genre(playlist_genre);
+        setPlaylistGenre(playlistGenre);
     }
     public void setLink(String link) {
         this.link = link;
@@ -52,11 +53,11 @@ public class PlaylistBean {
         return email;
     }
 
-    public void setPlaylist_genre(ArrayList<String> playlist_genre) {
-        this.playlist_genre = playlist_genre;
+    public void setPlaylistGenre(List<String> playlistGenre) {
+        this.playlistGenre = playlistGenre;
     }
 
-    public ArrayList<String> getPlaylist_genre() {
-        return playlist_genre;
+    public List<String> getPlaylistGenre() {
+        return playlistGenre;
     }
 }

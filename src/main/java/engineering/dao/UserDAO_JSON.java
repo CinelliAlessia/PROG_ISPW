@@ -13,8 +13,8 @@ import java.nio.file.Paths;
 
 public class UserDAO_JSON implements UserDAO {
     private static final String BASE_DIRECTORY = "src/main/resources/persistence/users";
-    private UserDAO_JSON(){
-
+    public UserDAO_JSON(){
+        // TODO document why this constructor is empty
     }
     @Override
     public void insertUser(User user) {
@@ -38,7 +38,7 @@ public class UserDAO_JSON implements UserDAO {
 
             System.out.println("Utente inserito con successo!");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
     }
 
@@ -60,7 +60,7 @@ public class UserDAO_JSON implements UserDAO {
                 // Restituisci la password dell'utente
                 return user.getPassword();
             } catch (IOException e) {
-                e.printStackTrace();
+                e.fillInStackTrace();
             }
         } else {
             System.out.println("Utente non trovato o file userInfo.json mancante.");
@@ -83,12 +83,12 @@ public class UserDAO_JSON implements UserDAO {
             Files.deleteIfExists(userDirectory); // Rimuove la directory dell'utente
             System.out.println("Utente eliminato con successo!");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
     }
     @Override
     // questa funzione assume di avere un FS dove le cartelle sono nominate tramite username
-    public void retreiveUserByUserName(String username) {
+    public void retrieveUserByUserName(String username) {
         Path userDirectory = Paths.get(BASE_DIRECTORY, username);
 
         if (Files.exists(userDirectory)) {
@@ -104,11 +104,11 @@ public class UserDAO_JSON implements UserDAO {
                                 // Fai qualcosa con l'utente recuperato
                                 System.out.println(user);
                             } catch (IOException e) {
-                                e.printStackTrace();
+                                e.fillInStackTrace();
                             }
                         });
             } catch (IOException e) {
-                e.printStackTrace();
+                e.fillInStackTrace();
             }
         } else {
             System.out.println("Utente non trovato!");
@@ -116,7 +116,7 @@ public class UserDAO_JSON implements UserDAO {
     }
 
     @Override
-    public void retreiveUserByUserId(String userId) {
+    public void retrieveUserByUserId(String userId) {
         // Implementazione per recuperare gli utenti per ID se è presente questa logica nel filesystem
         // Questo dipende dalla struttura specifica del tuo sistema di file
     }

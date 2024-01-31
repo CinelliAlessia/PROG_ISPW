@@ -1,10 +1,8 @@
 package engineering.query;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 public class Queries {
+
+    private Queries(){}
 
     /* ---------- QUERY LOGIN ---------- */
     public static final String INSERT_USER_QUERY = "INSERT INTO user (email, username, password) VALUES ('%s','%s','%s')";

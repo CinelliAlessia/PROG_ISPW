@@ -1,17 +1,17 @@
 package engineering.bean;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class UserBean {
     private String username, email, password;
-    private ArrayList<String> preferences;
+    private List<String> preferences;
     private boolean supervisor;
 
     public UserBean() {
         supervisor = false;
     }
 
-    public UserBean(String username, String email,ArrayList<String> preferences, boolean isSupervisor, boolean isRegistered) {
+    public UserBean(String username, String email,List<String> preferences, boolean isSupervisor, boolean isRegistered) {
         setUsername(username);
         setEmail(email);
         setPreferences(preferences);
@@ -26,7 +26,7 @@ public class UserBean {
         this.username = nome;
     }
 
-    public void setPreferences(ArrayList<String> preferences) {
+    public void setPreferences(List<String> preferences) {
         this.preferences = preferences;
     }
 
@@ -45,7 +45,7 @@ public class UserBean {
         return email;
     }
 
-    public ArrayList<String> getPreferences() {
+    public List<String> getPreferences() {
         return preferences;
     }
 

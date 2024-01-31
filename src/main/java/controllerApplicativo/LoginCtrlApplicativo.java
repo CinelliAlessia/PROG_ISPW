@@ -12,6 +12,7 @@ public class LoginCtrlApplicativo {
     // implemento la logica dello use case
 
     public LoginCtrlApplicativo() {
+        // TODO document why this method is empty
     }
 
     public boolean verificaCredenziali(LoginBean bean) {

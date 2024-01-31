@@ -5,7 +5,7 @@ import model.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.List;
 
 public class QueryLogin {
     private QueryLogin() {
@@ -25,14 +25,14 @@ public class QueryLogin {
         insertGeneriMusicali(stmt, email, user.getPref());
     }
 
-    public static void insertGeneriMusicali(Statement stmt, String userEmail, ArrayList<String> generiMusicali) throws SQLException {
+    public static void insertGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
         // Costruisci la query di inserimento
         StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_QUERY, buildGenresQueryString(generiMusicali, userEmail)));
 
         // Esegui la query
         stmt.executeUpdate(query.toString());
     }
-    private static String buildGenresQueryString(ArrayList<String> generiMusicali, String userEmail) {
+    private static String buildGenresQueryString(List<String> generiMusicali, String userEmail) {
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
         StringBuilder query = new StringBuilder();
 

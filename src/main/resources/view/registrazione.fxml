@@ -58,7 +58,7 @@
                     <TextField fx:id="name" promptText="Nome" />
                     <TextField fx:id="email" promptText="Email" />
                     <PasswordField fx:id="password" promptText="Password" />
-                    <PasswordField fx:id="conf_password" promptText="Conferma Password" />
+                    <PasswordField fx:id="confPassword" promptText="Conferma Password" />
                 </VBox>
             </HBox>
 
@@ -67,7 +67,7 @@
 
     <bottom>
         <AnchorPane BorderPane.alignment="CENTER">
-            <Text fx:id="error_field" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="LE PASSWORD NON CORRISPONDONO" textAlignment="CENTER" visible="false" wrappingWidth="393.97707509994507" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0"/>
+            <Text fx:id="errorField" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="LE PASSWORD NON CORRISPONDONO" textAlignment="CENTER" visible="false" wrappingWidth="393.97707509994507" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0"/>
             <Button fx:id="registrazione" text="Registrati" mnemonicParsing="false" onAction="#onRegisterClick" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0"/>
         </AnchorPane>
     </bottom>

@@ -3,22 +3,14 @@ package view;
 import controllerApplicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.RegistrationBean;
 import engineering.bean.UserBean;
-import engineering.exceptions.EmailAlreadyInUse;
 import engineering.others.FxmlName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,19 +19,42 @@ public class RegistrazioneCtrlGrafico {
 
     // ---------Nodi interfaccia----------
     @FXML
-    private Button back, registrazione;
+    private TextField name;
+    @FXML
+    private TextField email;
 
     @FXML
-    private TextField name, email;
+    private PasswordField password;
+    @FXML
+    private PasswordField confPassword;
 
     @FXML
-    private PasswordField password, conf_password;
+    private Text errorField;
 
     @FXML
-    private Text error_field;
-
+    private CheckBox pop;
     @FXML
-    private CheckBox pop, indie, classic, rock, electronic, house, hipHop, jazz, acoustic, reb, country, alternative;
+    private CheckBox indie;
+    @FXML
+    private CheckBox classic;
+    @FXML
+    private CheckBox rock;
+    @FXML
+    private CheckBox electronic;
+    @FXML
+    private CheckBox house;
+    @FXML
+    private CheckBox hipHop;
+    @FXML
+    private CheckBox jazz;
+    @FXML
+    private CheckBox acoustic;
+    @FXML
+    private CheckBox reb;
+    @FXML
+    private CheckBox country;
+    @FXML
+    private CheckBox alternative;
 
     private ArrayList<String> preferences;
 
@@ -47,10 +62,9 @@ public class RegistrazioneCtrlGrafico {
      * Gestisce l'evento di clic sul pulsante di ritorno (back).
      * Chiude la finestra corrente e avvia la schermata di login.
      *
-     * @throws IOException Se si verifica un errore durante il caricamento della schermata di login.
      */
     @FXML
-    protected void onBackClick(ActionEvent event) throws IOException {
+    protected void onBackClick(ActionEvent event){
         SceneController.getInstance().goBack(event);
     }
     // Gestisce l'evento di clic sul pulsante di registrazione.
@@ -62,9 +76,9 @@ public class RegistrazioneCtrlGrafico {
 
         if (regBean != null) {
 
-            RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
+            RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo();
             //############ questo va corretto con una sola chiamata ###############
-            reg_CtrlApp.registerUser(regBean); //uso metodo controller per registrare un utente sul livello di persistenza
+            registrazioneCtrlApplicativo.registerUser(regBean); //uso metodo controller per registrare un utente sul livello di persistenza
 
             System.out.println("Utente registrato con successo");
 
@@ -85,23 +99,23 @@ public class RegistrazioneCtrlGrafico {
     // Ottiene i dati inseriti dall'utente dalla GUI e restituisce un oggetto UserBean.
     private RegistrationBean getData() {    // Prendo i dati
 
-        String user_name = name.getText().trim();
-        String user_email = email.getText().trim();
-        String user_password = password.getText();
+        String userName = name.getText().trim();
+        String userEmail = email.getText().trim();
+        String userPassword = password.getText();
 
         // Dati
-        String user_conf_pw = conf_password.getText();
+        String userConfPw = confPassword.getText();
 
         preferences = retriveCheckList();
 
-        if (user_name.isEmpty() || user_email.isEmpty() || user_password.isEmpty() || user_conf_pw.isEmpty()) {
+        if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userConfPw.isEmpty()) {
             showError("CAMPI VUOTI");
-        } else if (!verificaPassword(user_password, user_conf_pw)) {
+        } else if (!verificaPassword(userPassword, userConfPw)) {
             showError("LE PASSWORD NON CORRISPONDONO");
-        } else if (!checkMailCorrectness(user_email)) {
+        } else if (!checkMailCorrectness(userEmail)) {
             showError("EMAIL NON VALIDA");
         } else {
-            return new RegistrationBean(user_name, user_email,user_password,preferences,false, true);
+            return new RegistrationBean(userName, userEmail,userPassword,preferences,false, true);
         }
 
         return null;
@@ -153,8 +167,8 @@ public class RegistrazioneCtrlGrafico {
 
     private void showError(String message) {
         // Mostra un messaggio di errore nell'interfaccia utente.
-        error_field.setText(message);
-        error_field.setVisible(true);
+        errorField.setText(message);
+        errorField.setVisible(true);
     }
 
     // Verifica se le password inserite coincidono.

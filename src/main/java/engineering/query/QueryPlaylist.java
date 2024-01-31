@@ -2,11 +2,10 @@ package engineering.query;
 
 import model.Playlist;
 
-import java.io.FilterOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.List;
 
 public class QueryPlaylist {
     public static void insertPlaylist(Statement stmt, Playlist playlist) throws SQLException {
@@ -15,31 +14,31 @@ public class QueryPlaylist {
         System.out.println(email);
         String username = playlist.getUsername();
         String link = playlist.getLink();
-        String name_playlist = playlist.getPlaylistName();
-        ArrayList<String> playlist_genre = playlist.getPlaylist_genre();
+        String namePlaylist = playlist.getPlaylistName();
+        List<String> playlistGenre = playlist.getPlaylistGenre();
 
-        int id_playlist = playlist.getId();
+        int idPlaylist = playlist.getId();
 
         // Poi inserisci i generi musicali nella tabella 'generi_musicali'
-        insertGeneriMusicali(stmt, id_playlist, email, playlist_genre);
+        insertGeneriMusicali(stmt, idPlaylist, email, playlistGenre);
 
-        String insertAllPlaylistStatement = String.format(Queries.INSERT_ALL_PLAYLIST_QUERY, name_playlist, link);
+        String insertAllPlaylistStatement = String.format(Queries.INSERT_ALL_PLAYLIST_QUERY, namePlaylist, link);
         stmt.executeUpdate(insertAllPlaylistStatement);
 
-        String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_QUERY, email, username, name_playlist, link, id_playlist);
+        String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_QUERY, email, username, namePlaylist, link, idPlaylist);
         stmt.executeUpdate(insertPlaylistStatement);
 
 
     }
 
-    public static void insertGeneriMusicali(Statement stmt, int id, String userEmail, ArrayList<String> generiMusicali) throws SQLException {
+    public static void insertGeneriMusicali(Statement stmt, int id, String userEmail, List<String> generiMusicali) throws SQLException {
         // Costruisci la query di inserimento
         StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_PLAYLIST_QUERY, buildGenresQueryString(id, generiMusicali, userEmail)));
 
         // Esegui la query
         stmt.executeUpdate(query.toString());
     }
-    private static String buildGenresQueryString(int id, ArrayList<String> generiMusicali, String userEmail) {
+    private static String buildGenresQueryString(int id, List<String> generiMusicali, String userEmail) {
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
         StringBuilder query = new StringBuilder();
 
@@ -63,12 +62,12 @@ public class QueryPlaylist {
         return stmt.executeQuery(sql);
     }
 
-    public static ResultSet retrivePlaylstUser(Statement stmt) throws SQLException {
+    public static ResultSet retrivePlaylistUser(Statement stmt) throws SQLException {
         String sql = String.format(Queries.SELECT_PLAYLIST_BY_USER);
         return stmt.executeQuery(sql);
     }
 
-    public static ResultSet retriveGenredPlaylist(Statement stmt,int id) throws SQLException {
+    public static ResultSet retriveGenrePlaylist(Statement stmt,int id) throws SQLException {
         String sql = String.format(Queries.SELECT_GENRED_USER_QUERY,id);
         return stmt.executeQuery(sql);
     }
