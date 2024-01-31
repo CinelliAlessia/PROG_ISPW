@@ -1,5 +1,7 @@
 package view;
 
+import controllerApplicativo.AddPlaylistCtrlApplicativo;
+import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import start.MainApplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -73,9 +76,18 @@ public class AccountCtrlGrafico{
         alternative.setSelected(preferences.contains("Alternative"));
     }
 
+    public void retrivePlaylist() throws SQLException {
+
+        ArrayList<PlaylistBean> playlistsBean = AddPlaylistCtrlApplicativo.retriveList();
+
+
+
+    }
+
 
     @FXML
     public void onSaveClick(ActionEvent event) {
+
     }
 
     @FXML

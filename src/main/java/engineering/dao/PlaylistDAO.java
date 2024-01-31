@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlaylistDAO {
     /*L'inserimento di una playlist prima controlla che ci sia già il link all'interno del DB, successivamente inserisce*/
@@ -27,6 +29,56 @@ public class PlaylistDAO {
             }
 
             QueryPlaylist.insertPlaylist(stmt, playlist);
+        } finally {
+            if (stmt != null) {
+                stmt.close();
+            }
+        }
+    }
+
+    public static List<Playlist> retrivePlaylistUser() throws SQLException {
+        Statement stmt = null;
+        Connection conn = null;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            ResultSet rs = QueryPlaylist.retrivePlaylstUser(stmt);
+            ArrayList<Integer> id_playlists = new ArrayList<>();
+
+            while (rs.next()) {
+                id_playlists.add(rs.getInt("id_playlist_genred"));
+            }
+
+            rs.close();
+
+            List<Playlist> playlists = new ArrayList<>();
+
+            for (int i : id_playlists) {
+                ResultSet resultSet = QueryPlaylist.retriveGenredPlaylist(stmt, i);
+
+                while (resultSet.next()) {
+                    Playlist playlist = new Playlist();
+                    playlist.setId(resultSet.getInt("id"));
+                    playlist.setUsername(resultSet.getString("name"));
+                    playlist.setLink(resultSet.getString("link"));
+                    playlist.setEmail(resultSet.getString("userEmail"));
+
+                    // Carica i generi dalla tua query e aggiungili alla lista
+                    ArrayList<String> genres = new ArrayList<>();
+                    // Popola la lista dei generi
+
+                    playlist.setPlaylist_genre(genres);
+
+                    playlists.add(playlist);
+                }
+
+                resultSet.close();
+            }
+
+            return playlists;
+
         } finally {
             if (stmt != null) {
                 stmt.close();

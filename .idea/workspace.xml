@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Update with error">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Risolti errori per il load dell'user bean">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/database.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/database.mwb.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.mwb.beforefix" beforeDir="false" afterPath="$PROJECT_DIR$/database.mwb.beforefix" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/AddPlaylistCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/AddPlaylistCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/userInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +68,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.MainApplication.executor": "Run",
     "Application.MongoDBConnector.executor": "Run",
-    "Application.StartByMain.executor": "Debug",
+    "Application.StartByMain.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "OverrideImplement.generate.javadoc": "true",
     "Repository.Attach.Annotations": "false",
@@ -185,7 +177,7 @@
       <workItem from="1706600729068" duration="16941000" />
       <workItem from="1706620899009" duration="12289000" />
       <workItem from="1706634398060" duration="2262000" />
-      <workItem from="1706639484242" duration="4256000" />
+      <workItem from="1706639484242" duration="7619000" />
     </task>
     <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
       <option name="closed" value="true" />
@@ -339,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706630474328</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Risolti errori per il load dell'user bean">
+      <option name="closed" value="true" />
+      <created>1706649077941</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1706649077941</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +370,8 @@
     <MESSAGE value="Update, reg_CA ha un errore in corso di risoluzione." />
     <MESSAGE value="Aggiornamento view account.fxml&#10;aggiunta possibilità di retrive User dal DB" />
     <MESSAGE value="Update with error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update with error" />
+    <MESSAGE value="Risolti errori per il load dell'user bean" />
+    <option name="LAST_COMMIT_MESSAGE" value="Risolti errori per il load dell'user bean" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

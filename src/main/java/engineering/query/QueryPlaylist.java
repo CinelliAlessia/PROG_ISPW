@@ -18,7 +18,7 @@ public class QueryPlaylist {
         String name_playlist = playlist.getPlaylistName();
         ArrayList<String> playlist_genre = playlist.getPlaylist_genre();
 
-        int id_playlist = 53;
+        int id_playlist = playlist.getId();
 
         // Poi inserisci i generi musicali nella tabella 'generi_musicali'
         insertGeneriMusicali(stmt, id_playlist, email, playlist_genre);
@@ -62,4 +62,16 @@ public class QueryPlaylist {
         String sql = String.format(Queries.SELECT_LINK_QUERY, link);
         return stmt.executeQuery(sql);
     }
+
+    public static ResultSet retrivePlaylstUser(Statement stmt) throws SQLException {
+        String sql = String.format(Queries.SELECT_PLAYLIST_BY_USER);
+        return stmt.executeQuery(sql);
+    }
+
+    public static ResultSet retriveGenredPlaylist(Statement stmt,int id) throws SQLException {
+        String sql = String.format(Queries.SELECT_GENRED_USER_QUERY,id);
+        return stmt.executeQuery(sql);
+    }
+
+
 }

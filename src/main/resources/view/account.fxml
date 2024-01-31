@@ -61,14 +61,15 @@
     <AnchorPane layoutX="50.0" layoutY="400.0" prefHeight="200.0" prefWidth="1180.0" style="-fx-padding: 40px;">
         <Text style="-fx-font-size: 20px;" text="Playlist Preferite" />
         <!-- Aggiungi qui la TableView per le playlist -->
-        <TableView fixedCellSize="0.0" layoutX="131.2" layoutY="30.0" prefHeight="150.0" prefWidth="998.0">
+        <TableView fx:id="playlistTable" fixedCellSize="0.0" layoutX="131.2" layoutY="30.0" prefHeight="150.0" prefWidth="998.0">
             <columns>
-                <TableColumn prefWidth="300.0" text="Nome Playlist" />
-                <TableColumn prefWidth="300.0" text="Autore" />
-                <TableColumn prefWidth="300.0" text="Link" />
+                <TableColumn fx:id="nameColumn" prefWidth="300.0" text="Nome Playlist" />
+                <TableColumn fx:id="authorColumn" prefWidth="300.0" text="Autore" />
+                <TableColumn fx:id="linkColumn" prefWidth="300.0" text="Link" />
             </columns>
         </TableView>
     </AnchorPane>
+
 
     <!-- Bottone Salva -->
     <Button fx:id="saveButton" layoutX="600.0" layoutY="650.0" onAction="#onSaveClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Salva" />
