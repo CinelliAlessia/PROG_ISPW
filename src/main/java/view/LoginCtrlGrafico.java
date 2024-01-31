@@ -6,7 +6,6 @@ import engineering.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -18,8 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginCtrlGrafico {
-    @FXML
-    private Button login, register,guest;
+
     @FXML
     private PasswordField password;
     @FXML
@@ -54,7 +52,7 @@ public class LoginCtrlGrafico {
             LoginBean loginBean = new LoginBean(email,pass);
 
             /* ------ Creo istanza del Login controller applicativo e utilizzo i metodi di verifica credenziali ------ */
-            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
+            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); //Dovrebbe essere static
 
             if (loginCtrlApp.verificaCredenziali(loginBean)) {
                 /* --------------- Credenziali corrette -------------- */
@@ -71,17 +69,13 @@ public class LoginCtrlGrafico {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homePage.fxml"));
                     Parent root = loader.load();
                     loader.<HomePageCtrlGrafico>getController().setUserBean(userBean);
+
                     Scene scene = new Scene(root);
                     Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                    stage.setResizable(false);
+                    //stage.setResizable(false); ///##############################################
                     stage.setTitle("Home Page");
                     stage.setScene(scene);
                     stage.show();
-
-
-                    //homePageCGUI.start(stage, userBean);
-
-
 
                 }
             } else { /* --------------- Credenziali non valide --------------*/
@@ -91,21 +85,37 @@ public class LoginCtrlGrafico {
         }
     }
     @FXML
-    protected void onRegisterClick(ActionEvent event) throws IOException { // Non devo fa controlli
-        Stage stage = (Stage) register.getScene().getWindow();
-        RegistrazioneCtrlGrafico registrazioneCtrlGrafico = new RegistrazioneCtrlGrafico();
-        registrazioneCtrlGrafico.start(stage);
+    protected void onRegisterClick(ActionEvent event) throws IOException {
+        SceneController.getInstance().goToScene(event,"/view/login.fxml");
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        //stage.setResizable(false); ///##############################################
+        stage.setTitle("Registrazione");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     protected void onGuestClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homePage.fxml"));
+        Parent root = loader.load();
+        loader.<HomePageCtrlGrafico>getController().setUserBean(null);
 
-        // Devo aprire direttamente la home page, ma devo propagare l'informazione dell'accesso Guest
-        Stage stage = (Stage) guest.getScene().getWindow();
-        HomePageCtrlGrafico homePageCGUI = new HomePageCtrlGrafico();
-        //homePageCGUI.start(stage,null);
+        SceneController.getInstance().goToScene(event);
+
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        //stage.setResizable(false); ///##############################################
+        stage.setTitle("Home Page");
+        stage.setScene(scene);
+        stage.show();
     }
-    /*Questo va qua? non c'è riuso di codice*/
+
     public boolean checkMailCorrectness(String email) {
         /*Controllo basico se ha almeno una @ e un punto dopo la @? */
         // Definisci il pattern per una email valida

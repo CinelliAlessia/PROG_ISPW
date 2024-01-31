@@ -20,7 +20,7 @@ public class HomePageCtrlGrafico implements Initializable {
     @FXML
     private Button account, addButton;
 
-    public UserBean userBean;
+    private UserBean userBean;
 
     public void setUserBean(UserBean user) {
         this.userBean = user;
@@ -50,7 +50,9 @@ public class HomePageCtrlGrafico implements Initializable {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/caricaPlaylist.fxml"));
         Parent root = loader.load();
+
         loader.<AddPlaylistCtrlGrafico>getController().setUserBean(userBean);
+
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);

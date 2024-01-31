@@ -5,8 +5,6 @@ import engineering.bean.RegistrationBean;
 import engineering.bean.UserBean;
 import engineering.exceptions.EmailAlreadyInUse;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
@@ -40,17 +38,6 @@ public class RegistrazioneCtrlGrafico {
 
     private ArrayList<String> preferences;
 
-
-    // Inizia la visualizzazione della finestra di registrazione.
-    public void start(Stage stage) throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/registrazione.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setResizable(false);
-        stage.setTitle("Registrazione");
-        stage.setScene(scene);
-        stage.show();
-    }
 
     /**
      * Gestisce l'evento di clic sul pulsante di ritorno (back).
