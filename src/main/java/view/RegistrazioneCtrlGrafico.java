@@ -77,8 +77,8 @@ public class RegistrazioneCtrlGrafico {
         if (regBean != null) {
 
             RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo();
-            //############ questo va corretto con una sola chiamata ###############
-            registrazioneCtrlApplicativo.registerUser(regBean); //uso metodo controller per registrare un utente sul livello di persistenza
+            //uso metodo controller per registrare un utente sul livello di persistenza (non so quale sia e non è importante)
+            registrazioneCtrlApplicativo.registerUser(regBean);
 
             System.out.println("Utente registrato con successo");
 

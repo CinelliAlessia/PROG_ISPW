@@ -90,7 +90,7 @@ public class AccountCtrlGrafico{
         alternative.setSelected(preferences.contains("Alternative"));
     }
 
-    public void retrivePlaylist() throws SQLException {
+    public void retrivePlaylist() throws SQLException, IOException {
         List<PlaylistBean> playlistsBean = AddPlaylistCtrlApplicativo.retriveList();
         // TODO document why this method is empty
     }

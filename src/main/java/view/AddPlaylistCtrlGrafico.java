@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -56,7 +58,7 @@ public class AddPlaylistCtrlGrafico {
         SceneController.getInstance().goBack(event);
     }
     @FXML
-    public void onUploadClick(ActionEvent event) throws SQLException, PlaylistNameAlreadyInUse {
+    public void onUploadClick(ActionEvent event) throws SQLException, PlaylistNameAlreadyInUse, IOException {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
@@ -64,11 +66,14 @@ public class AddPlaylistCtrlGrafico {
 
         // Verifica che i campi non sono vuoti ###############
         System.out.println("AddP: "+userBean.getEmail()+ " " + userBean.getUsername()+ " " + titolo + " " + linkPlaylist + " " + playlistGenre);
+        // Costruzione della playlistBean con i parametri per il Controller Applicativo
         PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, playlistGenre);
-        AddPlaylistCtrlApplicativo addPlaylist = new AddPlaylistCtrlApplicativo();
-        addPlaylist.insertPlaylist(playlistBean);
+        // Invocazione metodo controller Applicativo
+        AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
+        addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-        //Dopo il caricamento mostriamo la home page oppure l'account?
+        // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
+        SceneController.getInstance().goBack(event);
 
     }
     private ArrayList<String> retriveCheckList(){
