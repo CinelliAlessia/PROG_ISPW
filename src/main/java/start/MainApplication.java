@@ -3,7 +3,6 @@ package start;
 import engineering.others.FxmlName;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import view.LoginCtrlGrafico;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import java.io.IOException;
