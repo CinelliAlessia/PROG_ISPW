@@ -17,7 +17,7 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 
 public class AddPlaylistCtrlApplicativo {
 
-    public void insertPlaylist(PlaylistBean pB) throws SQLException, PlaylistNameAlreadyInUse, IOException {
+    public void insertPlaylist(PlaylistBean pB) throws SQLException, IOException {
         //###################### IMPORTANTE CAPIRE COSA FARE CON QUESTO ID ######################
 
         // Prendo il tipo di persistenza impostato nel file di configurazione

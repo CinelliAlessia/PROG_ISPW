@@ -15,11 +15,11 @@ import java.util.regex.Pattern;
 public class LoginCtrlGrafico {
 
     @FXML
+    private Label errorLabel;
+    @FXML
     private PasswordField password;
     @FXML
     private TextField username;
-    @FXML
-    private Label textLogin;
 
     @FXML
     protected void onLoginClick(ActionEvent event) throws IOException, SQLException {
@@ -30,8 +30,8 @@ public class LoginCtrlGrafico {
 
         /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
         if (!checkMailCorrectness(email)){
-            textLogin.isVisible();
-            textLogin.setText("Email non valida");
+            errorLabel.isVisible();
+            errorLabel.setText("Email non valida");
         } else {
             /* ------ Creo la bean e imposto i parametri ------ */
             LoginBean loginBean = new LoginBean(email,pass);
@@ -55,8 +55,8 @@ public class LoginCtrlGrafico {
 
                 }
             } else { /* --------------- Credenziali non valide --------------*/
-                textLogin.isVisible();
-                textLogin.setText("Credenziali errate");
+                errorLabel.isVisible();
+                errorLabel.setText("Credenziali errate");
             }
         }
     }

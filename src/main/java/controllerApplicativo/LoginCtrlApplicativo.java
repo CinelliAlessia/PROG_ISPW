@@ -2,11 +2,16 @@ package controllerApplicativo;
 
 import engineering.bean.LoginBean;
 import engineering.bean.UserBean;
+import engineering.dao.TypesOfPersistenceLayer;
+import engineering.dao.UserDAO;
 import engineering.dao.UserDAO_JSON;
 import engineering.dao.UserDAO_mySQL;
 import model.User;
 
+import java.io.IOException;
 import java.sql.SQLException;
+
+import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class LoginCtrlApplicativo {
     // implemento la logica dello use case
@@ -15,17 +20,16 @@ public class LoginCtrlApplicativo {
         // TODO document why this method is empty
     }
 
-    public boolean verificaCredenziali(LoginBean bean) {
-        // Ottieni la password dal database usando l'email
-        UserDAO_mySQL userDAO = new UserDAO_mySQL();
-        String passwordFromDB = userDAO.getPasswordByEmail(bean.getEmail());
+    public boolean verificaCredenziali(LoginBean bean) throws IOException {
+        // Prendo il tipo di persistenza impostato nel file di configurazione
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
 
-        // Stessa cosa anche per il file system, ma qui(?)
-        UserDAO_JSON userDAOFS = new UserDAO_JSON();
-        String passwordFromFS = userDAOFS.getPasswordByEmail(bean.getEmail());
+        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        UserDAO dao = persistenceType.createUserDAO();
 
-        // Verifica se le credenziali sono corrette ########## ad Alessia non piace ###########
-        return (passwordFromDB != null && passwordFromDB.equals(bean.getPassword()) && passwordFromFS.equals(bean.getPassword()));
+        String password = dao.getPasswordByEmail(bean.getEmail());
+
+        return password.equals(bean.getPassword());
     }
 
     public UserBean loadUser(LoginBean bean) throws SQLException {

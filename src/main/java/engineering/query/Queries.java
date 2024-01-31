@@ -10,6 +10,13 @@ public class Queries {
     public static final String SELECT_EMAIL_USER_QUERY = "SELECT * FROM user WHERE email = '%s'";
     public static final String SELECT_PASSWORD_QUERY = "SELECT password FROM user WHERE email = '%s'";
 
+    public static final String UPDATE_GENERI_MUSICALI_QUERY =
+            "UPDATE generi_musicali " +
+                    "SET Pop = ?, Indie = ?, Classic = ?, Rock = ?, Electronic = ?, House = ?, " +
+                    "HipHop = ?, Jazz = ?, Acoustic = ?, REB = ?, Country = ?, Alternative = ? " +
+                    "WHERE id = 0 AND email = ?";
+
+
     /* ---------- QUERY PLAYLIST ---------- */
     public static final String INSERT_PLAYLIST_QUERY = "INSERT INTO playlist_utente (email, nome_utente, nome_playlist, link, id_playlist_genre) VALUES ('%s','%s','%s','%s','%d')";
     public static final String INSERT_ALL_PLAYLIST_QUERY = "INSERT INTO all_playlist (nome_playlist, link) VALUES ('%s','%s')";
@@ -19,5 +26,5 @@ public class Queries {
 
     public static final String SELECT_PLAYLIST_BY_USER = "SELECT * FROM playlist_utente";
 
-    public static final String SELECT_GENRED_USER_QUERY = "SELECT * FROM generi_musicali WHERE email = '%s'";
+    public static final String SELECT_GENRED_USER_QUERY = "SELECT * FROM generi_musicali WHERE id = 0"; //'%d'
 }

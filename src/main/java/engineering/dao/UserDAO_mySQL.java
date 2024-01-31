@@ -145,10 +145,12 @@ public class UserDAO_mySQL implements UserDAO{
             user = new User(username, email, password, preferences);
 
         } finally {
-            assert resultSet != null;
-            resultSet.close();
-            assert resultSet2 != null;
-            resultSet2.close();
+            if(resultSet != null){
+                resultSet.close();
+            }
+            if(resultSet2 != null){
+                resultSet2.close();
+            }
         }
         // Chiudi gli Statement e la connessione
         return user;

@@ -2,6 +2,7 @@ package engineering.query;
 
 import model.User;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,7 +12,7 @@ public class QueryLogin {
     private QueryLogin() {
     }
 
-    // Metodo di INSERIMENTO in database
+    /** Carica nel database un nuovo utente e i suoi generi musicali preferiti */
     public static void registerUser(Statement stmt, User user) throws SQLException {
         String name = user.getUsername();
         String email = user.getEmail();
@@ -25,6 +26,7 @@ public class QueryLogin {
         insertGeneriMusicali(stmt, email, user.getPref());
     }
 
+    /** Inserisce i generi musicali preferiti dall'utente, utilizzata al momento della registrazione dell'utente*/
     public static void insertGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
         // Costruisci la query di inserimento
         StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_QUERY, buildGenresQueryString(generiMusicali, userEmail)));
@@ -32,6 +34,26 @@ public class QueryLogin {
         // Esegui la query
         stmt.executeUpdate(query.toString());
     }
+
+    /**  */
+    public static void uploadGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
+        /* String updateQuery = Queries.UPDATE_GENERI_MUSICALI_QUERY;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
+
+            // Imposta i valori per i generi musicali
+            for (int i = 1; i <= generiMusicali.size(); i++) {
+                preparedStatement.setInt(i, generiMusicali.get(i - 1).equals("1") ? 1 : 0);
+            }
+            preparedStatement.setString(14, userEmail); // email
+
+            int rowsUpdated = preparedStatement.executeUpdate();
+            System.out.println("Rows updated: " + rowsUpdated);
+        } catch (SQLException e) {
+            e.fillInStackTrace();
+        }
+*/
+    }
+
     private static String buildGenresQueryString(List<String> generiMusicali, String userEmail) {
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
         StringBuilder query = new StringBuilder();
