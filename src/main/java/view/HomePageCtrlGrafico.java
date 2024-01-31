@@ -34,6 +34,7 @@ public class HomePageCtrlGrafico {
         System.out.println("HCG userBean: " + userBean);
 
         SceneController.getInstance().<AccountCtrlGrafico>goToScene(event, FxmlName.ACCOUNT_FXML,userBean);
+
     }
 
     @FXML
