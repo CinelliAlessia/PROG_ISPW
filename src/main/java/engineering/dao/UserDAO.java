@@ -5,7 +5,6 @@ import model.User;
 public interface UserDAO {
     void insertUser(User user);
     String getPasswordByEmail(String email);
-
     void deleteUser(User userIstance);
     void retreiveUserByUserName (String userName);
     void retreiveUserByUserId (String userId);

@@ -55,7 +55,7 @@ public class RegistrazioneCtrlGrafico {
     }
     // Gestisce l'evento di clic sul pulsante di registrazione.
     @FXML
-    protected void onRegisterClick(ActionEvent event) throws IOException, EmailAlreadyInUse, SQLException, ClassNotFoundException {
+    protected void onRegisterClick(ActionEvent event) throws IOException{
 
         RegistrationBean regBean = getData();
         UserBean userBean = new UserBean();
@@ -64,8 +64,7 @@ public class RegistrazioneCtrlGrafico {
 
             RegistrazioneCtrlApplicativo reg_CtrlApp = new RegistrazioneCtrlApplicativo();
             //############ questo va corretto con una sola chiamata ###############
-            reg_CtrlApp.registerUserDB(regBean); //uso metodo controller per registrare un utente sul DB
-            reg_CtrlApp.registerUserFS(regBean); //uso metodo controller per registrare un utente sul FS
+            reg_CtrlApp.registerUser(regBean); //uso metodo controller per registrare un utente sul livello di persistenza
 
             System.out.println("Utente registrato con successo");
 

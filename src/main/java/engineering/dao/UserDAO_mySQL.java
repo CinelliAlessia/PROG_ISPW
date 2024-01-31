@@ -11,10 +11,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class UserDAO_mySQL {
+public class UserDAO_mySQL implements UserDAO{
 
     // Metodo per inserire un User nel database al momento della registrazione
-    public static void insertUser(User user) throws EmailAlreadyInUse {
+    public void insertUser(User user) {
         Statement stmt = null;
         Connection conn;
 
@@ -29,9 +29,9 @@ public class UserDAO_mySQL {
             }
             rs.close();
             QueryLogin.registerUser(stmt, user);
-        } catch (SQLException e) {
+        } catch (SQLException | EmailAlreadyInUse e) {
             // Gestisci l'eccezione
-            e.printStackTrace();
+            e.fillInStackTrace();
         } finally {
             try {
                 if (stmt != null) {
@@ -75,6 +75,30 @@ public class UserDAO_mySQL {
         }
 
         return null; // Se non trovi una corrispondenza
+    }
+
+    /**
+     * @param userIstance
+     */
+    @Override
+    public void deleteUser(User userIstance) {
+
+    }
+
+    /**
+     * @param userName
+     */
+    @Override
+    public void retreiveUserByUserName(String userName) {
+
+    }
+
+    /**
+     * @param userId
+     */
+    @Override
+    public void retreiveUserByUserId(String userId) {
+
     }
 
     public static User loadUser(String userEmail) throws SQLException {

@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Carivamento playlist funzionante">
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/TypesOfPersistenceLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/RegistrazioneCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_mySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_mySQL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,7 @@
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>

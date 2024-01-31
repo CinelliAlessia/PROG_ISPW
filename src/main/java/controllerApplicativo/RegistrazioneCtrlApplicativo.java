@@ -1,25 +1,28 @@
 package controllerApplicativo;
 
 import engineering.bean.RegistrationBean;
-import engineering.bean.UserBean;
-import engineering.dao.UserDAO_JSON;
-import engineering.dao.UserDAO_mySQL;
-import engineering.exceptions.EmailAlreadyInUse;
+import engineering.dao.TypesOfPersistenceLayer;
+import engineering.dao.UserDAO;
 import model.User;
 
-import java.sql.SQLException;
+import java.io.IOException;
+
+
+import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class RegistrazioneCtrlApplicativo {
 
-    public void registerUserFS(RegistrationBean bean) {
-        User user = new User(bean.getUsername(), bean.getEmail(), bean.getPassword(), bean.getPreferences());
-        UserDAO_JSON dao = new UserDAO_JSON();
-        dao.insertUser(user); // passiamo al DAO
+    public void registerUser(RegistrationBean regBean) throws IOException {
+        // Leggi le preferenze dal file di configurazione
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+
+        // Crea l'istanza corretta del DAO
+        UserDAO dao = persistenceType.createDAO();
+
+        // Crea l'utente e passa al DAO
+        User user = new User(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
+        dao.insertUser(user);
     }
 
-    public void registerUserDB(RegistrationBean bean) throws EmailAlreadyInUse, SQLException, ClassNotFoundException {
-        User user = new User(bean.getUsername(), bean.getEmail(), bean.getPassword(), bean.getPreferences());
-        UserDAO_mySQL.insertUser(user); // Qui devo chiamare UserDao quando farò implements
-    }
 
 }

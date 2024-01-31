@@ -29,7 +29,7 @@ public class LoginCtrlApplicativo {
 
     public UserBean loadUser(LoginBean bean) throws SQLException {
         User user = UserDAO_mySQL.loadUser(bean.getEmail());
-        return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor(),true);
+        return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor(),true)    ;
     }
 
     public UserBean loadUserByEmailFromFS(String email) {

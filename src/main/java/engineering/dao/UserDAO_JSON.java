@@ -13,7 +13,9 @@ import java.nio.file.Paths;
 
 public class UserDAO_JSON implements UserDAO {
     private static final String BASE_DIRECTORY = "src/main/resources/persistence/users";
+    private UserDAO_JSON(){
 
+    }
     @Override
     public void insertUser(User user) {
         // Utilizzato per aggiungere un utente al file system
