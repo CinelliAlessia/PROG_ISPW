@@ -1,8 +1,8 @@
 module logic {
-    requires mongo.java.driver;
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;
+    requires java.sql;
 
     exports controllerApplicativo;
     opens controllerApplicativo to javafx.fxml;
