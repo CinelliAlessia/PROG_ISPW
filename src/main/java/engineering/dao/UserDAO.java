@@ -2,8 +2,13 @@ package engineering.dao;
 
 import model.User;
 
+import java.sql.SQLException;
+
 public interface UserDAO {
     void insertUser(User user);
+
+    User loadUser(String userEmail);
+
     String getPasswordByEmail(String email);
     void deleteUser(User userInstance);
     void retrieveUserByUserName(String userName);

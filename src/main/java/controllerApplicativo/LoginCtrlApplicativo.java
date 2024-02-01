@@ -31,8 +31,12 @@ public class LoginCtrlApplicativo {
         return password.equals(bean.getPassword());
     }
 
-    public UserBean loadUser(LoginBean bean) throws SQLException {
-        User user = UserDAOMySQL.loadUser(bean.getEmail());
+    public UserBean loadUser(LoginBean bean) throws IOException {
+
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+        UserDAO dao = persistenceType.createUserDAO();
+
+        User user = dao.loadUser(bean.getEmail());
         return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor(),true)    ;
     }
 

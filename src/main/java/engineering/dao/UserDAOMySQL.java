@@ -4,7 +4,6 @@ import engineering.others.Connect;
 import engineering.exceptions.EmailAlreadyInUse;
 import engineering.query.QueryLogin;
 import model.User;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -101,7 +100,7 @@ public class UserDAOMySQL implements UserDAO{
         // TODO document why this method is empty
     }
 
-    public static User loadUser(String userEmail) throws SQLException {
+    public User loadUser(String userEmail){
         Statement stmt = null;
         Connection conn;
         User user;
@@ -144,13 +143,21 @@ public class UserDAOMySQL implements UserDAO{
 
             user = new User(username, email, password, preferences);
 
-        } finally {
-            if(resultSet != null){
-                resultSet.close();
+        } catch(SQLException e){
+            e.fillInStackTrace();
+        }finally {
+            try{
+                if(resultSet != null){
+                    resultSet.close();
+                }
+                if(resultSet2 != null){
+                    resultSet2.close();
+                }
+            }catch(SQLException e){
+                e.fillInStackTrace();
             }
-            if(resultSet2 != null){
-                resultSet2.close();
-            }
+            user =null;
+
         }
         // Chiudi gli Statement e la connessione
         return user;

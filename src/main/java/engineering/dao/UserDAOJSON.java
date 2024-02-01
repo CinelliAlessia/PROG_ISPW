@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 
 public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = "src/main/resources/persistence/users";
@@ -39,6 +40,16 @@ public class UserDAOJSON implements UserDAO {
         } catch (IOException e) {
             e.fillInStackTrace();
         }
+    }
+
+    /**
+     * @param userEmail
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public User loadUser(String userEmail) {
+        return null;
     }
 
     @Override
