@@ -115,6 +115,26 @@ public class UserDAOJSON implements UserDAO {
             e.fillInStackTrace();
         }
     }
+
+    /* Questo metodo non da problemi con SonarCloud, ma devi vedere se funziona
+
+        @Override
+        public void deleteUser(User userInstance) {
+            Path userDirectory = Paths.get(BASE_DIRECTORY, userInstance.getEmail());
+
+            try (Stream<Path> paths = Files.walk(userDirectory)) {
+                paths.filter(Files::isRegularFile)
+                     .map(Path::toFile)
+                     .forEach(File::delete);
+
+                Files.deleteIfExists(userDirectory); // Rimuove la directory dell'utente
+                System.out.println("Utente eliminato con successo!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        */
+
     @Override
     // questa funzione assume di avere un FS dove le cartelle sono nominate tramite username
     public void retrieveUserByUserName(String username) {
@@ -150,7 +170,7 @@ public class UserDAOJSON implements UserDAO {
      */
     @Override
     public void updateGenreUser(String email, List<String> preferences) {
-
+//TODO
     }
 
 }

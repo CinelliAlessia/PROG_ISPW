@@ -31,9 +31,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
             QueryPlaylist.insertPlaylist(stmt, playlist);
 
-        } catch (PlaylistLinkAlreadyInUse e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e){
+        } catch (PlaylistLinkAlreadyInUse | SQLException e) {
             e.fillInStackTrace();
         } finally {
             try{
@@ -139,10 +137,11 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     }
 
     public void retrievePlaylistByMail(String mail) {
-
+        //TODO
     }
 
     public void retrievePlaylistByGenre(String genre) {
+        //TODO
     }
 
 
