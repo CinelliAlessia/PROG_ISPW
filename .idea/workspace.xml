@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Correzione code smells">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/PlaylistLinkAlreadyInUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/PlaylistLinkAlreadyInUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/PlaylistNameAlreadyInUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/PlaylistNameAlreadyInUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UsernameAlreadyInUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UsernameAlreadyInUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/caricaPlaylist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/caricaPlaylist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/homePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/registrazione.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/registrazione.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Modifica" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +175,7 @@
       <workItem from="1706732648918" duration="7912000" />
       <workItem from="1706794043130" duration="10636000" />
       <workItem from="1706806985445" duration="3138000" />
-      <workItem from="1706814706527" duration="3743000" />
+      <workItem from="1706814706527" duration="4229000" />
     </task>
     <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
       <option name="closed" value="true" />
@@ -430,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706810339472</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Modifica">
+      <option name="closed" value="true" />
+      <created>1706819014647</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1706819014647</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +463,8 @@
     <MESSAGE value="Persistenza database funzionante" />
     <MESSAGE value="Modifica della struttura del database, caricamento corretto di playlist nel database e bozza di playlist in attesa di approvazione" />
     <MESSAGE value="Correzione code smells" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correzione code smells" />
+    <MESSAGE value="Modifica" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifica" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
