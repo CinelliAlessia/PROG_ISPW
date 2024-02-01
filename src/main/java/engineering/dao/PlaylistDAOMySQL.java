@@ -13,9 +13,8 @@ import java.util.List;
 
 public class PlaylistDAOMySQL implements PlaylistDAO {
 
-
     /** Inserimento di una playlist in db. Viene prima controllato che non ci sia già il link all'interno del DB, successivamente inserisce */
-    public void insertPlaylist(Playlist playlist) throws SQLException {
+    public void insertPlaylist(Playlist playlist) {
         Statement stmt = null;
         Connection conn;
 
@@ -23,8 +22,8 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            String playlistName = playlist.getPlaylistName();
-            ResultSet rs = QueryPlaylist.searchPlaylistLink(stmt, playlistName);
+            String playlistLink = playlist.getLink();
+            ResultSet rs = QueryPlaylist.searchPlaylistLink(stmt, playlistLink);
 
             if (rs.next()) {
                 throw new PlaylistLinkAlreadyInUse("This link is already in use!");
@@ -34,20 +33,25 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
         } catch (PlaylistLinkAlreadyInUse e) {
             throw new RuntimeException(e);
+        } catch (SQLException e){
+            e.fillInStackTrace();
         } finally {
-            if (stmt != null) {
-                stmt.close();
+            try{
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e){
+                e.fillInStackTrace();
             }
+
         }
     }
 
-
-    @Override
     public String getPlaylistByUserName(String email) {
         return null;
     }
 
-    public List<Playlist> retrivePlaylistUser() throws SQLException {
+    public List<Playlist> retrivePlaylistByUsername(String username) {
         Statement stmt = null;
         Connection conn;
 
@@ -71,7 +75,6 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
                 while (resultSet.next()) {
                     Playlist playlist = new Playlist();
-                    playlist.setId(resultSet.getString("id"));
                     playlist.setUsername(resultSet.getString("name"));
                     playlist.setLink(resultSet.getString("link"));
                     playlist.setEmail(resultSet.getString("userEmail"));
@@ -90,33 +93,56 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
             return playlists;
 
-        } finally {
-            if (stmt != null) {
-                stmt.close();
+        }
+        catch (SQLException e){
+            e.fillInStackTrace();
+        }
+        finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e){
+                e.fillInStackTrace();
             }
+        }
+        return null;
+    }
+
+    public void deletePlaylist(Playlist playlistInstance) {
+        Statement stmt = null;
+        Connection conn;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            String playlistLink = playlistInstance.getLink();
+            ResultSet rs = QueryPlaylist.searchPlaylistLink(stmt, playlistLink); // Cerca in all_playlist
+
+            if (rs.next()) {
+                QueryPlaylist.removePlaylistByLink(stmt,playlistInstance.getLink()); // Rimuove in playlist_utente E in all_playlist
+            }
+
+        } catch (SQLException e){
+            e.fillInStackTrace();
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e){
+                e.fillInStackTrace();
+            }
+
         }
     }
 
-
-    @Override
-    public void deletePlaylist(Playlist playlistInstance) {
-
-    }
-
-    /**
-     * @param mail
-     */
-    @Override
     public void retrievePlaylistByMail(String mail) {
 
     }
 
-    /**
-     * @param genre
-     */
-    @Override
     public void retrievePlaylistByGenre(String genre) {
-
     }
 
 

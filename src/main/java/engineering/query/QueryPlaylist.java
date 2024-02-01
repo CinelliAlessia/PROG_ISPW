@@ -21,41 +21,55 @@ public class QueryPlaylist {
         String link = playlist.getLink();
         String namePlaylist = playlist.getPlaylistName();
         List<String> playlistGenre = playlist.getPlaylistGenre();
+        boolean approved = playlist.getApproved();
 
+        /* Gestione corretta dell'approvazione, se un utente non ha l'approvazione verrà caricata solo sulla sua playlist, altrimenti
+        * anche nella playlist globale */
         try{
-            // Inserisce i generi musicali nella tabella 'generi_musicali'
-            insertGeneriMusicali(stmt, playlistGenre); //l'id viene inserito automaticamente
+            if(approved){
+                // inserimento nella tabella dell'utente
+                String insertAllPlaylistStatement = String.format(Queries.INSERT_ALL_PLAYLIST_QUERY, namePlaylist, link);
+                stmt.executeUpdate(insertAllPlaylistStatement);
+
+                String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_USER, namePlaylist, email, username, link, 1, buildGenresQueryString(playlistGenre));
+                stmt.executeUpdate(insertPlaylistStatement);
+            } else {
+                String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_USER, namePlaylist, email, username, link, 0, buildGenresQueryString(playlistGenre));
+                stmt.executeUpdate(insertPlaylistStatement);
+            }
 
         } catch (SQLException e){
-            e.printStackTrace();
-        } finally {
-            String insertAllPlaylistStatement = String.format(Queries.INSERT_ALL_PLAYLIST_QUERY, namePlaylist, link);
-            stmt.executeUpdate(insertAllPlaylistStatement);
-
-            System.out.println("2");
-
-            String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_QUERY, email, username, namePlaylist, link);
-            stmt.executeUpdate(insertPlaylistStatement);
-
+            // Dobbiamo annullare i caricamenti.
 
         }
+    }
+
+    /** non dovrebbe servire */
+    public static ResultSet retriveIDbyEmail(Statement stmt, String email) throws SQLException {
+        String sql = String.format(Queries.SELECT_ID_BY_EMAIL, email);
+        return stmt.executeQuery(sql);
     }
 
     /** Viene utilizzata da insertPlaylist, mantiene l'associazione tra playlist e i suoi generi
      * tramite un id */
     public static void insertGeneriMusicali(Statement stmt, List<String> generiMusicali) throws SQLException {
-        // Costruisci la query di inserimento
-        StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_PLAYLIST_QUERY, buildGenresQueryString(generiMusicali)));
+        try{
+            // Costruisci la query di inserimento
+            StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_PLAYLIST, buildGenresQueryString(generiMusicali)));
 
-        // Esegui la query
-        stmt.executeUpdate(query.toString());
+            // Esegui la query
+            stmt.executeUpdate(query.toString());
+        } catch (SQLException e){
+            e.printStackTrace();
+        } finally {
+            // L'utente non dovrebbe registrars
+        }
     }
 
     /**Genera una stringa corretta per effettuare la query, impostando correttamente il true o false dei generi musicali */
     private static String buildGenresQueryString(List<String> generiMusicali) {
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
         StringBuilder query = new StringBuilder();
-
 
         for (String genere : genres) {
             query.append(generiMusicali.contains(genere) ? "1, " : "0, ");
@@ -65,9 +79,6 @@ public class QueryPlaylist {
         if (!query.isEmpty()) {
             query.setLength(query.length() - 2);
         }
-
-        System.out.println("1   " + query);
-
 
         return query.toString();
     }
@@ -90,5 +101,15 @@ public class QueryPlaylist {
     public static ResultSet retriveGenrePlaylist(Statement stmt, int id) throws SQLException {
         String sql = String.format(Queries.SELECT_GENRED_USER_QUERY,id);
         return stmt.executeQuery(sql);
+    }
+
+    /** Rimuove la playlist su tutte le tabelle, dal link della playlist
+     * */
+    public static void removePlaylistByLink(Statement stmt, String link) throws SQLException {
+        String sql = String.format(Queries.DELETE_PLAYLIST_BY_LINK_PLAYLIST_UTENTE,link);
+        stmt.executeUpdate(sql);
+
+        sql = String.format(Queries.DELETE_PLAYLIST_BY_LINK_ALL_PLAYLIST,link);
+        stmt.executeUpdate(sql);
     }
 }

@@ -37,10 +37,14 @@ public class QueryLogin {
 
     }
 
-    /** Inserisce i generi musicali preferiti dall'utente, utilizzata al momento della registrazione dell'utente*/
+    /** Inserisce i generi musicali preferiti dall'utente, utilizzata al momento della registrazione dell'utente
+     * FUNZIONA
+     * */
     public static void insertGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
+
+
         // Costruisci la query di inserimento
-        StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_PLAYLIST, buildGenresQueryString(generiMusicali, userEmail)));
+        StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_USER, buildGenresQueryString(generiMusicali, userEmail)));
 
         // Esegui la query
         stmt.executeUpdate(query.toString());

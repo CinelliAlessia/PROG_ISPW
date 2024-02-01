@@ -54,18 +54,22 @@ public class AddPlaylistCtrlGrafico {
     public void onBackClick(ActionEvent event) {
         SceneController.getInstance().goBack(event);
     }
+
+    /** Click sul tasto add Playlist*/
     @FXML
-    public void onUploadClick(ActionEvent event) throws SQLException, PlaylistNameAlreadyInUse, IOException {
+    public void onUploadClick(ActionEvent event) throws IOException {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
         ArrayList<String> playlistGenre = retriveCheckList();
 
-        // Verifica che i campi non sono vuoti ###############
-        System.out.println("AddP: "+userBean.getEmail()+ " " + userBean.getUsername()+ " " + titolo + " " + linkPlaylist + " " + playlistGenre);
         // Costruzione della playlistBean con i parametri per il Controller Applicativo
         PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, playlistGenre);
-        // Invocazione metodo controller Applicativo
+
+        if(userBean.isSupervisor()){
+            playlistBean.setApproved();
+        }
+        // Invocazione metodo controller Applicativo che in teoria è static
         AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
         addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 

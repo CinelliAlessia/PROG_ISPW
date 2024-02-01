@@ -4,17 +4,15 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import engineering.others.ConfigurationJSON;
 import model.Playlist;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class PlaylistDAOJSON implements PlaylistDAO {
 
@@ -60,26 +58,28 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     }
 
 
-
     private String formatPlaylistFileName(String playlistName) {
         // Sostituisci gli spazi con underscore e convergi tutto in minuscolo
-        return playlistName.replaceAll(" ", "_").toLowerCase();
+        return playlistName.replace(" ", "_").toLowerCase();
     }
 
-    @Override
+
     public String getPlaylistByUserName(String email) {
         return null;
     }
 
-    @Override
+
     public void deletePlaylist(Playlist playlistInstance) {
     }
-    @Override
+
     public void retrievePlaylistByMail(String mail) {
     }
-    @Override
     public void retrievePlaylistByGenre(String genre) {    }
-    @Override
+
+    public List<Playlist> retrivePlaylistByUsername(String username) {
+        return null;
+    }
+
     public List<Playlist> retrivePlaylistUser() {
         return Collections.emptyList();
     }

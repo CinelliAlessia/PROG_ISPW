@@ -9,6 +9,8 @@ public class PlaylistBean {
     private String link;
     private String playlistName;
     private List<String> playlistGenre;
+    private boolean approved = false;
+
 
     public PlaylistBean(){
 
@@ -23,6 +25,10 @@ public class PlaylistBean {
     }
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public void setApproved(){
+        this.approved = true;
     }
 
     public String getLink() {

@@ -9,7 +9,7 @@ public class Playlist {
     private String username;
     private String email;
     private List<String> playlistGenre;
-    private boolean approved;
+    private boolean approved = false;
 
     public Playlist(){
         this.approved = false;
@@ -83,7 +83,11 @@ public class Playlist {
         return id;
     }
 
-    public void approvePlaylist(){
-        approved = true;
+    public void setApproved(){
+        this.approved = true;
+    }
+
+    public boolean getApproved(){
+        return approved;
     }
 }

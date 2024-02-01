@@ -1,7 +1,5 @@
 package view;
 
-import controller.applicativo.AddPlaylistCtrlApplicativo;
-import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
 import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
@@ -10,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 public class AccountCtrlGrafico{
@@ -90,8 +87,8 @@ public class AccountCtrlGrafico{
         alternative.setSelected(preferences.contains("Alternative"));
     }
 
-    public void retrivePlaylist() throws SQLException, IOException {
-        List<PlaylistBean> playlistsBean = AddPlaylistCtrlApplicativo.retriveList();
+    public void retrivePlaylist() throws IOException {
+        // List<PlaylistBean> playlistsBean = AccountCtrlApplicativo.retriveList();
         // TODO document why this method is empty
     }
 
