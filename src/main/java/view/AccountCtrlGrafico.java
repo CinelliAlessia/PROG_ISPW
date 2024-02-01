@@ -97,6 +97,11 @@ public class AccountCtrlGrafico{
         // TODO
     }
 
+    /** Un tasto visibile solo dal supervisor, utilizzato per accettare playlist*/
+    public void approvedPlaylist(){
+        // TODO
+    }
+
     /** WARNING -> hipHop ha un problema*/
     @FXML
     public void onSaveClick(ActionEvent event) throws IOException {
@@ -128,6 +133,7 @@ public class AccountCtrlGrafico{
         System.out.println("ACG userBean: " + userBean);
     }
 
+    /** DUPLICATA, DEVE ANDARE IN UNA QUALCHE CLASSE ! */
     private ArrayList<String> retriveCheckList(){
         // Inizializza la lista dei generi musicali selezionati
         ArrayList<String> preferences = new ArrayList<>();

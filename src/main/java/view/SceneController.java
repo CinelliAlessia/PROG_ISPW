@@ -1,4 +1,5 @@
 package view;
+
 import engineering.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,15 +7,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class SceneController {
     private static SceneController sceneController ;
-    private static final Stack<Scene> sceneStack = new Stack<>();
+
+    private static final Deque<Scene> sceneStack = new LinkedList<>();
+    // Sonar dice che non va bene: private static final Stack<Scene> sceneStack = new Stack<>(); la modifichiamo?
+
 
     public static SceneController getInstance() {
         //Pattern Singleton

@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public enum TypesOfPersistenceLayer {
-    MySQL {
+    MYSQL {
         @Override
         public UserDAO createUserDAO() {
             return new UserDAOMySQL();

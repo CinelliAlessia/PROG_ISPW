@@ -29,9 +29,9 @@ Il progetto consiste nello sviluppo di un'applicazione web dedicata alla gestion
     - Sistema di moderazione per valutare e approvare le nuove playlist aggiunte dagli utenti.
 
 **Tecnologie Coinvolte**:
-- Linguaggio di programmazione: Potrebbe includere Java per il backend e tecnologie web come HTML, CSS, JavaScript per il frontend.
+- Linguaggio di programmazione: Include Java per il backend e tecnologie web come CSS per il frontend.
 - Framework: Potrebbe utilizzare JavaFX per l'interfaccia utente o altri framework web per lo sviluppo dell'interfaccia utente.
-- Database: Un sistema di gestione di database come MySQL o SQLite per la memorizzazione delle informazioni sulle playlist e sugli utenti.
+- Database: Un sistema di gestione di database come MySQL per la memorizzazione delle informazioni sulle playlist e sugli utenti.
 
 **Considerazioni Aggiuntive**:
 - L'applicazione dovrebbe garantire la sicurezza delle informazioni utente.

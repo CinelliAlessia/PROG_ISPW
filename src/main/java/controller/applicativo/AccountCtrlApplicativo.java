@@ -4,17 +4,19 @@ import engineering.bean.PlaylistBean;
 import engineering.dao.PlaylistDAO;
 import engineering.dao.TypesOfPersistenceLayer;
 import model.Playlist;
-
 import java.io.IOException;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AccountCtrlApplicativo {
 
+    private AccountCtrlApplicativo(){}
+
     /** Recupera tutte le playlist globali by username*/
 
     /*
-    public static List<PlaylistBean> retriveList() throws IOException {
+    public static <List> List<PlaylistBean> retriveList() throws IOException {
+        //TODO
 
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();

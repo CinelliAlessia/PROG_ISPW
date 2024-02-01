@@ -71,3 +71,7 @@ M
 src/main/java/model/User.java,8\e\8e1ebf0166aec1f7f81589f5763cf23a86e9c01e
 W
 'src/main/java/view/SceneController.java,a\7\a78fc445bcad390d1e9844d86d695aaeba51c94e
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+S
+#src/main/java/model/Supervisor.java,e\a\ea2f7728d43a2d8278b6b788cc330f771bcb83fd
