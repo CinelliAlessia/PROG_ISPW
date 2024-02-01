@@ -1,4 +1,4 @@
-package controllerApplicativo;
+package controller.applicativo;
 
 import engineering.bean.RegistrationBean;
 import engineering.dao.TypesOfPersistenceLayer;
@@ -18,6 +18,8 @@ public class RegistrazioneCtrlApplicativo {
 
         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
         UserDAO dao = persistenceType.createUserDAO();
+
+        // TODO Verifica che non esista già un utente con stessa mail e nome utente
 
         // Crea l'utente (model)
         User user = new User(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());

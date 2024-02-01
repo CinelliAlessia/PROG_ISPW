@@ -11,7 +11,7 @@ public class UserBean {
         supervisor = false;
     }
 
-    public UserBean(String username, String email,List<String> preferences, boolean isSupervisor, boolean isRegistered) {
+    public UserBean(String username, String email,List<String> preferences, boolean isSupervisor) {
         setUsername(username);
         setEmail(email);
         setPreferences(preferences);

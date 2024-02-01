@@ -1,7 +1,7 @@
 package view;
 
 import engineering.bean.UserBean;
-import engineering.others.FxmlName;
+import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,11 +22,11 @@ public class HomePageCtrlGrafico {
     @FXML
     protected void onAccountClick(ActionEvent event) throws IOException {
         System.out.println("HCG userBean: " + userBean);
-        SceneController.getInstance().<AccountCtrlGrafico>goToScene(event, FxmlName.ACCOUNT_FXML, userBean);
+        SceneController.getInstance().<AccountCtrlGrafico>goToScene(event, FxmlFileName.ACCOUNT_FXML, userBean);
     }
 
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
-        SceneController.getInstance().<AddPlaylistCtrlGrafico>goToScene(event, FxmlName.UPLOAD_PLAYLIST_FXML, userBean);
+        SceneController.getInstance().<AddPlaylistCtrlGrafico>goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
     }
 }

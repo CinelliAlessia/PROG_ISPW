@@ -2,6 +2,7 @@ package engineering.dao;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import engineering.others.ConfigurationJSON;
 import model.User;
 
 import java.io.File;
@@ -12,9 +13,8 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 
 public class UserDAOJSON implements UserDAO {
-    private static final String BASE_DIRECTORY = "src/main/resources/persistence/users";
+    private static final String BASE_DIRECTORY = ConfigurationJSON.BASE_DIRECTORY;
     public UserDAOJSON(){
-        // TODO document why this constructor is empty
     }
     @Override
     public void insertUser(User user) {
@@ -27,7 +27,7 @@ public class UserDAOJSON implements UserDAO {
             Files.createDirectories(userDirectory);
 
             // Costruisci il percorso del file userInfo.json
-            Path userInfoFile = userDirectory.resolve("userInfo.json");
+            Path userInfoFile = userDirectory.resolve(ConfigurationJSON.USER_INFO_FILE_NAME);
 
             // Usa Gson per convertire l'oggetto User in una rappresentazione JSON
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -42,20 +42,39 @@ public class UserDAOJSON implements UserDAO {
         }
     }
 
-    /**
-     * @param userEmail
-     * @return
-     * @throws SQLException
-     */
     @Override
     public User loadUser(String userEmail) {
+        // Costruisci il percorso del file userInfo.json per l'utente
+        Path userInfoFile = Paths.get(BASE_DIRECTORY, userEmail, ConfigurationJSON.USER_INFO_FILE_NAME);
+
+        // Verifica se il file userInfo.json esiste
+        if (Files.exists(userInfoFile)) {
+            try {
+                // Leggi il contenuto del file
+                String content = Files.readString(userInfoFile);
+
+                // Usa Gson per deserializzare il contenuto JSON e ottenere l'utente
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                User user = gson.fromJson(content, User.class);
+
+                System.out.println("Email: " + user.getEmail() + ", Username: " + user.getUsername() + ", Preferences: " + user.getPref());
+
+                return user;
+            } catch (IOException e) {
+                e.fillInStackTrace(); // Gestisci l'eccezione in modo appropriato
+            }
+        } else {
+            System.out.println("Utente non trovato o file userInfo.json mancante.");
+        }
+
+        // Se qualcosa va storto o l'utente non esiste, restituisci un utente vuoto
         return null;
     }
 
     @Override
     public String getPasswordByEmail(String email) {
         // Costruisci il percorso del file userInfo.json per l'utente (presumibilmente basandoti sulla mail come nome utente)
-        Path userInfoFile = Paths.get(BASE_DIRECTORY, email, "userInfo.json");
+        Path userInfoFile = Paths.get(BASE_DIRECTORY, email, ConfigurationJSON.USER_INFO_FILE_NAME);
 
         // Verifica se il file userInfo.json esiste
         if (Files.exists(userInfoFile)) {

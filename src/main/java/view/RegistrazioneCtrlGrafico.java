@@ -1,9 +1,9 @@
 package view;
 
-import controllerApplicativo.RegistrazioneCtrlApplicativo;
+import controller.applicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.RegistrationBean;
 import engineering.bean.UserBean;
-import engineering.others.FxmlName;
+import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -70,7 +70,7 @@ public class RegistrazioneCtrlGrafico {
     // Gestisce l'evento di clic sul pulsante di registrazione.
     @FXML
     protected void onRegisterClick(ActionEvent event) throws IOException{
-
+        // L'utente chiede di registrarsi con una determinata mail e un nome utente
         RegistrationBean regBean = getData();
         UserBean userBean = new UserBean();
 
@@ -88,7 +88,7 @@ public class RegistrazioneCtrlGrafico {
             System.out.println("Recuperate informazioni per user bean");
 
             /* --------------- Mostro la home page -------------- */
-            SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlName.HOME_PAGE_FXML,userBean);
+            SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
 
             // Ho eliminato il metodo controlla se email esistente perché lo fa gia la query, ma è importante riuscire
             // a prendere l'esito della query prima di cambiare stage, dobbiamo assicurarci che tutto vada bene.

@@ -1,9 +1,9 @@
 package view;
 
-import controllerApplicativo.LoginCtrlApplicativo;
+import controller.applicativo.LoginCtrlApplicativo;
 import engineering.bean.LoginBean;
 import engineering.bean.UserBean;
-import engineering.others.FxmlName;
+import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -51,7 +51,7 @@ public class LoginCtrlGrafico {
                     System.out.println("Utente registrato, ho recuperato tutto lo user bean");
 
                     /* --------------- Mostro la home page -------------- */
-                    SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlName.HOME_PAGE_FXML,userBean);
+                    SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
 
                 }
             } else { /* --------------- Credenziali non valide --------------*/
@@ -63,11 +63,11 @@ public class LoginCtrlGrafico {
     @FXML
     protected void onRegisterClick(ActionEvent event) throws IOException {
         //Push della scena corrente nello stack delle scene e show della scena seguente
-        SceneController.getInstance().goToScene(event, FxmlName.REGISTRATION_FXML);
+        SceneController.getInstance().goToScene(event, FxmlFileName.REGISTRATION_FXML);
     }
     @FXML
     protected void onGuestClick(ActionEvent event) throws IOException {
-        SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlName.HOME_PAGE_FXML,null);
+        SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
     }
 
     public boolean checkMailCorrectness(String email) {

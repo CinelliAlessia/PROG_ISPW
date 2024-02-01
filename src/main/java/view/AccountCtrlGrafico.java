@@ -1,9 +1,9 @@
 package view;
 
-import controllerApplicativo.AddPlaylistCtrlApplicativo;
+import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
-import engineering.others.FxmlName;
+import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -106,7 +106,7 @@ public class AccountCtrlGrafico{
 
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
-        SceneController.getInstance().goToScene(event, FxmlName.UPLOAD_PLAYLIST_FXML, userBean);
+        SceneController.getInstance().goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
         System.out.println("ACG userBean: " + userBean);
     }
 }

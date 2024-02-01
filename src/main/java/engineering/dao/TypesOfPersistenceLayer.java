@@ -1,6 +1,6 @@
 package engineering.dao;
 
-import controllerApplicativo.RegistrazioneCtrlApplicativo;
+import controller.applicativo.RegistrazioneCtrlApplicativo;
 
 import java.io.IOException;
 import java.io.InputStream;

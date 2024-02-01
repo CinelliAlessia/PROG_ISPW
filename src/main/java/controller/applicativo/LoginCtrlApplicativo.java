@@ -1,4 +1,4 @@
-package controllerApplicativo;
+package controller.applicativo;
 
 import engineering.bean.LoginBean;
 import engineering.bean.UserBean;
@@ -14,10 +14,6 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 
 public class LoginCtrlApplicativo {
     // implemento la logica dello use case
-
-    public LoginCtrlApplicativo() {
-        // TODO document why this method is empty
-    }
 
     public boolean verificaCredenziali(LoginBean bean) throws IOException {
         // Prendo il tipo di persistenza impostato nel file di configurazione
@@ -37,7 +33,7 @@ public class LoginCtrlApplicativo {
         UserDAO dao = persistenceType.createUserDAO();
 
         User user = dao.loadUser(bean.getEmail());
-        return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor(),true)    ;
+        return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor());
     }
 
     public UserBean loadUserByEmailFromFS(String email) {

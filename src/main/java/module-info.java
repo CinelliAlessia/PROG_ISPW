@@ -4,8 +4,8 @@ module logic {
     requires com.google.gson;
     requires java.sql;
 
-    exports controllerApplicativo;
-    opens controllerApplicativo to javafx.fxml;
+    exports controller.applicativo;
+    opens controller.applicativo to javafx.fxml;
 
     exports view;
     opens view to javafx.fxml;

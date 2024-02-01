@@ -1,6 +1,6 @@
 package view;
 
-import controllerApplicativo.AddPlaylistCtrlApplicativo;
+import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
 import engineering.exceptions.PlaylistNameAlreadyInUse;

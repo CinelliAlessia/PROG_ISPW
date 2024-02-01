@@ -1,4 +1,4 @@
-package controllerApplicativo;
+package controller.applicativo;
 
 
 public class HomePageCtrlApplicativo {

@@ -1,4 +1,4 @@
-package controllerApplicativo;
+package controller.applicativo;
 
 import engineering.bean.PlaylistBean;
 import engineering.dao.PlaylistDAO;

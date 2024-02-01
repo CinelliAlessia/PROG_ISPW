@@ -9,9 +9,10 @@ public class Playlist {
     private String username;
     private String email;
     private List<String> playlistGenre;
+    private boolean approved;
 
     public Playlist(){
-
+        this.approved = false;
     }
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre){
         setEmail(email);
@@ -19,6 +20,7 @@ public class Playlist {
         setPlaylistName(playlistName);
         setUsername(username);
         setPlaylistGenre(playlistGenre);
+        this.approved = false;
     }
 
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, int id){ //SI DOVRA FARE UN
@@ -29,6 +31,7 @@ public class Playlist {
         setUsername(username);
         setPlaylistGenre(playlistGenre);
         setId(id);
+        this.approved = false;
     }
 
     public void setLink(String link) {
@@ -77,5 +80,9 @@ public class Playlist {
 
     public int getId() {
         return id;
+    }
+
+    public void approvePlaylist(){
+        approved = true;
     }
 }
