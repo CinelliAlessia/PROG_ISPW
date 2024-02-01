@@ -1,14 +1,20 @@
 package view;
 
 import engineering.bean.UserBean;
+import engineering.dao.TypesOfPersistenceLayer;
+import engineering.dao.UserDAO;
 import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AccountCtrlGrafico{
 
@@ -87,14 +93,29 @@ public class AccountCtrlGrafico{
         alternative.setSelected(preferences.contains("Alternative"));
     }
 
-    public void retrivePlaylist() throws IOException {
-        // List<PlaylistBean> playlistsBean = AccountCtrlApplicativo.retriveList();
-        // TODO document why this method is empty
+    public void retrivePlaylist() {
+        // TODO
     }
 
+    /** WARNING -> hipHop ha un problema*/
     @FXML
-    public void onSaveClick(ActionEvent event) {
-        // TODO document why this method is empty
+    public void onSaveClick(ActionEvent event) throws IOException {
+        ArrayList<String> preferences = retriveCheckList();
+        userBean.setPreferences(preferences);
+
+        // Prendo il tipo di persistenza impostato nel file di configurazione
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        UserDAO dao = persistenceType.createUserDAO();
+
+
+        // Invio utente model al DAO
+        dao.updateGenreUser(userBean.getEmail(),userBean.getPreferences());
+
+        // In questo caso non torno indietro ma vado alla home altrimenti non verrebbe aggiornato lo userBean
+        SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML, userBean);
+
+
     }
     @FXML
     public void onBackClick(ActionEvent event) {
@@ -106,4 +127,49 @@ public class AccountCtrlGrafico{
         SceneController.getInstance().goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
         System.out.println("ACG userBean: " + userBean);
     }
+
+    private ArrayList<String> retriveCheckList(){
+        // Inizializza la lista dei generi musicali selezionati
+        ArrayList<String> preferences = new ArrayList<>();
+
+        // Aggiungi i generi musicali selezionati alla lista
+        if (pop.isSelected()) {
+            preferences.add("Pop");
+        }
+        if (indie.isSelected()) {
+            preferences.add("Indie");
+        }
+        if (classic.isSelected()) {
+            preferences.add("Classic");
+        }
+        if (rock.isSelected()) {
+            preferences.add("Rock");
+        }
+        if (electronic.isSelected()) {
+            preferences.add("Electronic");
+        }
+        if (house.isSelected()) {
+            preferences.add("House");
+        }
+        if (hipHop.isSelected()) {
+            preferences.add("HipHop");
+        }
+        if (jazz.isSelected()) {
+            preferences.add("Jazz");
+        }
+        if (acoustic.isSelected()) {
+            preferences.add("Acoustic");
+        }
+        if (reb.isSelected()) {
+            preferences.add("REB");
+        }
+        if (country.isSelected()) {
+            preferences.add("Country");
+        }
+        if (alternative.isSelected()) {
+            preferences.add("Alternative");
+        }
+        return preferences;
+    }
+
 }

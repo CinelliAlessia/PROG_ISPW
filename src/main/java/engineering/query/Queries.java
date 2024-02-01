@@ -17,10 +17,12 @@ public class Queries {
 
     public static final String SELECT_PASSWORD_BY_EMAIL = "SELECT password FROM user WHERE email = '%s'";
     public static final String UPDATE_GENERI_MUSICALI_USER =
-            "UPDATE generi_musicali_user " +
-                    "SET Pop = ?, Indie = ?, Classic = ?, Rock = ?, Electronic = ?, House = ?, " +
-                    "HipHop = ?, Jazz = ?, Acoustic = ?, REB = ?, Country = ?, Alternative = ? " +
-                    "WHERE email = ?";
+            "UPDATE generi_musicali_user SET " +
+                    "Pop = %d, Indie = %d, Classic = %d, Rock = %d, Electronic = %d, " +
+                    "House = %d, HipHop = %d, Jazz = %d, Acoustic = %d, REB = %d, " +
+                    "Country = %d, Alternative = %d " +
+                    "WHERE email = '%s'";
+
     public static final String SELECT_GENRED_USER_QUERY = "SELECT * FROM generi_musicali_user WHERE email = '%s'";
 
 
@@ -33,8 +35,6 @@ public class Queries {
     public static final String SELECT_PLAYLIST_BY_USER = "SELECT * FROM playlist_utente";
     public static final String SELECT_GENRED_PLAYLIST_BY_ID = "SELECT * FROM generi_musicali WHERE id = '%d'";
     public static final String SELECT_ID_BY_EMAIL = "SELECT id FROM playlist_utente WHERE email = '%s'";
-
-    public static final String UPDATE_GENERI_MUSICALI_QUERY = "UPDATE" ;
 
     public static final String DELETE_PLAYLIST_BY_LINK_PLAYLIST_UTENTE = "DELETE * FROM playlist_utente WHERE link = '%s'" ;
     public static final String DELETE_PLAYLIST_BY_LINK_ALL_PLAYLIST = "DELETE * FROM all_playlist WHERE link = '%s'" ;

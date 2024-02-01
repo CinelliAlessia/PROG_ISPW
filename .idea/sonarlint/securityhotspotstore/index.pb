@@ -67,3 +67,7 @@ k
 ;src/main/java/engineering/exceptions/EmailAlreadyInUse.java,c\b\cb1b1a38a949477efbe745e5d2a25e1166fa8c2c
 r
 Bsrc/main/java/engineering/exceptions/PlaylistNameAlreadyInUse.java,5\5\55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a
+M
+src/main/java/model/User.java,8\e\8e1ebf0166aec1f7f81589f5763cf23a86e9c01e
+W
+'src/main/java/view/SceneController.java,a\7\a78fc445bcad390d1e9844d86d695aaeba51c94e

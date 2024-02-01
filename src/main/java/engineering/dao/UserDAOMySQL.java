@@ -156,6 +156,7 @@ public class UserDAOMySQL implements UserDAO{
         return user;
     }
 
+    /** Funzione ausiliare per il retrieve dell'utente da persistenza */
     public List<String> genrePlaylist(ResultSet rs) throws SQLException {
         ArrayList<String> preferences = new ArrayList<>();
 
@@ -179,12 +180,38 @@ public class UserDAOMySQL implements UserDAO{
 
     @Override
     public void deleteUser(User userInstance) {
-        // TODO document why this method is empty
+        // TODO
     }
 
     @Override
     public void retrieveUserByUserName(String userName) {
+        // TODO
+    }
 
+    public void updateGenreUser(String email, List<String> preferences) {
+        Statement stmt = null;
+        Connection conn;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            QueryLogin.uploadGeneriMusicali(stmt,email,preferences);
+
+        } catch (SQLException e) {
+            // Gestisci l'eccezione
+            e.printStackTrace();
+        } finally {
+            // Chiudi le risorse (ResultSet, Statement, Connection)
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                // Gestisci l'eccezione
+                e.printStackTrace();
+            }
+        }
     }
 
 

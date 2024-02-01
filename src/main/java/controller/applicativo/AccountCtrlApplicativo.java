@@ -49,4 +49,5 @@ public class AccountCtrlApplicativo {
         // Per ora lascio return true
         return true;
     }
+
 }

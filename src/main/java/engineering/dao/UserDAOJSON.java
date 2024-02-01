@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
@@ -141,6 +142,15 @@ public class UserDAOJSON implements UserDAO {
         } else {
             System.out.println("Utente non trovato!");
         }
+    }
+
+    /**
+     * @param email
+     * @param preferences
+     */
+    @Override
+    public void updateGenreUser(String email, List<String> preferences) {
+
     }
 
 }

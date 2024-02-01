@@ -2,7 +2,6 @@ package engineering.query;
 
 import model.User;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,8 +41,6 @@ public class QueryLogin {
      * FUNZIONA
      * */
     public static void insertGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
-
-
         // Costruisci la query di inserimento
         StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_USER, buildGenresQueryString(generiMusicali, userEmail)));
 
@@ -51,15 +48,32 @@ public class QueryLogin {
         stmt.executeUpdate(query.toString());
     }
 
-    /**  */
-    public static void uploadGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
+    /** Aggiorna i generi musicali preferiti dell'utente */
+    public static void uploadGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) {
+        try {
+            // Costruisci la query di aggiornamento
+            String query = String.format(Queries.UPDATE_GENERI_MUSICALI_USER,
+                    generiMusicali.contains("Pop") ? 1 : 0,
+                    generiMusicali.contains("Indie") ? 1 : 0,
+                    generiMusicali.contains("Classic") ? 1 : 0,
+                    generiMusicali.contains("Rock") ? 1 : 0,
+                    generiMusicali.contains("Electronic") ? 1 : 0,
+                    generiMusicali.contains("House") ? 1 : 0,
+                    generiMusicali.contains("HipHop") ? 1 : 0,
+                    generiMusicali.contains("Jazz") ? 1 : 0,
+                    generiMusicali.contains("Acoustic") ? 1 : 0,
+                    generiMusicali.contains("REB") ? 1 : 0,
+                    generiMusicali.contains("Country") ? 1 : 0,
+                    generiMusicali.contains("Alternative") ? 1 : 0,
+                    userEmail);
 
-        // Costruisci la query di inserimento
-        StringBuilder query = new StringBuilder(String.format(Queries.UPDATE_GENERI_MUSICALI_QUERY, buildGenresQueryString(generiMusicali, userEmail)));
-
-        // Esegui la query
-        stmt.executeUpdate(query.toString());
+            // Esegui la query
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
 
     private static String buildGenresQueryString(List<String> generiMusicali, String userEmail) {
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
@@ -72,7 +86,6 @@ public class QueryLogin {
 
         query.append(String.format("'%s'", userEmail));
 
-        System.out.println(query);
         return query.toString();
     }
 
