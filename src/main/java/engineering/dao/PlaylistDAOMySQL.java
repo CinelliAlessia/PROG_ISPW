@@ -1,10 +1,9 @@
 package engineering.dao;
 
-import engineering.exceptions.PlaylistNameAlreadyInUse;
+import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import engineering.others.Connect;
 import engineering.query.QueryPlaylist;
 import model.Playlist;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,10 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlaylistDAOMySQL implements PlaylistDAO {
-    /*L'inserimento di una playlist prima controlla che ci sia già il link all'interno del DB, successivamente inserisce*/
+
+
+    /** Inserimento di una playlist in db. Viene prima controllato che non ci sia già il link all'interno del DB, successivamente inserisce */
     public void insertPlaylist(Playlist playlist) throws SQLException {
         Statement stmt = null;
-        Connection conn = null;
+        Connection conn;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -24,12 +25,14 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
             String playlistName = playlist.getPlaylistName();
             ResultSet rs = QueryPlaylist.searchPlaylistLink(stmt, playlistName);
+
             if (rs.next()) {
-                throw new PlaylistNameAlreadyInUse("This list is already in use!");
+                throw new PlaylistLinkAlreadyInUse("This link is already in use!");
             }
 
             QueryPlaylist.insertPlaylist(stmt, playlist);
-        } catch (PlaylistNameAlreadyInUse e) {
+
+        } catch (PlaylistLinkAlreadyInUse e) {
             throw new RuntimeException(e);
         } finally {
             if (stmt != null) {
@@ -38,42 +41,15 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
     }
 
-    /**
-     * @param email
-     * @return
-     */
+
     @Override
     public String getPlaylistByUserName(String email) {
         return null;
     }
 
-    /**
-     * @param playlistInstance
-     */
-    @Override
-    public void deletePlaylist(Playlist playlistInstance) {
-
-    }
-
-    /**
-     * @param mail
-     */
-    @Override
-    public void retrievePlaylistByMail(String mail) {
-
-    }
-
-    /**
-     * @param genre
-     */
-    @Override
-    public void retrievePlaylistByGenre(String genre) {
-
-    }
-
     public List<Playlist> retrivePlaylistUser() throws SQLException {
         Statement stmt = null;
-        Connection conn = null;
+        Connection conn;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -91,7 +67,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             List<Playlist> playlists = new ArrayList<>();
 
             for (int i : idPlaylists) {
-                ResultSet resultSet = QueryPlaylist.retriveGenrePlaylist(stmt, i);
+                ResultSet resultSet = QueryPlaylist.retriveGenrePlaylist(stmt, i); //ATTENZIONE ALL'ID CHE PASSIAMO, 0 SE VOGLIO I GENERI DEGLI USER
 
                 while (resultSet.next()) {
                     Playlist playlist = new Playlist();
@@ -120,4 +96,28 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             }
         }
     }
+
+
+    @Override
+    public void deletePlaylist(Playlist playlistInstance) {
+
+    }
+
+    /**
+     * @param mail
+     */
+    @Override
+    public void retrievePlaylistByMail(String mail) {
+
+    }
+
+    /**
+     * @param genre
+     */
+    @Override
+    public void retrievePlaylistByGenre(String genre) {
+
+    }
+
+
 }

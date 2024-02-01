@@ -16,14 +16,15 @@ public class Playlist {
     }
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre){
         setEmail(email);
-        setLink(link);
-        setPlaylistName(playlistName);
         setUsername(username);
+        setPlaylistName(playlistName);
+        setLink(link);
         setPlaylistGenre(playlistGenre);
         this.approved = false;
     }
 
-    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, int id){ //SI DOVRA FARE UN
+    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, int id){
+        //SI DOVRA FARE UN
         // UNICO COSTRUTTORE NON DUE; L?HO FATTO PER VEDERE SE FUNZIONA; L'ID MI SERVE NEL DB
         setEmail(email);
         setLink(link);

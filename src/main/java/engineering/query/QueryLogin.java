@@ -2,7 +2,6 @@ package engineering.query;
 
 import model.User;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,23 +12,35 @@ public class QueryLogin {
     }
 
     /** Carica nel database un nuovo utente e i suoi generi musicali preferiti */
-    public static void registerUser(Statement stmt, User user) throws SQLException {
+    public static void registerUser(Statement stmt, User user) {
         String name = user.getUsername();
         String email = user.getEmail();
         String password = user.getPassword();
+        boolean supervisor = user.isSupervisor();
 
-        // Esegui prima l'inserimento nella tabella 'user'
-        String insertUserStatement = String.format(Queries.INSERT_USER_QUERY, email, name, password);
-        stmt.executeUpdate(insertUserStatement);
+        int bool = 0;
 
-        // Poi inserisci i generi musicali nella tabella 'generi_musicali'
-        insertGeneriMusicali(stmt, email, user.getPref());
+        if(supervisor){
+            bool = 1;
+        }
+
+        try {
+            // Esegui prima l'inserimento nella tabella 'user'
+            String insertUserStatement = String.format(Queries.INSERT_USER, email, name, password,bool);
+            stmt.executeUpdate(insertUserStatement);
+
+            // Poi inserisci i generi musicali nella tabella 'generi_musicali'
+            insertGeneriMusicali(stmt, email, user.getPref());
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
     }
 
     /** Inserisce i generi musicali preferiti dall'utente, utilizzata al momento della registrazione dell'utente*/
     public static void insertGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
         // Costruisci la query di inserimento
-        StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_QUERY, buildGenresQueryString(generiMusicali, userEmail)));
+        StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_PLAYLIST, buildGenresQueryString(generiMusicali, userEmail)));
 
         // Esegui la query
         stmt.executeUpdate(query.toString());
@@ -65,12 +76,13 @@ public class QueryLogin {
 
         query.append(String.format("'%s'", userEmail));
 
+        System.out.println(query);
         return query.toString();
     }
 
-    // Query per prendere la email, utilizzata nella registrazione per vedere se l'email è già registrata
+    /** Ritorna un ResultSet contenente tutti i campi di user (email, username, password, supervisor)*/
     public static ResultSet loginUser(Statement stmt, String email) throws SQLException {
-        String sql = String.format(Queries.SELECT_EMAIL_USER_QUERY, email);
+        String sql = String.format(Queries.SELECT_USER_BY_EMAIL, email);
         return stmt.executeQuery(sql);
     }
 
@@ -81,7 +93,7 @@ public class QueryLogin {
 
     // Query per prendere la password della email passata come argomento
     public static ResultSet getUserPassword(Statement stmt, String email) throws SQLException {
-        String query = String.format(Queries.SELECT_PASSWORD_QUERY, email);
+        String query = String.format(Queries.SELECT_PASSWORD_BY_EMAIL, email);
         return stmt.executeQuery(query);
     }
 

@@ -144,9 +144,4 @@ public class UserDAOJSON implements UserDAO {
         }
     }
 
-    @Override
-    public void retrieveUserByUserId(String userId) {
-        // Implementazione per recuperare gli utenti per ID se è presente questa logica nel filesystem
-        // Questo dipende dalla struttura specifica del tuo sistema di file
-    }
 }

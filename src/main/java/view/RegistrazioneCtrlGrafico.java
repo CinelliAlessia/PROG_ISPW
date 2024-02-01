@@ -115,7 +115,7 @@ public class RegistrazioneCtrlGrafico {
         } else if (!checkMailCorrectness(userEmail)) {
             showError("EMAIL NON VALIDA");
         } else {
-            return new RegistrationBean(userName, userEmail,userPassword,preferences,false, true);
+            return new RegistrationBean(userName, userEmail,userPassword,preferences,false);
         }
 
         return null;
