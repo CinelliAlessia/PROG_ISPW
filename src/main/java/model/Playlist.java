@@ -3,7 +3,7 @@ package model;
 import java.util.List;
 
 public class Playlist {
-    private int id;
+    private String id;
     private String playlistName;
     private String link;
     private String username;
@@ -23,7 +23,7 @@ public class Playlist {
         this.approved = false;
     }
 
-    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, int id){
+    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, String id){
         //SI DOVRA FARE UN
         // UNICO COSTRUTTORE NON DUE; L?HO FATTO PER VEDERE SE FUNZIONA; L'ID MI SERVE NEL DB
         setEmail(email);
@@ -75,11 +75,11 @@ public class Playlist {
         return playlistGenre;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

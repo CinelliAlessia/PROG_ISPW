@@ -71,7 +71,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
                 while (resultSet.next()) {
                     Playlist playlist = new Playlist();
-                    playlist.setId(resultSet.getInt("id"));
+                    playlist.setId(resultSet.getString("id"));
                     playlist.setUsername(resultSet.getString("name"));
                     playlist.setLink(resultSet.getString("link"));
                     playlist.setEmail(resultSet.getString("userEmail"));

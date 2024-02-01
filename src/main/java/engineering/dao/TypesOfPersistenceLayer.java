@@ -43,7 +43,3 @@ public enum TypesOfPersistenceLayer {
         return TypesOfPersistenceLayer.valueOf(persistenceType);
     }
 }
-/*  Utilizza enum per ottenere un'istanza del DAO
-TypesOfPersistenceLayer persistenceLayer = TypesOfPersistenceLayer.JDBC;
-AlbumDAO albumDAO = persistenceLayer.createDAO();
- */

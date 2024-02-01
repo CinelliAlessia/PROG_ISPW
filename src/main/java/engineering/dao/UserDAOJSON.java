@@ -10,10 +10,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.SQLException;
 
 public class UserDAOJSON implements UserDAO {
-    private static final String BASE_DIRECTORY = ConfigurationJSON.BASE_DIRECTORY;
+    private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
     public UserDAOJSON(){
     }
     @Override

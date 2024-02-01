@@ -25,3 +25,13 @@ c
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 d
 4src/main/java/engineering/bean/RegistrationBean.java,1\0\10a68d84969c8617514c3efeab63993c35227e64
+b
+2src/main/java/engineering/dao/PlaylistDAOJSON.java,8\a\8ad2b16aa1884c259cc098ea6d2e179512fe9fc5
+g
+7src/main/java/engineering/others/ConfigurationJSON.java,d\e\deae5d89e55123495164d1f7af882139b94bd63b
+v
+Fsrc/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java,a\d\ad4b6617709a02c3df495167ba7181472c2fd41a
+j
+:src/main/java/engineering/dao/TypesOfPersistenceLayer.java,8\7\872b8ee48821e2597ff8685bf1eb976aeb285719
+t
+Dsrc/main/java/controller/applicativo/AddPlaylistCtrlApplicativo.java,a\b\ab4bcb0283f1e95d8d2a392952906018924e5792
