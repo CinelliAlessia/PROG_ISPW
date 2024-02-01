@@ -22,7 +22,11 @@ public class HomePageCtrlGrafico {
     @FXML
     protected void onAccountClick(ActionEvent event) throws IOException {
         System.out.println("HCG userBean: " + userBean);
-        SceneController.getInstance().<AccountCtrlGrafico>goToScene(event, FxmlFileName.ACCOUNT_FXML, userBean);
+        if(userBean == null){ // Utente Guest
+            SceneController.getInstance().goToScene(event, FxmlFileName.REGISTRATION_FXML);
+        } else { // Utente registrato
+            SceneController.getInstance().<AccountCtrlGrafico>goToScene(event, FxmlFileName.ACCOUNT_FXML, userBean);
+        }
     }
 
     @FXML

@@ -26,6 +26,11 @@
     -fx-border-radius: 50%;
 }
 
+/* Altri stili e colori personalizzati possono essere aggiunti secondo le tue preferenze */
+#guest {
+    -fx-pref-width: 200px; /* Regola la larghezza desiderata del bottone */
+}
+
 
 /* Colore di sfondo per i campi di testo e aree di input */
 .text-field, .text-area{
@@ -70,7 +75,3 @@
     -fx-border-color: #1DB954;
 }
 
-/* Altri stili e colori personalizzati possono essere aggiunti secondo le tue preferenze */
-#guest {
-    -fx-pref-width: 200px; /* Regola la larghezza desiderata del bottone */
-}

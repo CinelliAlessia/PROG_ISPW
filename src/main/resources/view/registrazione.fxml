@@ -1,65 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.Label?>
-<BorderPane prefWidth="1280.0" prefHeight="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../styles/styles.css" fx:controller="view.RegistrazioneCtrlGrafico">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RegistrazioneCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
-        <AnchorPane BorderPane.alignment="CENTER" prefHeight="50.0" prefWidth="700.0" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
 
-        <Button fx:id="back" text="Back" onAction="#onBackClick" layoutX="14.0" layoutY="19.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.0" />
-            <Label layoutX="570.0" layoutY="40.0" text="REGISTRAZIONE" textAlignment="CENTER" AnchorPane.topAnchor="20.0" stylesheets="@../styles/title.css"/>
+        <Button layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.0" />
+            <Label layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="REGISTRAZIONE" textAlignment="CENTER" AnchorPane.topAnchor="20.0" />
 
         </AnchorPane>
     </top>
 
     <center>
-        <AnchorPane stylesheets="@../styles/styles.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../styles/styles.css" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" spacing="300.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="150.0">
+                <GridPane hgap="10.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
 
-            <!-- Selezione dei generi musicali - CheckBox -->
-            <HBox spacing="20.0" layoutX="725.0" layoutY="207.0" prefHeight="307.0" prefWidth="522.0">
-                <VBox spacing="5.0" prefHeight="307.0" prefWidth="271.0">
-                    <CheckBox fx:id="pop" text="Pop" />
-                    <CheckBox fx:id="indie" text="Indie" />
-                    <CheckBox fx:id="classic" text="Classic" />
-                    <CheckBox fx:id="rock" text="Rock" />
-                    <CheckBox fx:id="electronic" text="Electronic" />
-                    <CheckBox fx:id="house" text="House" />
-                </VBox>
-                <VBox spacing="5.0" prefHeight="200.0" prefWidth="100.0">
-                    <CheckBox fx:id="hipHop" text="Hip Hop" />
-                    <CheckBox fx:id="jazz" text="Jazz" />
-                    <CheckBox fx:id="acoustic" text="Acoustic" />
-                    <CheckBox fx:id="reb" text="REB" />
-                    <CheckBox fx:id="country" text="Country" />
-                    <CheckBox fx:id="alternative" text="Alternative" />
-                </VBox>
-            </HBox>
+                    <Text text="Nome Utente" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <Text text="Email" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <Text text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <Text text="Conferma Password" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
 
-            <!-- Campi di ingresso -->
-            <HBox spacing="20.0" layoutX="160.0" layoutY="244.0" prefHeight="167.0" prefWidth="365.0" AnchorPane.leftAnchor="160.0">
-                <AnchorPane>
-                    <Text text="Nome Utente" textAlignment="RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="108" AnchorPane.topAnchor="5.0" />
-                    <Text text="Email" textAlignment="RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="106" AnchorPane.topAnchor="35.0" />
-                    <Text text="Password" textAlignment="RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="107" AnchorPane.topAnchor="65.0" />
-                    <Text text="Conferma Password" textAlignment="RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="121.19993895292282" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="95.0" />
-                </AnchorPane>
-                <VBox spacing="5.0">
-                    <TextField fx:id="name" promptText="Nome" />
-                    <TextField fx:id="email" promptText="Email" />
-                    <PasswordField fx:id="password" promptText="Password" />
-                    <PasswordField fx:id="confPassword" promptText="Conferma Password" />
-                </VBox>
+                    <TextField fx:id="name" promptText="Nome Utente" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    <TextField fx:id="email" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    <PasswordField fx:id="password" promptText="Password" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="2"/>
+                    <PasswordField fx:id="confPassword" promptText="Conferma Password" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="3"/>
+
+                </GridPane>
+
+                <!-- Selezione dei generi musicali - CheckBox -->
+                <HBox spacing="25.0" alignment="CENTER">
+                    <VBox spacing="5.0">
+                        <CheckBox fx:id="pop" text="Pop"/>
+                        <CheckBox fx:id="indie" text="Indie"/>
+                        <CheckBox fx:id="classic" text="Classic"/>
+                        <CheckBox fx:id="rock" text="Rock"/>
+                        <CheckBox fx:id="electronic" text="Electronic"/>
+                        <CheckBox fx:id="house" text="House"/>
+                    </VBox>
+                    <VBox spacing="5.0">
+                        <CheckBox fx:id="hipHop" text="Hip Hop"/>
+                        <CheckBox fx:id="jazz" text="Jazz"/>
+                        <CheckBox fx:id="acoustic" text="Acoustic"/>
+                        <CheckBox fx:id="reb" text="REB"/>
+                        <CheckBox fx:id="country" text="Country"/>
+                        <CheckBox fx:id="alternative" text="Alternative"/>
+                    </VBox>
+                    <padding>
+                        <Insets left="25.0" right="25.0"/>
+                    </padding>
+                </HBox>
             </HBox>
 
         </AnchorPane>
@@ -67,8 +85,8 @@
 
     <bottom>
         <AnchorPane BorderPane.alignment="CENTER">
-            <Text fx:id="errorField" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="LE PASSWORD NON CORRISPONDONO" textAlignment="CENTER" visible="false" wrappingWidth="393.97707509994507" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0"/>
-            <Button fx:id="registrazione" text="Registrati" mnemonicParsing="false" onAction="#onRegisterClick" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0"/>
+            <Text fx:id="errorField" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="LE PASSWORD NON CORRISPONDONO" textAlignment="CENTER" visible="false" wrappingWidth="394.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" />
+            <Button mnemonicParsing="false" onAction="#onRegisterClick" stylesheets="@../styles/styles.css" text="Registrati" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" />
         </AnchorPane>
     </bottom>
 
