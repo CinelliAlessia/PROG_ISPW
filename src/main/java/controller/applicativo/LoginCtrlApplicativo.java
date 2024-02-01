@@ -4,11 +4,8 @@ import engineering.bean.LoginBean;
 import engineering.bean.UserBean;
 import engineering.dao.TypesOfPersistenceLayer;
 import engineering.dao.UserDAO;
-import engineering.dao.UserDAOMySQL;
 import model.User;
-
 import java.io.IOException;
-import java.sql.SQLException;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
@@ -34,9 +31,5 @@ public class LoginCtrlApplicativo {
 
         User user = dao.loadUser(bean.getEmail());
         return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor());
-    }
-
-    public UserBean loadUserByEmailFromFS(String email) {
-        return null;
     }
 }

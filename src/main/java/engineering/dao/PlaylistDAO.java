@@ -2,7 +2,6 @@ package engineering.dao;
 
 import model.Playlist;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface PlaylistDAO {

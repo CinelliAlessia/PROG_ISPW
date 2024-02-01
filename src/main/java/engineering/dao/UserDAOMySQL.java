@@ -1,5 +1,6 @@
 package engineering.dao;
 
+import engineering.exceptions.UsernameAlreadyInUse;
 import engineering.others.Connect;
 import engineering.exceptions.EmailAlreadyInUse;
 import engineering.query.QueryLogin;
@@ -9,14 +10,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAOMySQL implements UserDAO{
 
-    // Metodo per inserire un User nel database al momento della registrazione
+    /* Metodo per inserire un User nel database al momento della registrazione
+    * viene effettuato il controllo sulla email scelta e sull'username scelto*/
     public void insertUser(User user) {
         Statement stmt = null;
         Connection conn;
         ResultSet rs = null;
+        boolean result;
+
         try {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
@@ -27,11 +32,22 @@ public class UserDAOMySQL implements UserDAO{
                 throw new EmailAlreadyInUse("This email is already in use!");
             }
             rs.close();
+
+            String username = user.getUsername();
+            rs = QueryLogin.loginUserBUsername(stmt, username);
+            if (rs.next()) {
+                throw new UsernameAlreadyInUse("This username is already in use!");
+            }
+            rs.close();
+
             QueryLogin.registerUser(stmt, user);
 
-        } catch (SQLException | EmailAlreadyInUse e) {
+            result = true;
+
+        } catch (SQLException | EmailAlreadyInUse | UsernameAlreadyInUse e) {
             // Gestisci l'eccezione
             e.printStackTrace();
+            result = false;
 
         } finally {
             try {
@@ -46,6 +62,7 @@ public class UserDAOMySQL implements UserDAO{
                 e.printStackTrace();
             }
         }
+        // return result;
     }
 
     public String getPasswordByEmail(String email) {
@@ -94,7 +111,7 @@ public class UserDAOMySQL implements UserDAO{
         String password = "";
         ResultSet resultSet = null;
         ResultSet resultSet2 = null;
-        ArrayList<String> preferences = new ArrayList<>();
+        List<String> preferences = new ArrayList<>();
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -112,24 +129,7 @@ public class UserDAOMySQL implements UserDAO{
             resultSet2 = QueryLogin.retrivePrefByEmail(stmt, userEmail);
 
             if (resultSet2.next()) {
-
-                // Aggiungi i generi musicali alla List solo se sono impostati a true
-                if (resultSet2.getBoolean("Pop")) preferences.add("Pop");
-                if (resultSet2.getBoolean("Indie")) preferences.add("Indie");
-                if (resultSet2.getBoolean("Classic")) preferences.add("Classic");
-                if (resultSet2.getBoolean("Rock")) preferences.add("Rock");
-                if (resultSet2.getBoolean("Electronic")) preferences.add("Electronic");
-                if (resultSet2.getBoolean("House")) preferences.add("House");
-                if (resultSet2.getBoolean("HipHop")) preferences.add("Hip Hop");
-                if (resultSet2.getBoolean("Jazz")) preferences.add("Jazz");
-                if (resultSet2.getBoolean("Acoustic")) preferences.add("Acoustic");
-                if (resultSet2.getBoolean("REB")) preferences.add("REB");
-                if (resultSet2.getBoolean("Country")) preferences.add("Country");
-                if (resultSet2.getBoolean("Alternative")) preferences.add("Alternative");
-
-                ///preferences = genrePlaylist(resultSet2);
-                //System.out.println("AAAAAAAAAAAAAAAAAAAAAA " + preferences);
-
+                preferences = genrePlaylist(resultSet2);
             }
             resultSet.close();
 
@@ -156,7 +156,7 @@ public class UserDAOMySQL implements UserDAO{
         return user;
     }
 
-    public ArrayList<String> genrePlaylist(ResultSet rs) throws SQLException {
+    public List<String> genrePlaylist(ResultSet rs) throws SQLException {
         ArrayList<String> preferences = new ArrayList<>();
 
         // Aggiungi i generi musicali alla List solo se sono impostati a true

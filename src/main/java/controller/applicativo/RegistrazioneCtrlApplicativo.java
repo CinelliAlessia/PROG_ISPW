@@ -20,6 +20,7 @@ public class RegistrazioneCtrlApplicativo {
         UserDAO dao = persistenceType.createUserDAO();
 
         // TODO Verifica che non esista già un utente con stessa mail e nome utente
+        // Alessia fatto
 
         // Crea l'utente (model)
         User user = new User(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());

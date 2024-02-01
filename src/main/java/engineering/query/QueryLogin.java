@@ -2,6 +2,7 @@ package engineering.query;
 
 import model.User;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -52,21 +53,12 @@ public class QueryLogin {
 
     /**  */
     public static void uploadGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
-        /* String updateQuery = Queries.UPDATE_GENERI_MUSICALI_QUERY;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
 
-            // Imposta i valori per i generi musicali
-            for (int i = 1; i <= generiMusicali.size(); i++) {
-                preparedStatement.setInt(i, generiMusicali.get(i - 1).equals("1") ? 1 : 0);
-            }
-            preparedStatement.setString(14, userEmail); // email
+        // Costruisci la query di inserimento
+        StringBuilder query = new StringBuilder(String.format(Queries.UPDATE_GENERI_MUSICALI_QUERY, buildGenresQueryString(generiMusicali, userEmail)));
 
-            int rowsUpdated = preparedStatement.executeUpdate();
-            System.out.println("Rows updated: " + rowsUpdated);
-        } catch (SQLException e) {
-            e.fillInStackTrace();
-        }
-*/
+        // Esegui la query
+        stmt.executeUpdate(query.toString());
     }
 
     private static String buildGenresQueryString(List<String> generiMusicali, String userEmail) {
@@ -84,9 +76,15 @@ public class QueryLogin {
         return query.toString();
     }
 
-    /** Ritorna un ResultSet contenente tutti i campi di user (email, username, password, supervisor)*/
+    /** Ritorna un ResultSet contenente tutti i campi di user (email, username, password, supervisor)
+     * recuperati tramite la email */
     public static ResultSet loginUser(Statement stmt, String email) throws SQLException {
         String sql = String.format(Queries.SELECT_USER_BY_EMAIL, email);
+        return stmt.executeQuery(sql);
+    }
+
+    public static ResultSet loginUserBUsername(Statement stmt, String username) throws SQLException {
+        String sql = String.format(Queries.SELECT_USER_BY_USERNAME, username);
         return stmt.executeQuery(sql);
     }
 

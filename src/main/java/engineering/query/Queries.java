@@ -3,6 +3,8 @@ package engineering.query;
 public class Queries {
 
 
+
+
     private Queries(){}
 
     /* ---------- QUERY LOGIN ---------- */
@@ -10,6 +12,9 @@ public class Queries {
     public static final String INSERT_GENERI_MUSICALI_USER = "INSERT INTO generi_musicali_user (Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative, email) VALUES (%s)";
 
     public static final String SELECT_USER_BY_EMAIL = "SELECT * FROM user WHERE email = '%s'";
+
+    public static final String SELECT_USER_BY_USERNAME = "SELECT * FROM user WHERE username = '%s'";
+
     public static final String SELECT_PASSWORD_BY_EMAIL = "SELECT password FROM user WHERE email = '%s'";
     public static final String UPDATE_GENERI_MUSICALI_USER =
             "UPDATE generi_musicali_user " +
@@ -28,6 +33,8 @@ public class Queries {
     public static final String SELECT_PLAYLIST_BY_USER = "SELECT * FROM playlist_utente";
     public static final String SELECT_GENRED_PLAYLIST_BY_ID = "SELECT * FROM generi_musicali WHERE id = '%d'";
     public static final String SELECT_ID_BY_EMAIL = "SELECT id FROM playlist_utente WHERE email = '%s'";
+
+    public static final String UPDATE_GENERI_MUSICALI_QUERY = "UPDATE" ;
 
     public static final String DELETE_PLAYLIST_BY_LINK_PLAYLIST_UTENTE = "DELETE * FROM playlist_utente WHERE link = '%s'" ;
     public static final String DELETE_PLAYLIST_BY_LINK_ALL_PLAYLIST = "DELETE * FROM all_playlist WHERE link = '%s'" ;

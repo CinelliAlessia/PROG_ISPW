@@ -3,7 +3,8 @@ package engineering.bean;
 import java.util.List;
 
 public class UserBean {
-    private String username, email, password;
+    private String username;
+    private String email;
     private List<String> preferences;
     private boolean supervisor;
 
