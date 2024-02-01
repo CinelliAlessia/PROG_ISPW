@@ -25,10 +25,6 @@ d
 .src/main/java/engineering/dao/PlaylistDAO.java,4\9\492811810e916b0e43ff2ca2d600c382d97f6316
 Z
 *src/main/java/engineering/dao/UserDAO.java,6\b\6b34f4e7bf054ad3399fffb16a7cce286a075f43
-_
-/src/main/java/engineering/dao/UserDAO_JSON.java,0\1\01caeca57c5fffed6149ed40e5d1d4934ead7716
-`
-0src/main/java/engineering/dao/UserDAO_mySQL.java,c\c\ccccbb0f53d459c4cc82a1561eef78cfa16c686b
 k
 ;src/main/java/engineering/exceptions/EmailAlreadyInUse.java,c\b\cb1b1a38a949477efbe745e5d2a25e1166fa8c2c
 r
@@ -159,3 +155,11 @@ Q.idea/sonarlint/securityhotspotstore/8/f/8ffc88701a9a261daf08c25c2f3f0ad4bedfa0
 database.mwb,2\c\2cff265c833d05df6ae93b4da72bfd25acc5d4f4
 <
 database.sql,d\d\dd715606dbf1c1508d07bd20c1262a49c65d1863
+c
+3src/main/java/engineering/dao/PlaylistDAOMySQL.java,9\b\9bafa12ff5b377cf2462c172c1ddb1b5148904d8
+b
+2src/main/java/engineering/dao/PlaylistDAOJSON.java,8\a\8ad2b16aa1884c259cc098ea6d2e179512fe9fc5
+_
+/src/main/java/engineering/dao/UserDAOMySQL.java,4\6\46a8ae01c469d2bc54ab5a24805c53bcda93ba21
+^
+.src/main/java/engineering/dao/UserDAOJSON.java,f\d\fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067

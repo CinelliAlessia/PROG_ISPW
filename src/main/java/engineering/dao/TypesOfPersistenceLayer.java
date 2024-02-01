@@ -7,24 +7,24 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public enum TypesOfPersistenceLayer {
-    mySQL {
+    MySQL {
         @Override
         public UserDAO createUserDAO() {
-            return new UserDAO_mySQL();
+            return new UserDAOMySQL();
         }
         @Override
         public PlaylistDAO createPlaylistDAO() {
-            return new PlaylistDAO_mySQL();
+            return new PlaylistDAOMySQL();
         }
     },
     JSON {
         @Override
         public UserDAO createUserDAO() {
-            return new UserDAO_JSON();
+            return new UserDAOJSON();
         }
         @Override
         public PlaylistDAO createPlaylistDAO() {
-            return new PlaylistDAO_JSON();
+            return new PlaylistDAOJSON();
         }
     };
 

@@ -1,7 +1,6 @@
 package engineering.dao;
 
 import model.Playlist;
-import model.User;
 
 import java.sql.SQLException;
 import java.util.List;

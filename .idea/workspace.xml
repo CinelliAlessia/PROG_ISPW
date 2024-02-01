@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="aggiornamento database">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Persistenza database funzionante">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/AddPlaylistCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/AddPlaylistCtrlApplicativo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllerApplicativo/LoginCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/QueryLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/QueryLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO_JSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO_mySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/TypesOfPersistenceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/TypesOfPersistenceLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_JSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO_mySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/userInfo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +183,7 @@
       <workItem from="1706634398060" duration="2262000" />
       <workItem from="1706639484242" duration="7619000" />
       <workItem from="1706686449597" duration="3137000" />
-      <workItem from="1706732648918" duration="7137000" />
+      <workItem from="1706732648918" duration="7912000" />
     </task>
     <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
       <option name="closed" value="true" />
@@ -394,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706737554266</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Persistenza database funzionante">
+      <option name="closed" value="true" />
+      <created>1706740198522</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1706740198522</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +436,8 @@
     <MESSAGE value="Carivamento playlist funzionante" />
     <MESSAGE value="Correzione Code Smells" />
     <MESSAGE value="aggiornamento database" />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornamento database" />
+    <MESSAGE value="Persistenza database funzionante" />
+    <option name="LAST_COMMIT_MESSAGE" value="Persistenza database funzionante" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

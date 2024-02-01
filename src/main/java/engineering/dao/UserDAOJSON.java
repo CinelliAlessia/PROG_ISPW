@@ -2,7 +2,6 @@ package engineering.dao;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import model.Supervisor;
 import model.User;
 
 import java.io.File;
@@ -11,9 +10,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class UserDAO_JSON implements UserDAO {
+public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = "src/main/resources/persistence/users";
-    public UserDAO_JSON(){
+    public UserDAOJSON(){
         // TODO document why this constructor is empty
     }
     @Override

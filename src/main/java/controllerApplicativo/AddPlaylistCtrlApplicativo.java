@@ -2,12 +2,8 @@ package controllerApplicativo;
 
 import engineering.bean.PlaylistBean;
 import engineering.dao.PlaylistDAO;
-import engineering.dao.PlaylistDAO_mySQL;
 import engineering.dao.TypesOfPersistenceLayer;
-import engineering.dao.UserDAO;
-import engineering.exceptions.PlaylistNameAlreadyInUse;
 import model.Playlist;
-import model.User;
 
 import java.io.IOException;
 import java.sql.SQLException;

@@ -1,18 +1,17 @@
 package engineering.dao;
 
 import model.Playlist;
-import model.User;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class PlaylistDAO_JSON implements PlaylistDAO {
+public class PlaylistDAOJSON implements PlaylistDAO {
     /**
      * @param playlist
      * @throws SQLException
      */
     @Override
-    public void insertPlaylist(Playlist playlist) throws SQLException {
+    public void insertPlaylist(Playlist playlist) {
 
     }
 
@@ -46,7 +45,6 @@ public class PlaylistDAO_JSON implements PlaylistDAO {
      */
     @Override
     public void retrievePlaylistByGenre(String genre) {
-
     }
 
     /**

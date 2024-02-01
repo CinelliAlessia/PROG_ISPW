@@ -4,8 +4,7 @@ import engineering.bean.LoginBean;
 import engineering.bean.UserBean;
 import engineering.dao.TypesOfPersistenceLayer;
 import engineering.dao.UserDAO;
-import engineering.dao.UserDAO_JSON;
-import engineering.dao.UserDAO_mySQL;
+import engineering.dao.UserDAOMySQL;
 import model.User;
 
 import java.io.IOException;
@@ -33,7 +32,7 @@ public class LoginCtrlApplicativo {
     }
 
     public UserBean loadUser(LoginBean bean) throws SQLException {
-        User user = UserDAO_mySQL.loadUser(bean.getEmail());
+        User user = UserDAOMySQL.loadUser(bean.getEmail());
         return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor(),true)    ;
     }
 

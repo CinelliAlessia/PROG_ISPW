@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class UserDAO_mySQL implements UserDAO{
+public class UserDAOMySQL implements UserDAO{
 
     // Metodo per inserire un User nel database al momento della registrazione
     public void insertUser(User user) {

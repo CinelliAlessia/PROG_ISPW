@@ -4,7 +4,6 @@ import engineering.exceptions.PlaylistNameAlreadyInUse;
 import engineering.others.Connect;
 import engineering.query.QueryPlaylist;
 import model.Playlist;
-import model.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlaylistDAO_mySQL implements PlaylistDAO {
+public class PlaylistDAOMySQL implements PlaylistDAO {
     /*L'inserimento di una playlist prima controlla che ci sia già il link all'interno del DB, successivamente inserisce*/
     public void insertPlaylist(Playlist playlist) throws SQLException {
         Statement stmt = null;
