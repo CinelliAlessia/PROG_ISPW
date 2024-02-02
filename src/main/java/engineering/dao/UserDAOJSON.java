@@ -14,8 +14,6 @@ import java.util.List;
 
 public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
-    public UserDAOJSON(){
-    }
     @Override
     public void insertUser(User user) {
         // Utilizzato per aggiungere un utente al file system
@@ -168,9 +166,36 @@ public class UserDAOJSON implements UserDAO {
      * @param email
      * @param preferences
      */
-    @Override
     public void updateGenreUser(String email, List<String> preferences) {
-//TODO
-    }
+        // Costruisci il percorso del file userInfo.json per l'utente
+        Path userInfoFile = Paths.get(BASE_DIRECTORY, email, ConfigurationJSON.USER_INFO_FILE_NAME);
 
+        // Verifica se il file userInfo.json esiste
+        if (Files.exists(userInfoFile)) {
+            try {
+                // Leggi il contenuto del file
+                String content = Files.readString(userInfoFile);
+
+                // Usa Gson per deserializzare il contenuto JSON e ottenere l'utente
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                User user = gson.fromJson(content, User.class);
+
+                // Aggiorna le preferenze dell'utente
+                user.setPref(preferences);
+                System.out.println("Nuove preferenze" + user.getPref());
+
+                // Converti l'oggetto User aggiornato in JSON
+                String updatedJson = gson.toJson(user);
+
+                // Sovrascrivi il file userInfo.json con le informazioni aggiornate
+                Files.writeString(userInfoFile, updatedJson);
+
+                System.out.println("Preferenze utente aggiornate con successo!");
+            } catch (IOException e) {
+                e.fillInStackTrace(); // Gestisci l'eccezione in modo appropriato
+            }
+        } else {
+            System.out.println("Utente non trovato o file userInfo.json mancante.");
+        }
+    }
 }

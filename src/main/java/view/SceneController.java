@@ -19,7 +19,6 @@ public class SceneController {
     private static final Deque<Scene> sceneStack = new LinkedList<>();
     // Sonar dice che non va bene: private static final Stack<Scene> sceneStack = new Stack<>(); la modifichiamo?
 
-
     public static SceneController getInstance() {
         //Pattern Singleton
         if (sceneController == null) {
@@ -35,13 +34,11 @@ public class SceneController {
             stage.show();
         }
     }
-
     @FXML
     public void pushCurrentScene(ActionEvent event) {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
     }
-
     @FXML
     public void goToScene(ActionEvent event, String fxmlPath) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));

@@ -1,16 +1,16 @@
 package controller.applicativo;
 
 import engineering.bean.PlaylistBean;
+import engineering.bean.UserBean;
 import engineering.dao.PlaylistDAO;
 import engineering.dao.TypesOfPersistenceLayer;
+import engineering.dao.UserDAO;
 import model.Playlist;
 import java.io.IOException;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AccountCtrlApplicativo {
-
-    private AccountCtrlApplicativo(){}
 
     /** Recupera tutte le playlist globali by username*/
 
@@ -35,7 +35,16 @@ public class AccountCtrlApplicativo {
 
         return playlistsBean;
     }*/
+    public void updateGenreUser(UserBean userBean) throws IOException {
+        // Prendo il tipo di persistenza impostato nel file di configurazione
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        UserDAO dao = persistenceType.createUserDAO();
 
+        // Invio utente model al DAO
+        dao.updateGenreUser(userBean.getEmail(), userBean.getPreferences());
+
+    }
     public static Boolean deletePlaylist(PlaylistBean pB) throws IOException {
 
         // Prendo il tipo di persistenza impostato nel file di configurazione

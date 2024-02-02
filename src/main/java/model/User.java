@@ -44,13 +44,16 @@
             return email;
         }
 
-
         public List<String> getPref() {
             return pref;
         }
 
         public String getPassword() {
             return password;
+        }
+
+        public void setPref(List<String> preferences) {
+            pref = preferences;
         }
     }
 

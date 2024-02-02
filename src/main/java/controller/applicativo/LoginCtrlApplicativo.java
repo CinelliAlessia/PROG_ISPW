@@ -21,8 +21,14 @@ public class LoginCtrlApplicativo {
 
         String password = dao.getPasswordByEmail(bean.getEmail());
 
+        // Verifica se la password ottenuta dal DAO è null
+        if (password == null) {
+            return false;
+        }
+
         return password.equals(bean.getPassword());
     }
+
 
     public UserBean loadUser(LoginBean bean) throws IOException {
 

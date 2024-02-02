@@ -1,5 +1,6 @@
 package view;
 
+import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.UserBean;
 import engineering.dao.TypesOfPersistenceLayer;
 import engineering.dao.UserDAO;
@@ -20,7 +21,6 @@ public class AccountCtrlGrafico{
 
     @FXML
     public Button saveButton;
-
     @FXML
     private Label usernameText;
     @FXML
@@ -85,7 +85,7 @@ public class AccountCtrlGrafico{
         rock.setSelected(preferences.contains("Rock"));
         electronic.setSelected(preferences.contains("Electronic"));
         house.setSelected(preferences.contains("House"));
-        hipHop.setSelected(preferences.contains("Hip Hop"));
+        hipHop.setSelected(preferences.contains("HipHop"));
         jazz.setSelected(preferences.contains("Jazz"));
         acoustic.setSelected(preferences.contains("Acoustic"));
         reb.setSelected(preferences.contains("REB"));
@@ -98,28 +98,23 @@ public class AccountCtrlGrafico{
     }
 
     /** Un tasto visibile solo dal supervisor, utilizzato per accettare playlist*/
-    public void approvedPlaylist(){
+    public void approvePlaylist(){
         // TODO
     }
 
-    /** WARNING -> hipHop ha un problema*/
     @FXML
     public void onSaveClick(ActionEvent event) throws IOException {
+        // Recupero preferenze aggiornate
         ArrayList<String> preferences = retriveCheckList();
+        // Imposto le preferenze sullo user bean
         userBean.setPreferences(preferences);
 
-        // Prendo il tipo di persistenza impostato nel file di configurazione
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
-        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-        UserDAO dao = persistenceType.createUserDAO();
+        AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
+        accountCtrlApplicativo.updateGenreUser(userBean);
 
-
-        // Invio utente model al DAO
-        dao.updateGenreUser(userBean.getEmail(),userBean.getPreferences());
-
-        // In questo caso non torno indietro ma vado alla home altrimenti non verrebbe aggiornato lo userBean
-        SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML, userBean);
-
+        // Devo aggiornare il bean? Di tutto lo stack però,
+        // non va bene, tutti dovrebbero recuperare informazioni per il bean dalla persistenza
+        // ##### Mostro pop-up ######
 
     }
     @FXML
