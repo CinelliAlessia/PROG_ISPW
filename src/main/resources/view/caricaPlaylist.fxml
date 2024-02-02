@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane prefWidth="1280.0" prefHeight="720.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddPlaylistCtrlGrafico">
+<BorderPane prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddPlaylistCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
-        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <Button layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.0" />
-            <Label layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="CARICA LA PLAYLIST" textAlignment="CENTER" AnchorPane.topAnchor="20.0" />
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+            <Button layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+            <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="CARICA LA PLAYLIST" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
         </AnchorPane>
     </top>
+
     <center>
         <!-- Campo Dati -->
-        <HBox alignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+        <HBox alignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0" BorderPane.alignment="CENTER">
             <GridPane alignment="CENTER" hgap="15.0" maxHeight="-Infinity" maxWidth="-Infinity" vgap="15.0">
                 <Label text="Titolo:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                 <TextField fx:id="title" GridPane.columnIndex="1" GridPane.rowIndex="0" />
@@ -53,13 +64,13 @@
                         <CheckBox fx:id="electronic" text="Electronic" />
                         <CheckBox fx:id="house" text="House" />
                     </VBox>
-                    <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                    <VBox spacing="5.0">
                         <CheckBox fx:id="hipHop" text="Hip Hop" />
                         <CheckBox fx:id="jazz" text="Jazz" />
                         <CheckBox fx:id="acoustic" text="Acoustic" />
                         <CheckBox fx:id="reb" text="REB" />
                         <CheckBox fx:id="country" text="Country" />
-                        <CheckBox fx:id="alternative" text="Alternative" />
+                        <CheckBox fx:id="alternative" text="Alternative" textOverrun="CLIP" />
                     </VBox>
                 </HBox>
             <HBox.margin>
@@ -71,10 +82,9 @@
 
 
     <bottom>
-        <AnchorPane>
+        <AnchorPane BorderPane.alignment="BOTTOM_CENTER">
             <!-- Bottone Salva -->
-            <Button layoutX="600.0" layoutY="650.0" onAction="#onUploadClick" text="Carica Playlist" alignment="CENTER"
-                     contentDisplay="CENTER"  textAlignment="CENTER" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="452.0" onAction="#onUploadClick" text="Carica Playlist" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.bottomAnchor="35.0" />
         </AnchorPane>
     </bottom>
 
