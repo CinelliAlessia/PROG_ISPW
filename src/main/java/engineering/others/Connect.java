@@ -1,16 +1,21 @@
 package engineering.others;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class Connect {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/user";
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";
 
+    private String jdbc;
+    private String user;
+    private String password;
     private static Connect instance = null;
     private Connection conn = null;
+
+    private static final String PATH = "src/main/resources/connection.properties";
 
     protected Connect() {
     }
@@ -24,9 +29,25 @@ public class Connect {
 
     public synchronized Connection getDBConnection() throws SQLException {
         if (this.conn == null) {
-            this.conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
+            getInfo();
+            this.conn = DriverManager.getConnection(jdbc, user, password);
         }
         return this.conn;
+    }
+
+    private void getInfo() {
+        try(FileInputStream fileInputStream = new FileInputStream(PATH)) {
+            // Load DB Connection info from Properties file
+            Properties prop = new Properties() ;
+            prop.load(fileInputStream);
+
+            jdbc = prop.getProperty("JDBC_URL") ;
+            user = prop.getProperty("USER") ;
+            password = prop.getProperty("PASSWORD") ;
+
+        } catch (IOException e){
+            e.fillInStackTrace();
+        }
     }
 
 }
