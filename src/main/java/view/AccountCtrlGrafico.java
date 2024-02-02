@@ -6,15 +6,17 @@ import engineering.others.FxmlFileName;
 import engineering.others.GenreMenager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class AccountCtrlGrafico{
+public class AccountCtrlGrafico implements Initializable {
 
     @FXML
     public Button saveButton;
@@ -48,6 +50,19 @@ public class AccountCtrlGrafico{
     private CheckBox alternative;
 
     private UserBean userBean;
+
+    private List<CheckBox> checkBoxList;
+    /**
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if
+     *                  the root object was not localized.
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
+                acoustic, reb, country, alternative);
+    }
 
     public void setUserBean(UserBean user) {
         // Deve avere un userBean per compilare tutte le informazioni
@@ -94,22 +109,9 @@ public class AccountCtrlGrafico{
 
     @FXML
     public void onSaveClick(ActionEvent event){
-        List<CheckBox> checkBoxList = new ArrayList<>();
-        checkBoxList.add(pop);
-        checkBoxList.add(indie);
-        checkBoxList.add(classic);
-        checkBoxList.add(rock);
-        checkBoxList.add(electronic);
-        checkBoxList.add(house);
-        checkBoxList.add(hipHop);
-        checkBoxList.add(jazz);
-        checkBoxList.add(acoustic);
-        checkBoxList.add(reb);
-        checkBoxList.add(country);
-        checkBoxList.add(alternative);
 
         // Recupero preferenze aggiornate
-        ArrayList<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
+        List<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
         System.out.println("Hai premuto salva " + preferences);
 
         // Imposto le preferenze sullo user bean

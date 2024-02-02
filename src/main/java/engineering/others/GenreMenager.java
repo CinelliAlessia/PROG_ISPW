@@ -14,6 +14,7 @@ public class GenreMenager {
     /** Funzione ausiliare per il retrieve dell'utente da persistenza
      * è ammessa la non gestione di SQLException dato che viene utilizzata solo da questa classe */
     public static List<String> retriveGenre(ResultSet rs) throws SQLException {
+
         List<String> genre = new ArrayList<>();
         if (rs.getBoolean("Pop")) genre.add("Pop");
         if (rs.getBoolean("Indie")) genre.add("Indie");
@@ -27,12 +28,13 @@ public class GenreMenager {
         if (rs.getBoolean("REB")) genre.add("REB");
         if (rs.getBoolean("Country")) genre.add("Country");
         if (rs.getBoolean("Alternative")) genre.add("Alternative");
+
         rs.close();
         return genre;
     }
 
 
-    public static ArrayList<String> retrieveCheckList(List<CheckBox> checkBoxList) {
+    public static List<String> retrieveCheckList(List<CheckBox> checkBoxList) {
         ArrayList<String> selectedGenres = new ArrayList<>();
 
         for (CheckBox checkBox : checkBoxList) {

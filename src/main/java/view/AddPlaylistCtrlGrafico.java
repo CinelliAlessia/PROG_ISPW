@@ -6,12 +6,15 @@ import engineering.bean.UserBean;
 import engineering.others.GenreMenager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import java.util.ArrayList;
+import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class AddPlaylistCtrlGrafico {
+public class AddPlaylistCtrlGrafico implements Initializable {
 
     @FXML
     private TextField title;
@@ -43,6 +46,19 @@ public class AddPlaylistCtrlGrafico {
     private CheckBox alternative;
     private UserBean userBean;
 
+    private List<CheckBox> checkBoxList;
+    /**
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if
+     *                  the root object was not localized.
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
+                acoustic, reb, country, alternative);
+    }
+
     public void setUserBean(UserBean user) {
         this.userBean = user;
         System.out.println("HCG impostato user bean: " + userBean);
@@ -59,22 +75,10 @@ public class AddPlaylistCtrlGrafico {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
-        List<CheckBox> checkBoxList = new ArrayList<>();
-        checkBoxList.add(pop);
-        checkBoxList.add(indie);
-        checkBoxList.add(classic);
-        checkBoxList.add(rock);
-        checkBoxList.add(electronic);
-        checkBoxList.add(house);
-        checkBoxList.add(hipHop);
-        checkBoxList.add(jazz);
-        checkBoxList.add(acoustic);
-        checkBoxList.add(reb);
-        checkBoxList.add(country);
-        checkBoxList.add(alternative);
+
 
         // Recupero preferenze aggiornate
-        ArrayList<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
+        List<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
 
         // Costruzione della playlistBean con i parametri per il Controller Applicativo
         PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, preferences);

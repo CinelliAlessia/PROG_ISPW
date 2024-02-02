@@ -7,16 +7,19 @@ import engineering.others.FxmlFileName;
 import engineering.others.GenreMenager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.apache.commons.validator.routines.EmailValidator;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class RegistrazioneCtrlGrafico {
+public class RegistrazioneCtrlGrafico implements Initializable {
 
     // ---------Nodi interfaccia----------
     @FXML
@@ -56,6 +59,19 @@ public class RegistrazioneCtrlGrafico {
     private CheckBox country;
     @FXML
     private CheckBox alternative;
+
+    private List<CheckBox> checkBoxList;
+    /**
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if
+     *                  the root object was not localized.
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
+                acoustic, reb, country, alternative);
+    }
 
     /**
      * Gestisce l'evento di clic sul pulsante di ritorno (back).
@@ -101,22 +117,8 @@ public class RegistrazioneCtrlGrafico {
         String userPassword = password.getText();
         String userConfPw = confPassword.getText();
 
-        List<CheckBox> checkBoxList = new ArrayList<>();
-        checkBoxList.add(pop);
-        checkBoxList.add(indie);
-        checkBoxList.add(classic);
-        checkBoxList.add(rock);
-        checkBoxList.add(electronic);
-        checkBoxList.add(house);
-        checkBoxList.add(hipHop);
-        checkBoxList.add(jazz);
-        checkBoxList.add(acoustic);
-        checkBoxList.add(reb);
-        checkBoxList.add(country);
-        checkBoxList.add(alternative);
-
         // Recupero preferenze aggiornate
-        ArrayList<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
+        List<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
 
         if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userConfPw.isEmpty()) {
             showError("CAMPI VUOTI");
@@ -145,5 +147,6 @@ public class RegistrazioneCtrlGrafico {
     private boolean checkMailCorrectness(String email) {
         return EmailValidator.getInstance().isValid(email);
     }
+
 
 }
