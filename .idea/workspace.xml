@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Code smells risolti">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/caricaPlaylist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/caricaPlaylist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/homePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/registrazione.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/registrazione.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,6 +191,7 @@
       <workItem from="1706806985445" duration="3138000" />
       <workItem from="1706814706527" duration="4409000" />
       <workItem from="1706820232063" duration="5462000" />
+      <workItem from="1706859194520" duration="6049000" />
     </task>
     <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
       <option name="closed" value="true" />
