@@ -39,7 +39,7 @@ public enum TypesOfPersistenceLayer {
         try (InputStream input = RegistrazioneCtrlApplicativo.class.getClassLoader().getResourceAsStream("config.properties")) {
             properties.load(input);
         } catch (IOException e){
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
 
         String persistenceType = properties.getProperty("persistence.type", "MYSQL");
