@@ -6,8 +6,6 @@ import engineering.dao.TypesOfPersistenceLayer;
 import engineering.dao.UserDAO;
 import model.User;
 
-import java.io.IOException;
-
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 

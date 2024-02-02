@@ -3,15 +3,13 @@ package view;
 import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
-import engineering.exceptions.PlaylistNameAlreadyInUse;
+import engineering.others.GenreMenager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AddPlaylistCtrlGrafico {
 
@@ -61,10 +59,25 @@ public class AddPlaylistCtrlGrafico {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
-        ArrayList<String> playlistGenre = retriveCheckList();
+        List<CheckBox> checkBoxList = new ArrayList<>();
+        checkBoxList.add(pop);
+        checkBoxList.add(indie);
+        checkBoxList.add(classic);
+        checkBoxList.add(rock);
+        checkBoxList.add(electronic);
+        checkBoxList.add(house);
+        checkBoxList.add(hipHop);
+        checkBoxList.add(jazz);
+        checkBoxList.add(acoustic);
+        checkBoxList.add(reb);
+        checkBoxList.add(country);
+        checkBoxList.add(alternative);
+
+        // Recupero preferenze aggiornate
+        ArrayList<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
 
         // Costruzione della playlistBean con i parametri per il Controller Applicativo
-        PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, playlistGenre);
+        PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, preferences);
 
         if(userBean.isSupervisor()){
             playlistBean.setApproved();
@@ -76,50 +89,6 @@ public class AddPlaylistCtrlGrafico {
         // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
         SceneController.getInstance().goBack(event);
 
-    }
-
-    private ArrayList<String> retriveCheckList(){
-        // Inizializza la lista dei generi musicali selezionati
-        ArrayList<String> preferences = new ArrayList<>();
-
-        // Aggiungi i generi musicali selezionati alla lista
-        if (pop.isSelected()) {
-            preferences.add("Pop");
-        }
-        if (indie.isSelected()) {
-            preferences.add("Indie");
-        }
-        if (classic.isSelected()) {
-            preferences.add("Classic");
-        }
-        if (rock.isSelected()) {
-            preferences.add("Rock");
-        }
-        if (electronic.isSelected()) {
-            preferences.add("Electronic");
-        }
-        if (house.isSelected()) {
-            preferences.add("House");
-        }
-        if (hipHop.isSelected()) {
-            preferences.add("HipHop");
-        }
-        if (jazz.isSelected()) {
-            preferences.add("Jazz");
-        }
-        if (acoustic.isSelected()) {
-            preferences.add("Acoustic");
-        }
-        if (reb.isSelected()) {
-            preferences.add("REB");
-        }
-        if (country.isSelected()) {
-            preferences.add("Country");
-        }
-        if (alternative.isSelected()) {
-            preferences.add("Alternative");
-        }
-        return preferences;
     }
 
 }

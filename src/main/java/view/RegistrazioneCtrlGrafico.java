@@ -4,6 +4,7 @@ import controller.applicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.RegistrationBean;
 import engineering.bean.UserBean;
 import engineering.others.FxmlFileName;
+import engineering.others.GenreMenager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -13,6 +14,7 @@ import javafx.scene.text.Text;
 import org.apache.commons.validator.routines.EmailValidator;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RegistrazioneCtrlGrafico {
 
@@ -54,8 +56,6 @@ public class RegistrazioneCtrlGrafico {
     private CheckBox country;
     @FXML
     private CheckBox alternative;
-
-    private ArrayList<String> preferences;
 
     /**
      * Gestisce l'evento di clic sul pulsante di ritorno (back).
@@ -101,7 +101,22 @@ public class RegistrazioneCtrlGrafico {
         String userPassword = password.getText();
         String userConfPw = confPassword.getText();
 
-        preferences = retriveCheckList();
+        List<CheckBox> checkBoxList = new ArrayList<>();
+        checkBoxList.add(pop);
+        checkBoxList.add(indie);
+        checkBoxList.add(classic);
+        checkBoxList.add(rock);
+        checkBoxList.add(electronic);
+        checkBoxList.add(house);
+        checkBoxList.add(hipHop);
+        checkBoxList.add(jazz);
+        checkBoxList.add(acoustic);
+        checkBoxList.add(reb);
+        checkBoxList.add(country);
+        checkBoxList.add(alternative);
+
+        // Recupero preferenze aggiornate
+        ArrayList<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
 
         if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userConfPw.isEmpty()) {
             showError("CAMPI VUOTI");
@@ -114,50 +129,6 @@ public class RegistrazioneCtrlGrafico {
         }
 
         return null;
-    }
-
-    private ArrayList<String> retriveCheckList(){
-        // Inizializza la lista dei generi musicali selezionati
-        preferences = new ArrayList<>();
-
-        // Aggiungi i generi musicali selezionati alla lista
-        if (pop.isSelected()) {
-            preferences.add("Pop");
-        }
-        if (indie.isSelected()) {
-            preferences.add("Indie");
-        }
-        if (classic.isSelected()) {
-            preferences.add("Classic");
-        }
-        if (rock.isSelected()) {
-            preferences.add("Rock");
-        }
-        if (electronic.isSelected()) {
-            preferences.add("Electronic");
-        }
-        if (house.isSelected()) {
-            preferences.add("House");
-        }
-        if (hipHop.isSelected()) {
-            preferences.add("HipHop");
-        }
-        if (jazz.isSelected()) {
-            preferences.add("Jazz");
-        }
-        if (acoustic.isSelected()) {
-            preferences.add("Acoustic");
-        }
-        if (reb.isSelected()) {
-            preferences.add("REB");
-        }
-        if (country.isSelected()) {
-            preferences.add("Country");
-        }
-        if (alternative.isSelected()) {
-            preferences.add("Alternative");
-        }
-        return preferences;
     }
 
     private void showError(String message) {

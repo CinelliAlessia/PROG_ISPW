@@ -94,3 +94,11 @@ L
 .idea/dictionaries/cinel.xml,d\6\d6e46c836545f3f2601b119e3c78c661be24dfc1
 N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
+N
+src/main/java/model/Guest.java,f\d\fd001cf7fa987affa7cb708aa580d1d965b2fd52
+U
+%src/main/java/model/PlaylistList.java,2\c\2cce48637304690663047ab607adc639b2d84058
+l
+<src/main/java/engineering/pattern/observer/PlaylistList.java,2\c\2cd8ae64c65d1990528ef727303da715fb122c03
+b
+2src/main/java/engineering/others/GenreMenager.java,e\d\ed3ae7ec474d5186897a9bb5c4d1c991e4b6fdd3

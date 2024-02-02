@@ -3,6 +3,7 @@ package view;
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.UserBean;
 import engineering.others.FxmlFileName;
+import engineering.others.GenreMenager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -93,8 +94,24 @@ public class AccountCtrlGrafico{
 
     @FXML
     public void onSaveClick(ActionEvent event){
+        List<CheckBox> checkBoxList = new ArrayList<>();
+        checkBoxList.add(pop);
+        checkBoxList.add(indie);
+        checkBoxList.add(classic);
+        checkBoxList.add(rock);
+        checkBoxList.add(electronic);
+        checkBoxList.add(house);
+        checkBoxList.add(hipHop);
+        checkBoxList.add(jazz);
+        checkBoxList.add(acoustic);
+        checkBoxList.add(reb);
+        checkBoxList.add(country);
+        checkBoxList.add(alternative);
+
         // Recupero preferenze aggiornate
-        ArrayList<String> preferences = retriveCheckList();
+        ArrayList<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
+        System.out.println("Hai premuto salva " + preferences);
+
         // Imposto le preferenze sullo user bean
         userBean.setPreferences(preferences);
 
@@ -117,49 +134,5 @@ public class AccountCtrlGrafico{
         System.out.println("ACG userBean: " + userBean);
     }
 
-    /** DUPLICATA, DEVE ANDARE IN UNA QUALCHE CLASSE ! */
-    private ArrayList<String> retriveCheckList(){
-        // Inizializza la lista dei generi musicali selezionati
-        ArrayList<String> preferences = new ArrayList<>();
-
-        // Aggiungi i generi musicali selezionati alla lista
-        if (pop.isSelected()) {
-            preferences.add("Pop");
-        }
-        if (indie.isSelected()) {
-            preferences.add("Indie");
-        }
-        if (classic.isSelected()) {
-            preferences.add("Classic");
-        }
-        if (rock.isSelected()) {
-            preferences.add("Rock");
-        }
-        if (electronic.isSelected()) {
-            preferences.add("Electronic");
-        }
-        if (house.isSelected()) {
-            preferences.add("House");
-        }
-        if (hipHop.isSelected()) {
-            preferences.add("HipHop");
-        }
-        if (jazz.isSelected()) {
-            preferences.add("Jazz");
-        }
-        if (acoustic.isSelected()) {
-            preferences.add("Acoustic");
-        }
-        if (reb.isSelected()) {
-            preferences.add("REB");
-        }
-        if (country.isSelected()) {
-            preferences.add("Country");
-        }
-        if (alternative.isSelected()) {
-            preferences.add("Alternative");
-        }
-        return preferences;
-    }
 
 }

@@ -9,8 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.apache.commons.validator.routines.EmailValidator;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LoginCtrlGrafico {
 
@@ -62,7 +60,7 @@ public class LoginCtrlGrafico {
     }
     @FXML
     protected void onRegisterClick(ActionEvent event) throws IOException {
-        //Push della scena corrente nello stack delle scene e show della scena seguente
+        //Push della scena corrente nello stack delle scene e show() della scena seguente
         SceneController.getInstance().goToScene(event, FxmlFileName.REGISTRATION_FXML);
     }
     @FXML

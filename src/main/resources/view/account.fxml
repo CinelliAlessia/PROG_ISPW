@@ -49,7 +49,7 @@
                     <VBox spacing="5.0">
                         <CheckBox fx:id="electronic" mnemonicParsing="false" text="Electronic" />
                         <CheckBox fx:id="house" mnemonicParsing="false" text="House" />
-                        <CheckBox fx:id="hipHop" mnemonicParsing="false" text="Hip Hop" />
+                        <CheckBox fx:id="hipHop" mnemonicParsing="false" text="HipHop" />
                         <CheckBox fx:id="jazz" mnemonicParsing="false" text="Jazz" />
                     </VBox>
 

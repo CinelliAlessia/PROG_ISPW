@@ -1,4 +1,10 @@
 /* styles.css */
+.root {
+    -fx-background-color: #333333; /* Imposta il colore di sfondo */
+}
+
+/* Bottoni */
+
 .button {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
     -fx-text-fill: white; /* Colore del testo bianco */
@@ -26,52 +32,48 @@
     -fx-border-radius: 50%;
 }
 
-/* Altri stili e colori personalizzati possono essere aggiunti secondo le tue preferenze */
 #guest {
     -fx-pref-width: 200px; /* Regola la larghezza desiderata del bottone */
 }
 
+/* Colore di sfondo per i campi di testo di input */
 
-/* Colore di sfondo per i campi di testo e aree di input */
-.text-field, .text-area{
-    -fx-text-fill: black; /* Colore del testo bianco */
+.text-field {
     -fx-border-color: #1DB954;
-    -fx-font-size: 16px;
-}
-
-.check-box {
-    -fx-text-fill: black; /* Colore del testo bianco */
     -fx-font-size: 16px;
 }
 
 .label{
+    -fx-font-family: 'Arial'; /* Imposta il tipo di carattere desiderato, ad esempio 'Arial' */
     -fx-font-size: 16px;
+    -fx-text-fill: white; /* Colore del testo bianco */
 }
 
-/* Colore di sfondo per il testo "in corso di accettazione" */
-#pendingLabel {
-    -fx-text-fill: #1DB954;
+/* TABLE VIEW */
+
+.table-view {
+    -fx-background-color: #F5F5F5; /* Sfondo delle righe */
+    -fx-color-label-visible: #000000;
 }
 
-/* Colore di sfondo per i link delle playlist */
-.playlistLink {
-    -fx-text-fill: #1DB954;
+.table-row-cell {
+    -fx-background-color: #FFFFFF; /* Sfondo delle righe */
+    -fx-text-fill: #000000; /* Testo delle righe */
 }
 
-/* Colore di sfondo per le notifiche */
-.notification {
-    -fx-background-color: #1DB954;
+.table-row-cell:selected {
+    -fx-background-color: #ADD8E6; /* Selezione delle righe */
+}
+
+.table-column {
+    -fx-text-fill: #000000; /* Testo delle colonne */
+}
+
+
+/* CHECK BOX */
+
+.check-box {
     -fx-text-fill: white;
-}
-
-/* Colore di sfondo per la barra di navigazione */
-#navigationBar {
-    -fx-background-color: #1DB954;
-}
-
-/* Colore di sfondo per la tabella del database */
-#databaseTable {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #1DB954;
+    -fx-font-size: 16px;
 }
 

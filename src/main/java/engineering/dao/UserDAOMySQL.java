@@ -3,6 +3,7 @@ package engineering.dao;
 import engineering.exceptions.UsernameAlreadyInUse;
 import engineering.others.Connect;
 import engineering.exceptions.EmailAlreadyInUse;
+import engineering.others.GenreMenager;
 import engineering.query.QueryLogin;
 import model.User;
 import java.sql.Connection;
@@ -93,10 +94,8 @@ public class UserDAOMySQL implements UserDAO {
             resultSet2 = QueryLogin.retrivePrefByEmail(stmt, userEmail);
 
             if (resultSet2.next()) {
-                preferences = genrePlaylist(resultSet2);
+                preferences = GenreMenager.retriveGenre(resultSet2);
             }
-            resultSet.close();
-
             System.out.println("preferenze in load user " + preferences);
 
         } catch(SQLException e){
@@ -189,28 +188,4 @@ public class UserDAOMySQL implements UserDAO {
             }
         }
     }
-
-    /** Funzione ausiliare per il retrieve dell'utente da persistenza
-     * è ammessa la non gestione di SQLException dato che viene utilizzata solo da questa classe */
-    public List<String> genrePlaylist(ResultSet rs) throws SQLException {
-        ArrayList<String> preferences = new ArrayList<>();
-
-        // Aggiungi i generi musicali alla List solo se sono impostati a true
-        if (rs.getBoolean("Pop")) preferences.add("Pop");
-        if (rs.getBoolean("Indie")) preferences.add("Indie");
-        if (rs.getBoolean("Classic")) preferences.add("Classic");
-        if (rs.getBoolean("Rock")) preferences.add("Rock");
-        if (rs.getBoolean("Electronic")) preferences.add("Electronic");
-        if (rs.getBoolean("House")) preferences.add("House");
-        if (rs.getBoolean("HipHop")) preferences.add("HipHop");
-        if (rs.getBoolean("Jazz")) preferences.add("Jazz");
-        if (rs.getBoolean("Acoustic")) preferences.add("Acoustic");
-        if (rs.getBoolean("REB")) preferences.add("REB");
-        if (rs.getBoolean("Country")) preferences.add("Country");
-        if (rs.getBoolean("Alternative")) preferences.add("Alternative");
-
-        System.out.println("preferenze in genrePlaylist " + preferences);
-        return preferences;
-    }
-
 }

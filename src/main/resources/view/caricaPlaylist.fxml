@@ -65,7 +65,7 @@
                         <CheckBox fx:id="house" text="House" />
                     </VBox>
                     <VBox spacing="5.0">
-                        <CheckBox fx:id="hipHop" text="Hip Hop" />
+                        <CheckBox fx:id="hipHop" text="HipHop" />
                         <CheckBox fx:id="jazz" text="Jazz" />
                         <CheckBox fx:id="acoustic" text="Acoustic" />
                         <CheckBox fx:id="reb" text="REB" />

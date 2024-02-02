@@ -2,6 +2,7 @@ package engineering.dao;
 
 import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import engineering.others.Connect;
+import engineering.others.GenreMenager;
 import engineering.query.QueryPlaylist;
 import model.Playlist;
 import java.sql.Connection;
@@ -52,45 +53,35 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     public List<Playlist> retrivePlaylistByUsername(String username) {
         Statement stmt = null;
         Connection conn;
+        List<Playlist> playlists = null;
 
         try {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            ResultSet rs = QueryPlaylist.retrivePlaylistUser(stmt);
-            ArrayList<Integer> idPlaylists = new ArrayList<>();
+            ResultSet rs = QueryPlaylist.retrivePlaylistUser(stmt,username);
+
+            playlists = new ArrayList<>(); // Una lista di playlist
+
+            List<String> genres; // Una lista per i generi musicali
+
+            ResultSet rs2;
 
             while (rs.next()) {
-                idPlaylists.add(rs.getInt("id_playlist_genred"));
+                Playlist playlist = new Playlist();
+                playlist.setUsername(rs.getString("username"));
+                playlist.setLink(rs.getString("link"));
+                playlist.setEmail(rs.getString("email"));
+                playlist.setPlaylistName(rs.getString("nomePlaylist"));
+
+                rs2 = QueryPlaylist.retriveGenrePlaylist(stmt,username);
+                genres = GenreMenager.retriveGenre(rs2);
+
+                playlist.setPlaylistGenre(genres);
+                playlists.add(playlist);
             }
 
             rs.close();
-
-            List<Playlist> playlists = new ArrayList<>();
-
-            for (int i : idPlaylists) {
-                ResultSet resultSet = QueryPlaylist.retriveGenrePlaylist(stmt, i); //ATTENZIONE ALL'ID CHE PASSIAMO, 0 SE VOGLIO I GENERI DEGLI USER
-
-                while (resultSet.next()) {
-                    Playlist playlist = new Playlist();
-                    playlist.setUsername(resultSet.getString("name"));
-                    playlist.setLink(resultSet.getString("link"));
-                    playlist.setEmail(resultSet.getString("userEmail"));
-
-                    // Carica i generi dalla tua query e aggiungili alla lista
-                    ArrayList<String> genres = new ArrayList<>();
-                    // Popola la lista dei generi
-
-                    playlist.setPlaylistGenre(genres);
-
-                    playlists.add(playlist);
-                }
-
-                resultSet.close();
-            }
-
-            return playlists;
-
         }
         catch (SQLException e){
             e.fillInStackTrace();
@@ -104,8 +95,9 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 e.fillInStackTrace();
             }
         }
-        return null;
+        return playlists;
     }
+
 
     public void deletePlaylist(Playlist playlistInstance) {
         Statement stmt = null;

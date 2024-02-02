@@ -21,6 +21,8 @@ module logic {
     opens engineering.bean to javafx.fxml;
 
     exports model; // Esporta il pacchetto model per consentire l'accesso ai campi della classe User
-    opens model to com.google.gson; // Apri il pacchetto model al modulo com.google.gson
+    opens model to com.google.gson;
+    exports engineering.pattern.observer;
+    opens engineering.pattern.observer to com.google.gson; // Apri il pacchetto model al modulo com.google.gson
 
 }

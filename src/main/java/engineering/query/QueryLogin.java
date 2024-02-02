@@ -102,7 +102,7 @@ public class QueryLogin {
     }
 
     public static ResultSet retrivePrefByEmail(Statement stmt, String email) throws SQLException{
-        String sql = String.format(Queries.SELECT_GENRED_USER_QUERY, email);
+        String sql = String.format(Queries.SELECT_GENRE_USER_QUERY, email);
         return stmt.executeQuery(sql);
     }
 

@@ -26,10 +26,6 @@ public class PlaylistBean {
         this.link = link;
     }
 
-    public void setApproved(){
-        this.approved = true;
-    }
-
     public String getLink() {
         return link;
     }
@@ -64,5 +60,13 @@ public class PlaylistBean {
 
     public List<String> getPlaylistGenre() {
         return playlistGenre;
+    }
+
+    public void setApproved(){
+        this.approved = true;
+    }
+
+    public boolean getApproved(){
+        return approved;
     }
 }

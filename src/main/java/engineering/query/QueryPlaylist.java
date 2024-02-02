@@ -5,6 +5,7 @@ import model.Playlist;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QueryPlaylist {
@@ -92,16 +93,22 @@ public class QueryPlaylist {
 
     /** Recupera tutta la playlist_utente, va usata con retriveGenrePlaylist per ottenere
      * i generi musicali delle playlist caricate */
-    public static ResultSet retrivePlaylistUser(Statement stmt) throws SQLException {
-        String sql = String.format(Queries.SELECT_PLAYLIST_BY_USER);
+    public static ResultSet retrivePlaylistUser(Statement stmt, String username) throws SQLException {
+        String sql = String.format(Queries.SELECT_PLAYLIST_BY_USER,username);
         return stmt.executeQuery(sql);
     }
 
     /** Recupera da generi_musicali, i generi musicali della playlist passata come id */
-    public static ResultSet retriveGenrePlaylist(Statement stmt, int id) throws SQLException {
-        String sql = String.format(Queries.SELECT_GENRED_USER_QUERY,id);
+    public static ResultSet retriveGenrePlaylistById(Statement stmt, int id) throws SQLException {
+        String sql = String.format(Queries.SELECT_GENRE_USER_QUERY,id);
         return stmt.executeQuery(sql);
     }
+
+    public static ResultSet retriveGenrePlaylist(Statement stmt, String username) throws SQLException {
+        String sql = String.format(Queries.SELECT_GENRE_PLAYLIST, username);
+        return stmt.executeQuery(sql);
+    }
+
 
     /** Rimuove la playlist su tutte le tabelle, dal link della playlist
      * */

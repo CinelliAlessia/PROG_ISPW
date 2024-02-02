@@ -6,16 +6,16 @@ import engineering.dao.PlaylistDAO;
 import engineering.dao.TypesOfPersistenceLayer;
 import engineering.dao.UserDAO;
 import model.Playlist;
+import java.util.ArrayList;
+import java.util.List;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AccountCtrlApplicativo {
 
-    /** Recupera tutte le playlist globali by username*/
-
-    /*
-    public static <List> List<PlaylistBean> retriveList() throws IOException {
-        //TODO
+    /** Recupera tutte le playlist globali by username
+     * DA CORREGGERE, COME CONOSCO L'USERNAME ? */
+    public static List<PlaylistBean> retriveList(){
 
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
@@ -23,6 +23,8 @@ public class AccountCtrlApplicativo {
         PlaylistDAO dao = persistenceType.createPlaylistDAO();
 
         // Recupero lista Playlist
+
+        String username = "ciao";
         List<Playlist> playlists = dao.retrivePlaylistByUsername(username);
 
         ArrayList<PlaylistBean> playlistsBean = new ArrayList<>();
@@ -33,7 +35,7 @@ public class AccountCtrlApplicativo {
         }
 
         return playlistsBean;
-    }*/
+    }
 
     /** Utilizzata per aggiornare i generi musicali preferiti dell'utente in caso in cui prema il bottone Salva */
     public void updateGenreUser(UserBean userBean){
