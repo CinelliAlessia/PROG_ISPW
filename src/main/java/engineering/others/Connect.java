@@ -17,9 +17,10 @@ public class Connect {
 
     private static final String PATH = "src/main/resources/connection.properties";
 
-    protected Connect() {
+    private Connect() {
     }
 
+    /** Singleton */
     public static synchronized Connect getInstance() {
         if (instance == null) {
             instance = new Connect();
@@ -37,6 +38,7 @@ public class Connect {
 
     private void getInfo() {
         try(FileInputStream fileInputStream = new FileInputStream(PATH)) {
+
             // Load DB Connection info from Properties file
             Properties prop = new Properties() ;
             prop.load(fileInputStream);
