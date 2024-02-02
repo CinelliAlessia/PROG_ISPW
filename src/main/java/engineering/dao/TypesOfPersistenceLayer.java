@@ -31,13 +31,18 @@ public enum TypesOfPersistenceLayer {
     public abstract UserDAO createUserDAO();
     public abstract PlaylistDAO createPlaylistDAO();
 
-    public static TypesOfPersistenceLayer getPreferredPersistenceType() throws IOException {
+    /** Recupera dal file config.properties il tipo di persistenza utilizzata,
+     * se non è possibile come default viene utilizzato MYSQL */
+    public static TypesOfPersistenceLayer getPreferredPersistenceType() {
         Properties properties = new Properties();
+
         try (InputStream input = RegistrazioneCtrlApplicativo.class.getClassLoader().getResourceAsStream("config.properties")) {
             properties.load(input);
+        } catch (IOException e){
+            e.printStackTrace();
         }
 
-        String persistenceType = properties.getProperty("persistence.type", "MySQL");
+        String persistenceType = properties.getProperty("persistence.type", "MYSQL");
 
         // Restituisci l'istanza corretta della enum
         return TypesOfPersistenceLayer.valueOf(persistenceType);

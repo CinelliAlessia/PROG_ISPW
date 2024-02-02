@@ -1,6 +1,7 @@
 package controller.applicativo;
 
 import engineering.bean.RegistrationBean;
+import engineering.bean.UserBean;
 import engineering.dao.TypesOfPersistenceLayer;
 import engineering.dao.UserDAO;
 import model.User;
@@ -12,7 +13,7 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 
 public class RegistrazioneCtrlApplicativo {
 
-    public void registerUser(RegistrationBean regBean) throws IOException {
+    public UserBean registerUser(RegistrationBean regBean){
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
 
@@ -24,8 +25,13 @@ public class RegistrazioneCtrlApplicativo {
 
         // Crea l'utente (model)
         User user = new User(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
+
+        UserBean userBean = null;
         // Invio utente model al DAO
-        dao.insertUser(user);
+        if(!dao.insertUser(user)){
+            userBean = new UserBean(user.getUsername(),user.getEmail(),user.getPref(),user.isSupervisor());
+        }
+        return userBean;
     }
 
 

@@ -5,14 +5,14 @@ import engineering.bean.UserBean;
 import engineering.dao.TypesOfPersistenceLayer;
 import engineering.dao.UserDAO;
 import model.User;
-import java.io.IOException;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class LoginCtrlApplicativo {
     // implemento la logica dello use case
 
-    public boolean verificaCredenziali(LoginBean bean) throws IOException {
+    /** */
+    public boolean verificaCredenziali(LoginBean bean) {
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
 
@@ -21,7 +21,7 @@ public class LoginCtrlApplicativo {
 
         String password = dao.getPasswordByEmail(bean.getEmail());
 
-        // Verifica se la password ottenuta dal DAO è null
+        // Verifica se la password ottenuta dal DAO è null ############################### Perchè?
         if (password == null) {
             return false;
         }
@@ -29,8 +29,8 @@ public class LoginCtrlApplicativo {
         return password.equals(bean.getPassword());
     }
 
-
-    public UserBean loadUser(LoginBean bean) throws IOException {
+    /** Recupera l'User dalla persistenza e crea una nuova istanza di UserBean */
+    public UserBean loadUser(LoginBean bean) {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
         UserDAO dao = persistenceType.createUserDAO();

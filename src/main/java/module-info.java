@@ -3,6 +3,7 @@ module logic {
     requires javafx.fxml;
     requires com.google.gson;
     requires java.sql;
+    requires commons.validator;
 
     exports controller.applicativo;
     opens controller.applicativo to javafx.fxml;

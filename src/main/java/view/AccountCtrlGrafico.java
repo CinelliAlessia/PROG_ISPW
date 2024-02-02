@@ -2,8 +2,6 @@ package view;
 
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.UserBean;
-import engineering.dao.TypesOfPersistenceLayer;
-import engineering.dao.UserDAO;
 import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,16 +13,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
-
 public class AccountCtrlGrafico{
 
     @FXML
     public Button saveButton;
     @FXML
     private Label usernameText;
-    @FXML
-    private Label supervisorText;
     @FXML
     private Label emailText;
     @FXML
@@ -65,16 +59,9 @@ public class AccountCtrlGrafico{
         this.userBean = user;
 
         System.out.println("ACG in initializeData: " + userBean);
-
         System.out.println(userBean.getEmail()+ " " + userBean.getUsername() +" "+userBean.getPreferences());
 
-        String username = userBean.getUsername();
-
-        System.out.println(usernameText.getText());
-
-        usernameText.setText(username);
-
-        supervisorText.setText("FALSE");
+        usernameText.setText(userBean.getUsername());
         emailText.setText(userBean.getEmail());
 
         List<String> preferences = userBean.getPreferences();
@@ -83,10 +70,12 @@ public class AccountCtrlGrafico{
         indie.setSelected(preferences.contains("Indie"));
         classic.setSelected(preferences.contains("Classic"));
         rock.setSelected(preferences.contains("Rock"));
+
         electronic.setSelected(preferences.contains("Electronic"));
         house.setSelected(preferences.contains("House"));
         hipHop.setSelected(preferences.contains("HipHop"));
         jazz.setSelected(preferences.contains("Jazz"));
+
         acoustic.setSelected(preferences.contains("Acoustic"));
         reb.setSelected(preferences.contains("REB"));
         country.setSelected(preferences.contains("Country"));

@@ -26,7 +26,7 @@ public class QueryLogin {
 
         try {
             // Esegui prima l'inserimento nella tabella 'user'
-            String insertUserStatement = String.format(Queries.INSERT_USER, email, name, password,bool);
+            String insertUserStatement = String.format(Queries.INSERT_USER, email, name, password, bool);
             stmt.executeUpdate(insertUserStatement);
 
             // Poi inserisci i generi musicali nella tabella 'generi_musicali'

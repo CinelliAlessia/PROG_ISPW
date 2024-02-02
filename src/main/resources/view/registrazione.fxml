@@ -70,7 +70,6 @@
                             <CheckBox fx:id="indie" mnemonicParsing="false" text="Indie"/>
                             <CheckBox fx:id="classic" mnemonicParsing="false" text="Classic"/>
                             <CheckBox fx:id="rock" mnemonicParsing="false" text="Rock"/>
-
                         </VBox>
 
                         <VBox spacing="5.0">
@@ -86,6 +85,7 @@
                             <CheckBox fx:id="country" mnemonicParsing="false" text="Country"/>
                             <CheckBox fx:id="alternative" mnemonicParsing="false" text="Alternative"/>
                         </VBox>
+
                         <padding>
                             <Insets left="25.0" right="25.0"/>
                         </padding>

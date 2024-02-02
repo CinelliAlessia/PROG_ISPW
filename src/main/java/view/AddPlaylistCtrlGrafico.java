@@ -77,6 +77,7 @@ public class AddPlaylistCtrlGrafico {
         SceneController.getInstance().goBack(event);
 
     }
+
     private ArrayList<String> retriveCheckList(){
         // Inizializza la lista dei generi musicali selezionati
         ArrayList<String> preferences = new ArrayList<>();

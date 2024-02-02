@@ -7,8 +7,8 @@ import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.apache.commons.validator.routines.EmailValidator;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,7 +22,7 @@ public class LoginCtrlGrafico {
     private TextField username;
 
     @FXML
-    protected void onLoginClick(ActionEvent event) throws IOException, SQLException {
+    protected void onLoginClick(ActionEvent event) throws IOException {
 
         /* ------ Recupero informazioni dalla schermata di login ------ */
         String email = username.getText();
@@ -70,7 +70,7 @@ public class LoginCtrlGrafico {
         SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
     }
 
-    public boolean checkMailCorrectness(String email) {
+    public boolean checkMailCorrectness2(String email) {
         /*Controllo basico se ha almeno una @ e un punto dopo la @? */
         // Definisci il pattern per una email valida
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
@@ -84,4 +84,9 @@ public class LoginCtrlGrafico {
         // Verifica se il formato dell'email è valido
         return matcher.matches();
     }
+
+    private boolean checkMailCorrectness(String email) {
+        return EmailValidator.getInstance().isValid(email);
+    }
+
 }

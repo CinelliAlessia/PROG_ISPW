@@ -4,13 +4,12 @@ import engineering.bean.PlaylistBean;
 import engineering.dao.PlaylistDAO;
 import engineering.dao.TypesOfPersistenceLayer;
 import model.Playlist;
-import java.io.IOException;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AddPlaylistCtrlApplicativo {
 
-    public void insertPlaylist(PlaylistBean pB) throws IOException {
+    public void insertPlaylist(PlaylistBean pB){
         //###################### IMPORTANTE CAPIRE COSA FARE CON QUESTO ID ######################
 
         // Prendo il tipo di persistenza impostato nel file di configurazione

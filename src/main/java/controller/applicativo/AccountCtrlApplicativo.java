@@ -6,7 +6,6 @@ import engineering.dao.PlaylistDAO;
 import engineering.dao.TypesOfPersistenceLayer;
 import engineering.dao.UserDAO;
 import model.Playlist;
-import java.io.IOException;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
@@ -35,7 +34,9 @@ public class AccountCtrlApplicativo {
 
         return playlistsBean;
     }*/
-    public void updateGenreUser(UserBean userBean) throws IOException {
+
+    /** Utilizzata per aggiornare i generi musicali preferiti dell'utente in caso in cui prema il bottone Salva */
+    public void updateGenreUser(UserBean userBean){
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -45,7 +46,10 @@ public class AccountCtrlApplicativo {
         dao.updateGenreUser(userBean.getEmail(), userBean.getPreferences());
 
     }
-    public static Boolean deletePlaylist(PlaylistBean pB) throws IOException {
+
+    /** Utilizzata per eliminare le playlist
+     * vanno aggiunti dei controlli per capire chi può eliminare */
+    public static Boolean deletePlaylist(PlaylistBean pB){
 
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();

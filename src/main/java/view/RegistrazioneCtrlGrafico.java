@@ -10,10 +10,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.apache.commons.validator.routines.EmailValidator;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class RegistrazioneCtrlGrafico {
 
@@ -61,49 +60,45 @@ public class RegistrazioneCtrlGrafico {
     /**
      * Gestisce l'evento di clic sul pulsante di ritorno (back).
      * Chiude la finestra corrente e avvia la schermata di login.
-     *
      */
     @FXML
     protected void onBackClick(ActionEvent event){
         SceneController.getInstance().goBack(event);
     }
-    // Gestisce l'evento di clic sul pulsante di registrazione.
+
+    /** Gestisce l'evento di clic sul pulsante di registrazione.
+     * Se la registrazione ha successo viene ottenuto lo UserBean dal controller Applicativo e
+     * si imposta la scena sulla Home Page */
     @FXML
     protected void onRegisterClick(ActionEvent event) throws IOException{
         // L'utente chiede di registrarsi con una determinata mail e un nome utente
         RegistrationBean regBean = getData();
-        UserBean userBean = new UserBean();
 
         if (regBean != null) {
 
-            RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo();
-            //uso metodo controller per registrare un utente sul livello di persistenza (non so quale sia e non è importante)
-            registrazioneCtrlApplicativo.registerUser(regBean);
+            RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo(); //meglio static?
+            UserBean userBean = registrazioneCtrlApplicativo.registerUser(regBean);
 
-            System.out.println("Utente registrato con successo");
+            if(userBean != null){
+                System.out.println("Utente registrato con successo");
 
-            userBean.setEmail(regBean.getEmail());
-            userBean.setPreferences(regBean.getPreferences());
-            userBean.setUsername(regBean.getUsername());
-            System.out.println("Recuperate informazioni per user bean");
+                /* --------------- Mostro la home page -------------- */
+                SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
 
-            /* --------------- Mostro la home page -------------- */
-            SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
-
-            // Ho eliminato il metodo controlla se email esistente perché lo fa gia la query, ma è importante riuscire
-            // a prendere l'esito della query prima di cambiare stage, dobbiamo assicurarci che tutto vada bene.
+            } else {
+                showError("REGISTRAZIONE NON RIUSCITA");
+            }
 
         }
     }
 
-    // Ottiene i dati inseriti dall'utente dalla GUI e restituisce un oggetto UserBean.
-    private RegistrationBean getData() {    // Prendo i dati
+    /** Ottiene i dati inseriti dall'utente dalla GUI e restituisce un oggetto RegistrationBean. */
+    private RegistrationBean getData() {
 
         String userName = name.getText().trim();
         String userEmail = email.getText().trim();
-        String userPassword = password.getText();
 
-        // Dati
+        String userPassword = password.getText();
         String userConfPw = confPassword.getText();
 
         preferences = retriveCheckList();
@@ -176,13 +171,8 @@ public class RegistrazioneCtrlGrafico {
         return password.equals(confermaPassword);
     }
 
-    // Verifica la correttezza del formato dell'indirizzo email.
     private boolean checkMailCorrectness(String email) {
-        // Controllo basico se ha almeno una @ e un punto dopo la @?
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(emailRegex);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+        return EmailValidator.getInstance().isValid(email);
     }
 
 }
