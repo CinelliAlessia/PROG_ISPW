@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Risoluzione code smells">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/GenreMenager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/GenreMenager.java" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Risoluzione code smells, ridotto il riuso di codice">
       <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +189,7 @@
       <workItem from="1706814706527" duration="4409000" />
       <workItem from="1706820232063" duration="5462000" />
       <workItem from="1706859194520" duration="26889000" />
-      <workItem from="1706903176179" duration="7902000" />
+      <workItem from="1706903176179" duration="8292000" />
     </task>
     <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
       <option name="closed" value="true" />
@@ -538,7 +535,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706911385031</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Risoluzione code smells, ridotto il riuso di codice">
+      <option name="closed" value="true" />
+      <created>1706912172189</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1706912172189</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +562,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aggiunta connessione database sql" />
     <MESSAGE value="Aggiunta al database delle preferenze musicali" />
     <MESSAGE value="Condivisione database" />
     <MESSAGE value="Update view" />
@@ -582,7 +586,8 @@
     <MESSAGE value="Update return value" />
     <MESSAGE value="Aggiornamento e risoluzione code smells" />
     <MESSAGE value="Risoluzione code smells" />
-    <option name="LAST_COMMIT_MESSAGE" value="Risoluzione code smells" />
+    <MESSAGE value="Risoluzione code smells, ridotto il riuso di codice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Risoluzione code smells, ridotto il riuso di codice" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

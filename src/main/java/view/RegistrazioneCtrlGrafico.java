@@ -5,19 +5,15 @@ import engineering.bean.RegistrationBean;
 import engineering.bean.UserBean;
 import engineering.others.FxmlFileName;
 import engineering.others.GenreMenager;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+
 import org.apache.commons.validator.routines.EmailValidator;
+import javafx.event.ActionEvent;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class RegistrazioneCtrlGrafico implements Initializable {
 
@@ -61,12 +57,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
     private CheckBox alternative;
 
     private List<CheckBox> checkBoxList;
-    /**
-     * @param location  The location used to resolve relative paths for the root object, or
-     *                  {@code null} if the location is not known.
-     * @param resources The resources used to localize the root object, or {@code null} if
-     *                  the root object was not localized.
-     */
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
