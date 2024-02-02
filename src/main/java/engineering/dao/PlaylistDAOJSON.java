@@ -63,12 +63,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     }
 
 
-    public String getPlaylistByUserName(String email) {
-        return null;
-    }
-
-
-    public void deletePlaylist(Playlist playlistInstance) {
+    public void deletePlaylist(Playlist playlist) {
         //TODO
     }
 

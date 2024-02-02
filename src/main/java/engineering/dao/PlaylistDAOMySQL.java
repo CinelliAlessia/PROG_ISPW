@@ -46,10 +46,6 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
     }
 
-    public String getPlaylistByUserName(String email) {
-        return null;
-    }
-
     public List<Playlist> retrivePlaylistByUsername(String username) {
         Statement stmt = null;
         Connection conn;
@@ -99,7 +95,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     }
 
 
-    public void deletePlaylist(Playlist playlistInstance) {
+    public void deletePlaylist(Playlist playlist) {
         Statement stmt = null;
         Connection conn;
 
@@ -107,11 +103,11 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            String playlistLink = playlistInstance.getLink();
+            String playlistLink = playlist.getLink();
             ResultSet rs = QueryPlaylist.searchPlaylistLink(stmt, playlistLink); // Cerca in all_playlist
 
             if (rs.next()) {
-                QueryPlaylist.removePlaylistByLink(stmt,playlistInstance.getLink()); // Rimuove in playlist_utente E in all_playlist
+                QueryPlaylist.removePlaylistByLink(stmt, playlist.getLink()); // Rimuove in playlist_utente E in all_playlist
             }
 
         } catch (SQLException e){

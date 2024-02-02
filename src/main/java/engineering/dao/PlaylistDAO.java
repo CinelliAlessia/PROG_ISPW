@@ -9,11 +9,8 @@ public interface PlaylistDAO {
     /** Inserisce una playlist in persistenza*/
     void insertPlaylist(Playlist playlist);
 
-    /** DA ELIMINARE (?) */
-    String getPlaylistByUserName(String email);
-
     /** Elimina la playlist */
-    void deletePlaylist(Playlist playlistInstance);
+    void deletePlaylist(Playlist playlist);
 
     /** Recupera tutte le playlist dell'utente dall'email */
     void retrievePlaylistByMail(String mail);

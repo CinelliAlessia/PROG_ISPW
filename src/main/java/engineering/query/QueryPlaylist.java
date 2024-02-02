@@ -5,7 +5,6 @@ import model.Playlist;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class QueryPlaylist {
@@ -22,26 +21,26 @@ public class QueryPlaylist {
         String link = playlist.getLink();
         String namePlaylist = playlist.getPlaylistName();
         List<String> playlistGenre = playlist.getPlaylistGenre();
-        boolean approved = playlist.getApproved();
+
+        int approved;
+        if(playlist.getApproved()){
+            approved = 1;
+        } else {
+            approved = 0;
+        }
 
         /* Gestione corretta dell'approvazione, se un utente non ha l'approvazione verrà caricata solo sulla sua playlist, altrimenti
         * anche nella playlist globale */
         try{
-            if(approved){
-                // inserimento nella tabella dell'utente
-                String insertAllPlaylistStatement = String.format(Queries.INSERT_ALL_PLAYLIST_QUERY, namePlaylist, link);
-                stmt.executeUpdate(insertAllPlaylistStatement);
+            // inserimento nella tabella dell'utente
+            String insertAllPlaylistStatement = String.format(Queries.INSERT_ALL_PLAYLIST_QUERY, namePlaylist, link, approved);
+            stmt.executeUpdate(insertAllPlaylistStatement);
 
-                String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_USER, namePlaylist, email, username, link, 1, buildGenresQueryString(playlistGenre));
-                stmt.executeUpdate(insertPlaylistStatement);
-            } else {
-                String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_USER, namePlaylist, email, username, link, 0, buildGenresQueryString(playlistGenre));
-                stmt.executeUpdate(insertPlaylistStatement);
-            }
-
+            String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_USER, namePlaylist, email, username, link, approved, buildGenresQueryString(playlistGenre));
+            stmt.executeUpdate(insertPlaylistStatement);
         } catch (SQLException e){
             // Dobbiamo annullare i caricamenti.
-
+            e.printStackTrace();
         }
     }
 
