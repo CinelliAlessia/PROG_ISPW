@@ -70,21 +70,6 @@ public class LoginCtrlGrafico {
         SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
     }
 
-    public boolean checkMailCorrectness2(String email) {
-        /*Controllo basico se ha almeno una @ e un punto dopo la @? */
-        // Definisci il pattern per una email valida
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-
-        // Crea un oggetto Pattern
-        Pattern pattern = Pattern.compile(emailRegex);
-
-        // Crea un oggetto Matcher con la stringa email da verificare
-        Matcher matcher = pattern.matcher(email);
-
-        // Verifica se il formato dell'email è valido
-        return matcher.matches();
-    }
-
     private boolean checkMailCorrectness(String email) {
         return EmailValidator.getInstance().isValid(email);
     }

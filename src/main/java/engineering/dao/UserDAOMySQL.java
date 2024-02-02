@@ -46,7 +46,7 @@ public class UserDAOMySQL implements UserDAO {
 
         } catch (SQLException | EmailAlreadyInUse | UsernameAlreadyInUse e) {
             // Gestisci l'eccezione
-            e.printStackTrace();
+            e.fillInStackTrace();
             result = false;
 
         } finally {
@@ -59,7 +59,7 @@ public class UserDAOMySQL implements UserDAO {
                 }
             } catch (SQLException e) {
                 // Gestisci l'eccezione
-                e.printStackTrace();
+                e.fillInStackTrace();
             }
         }
         return result;
@@ -100,7 +100,7 @@ public class UserDAOMySQL implements UserDAO {
             System.out.println("preferenze in load user " + preferences);
 
         } catch(SQLException e){
-            e.printStackTrace();
+            e.fillInStackTrace();
         } finally {
             try{
                 if(resultSet != null){
@@ -110,7 +110,7 @@ public class UserDAOMySQL implements UserDAO {
                     resultSet2.close();
                 }
             } catch(SQLException e){
-                e.printStackTrace();
+                e.fillInStackTrace();
             }
 
             user = new User(username, email, password, preferences);
@@ -141,7 +141,7 @@ public class UserDAOMySQL implements UserDAO {
 
         } catch (SQLException e) {
             // Gestisci l'eccezione
-            e.printStackTrace();
+            e.fillInStackTrace();
         } finally {
             // Chiudi le risorse (ResultSet, Statement, Connection)
             try {
@@ -153,7 +153,7 @@ public class UserDAOMySQL implements UserDAO {
                 }
             } catch (SQLException e) {
                 // Gestisci l'eccezione
-                e.printStackTrace();
+                e.fillInStackTrace();
             }
         }
 
@@ -176,7 +176,7 @@ public class UserDAOMySQL implements UserDAO {
 
         } catch (SQLException e) {
             // Gestisci l'eccezione
-            e.printStackTrace();
+            e.fillInStackTrace();
         } finally {
             // Chiudi le risorse (ResultSet, Statement, Connection)
             try {
@@ -185,7 +185,7 @@ public class UserDAOMySQL implements UserDAO {
                 }
             } catch (SQLException e) {
                 // Gestisci l'eccezione
-                e.printStackTrace();
+                e.fillInStackTrace();
             }
         }
     }

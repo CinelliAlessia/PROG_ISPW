@@ -92,7 +92,7 @@ public class AccountCtrlGrafico{
     }
 
     @FXML
-    public void onSaveClick(ActionEvent event) throws IOException {
+    public void onSaveClick(ActionEvent event){
         // Recupero preferenze aggiornate
         ArrayList<String> preferences = retriveCheckList();
         // Imposto le preferenze sullo user bean

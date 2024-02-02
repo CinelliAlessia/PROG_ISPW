@@ -32,7 +32,7 @@ public class QueryLogin {
             // Poi inserisci i generi musicali nella tabella 'generi_musicali'
             insertGeneriMusicali(stmt, email, user.getPref());
         } catch (SQLException e){
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
 
     }
@@ -70,7 +70,7 @@ public class QueryLogin {
             // Esegui la query
             stmt.executeUpdate(query);
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
     }
 

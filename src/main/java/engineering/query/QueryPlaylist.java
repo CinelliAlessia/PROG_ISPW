@@ -60,7 +60,7 @@ public class QueryPlaylist {
             // Esegui la query
             stmt.executeUpdate(query.toString());
         } catch (SQLException e){
-            e.printStackTrace();
+            e.fillInStackTrace();
         } finally {
             // L'utente non dovrebbe registrars
         }

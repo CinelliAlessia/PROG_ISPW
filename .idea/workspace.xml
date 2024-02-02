@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Risoluzione Sicurezza aggiungendo un connection.properties">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/RegistrationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/RegistrationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/QueryLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/QueryLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/connection.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/connection.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/registrazione.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/registrazione.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiornamento e risoluzione code smells" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -203,7 +184,7 @@
       <workItem from="1706806985445" duration="3138000" />
       <workItem from="1706814706527" duration="4409000" />
       <workItem from="1706820232063" duration="5462000" />
-      <workItem from="1706859194520" duration="19917000" />
+      <workItem from="1706859194520" duration="24496000" />
     </task>
     <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
       <option name="closed" value="true" />
@@ -501,7 +482,31 @@
       <option name="project" value="LOCAL" />
       <updated>1706873447397</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Risoluzione Sicurezza aggiungendo un connection.properties">
+      <option name="closed" value="true" />
+      <created>1706888805424</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1706888805424</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Update return value">
+      <option name="closed" value="true" />
+      <created>1706888825546</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1706888825546</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Aggiornamento e risoluzione code smells">
+      <option name="closed" value="true" />
+      <created>1706888858895</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1706888858895</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,8 +525,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Merge corretto, persistenze file e db" />
-    <MESSAGE value="Assegnate le giuste responsabilità per l'insert nel db mongo" />
     <MESSAGE value="user dao mongo" />
     <MESSAGE value="Aggiunta connessione database sql" />
     <MESSAGE value="Aggiunta al database delle preferenze musicali" />
@@ -545,18 +548,9 @@
     <MESSAGE value="Aggiornamento grafiche" />
     <MESSAGE value="Inizio implementazione Observer" />
     <MESSAGE value="Risoluzione Sicurezza aggiungendo un connection.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Risoluzione Sicurezza aggiungendo un connection.properties" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMySQL.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Update return value" />
+    <MESSAGE value="Aggiornamento e risoluzione code smells" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiornamento e risoluzione code smells" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

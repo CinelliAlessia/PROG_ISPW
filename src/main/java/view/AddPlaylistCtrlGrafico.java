@@ -57,7 +57,7 @@ public class AddPlaylistCtrlGrafico {
 
     /** Click sul tasto add Playlist*/
     @FXML
-    public void onUploadClick(ActionEvent event) throws IOException {
+    public void onUploadClick(ActionEvent event){
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
