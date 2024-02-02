@@ -15,11 +15,11 @@ import java.util.List;
 public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
     @Override
-    public void insertUser(User user) {
+    public boolean insertUser(User user) {
         // Utilizzato per aggiungere un utente al file system
         // Costruisci il percorso della directory dell'utente (presumibilmente basandoti sulla mail come nome utente)
         Path userDirectory = Paths.get(BASE_DIRECTORY, user.getEmail() );
-
+        boolean result;
         try {
             // Crea la directory con il nome dell'utente se non esiste
             Files.createDirectories(userDirectory);
@@ -34,10 +34,13 @@ public class UserDAOJSON implements UserDAO {
             // Scrivi il JSON nel file userInfo.json
             Files.writeString(userInfoFile, json);
 
+            result = true;
             System.out.println("Utente inserito con successo!");
         } catch (IOException e) {
             e.fillInStackTrace();
+            result = false;
         }
+        return result;
     }
 
     @Override
@@ -133,9 +136,8 @@ public class UserDAOJSON implements UserDAO {
         }
         */
 
-    @Override
     // questa funzione assume di avere un FS dove le cartelle sono nominate tramite username
-    public void retrieveUserByUserName(String username) {
+    public void retrieveUserByUsername(String username) {
         Path userDirectory = Paths.get(BASE_DIRECTORY, username);
 
         if (Files.exists(userDirectory)) {

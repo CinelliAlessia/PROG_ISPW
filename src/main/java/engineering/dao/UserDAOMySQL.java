@@ -12,11 +12,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAOMySQL implements UserDAO{
+public class UserDAOMySQL implements UserDAO {
 
-    /* Metodo per inserire un User nel database al momento della registrazione
+    /** Metodo per inserire un User nel database al momento della registrazione
     * viene effettuato il controllo sulla email scelta e sull'username scelto*/
-    public void insertUser(User user) {
+    public boolean insertUser(User user) {
         Statement stmt = null;
         Connection conn;
         ResultSet rs = null;
@@ -62,43 +62,7 @@ public class UserDAOMySQL implements UserDAO{
                 e.printStackTrace();
             }
         }
-        // return result;
-    }
-
-    public String getPasswordByEmail(String email) {
-        Statement stmt = null;
-        Connection conn;
-        String pw = null;
-        ResultSet rs = null;
-
-        try {
-            conn = Connect.getInstance().getDBConnection();
-            stmt = conn.createStatement();
-            rs = QueryLogin.getUserPassword(stmt, email);
-
-            if (rs.next()) {
-                pw = rs.getString("password");
-            }
-
-        } catch (SQLException e) {
-            // Gestisci l'eccezione
-            e.printStackTrace();
-        } finally {
-            // Chiudi le risorse (ResultSet, Statement, Connection)
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-            } catch (SQLException e) {
-                // Gestisci l'eccezione
-                e.printStackTrace();
-            }
-        }
-
-        return pw; // Se non trovi una corrispondenza
+        return result;
     }
 
     public User loadUser(String userEmail){
@@ -156,35 +120,47 @@ public class UserDAOMySQL implements UserDAO{
         return user;
     }
 
-    /** Funzione ausiliare per il retrieve dell'utente da persistenza */
-    public List<String> genrePlaylist(ResultSet rs) throws SQLException {
-        ArrayList<String> preferences = new ArrayList<>();
-
-        // Aggiungi i generi musicali alla List solo se sono impostati a true
-        if (rs.getBoolean("Pop")) preferences.add("Pop");
-        if (rs.getBoolean("Indie")) preferences.add("Indie");
-        if (rs.getBoolean("Classic")) preferences.add("Classic");
-        if (rs.getBoolean("Rock")) preferences.add("Rock");
-        if (rs.getBoolean("Electronic")) preferences.add("Electronic");
-        if (rs.getBoolean("House")) preferences.add("House");
-        if (rs.getBoolean("HipHop")) preferences.add("Hip Hop");
-        if (rs.getBoolean("Jazz")) preferences.add("Jazz");
-        if (rs.getBoolean("Acoustic")) preferences.add("Acoustic");
-        if (rs.getBoolean("REB")) preferences.add("REB");
-        if (rs.getBoolean("Country")) preferences.add("Country");
-        if (rs.getBoolean("Alternative")) preferences.add("Alternative");
-
-        System.out.println("preferenze in genrePlaylist " + preferences);
-        return preferences;
+    public void retrieveUserByUsername(String userName) {
+        // TODO -> LA FACCIO QUANDO SERVE
     }
 
-    @Override
+    public String getPasswordByEmail(String email) {
+        Statement stmt = null;
+        Connection conn;
+        String pw = null;
+        ResultSet rs = null;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+            rs = QueryLogin.getUserPassword(stmt, email);
+
+            if (rs.next()) {
+                pw = rs.getString("password");
+            }
+
+        } catch (SQLException e) {
+            // Gestisci l'eccezione
+            e.printStackTrace();
+        } finally {
+            // Chiudi le risorse (ResultSet, Statement, Connection)
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                // Gestisci l'eccezione
+                e.printStackTrace();
+            }
+        }
+
+        return pw; // Se non trovi una corrispondenza
+    }
+
     public void deleteUser(User userInstance) {
-        // TODO
-    }
-
-    @Override
-    public void retrieveUserByUserName(String userName) {
         // TODO
     }
 
@@ -214,5 +190,27 @@ public class UserDAOMySQL implements UserDAO{
         }
     }
 
+    /** Funzione ausiliare per il retrieve dell'utente da persistenza
+     * è ammessa la non gestione di SQLException dato che viene utilizzata solo da questa classe */
+    public List<String> genrePlaylist(ResultSet rs) throws SQLException {
+        ArrayList<String> preferences = new ArrayList<>();
+
+        // Aggiungi i generi musicali alla List solo se sono impostati a true
+        if (rs.getBoolean("Pop")) preferences.add("Pop");
+        if (rs.getBoolean("Indie")) preferences.add("Indie");
+        if (rs.getBoolean("Classic")) preferences.add("Classic");
+        if (rs.getBoolean("Rock")) preferences.add("Rock");
+        if (rs.getBoolean("Electronic")) preferences.add("Electronic");
+        if (rs.getBoolean("House")) preferences.add("House");
+        if (rs.getBoolean("HipHop")) preferences.add("HipHop");
+        if (rs.getBoolean("Jazz")) preferences.add("Jazz");
+        if (rs.getBoolean("Acoustic")) preferences.add("Acoustic");
+        if (rs.getBoolean("REB")) preferences.add("REB");
+        if (rs.getBoolean("Country")) preferences.add("Country");
+        if (rs.getBoolean("Alternative")) preferences.add("Alternative");
+
+        System.out.println("preferenze in genrePlaylist " + preferences);
+        return preferences;
+    }
 
 }
