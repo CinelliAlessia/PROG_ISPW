@@ -107,7 +107,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
         String userConfPw = confPassword.getText();
 
         // Recupero preferenze aggiornate
-        List<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
+        List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
 
         if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userConfPw.isEmpty()) {
             showError("CAMPI VUOTI");

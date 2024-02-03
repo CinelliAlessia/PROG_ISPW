@@ -3,7 +3,7 @@ package engineering.dao;
 import engineering.exceptions.UsernameAlreadyInUse;
 import engineering.others.Connect;
 import engineering.exceptions.EmailAlreadyInUse;
-import engineering.others.GenreMenager;
+import engineering.others.GenreManager;
 import engineering.query.QueryLogin;
 import model.User;
 import java.sql.Connection;
@@ -94,7 +94,7 @@ public class UserDAOMySQL implements UserDAO {
             resultSet2 = QueryLogin.retrivePrefByEmail(stmt, userEmail);
 
             if (resultSet2.next()) {
-                preferences = GenreMenager.retriveGenre(resultSet2);
+                preferences = GenreManager.retriveGenre(resultSet2);
             }
             System.out.println("preferenze in load user " + preferences);
 

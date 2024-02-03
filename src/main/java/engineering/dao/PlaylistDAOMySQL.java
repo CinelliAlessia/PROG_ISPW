@@ -66,7 +66,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlist.setPlaylistName(rs.getString("nomePlaylist"));
 
                 rs2 = QueryPlaylist.retriveGenrePlaylist(stmt,username);
-                genres = GenreMenager.retriveGenre(rs2);
+                genres = GenreManager.retriveGenre(rs2);
 
                 playlist.setPlaylistGenre(genres);
                 playlists.add(playlist);

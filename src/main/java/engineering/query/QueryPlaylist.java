@@ -44,7 +44,7 @@ public class QueryPlaylist {
         }
     }
 
-    /** non dovrebbe servire */
+    /** Non dovrebbe servire */
     public static ResultSet retriveIDbyEmail(Statement stmt, String email) throws SQLException {
         String sql = String.format(Queries.SELECT_ID_BY_EMAIL, email);
         return stmt.executeQuery(sql);

@@ -3,10 +3,10 @@ package engineering.pattern.observer;
 import java.util.ArrayList;
 
 /** Subject è una classe astratta che fornisce interfacce per registrare o rimuovere dinamicamente gli observer (i subscribers)
- * implementa le seguenti funzioni:
- * 1. attach(observer): aggiunge un ConcreteObserver alla lista delle classi da notificare
- * 2. detach(observer): rimuove un ConcreteObserver alla lista delle classi da notificare
- * 3. notify(): notifica un cambiamento alle classi ConcreteObserver
+ * implementa le seguenti funzioni
+ * 1) attach(observer): aggiunge un ConcreteObserver alla lista delle classi da notificare
+ * 2) detach(observer): rimuove un ConcreteObserver alla lista delle classi da notificare
+ * 3) notify(): notifica un cambiamento alle classi ConcreteObserver
  * */
 public abstract class Subject {
 

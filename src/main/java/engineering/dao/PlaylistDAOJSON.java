@@ -75,7 +75,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     }
 
     public List<Playlist> retrivePlaylistByUsername(String username) {
-        return null;
+        return Collections.emptyList();
     }
 
     public List<Playlist> retrivePlaylistUser() {

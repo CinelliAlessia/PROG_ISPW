@@ -994,28 +994,28 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <collation id="287" parent="1" name="utf8mb4_mn_cyrl_0900_as_cs">
       <Charset>utf8mb4</Charset>
     </collation>
-    <schema id="288" parent="1" name="information_schema">
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </schema>
-    <schema id="289" parent="1" name="mydb">
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </schema>
-    <schema id="290" parent="1" name="mysql">
+    <schema id="288" parent="1" name="mysql">
       <Grants>user|||mysql.session|localhost|SELECT|G</Grants>
       <LastIntrospectionLocalTimestamp>2024-02-01.14:11:55</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="291" parent="1" name="performance_schema">
+    <schema id="289" parent="1" name="information_schema">
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="290" parent="1" name="performance_schema">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="291" parent="1" name="sys">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="292" parent="1" name="sakila">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="293" parent="1" name="sys">
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </schema>
-    <schema id="294" parent="1" name="user">
+    <schema id="293" parent="1" name="user">
       <LastIntrospectionLocalTimestamp>2024-02-02.23:02:30</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="294" parent="1" name="mydb">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <user id="295" parent="1" name="mysql.infoschema">
@@ -1037,19 +1037,19 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="299" parent="294" name="all_playlist">
+    <table id="299" parent="293" name="all_playlist">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="300" parent="294" name="generi_musicali_user">
+    <table id="300" parent="293" name="generi_musicali_user">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="301" parent="294" name="playlist_utente">
+    <table id="301" parent="293" name="playlist_utente">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="302" parent="294" name="user">
+    <table id="302" parent="293" name="user">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>

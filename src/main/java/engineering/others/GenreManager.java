@@ -4,9 +4,9 @@ import javafx.scene.control.CheckBox;
 import java.sql.*;
 import java.util.*;
 
-public class GenreMenager {
+public class GenreManager {
 
-    private GenreMenager(){}
+    private GenreManager(){}
 
     /** Funzione ausiliare per il retrieve dell'utente da persistenza
      * è ammessa la non gestione di SQLException dato che viene utilizzata solo da questa classe */

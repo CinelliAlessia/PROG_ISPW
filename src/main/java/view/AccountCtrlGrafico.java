@@ -3,8 +3,7 @@ package view;
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.UserBean;
 import engineering.others.*;
-
-import javafx.event.ActionEvent;
+import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import java.util.*;
@@ -100,7 +99,7 @@ public class AccountCtrlGrafico implements Initializable {
     public void onSaveClick(ActionEvent event){
 
         // Recupero preferenze aggiornate
-        List<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
+        List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
         System.out.println("Hai premuto salva " + preferences);
 
         // Imposto le preferenze sullo user bean

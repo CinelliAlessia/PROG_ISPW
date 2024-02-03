@@ -42,7 +42,7 @@ public class PlaylistList extends Subject {
 
     /** Metodo getState() in teoria utilizzato dai subscribers una volta notificati di dover svolgere un update() ? */
     public void getState(){
-
+// TODO
     }
 }
 

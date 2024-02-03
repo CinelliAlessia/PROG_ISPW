@@ -69,7 +69,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
 
 
         // Recupero preferenze aggiornate
-        List<String> preferences = GenreMenager.retrieveCheckList(checkBoxList);
+        List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
 
         // Costruzione della playlistBean con i parametri per il Controller Applicativo
         PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, preferences);

@@ -54,7 +54,7 @@ public class UserDAOJSON implements UserDAO {
                 // Leggi il contenuto del file
                 String content = Files.readString(userInfoFile);
 
-                // Usa Gson per deserializzare il contenuto JSON e ottenere l'utente
+                // Usa Gson per de-serializzare il contenuto JSON e ottenere l'utente
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 User user = gson.fromJson(content, User.class);
 
@@ -83,7 +83,7 @@ public class UserDAOJSON implements UserDAO {
                 // Leggi il contenuto del file
                 String content = Files.readString(userInfoFile);
 
-                // Usa Gson per deserializzare il contenuto JSON e ottenere l'utente
+                // Usa Gson per de-serializzare il contenuto JSON e ottenere l'utente
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 User user = gson.fromJson(content, User.class);
 
@@ -147,7 +147,7 @@ public class UserDAOJSON implements UserDAO {
                         .forEach(file -> {
                             try {
                                 String content = Files.readString(file);
-                                // Usa Gson per deserializzare il contenuto JSON e ottenere l'utente
+                                // Usa Gson per de-serializzare il contenuto JSON e ottenere l'utente
                                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                                 User user = gson.fromJson(content, User.class);
                                 // Fai qualcosa con l'utente recuperato
@@ -178,7 +178,7 @@ public class UserDAOJSON implements UserDAO {
                 // Leggi il contenuto del file
                 String content = Files.readString(userInfoFile);
 
-                // Usa Gson per deserializzare il contenuto JSON e ottenere l'utente
+                // Usa Gson per de-serializzare il contenuto JSON e ottenere l'utente
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 User user = gson.fromJson(content, User.class);
 
