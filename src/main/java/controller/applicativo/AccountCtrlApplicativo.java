@@ -1,15 +1,11 @@
 package controller.applicativo;
 
-import engineering.bean.PlaylistBean;
-import engineering.bean.UserBean;
-import engineering.dao.PlaylistDAO;
-import engineering.dao.TypesOfPersistenceLayer;
-import engineering.dao.UserDAO;
+import engineering.bean.*;
+import engineering.dao.*;
 import model.Playlist;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
+import static engineering.dao.TypesOfPersistenceLayer.*;
 
 public class AccountCtrlApplicativo {
 

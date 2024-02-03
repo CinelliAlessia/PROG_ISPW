@@ -1,9 +1,7 @@
 package controller.applicativo;
 
-import engineering.bean.RegistrationBean;
-import engineering.bean.UserBean;
-import engineering.dao.TypesOfPersistenceLayer;
-import engineering.dao.UserDAO;
+import engineering.bean.*;
+import engineering.dao.*;
 import model.User;
 
 

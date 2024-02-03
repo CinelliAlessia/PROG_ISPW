@@ -3,9 +3,7 @@ package view;
 import controller.applicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.RegistrationBean;
 import engineering.bean.UserBean;
-import engineering.others.FxmlFileName;
-import engineering.others.GenreMenager;
-
+import engineering.others.*;
 import org.apache.commons.validator.routines.EmailValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;

@@ -2,19 +2,15 @@ package view;
 
 import engineering.bean.UserBean;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.stage.*;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Deque;
-import java.util.LinkedList;
+import java.lang.reflect.*;
+import java.util.*;
 
 public class SceneController {
-    private static SceneController sceneController ;
+    private static SceneController sceneController = null;
 
     private static final Deque<Scene> sceneStack = new LinkedList<>();
     // Sonar dice che non va bene: private static final Stack<Scene> sceneStack = new Stack<>(); la modifichiamo?

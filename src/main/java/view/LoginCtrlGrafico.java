@@ -1,8 +1,7 @@
 package view;
 
 import controller.applicativo.LoginCtrlApplicativo;
-import engineering.bean.LoginBean;
-import engineering.bean.UserBean;
+import engineering.bean.*;
 import engineering.others.FxmlFileName;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

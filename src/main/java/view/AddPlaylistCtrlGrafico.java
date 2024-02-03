@@ -1,9 +1,8 @@
 package view;
 
 import controller.applicativo.AddPlaylistCtrlApplicativo;
-import engineering.bean.PlaylistBean;
-import engineering.bean.UserBean;
-import engineering.others.GenreMenager;
+import engineering.bean.*;
+import engineering.others.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.*;

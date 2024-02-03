@@ -1,16 +1,11 @@
 package engineering.dao;
 
 import engineering.exceptions.PlaylistLinkAlreadyInUse;
-import engineering.others.Connect;
-import engineering.others.GenreMenager;
+import engineering.others.*;
 import engineering.query.QueryPlaylist;
 import model.Playlist;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 public class PlaylistDAOMySQL implements PlaylistDAO {
 

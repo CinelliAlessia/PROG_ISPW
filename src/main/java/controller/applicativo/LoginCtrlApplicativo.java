@@ -1,9 +1,7 @@
 package controller.applicativo;
 
-import engineering.bean.LoginBean;
-import engineering.bean.UserBean;
-import engineering.dao.TypesOfPersistenceLayer;
-import engineering.dao.UserDAO;
+import engineering.bean.*;
+import engineering.dao.*;
 import model.User;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;

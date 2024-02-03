@@ -1,10 +1,8 @@
 package controller.applicativo;
 
-import engineering.bean.PlaylistBean;
-import engineering.dao.PlaylistDAO;
-import engineering.dao.TypesOfPersistenceLayer;
+import engineering.bean.*;
+import engineering.dao.*;
 import model.Playlist;
-
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AddPlaylistCtrlApplicativo {

@@ -2,8 +2,7 @@ package view;
 
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.UserBean;
-import engineering.others.FxmlFileName;
-import engineering.others.GenreMenager;
+import engineering.others.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
