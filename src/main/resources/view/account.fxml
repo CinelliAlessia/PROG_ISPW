@@ -69,7 +69,7 @@
                     <columns>
                         <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Nome Playlist" />
                         <TableColumn fx:id="authorColumn" prefWidth="150.0" text="Autore" />
-                        <TableColumn fx:id="linkColumn" maxWidth="1.8" prefWidth="150.0" text="Link" />
+                        <TableColumn fx:id="linkColumn" prefWidth="150.0" text="Link" />
                     </columns>
                 </TableView>
             </AnchorPane>

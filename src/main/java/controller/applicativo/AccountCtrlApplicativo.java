@@ -26,7 +26,7 @@ public class AccountCtrlApplicativo {
         ArrayList<PlaylistBean> playlistsBean = new ArrayList<>();
 
         for (Playlist p : playlists){
-            PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre());
+            PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved());
             playlistsBean.add(pB);
         }
 
@@ -54,7 +54,7 @@ public class AccountCtrlApplicativo {
         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
         PlaylistDAO dao = persistenceType.createPlaylistDAO();
 
-        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre());
+        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved());
 
 
         dao.deletePlaylist(playlist);

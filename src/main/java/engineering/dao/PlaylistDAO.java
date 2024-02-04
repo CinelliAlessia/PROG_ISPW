@@ -7,7 +7,7 @@ import java.util.List;
 public interface PlaylistDAO {
 
     /** Inserisce una playlist in persistenza*/
-    void insertPlaylist(Playlist playlist);
+    boolean insertPlaylist(Playlist playlist);
 
     /** Elimina la playlist */
     void deletePlaylist(Playlist playlist);
@@ -20,4 +20,6 @@ public interface PlaylistDAO {
 
     /** Recupera tutte le playlist globali by username*/
     List<Playlist> retrivePlaylistByUsername(String username);
+
+    List<Playlist> retriveAllPlaylist();
 }

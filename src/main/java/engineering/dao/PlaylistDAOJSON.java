@@ -15,13 +15,13 @@ import java.util.UUID;
 
 public class PlaylistDAOJSON implements PlaylistDAO {
 
-    public void insertPlaylist(Playlist playlist) {
+    public boolean insertPlaylist(Playlist playlist) {
         // Costruisco il percorso del file playlist.json per l'utente
         java.nio.file.Path userDirectory = Paths.get(ConfigurationJSON.USER_BASE_DIRECTORY, playlist.getEmail());
-
+        boolean result;
         try {
             // Crea la directory utente se non esiste
-            Files.createDirectories(userDirectory);
+            Files.createDirectories(userDirectory); // Directory utente???
 
             // Genera un UUID univoco
             String uniqueId = UUID.randomUUID().toString();
@@ -48,12 +48,18 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
                 Files.copy(playlistPath, allPlaylistsPath, StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("Playlist inserita con successo!");
+                result = true;
+
             } else {
                 System.out.println("Una playlist con questo nome esiste già per questo l'utente.");
+                result = false;
             }
+
         } catch (IOException e) {
             e.fillInStackTrace();
+            result = false;
         }
+        return result;
     }
 
 
@@ -76,6 +82,14 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
     public List<Playlist> retrivePlaylistByUsername(String username) {
         return Collections.emptyList();
+    }
+
+    /**
+     * @return null
+     */
+    @Override
+    public List<Playlist> retriveAllPlaylist() {
+        return null;
     }
 
     public List<Playlist> retrivePlaylistUser() {

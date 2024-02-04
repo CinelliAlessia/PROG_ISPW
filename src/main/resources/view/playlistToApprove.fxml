@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefWidth="1024.0" prefHeight="640.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="view.PlaylistToApproveCtrlGrafico">
+
+    <top>
+        <!-- Barra del titolo TopPage -->
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+            <Button layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+            <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="GESTIONE PLAYLIST" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
+        </AnchorPane>
+    </top>
+
+    <center>
+        <!-- Tabella playlist -->
+        <AnchorPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <TableView fx:id="playlistTable" fixedCellSize="0.0" layoutX="151.0" layoutY="52.0" prefHeight="200.0" prefWidth="500.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+                <columns>
+                    <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Nome Playlist" />
+                    <TableColumn fx:id="authorColumn" prefWidth="150.0" text="Autore" />
+                    <TableColumn fx:id="linkColumn" prefWidth="150.0" text="Link" />
+                </columns>
+            </TableView>
+        </AnchorPane>
+    </center>
+
+    <bottom>
+        <AnchorPane>
+
+        </AnchorPane>
+    </bottom>
+
+</BorderPane>

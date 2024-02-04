@@ -14,13 +14,13 @@ public class Playlist {
     public Playlist(){
         this.approved = false;
     }
-    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre){
+    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved){
         setEmail(email);
         setUsername(username);
         setPlaylistName(playlistName);
         setLink(link);
         setPlaylistGenre(playlistGenre);
-        this.approved = false;
+        setApproved(approved);
     }
 
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, String id){
@@ -83,8 +83,8 @@ public class Playlist {
         return id;
     }
 
-    public void setApproved(){
-        this.approved = true;
+    public void setApproved(boolean approved){
+        this.approved = approved;
     }
 
     public boolean getApproved(){

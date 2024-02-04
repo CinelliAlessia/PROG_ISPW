@@ -108,6 +108,10 @@ public class QueryPlaylist {
         return stmt.executeQuery(sql);
     }
 
+    public static ResultSet retriveGenrePlaylistByLink(Statement stmt, String link) throws SQLException {
+        String sql = String.format(Queries.SELECT_GENRE_PLAYLIST_BY_LINK, link);
+        return stmt.executeQuery(sql);
+    }
 
     /** Rimuove la playlist su tutte le tabelle, dal link della playlist
      * */
@@ -117,5 +121,10 @@ public class QueryPlaylist {
 
         sql = String.format(Queries.DELETE_PLAYLIST_BY_LINK_ALL_PLAYLIST,link);
         stmt.executeUpdate(sql);
+    }
+
+    public static ResultSet retriveAllPlaylist(Statement stmt) throws SQLException {
+        String sql = String.format(Queries.SELECT_ALL_PLAYLIST);
+        return stmt.executeQuery(sql);
     }
 }

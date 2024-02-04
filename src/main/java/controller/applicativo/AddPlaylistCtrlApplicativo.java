@@ -16,11 +16,15 @@ public class AddPlaylistCtrlApplicativo {
         PlaylistDAO dao = persistenceType.createPlaylistDAO();
 
         // Crea la Playlist (model)
-        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre());
+        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved());
         System.out.println("AddPlaylist applicativo: "+playlist.getEmail()+ " " + playlist.getUsername()+ " " + playlist.getPlaylistName() + " " + playlist.getLink() + " " + playlist.getPlaylistGenre());
 
         // Invio utente model al DAO
-        dao.insertPlaylist(playlist);
+        if(dao.insertPlaylist(playlist)){
+            System.out.println("Playlist caricata correttamente");
+        } else {
+
+        }
     }
 
 }

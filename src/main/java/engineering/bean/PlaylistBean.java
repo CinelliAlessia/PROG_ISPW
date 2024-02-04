@@ -10,17 +10,17 @@ public class PlaylistBean {
     private List<String> playlistGenre;
     private boolean approved = false;
 
-
     public PlaylistBean(){
 
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre){
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved){
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
         setUsername(username);
         setPlaylistGenre(playlistGenre);
+        setApproved(approved);
     }
     public void setLink(String link) {
         this.link = link;
@@ -62,8 +62,8 @@ public class PlaylistBean {
         return playlistGenre;
     }
 
-    public void setApproved(){
-        this.approved = true;
+    public void setApproved(boolean approved){
+        this.approved = approved;
     }
 
     public boolean getApproved(){

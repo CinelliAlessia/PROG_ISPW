@@ -8,7 +8,8 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 
 public class HomePageCtrlGrafico{
-
+    @FXML
+    private Button manager;
     @FXML
     private Button account;
     @FXML
@@ -29,6 +30,7 @@ public class HomePageCtrlGrafico{
         } else {
             account.setText(userBean.getUsername());
             addButton.setVisible(true);
+            manager.setVisible(userBean.isSupervisor());
         }
     }
 
@@ -45,5 +47,9 @@ public class HomePageCtrlGrafico{
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
         SceneController.getInstance().<AddPlaylistCtrlGrafico>goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
+    }
+
+    public void onManagerClick(ActionEvent event) throws IOException {
+        SceneController.getInstance().goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML);
     }
 }

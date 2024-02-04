@@ -5,6 +5,7 @@ import engineering.others.Connect;
 import engineering.exceptions.EmailAlreadyInUse;
 import engineering.others.GenreManager;
 import engineering.query.QueryLogin;
+import model.Supervisor;
 import model.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -74,6 +75,7 @@ public class UserDAOMySQL implements UserDAO {
         String username = "";
         String email = "";
         String password = "";
+        boolean supervisor = false;
         ResultSet resultSet = null;
         ResultSet resultSet2 = null;
         List<String> preferences = new ArrayList<>();
@@ -88,6 +90,7 @@ public class UserDAOMySQL implements UserDAO {
                 username = resultSet.getString("username");
                 email = resultSet.getString("email");
                 password = resultSet.getString("password");
+                supervisor = resultSet.getBoolean("supervisor");
             }
             resultSet.close();
 
@@ -112,10 +115,12 @@ public class UserDAOMySQL implements UserDAO {
                 e.fillInStackTrace();
             }
 
-            user = new User(username, email, password, preferences);
-
+            if(supervisor){
+                user = new Supervisor(username, email, password, preferences);
+            } else {
+                user = new User(username, email, password, preferences);
+            }
         }
-        // Chiudi gli Statement e la connessione
         return user;
     }
 
