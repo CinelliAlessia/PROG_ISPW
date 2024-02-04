@@ -34,7 +34,7 @@ public class LoginCtrlGrafico {
             LoginBean loginBean = new LoginBean(email,pass);
 
             /* ------ Creo istanza del Login controller applicativo e utilizzo i metodi di verifica credenziali ------ */
-            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); //Dovrebbe essere static
+            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); // Static ?
 
             if (loginCtrlApp.verificaCredenziali(loginBean)) {
                 /* --------------- Credenziali corrette -------------- */

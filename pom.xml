@@ -21,13 +21,13 @@
         <dependency>
             <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
-            <version>1.7</version> <!-- Controlla la versione più recente su Maven Central -->
+            <version>1.7</version>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.28</version> <!-- Assicurati di utilizzare la versione corretta -->
+            <version>8.0.28</version>
         </dependency>
 
         <dependency>
@@ -54,6 +54,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>

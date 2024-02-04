@@ -17,7 +17,7 @@
         <!-- Barra del titolo TopPage -->
         <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
             <!-- Pulsante Account -->
-            <Button layoutX="14.0" layoutY="19.0" onAction="#onAccountClick" text="Account" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
+            <Button fx:id="account" layoutX="14.0" layoutY="19.0" onAction="#onAccountClick" text="Account" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
             <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="HOME PAGE" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
         </AnchorPane>
     </top>

@@ -7,16 +7,29 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import java.io.IOException;
 
-public class HomePageCtrlGrafico {
+public class HomePageCtrlGrafico{
 
     @FXML
-    private Button searchButton;
+    private Button account;
+    @FXML
+    private Button addButton;
 
     private UserBean userBean;
 
     public void setUserBean(UserBean user) {
         this.userBean = user;
         System.out.println("HCG impostato user bean: " + userBean);
+        initialize();
+    }
+
+    public void initialize() {
+        if(userBean == null){
+            account.setText("Registrati");
+            addButton.setVisible(false);
+        } else {
+            account.setText(userBean.getUsername());
+            addButton.setVisible(true);
+        }
     }
 
     @FXML
