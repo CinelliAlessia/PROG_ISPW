@@ -19,14 +19,11 @@ public interface UserDAO {
     /** Ottiene la password associata all'email */
     String getPasswordByEmail(String email);
 
-    /** Eliminazione dell'utente dalla persistenza */
-    void deleteUser(User userInstance);
-
     /** Aggiorna i generi musicali preferiti dall'utente, recuperato tramite email*/
     void updateGenreUser(String email, List<String> preferences);
 }
 
-    // Devo definire le operazioni che dovranno essere implementate nelle varie interfacce
+// Devo definire le operazioni che dovranno essere implementate nelle varie interfacce
 
-    // Come interagisco con database degli Utenti?
+// Come interagisco con database degli Utenti?
 

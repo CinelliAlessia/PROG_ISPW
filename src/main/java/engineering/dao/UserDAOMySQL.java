@@ -164,10 +164,6 @@ public class UserDAOMySQL implements UserDAO {
         return pw; // Se non trovi una corrispondenza
     }
 
-    public void deleteUser(User userInstance) {
-        // TODO
-    }
-
     public void updateGenreUser(String email, List<String> preferences) {
         Statement stmt = null;
         Connection conn;

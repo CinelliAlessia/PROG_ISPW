@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.lang.reflect.*;
 import java.util.*;
 
+/** SINGLETON */
+//############### VERIFICARE SE E' GIUSTO CHE SIA SINGLETON ###################
 public class SceneController {
     private static SceneController sceneController = null;
 

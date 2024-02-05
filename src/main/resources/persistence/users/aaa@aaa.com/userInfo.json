@@ -3,7 +3,10 @@
   "email": "aaa@aaa.com",
   "password": "aaa",
   "pref": [
-    "Electronic"
+    "Electronic",
+    "House",
+    "Jazz"
   ],
-  "supervisor": false
+  "supervisor": false,
+  "registered": false
 }

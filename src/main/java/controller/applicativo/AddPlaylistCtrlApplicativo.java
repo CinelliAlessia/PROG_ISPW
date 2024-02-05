@@ -19,11 +19,11 @@ public class AddPlaylistCtrlApplicativo {
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved());
         System.out.println("AddPlaylist applicativo: "+playlist.getEmail()+ " " + playlist.getUsername()+ " " + playlist.getPlaylistName() + " " + playlist.getLink() + " " + playlist.getPlaylistGenre());
 
-        // Invio utente model al DAO
+        // Invio Playlist model al DAO
         if(dao.insertPlaylist(playlist)){
             System.out.println("Playlist caricata correttamente");
         } else {
-
+            //################# Se la playlist non viene caricata #################àà
         }
     }
 

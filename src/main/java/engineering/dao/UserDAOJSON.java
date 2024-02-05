@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
@@ -65,7 +66,7 @@ public class UserDAOJSON implements UserDAO {
                 e.fillInStackTrace(); // Gestisci l'eccezione in modo appropriato
             }
         } else {
-            System.out.println("Utente non trovato o file userInfo.json mancante.");
+            System.out.println("Utente non trovato");
         }
 
         // Se qualcosa va storto o l'utente non esiste, restituisci un utente vuoto
@@ -100,50 +101,13 @@ public class UserDAOJSON implements UserDAO {
         return null;
     }
 
-    @Override
-    public void deleteUser(User userInstance) {
-        Path userDirectory = Paths.get(BASE_DIRECTORY, userInstance.getEmail());
-
-        try {
-            Files.walk(userDirectory)
-                    .filter(Files::isRegularFile)
-                    .map(Path::toFile)
-                    .forEach(File::delete);
-
-            Files.deleteIfExists(userDirectory); // Rimuove la directory dell'utente
-            System.out.println("Utente eliminato con successo!");
-        } catch (IOException e) {
-            e.fillInStackTrace();
-        }
-    }
-
-    /* Questo metodo non da problemi con SonarCloud, ma devi vedere se funziona
-
-        @Override
-        public void deleteUser(User userInstance) {
-            Path userDirectory = Paths.get(BASE_DIRECTORY, userInstance.getEmail());
-
-            try (Stream<Path> paths = Files.walk(userDirectory)) {
-                paths.filter(Files::isRegularFile)
-                     .map(Path::toFile)
-                     .forEach(File::delete);
-
-                Files.deleteIfExists(userDirectory); // Rimuove la directory dell'utente
-                System.out.println("Utente eliminato con successo!");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        */
-
     // questa funzione assume di avere un FS dove le cartelle sono nominate tramite username
     public void retrieveUserByUsername(String username) {
         Path userDirectory = Paths.get(BASE_DIRECTORY, username);
 
         if (Files.exists(userDirectory)) {
-            try {
-                Files.walk(userDirectory)
-                        .filter(Files::isRegularFile)
+            try (Stream<Path> paths = Files.walk(userDirectory)) {
+                paths.filter(Files::isRegularFile)
                         .forEach(file -> {
                             try {
                                 String content = Files.readString(file);
@@ -164,10 +128,7 @@ public class UserDAOJSON implements UserDAO {
         }
     }
 
-    /**
-     * @param email
-     * @param preferences
-     */
+
     public void updateGenreUser(String email, List<String> preferences) {
         // Costruisci il percorso del file userInfo.json per l'utente
         Path userInfoFile = Paths.get(BASE_DIRECTORY, email, ConfigurationJSON.USER_INFO_FILE_NAME);

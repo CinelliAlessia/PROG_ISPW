@@ -89,7 +89,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
      */
     @Override
     public List<Playlist> retriveAllPlaylist() {
-        return null;
+        return Collections.emptyList();
     }
 
     public List<Playlist> retrivePlaylistUser() {
