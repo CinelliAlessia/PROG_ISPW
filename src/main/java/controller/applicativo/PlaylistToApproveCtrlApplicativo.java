@@ -1,10 +1,8 @@
 package controller.applicativo;
 
-import engineering.bean.PlaylistBean;
-import engineering.dao.PlaylistDAO;
-import engineering.dao.TypesOfPersistenceLayer;
+import engineering.bean.*;
+import engineering.dao.*;
 import model.Playlist;
-import view.PlaylistToApproveCtrlGrafico;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +20,13 @@ public class PlaylistToApproveCtrlApplicativo {
 
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+
         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
         PlaylistDAO dao = persistenceType.createPlaylistDAO();
 
         // Recupero lista Playlist
-
         List<Playlist> playlists = dao.retriveAllPlaylist();
+
         List<PlaylistBean> playlistsBean = new ArrayList<>();
 
         for (Playlist p : playlists){

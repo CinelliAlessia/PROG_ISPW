@@ -4,39 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/PlaylistToApproveCtrlApplicativo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/PlaylistToApproveCtrlGrafico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/playlistToApprove.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/0/10a68d84969c8617514c3efeab63993c35227e64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/c/1c89a5491fbfda3fb050196d6a239f20200296e7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/9/3900a5d5012d7042bd884de05e553b5694324dc9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/6/566262d54cf36ba9e9f4c54c80327e59982dbbbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/7/872b8ee48821e2597ff8685bf1eb976aeb285719" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/9/897a0983d8bd95ae5192eacbd1745de29fc10050" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/f/8ffc88701a9a261daf08c25c2f3f0ad4bedfa09b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/7/a78fc445bcad390d1e9844d86d695aaeba51c94e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/d/fd001cf7fa987affa7cb708aa580d1d965b2fd52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiunto prova per Schermata supervisore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/AccountCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/AccountCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/AddPlaylistCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/AddPlaylistCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/PlaylistBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/PlaylistBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/PlaylistToApproveCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/PlaylistToApproveCtrlApplicativo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/FxmlFileName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/FxmlFileName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/homePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/registrazione.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/registrazione.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/GenreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/GenreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/PlaylistToApproveCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/PlaylistToApproveCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/playlistToApprove.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/playlistToApprove.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,15 +199,8 @@
       <workItem from="1707064767443" duration="14000" />
       <workItem from="1707064961308" duration="1665000" />
       <workItem from="1707066647999" duration="2332000" />
-      <workItem from="1707072819193" duration="8225000" />
-    </task>
-    <task id="LOCAL-00001" summary="Merge corretto, persistenze file e db">
-      <option name="closed" value="true" />
-      <created>1703152476839</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1703152476840</updated>
+      <workItem from="1707072819193" duration="9340000" />
+      <workItem from="1707119992525" duration="3007000" />
     </task>
     <task id="LOCAL-00002" summary="Assegnate le giuste responsabilità per l'insert nel db mongo">
       <option name="closed" value="true" />
@@ -618,7 +586,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707068097167</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Aggiunto prova per Schermata supervisore">
+      <option name="closed" value="true" />
+      <created>1707086267310</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1707086267310</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +613,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aggiunta al database delle preferenze musicali" />
     <MESSAGE value="Condivisione database" />
     <MESSAGE value="Update view" />
     <MESSAGE value="Aggiornate le view.&#10;Aggiunti dei metodi nei controller grafici.&#10;Correzione di warning semplici." />
@@ -662,7 +637,8 @@
     <MESSAGE value="Risoluzione code smells" />
     <MESSAGE value="Risoluzione code smells, ridotto il riuso di codice" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Aggiunto prova per Schermata supervisore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto prova per Schermata supervisore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

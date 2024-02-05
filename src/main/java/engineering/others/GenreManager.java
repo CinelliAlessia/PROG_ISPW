@@ -9,7 +9,7 @@ public class GenreManager {
     private GenreManager(){}
 
     /** Funzione ausiliare per il retrieve dell'utente da persistenza
-     * è ammessa la non gestione di SQLException dato che viene utilizzata solo da questa classe */
+     * è ammessa la non gestione di SQLException dato che verrà gestita da chi usa questo metodo */
     public static List<String> retriveGenre(ResultSet rs) throws SQLException {
 
         List<String> genre = new ArrayList<>();
@@ -26,7 +26,6 @@ public class GenreManager {
         if (rs.getBoolean("Country")) genre.add("Country");
         if (rs.getBoolean("Alternative")) genre.add("Alternative");
 
-        rs.close();
         return genre;
     }
 

@@ -61,6 +61,11 @@
     -fx-text-fill: #000000; /* Testo delle righe */
 }
 
+.table-row-cell:selected {
+    -fx-background-color: #c9c9c9; /* Sfondo delle righe */
+    -fx-border-color: #1DB954;
+}
+
 .table-column {
     -fx-text-fill: #000000; /* Testo delle colonne */
 }

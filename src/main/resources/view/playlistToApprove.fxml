@@ -26,6 +26,8 @@
                     <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Nome Playlist" />
                     <TableColumn fx:id="authorColumn" prefWidth="150.0" text="Autore" />
                     <TableColumn fx:id="linkColumn" prefWidth="150.0" text="Link" />
+                    <TableColumn fx:id="approveColumn" prefWidth="150.0" text="Approve" />
+
                 </columns>
             </TableView>
         </AnchorPane>
