@@ -27,7 +27,7 @@ public class PlaylistToApproveCtrlApplicativo {
     }
 
     /** Recupera tutte le playlist globali, sia approvate che non */
-    public List<PlaylistBean> retriveAllPlaylist(){
+    public List<PlaylistBean> retrievePlaylists(){
 
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
@@ -36,7 +36,7 @@ public class PlaylistToApproveCtrlApplicativo {
         PlaylistDAO dao = persistenceType.createPlaylistDAO();
 
         // Recupero lista Playlist
-        List<Playlist> playlists = dao.retriveAllPlaylistToApprove();
+        List<Playlist> playlists = dao.retrievePendingPlaylists();
 
         List<PlaylistBean> playlistsBean = new ArrayList<>();
 

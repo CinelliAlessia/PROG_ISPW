@@ -45,7 +45,7 @@ public class QueryPlaylist {
     }
 
     /** Non dovrebbe servire */
-    public static ResultSet retriveIDbyEmail(Statement stmt, String email) throws SQLException {
+    public static ResultSet retrieveIDbyEmail(Statement stmt, String email) throws SQLException {
         String sql = String.format(Queries.SELECT_ID_BY_EMAIL, email);
         return stmt.executeQuery(sql);
     }
@@ -92,23 +92,30 @@ public class QueryPlaylist {
 
     /** Recupera tutta la playlist_utente, va usata con retriveGenrePlaylist per ottenere
      * i generi musicali delle playlist caricate */
-    public static ResultSet retrivePlaylistUser(Statement stmt, String username) throws SQLException {
+    public static ResultSet retrivePlaylistUserByUsername(Statement stmt, String username) throws SQLException {
         String sql = String.format(Queries.SELECT_PLAYLIST_BY_USER,username);
         return stmt.executeQuery(sql);
     }
 
+    /** Recupera tutta la playlist_utente, va usata con retriveGenrePlaylist per ottenere
+     * i generi musicali delle playlist caricate */
+    public static ResultSet retrievePlaylistUserByEmail(Statement stmt, String email) throws SQLException {
+        String sql = String.format(Queries.SELECT_PLAYLIST_BY_EMAIL,email);
+        return stmt.executeQuery(sql);
+    }
+
     /** Recupera da generi_musicali, i generi musicali della playlist passata come id */
-    public static ResultSet retriveGenrePlaylistById(Statement stmt, int id) throws SQLException {
+    public static ResultSet retrieveGenrePlaylistById(Statement stmt, int id) throws SQLException {
         String sql = String.format(Queries.SELECT_GENRE_USER_QUERY,id);
         return stmt.executeQuery(sql);
     }
 
-    public static ResultSet retriveGenrePlaylist(Statement stmt, String username) throws SQLException {
+    public static ResultSet retrieveGenrePlaylist(Statement stmt, String username) throws SQLException {
         String sql = String.format(Queries.SELECT_GENRE_PLAYLIST, username);
         return stmt.executeQuery(sql);
     }
 
-    public static ResultSet retriveGenrePlaylistByLink(Statement stmt, String link) throws SQLException {
+    public static ResultSet retrieveGenrePlaylistByLink(Statement stmt, String link) throws SQLException {
         String sql = String.format(Queries.SELECT_GENRE_PLAYLIST_BY_LINK, link);
         return stmt.executeQuery(sql);
     }
@@ -123,10 +130,7 @@ public class QueryPlaylist {
         stmt.executeUpdate(sql);
     }
 
-    public static ResultSet retriveAllPlaylistToApprove(Statement stmt) throws SQLException {
-        String sql = String.format(Queries.SELECT_PLAYLIST_TO_APPROVE,0);
-        return stmt.executeQuery(sql);
-    }
+
 
     public static void approvePlaylistByLink(Statement stmt, String link) throws SQLException {
         String sql = String.format(Queries.UPDATE_APPROVE_PLAYLIST,1,link);
@@ -134,5 +138,15 @@ public class QueryPlaylist {
 
         sql = String.format(Queries.UPDATE_APPROVE_PLAYLIST_IN_ALL,1,link);
         stmt.executeUpdate(sql);
+    }
+
+    public static ResultSet retrievePendingPlaylists(Statement stmt) throws SQLException {
+        String sql = String.format(Queries.SELECT_PENDING_PLAYLISTS,0);
+        return stmt.executeQuery(sql);
+    }
+
+    public static ResultSet retrieveApprovedPlaylists(Statement stmt) throws SQLException {
+        String sql = String.format(Queries.SELECT_APPROVED_PLAYLISTS,1);
+        return stmt.executeQuery(sql);
     }
 }

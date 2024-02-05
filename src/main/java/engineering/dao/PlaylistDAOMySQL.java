@@ -53,7 +53,6 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
      * @param playlist, utilizzato per il link per poter fare la retrieve
      * @return playlist modificata, non serve creare una nuova istanza.
      */
-    @Override
     public Playlist approvePlaylist(Playlist playlist) {
         Statement stmt = null;
         Connection conn;
@@ -90,7 +89,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         return playlist;
     }
 
-    public List<Playlist> retrivePlaylistByUsername(String username) {
+    public List<Playlist> retrievePlaylistsByEmail(String email) {
         Statement stmt = null;
         Connection conn;
         List<Playlist> playlists = null;
@@ -101,7 +100,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            rs = QueryPlaylist.retrivePlaylistUser(stmt,username);
+            rs = QueryPlaylist.retrievePlaylistUserByEmail(stmt,email);
 
             playlists = new ArrayList<>(); // Una lista di playlist
 
@@ -114,7 +113,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlist.setEmail(rs.getString("email"));
                 playlist.setPlaylistName(rs.getString("nomePlaylist"));
 
-                rs2 = QueryPlaylist.retriveGenrePlaylist(stmt,username);
+                rs2 = QueryPlaylist.retrieveGenrePlaylist(stmt,email);
 
                 if(rs2.next()){
                     genres = GenreManager.retriveGenre(rs2);
@@ -140,11 +139,13 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         return playlists;
     }
 
-    /**
-     * @return la lista di tutte le playlist
-     */
-    @Override
-    public List<Playlist> retriveAllPlaylistToApprove() {
+    public List<Playlist> retrievePendingPlaylists() {
+        return retrievePlaylists(false);
+    }
+    public List<Playlist> retrieveApprovedPlaylists() {
+        return retrievePlaylists(true);
+    }
+    private List<Playlist> retrievePlaylists(boolean approved){
         Statement stmt = null;
         Connection conn;
         List<Playlist> playlists = new ArrayList<>(); // Initialize the list here
@@ -154,12 +155,13 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            rs = QueryPlaylist.retriveAllPlaylistToApprove(stmt);
-            int i = 0;
+            if(approved){ //Recupera tutte le playlist già approvare (Per la home page)
+                rs = QueryPlaylist.retrieveApprovedPlaylists(stmt);
+            } else { //Recupera tutte le playlist da approvare (Per il gestore delle playlist)
+                rs = QueryPlaylist.retrievePendingPlaylists(stmt);
+            }
 
             while (rs.next()) {
-                System.out.println("Ciclo " + i);
-                i++;
 
                 Playlist playlist = new Playlist();
 
@@ -224,12 +226,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
     }
 
-    public List<Playlist> retrievePlaylistsByMail(String mail) {
-        //TODO
-        return Collections.emptyList();
-    }
-
-    public List<Playlist> retrievePlaylistByGenre(String genre) {
+    public List<Playlist> retrievePlaylistsByGenre(String genre) {
         //TODO
         return Collections.emptyList();
     }

@@ -34,8 +34,10 @@ public class Queries {
 
     public static final String SELECT_LINK_QUERY = "SELECT * FROM all_playlist WHERE link = '%s'";
     public static final String SELECT_PLAYLIST_BY_USER = "SELECT * FROM playlist_utente WHERE username = '%s'"; // Recupero tutto ma non uso tutto
+    public static final String SELECT_PLAYLIST_BY_EMAIL = "SELECT * FROM playlist_utente WHERE email = '%s'";
     public static final String SELECT_ALL_PLAYLIST = "SELECT * FROM playlist_utente"; // Recupero tutto ma non uso tutto
-    public static final String SELECT_PLAYLIST_TO_APPROVE = "SELECT * FROM playlist_utente WHERE approved = '%d'";
+    public static final String SELECT_PENDING_PLAYLISTS = "SELECT * FROM playlist_utente WHERE approved = '%d'";
+    public static final String SELECT_APPROVED_PLAYLISTS = "SELECT * FROM playlist_utente WHERE approved = '%d'";
     public static final String SELECT_GENRE_PLAYLIST_BY_ID = "SELECT * FROM generi_musicali WHERE id = '%d'";
     public static final String SELECT_ID_BY_EMAIL = "SELECT id FROM playlist_utente WHERE email = '%s'";
     public static final String SELECT_GENRE_PLAYLIST = "SELECT Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative " +
