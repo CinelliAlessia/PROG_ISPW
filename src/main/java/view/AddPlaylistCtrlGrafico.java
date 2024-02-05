@@ -7,6 +7,8 @@ import engineering.others.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -62,25 +64,34 @@ public class AddPlaylistCtrlGrafico implements Initializable {
 
     /** Click sul tasto carica Playlist*/
     @FXML
-    public void onUploadClick(ActionEvent event){
+    public void onUploadClick(ActionEvent event) throws IOException {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
-        // Recupero generi della playlist
-        List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
+        //Controllo sui campi vuoti
+        if( !linkPlaylist.isEmpty() || !titolo.isEmpty() ){
+            // Recupero generi della playlist
+            List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
 
-        // La playlist è approvata solo se l'utente è un supervisore
-        boolean approved = userBean.isSupervisor();
+            // La playlist è approvata solo se l'utente è un supervisore
+            boolean approved = userBean.isSupervisor();
 
-        // Costruzione della playlistBean con i parametri per il Controller Applicativo
-        PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
+            // Costruzione della playlistBean con i parametri per il Controller Applicativo
+            PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
 
-        // Invocazione metodo controller Applicativo che in teoria è static
-        AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
-        addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
+            // Invocazione metodo controller Applicativo che in teoria è static
+            AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
+            addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-        // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
-        SceneController.getInstance().goBack(event);
+            // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
+            SceneController.getInstance().popUp(event);
+
+
+        } else {
+            // campi vuoti
+        }
+
+
 
     }
 

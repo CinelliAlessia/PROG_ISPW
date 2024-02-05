@@ -21,7 +21,7 @@ public class AccountCtrlApplicativo {
         // Recupero lista Playlist
 
         String username = "ciao";
-        List<Playlist> playlists = dao.retrivePlaylistByUsername(username);
+        List<Playlist> playlists = dao.retrievePlaylistsByEmail(username);
 
         ArrayList<PlaylistBean> playlistsBean = new ArrayList<>();
 

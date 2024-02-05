@@ -11,8 +11,6 @@ Z
 *src/main/java/engineering/dao/UserDAO.java,6\b\6b34f4e7bf054ad3399fffb16a7cce286a075f43
 j
 :.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml,1\8\186dd46ff817b3454fab09a55ba36f1a27b81741
-W
-'src/main/java/view/SceneController.java,a\7\a78fc445bcad390d1e9844d86d695aaeba51c94e
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 ^
@@ -73,3 +71,17 @@ e
 5src/main/java/engineering/others/SceneController.java,7\a\7acaff74e8270ee925fa913bcb1ee498f37a5530
 N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
+V
+&src/main/java/view/SaveGenrePopUp.java,5\4\54e115bd2f56d638e7a3c48ac541bcce47ff770a
+b
+2src/main/java/engineering/others/FxmlFileName.java,e\0\e0d9e1c359fec22a1bdc69815ff195558847bd29
+]
+-src/main/java/engineering/bean/LoginBean.java,5\6\566262d54cf36ba9e9f4c54c80327e59982dbbbf
+]
+-src/main/java/engineering/others/Connect.java,8\f\8ffc88701a9a261daf08c25c2f3f0ad4bedfa09b
+h
+8src/main/java/engineering/pattern/observer/Observer.java,5\c\5c1718e1b8f062437514da94f8b243ddf93ebb67
+l
+<src/main/java/engineering/pattern/observer/PlaylistList.java,2\c\2cd8ae64c65d1990528ef727303da715fb122c03
+X
+(src/main/java/start/MainApplication.java,a\2\a23b3b2e98b3304dca3ade7086651a1c2310b498

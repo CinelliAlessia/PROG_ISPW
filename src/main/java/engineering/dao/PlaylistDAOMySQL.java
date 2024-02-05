@@ -93,8 +93,8 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         Statement stmt = null;
         Connection conn;
         List<Playlist> playlists = null;
-        ResultSet rs = null;
-        ResultSet rs2 = null;
+        ResultSet rs;
+        ResultSet rs2;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -104,7 +104,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
             playlists = new ArrayList<>(); // Una lista di playlist
 
-            List<String> genres = null; // Una lista per i generi musicali
+            List<String> genres; // Una lista per i generi musicali
 
             while (rs.next()) {
                 Playlist playlist = new Playlist();
@@ -226,7 +226,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
     }
 
-    public List<Playlist> retrievePlaylistsByGenre(String genre) {
+    public List<Playlist> retrievePlaylistsByGenre(List<String> genres) {
         //TODO
         return Collections.emptyList();
     }
