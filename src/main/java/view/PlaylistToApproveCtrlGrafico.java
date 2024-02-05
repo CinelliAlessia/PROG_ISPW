@@ -86,16 +86,18 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
             System.out.println("Approvazione della playlist: " + playlist.getPlaylistName());
             // Implementa la logica per l'approvazione della playlist
 
+            // Approva Playlist
+            PlaylistToApproveCtrlApplicativo playlistToApproveCtrlApplicativo = new PlaylistToApproveCtrlApplicativo();
+            playlistToApproveCtrlApplicativo.approvePlaylist(playlist);
+            allPlaylist.remove(playlist);
+
         } else {
             System.out.println("Rifiuto della playlist: " + playlist.getPlaylistName());
             // Implementa la logica per il rifiuto della playlist con notifica all'utente
         }
     }
 
-            // Approva Playlist
-            PlaylistToApproveCtrlApplicativo playlistToApproveCtrlApplicativo = new PlaylistToApproveCtrlApplicativo();
-            playlistToApproveCtrlApplicativo.approvePlaylist(playlist);
-            allPlaylist.remove(playlist);
+
 
     private HBox createButtonBox(Button... buttons) {
         HBox buttonBox = new HBox(5); // 5 è lo spazio tra i bottoni
