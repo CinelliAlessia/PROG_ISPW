@@ -16,7 +16,7 @@ public class PlaylistToApproveCtrlApplicativo {
         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
         PlaylistDAO dao = persistenceType.createPlaylistDAO();
 
-        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved());
+        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getId());
 
         Playlist playlistApproved = dao.approvePlaylist(playlist);
         pB.setApproved(playlistApproved.getApproved());

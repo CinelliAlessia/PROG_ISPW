@@ -86,4 +86,8 @@ public class PlaylistBean {
     public boolean getApproved(){
         return approved;
     }
+
+    public String getId() {
+        return id;
+    }
 }
