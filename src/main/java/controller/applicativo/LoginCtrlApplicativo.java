@@ -9,21 +9,27 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 public class LoginCtrlApplicativo {
     // implemento la logica dello use case
 
-    /** */
+    /**
+     * Il metodo accede allo strato di persistenza per verificare se le credenziali per l'accesso sono valide
+     * L'email deve essere registrata
+     * La password associata deve essere come quella inserita in fate di login
+     * Il loginBean contiene il campo mail e il campo password*/
     public boolean verificaCredenziali(LoginBean bean) {
         // Prendo il tipo di persistenza impostato nel file di configurazione
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+     TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
 
         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
         UserDAO dao = persistenceType.createUserDAO();
 
         String password = dao.getPasswordByEmail(bean.getEmail());
 
-        // Verifica se la password ottenuta dal DAO è null ############################### Perché?
+        // Verifica se la password ottenuta dal DAO è null
+
+        // L'utente non è registrato
         if (password == null) {
             return false;
         }
-
+        //Non posso differire, se utente non registrato o password sbagliata
         return password.equals(bean.getPassword());
     }
 

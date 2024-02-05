@@ -1,4 +1,4 @@
-package view;
+package engineering.others;
 
 import engineering.bean.UserBean;
 import javafx.event.ActionEvent;
@@ -50,7 +50,7 @@ public class SceneController {
         stage.show();      // Mostro la scena (nuova)
     }
     @FXML
-    <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean) throws IOException {
+    public <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 

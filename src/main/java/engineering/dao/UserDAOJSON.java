@@ -96,7 +96,6 @@ public class UserDAOJSON implements UserDAO {
         } else {
             System.out.println("Utente non trovato o file userInfo.json mancante.");
         }
-
         // Se qualcosa va storto o l'utente non esiste, restituisci null
         return null;
     }
@@ -127,7 +126,6 @@ public class UserDAOJSON implements UserDAO {
             System.out.println("Utente non trovato!");
         }
     }
-
 
     public void updateGenreUser(String email, List<String> preferences) {
         // Costruisci il percorso del file userInfo.json per l'utente

@@ -13,10 +13,10 @@ public interface PlaylistDAO {
     void deletePlaylist(Playlist playlist);
 
     /** Recupera tutte le playlist dell'utente dall'email */
-    void retrievePlaylistByMail(String mail);
+    List<Playlist> retrievePlaylistsByMail(String mail);
 
     /** Recupera tutte le playlist globali per genere */
-    void retrievePlaylistByGenre(String genre);
+    List<Playlist> retrievePlaylistByGenre(String genre);
 
     /** Recupera tutte le playlist globali by username*/
     List<Playlist> retrivePlaylistByUsername(String username);

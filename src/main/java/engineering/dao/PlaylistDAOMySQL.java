@@ -201,12 +201,14 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
     }
 
-    public void retrievePlaylistByMail(String mail) {
+    public List<Playlist> retrievePlaylistsByMail(String mail) {
         //TODO
+        return Collections.emptyList();
     }
 
-    public void retrievePlaylistByGenre(String genre) {
+    public List<Playlist> retrievePlaylistByGenre(String genre) {
         //TODO
+        return Collections.emptyList();
     }
 
 

@@ -3,6 +3,7 @@ package view;
 import controller.applicativo.LoginCtrlApplicativo;
 import engineering.bean.*;
 import engineering.others.FxmlFileName;
+import engineering.others.SceneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

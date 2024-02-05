@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiunto prova per Schermata supervisore">
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Update">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/PlaylistToApproveCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/PlaylistToApproveCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/LoginCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/LoginCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/GenreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/GenreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/ConfigurationJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/ConfigurationJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/PlaylistToApproveCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/PlaylistToApproveCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/playlistToApprove.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/playlistToApprove.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/all_playlists/prova[b488c8d8-2915-417d-8991-f644751ea6a8].json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/prova[b488c8d8-2915-417d-8991-f644751ea6a8].json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +63,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -201,14 +209,6 @@
       <workItem from="1707066647999" duration="2332000" />
       <workItem from="1707072819193" duration="9340000" />
       <workItem from="1707119992525" duration="3007000" />
-    </task>
-    <task id="LOCAL-00002" summary="Assegnate le giuste responsabilità per l'insert nel db mongo">
-      <option name="closed" value="true" />
-      <created>1703156040795</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1703156040795</updated>
     </task>
     <task id="LOCAL-00003" summary="user dao mongo">
       <option name="closed" value="true" />
@@ -594,7 +594,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707086267310</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Update">
+      <option name="closed" value="true" />
+      <created>1707123347379</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1707123347380</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,9 +644,9 @@
     <MESSAGE value="Aggiornamento e risoluzione code smells" />
     <MESSAGE value="Risoluzione code smells" />
     <MESSAGE value="Risoluzione code smells, ridotto il riuso di codice" />
-    <MESSAGE value="Update" />
     <MESSAGE value="Aggiunto prova per Schermata supervisore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto prova per Schermata supervisore" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

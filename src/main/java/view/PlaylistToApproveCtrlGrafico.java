@@ -2,6 +2,7 @@ package view;
 
 import controller.applicativo.PlaylistToApproveCtrlApplicativo;
 import engineering.bean.PlaylistBean;
+import engineering.others.SceneController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
