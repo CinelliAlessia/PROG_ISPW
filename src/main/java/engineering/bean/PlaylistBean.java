@@ -10,11 +10,23 @@ public class PlaylistBean {
     private List<String> playlistGenre;
     private boolean approved = false;
 
+    private String id;
+
     public PlaylistBean(){
 
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved){
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) {
+        setEmail(email);
+        setLink(link);
+        setPlaylistName(playlistName);
+        setUsername(username);
+        setPlaylistGenre(playlistGenre);
+        setApproved(approved);
+        setId(id);
+    }
+
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved) {
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
@@ -22,6 +34,11 @@ public class PlaylistBean {
         setPlaylistGenre(playlistGenre);
         setApproved(approved);
     }
+
+    private void setId(String id) {
+        this.id = id;
+    }
+
     public void setLink(String link) {
         this.link = link;
     }

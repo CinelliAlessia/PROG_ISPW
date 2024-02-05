@@ -6,6 +6,7 @@ import engineering.others.*;
 import javafx.collections.*;
 import javafx.event.*;
 import javafx.fxml.*;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
@@ -94,6 +95,7 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
 
     private HBox createButtonBox(Button... buttons) {
         HBox buttonBox = new HBox(5); // 5 è lo spazio tra i bottoni
+        buttonBox.setAlignment(Pos.CENTER);
         buttonBox.getChildren().addAll(buttons);
         return buttonBox;
     }

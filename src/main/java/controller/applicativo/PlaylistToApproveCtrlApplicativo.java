@@ -39,7 +39,7 @@ public class PlaylistToApproveCtrlApplicativo {
         List<PlaylistBean> playlistsBean = new ArrayList<>();
 
         for (Playlist p : playlists){
-            PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved());
+            PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
             playlistsBean.add(pB);
         }
 

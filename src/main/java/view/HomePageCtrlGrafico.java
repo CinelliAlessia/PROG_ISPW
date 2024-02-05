@@ -19,6 +19,8 @@ public class HomePageCtrlGrafico implements Initializable {
     @FXML
     private TableColumn<PlaylistBean, String> nameColumn;
     @FXML
+    private TableColumn<PlaylistBean, List<String>> genreColumn;
+    @FXML
     private TableColumn<PlaylistBean, String> authorColumn;
     @FXML
     private TableColumn<PlaylistBean, String> linkColumn;
@@ -48,6 +50,37 @@ public class HomePageCtrlGrafico implements Initializable {
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlistsApproved);
         playlistTable.setItems(playlistData);
 
+        // Configura la colonna "Generi musicali"
+        genreColumn.setCellFactory(col -> new TableCell<>() {
+            final Button button = new Button("Dettagli");
+
+            {
+                button.setOnAction(event -> {
+                    PlaylistBean playlistBean = getTableView().getItems().get(getIndex());
+                    openPopup(playlistBean);
+                });
+            }
+
+            @Override
+            protected void updateItem(List<String> genres, boolean empty) {
+                super.updateItem(genres, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                }
+            }
+        });
+
+    }
+
+
+
+    private void openPopup(PlaylistBean playlistBean) {
+        // Implementa qui la logica per aprire il popup
+        // Puoi usare FXMLLoader per caricare il file FXML del popup
+        // e quindi mostrare il popup con un nuovo Stage
+        // Puoi anche passare i dati della playlistBean al popup
     }
 
     public void setUserBean(UserBean user) {
@@ -56,6 +89,7 @@ public class HomePageCtrlGrafico implements Initializable {
         System.out.println();
         initialize();
     }
+
 
     public void initialize() {
         if(userBean == null){
@@ -67,9 +101,6 @@ public class HomePageCtrlGrafico implements Initializable {
             manager.setVisible(userBean.isSupervisor());
             addButton.setVisible(true);
         }
-
-
-
     }
 
     @FXML
