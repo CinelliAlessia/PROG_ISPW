@@ -76,8 +76,10 @@ public class UserDAOMySQL implements UserDAO {
         String email = "";
         String password = "";
         boolean supervisor = false;
+
         ResultSet resultSet = null;
         ResultSet resultSet2 = null;
+
         List<String> preferences = new ArrayList<>();
 
         try {
@@ -115,8 +117,11 @@ public class UserDAOMySQL implements UserDAO {
                 e.fillInStackTrace();
             }
 
+            System.out.println("Supervisore: " + supervisor);
+
             if(supervisor){
                 user = new Supervisor(username, email, password, preferences);
+                System.out.println("UserDao Supervisore");
             } else {
                 user = new User(username, email, password, preferences);
             }

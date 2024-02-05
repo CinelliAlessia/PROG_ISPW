@@ -14,9 +14,11 @@ public class LoginCtrlApplicativo {
      * L'email deve essere registrata
      * La password associata deve essere come quella inserita in fate di login
      * Il loginBean contiene il campo mail e il campo password*/
+    /** @return un booleano, per verificare la correttezza dell'operazione effettuata
+     * Effettua una Query per recuperare la password e confrontarla con quella inserita  */
     public boolean verificaCredenziali(LoginBean bean) {
         // Prendo il tipo di persistenza impostato nel file di configurazione
-     TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
 
         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
         UserDAO dao = persistenceType.createUserDAO();
@@ -40,6 +42,13 @@ public class LoginCtrlApplicativo {
         UserDAO dao = persistenceType.createUserDAO();
 
         User user = dao.loadUser(bean.getEmail());
-        return new UserBean(user.getUsername(),user.getEmail(),user.getPref(), user.isSupervisor());
+        System.out.println("Load User recuperato: " + user + " " + user.getEmail() + " " + user.isSupervisor());
+
+
+        if(user.isSupervisor()){
+            return new SupervisorBean(user.getUsername(),user.getEmail(),user.getPref());
+        } else {
+            return new UserBean(user.getUsername(),user.getEmail(),user.getPref());
+        }
     }
 }

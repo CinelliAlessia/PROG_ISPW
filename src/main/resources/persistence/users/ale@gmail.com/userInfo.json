@@ -3,8 +3,8 @@
   "email": "ale@gmail.com",
   "password": "ale",
   "pref": [
-    "Pop","Hip Hop"
+    "Pop",
+    "Indie"
   ],
-  "supervisor": false,
-  "registered": false
+  "supervisor": false
 }

@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 
 public class HomePageCtrlGrafico{
+
     @FXML
     private Button manager;
     @FXML
@@ -20,7 +21,8 @@ public class HomePageCtrlGrafico{
 
     public void setUserBean(UserBean user) {
         this.userBean = user;
-        System.out.println("HCG impostato user bean: " + userBean);
+        System.out.println("HCG impostato nel set user bean: " + userBean + " " + userBean.getEmail() + " " + userBean.isSupervisor());
+        System.out.println();
         initialize();
     }
 
@@ -28,10 +30,11 @@ public class HomePageCtrlGrafico{
         if(userBean == null){
             account.setText("Registrati");
             addButton.setVisible(false);
+            manager.setVisible(false);
         } else {
             account.setText(userBean.getUsername());
-            addButton.setVisible(true);
             manager.setVisible(userBean.isSupervisor());
+            addButton.setVisible(true);
         }
     }
 

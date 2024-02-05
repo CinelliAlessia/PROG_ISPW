@@ -6,17 +6,17 @@ public class UserBean {
     private String username;
     private String email;
     private List<String> preferences;
-    private boolean supervisor;
+
+    protected boolean supervisor = false;
 
     public UserBean() {
-        supervisor = false;
+
     }
 
-    public UserBean(String username, String email, List<String> preferences, boolean isSupervisor) {
+    public UserBean(String username, String email, List<String> preferences) {
         setUsername(username);
         setEmail(email);
         setPreferences(preferences);
-        supervisor = isSupervisor;
     }
 
     public void setEmail(String email) {
@@ -31,9 +31,6 @@ public class UserBean {
         this.preferences = preferences;
     }
 
-    public void setSupervisor() {
-        this.supervisor = true;
-    }
     public boolean isSupervisor() {
         return supervisor;
     }

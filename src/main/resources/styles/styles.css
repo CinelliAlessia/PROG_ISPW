@@ -8,20 +8,24 @@
 .button {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
     -fx-text-fill: white; /* Colore del testo bianco */
-    -fx-alignment: CENTER;
+    -fx-content-display: right;
+    -fx-alignment: center;
     -fx-font-size: 16px;
     -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
+
     -fx-pref-height: 40px; /* Regola l'altezza desiderata del bottone */
-    -fx-pref-width: 140px; /* Regola la larghezza desiderata del bottone */
-    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
-    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
+    -fx-pref-width: -1; /* Regola la larghezza desiderata del bottone */
+
+    -fx-min-width: 140px; /* Imposta la larghezza minima a use_computed_size */
+    -fx-min-height: 40px; /* Imposta l'altezza a use_computed_size */
 }
 
 #addButton {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
     -fx-text-fill: white; /* Colore del testo bianco */
     -fx-alignment: CENTER;
-    -fx-font-size: 16px;
+    -fx-text-alignment: CENTER;
+    -fx-font-size: 25px;
     -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
     -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
     -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
@@ -30,10 +34,6 @@
     -fx-background-radius: 50%;
     -fx-stroke: 50;
     -fx-border-radius: 50%;
-}
-
-#guest {
-    -fx-pref-width: 200px; /* Regola la larghezza desiderata del bottone */
 }
 
 /* Colore di sfondo per i campi di testo di input */
@@ -51,24 +51,53 @@
 
 /* TABLE VIEW */
 
-.table-view {
-    -fx-background-color: #F5F5F5; /* Sfondo delle righe */
-    -fx-color-label-visible: #000000;
+/* Stile generale per le colonne della tabella */
+#approveColumn .label,
+#nameColumn .label,
+#authorColumn .label,
+#linkColumn .label,
+.table-column {
+    -fx-text-fill: #333333;
+    -fx-font-size: 16px;
+    -fx-font-family: 'Arial';
+    -fx-text-alignment: CENTER;
+    -fx-alignment: CENTER;
 }
 
+/* Stile per tutti i bottoni all'interno delle celle della tabella */
+.table-cell .button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-min-width: 85px;
+    -fx-min-height: 40px;
+    -fx-text-alignment: CENTER;
+    -fx-alignment: CENTER;
+
+}
+
+/* Stile generale per le righe della tabella */
 .table-row-cell {
-    -fx-background-color: #FFFFFF; /* Sfondo delle righe */
-    -fx-text-fill: #000000; /* Testo delle righe */
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
 }
 
+/* Stile per le righe pari */
+.table-row-cell:even {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Stile per le righe dispari */
+.table-row-cell:odd {
+    -fx-background-color: #ffffff;
+}
+
+/* Stile per le righe selezionate */
 .table-row-cell:selected {
-    -fx-background-color: #c9c9c9; /* Sfondo delle righe */
     -fx-border-color: #1DB954;
 }
 
-.table-column {
-    -fx-text-fill: #000000; /* Testo delle colonne */
-}
 
 
 /* CHECK BOX */

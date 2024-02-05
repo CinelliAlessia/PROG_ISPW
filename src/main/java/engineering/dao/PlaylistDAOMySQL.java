@@ -49,6 +49,47 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         return result;
     }
 
+    /**
+     * @param playlist, utilizzato per il link per poter fare la retrieve
+     * @return playlist modificata, non serve creare una nuova istanza.
+     */
+    @Override
+    public Playlist approvePlaylist(Playlist playlist) {
+        Statement stmt = null;
+        Connection conn;
+        ResultSet rs = null;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            String playlistLink = playlist.getLink();
+            rs = QueryPlaylist.searchPlaylistLink(stmt, playlistLink); // Cerca in all_playlist
+
+            if (rs.next()) {
+                QueryPlaylist.approvePlaylistByLink(stmt, playlist.getLink()); // Rimuove in playlist_utente E in all_playlist
+                playlist.setApproved(true); // Non mi piace, non è responsabilità sua
+                rs.close();
+            }
+
+        } catch (SQLException e){
+            e.fillInStackTrace();
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+            } catch (SQLException e){
+                e.fillInStackTrace();
+            }
+
+        }
+        return playlist;
+    }
+
     public List<Playlist> retrivePlaylistByUsername(String username) {
         Statement stmt = null;
         Connection conn;
@@ -103,17 +144,17 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
      * @return la lista di tutte le playlist
      */
     @Override
-    public List<Playlist> retriveAllPlaylist() {
+    public List<Playlist> retriveAllPlaylistToApprove() {
         Statement stmt = null;
         Connection conn;
         List<Playlist> playlists = new ArrayList<>(); // Initialize the list here
-        ResultSet rs = null, rs2 = null;
+        ResultSet rs = null;
 
         try {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            rs = QueryPlaylist.retriveAllPlaylist(stmt);
+            rs = QueryPlaylist.retriveAllPlaylistToApprove(stmt);
             int i = 0;
 
             while (rs.next()) {
@@ -130,22 +171,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 List<String> genres = GenreManager.retriveGenre(rs);
                 playlist.setPlaylistGenre(genres);
                 playlists.add(playlist);
-
-                /*
-                rs2 = QueryPlaylist.retriveGenrePlaylistByLink(stmt, rs.getString("link"));
-
-                if (rs2.next()) {
-                    List<String> genres = GenreManager.retriveGenre(rs2);
-
-                    playlist.setUsername(rs2.getString("username"));
-                    playlist.setEmail(rs2.getString("email"));
-                    playlist.setPlaylistName(rs2.getString("nomePlaylist"));
-                    playlist.setPlaylistGenre(genres);
-                    playlists.add(playlist);
-                }
-                rs2.close();*/
             }
-            //rs.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -156,9 +182,6 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 }
                 if (rs != null){
                     rs.close();
-                }
-                if (rs2 != null){
-                    rs2.close();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -9,6 +9,9 @@ public interface PlaylistDAO {
     /** Inserisce una playlist in persistenza*/
     boolean insertPlaylist(Playlist playlist);
 
+    /** Non serve che crea una nuova istanza di Playlist*/
+    Playlist approvePlaylist(Playlist playlist);
+
     /** Elimina la playlist */
     void deletePlaylist(Playlist playlist);
 
@@ -21,5 +24,9 @@ public interface PlaylistDAO {
     /** Recupera tutte le playlist globali by username*/
     List<Playlist> retrivePlaylistByUsername(String username);
 
-    List<Playlist> retriveAllPlaylist();
+    List<Playlist> retriveAllPlaylistToApprove();
+
+
+
+
 }

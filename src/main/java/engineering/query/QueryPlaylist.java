@@ -123,8 +123,16 @@ public class QueryPlaylist {
         stmt.executeUpdate(sql);
     }
 
-    public static ResultSet retriveAllPlaylist(Statement stmt) throws SQLException {
-        String sql = String.format(Queries.SELECT_ALL_PLAYLIST);
+    public static ResultSet retriveAllPlaylistToApprove(Statement stmt) throws SQLException {
+        String sql = String.format(Queries.SELECT_PLAYLIST_TO_APPROVE,0);
         return stmt.executeQuery(sql);
+    }
+
+    public static void approvePlaylistByLink(Statement stmt, String link) throws SQLException {
+        String sql = String.format(Queries.UPDATE_APPROVE_PLAYLIST,1,link);
+        stmt.executeUpdate(sql);
+
+        sql = String.format(Queries.UPDATE_APPROVE_PLAYLIST_IN_ALL,1,link);
+        stmt.executeUpdate(sql);
     }
 }

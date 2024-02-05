@@ -25,7 +25,7 @@ public class RegistrazioneCtrlApplicativo {
         UserBean userBean = null;
         // Invio utente model al DAO
         if(!dao.insertUser(user)){
-            userBean = new UserBean(user.getUsername(),user.getEmail(),user.getPref(),user.isSupervisor());
+            userBean = new UserBean(user.getUsername(),user.getEmail(),user.getPref());
         }
         return userBean;
     }

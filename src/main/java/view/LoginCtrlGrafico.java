@@ -19,6 +19,13 @@ public class LoginCtrlGrafico {
     @FXML
     private TextField username;
 
+    /** Metodo utilizzato per l'accesso all'applicazione
+     * Vengono effettuati i primi controlli sui parametri inseriti
+     * Una prima Query per prendere la password associata alla mail e confrontarla con quella inserita
+     * Una seconda Query per recuperare tutta l'istanza di userBean
+
+     * Ottimizzazioni: Una sola query, se la password è corretta recupero direttamente lo user Bean senza chiedere
+     * */
     @FXML
     protected void onLoginClick(ActionEvent event) throws IOException {
 
@@ -31,6 +38,7 @@ public class LoginCtrlGrafico {
             errorLabel.isVisible();
             errorLabel.setText("Email non valida");
         } else {
+
             /* ------ Creo la bean e imposto i parametri ------ */
             LoginBean loginBean = new LoginBean(email,pass);
 
@@ -42,14 +50,12 @@ public class LoginCtrlGrafico {
                 System.out.println("CREDENZIALI CORRETTE -> Recupero l'istanza di bean ");
 
                 UserBean userBean = loginCtrlApp.loadUser(loginBean);
-                //################### Inserire il caricamento da FS ############
 
-                if(userBean != null){
-                    //userBean.setRegistered(); // Indica che l'utente con cui sto accedendo è registrato
-                    System.out.println("Utente registrato, ho recuperato tutto lo user bean");
+                if(userBean != null){ // In realtà non sarà mai null perché ho già fatto una query andata a buon fine
 
                     /* --------------- Mostro la home page -------------- */
                     SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
+                    System.out.println("Utente registrato, ho recuperato tutto lo user bean");
 
                 }
             } else { /* --------------- Credenziali non valide --------------*/
@@ -63,6 +69,7 @@ public class LoginCtrlGrafico {
         //Push della scena corrente nello stack delle scene e show() della scena seguente
         SceneController.getInstance().goToScene(event, FxmlFileName.REGISTRATION_FXML);
     }
+
     @FXML
     protected void onGuestClick(ActionEvent event) throws IOException {
         SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);

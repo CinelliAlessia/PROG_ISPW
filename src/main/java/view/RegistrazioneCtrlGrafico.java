@@ -116,7 +116,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
         } else if (!checkMailCorrectness(userEmail)) {
             showError("EMAIL NON VALIDA");
         } else {
-            return new RegistrationBean(userName, userEmail,userPassword,preferences,false);
+            return new RegistrationBean(userName, userEmail,userPassword,preferences);
         }
 
         return null;

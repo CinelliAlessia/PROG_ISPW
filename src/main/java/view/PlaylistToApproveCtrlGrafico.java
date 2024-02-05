@@ -13,6 +13,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 import java.net.URL;
 import java.util.List;
@@ -21,8 +22,6 @@ import java.util.ResourceBundle;
 public class PlaylistToApproveCtrlGrafico implements Initializable {
 
     @FXML
-    private TableColumn<PlaylistBean, Boolean> approveColumn;
-    @FXML
     private TableView<PlaylistBean> playlistTable;
     @FXML
     private TableColumn<PlaylistBean, String> nameColumn;
@@ -30,28 +29,29 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
     private TableColumn<PlaylistBean, String> authorColumn;
     @FXML
     private TableColumn<PlaylistBean, String> linkColumn;
+    @FXML
+    private TableColumn<PlaylistBean, Boolean> approveColumn;
 
+    private List<PlaylistBean> allPlaylist = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Inizio gestione playlist: ");
 
-        // Recupera tutte le playlist
-        PlaylistToApproveCtrlApplicativo allPlaylistController = new PlaylistToApproveCtrlApplicativo();
-        List<PlaylistBean> allPlaylist = allPlaylistController.retriveAllPlaylist();
-
-        // Collega i dati alle colonne della TableView
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("playlistName"));
-        authorColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
-        linkColumn.setCellValueFactory(new PropertyValueFactory<>("link"));
-
-        // Aggiungi la colonna con bottoni "Approve"
-        approveColumn.setCellFactory(param -> new TableCell<PlaylistBean, Boolean>() {
+        // Aggiungi la colonna con bottoni "Approve" o "Reject"
+        approveColumn.setCellFactory(param -> new TableCell<>() {
             private final Button approveButton = new Button("Approve");
+            private final Button rejectButton = new Button("Reject");
+
             {
                 approveButton.setOnAction(event -> {
                     PlaylistBean playlist = getTableView().getItems().get(getIndex());
-                    handleApproveButton(playlist);
+                    handleApproveButton(playlist, true);
+                });
+
+                rejectButton.setOnAction(event -> {
+                    PlaylistBean playlist = getTableView().getItems().get(getIndex());
+                    handleApproveButton(playlist, false);
                 });
             }
 
@@ -61,24 +61,47 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    setGraphic(approveButton);
+                    setGraphic(createButtonBox(approveButton, rejectButton));
                 }
             }
         });
+
+        // Recupera tutte le playlist
+        PlaylistToApproveCtrlApplicativo allPlaylistController = new PlaylistToApproveCtrlApplicativo();
+        allPlaylist = allPlaylistController.retriveAllPlaylist();
+
+        // Collega i dati alle colonne della TableView
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("playlistName"));
+        authorColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+        linkColumn.setCellValueFactory(new PropertyValueFactory<>("link"));
 
         // Aggiungi le playlist alla TableView
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(allPlaylist);
         playlistTable.setItems(playlistData);
     }
 
-    private void handleApproveButton(PlaylistBean playlist) {
-        // Logica per gestire l'approvazione della playlist
-        System.out.println("Approvazione della playlist: " + playlist.getPlaylistName());
-        // Puoi implementare qui la logica per approvare la playlist
+    private void handleApproveButton(PlaylistBean playlist, boolean approve) {
+        // Logica per gestire l'approvazione o il rifiuto della playlist
+        if (approve) {
+            System.out.println("Approvazione della playlist: " + playlist.getPlaylistName());
+            // Implementa la logica per l'approvazione della playlist
+
+        } else {
+            System.out.println("Rifiuto della playlist: " + playlist.getPlaylistName());
+            // Implementa la logica per il rifiuto della playlist con notifica all'utente
+        }
     }
 
+            // Approva Playlist
+            PlaylistToApproveCtrlApplicativo playlistToApproveCtrlApplicativo = new PlaylistToApproveCtrlApplicativo();
+            playlistToApproveCtrlApplicativo.approvePlaylist(playlist);
+            allPlaylist.remove(playlist);
 
-
+    private HBox createButtonBox(Button... buttons) {
+        HBox buttonBox = new HBox(5); // 5 è lo spazio tra i bottoni
+        buttonBox.getChildren().addAll(buttons);
+        return buttonBox;
+    }
     @FXML
     public void onBackClick(ActionEvent event) {
         SceneController.getInstance().goBack(event);

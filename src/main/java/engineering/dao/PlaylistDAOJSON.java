@@ -64,14 +64,27 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 Files.copy(playlistPath, allPlaylistsPath, StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("Playlist inserita con successo!");
                 result = true;
+
             } else {
                 System.out.println("Una playlist con questo nome esiste già per questo utente.");
             }
+
         } catch (IOException e) {
             e.fillInStackTrace();
+            result = false;
         }
         return result;
     }
+
+    /**
+     * @param playlist
+     * @return
+     */
+    @Override
+    public Playlist approvePlaylist(Playlist playlist) {
+        return null;
+    }
+
 
     private String formatPlaylistFileName(String playlistName) {
         // Sostituisci gli spazi con underscore e convergi tutto in minuscolo
@@ -159,8 +172,11 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         return Collections.emptyList();
     }
 
+    /**
+     * @return null
+     */
     @Override
-    public List<Playlist> retriveAllPlaylist() {
+    public List<Playlist> retriveAllPlaylistToApprove() {
         return Collections.emptyList();
     }
 
