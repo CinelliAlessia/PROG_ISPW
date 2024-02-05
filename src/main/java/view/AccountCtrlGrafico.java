@@ -90,13 +90,8 @@ public class AccountCtrlGrafico implements Initializable {
         // TODO
     }
 
-    /** Un tasto visibile solo dal supervisor, utilizzato per accettare playlist*/
-    public void approvePlaylist(){
-        // TODO
-    }
-
     @FXML
-    public void onSaveClick(ActionEvent event){
+    public void onSaveClick(ActionEvent event) throws IOException {
 
         // Recupero preferenze aggiornate
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
@@ -111,6 +106,8 @@ public class AccountCtrlGrafico implements Initializable {
         // Devo aggiornare il bean? Di tutto lo stack però,
         // non va bene, tutti dovrebbero recuperare informazioni per il bean dalla persistenza
         // ##### Mostro pop-up ######
+
+        SceneController.getInstance().popUp(event);
 
     }
     @FXML

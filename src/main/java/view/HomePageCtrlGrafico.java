@@ -1,15 +1,27 @@
 package view;
 
-import engineering.bean.UserBean;
-import engineering.others.FxmlFileName;
-import engineering.others.SceneController;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import controller.applicativo.HomePageCtrlApplicativo;
+import engineering.bean.*;
+import engineering.others.*;
+import javafx.collections.*;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
-public class HomePageCtrlGrafico{
+public class HomePageCtrlGrafico implements Initializable {
 
+    @FXML
+    private TableView<PlaylistBean> playlistTable;
+    @FXML
+    private TableColumn<PlaylistBean, String> nameColumn;
+    @FXML
+    private TableColumn<PlaylistBean, String> authorColumn;
+    @FXML
+    private TableColumn<PlaylistBean, String> linkColumn;
     @FXML
     private Button manager;
     @FXML
@@ -18,6 +30,25 @@ public class HomePageCtrlGrafico{
     private Button addButton;
 
     private UserBean userBean;
+
+    private List<PlaylistBean> playlistsApproved = null;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Recupera tutte le playlist
+        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
+        playlistsApproved = homePageController.retrivePlaylistsApproved();
+
+        // Collega i dati alle colonne della TableView
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("playlistName"));
+        authorColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+        linkColumn.setCellValueFactory(new PropertyValueFactory<>("link"));
+
+        // Aggiungi le playlist alla TableView
+        ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlistsApproved);
+        playlistTable.setItems(playlistData);
+
+    }
 
     public void setUserBean(UserBean user) {
         this.userBean = user;
@@ -36,6 +67,9 @@ public class HomePageCtrlGrafico{
             manager.setVisible(userBean.isSupervisor());
             addButton.setVisible(true);
         }
+
+
+
     }
 
     @FXML
@@ -56,4 +90,6 @@ public class HomePageCtrlGrafico{
     public void onManagerClick(ActionEvent event) throws IOException {
         SceneController.getInstance().goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML);
     }
+
+
 }

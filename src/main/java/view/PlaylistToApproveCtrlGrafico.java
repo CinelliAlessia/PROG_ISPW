@@ -1,15 +1,14 @@
 package view;
 
 import controller.applicativo.PlaylistToApproveCtrlApplicativo;
-import engineering.bean.PlaylistBean;
-import engineering.others.SceneController;
+import engineering.bean.*;
+import engineering.others.*;
 import javafx.collections.*;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.event.*;
+import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 import java.net.URL;
 import java.util.*;
 

@@ -71,16 +71,10 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
         } catch (IOException e) {
             e.fillInStackTrace();
-            result = false;
         }
         return result;
     }
 
-    /**
-     * @param playlist
-     * @return
-     */
-    @Override
     public Playlist approvePlaylist(Playlist playlist) {
         return null;
     }
@@ -133,7 +127,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         }
     }
 
-    public List<Playlist> retrievePlaylistsByMail(String mail) {
+    public List<Playlist> retrievePlaylistsByEmail(String mail) {
         List<Playlist> playlistList = new ArrayList<>();
 
         // Costruisco il percorso della directory dell'utente
@@ -146,7 +140,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                         .forEach(file -> {
                             try {
                                 String content = Files.readString(file);
-                                // Usa Gson per deserializzare il contenuto JSON e ottenere la playlist
+                                // Usa Gson per de-serializzare il contenuto JSON e ottenere la playlist
                                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                                 Playlist playlist = gson.fromJson(content, Playlist.class);
                                 // Aggiungi la playlist alla lista
@@ -164,11 +158,11 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         return playlistList;
     }
 
-    public List<Playlist> retrievePlaylistByGenre(String genre) {
-        return Collections.emptyList();
+    public List<Playlist> retrievePlaylistsByGenre(List<String> genres) {
+        return null;
     }
 
-    public List<Playlist> retrivePlaylistByUsername(String username) {
+    public List<Playlist> retrievePlaylistsByGenre(String genre) {
         return Collections.emptyList();
     }
 
@@ -176,8 +170,13 @@ public class PlaylistDAOJSON implements PlaylistDAO {
      * @return null
      */
     @Override
-    public List<Playlist> retriveAllPlaylistToApprove() {
+    public List<Playlist> retrievePendingPlaylists() {
         return Collections.emptyList();
+    }
+
+    @Override
+    public List<Playlist> retrieveApprovedPlaylists() {
+        return null;
     }
 
     public List<Playlist> retrivePlaylistUser() {

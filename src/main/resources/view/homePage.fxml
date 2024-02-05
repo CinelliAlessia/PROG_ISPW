@@ -33,7 +33,7 @@
                 <AnchorPane AnchorPane.bottomAnchor="75.0">
 
                     <!-- Tabella Playlist -->
-                    <TableView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                    <TableView fx:id="playlistTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                                AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                         <columns>
                             <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Nome Playlist"/>

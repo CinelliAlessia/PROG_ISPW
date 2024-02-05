@@ -1,7 +1,5 @@
 package engineering.bean;
 
-import model.User;
-
 import java.util.List;
 
 public class SupervisorBean extends UserBean {

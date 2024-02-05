@@ -16,17 +16,13 @@ public interface PlaylistDAO {
     void deletePlaylist(Playlist playlist);
 
     /** Recupera tutte le playlist dell'utente dall'email */
-    List<Playlist> retrievePlaylistsByMail(String mail);
+    List<Playlist> retrievePlaylistsByEmail(String email);
 
-    /** Recupera tutte le playlist globali per genere */
-    List<Playlist> retrievePlaylistByGenre(String genre);
+    /** Recupera tutte le playlist globali per genere  */
+    List<Playlist> retrievePlaylistsByGenre(List<String> genres);
 
-    /** Recupera tutte le playlist globali by username*/
-    List<Playlist> retrivePlaylistByUsername(String username);
-
-    List<Playlist> retriveAllPlaylistToApprove();
-
-
-
+    List<Playlist> retrievePendingPlaylists();
+    List<Playlist> retrieveApprovedPlaylists();
 
 }
+

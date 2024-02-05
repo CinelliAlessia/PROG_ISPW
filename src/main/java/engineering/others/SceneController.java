@@ -10,7 +10,7 @@ import java.lang.reflect.*;
 import java.util.*;
 
 /** SINGLETON */
-//############### VERIFICARE SE E' GIUSTO CHE SIA SINGLETON ###################
+//############### VERIFICARE SE E' GIUSTO CHE SIA SINGLETON -----> NO SBAGLIATO ###################
 public class SceneController {
     private static SceneController sceneController = null;
 
@@ -73,5 +73,22 @@ public class SceneController {
             e.fillInStackTrace(); // Trattamento dell'eccezione
         }
     }
+
+    public void popUp(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/saveGenrePopUp.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+        Stage popupStage = new Stage();
+        popupStage.initOwner(stage); // Imposta la finestra principale come proprietaria del popup
+        popupStage.initModality(Modality.APPLICATION_MODAL); // Blocca l'interazione con la finestra principale
+
+        Scene scene = new Scene(root);
+        popupStage.setScene(scene);
+
+        popupStage.showAndWait(); // Mostra il popup e attendi che venga chiuso prima di continuare
+    }
+
 }
 

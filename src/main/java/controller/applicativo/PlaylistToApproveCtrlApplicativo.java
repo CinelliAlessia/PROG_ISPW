@@ -3,9 +3,7 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import model.Playlist;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 

@@ -1,14 +1,13 @@
 package view;
 
 import controller.applicativo.RegistrazioneCtrlApplicativo;
-import engineering.bean.RegistrationBean;
-import engineering.bean.UserBean;
+import engineering.bean.*;
 import engineering.others.*;
 import org.apache.commons.validator.routines.EmailValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
