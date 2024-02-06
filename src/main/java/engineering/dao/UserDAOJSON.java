@@ -15,12 +15,21 @@ import java.util.stream.Stream;
 
 public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
-    @Override
+
+    /**
+     *  Aggiunge un utente al file system (Crea una cartella nominata come l'email dell'utente, e crea un file userIfo.json
+     */
     public boolean insertUser(User user) {
-        // Utilizzato per aggiungere un utente al file system
         // Costruisci il percorso della directory dell'utente (presumibilmente basandoti sulla mail come nome utente)
-        Path userDirectory = Paths.get(BASE_DIRECTORY, user.getEmail() );
-        boolean result;
+        Path userDirectory = Paths.get(BASE_DIRECTORY, user.getEmail());
+        boolean result = true;
+
+        // Verifica se l'utente esiste già
+        if (userExists(user.getEmail())) {
+            System.out.println("Utente con la stessa email esiste già. Inserimento non riuscito.");
+            return false;
+        }
+
         try {
             // Crea la directory con il nome dell'utente se non esiste
             Files.createDirectories(userDirectory);
@@ -35,15 +44,20 @@ public class UserDAOJSON implements UserDAO {
             // Scrivi il JSON nel file userInfo.json
             Files.writeString(userInfoFile, json);
 
-            result = true;
-            System.out.println("Utente inserito con successo!");
+            System.out.println("Utente inserito con successo (insert User DAO)!");
         } catch (IOException e) {
             e.fillInStackTrace();
             result = false;
         }
         return result;
     }
+    private boolean userExists(String userEmail) {
+        // Costruisci il percorso della directory dell'utente basandoti sulla mail come nome utente
+        Path userDirectory = Paths.get(BASE_DIRECTORY, userEmail);
 
+        // Verifica se la directory dell'utente esiste
+        return Files.exists(userDirectory);
+    }
     @Override
     public User loadUser(String userEmail) {
         // Costruisci il percorso del file userInfo.json per l'utente

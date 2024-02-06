@@ -12,7 +12,6 @@ public class UserBean {
     public UserBean() {
 
     }
-
     public UserBean(String username, String email, List<String> preferences) {
         setUsername(username);
         setEmail(email);

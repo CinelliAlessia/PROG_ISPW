@@ -85,3 +85,5 @@ l
 <src/main/java/engineering/pattern/observer/PlaylistList.java,2\c\2cd8ae64c65d1990528ef727303da715fb122c03
 X
 (src/main/java/start/MainApplication.java,a\2\a23b3b2e98b3304dca3ade7086651a1c2310b498
+k
+;src/main/java/engineering/exceptions/EmailAlreadyInUse.java,c\b\cb1b1a38a949477efbe745e5d2a25e1166fa8c2c

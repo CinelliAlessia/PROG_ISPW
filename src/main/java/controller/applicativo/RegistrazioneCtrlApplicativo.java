@@ -16,19 +16,15 @@ public class RegistrazioneCtrlApplicativo {
         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
         UserDAO dao = persistenceType.createUserDAO();
 
-        // TODO Verifica che non esista già un utente con stessa mail e nome utente
-        // Alessia fatto
-
-        // Crea l'utente (model)
+        // Crea l'utente (model) per inviarlo al DAO
         User user = new User(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
-
+        // Creo bean per la risposta da inviare al ctrl Grafico
         UserBean userBean = null;
-        // Invio utente model al DAO
-        if(!dao.insertUser(user)){
+
+        // Invio utente (model) al DAO e verifico se l'operazione di aggiunta utente è andata a buon fine
+        if(dao.insertUser(user)){
             userBean = new UserBean(user.getUsername(),user.getEmail(),user.getPref());
         }
         return userBean;
     }
-
-
 }

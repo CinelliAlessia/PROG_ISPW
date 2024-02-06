@@ -74,9 +74,13 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     }
 
     public Playlist approvePlaylist(Playlist playlist) {
-        boolean updatedInUserFolder = updatePlaylistApprovalStatus(playlist, ConfigurationJSON.USER_BASE_DIRECTORY);
-        boolean updatedInPendingFolder = updatePlaylistApprovalStatus(playlist, ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY);
+        // Passo 1: Aggiornare il campo nella cartella dell'utente proprietario della Playlist
+        boolean updatedInUserFolder = updatePlaylistApprovedField(playlist, ConfigurationJSON.USER_BASE_DIRECTORY);
+        // Passo 2: Aggiornare il campo nella cartella delle Playlist in attesa di approvazione
+        boolean updatedInPendingFolder = updatePlaylistApprovedField(playlist, ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY);
 
+        // Passo 3: Copiare file della Playlist nella cartella delle playlist approvate
+        //          Eliminare file della Playlist nella cartella delle playlist in attesa
         if (updatedInUserFolder && updatedInPendingFolder) {
             copyAndDeletePlaylist(playlist);
             playlist.setApproved(true);
@@ -85,33 +89,35 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         }
         return null;
     }
-
-    private boolean updatePlaylistApprovalStatus(Playlist playlist, String folderPath) {
+    /**
+     *  Imposta il campo Approved a true all'interno del file della playlist
+     */
+    private boolean updatePlaylistApprovedField(Playlist playlist, String folderPath) {
         String fileName;
         java.nio.file.Path playlistPath;
         if (folderPath.equals(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY) ||
                 folderPath.equals(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY)) {
-            fileName = formatPlaylistFileNameWithUUID(formatPlaylistFileName(playlist.getPlaylistName()), playlist.getId());
+            fileName = addUuidToPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()), playlist.getId());
             playlistPath = Paths.get(folderPath,fileName + ConfigurationJSON.FILE_EXTENCTION);
         } else {
             fileName = formatPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()));
             playlistPath = Paths.get(folderPath, playlist.getEmail(),fileName + ConfigurationJSON.FILE_EXTENCTION);
         }
-
         System.out.println(playlistPath);
+        //################# Possibile duplicazione da evitare ################################
         if (Files.exists(playlistPath)) {
             try {
                 // Leggi il contenuto del file
                 String content = Files.readString(playlistPath);
 
-                // Usa Gson per deserializzare il contenuto JSON e ottenere la playlist
+                // ########## Usa Gson per deserializzare il contenuto JSON e ottenere la playlist
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 Playlist updatedPlaylist = gson.fromJson(content, Playlist.class);
 
                 // Aggiorna lo stato "approved"
                 updatedPlaylist.setApproved(true);
 
-                // Converti l'oggetto Playlist aggiornato in JSON
+                // ########### Converti l'oggetto Playlist aggiornato in JSON
                 String updatedJson = gson.toJson(updatedPlaylist);
 
                 // Sovrascrivi il file con le informazioni aggiornate
@@ -127,42 +133,38 @@ public class PlaylistDAOJSON implements PlaylistDAO {
             return false;
         }
     }
-
+    private String addUuidToPlaylistFileName(String playlistName, String uuid) {
+        // Sostituisci gli spazi con underscore, convergi tutto in minuscolo e aggiungi UUID tra parentesi quadre
+        return formatPlaylistFileName(playlistName) + "[" + uuid + "]";
+    }
+    private String formatPlaylistFileName(String playlistName) {
+        // Sostituisci gli spazi con underscore e convergi tutto in minuscolo
+        return playlistName.replace(" ", "_").toLowerCase();
+    }
     private void copyAndDeletePlaylist(Playlist playlist) {
-        String fileNameWithUUID = formatPlaylistFileNameWithUUID(formatPlaylistFileName(playlist.getPlaylistName()), playlist.getId());
+        String fileNameWithUUID = addUuidToPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()), playlist.getId());
         java.nio.file.Path sourcePath = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY, fileNameWithUUID + ConfigurationJSON.FILE_EXTENCTION);
         java.nio.file.Path destinationPath = Paths.get(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY, fileNameWithUUID + ConfigurationJSON.FILE_EXTENCTION);
 
         try {
-            System.out.println("  PROVAAAA  ");
             Files.copy(sourcePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
-            System.out.println(sourcePath + " " + destinationPath);
-            Files.deleteIfExists(sourcePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private String formatPlaylistFileNameWithUUID(String playlistName, String uuid) {
-        // Sostituisci gli spazi con underscore, convergi tutto in minuscolo e aggiungi UUID tra parentesi quadre
-        return formatPlaylistFileName(playlistName) + "[" + uuid + "]";
-    }
-
-    // Metodo per eliminare il file dalla cartella "pendingPlaylist"
-    private void deletePlaylistFromPendingFolder(Playlist playlist) {
-
-        java.nio.file.Path pendingPlaylistPath = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY, formatPlaylistFileNameWithUUID(playlist.getPlaylistName(),playlist.getId()) + ConfigurationJSON.FILE_EXTENCTION);
-
-        try {
-            Files.deleteIfExists(pendingPlaylistPath);
+            deletePlaylistFromFolder(sourcePath);
         } catch (IOException e) {
             e.fillInStackTrace();
         }
     }
 
-    private String formatPlaylistFileName(String playlistName) {
-        // Sostituisci gli spazi con underscore e convergi tutto in minuscolo
-        return playlistName.replace(" ", "_").toLowerCase();
+    /**
+     * Per eliminare il file della Playlist da una cartella
+     */
+    private boolean deletePlaylistFromFolder(java.nio.file.Path playlistPath) {
+        try {
+            Files.deleteIfExists(playlistPath);
+            return true; // Ritorna true se l'eliminazione ha avuto successo
+        } catch (IOException e) {
+            e.fillInStackTrace();
+            return false; // Ritorna false se si verifica un'eccezione durante l'eliminazione
+        }
     }
 
     /**
@@ -172,40 +174,37 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     public void deletePlaylist(Playlist playlist) {
         // Costruisco il percorso del file playlist.json per l'utente
         java.nio.file.Path userDirectory = Paths.get(ConfigurationJSON.USER_BASE_DIRECTORY, playlist.getEmail());
-        String fileExtension = ".json";
-        try {
-            // Costruisco il percorso per la playlist SENZA uuid per la cartella dell'utente
-            String playlistFileName = formatPlaylistFileName(playlist.getPlaylistName());
-            Path playlistPath = userDirectory.resolve(playlistFileName + fileExtension);
+        // Costruisco il percorso per la playlist SENZA uuid per la cartella dell'utente
+        String playlistFileName = formatPlaylistFileName(playlist.getPlaylistName());
+        Path playlistPath = userDirectory.resolve(playlistFileName + ConfigurationJSON.FILE_EXTENCTION);
 
-            // Verifica se il file della playlist esiste per l'utente
-            if (Files.exists(playlistPath)) {
-                // Elimina il file della playlist dall'utente
-                Files.deleteIfExists(playlistPath);
+        // Elimina il file della playlist dall'utente
+        boolean deletedFromUserFolder = deletePlaylistFromFolder(playlistPath);
 
-                //  Nome del file con UUID della playlist
-                String uuidPlaylistFileName = playlistFileName + "[" + playlist.getId() + "]";
+        // Nome del file con UUID della playlist
+        String uuidPlaylistFileName = playlistFileName + "[" + playlist.getId() + "]";
 
-                // Verifica se la playlist è approvata o meno
-                java.nio.file.Path allPlaylistsPath;
+        // Verifica se la playlist è approvata o meno
+        Path allPlaylistsPath;
 
-                if (playlist.getApproved()) {
-                    // Se la playlist è approvata, elimina il file dalla cartella delle playlist approvate
-                    allPlaylistsPath = Paths.get(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY, uuidPlaylistFileName + fileExtension);
-                } else {
-                    // Altrimenti, elimina il file dalla cartella delle playlist non approvate
-                    allPlaylistsPath = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY, uuidPlaylistFileName + fileExtension);
-                }
+        if (playlist.getApproved()) {
+            // Se la playlist è approvata, elimina il file dalla cartella delle playlist approvate
+            allPlaylistsPath = Paths.get(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY, uuidPlaylistFileName + ConfigurationJSON.FILE_EXTENCTION);
+        } else {
+            // Altrimenti, elimina il file dalla cartella delle playlist non approvate
+            allPlaylistsPath = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY, uuidPlaylistFileName + ConfigurationJSON.FILE_EXTENCTION);
+        }
 
-                Files.deleteIfExists(allPlaylistsPath);
-                System.out.println("Playlist eliminata con successo!");
-            } else {
-                System.out.println("La playlist non esiste per questo utente.");
-            }
-        } catch (IOException e) {
-            e.fillInStackTrace();
+        // Elimina il file dalla cartella globale delle playlist
+        boolean deletedFromGlobalFolder = deletePlaylistFromFolder(allPlaylistsPath);
+
+        if (deletedFromUserFolder && deletedFromGlobalFolder) {
+            System.out.println("Playlist eliminata con successo!");
+        } else {
+            System.out.println("Errore durante l'eliminazione della playlist.");
         }
     }
+
     public List<Playlist> retrievePlaylistsByEmail(String mail) {
         List<Playlist> playlistList = new ArrayList<>();
 
@@ -221,6 +220,8 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
         return playlistList;
     }
+
+    //############################# DA FARE ###################
     public List<Playlist> retrievePlaylistsByGenre(List<String> genres) {
         return Collections.emptyList();
     }

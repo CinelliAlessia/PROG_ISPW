@@ -4,25 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Update code Smells">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/1[c30676e9-85e2-478c-ac48-1600cfe981cc].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/2[9cb9ad7e-5237-4239-9fe3-66c5186e7854].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="approve playlist fatto con json: da migliorare duplicazione codice">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_01_2024_15_56__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/ConfigurationJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/ConfigurationJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/all_playlists/prova3[116e7bc0-6f49-4e4f-8cc7-c666b854bd9d].json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/3[9237ff75-74e2-4dd6-8436-baa25faeccae].json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/prova[b488c8d8-2915-417d-8991-f644751ea6a8].json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/prova.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/prova.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/prova3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aleale@gmail.com/userInfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/alessia@gmail.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/1[c30676e9-85e2-478c-ac48-1600cfe981cc].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/2[9cb9ad7e-5237-4239-9fe3-66c5186e7854].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/3[9237ff75-74e2-4dd6-8436-baa25faeccae].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/3.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,14 +209,7 @@
       <workItem from="1707119992525" duration="3007000" />
       <workItem from="1707138653024" duration="3165000" />
       <workItem from="1707141876665" duration="9657000" />
-    </task>
-    <task id="LOCAL-00007" summary="Update">
-      <option name="closed" value="true" />
-      <created>1706183654204</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1706183654204</updated>
+      <workItem from="1707208299461" duration="6900000" />
     </task>
     <task id="LOCAL-00008" summary="Aggiunta al database delle preferenze musicali">
       <option name="closed" value="true" />
@@ -606,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707146595737</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="approve playlist fatto con json: da migliorare duplicazione codice">
+      <option name="closed" value="true" />
+      <created>1707208469636</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1707208469638</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +622,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update, reg_CA ha un errore in corso di risoluzione." />
     <MESSAGE value="Aggiornamento view account.fxml&#10;aggiunta possibilità di retrive User dal DB" />
     <MESSAGE value="Update with error" />
     <MESSAGE value="Risolti errori per il load dell'user bean" />
@@ -650,7 +646,8 @@
     <MESSAGE value="Aggiunta base approvazione playlist" />
     <MESSAGE value="Update" />
     <MESSAGE value="Update code Smells" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update code Smells" />
+    <MESSAGE value="approve playlist fatto con json: da migliorare duplicazione codice" />
+    <option name="LAST_COMMIT_MESSAGE" value="approve playlist fatto con json: da migliorare duplicazione codice" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
