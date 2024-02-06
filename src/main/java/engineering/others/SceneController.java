@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
-import view.SaveGenrePopUp;
+import view.TextPopUp;
 
 import java.io.IOException;
 import java.lang.reflect.*;
@@ -81,11 +81,11 @@ public class SceneController {
     }
 
     public void popUp(ActionEvent event, String text) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/saveGenrePopUp.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/textPopUp.fxml"));
         Parent root = loader.load();
 
         // Ottieni l'istanza del controller
-        SaveGenrePopUp controller = loader.getController();
+        TextPopUp controller = loader.getController();
 
         // Utilizza il controller per chiamare la funzione setText
         controller.setText(text);

@@ -5,7 +5,7 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
 
-public class SaveGenrePopUp {
+public class TextPopUp {
     @FXML
     private Label adviceText;
     // Utilizzato per impostare il testo nel pop-up in caso di riuso di questa classe per altri avvisi

@@ -85,8 +85,13 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
             // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
-            // SceneController.getInstance().popUp(event);
-
+            SceneController.getInstance().goBack(event);
+            if(approved){
+                SceneController.getInstance().popUp(event,MessageString.ADDED_PLAYLIST);
+            }
+            else{
+                SceneController.getInstance().popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
+            }
             System.out.println("PLAYLIST AGGIUNTA");
 
         } else {

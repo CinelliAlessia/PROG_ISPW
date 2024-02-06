@@ -87,3 +87,13 @@ X
 (src/main/java/start/MainApplication.java,a\2\a23b3b2e98b3304dca3ade7086651a1c2310b498
 k
 ;src/main/java/engineering/exceptions/EmailAlreadyInUse.java,c\b\cb1b1a38a949477efbe745e5d2a25e1166fa8c2c
+Q
+!src/main/java/view/textPopUp.java,3\9\39697c4d0d6e28c44e92af3b9c4530f564c3a930
+Q
+!src/main/java/view/TextPopUp.java,4\3\4379edea085bc368e46a7e052366a7ca07b0590e
+_
+/src/main/java/engineering/dao/UserDAOJSON2.java,9\d\9d1ffc1eaac0aa0836172e780225abe7a5b6cbd8
+_
+/src/main/java/engineering/dao/UserDAOJSON3.java,c\e\ce6e35b78660872e2e540dd20cd1b0fd802ff3aa
+c
+3src/main/java/engineering/others/MessageString.java,5\c\5c072bbdcf347a4e71e92868599291f888b00322

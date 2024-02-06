@@ -127,8 +127,9 @@ public class UserDAOMySQL implements UserDAO {
         return user;
     }
 
-    public void retrieveUserByUsername(String userName) {
+    public User retrieveUserByUsername(String userName) {
         // TODO -> LA FACCIO QUANDO SERVE
+        return null;
     }
 
     public String getPasswordByEmail(String email) {

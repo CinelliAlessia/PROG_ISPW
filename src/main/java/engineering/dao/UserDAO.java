@@ -14,7 +14,7 @@ public interface UserDAO {
     User loadUser(String userEmail);
 
     /** Retrive delle informazioni di un utente dalla persistenza, ottenuta dall'username che abbiamo detto essere unico */
-    void retrieveUserByUsername(String userName);
+    User retrieveUserByUsername(String userName);
 
     /** Ottiene la password associata all'email */
     String getPasswordByEmail(String email);

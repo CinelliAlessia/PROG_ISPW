@@ -20,7 +20,7 @@ public enum TypesOfPersistenceLayer {
     JSON {
         @Override
         public UserDAO createUserDAO() {
-            return new UserDAOJSON();
+            return new UserDAOJSON3();
         }
         @Override
         public PlaylistDAO createPlaylistDAO() {

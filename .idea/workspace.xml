@@ -5,22 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="inizio ricerca playlist tramite la search bar">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/1[5befd7d1-3e21-43ed-8e07-dce4eb9f71c8]userInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/2[642d0b8f-98ec-4802-9a8e-799f84c56524]userInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/3[36264afb-f525-4c91-a94f-4d913793820a]userInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/a@gmail.com/userInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/userInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/others/MessageString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/ghcjyuyf[a9516207-80c6-4c3d-aab7-95f1715d920c].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/nuovodao[86b9e70f-c5a4-4a11-b619-7cfa5e5c175b].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/provadao2[bfda949d-10ec-4c34-acdf-32b1654abb84].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/ghcjyuyf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/userInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/prova@gmail.com/userInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/nuovodao.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/provadao2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/userInfo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/AccountCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/AccountCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/Queries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/query/QueryPlaylist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/TypesOfPersistenceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/TypesOfPersistenceLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SaveGenrePopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TextPopUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ccc@gmail.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ddd@gmail.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/saveGenrePopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/textPopUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +41,8 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
