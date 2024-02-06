@@ -88,15 +88,16 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
     private boolean updatePlaylistApprovalStatus(Playlist playlist, String folderPath) {
         String fileName;
-
+        java.nio.file.Path playlistPath;
         if (folderPath.equals(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY) ||
                 folderPath.equals(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY)) {
             fileName = formatPlaylistFileNameWithUUID(formatPlaylistFileName(playlist.getPlaylistName()), playlist.getId());
+            playlistPath = Paths.get(folderPath,fileName + ConfigurationJSON.FILE_EXTENCTION);
         } else {
             fileName = formatPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()));
+            playlistPath = Paths.get(folderPath, playlist.getEmail(),fileName + ConfigurationJSON.FILE_EXTENCTION);
         }
 
-        java.nio.file.Path playlistPath = Paths.get(folderPath, fileName + ConfigurationJSON.FILE_EXTENCTION);
         System.out.println(playlistPath);
         if (Files.exists(playlistPath)) {
             try {
@@ -133,15 +134,17 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         java.nio.file.Path destinationPath = Paths.get(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY, fileNameWithUUID + ConfigurationJSON.FILE_EXTENCTION);
 
         try {
+            System.out.println("  PROVAAAA  ");
             Files.copy(sourcePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println(sourcePath + " " + destinationPath);
             Files.deleteIfExists(sourcePath);
         } catch (IOException e) {
-            e.fillInStackTrace();
+            e.printStackTrace();
         }
     }
 
     private String formatPlaylistFileNameWithUUID(String playlistName, String uuid) {
-        // Sostituisci gli spazi con underscore, convergi tutto in minuscolo e aggiungi l'UUID tra parentesi quadre
+        // Sostituisci gli spazi con underscore, convergi tutto in minuscolo e aggiungi UUID tra parentesi quadre
         return formatPlaylistFileName(playlistName) + "[" + uuid + "]";
     }
 
@@ -232,6 +235,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
                             Playlist playlist = gson.fromJson(content, Playlist.class);
                             playlists.add(playlist);
+                            System.out.println(playlist.getId());
                         } catch (IOException e) {
                             e.fillInStackTrace(); // Puoi gestire l'eccezione in modo appropriato
                         }

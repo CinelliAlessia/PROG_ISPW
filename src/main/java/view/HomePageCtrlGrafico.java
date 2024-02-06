@@ -89,7 +89,7 @@ public class HomePageCtrlGrafico implements Initializable {
         System.out.println();
         initialize();
     }
-
+    //########## Aggiungere un pop-up che chiede di effettuare la registrazione o login ########<
 
     public void initialize() {
         if(userBean == null){
