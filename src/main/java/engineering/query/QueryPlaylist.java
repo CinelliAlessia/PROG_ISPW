@@ -2,6 +2,7 @@ package engineering.query;
 
 import model.Playlist;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -89,6 +90,14 @@ public class QueryPlaylist {
         String sql = String.format(Queries.SELECT_LINK_QUERY, link);
         return stmt.executeQuery(sql);
     }
+
+    /** Cerca la parola @param searchTerm passata come argomento */
+    public static ResultSet searchPlaylistString(Statement stmt, String searchTerm) throws SQLException {
+        String word = "%" + searchTerm + "%";
+        String sql = String.format(Queries.SELECT_SHEARCH_PLAYLIST, word);
+        return stmt.executeQuery(sql);
+    }
+
 
     /** Recupera tutta la playlist_utente, va usata con retriveGenrePlaylist per ottenere
      * i generi musicali delle playlist caricate */

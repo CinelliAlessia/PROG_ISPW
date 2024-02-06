@@ -253,4 +253,9 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         Path approvedPlaylistsDirectory = Paths.get(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY);
         return retrievePlaylistsFromDirectory(approvedPlaylistsDirectory);
     }
+
+    @Override
+    public List<Playlist> searchPlaylistString(Playlist playlist) {
+        return null;
+    }
 }

@@ -7,7 +7,7 @@
     -fx-background-radius: 20;
     -fx-border-radius: 20;
 }
-/* Bottoni */
+/* ----- BOTTONI ----- */
 
 .button {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
@@ -15,6 +15,8 @@
     -fx-alignment: center;
     -fx-font-size: 16px;
     -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
+
+    -fx-focus-traversable: false;
 
     -fx-border-radius: 20;
     -fx-background-radius: 20;
@@ -26,30 +28,32 @@
     -fx-min-height: 40px; /* Imposta l'altezza a use_computed_size */
 }
 
-
-
-
-
 #addButton {
-    -fx-alignment: CENTER;
-
-    -fx-pref-height: 60px; /* Regola l'altezza desiderata del bottone */
-    -fx-pref-width: 60px; /* Regola la larghezza desiderata del bottone */
-    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
-    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
+    -fx-pref-height: 60px;
+    -fx-pref-width: 60px;
+    -fx-min-width: -1;
+    -fx-min-height: -1;
 
     -fx-border-radius: 50%;
     -fx-background-radius: 50%;
     -fx-border-width: 3;
-
-    -fx-border-color: black;
+    -fx-border-color: #1DB954;
     -fx-background-color: #1DB954;
     -fx-background-image: url("../photo/add_playlist.png");
-    -fx-background-size: cover; /* Adatta l'immagine alle dimensioni del pulsante */
+    -fx-background-size: contain; /* Adatta l'immagine al pulsante */
     -fx-background-repeat: no-repeat;
+    -fx-background-position: center; /* Posiziona l'immagine al centro */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 5,0,0,1 ); /* Aggiunge un'ombra */
+    -fx-cursor: hand; /* Cambia il cursore al passaggio del mouse */
+    -fx-opacity: 0.9; /* Opacità del pulsante */
 }
 
-/* Colore di sfondo per i campi di testo di input */
+#addButton:hover {
+    -fx-background-color: #147533; /* Cambia il colore al passaggio del mouse */
+    -fx-border-color: #147533; /* Cambia il colore del bordo al passaggio del mouse */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 8,0,0,2 ); /* Aumenta l'ombra al passaggio del mouse */
+    -fx-opacity: 1; /* Ripristina l'opacità al passaggio del mouse */
+}
 
 .text-field {
     -fx-border-color: #1DB954;
@@ -119,29 +123,4 @@
 .check-box {
     -fx-text-fill: white;
     -fx-font-size: 16px;
-}
-
-
-.buttonApprove {
-    -fx-background-color: green;
-    -fx-text-fill: white;
-    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
-    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
-    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
-    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
-    -fx-background-radius: 50%;
-    -fx-stroke: 50;
-    -fx-border-radius: 50%;
-}
-
-.buttonReject {
-    -fx-background-color: red;
-    -fx-text-fill: white;
-    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
-    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
-    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
-    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
-    -fx-background-radius: 50%;
-    -fx-stroke: 50;
-    -fx-border-radius: 50%;
 }

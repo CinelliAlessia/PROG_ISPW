@@ -24,5 +24,6 @@ public interface PlaylistDAO {
     List<Playlist> retrievePendingPlaylists();
     List<Playlist> retrieveApprovedPlaylists();
 
+    List<Playlist> searchPlaylistString(Playlist playlist);
 }
 

@@ -3,6 +3,7 @@ package view;
 import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.*;
 import engineering.others.*;
+
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -13,6 +14,8 @@ import java.util.*;
 
 public class HomePageCtrlGrafico implements Initializable {
 
+    @FXML
+    private TextField searchText;
     @FXML
     private TableView<PlaylistBean> playlistTable;
     @FXML
@@ -33,19 +36,21 @@ public class HomePageCtrlGrafico implements Initializable {
 
     private UserBean userBean;
 
-    private List<PlaylistBean> playlistsApproved = null;
+    private List<PlaylistBean> playlists = null;
     private final HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
+    private List<TableColumn<PlaylistBean, ?>> columns = null;
+    private List<String> nameColumns = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Recupera tutte le playlist
         System.out.println("Inizio initialize home");
 
-        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
-        List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
+        columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
+        nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
 
-        playlistsApproved = homePageController.retrivePlaylistsApproved();
-        TableManager.createTable(playlistTable,columns, nameColumns, playlistsApproved, genreColumn);
+        playlists = homePageController.retrivePlaylistsApproved();                              // Recupera le playlist approvate
+        TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
     }
 
     /** Viene utilizzata da sceneController per impostare lo userBean */
@@ -85,5 +90,13 @@ public class HomePageCtrlGrafico implements Initializable {
 
     public void onManagerClick(ActionEvent event) throws IOException {
         SceneController.getInstance().goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML);
+    }
+
+    public void onSearchPlaylistClick(ActionEvent event) {
+        PlaylistBean pB = new PlaylistBean();
+        pB.setPlaylistName(searchText.getText());
+
+        playlists = homePageController.searchNamePlaylist(pB);                                    // Recupera le playlist approvate
+        TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
     }
 }

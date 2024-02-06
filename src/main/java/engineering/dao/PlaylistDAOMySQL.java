@@ -143,6 +143,11 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     public List<Playlist> retrieveApprovedPlaylists() {
         return retrievePlaylists(true);
     }
+
+    public List<Playlist> searchPlaylistString(Playlist playlist) {
+        return null;
+    }
+
     private List<Playlist> retrievePlaylists(boolean approved){
         Statement stmt = null;
         Connection conn;
