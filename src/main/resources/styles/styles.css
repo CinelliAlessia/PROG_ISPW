@@ -8,10 +8,12 @@
 .button {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
     -fx-text-fill: white; /* Colore del testo bianco */
-    -fx-content-display: right;
     -fx-alignment: center;
     -fx-font-size: 16px;
     -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
+
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
 
     -fx-pref-height: 40px; /* Regola l'altezza desiderata del bottone */
     -fx-pref-width: -1; /* Regola la larghezza desiderata del bottone */
@@ -21,60 +23,34 @@
 }
 
 
-.button-approve {
-    -fx-background-color: green;
-    -fx-text-fill: white;
-    -fx-alignment: CENTER;
-    -fx-text-alignment: CENTER;
-    -fx-font-size: 25px;
-    -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
-    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
-    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
-    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
-    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
-    -fx-background-radius: 50%;
-    -fx-stroke: 50;
-    -fx-border-radius: 50%;
-}
-
-.button-reject {
-    -fx-background-color: red;
-    -fx-text-fill: white;
-    -fx-alignment: CENTER;
-    -fx-text-alignment: CENTER;
-    -fx-font-size: 25px;
-    -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
-    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
-    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
-    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
-    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
-    -fx-background-radius: 50%;
-    -fx-stroke: 50;
-    -fx-border-radius: 50%;
-}
 
 
 
 #addButton {
-    -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
-    -fx-text-fill: white; /* Colore del testo bianco */
     -fx-alignment: CENTER;
-    -fx-text-alignment: CENTER;
-    -fx-font-size: 25px;
-    -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
-    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
-    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
+
+    -fx-pref-height: 60px; /* Regola l'altezza desiderata del bottone */
+    -fx-pref-width: 60px; /* Regola la larghezza desiderata del bottone */
     -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
     -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
-    -fx-background-radius: 50%;
-    -fx-stroke: 50;
+
     -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-border-width: 3;
+
+    -fx-border-color: black;
+    -fx-background-color: #1DB954;
+    -fx-background-image: url("../photo/add_playlist.png");
+    -fx-background-size: cover; /* Adatta l'immagine alle dimensioni del pulsante */
+    -fx-background-repeat: no-repeat;
 }
 
 /* Colore di sfondo per i campi di testo di input */
 
 .text-field {
     -fx-border-color: #1DB954;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
     -fx-font-size: 16px;
 }
 
@@ -143,3 +119,27 @@
     -fx-font-size: 16px;
 }
 
+
+.buttonApprove {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
+    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
+    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
+    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
+    -fx-background-radius: 50%;
+    -fx-stroke: 50;
+    -fx-border-radius: 50%;
+}
+
+.buttonReject {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
+    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
+    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
+    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
+    -fx-background-radius: 50%;
+    -fx-stroke: 50;
+    -fx-border-radius: 50%;
+}

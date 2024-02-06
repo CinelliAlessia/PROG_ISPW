@@ -34,29 +34,29 @@ public class HomePageCtrlGrafico implements Initializable {
     private UserBean userBean;
 
     private List<PlaylistBean> playlistsApproved = null;
+    private final HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Recupera tutte le playlist
-        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsApproved = homePageController.retrivePlaylistsApproved();
+        System.out.println("Inizio initialize home");
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
+
+        playlistsApproved = homePageController.retrivePlaylistsApproved();
         TableManager.createTable(playlistTable,columns, nameColumns, playlistsApproved, genreColumn);
     }
 
-
-
+    /** Viene utilizzata da sceneController per impostare lo userBean */
     public void setUserBean(UserBean user) {
         this.userBean = user;
-        System.out.println("HCG impostato nel set user bean: " + userBean + " " + userBean.getEmail() + " " + userBean.isSupervisor());
-        System.out.println();
-        initialize();
+        System.out.println("HCG impostato nel set user bean: " + userBean);
+        initializeField();
     }
     //########## Aggiungere un pop-up che chiede di effettuare la registrazione o login ########<
 
-    public void initialize() {
+    public void initializeField() {
         if(userBean == null){
             account.setText("Registrati");
             addButton.setVisible(false);
@@ -86,6 +86,4 @@ public class HomePageCtrlGrafico implements Initializable {
     public void onManagerClick(ActionEvent event) throws IOException {
         SceneController.getInstance().goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML);
     }
-
-
 }

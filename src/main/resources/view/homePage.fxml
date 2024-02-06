@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HomePageCtrlGrafico">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="view.HomePageCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
@@ -55,7 +55,7 @@
     <bottom>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="BOTTOM_CENTER">
             <!-- Pulsante + -->
-            <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#addPlaylistClick" prefHeight="50.0" prefWidth="50.0" text="+" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="0.0" textAlignment="CENTER"/>
+            <Button fx:id="addButton" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#addPlaylistClick" prefHeight="50.0" prefWidth="50.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="0.0" textAlignment="CENTER"/>
         </AnchorPane>
     </bottom>
 </BorderPane>

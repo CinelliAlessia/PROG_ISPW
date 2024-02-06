@@ -40,7 +40,7 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
         TableManager.createTable(playlistTable,columns, nameColumns, playlistsPending, genreColumn);
 
         // Aggiungi la colonna con bottoni "Approve" o "Reject"
-        approveColumn.setCellFactory(param -> new TableCell<PlaylistBean, Boolean>() {
+        approveColumn.setCellFactory(param -> new TableCell<>() {
             private final Button approveButton = new Button("V");
             private final Button rejectButton = new Button("X");
 
@@ -54,8 +54,11 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
                     handleApproveButton(playlist, false);
                 });
 
-                approveButton.getStyleClass().add("button-approve");
-                rejectButton.getStyleClass().add("button-reject");
+                approveButton.setStyle("-fx-background-color: #1DB954; -fx-text-fill: white; -fx-pref-height: 25px; -fx-pref-width: 25px; " +
+                        "-fx-min-width: -1; -fx-min-height: -1; -fx-background-radius: 50%; -fx-stroke: 50; -fx-border-radius: 50%;");
+
+                rejectButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-pref-height: 25px; -fx-pref-width: 25px; " +
+                        "-fx-min-width: -1; -fx-min-height: -1; -fx-background-radius: 50%; -fx-stroke: 50; -fx-border-radius: 50%;");
 
             }
 

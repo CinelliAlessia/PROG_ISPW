@@ -103,7 +103,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
             fileName = formatPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()));
             playlistPath = Paths.get(folderPath, playlist.getEmail(),fileName + ConfigurationJSON.FILE_EXTENCTION);
         }
-        System.out.println(playlistPath);
+        //System.out.println(playlistPath);
         //################# Possibile duplicazione da evitare ################################
         if (Files.exists(playlistPath)) {
             try {
@@ -236,7 +236,6 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
                             Playlist playlist = gson.fromJson(content, Playlist.class);
                             playlists.add(playlist);
-                            System.out.println(playlist.getId());
                         } catch (IOException e) {
                             e.fillInStackTrace(); // Puoi gestire l'eccezione in modo appropriato
                         }

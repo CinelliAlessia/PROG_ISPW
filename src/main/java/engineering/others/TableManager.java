@@ -16,7 +16,8 @@ public class TableManager {
      * @param columns       contiene le sole colonne semplici
      * @param nameColumns   è per recuperare dalle get del PlaylistBean
      * @param playlists     è la lista delle playlist da rappresentare
-     * @param playlistGenre è una colonna che gestisce un bottone, tutte le tabelle avranno questa colonna
+     * @param playlistGenre è una colonna che gestisce un bottone, tutte le tabelle avranno questa colonna -> Puo essere tolta ma ad alessia cosi non
+     *                      piace molto
      */
     public static void createTable(TableView<PlaylistBean> playlistTable, List<TableColumn<PlaylistBean, ?>> columns, List<String> nameColumns, List<PlaylistBean> playlists, TableColumn<PlaylistBean, List<String>> playlistGenre) {
 

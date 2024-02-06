@@ -3,7 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.skin.TabPaneSkin.TabControlButtons?>
 <BorderPane prefWidth="1024.0" prefHeight="640.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml" fx:controller="view.PlaylistToApproveCtrlGrafico">
@@ -25,7 +24,7 @@
                     <TableColumn fx:id="linkColumn" prefWidth="150.0" text="Link" />
                     <TableColumn fx:id="genreColumn" prefWidth="150.0" text="Generi Musicali"/>
                     <TableColumn fx:id="usernameColumn" prefWidth="150.0" text="Autore" />
-                    <TableColumn fx:id="approveColumn" prefWidth="150.0" text="Accetta o Rifiuta" />
+                    <TableColumn fx:id="approveColumn" prefWidth="150.0" text="Accetta o Rifiuta"/>
 
 
                 </columns>
