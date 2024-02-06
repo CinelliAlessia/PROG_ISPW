@@ -7,6 +7,7 @@ import engineering.others.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import org.apache.commons.validator.routines.UrlValidator;
 
 import java.io.IOException;
 import java.net.URL;
@@ -92,9 +93,11 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             // campi vuoti
             System.out.println("PLAYLIST NON AGGIUNTA");
         }
+    }
 
-
-
+    public static boolean isValidLink(String input) {
+        UrlValidator urlValidator = new UrlValidator();
+        return urlValidator.isValid(input);
     }
 
 }

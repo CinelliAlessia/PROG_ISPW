@@ -9,6 +9,15 @@ import static engineering.dao.TypesOfPersistenceLayer.*;
 
 public class AccountCtrlApplicativo {
 
+    /* TUTTE QUI E FINAL? TOLGO DUPLICAZIONE
+
+    // Prendo il tipo di persistenza impostato nel file di configurazione
+    private final TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+
+    // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+    private final PlaylistDAO daoPlaylist = persistenceType.createPlaylistDAO();
+    private final UserDAO daoUser = persistenceType.createUserDAO();*/
+
     /** Recupera tutte le playlist globali by username
      */
     public List<PlaylistBean> retrivePlaylists(UserBean userBean){

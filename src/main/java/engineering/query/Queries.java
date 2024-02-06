@@ -2,8 +2,6 @@ package engineering.query;
 
 public class Queries {
 
-
-
     private Queries(){}
 
     /* ---------- QUERY LOGIN ---------- */
@@ -46,7 +44,7 @@ public class Queries {
     public static final String SELECT_GENRE_PLAYLIST_BY_LINK = "SELECT Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative " +
             "FROM playlist_utente " +
             "WHERE link = '?'";
-    public static final String SELECT_SHEARCH_PLAYLIST = "SELECT * FROM playlist_utente WHERE nomePlaylist LIKE ='%s'";
+    public static final String SELECT_SHEARCH_PLAYLIST = "SELECT * FROM playlist_utente WHERE nomePlaylist LIKE '%s' AND approved = '1'";
 
 
     public static final String UPDATE_APPROVE_PLAYLIST = "UPDATE playlist_utente SET approved = '%d' WHERE link = '%s' ";

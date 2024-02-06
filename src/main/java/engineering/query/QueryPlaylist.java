@@ -94,6 +94,7 @@ public class QueryPlaylist {
     /** Cerca la parola @param searchTerm passata come argomento */
     public static ResultSet searchPlaylistString(Statement stmt, String searchTerm) throws SQLException {
         String word = "%" + searchTerm + "%";
+        System.out.println(word);
         String sql = String.format(Queries.SELECT_SHEARCH_PLAYLIST, word);
         return stmt.executeQuery(sql);
     }

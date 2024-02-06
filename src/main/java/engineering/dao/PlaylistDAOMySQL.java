@@ -138,17 +138,16 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     }
 
     public List<Playlist> retrievePendingPlaylists() {
-        return retrievePlaylists(false);
+        return retrievePlaylists("pending",null);
     }
     public List<Playlist> retrieveApprovedPlaylists() {
-        return retrievePlaylists(true);
+        return retrievePlaylists("approved",null);
     }
-
     public List<Playlist> searchPlaylistString(Playlist playlist) {
-        return null;
+        return retrievePlaylists("searchWord",playlist);
     }
 
-    private List<Playlist> retrievePlaylists(boolean approved){
+    private List<Playlist> retrievePlaylists(String s,Playlist p){
         Statement stmt = null;
         Connection conn;
         List<Playlist> playlists = new ArrayList<>(); // Initialize the list here
@@ -158,10 +157,18 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            if(approved){ //Recupera tutte le playlist già approvare (Per la home page)
-                rs = QueryPlaylist.retrieveApprovedPlaylists(stmt);
-            } else { //Recupera tutte le playlist da approvare (Per il gestore delle playlist)
-                rs = QueryPlaylist.retrievePendingPlaylists(stmt);
+            switch (s){
+                case "pending":  //Recupera tutte le playlist da approvare (Per il gestore delle playlist)
+                    rs = QueryPlaylist.retrievePendingPlaylists(stmt);
+                    break;
+                case "approved": //Recupera tutte le playlist già approvare (Per la home page)
+                    rs = QueryPlaylist.retrieveApprovedPlaylists(stmt);
+                    break;
+                case "searchWord":
+                    rs = QueryPlaylist.searchPlaylistString(stmt,p.getPlaylistName());
+                    break;
+                default:
+                    break;
             }
 
             while (rs.next()) {

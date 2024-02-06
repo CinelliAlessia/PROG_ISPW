@@ -3,6 +3,8 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import model.Playlist;
+import org.apache.commons.validator.routines.UrlValidator;
+
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AddPlaylistCtrlApplicativo {
