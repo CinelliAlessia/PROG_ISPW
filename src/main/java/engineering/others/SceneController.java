@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
+import view.SaveGenrePopUp;
+
 import java.io.IOException;
 import java.lang.reflect.*;
 import java.util.*;
@@ -20,10 +22,11 @@ public class SceneController {
     public static SceneController getInstance() {
         //Pattern Singleton
         if (sceneController == null) {
-            sceneController = new SceneController() ;
+            sceneController = new SceneController();
         }
-        return sceneController ;
+        return sceneController;
     }
+
     @FXML
     public void goBack(ActionEvent event) {
         if (!sceneStack.isEmpty()) {
@@ -32,11 +35,13 @@ public class SceneController {
             stage.show();
         }
     }
+
     @FXML
     public void pushCurrentScene(ActionEvent event) {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
     }
+
     @FXML
     public void goToScene(ActionEvent event, String fxmlPath) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
@@ -49,6 +54,7 @@ public class SceneController {
         stage.setScene(scene);      // Imposto la scena sullo stage
         stage.show();      // Mostro la scena (nuova)
     }
+
     @FXML
     public <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
@@ -74,21 +80,26 @@ public class SceneController {
         }
     }
 
-    public void popUp(ActionEvent event) throws IOException {
+    public void popUp(ActionEvent event, String text) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/saveGenrePopUp.fxml"));
         Parent root = loader.load();
+
+        // Ottieni l'istanza del controller
+        SaveGenrePopUp controller = loader.getController();
+
+        // Utilizza il controller per chiamare la funzione setText
+        controller.setText(text);
 
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
 
         Stage popupStage = new Stage();
-        popupStage.initOwner(stage); // Imposta la finestra principale come proprietaria del popup
-        popupStage.initModality(Modality.APPLICATION_MODAL); // Blocca l'interazione con la finestra principale
+        popupStage.initOwner(stage);
+        popupStage.initModality(Modality.APPLICATION_MODAL);
 
         Scene scene = new Scene(root);
         popupStage.setScene(scene);
 
-        popupStage.showAndWait(); // Mostra il popup e attendi che venga chiuso prima di continuare
+        popupStage.showAndWait();
     }
-
 }
 

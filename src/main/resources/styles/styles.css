@@ -3,6 +3,10 @@
     -fx-background-color: #333333; /* Imposta il colore di sfondo */
 }
 
+.button, .label, .text-field {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
 /* Bottoni */
 
 .button {
@@ -49,8 +53,6 @@
 
 .text-field {
     -fx-border-color: #1DB954;
-    -fx-border-radius: 20;
-    -fx-background-radius: 20;
     -fx-font-size: 16px;
 }
 

@@ -1,0 +1,16 @@
+{
+  "id": "b1795ccc-20b4-4757-9507-43e6a32f30c5",
+  "playlistName": "Playlist 1",
+  "link": "link/prova/1",
+  "username": "ale",
+  "email": "ale@gmail.com",
+  "playlistGenre": [
+    "Pop",
+    "Classic",
+    "Electronic",
+    "HipHop",
+    "Acoustic",
+    "Country"
+  ],
+  "approved": true
+}

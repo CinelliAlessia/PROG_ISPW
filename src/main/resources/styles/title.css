@@ -1,5 +1,6 @@
 .label {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold; /* Aggiorna da -fx-font a -fx-font-weight */
-    -fx-text-fill: #1DB954; /* Colore del testo */
+    -fx-font-size: 40px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #1DB954;
+    -fx-font-family: 'Comic Sans MS'; /* Imposta il tipo di carattere a Times New Roman */
 }

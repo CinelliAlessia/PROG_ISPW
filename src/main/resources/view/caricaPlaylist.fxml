@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddPlaylistCtrlGrafico">
+<BorderPane prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddPlaylistCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
         <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
             <Button layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
-            <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="CARICA LA PLAYLIST" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
+            <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="CARICA PLAYLIST" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
         </AnchorPane>
     </top>
 

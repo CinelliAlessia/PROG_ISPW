@@ -103,7 +103,6 @@ public class PlaylistDAOJSON implements PlaylistDAO {
             fileName = formatPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()));
             playlistPath = Paths.get(folderPath, playlist.getEmail(),fileName + ConfigurationJSON.FILE_EXTENCTION);
         }
-        //System.out.println(playlistPath);
         //################# Possibile duplicazione da evitare ################################
         if (Files.exists(playlistPath)) {
             try {

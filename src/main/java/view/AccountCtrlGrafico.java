@@ -132,7 +132,7 @@ public class AccountCtrlGrafico implements Initializable {
         // non va bene, tutti dovrebbero recuperare informazioni per il bean dalla persistenza
         // ##### Mostro pop-up ######
 
-        SceneController.getInstance().popUp(event);
+        SceneController.getInstance().popUp(event,"Preferenze aggiornate !");
 
     }
     @FXML

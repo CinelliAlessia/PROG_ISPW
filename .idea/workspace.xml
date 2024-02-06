@@ -4,21 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="approve playlist fatto con json: da migliorare duplicazione codice">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_01_2024_15_56__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="aggiornamenti sui pop-up, sto cercando di rendere quel pop-up che abbiamo, generico per altri pop-up, lo chiameremo &quot;simplePopUP&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/1[decba506-4257-4598-a12a-34d8c49acab8].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/2[960b1ad6-1fd8-4b2d-aa7d-b390d8ec6a07].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/3[0c1652f5-e49d-48ce-b2e3-787121220c11].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/fd,lg_dkç[b1182b74-3829-4c88-a42e-370dd23e2ddc].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/nuova[737625f7-4a1c-478c-8198-805d56df7500].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/nuova_2[9ebdd932-58c0-4051-b27c-377f3cd22629].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/playlist_1[b1795ccc-20b4-4757-9507-43e6a32f30c5].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/playlist_2[504c06c6-20a5-4575-8cdf-5714a1fb5817].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/playlist_approvata_prova[714c4f88-f152-4e83-8673-a0359ba99b28].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/fd,lg_dkç.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/nuova.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/nuova_2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/playlist_approvata_prova.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/playlist_1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/playlist_2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ccc@gmail.com/userInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ddd@gmail.com/userInfo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SaveGenrePopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SaveGenrePopUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/1[c30676e9-85e2-478c-ac48-1600cfe981cc].json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/2[9cb9ad7e-5237-4239-9fe3-66c5186e7854].json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/3[9237ff75-74e2-4dd6-8436-baa25faeccae].json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/title.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/title.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/caricaPlaylist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/caricaPlaylist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/saveGenrePopUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/saveGenrePopUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +50,7 @@
         <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -98,6 +117,7 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/cinel/Desktop/Università/ISPW/Progetto/PROG_ISPW/src/main/java/view&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/cinel/Desktop/Università/ISPW/Progetto/Progetto vecchie versioni/PROG_ISPW versione bozza observer&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -209,15 +229,7 @@
       <workItem from="1707119992525" duration="3007000" />
       <workItem from="1707138653024" duration="3165000" />
       <workItem from="1707141876665" duration="9657000" />
-      <workItem from="1707208299461" duration="6900000" />
-    </task>
-    <task id="LOCAL-00008" summary="Aggiunta al database delle preferenze musicali">
-      <option name="closed" value="true" />
-      <created>1706258499639</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1706258499640</updated>
+      <workItem from="1707208299461" duration="22380000" />
     </task>
     <task id="LOCAL-00009" summary="Condivisione database">
       <option name="closed" value="true" />
@@ -603,7 +615,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707208469638</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="aggiornato playlist dao json">
+      <option name="closed" value="true" />
+      <created>1707215624873</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1707215624873</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,8 +642,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aggiornamento view account.fxml&#10;aggiunta possibilità di retrive User dal DB" />
-    <MESSAGE value="Update with error" />
     <MESSAGE value="Risolti errori per il load dell'user bean" />
     <MESSAGE value="Carivamento playlist funzionante" />
     <MESSAGE value="Correzione Code Smells" />
@@ -647,7 +665,9 @@
     <MESSAGE value="Update" />
     <MESSAGE value="Update code Smells" />
     <MESSAGE value="approve playlist fatto con json: da migliorare duplicazione codice" />
-    <option name="LAST_COMMIT_MESSAGE" value="approve playlist fatto con json: da migliorare duplicazione codice" />
+    <MESSAGE value="aggiornato playlist dao json" />
+    <MESSAGE value="aggiornamenti sui pop-up, sto cercando di rendere quel pop-up che abbiamo, generico per altri pop-up, lo chiameremo &quot;simplePopUP&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiornamenti sui pop-up, sto cercando di rendere quel pop-up che abbiamo, generico per altri pop-up, lo chiameremo &quot;simplePopUP&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
