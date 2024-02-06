@@ -3,11 +3,10 @@ package view;
 import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.*;
 import engineering.others.*;
-import javafx.collections.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -17,13 +16,14 @@ public class HomePageCtrlGrafico implements Initializable {
     @FXML
     private TableView<PlaylistBean> playlistTable;
     @FXML
-    private TableColumn<PlaylistBean, String> nameColumn;
+    private TableColumn<PlaylistBean, String> playlistNameColumn;
     @FXML
     private TableColumn<PlaylistBean, List<String>> genreColumn;
     @FXML
-    private TableColumn<PlaylistBean, String> authorColumn;
+    private TableColumn<PlaylistBean, String> usernameColumn;
     @FXML
     private TableColumn<PlaylistBean, String> linkColumn;
+
     @FXML
     private Button manager;
     @FXML
@@ -41,47 +41,12 @@ public class HomePageCtrlGrafico implements Initializable {
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistsApproved = homePageController.retrivePlaylistsApproved();
 
-        // Collega i dati alle colonne della TableView
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("playlistName"));
-        authorColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
-        linkColumn.setCellValueFactory(new PropertyValueFactory<>("link"));
-
-        // Aggiungi le playlist alla TableView
-        ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlistsApproved);
-        playlistTable.setItems(playlistData);
-
-        // Configura la colonna "Generi musicali"
-        genreColumn.setCellFactory(col -> new TableCell<>() {
-            final Button button = new Button("Dettagli");
-
-            {
-                button.setOnAction(event -> {
-                    PlaylistBean playlistBean = getTableView().getItems().get(getIndex());
-                    openPopup(playlistBean);
-                });
-            }
-
-            @Override
-            protected void updateItem(List<String> genres, boolean empty) {
-                super.updateItem(genres, empty);
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(button);
-                }
-            }
-        });
-
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
+        List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
+        TableManager.createTable(playlistTable,columns, nameColumns, playlistsApproved, genreColumn);
     }
 
 
-
-    private void openPopup(PlaylistBean playlistBean) {
-        // Implementa qui la logica per aprire il popup
-        // Puoi usare FXMLLoader per caricare il file FXML del popup
-        // e quindi mostrare il popup con un nuovo Stage
-        // Puoi anche passare i dati della playlistBean al popup
-    }
 
     public void setUserBean(UserBean user) {
         this.userBean = user;

@@ -22,7 +22,7 @@ public class UserDAOMySQL implements UserDAO {
         Statement stmt = null;
         Connection conn;
         ResultSet rs = null;
-        boolean result;
+        boolean result = true;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -44,11 +44,9 @@ public class UserDAOMySQL implements UserDAO {
 
             QueryLogin.registerUser(stmt, user);
 
-            result = true;
-
         } catch (SQLException | EmailAlreadyInUse | UsernameAlreadyInUse e) {
             // Gestisci l'eccezione
-            e.fillInStackTrace();
+            e.printStackTrace();
             result = false;
 
         } finally {

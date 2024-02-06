@@ -3,12 +3,10 @@ package view;
 import controller.applicativo.PlaylistToApproveCtrlApplicativo;
 import engineering.bean.*;
 import engineering.others.*;
-import javafx.collections.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import java.net.URL;
 import java.util.*;
@@ -18,27 +16,35 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
     @FXML
     private TableView<PlaylistBean> playlistTable;
     @FXML
-    private TableColumn<PlaylistBean, String> nameColumn;
+    private TableColumn<PlaylistBean, String> playlistNameColumn;
     @FXML
-    private TableColumn<PlaylistBean, String> authorColumn;
+    private TableColumn<PlaylistBean, List<String>> genreColumn;
+    @FXML
+    private TableColumn<PlaylistBean, Boolean> approveColumn;
     @FXML
     private TableColumn<PlaylistBean, String> linkColumn;
     @FXML
-    private TableColumn<PlaylistBean, Boolean> approveColumn;
-
-    private List<PlaylistBean> allPlaylist = null;
+    private TableColumn<PlaylistBean, Boolean> usernameColumn;
+    private List<PlaylistBean> playlistsPending = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Inizio gestione playlist: ");
 
-        // Aggiungi la colonna con bottoni "Approve" o "Reject"
-        approveColumn.setCellFactory(param -> new TableCell<>() {
-            private final Button approveButton = new Button("Approve");
-            private final Button rejectButton = new Button("Reject");
+        // Recupera tutte le playlist
+        PlaylistToApproveCtrlApplicativo allPlaylistController = new PlaylistToApproveCtrlApplicativo();
+        playlistsPending = allPlaylistController.retrievePlaylists();
 
-            {
-                approveButton.setOnAction(event -> {
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn,genreColumn); // Tutte le colonne "semplici"
+        List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
+        TableManager.createTable(playlistTable,columns, nameColumns, playlistsPending, genreColumn);
+
+        // Aggiungi la colonna con bottoni "Approve" o "Reject"
+        approveColumn.setCellFactory(param -> new TableCell<PlaylistBean, Boolean>() {
+            private final Button approveButton = new Button("V");
+            private final Button rejectButton = new Button("X");
+
+            {   approveButton.setOnAction(event -> {
                     PlaylistBean playlist = getTableView().getItems().get(getIndex());
                     handleApproveButton(playlist, true);
                 });
@@ -47,6 +53,10 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
                     PlaylistBean playlist = getTableView().getItems().get(getIndex());
                     handleApproveButton(playlist, false);
                 });
+
+                approveButton.getStyleClass().add("button-approve");
+                rejectButton.getStyleClass().add("button-reject");
+
             }
 
             @Override
@@ -60,18 +70,8 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
             }
         });
 
-        // Recupera tutte le playlist
-        PlaylistToApproveCtrlApplicativo allPlaylistController = new PlaylistToApproveCtrlApplicativo();
-        allPlaylist = allPlaylistController.retrievePlaylists();
 
-        // Collega i dati alle colonne della TableView
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("playlistName"));
-        authorColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
-        linkColumn.setCellValueFactory(new PropertyValueFactory<>("link"));
 
-        // Aggiungi le playlist alla TableView
-        ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(allPlaylist);
-        playlistTable.setItems(playlistData);
     }
 
     private void handleApproveButton(PlaylistBean playlist, boolean approve) {
@@ -83,7 +83,7 @@ public class PlaylistToApproveCtrlGrafico implements Initializable {
             // Approva Playlist
             PlaylistToApproveCtrlApplicativo playlistToApproveCtrlApplicativo = new PlaylistToApproveCtrlApplicativo();
             playlistToApproveCtrlApplicativo.approvePlaylist(playlist);
-            allPlaylist.remove(playlist);
+            playlistsPending.remove(playlist);
 
         } else {
             System.out.println("Rifiuto della playlist: " + playlist.getPlaylistName());

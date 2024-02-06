@@ -20,6 +20,41 @@
     -fx-min-height: 40px; /* Imposta l'altezza a use_computed_size */
 }
 
+
+.button-approve {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
+    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
+    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
+    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
+    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
+    -fx-background-radius: 50%;
+    -fx-stroke: 50;
+    -fx-border-radius: 50%;
+}
+
+.button-reject {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
+    -fx-pref-height: 50px; /* Regola l'altezza desiderata del bottone */
+    -fx-pref-width: 50px; /* Regola la larghezza desiderata del bottone */
+    -fx-min-width: -1; /* Imposta la larghezza a use_computed_size */
+    -fx-min-height: -1; /* Imposta l'altezza a use_computed_size */
+    -fx-background-radius: 50%;
+    -fx-stroke: 50;
+    -fx-border-radius: 50%;
+}
+
+
+
 #addButton {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
     -fx-text-fill: white; /* Colore del testo bianco */
@@ -53,8 +88,8 @@
 
 /* Stile generale per le colonne della tabella */
 #approveColumn .label,
-#nameColumn .label,
-#authorColumn .label,
+#playlistNameColumn .label,
+#usernameColumn .label,
 #linkColumn .label,
 #genreColumn .label,
 .table-column {

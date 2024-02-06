@@ -61,8 +61,8 @@ public class SceneController {
         sceneStack.push(stage.getScene()); // Push current scene onto stack
 
         Scene scene = new Scene(root);  // Creo scena a partire dal Parent
-        stage.setScene(scene);      // Imposto la scena sullo stage
-        stage.show();      // Mostro la scena (nuova)
+        stage.setScene(scene);          // Imposto la scena sullo stage
+        stage.show();                   // Mostro la scena (nuova)
     }
 
     private void setUserBean(Object controller, UserBean userBean) {

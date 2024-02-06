@@ -93,8 +93,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         Statement stmt = null;
         Connection conn;
         List<Playlist> playlists = null;
-        ResultSet rs;
-        ResultSet rs2;
+        ResultSet rs = null;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -112,15 +111,11 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlist.setLink(rs.getString("link"));
                 playlist.setEmail(rs.getString("email"));
                 playlist.setPlaylistName(rs.getString("nomePlaylist"));
-
-                rs2 = QueryPlaylist.retrieveGenrePlaylist(stmt,email);
-
-                if(rs2.next()){
-                    genres = GenreManager.retriveGenre(rs2);
-                    playlist.setPlaylistGenre(genres);
-                    playlists.add(playlist);
-                }
-                rs2.close();
+                playlist.setApproved(rs.getBoolean("approved"));
+                
+                genres = GenreManager.retriveGenre(rs);
+                playlist.setPlaylistGenre(genres);
+                playlists.add(playlist);
             }
             rs.close();
         }
@@ -131,6 +126,9 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             try {
                 if (stmt != null) {
                     stmt.close();
+                }
+                if(rs != null){
+                    rs.close();
                 }
             } catch (SQLException e){
                 e.fillInStackTrace();

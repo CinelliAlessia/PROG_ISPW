@@ -69,7 +69,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
         String titolo = title.getText();
 
         //Controllo sui campi vuoti
-        if( !linkPlaylist.isEmpty() || !titolo.isEmpty() ){
+        if( !linkPlaylist.isEmpty() && !titolo.isEmpty() ){
             // Recupero generi della playlist
             List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
 
@@ -84,11 +84,13 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
             // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
-            SceneController.getInstance().popUp(event);
+            //SceneController.getInstance().popUp(event);
 
+            System.out.println("PLAYLIST AGGIUNTA");
 
         } else {
             // campi vuoti
+            System.out.println("PLAYLIST NON AGGIUNTA");
         }
 
 

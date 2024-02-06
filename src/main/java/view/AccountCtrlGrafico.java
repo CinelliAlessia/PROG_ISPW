@@ -1,11 +1,13 @@
 package view;
 
-import controller.applicativo.AccountCtrlApplicativo;
-import engineering.bean.UserBean;
+import controller.applicativo.*;
+import engineering.bean.*;
 import engineering.others.*;
+
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+
 import java.util.*;
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +19,18 @@ public class AccountCtrlGrafico implements Initializable {
     private Label usernameText;
     @FXML
     private Label emailText;
+
+    @FXML
+    private TableView<PlaylistBean> playlistTable;
+    @FXML
+    private TableColumn<PlaylistBean, String> playlistNameColumn;
+    @FXML
+    private TableColumn<PlaylistBean, List<String>> genreColumn;
+    @FXML
+    private TableColumn<PlaylistBean, String> approveColumn;
+    @FXML
+    private TableColumn<PlaylistBean, String> linkColumn;
+
     @FXML
     private CheckBox pop;
     @FXML
@@ -45,6 +59,7 @@ public class AccountCtrlGrafico implements Initializable {
     private UserBean userBean;
 
     private List<CheckBox> checkBoxList;
+    private List<PlaylistBean> playlistsUser = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,6 +72,7 @@ public class AccountCtrlGrafico implements Initializable {
         this.userBean = user;
         System.out.println("ACG setUserBean: " + userBean);
         initializeData(userBean);
+        retrivePlaylist();
     }
 
     public void initializeData(UserBean user){
@@ -87,7 +103,14 @@ public class AccountCtrlGrafico implements Initializable {
     }
 
     public void retrivePlaylist() {
-        // TODO
+        // Recupera tutte le playlist
+        AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
+        playlistsUser = accountCtrlApplicativo.retrivePlaylists(userBean);
+
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
+        List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
+        TableManager.createTable(playlistTable, columns, nameColumns, playlistsUser, genreColumn);
+
     }
 
     @FXML

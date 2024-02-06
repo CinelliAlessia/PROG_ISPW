@@ -10,8 +10,8 @@ import static engineering.dao.TypesOfPersistenceLayer.*;
 public class AccountCtrlApplicativo {
 
     /** Recupera tutte le playlist globali by username
-     * DA CORREGGERE, COME CONOSCO L'USERNAME ? */
-    public static List<PlaylistBean> retriveList(){
+     */
+    public List<PlaylistBean> retrivePlaylists(UserBean userBean){
 
         // Prendo il tipo di persistenza impostato nel file di configurazione
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
@@ -19,9 +19,7 @@ public class AccountCtrlApplicativo {
         PlaylistDAO dao = persistenceType.createPlaylistDAO();
 
         // Recupero lista Playlist
-
-        String username = "ciao";
-        List<Playlist> playlists = dao.retrievePlaylistsByEmail(username);
+        List<Playlist> playlists = dao.retrievePlaylistsByEmail(userBean.getEmail()); //##################### ok che dobbiamo passare una stinga ma non userBean.getEmail
 
         ArrayList<PlaylistBean> playlistsBean = new ArrayList<>();
 

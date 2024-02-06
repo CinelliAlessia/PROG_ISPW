@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.skin.TabPaneSkin.TabControlButtons?>
 <BorderPane prefWidth="1024.0" prefHeight="640.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml" fx:controller="view.PlaylistToApproveCtrlGrafico">
@@ -20,10 +21,12 @@
         <AnchorPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <TableView fx:id="playlistTable" fixedCellSize="0.0" layoutX="151.0" layoutY="52.0" prefHeight="200.0" prefWidth="500.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
                 <columns>
-                    <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Nome Playlist" />
-                    <TableColumn fx:id="authorColumn" prefWidth="150.0" text="Autore" />
+                    <TableColumn fx:id="playlistNameColumn" prefWidth="150.0" text="Titolo" />
                     <TableColumn fx:id="linkColumn" prefWidth="150.0" text="Link" />
-                    <TableColumn fx:id="approveColumn" prefWidth="150.0" text="Approve" />
+                    <TableColumn fx:id="genreColumn" prefWidth="150.0" text="Generi Musicali"/>
+                    <TableColumn fx:id="usernameColumn" prefWidth="150.0" text="Autore" />
+                    <TableColumn fx:id="approveColumn" prefWidth="150.0" text="Accetta o Rifiuta" />
+
 
                 </columns>
                 <columnResizePolicy>
