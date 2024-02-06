@@ -64,6 +64,9 @@
                         <TableColumn fx:id="authorColumn" prefWidth="150.0" text="Autore" />
                         <TableColumn fx:id="linkColumn" prefWidth="150.0" text="Link" />
                     </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
                 </TableView>
             </AnchorPane>
         </AnchorPane>
