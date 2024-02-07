@@ -14,6 +14,9 @@ module logic {
     exports engineering.dao;
     opens engineering.dao to javafx.fxml;
 
+    exports engineering.exceptions;
+    opens engineering.exceptions to javafx.fxml;
+
     exports start;
     opens start to javafx.fxml;
 
@@ -22,9 +25,14 @@ module logic {
 
     exports model; // Esporta il pacchetto model per consentire l'accesso ai campi della classe User
     opens model to com.google.gson;
+
     exports engineering.pattern.observer;
     opens engineering.pattern.observer to com.google.gson;
+
     exports engineering.others;
-    opens engineering.others to javafx.fxml; // Apri il pacchetto model al modulo com.google.gson
+    opens engineering.others to javafx.fxml;
+
+    exports view.utils;
+    opens view.utils to javafx.fxml; // Apri il pacchetto model al modulo com.google.gson
 
 }
