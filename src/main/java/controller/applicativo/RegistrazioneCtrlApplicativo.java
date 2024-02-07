@@ -10,11 +10,8 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 public class RegistrazioneCtrlApplicativo {
 
     public UserBean registerUser(RegistrationBean regBean){
-        // Prendo il tipo di persistenza impostato nel file di configurazione
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
-
-        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-        UserDAO dao = persistenceType.createUserDAO();
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
+        UserDAO dao = persistenceType.createUserDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         // Crea l'utente (model) per inviarlo al DAO
         User user = new User(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());

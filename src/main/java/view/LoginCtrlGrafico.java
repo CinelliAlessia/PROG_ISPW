@@ -2,6 +2,7 @@ package view;
 
 import controller.applicativo.LoginCtrlApplicativo;
 import engineering.bean.*;
+import engineering.exceptions.PasswordErrata;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -18,7 +19,7 @@ public class LoginCtrlGrafico {
     @FXML
     private PasswordField password;
     @FXML
-    private TextField username;
+    private TextField emailField;
 
     /** Metodo utilizzato per l'accesso all'applicazione
      * Vengono effettuati i primi controlli sui parametri inseriti
@@ -31,7 +32,7 @@ public class LoginCtrlGrafico {
     protected void onLoginClick(ActionEvent event) throws IOException {
 
         /* ------ Recupero informazioni dalla schermata di login ------ */
-        String email = username.getText();
+        String email = emailField.getText();
         String pass = password.getText();
 
         /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
@@ -42,26 +43,24 @@ public class LoginCtrlGrafico {
 
             /* ------ Creo la bean e imposto i parametri ------ */
             LoginBean loginBean = new LoginBean(email,pass);
+            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); // Creo istanza del Login controller applicativo
 
-            /* ------ Creo istanza del Login controller applicativo e utilizzo i metodi di verifica credenziali ------ */
-            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); // Static ?
+            try{
+                if (loginCtrlApp.verificaCredenziali(loginBean)) { /* --------------- Credenziali corrette -------------- */
 
-            if (loginCtrlApp.verificaCredenziali(loginBean)) {
-                /* --------------- Credenziali corrette -------------- */
-                System.out.println("CREDENZIALI CORRETTE -> Recupero l'istanza di bean ");
+                    System.out.println("CREDENZIALI CORRETTE -> Recupero l'istanza di bean ");
 
-                UserBean userBean = loginCtrlApp.loadUser(loginBean);
-
-                if(userBean != null){ // In realtà non sarà mai null perché ho già fatto una query andata a buon fine
+                    UserBean userBean = loginCtrlApp.loadUser(loginBean);
 
                     /* --------------- Mostro la home page -------------- */
                     SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
-                    System.out.println("Utente registrato, ho recuperato tutto lo user bean");
+                    System.out.println("Utente acceduto, ho recuperato tutto lo user bean");
 
                 }
-            } else { /* --------------- Credenziali non valide --------------*/
+            } catch (PasswordErrata e){
+                /* --------------- Credenziali non valide --------------*/
                 errorLabel.isVisible();
-                errorLabel.setText("Credenziali errate");
+                errorLabel.setText("Password errata");
             }
         }
     }

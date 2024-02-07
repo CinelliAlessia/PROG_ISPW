@@ -1,5 +1,8 @@
 package engineering.bean;
 
+import engineering.exceptions.LinkIsNotValid;
+import org.apache.commons.validator.routines.UrlValidator;
+
 import java.util.List;
 
 public class PlaylistBean {
@@ -16,7 +19,7 @@ public class PlaylistBean {
 
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) {
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) throws LinkIsNotValid {
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
@@ -26,7 +29,7 @@ public class PlaylistBean {
         setId(id);
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved) {
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved) throws LinkIsNotValid {
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
@@ -39,8 +42,12 @@ public class PlaylistBean {
         this.id = id;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setLink(String link) throws LinkIsNotValid {
+        if(isValidLink(link)){
+            this.link = link;
+        } else {
+            throw new LinkIsNotValid("Il link non è valido!");
+        }
     }
 
     public String getLink() {
@@ -89,5 +96,11 @@ public class PlaylistBean {
 
     public String getId() {
         return id;
+    }
+
+    private boolean isValidLink(String input) {
+        UrlValidator urlValidator = new UrlValidator();
+        //return urlValidator.isValid(input);
+        return true;
     }
 }

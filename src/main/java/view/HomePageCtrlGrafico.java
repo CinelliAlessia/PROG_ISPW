@@ -3,9 +3,9 @@ package view;
 import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.*;
 
+import engineering.exceptions.LinkIsNotValid;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.PlaylistCollection;
-import engineering.pattern.observer.Subject;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -63,19 +63,20 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         /* Metodo pull per ricevere i dati dal dao */
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistsBean = homePageController.retrivePlaylistsApproved();                              // Recupera le playlist approvate
-        TableManager.createTable(playlistTable,columns, nameColumns, playlistsBean, genreColumn);   // Aggiorna i parametri della tabella
+        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean, genreColumn);   // Aggiorna i parametri della tabella
 
-        /* BYPASSIAMO MVC PER PATTERN OBSERVER */
+        /*
+        /* BYPASSIAMO MVC PER PATTERN OBSERVER
         playlistCollection = new PlaylistCollection();
         playlistCollection.attach(this);
 
-        /* CREAIONE STATO DA SETTARE */
+        /* CREAIONE STATO DA SETTARE
         for(PlaylistBean p: playlistsBean){
             playlists.add(new Playlist(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId()));
         }
-        playlistCollection.setState(playlists);
+        playlistCollection.setState(playlists); */
 
-        }
+    }
 
     /** Viene utilizzata da sceneController per impostare lo userBean */
     public void setUserBean(UserBean user) {
@@ -130,10 +131,21 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     @Override
     public void update() {
         // Io devo fare getState() ma come conosco il model? mantengo l'istanza
-        playlists = playlistCollection.getState();
-        for(Playlist p: playlists){
-            playlistsBean.add(new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId()));
-        }
-        TableManager.updateTable(playlistTable, playlistsBean);
+
+        /* Metodo pull per ricevere i dati dal dao */
+        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
+        playlistsBean = homePageController.retrivePlaylistsApproved();                              // Recupera le playlist approvate
+        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean, genreColumn);   // Aggiorna i parametri della tabella
+        /*
+        try{
+            playlists = playlistCollection.getState();
+            for(Playlist p: playlists){
+                playlistsBean.add(new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId()));
+            }
+            TableManager.updateTable(playlistTable, playlistsBean);
+        } catch (LinkIsNotValid e){
+            e.fillInStackTrace();
+        }*/
+
     }
 }

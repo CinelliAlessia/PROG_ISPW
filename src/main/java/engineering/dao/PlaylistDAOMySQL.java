@@ -112,7 +112,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlist.setUsername(rs.getString("username"));
                 playlist.setLink(rs.getString("link"));
                 playlist.setEmail(rs.getString("email"));
-                playlist.setPlaylistName(rs.getString("nomePlaylist"));
+                playlist.setPlaylistName(rs.getString("namePlaylist"));
                 playlist.setApproved(rs.getBoolean("approved"));
                 
                 genres = GenreManager.retriveGenre(rs);
@@ -180,7 +180,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlist.setLink(rs.getString("link"));
                 playlist.setUsername(rs.getString("username"));
                 playlist.setEmail(rs.getString("email"));
-                playlist.setPlaylistName(rs.getString("nomePlaylist"));
+                playlist.setPlaylistName(rs.getString("namePlaylist"));
 
                 List<String> genres = GenreManager.retriveGenre(rs);
                 playlist.setPlaylistGenre(genres);

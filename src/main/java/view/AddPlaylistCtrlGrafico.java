@@ -3,6 +3,7 @@ package view;
 import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
 
+import engineering.exceptions.LinkIsNotValid;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -17,6 +18,8 @@ import java.util.*;
 
 public class AddPlaylistCtrlGrafico implements Initializable {
 
+    @FXML
+    private Label errorLabel;
     @FXML
     private TextField title;
     @FXML
@@ -72,6 +75,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
         String titolo = title.getText();
 
         //Controllo sui campi vuoti
+
         if( !linkPlaylist.isEmpty() && !titolo.isEmpty() ){
             // Recupero generi della playlist
             List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
@@ -80,31 +84,38 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             boolean approved = userBean.isSupervisor();
 
             // Costruzione della playlistBean con i parametri per il Controller Applicativo
-            PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
+            PlaylistBean playlistBean = null;
+            try {
+                playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
 
-            // Invocazione metodo controller Applicativo che in teoria è static
-            AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
-            addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
+                // Invocazione metodo controller Applicativo che in teoria è static
+                AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
+                addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-            // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
-            SceneController.getInstance().goBack(event);
-            if(approved){
-                SceneController.getInstance().popUp(event, MessageString.ADDED_PLAYLIST);
+                // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
+                SceneController.getInstance().goBack(event);
+                if(approved){
+                    SceneController.getInstance().popUp(event, MessageString.ADDED_PLAYLIST);
+                }
+                else{
+                    SceneController.getInstance().popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
+                }
+                System.out.println("PLAYLIST AGGIUNTA");
+
+            } catch (LinkIsNotValid e){
+                errorLabel.setText(e.getMessage());
+                System.out.println(e.getMessage());
+                e.fillInStackTrace();
             }
-            else{
-                SceneController.getInstance().popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
-            }
-            System.out.println("PLAYLIST AGGIUNTA");
+
 
         } else {
             // campi vuoti
+            errorLabel.setText("I campi sono vuoti!");
             System.out.println("PLAYLIST NON AGGIUNTA");
         }
     }
 
-    public static boolean isValidLink(String input) {
-        UrlValidator urlValidator = new UrlValidator();
-        return urlValidator.isValid(input);
-    }
+
 
 }
