@@ -2,7 +2,6 @@ package engineering.query;
 
 import model.Playlist;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,9 +33,6 @@ public class QueryPlaylist {
         * anche nella playlist globale */
         try{
             // inserimento nella tabella dell'utente
-            String insertAllPlaylistStatement = String.format(Queries.INSERT_ALL_PLAYLIST_QUERY, namePlaylist, link, approved);
-            stmt.executeUpdate(insertAllPlaylistStatement);
-
             String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_USER, namePlaylist, email, username, link, approved, buildGenresQueryString(playlistGenre));
             stmt.executeUpdate(insertPlaylistStatement);
         } catch (SQLException e){
@@ -135,18 +131,12 @@ public class QueryPlaylist {
     public static void removePlaylistByLink(Statement stmt, String link) throws SQLException {
         String sql = String.format(Queries.DELETE_PLAYLIST_BY_LINK_PLAYLIST_UTENTE,link);
         stmt.executeUpdate(sql);
-
-        sql = String.format(Queries.DELETE_PLAYLIST_BY_LINK_ALL_PLAYLIST,link);
-        stmt.executeUpdate(sql);
     }
 
 
 
     public static void approvePlaylistByLink(Statement stmt, String link) throws SQLException {
         String sql = String.format(Queries.UPDATE_APPROVE_PLAYLIST,1,link);
-        stmt.executeUpdate(sql);
-
-        sql = String.format(Queries.UPDATE_APPROVE_PLAYLIST_IN_ALL,1,link);
         stmt.executeUpdate(sql);
     }
 

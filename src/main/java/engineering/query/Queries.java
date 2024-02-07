@@ -25,12 +25,10 @@ public class Queries {
 
 
     /* ---------- QUERY PLAYLIST ---------- */
-    public static final String INSERT_PLAYLIST_USER = "INSERT INTO playlist_utente (nomePlaylist, email, username, link, approved, Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative) VALUES ('%s','%s','%s','%s','%d', %s)";
+    public static final String INSERT_PLAYLIST_USER = "INSERT INTO playlist_utente (namePlaylist, email, username, link, approved, Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative) VALUES ('%s','%s','%s','%s','%d', %s)";
     public static final String INSERT_GENERI_MUSICALI_PLAYLIST = "INSERT INTO playlist_utente (Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative) VALUES (%s)";
-    public static final String INSERT_ALL_PLAYLIST_QUERY = "INSERT INTO all_playlist (namePlaylist, link, approved) VALUES ('%s','%s','%d')";
 
-
-    public static final String SELECT_LINK_QUERY = "SELECT * FROM all_playlist WHERE link = '%s'";
+    public static final String SELECT_LINK_QUERY = "SELECT * FROM playlist_utente WHERE link = '%s'";
     public static final String SELECT_PLAYLIST_BY_USER = "SELECT * FROM playlist_utente WHERE username = '%s'"; // Recupero tutto ma non uso tutto
     public static final String SELECT_PLAYLIST_BY_EMAIL = "SELECT * FROM playlist_utente WHERE email = '%s'";
     public static final String SELECT_ALL_PLAYLIST = "SELECT * FROM playlist_utente"; // Recupero tutto ma non uso tutto
@@ -44,15 +42,11 @@ public class Queries {
     public static final String SELECT_GENRE_PLAYLIST_BY_LINK = "SELECT Pop, Indie, Classic, Rock, Electronic, House, HipHop, Jazz, Acoustic, REB, Country, Alternative " +
             "FROM playlist_utente " +
             "WHERE link = '?'";
-    public static final String SELECT_SHEARCH_PLAYLIST = "SELECT * FROM playlist_utente WHERE nomePlaylist LIKE '%s' AND approved = '1'";
+    public static final String SELECT_SHEARCH_PLAYLIST = "SELECT * FROM playlist_utente WHERE namePlaylist LIKE '%s' AND approved = '1'";
 
 
     public static final String UPDATE_APPROVE_PLAYLIST = "UPDATE playlist_utente SET approved = '%d' WHERE link = '%s' ";
-    public static final String UPDATE_APPROVE_PLAYLIST_IN_ALL = "UPDATE all_playlist SET approved = '%d' WHERE link = '%s' ";
-
 
     public static final String DELETE_PLAYLIST_BY_LINK_PLAYLIST_UTENTE = "DELETE * FROM playlist_utente WHERE link = '%s'" ;
-    public static final String DELETE_PLAYLIST_BY_LINK_ALL_PLAYLIST = "DELETE * FROM all_playlist WHERE link = '%s'" ;
-
 
 }
