@@ -2,12 +2,14 @@ package view;
 
 import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
-import engineering.others.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import org.apache.commons.validator.routines.UrlValidator;
+import view.utils.GenreManager;
+import view.utils.MessageString;
+import view.utils.SceneController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -87,7 +89,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
             SceneController.getInstance().goBack(event);
             if(approved){
-                SceneController.getInstance().popUp(event,MessageString.ADDED_PLAYLIST);
+                SceneController.getInstance().popUp(event, MessageString.ADDED_PLAYLIST);
             }
             else{
                 SceneController.getInstance().popUp(event,MessageString.ADDED_PENDING_PLAYLIST);

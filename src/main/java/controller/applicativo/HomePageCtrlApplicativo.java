@@ -2,7 +2,12 @@ package controller.applicativo;
 
 import engineering.bean.PlaylistBean;
 import engineering.dao.*;
+import engineering.pattern.observer.Observer;
+import engineering.pattern.observer.PlaylistCollection;
+import engineering.pattern.observer.Subject;
 import model.Playlist;
+import view.HomePageCtrlGrafico;
+
 import java.util.*;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
@@ -54,4 +59,10 @@ public class HomePageCtrlApplicativo {
         return playlistsBean;
 
     }
+
+    public void observePlaylistTable(Observer observer){
+        Subject playlistCollection = new PlaylistCollection();
+        playlistCollection.attach(observer);
+    }
+
 }

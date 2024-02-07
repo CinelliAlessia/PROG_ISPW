@@ -1,4 +1,4 @@
-package engineering.others;
+package view.utils;
 
 import engineering.bean.UserBean;
 import javafx.event.ActionEvent;

@@ -1,6 +1,6 @@
 package start;
 
-import engineering.others.FxmlFileName;
+import view.utils.FxmlFileName;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.application.Application;

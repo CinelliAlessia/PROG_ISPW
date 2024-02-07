@@ -1,4 +1,4 @@
-package engineering.others;
+package view.utils;
 
 public class MessageString {
     private MessageString(){}

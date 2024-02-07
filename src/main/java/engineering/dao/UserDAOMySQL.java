@@ -3,7 +3,7 @@ package engineering.dao;
 import engineering.exceptions.UsernameAlreadyInUse;
 import engineering.others.Connect;
 import engineering.exceptions.EmailAlreadyInUse;
-import engineering.others.GenreManager;
+import view.utils.GenreManager;
 import engineering.query.QueryLogin;
 import model.Supervisor;
 import model.User;

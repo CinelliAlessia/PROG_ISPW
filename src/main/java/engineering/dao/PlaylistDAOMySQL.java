@@ -4,6 +4,8 @@ import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import engineering.others.*;
 import engineering.query.QueryPlaylist;
 import model.Playlist;
+import view.utils.GenreManager;
+
 import java.sql.*;
 import java.util.*;
 

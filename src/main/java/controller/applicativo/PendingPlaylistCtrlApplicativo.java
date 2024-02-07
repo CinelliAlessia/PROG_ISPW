@@ -2,12 +2,13 @@ package controller.applicativo;
 
 import engineering.bean.*;
 import engineering.dao.*;
+import engineering.pattern.observer.PlaylistCollection;
 import model.Playlist;
 import java.util.*;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
-public class PlaylistToApproveCtrlApplicativo {
+public class PendingPlaylistCtrlApplicativo {
 
     public PlaylistBean approvePlaylist(PlaylistBean pB){
         // Prendo il tipo di persistenza impostato nel file di configurazione
@@ -19,8 +20,11 @@ public class PlaylistToApproveCtrlApplicativo {
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getId());
 
         Playlist playlistApproved = dao.approvePlaylist(playlist);
-        pB.setApproved(playlistApproved.getApproved());
 
+        PlaylistCollection playlistCollection = new PlaylistCollection();
+        playlistCollection.addPlaylist(playlist);
+
+        pB.setApproved(playlistApproved.getApproved());
         return pB;
     }
 
@@ -46,4 +50,15 @@ public class PlaylistToApproveCtrlApplicativo {
         return playlistsBean;
     }
 
+    public void rejectPlaylist(PlaylistBean pB) {
+        // Prendo il tipo di persistenza impostato nel file di configurazione
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType();
+
+        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = persistenceType.createPlaylistDAO();
+
+        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getId());
+
+        dao.deletePlaylist(playlist);
+    }
 }

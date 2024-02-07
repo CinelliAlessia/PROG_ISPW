@@ -1,4 +1,4 @@
-package engineering.others;
+package view.utils;
 
 import engineering.bean.PlaylistBean;
 import javafx.collections.*;
@@ -28,9 +28,7 @@ public class TableManager {
             index++;
         }
 
-        // Aggiungi le playlist alla TableView
-        ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
-        playlistTable.setItems(playlistData);
+        updateTable(playlistTable, playlists);
 
         // Configura la colonna "Generi musicali"
         /*
@@ -54,6 +52,12 @@ public class TableManager {
             }
         });*/
 
+    }
+
+    public static void updateTable(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlists){
+        // Aggiungi le playlist alla TableView
+        ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
+        playlistTable.setItems(playlistData);
     }
 
 }

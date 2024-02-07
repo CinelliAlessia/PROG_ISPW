@@ -2,11 +2,11 @@ package view;
 
 import controller.applicativo.*;
 import engineering.bean.*;
-import engineering.others.*;
 
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import view.utils.*;
 
 import java.util.*;
 import java.io.IOException;

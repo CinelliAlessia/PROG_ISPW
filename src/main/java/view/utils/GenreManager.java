@@ -1,4 +1,4 @@
-package engineering.others;
+package view.utils;
 
 import javafx.scene.control.CheckBox;
 import java.sql.*;

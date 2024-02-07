@@ -55,6 +55,44 @@
     -fx-opacity: 1; /* Ripristina l'opacità al passaggio del mouse */
 }
 
+.approveButton {
+    -fx-background-color: transparent;
+
+    -fx-pref-height: 25px;
+    -fx-pref-width: 25px;
+    -fx-min-width: -1;
+    -fx-min-height: -1;
+
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+
+    -fx-background-image: url("../photo/checked.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
+
+.rejectButton {
+    -fx-background-color: transparent;
+    -body-background-color: transparent;
+
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+
+    -fx-pref-height: 0px;
+    -fx-pref-width: 0px;
+    -fx-min-width: -1;
+    -fx-min-height: -1;
+
+    -fx-background-image: url("../photo/cancel.png");
+
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border-width: 0; /* Rimuove il bordo */
+}
+
+
 .text-field {
     -fx-border-color: #1DB954;
     -fx-font-size: 16px;

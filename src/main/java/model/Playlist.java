@@ -14,6 +14,7 @@ public class Playlist {
     public Playlist(){
         this.approved = false;
     }
+
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved){
         setEmail(email);
         setUsername(username);

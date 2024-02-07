@@ -5,7 +5,7 @@
 
 <BorderPane prefWidth="1024.0" prefHeight="640.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml" fx:controller="view.PlaylistToApproveCtrlGrafico">
+            xmlns:fx="http://javafx.com/fxml" fx:controller="view.PendingPlaylistCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
