@@ -1,6 +1,7 @@
 package engineering.dao;
 
 import engineering.exceptions.EmailAlreadyInUse;
+import engineering.exceptions.UserDoesNotExist;
 import engineering.exceptions.UsernameAlreadyInUse;
 import model.User;
 
@@ -13,13 +14,13 @@ public interface UserDAO {
     boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse;
 
     /** Retrive delle informazioni di un utente dalla persistenza, ottenuta dall'email */
-    User loadUser(String userEmail);
+    User loadUser(String userEmail) throws UserDoesNotExist;
 
     /** Retrive delle informazioni di un utente dalla persistenza, ottenuta dall'username che abbiamo detto essere unico */
     User retrieveUserByUsername(String userName);
 
     /** Ottiene la password associata all'email */
-    String getPasswordByEmail(String email);
+    String getPasswordByEmail(String email) throws UserDoesNotExist;
 
     /** Aggiorna i generi musicali preferiti dall'utente, recuperato tramite email*/
     void updateGenreUser(String email, List<String> preferences);

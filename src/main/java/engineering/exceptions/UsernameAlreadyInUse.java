@@ -1,7 +1,7 @@
 package engineering.exceptions;
 
 public class UsernameAlreadyInUse extends Exception {
-    public UsernameAlreadyInUse(String message) {
-        super(message);
+    public UsernameAlreadyInUse() {
+        super("Username non disponibile");
     }
 }
