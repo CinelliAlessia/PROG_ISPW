@@ -44,7 +44,7 @@ public class UserDAOMySQL implements UserDAO {
 
         } catch (SQLException e) {
             // Gestisci l'eccezione
-            e.printStackTrace();
+            e.fillInStackTrace();
             result = false;
 
         } finally {

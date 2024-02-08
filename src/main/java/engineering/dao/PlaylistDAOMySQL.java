@@ -217,7 +217,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 conn.close();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
     }
 

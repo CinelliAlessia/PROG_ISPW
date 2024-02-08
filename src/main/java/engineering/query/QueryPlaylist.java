@@ -37,7 +37,7 @@ public class QueryPlaylist {
             stmt.executeUpdate(insertPlaylistStatement);
         } catch (SQLException e){
             // Dobbiamo annullare i caricamenti.
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
     }
 
