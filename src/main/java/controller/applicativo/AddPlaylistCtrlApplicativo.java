@@ -2,6 +2,7 @@ package controller.applicativo;
 
 import engineering.bean.*;
 import engineering.dao.*;
+import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import engineering.pattern.observer.PlaylistCollection;
 import model.Playlist;
 
@@ -9,7 +10,7 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 
 public class AddPlaylistCtrlApplicativo {
 
-    public void insertPlaylist(PlaylistBean pB){
+    public void insertPlaylist(PlaylistBean pB) throws PlaylistLinkAlreadyInUse {
         //###################### IMPORTANTE CAPIRE COSA FARE CON QUESTO ID ######################
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione

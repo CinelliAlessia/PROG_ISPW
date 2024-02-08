@@ -59,10 +59,8 @@ public class LoginCtrlGrafico {
                     System.out.println("Utente acceduto, ho recuperato tutto lo user bean");
 
                 }
-            } catch (IncorrectPassword e){
-                showError("Password Errata");
-            } catch (UserDoesNotExist e) {
-                showError("Email non registrata");
+            } catch (IncorrectPassword | UserDoesNotExist e){
+                showError(e.getMessage());
             }
         }
     }

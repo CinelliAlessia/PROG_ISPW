@@ -12,11 +12,12 @@ import java.util.*;
 public class PlaylistDAOMySQL implements PlaylistDAO {
 
     /** Inserimento di una playlist in db. Viene prima controllato che non ci sia già il link all'interno del DB, successivamente inserisce */
-    public boolean insertPlaylist(Playlist playlist) {
+    public boolean insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
         Statement stmt = null;
-        Connection conn;
-        boolean result;
+        Connection conn = null;
         ResultSet rs = null;
+
+        boolean result;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -26,27 +27,20 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             rs = QueryPlaylist.searchPlaylistLink(stmt, playlistLink);
 
             if (rs.next()) {
-                throw new PlaylistLinkAlreadyInUse("This link is already in use!");
+                throw new PlaylistLinkAlreadyInUse();
             }
+
+            //Devo anche cercare il titolo per il singolo utente prima di caricare
+
             rs.close();
 
             QueryPlaylist.insertPlaylist(stmt, playlist);
             result = true;
-        } catch (PlaylistLinkAlreadyInUse | SQLException e) {
+        } catch (SQLException e) {
             e.fillInStackTrace();
             result = false;
         } finally {
-            try{
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-            } catch (SQLException e){
-                e.fillInStackTrace();
-            }
-
+            closeResources(conn,stmt,rs);
         }
         return result;
     }
@@ -57,7 +51,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
      */
     public Playlist approvePlaylist(Playlist playlist) {
         Statement stmt = null;
-        Connection conn;
+        Connection conn = null;
         ResultSet rs = null;
 
         try {
@@ -76,26 +70,17 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         } catch (SQLException e){
             e.fillInStackTrace();
         } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-            } catch (SQLException e){
-                e.fillInStackTrace();
-            }
-
+            closeResources(conn,stmt,rs);
         }
         return playlist;
     }
 
     public List<Playlist> retrievePlaylistsByEmail(String email) {
         Statement stmt = null;
-        Connection conn;
-        List<Playlist> playlists = null;
+        Connection conn = null;
         ResultSet rs = null;
+
+        List<Playlist> playlists = null;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -114,7 +99,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlist.setEmail(rs.getString("email"));
                 playlist.setPlaylistName(rs.getString("namePlaylist"));
                 playlist.setApproved(rs.getBoolean("approved"));
-                
+
                 genres = GenreManager.retriveGenre(rs);
                 playlist.setPlaylistGenre(genres);
                 playlists.add(playlist);
@@ -125,16 +110,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             e.fillInStackTrace();
         }
         finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if(rs != null){
-                    rs.close();
-                }
-            } catch (SQLException e){
-                e.fillInStackTrace();
-            }
+            closeResources(conn,stmt,rs);
         }
         return playlists;
     }
@@ -151,9 +127,10 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
     private List<Playlist> retrievePlaylists(String s,Playlist p){
         Statement stmt = null;
-        Connection conn;
-        List<Playlist> playlists = new ArrayList<>(); // Initialize the list here
+        Connection conn = null;
         ResultSet rs = null;
+
+        List<Playlist> playlists = new ArrayList<>(); // Initialize the list here
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -167,13 +144,17 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                     rs = QueryPlaylist.retrieveApprovedPlaylists(stmt);
                     break;
                 case "searchWord":
-                    rs = QueryPlaylist.searchPlaylistString(stmt,p.getPlaylistName());
+                    if(p != null){
+                        rs = QueryPlaylist.searchPlaylistString(stmt,p.getPlaylistName());
+                    }
                     break;
                 default:
                     break;
             }
 
-            while (rs.next()) {
+            while (true) {
+                assert rs != null;
+                if (!rs.next()) break;
 
                 Playlist playlist = new Playlist();
 
@@ -188,25 +169,16 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.fillInStackTrace();
         } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            closeResources(conn,stmt,rs);
         }
         return playlists;
     }
 
     public void deletePlaylist(Playlist playlist) {
         Statement stmt = null;
-        Connection conn;
+        Connection conn = null;
         ResultSet rs = null;
 
         try {
@@ -224,23 +196,29 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         } catch (SQLException e){
             e.fillInStackTrace();
         } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-            } catch (SQLException e){
-                e.fillInStackTrace();
-            }
-
+            closeResources(conn,stmt,rs);
         }
     }
 
     public List<Playlist> retrievePlaylistsByGenre(List<String> genres) {
         //TODO
         return Collections.emptyList();
+    }
+
+    private void closeResources(Connection conn, Statement stmt, ResultSet rs) {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

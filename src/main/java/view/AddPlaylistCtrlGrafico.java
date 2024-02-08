@@ -4,10 +4,10 @@ import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
 
 import engineering.exceptions.LinkIsNotValid;
+import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import org.apache.commons.validator.routines.UrlValidator;
 import view.utils.GenreManager;
 import view.utils.MessageString;
 import view.utils.SceneController;
@@ -89,7 +89,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             boolean approved = userBean.isSupervisor();
 
             // Costruzione della playlistBean con i parametri per il Controller Applicativo
-            PlaylistBean playlistBean = null;
+            PlaylistBean playlistBean;
             try {
                 playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
 
@@ -105,10 +105,8 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 }
                 System.out.println("PLAYLIST AGGIUNTA");
 
-            } catch (LinkIsNotValid e){
-                errorLabel.setText(e.getMessage());
-                System.out.println(e.getMessage());
-                e.fillInStackTrace();
+            } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
+                showError(e.getMessage());
             }
 
 
@@ -117,6 +115,12 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             errorLabel.setText("I campi sono vuoti!");
             System.out.println("PLAYLIST NON AGGIUNTA");
         }
+    }
+
+    private void showError(String message) {
+        // Mostra un messaggio di errore nell'interfaccia utente.
+        errorLabel.setText(message);
+        errorLabel.setVisible(true);
     }
 
 }
