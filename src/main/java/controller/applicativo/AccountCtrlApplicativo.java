@@ -2,8 +2,10 @@ package controller.applicativo;
 
 import engineering.bean.*;
 import engineering.dao.*;
-import engineering.exceptions.LinkIsNotValid;
+import engineering.exceptions.*;
+
 import model.Playlist;
+
 import java.util.*;
 
 import static engineering.dao.TypesOfPersistenceLayer.*;

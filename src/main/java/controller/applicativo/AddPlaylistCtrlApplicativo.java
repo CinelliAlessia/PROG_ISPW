@@ -24,7 +24,10 @@ public class AddPlaylistCtrlApplicativo {
         if(dao.insertPlaylist(playlist)){
             System.out.println("Playlist caricata correttamente");
             PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
-            playlistCollection.addPlaylist(playlist);
+
+            if(playlist.getApproved()){ // La notifica all'observer solo se la playlist è approvata
+                playlistCollection.addPlaylist(playlist);
+            }
         } else {
             //################# Se la playlist non viene caricata #################àà
             System.out.println("Playlist non è stata caricata");

@@ -76,8 +76,8 @@ public class AddPlaylistCtrlGrafico implements Initializable {
         String titolo = title.getText();
 
         //Controllo sui campi vuoti
-
         if( !linkPlaylist.isEmpty() && !titolo.isEmpty() ){
+
             // Recupero generi della playlist
             List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
 
@@ -85,9 +85,8 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             boolean approved = userBean.isSupervisor();
 
             // Costruzione della playlistBean con i parametri per il Controller Applicativo
-            PlaylistBean playlistBean = null;
             try {
-                playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
+                PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, userBean.isSupervisor());
 
                 // Invocazione metodo controller Applicativo che in teoria è static
                 AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
@@ -105,10 +104,9 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 showError(e.getMessage());
             }
 
-
         } else {
             // campi vuoti
-            errorLabel.setText("I campi sono vuoti!");
+            showError("I campi sono vuoti!");
             System.out.println("PLAYLIST NON AGGIUNTA");
         }
     }
