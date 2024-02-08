@@ -142,12 +142,12 @@
 }
 
 /* Stile per le righe pari */
-.table-view .cell:odd {
+.table-view .cell-odd {
     -fx-background-color: #f0f0f0;
 }
 
 /* Stile per le righe dispari */
-.table-view .cell:even {
+.table-view .cell-even {
     -fx-background-color: #ffffff;
 }
 
