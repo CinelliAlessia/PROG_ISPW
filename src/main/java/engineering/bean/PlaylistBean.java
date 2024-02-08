@@ -96,7 +96,6 @@ public class PlaylistBean {
 
     private boolean isValidLink(String input) {
         UrlValidator urlValidator = new UrlValidator();
-        //return urlValidator.isValid(input);
-        return true;
+        return urlValidator.isValid(input);
     }
 }
