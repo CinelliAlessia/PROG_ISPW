@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.lang.reflect.*;
 import java.util.*;
 
-/** SINGLETON */
-//############### SBAGLIATO ###################
 public class SceneController {
     private final Deque<Scene> sceneStack;
 

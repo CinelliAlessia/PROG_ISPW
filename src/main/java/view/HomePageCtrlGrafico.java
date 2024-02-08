@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
+/** Home page controller grafico rappresenta il Concrete Observer */
 public class HomePageCtrlGrafico implements Initializable, Observer {
 
     @FXML
@@ -41,26 +42,23 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     private Button addButton;
 
     private UserBean userBean;
-
-    private List<TableColumn<PlaylistBean, ?>> columns = null;
-    private List<String> nameColumns = null;
     private SceneController sceneController;
 
-    /* OBSERVER */
-    private PlaylistCollection playlistCollection; /* ISTANZA DEL MODEL (CONCRETE SUBJECT)*/
-    private List<PlaylistBean> playlistsBean = new ArrayList<>();
-    private List<Playlist> playlists = new ArrayList<>(); /** Observer state -> Model ma serve cosi per il pattern */
 
+    /* OBSERVER */
+    private PlaylistCollection playlistCollection; /* ISTANZA DEL MODEL (CONCRETE SUBJECT) */
+    private List<Playlist> playlists = new ArrayList<>(); /** Observer state -> Model ma serve cosi per il pattern */
+    private List<PlaylistBean> playlistsBean = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Recupera tutte le playlist
         System.out.println("Inizio initialize home");
 
-        columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
-        nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
+        List<String> nameColumns = Arrays.asList("playlistName", "link", "username", "playlistGenre");
 
-        /* BYPASSIAMO MVC PER PATTERN OBSERVER*/
+        /* BYPASSIAMO MVC PER PATTERN OBSERVER */
         playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.attach(this);
 
@@ -71,8 +69,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     }
 
-    /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare*/
-
+    /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare */
     public void setAttributes(UserBean user, SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
         this.userBean = user;
@@ -81,7 +78,6 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         initializeField();
         System.out.println("HCG setUserBean: " + userBean);
     }
-    //########## Aggiungere un pop-up che chiede di effettuare la registrazione o login ########<
 
     public void initializeField() {
         if(userBean == null){
@@ -114,7 +110,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         sceneController.<PendingPlaylistCtrlGrafico>goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML,null);
     }
 
-    public void onSearchPlaylistClick(ActionEvent event) {
+    public void onSearchPlaylistClick() {
         PlaylistBean pB = new PlaylistBean();
         pB.setPlaylistName(searchText.getText());
 
@@ -124,16 +120,10 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         TableManager.updateTable(playlistTable, playlistsBean);
     }
 
-    /* UTILIZZATA PER IL PATTERN OBSERVER */
+    /** UTILIZZATA PER IL PATTERN OBSERVER */
     @Override
     public void update() {
-        // Io devo fare getState() ma come conosco il model? mantengo l'istanza
 
-        /* Metodo pull per ricevere i dati dal dao
-        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.retrivePlaylistsApproved();                              // Recupera le playlist approvate
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean, genreColumn);  // Aggiorna i parametri della tabella
-        */
         try{
             playlists = playlistCollection.getState();
             for(Playlist p: playlists){
