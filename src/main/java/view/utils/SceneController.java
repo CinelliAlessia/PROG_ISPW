@@ -91,6 +91,7 @@ public class SceneController {
         controller.setText(text);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        controller.setPreviousEvent(event);
 
         Stage popupStage = new Stage();
         popupStage.initOwner(stage);
