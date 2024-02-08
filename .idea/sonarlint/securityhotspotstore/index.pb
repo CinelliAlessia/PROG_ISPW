@@ -91,3 +91,7 @@ j
 :src/main/java/engineering/exceptions/UserDoesNotExist.java,2\c\2c6b703e45580360a945494086b44cb75adc6108
 k
 ;src/main/java/engineering/exceptions/IncorrectPassword.java,5\9\59025358c8e4fd2cfae40aa4ed01ffff404af458
+]
+-src/main/java/view/utils/SceneController.java,f\f\ff299f43dcbd14d1d5283b7e5c5317075b6d9f8c
+b
+2src/main/java/view/PendingPlaylistCtrlGrafico.java,8\a\8a71eadf6e4875869e5fc1cfb3a2459855a28402

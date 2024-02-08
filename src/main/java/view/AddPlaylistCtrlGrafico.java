@@ -7,12 +7,10 @@ import engineering.exceptions.LinkIsNotValid;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import org.apache.commons.validator.routines.UrlValidator;
 import view.utils.GenreManager;
 import view.utils.MessageString;
 import view.utils.SceneController;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -75,7 +73,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
 
     /** Click sul tasto carica Playlist*/
     @FXML
-    public void onUploadClick(ActionEvent event) throws IOException {
+    public void onUploadClick(ActionEvent event)  {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
@@ -89,9 +87,8 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             boolean approved = userBean.isSupervisor();
 
             // Costruzione della playlistBean con i parametri per il Controller Applicativo
-            PlaylistBean playlistBean = null;
             try {
-                playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
+                PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
 
                 // Invocazione metodo controller Applicativo che in teoria è static
                 AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();

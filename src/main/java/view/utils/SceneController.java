@@ -34,20 +34,30 @@ public class SceneController {
     }
 
     @FXML
-    public <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        Parent root = loader.load();
+    public <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
 
-        T controller = loader.getController();
-        setAttributes(controller, userBean);
+            T controller = loader.getController();
+            setAttributes(controller, userBean);
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        sceneStack.push(stage.getScene()); // Push current scene onto stack
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            sceneStack.push(stage.getScene()); // Push current scene onto stack
 
-        Scene scene = new Scene(root);  // Creo scena a partire dal Parent
-        stage.setScene(scene);          // Imposto la scena sullo stage
-        stage.show();                   // Mostro la scena (nuova)
+            Scene scene = new Scene(root);  // Creo scena a partire dal Parent
+            stage.setScene(scene);          // Imposto la scena sullo stage
+            stage.show();                   // Mostro la scena (nuova)
+        } catch (IOException e) {
+            // Gestione dell'errore durante il caricamento della scena
+            handleSceneLoadError(e);
+        }
     }
+
+    private void handleSceneLoadError(IOException e) {
+        e.fillInStackTrace();
+    }
+
 
     private void setAttributes(Object controller, UserBean userBean) {
 
@@ -66,28 +76,34 @@ public class SceneController {
         }
     }
 
-    public void popUp(ActionEvent event, String text) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML));
-        Parent root = loader.load();
+    public void popUp(ActionEvent event, String text) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML));
+            Parent root = loader.load();
 
-        // Ottieni l'istanza del controller
-        TextPopUp controller = loader.getController();
-        setAttributes(controller, null);
+            // Ottieni l'istanza del controller
+            TextPopUp controller = loader.getController();
+            setAttributes(controller, null);
 
-        // Utilizza il controller per chiamare la funzione setText
-        controller.setText(text);
+            // Utilizza il controller per chiamare la funzione setText
+            controller.setText(text);
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        controller.setPreviousEvent(event);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            controller.setPreviousEvent(event);
 
-        Stage popupStage = new Stage();
-        popupStage.initOwner(stage);
-        popupStage.initModality(Modality.APPLICATION_MODAL);
+            Stage popupStage = new Stage();
+            popupStage.initOwner(stage);
+            popupStage.initModality(Modality.APPLICATION_MODAL);
 
-        Scene scene = new Scene(root);
-        popupStage.setScene(scene);
+            Scene scene = new Scene(root);
+            popupStage.setScene(scene);
 
-        popupStage.showAndWait();
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            // Gestione dell'errore durante il caricamento del popup
+            handleSceneLoadError(e);
+        }
     }
+
 }
 

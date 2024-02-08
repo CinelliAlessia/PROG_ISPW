@@ -86,7 +86,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
      * Se la registrazione ha successo viene ottenuto lo UserBean dal controller Applicativo e
      * si imposta la scena sulla Home Page */
     @FXML
-    protected void onRegisterClick(ActionEvent event) throws IOException{
+    protected void onRegisterClick(ActionEvent event){
         // L'utente chiede di registrarsi con una determinata mail e un nome utente
         RegistrationBean regBean = getData();
 

@@ -71,6 +71,4 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
     public void onBackClick(ActionEvent event) {
         sceneController.goBack(event);
     }
-
-
 }

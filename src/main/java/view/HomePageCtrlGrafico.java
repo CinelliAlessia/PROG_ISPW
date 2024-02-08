@@ -91,7 +91,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     }
 
     @FXML
-    protected void onAccountClick(ActionEvent event) throws IOException {
+    protected void onAccountClick(ActionEvent event) {
         System.out.println("HCG userBean: " + userBean);
         if(userBean == null){ // Utente Guest
             sceneController.<RegistrazioneCtrlGrafico>goToScene(event, FxmlFileName.REGISTRATION_FXML,null);
@@ -101,11 +101,11 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     }
 
     @FXML
-    public void addPlaylistClick(ActionEvent event) throws IOException {
+    public void addPlaylistClick(ActionEvent event) {
         sceneController.<AddPlaylistCtrlGrafico>goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
     }
 
-    public void onManagerClick(ActionEvent event) throws IOException {
+    public void onManagerClick(ActionEvent event) {
         sceneController.<PendingPlaylistCtrlGrafico>goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML,null);
     }
 

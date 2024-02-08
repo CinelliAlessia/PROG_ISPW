@@ -4,47 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiustato TextPopUp, ora non crea più il duplicato e torna indietro dopo aver premuto ok">
-      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UserDoesNotExist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/prova_pop_up[3c1dc767-3b8d-4796-a543-80db0de6856a].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/prova_print[8d9569e5-f6fa-4aea-b981-da7ac4b9bcdc].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/provaalessia[4d6acdc0-78b9-4b47-8fa8-f944a1aaa92a].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/provadao2[bfda949d-10ec-4c34-acdf-32b1654abb84].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/provafinale[adfa4256-19e4-4e01-8e06-33fcd9f14de0].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/ghcjyuyf[a9516207-80c6-4c3d-aab7-95f1715d920c].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/hey[5cf17ef8-db0d-41e4-9746-31d07c0ef3b8].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/nuovodao[86b9e70f-c5a4-4a11-b619-7cfa5e5c175b].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/prova_pop_up.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/prova_print.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/provaalessia.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/hey.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/ghcjyuyf.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/provafinale.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/userInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/prova@gmail.com/userInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/nuovodao.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/provadao2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/userInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_01_2024_13_17_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_01_2024_13_17__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_01_2024_16_20_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_01_2024_16_20__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_01_2024_18_09_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_01_2024_18_09__Changes_.xml" beforeDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="gestione delle eccezioni sul LoginCtrlGrafico">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/EmailAlreadyInUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/EmailAlreadyInUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UsernameAlreadyInUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UsernameAlreadyInUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/pattern/observer/PlaylistCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/pattern/observer/PlaylistCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/pattern/observer/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/pattern/observer/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/utils/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/utils/SceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ccc@gmail.com/userInfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ddd@gmail.com/userInfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/leo@leotordo.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/leo@leotordo.com/userInfo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,14 +207,7 @@
       <workItem from="1707292048157" duration="2589000" />
       <workItem from="1707316003361" duration="1421000" />
       <workItem from="1707402695071" duration="6535000" />
-    </task>
-    <task id="LOCAL-00012" summary="Update view">
-      <option name="closed" value="true" />
-      <created>1706284427923</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1706284427923</updated>
+      <workItem from="1707412740797" duration="1389000" />
     </task>
     <task id="LOCAL-00013" summary="Aggiornate le view.&#10;Aggiunti dei metodi nei controller grafici.&#10;Correzione di warning semplici.">
       <option name="closed" value="true" />
@@ -634,7 +593,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707389497431</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="gestione delle eccezioni sul LoginCtrlGrafico">
+      <option name="closed" value="true" />
+      <created>1707412841379</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1707412841380</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,7 +620,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aggiornamento database" />
     <MESSAGE value="Persistenza database funzionante" />
     <MESSAGE value="Modifica della struttura del database, caricamento corretto di playlist nel database e bozza di playlist in attesa di approvazione" />
     <MESSAGE value="Correzione code smells" />
@@ -678,7 +644,8 @@
     <MESSAGE value="inizio ricerca playlist tramite la search bar" />
     <MESSAGE value="Pop up ora utilizzabile per qualunque tipo di avviso. Verificare se UserDAOJSON ha bassa replicazione" />
     <MESSAGE value="Aggiustato TextPopUp, ora non crea più il duplicato e torna indietro dopo aver premuto ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiustato TextPopUp, ora non crea più il duplicato e torna indietro dopo aver premuto ok" />
+    <MESSAGE value="gestione delle eccezioni sul LoginCtrlGrafico" />
+    <option name="LAST_COMMIT_MESSAGE" value="gestione delle eccezioni sul LoginCtrlGrafico" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -11,7 +11,6 @@ import org.apache.commons.validator.routines.EmailValidator;
 import view.utils.FxmlFileName;
 import view.utils.SceneController;
 
-import java.io.IOException;
 
 public class LoginCtrlGrafico {
 
@@ -32,7 +31,7 @@ public class LoginCtrlGrafico {
      * Ottimizzazioni: Una sola query, se la password è corretta recupero direttamente lo user Bean senza chiedere
      * */
     @FXML
-    protected void onLoginClick(ActionEvent event) throws IOException {
+    protected void onLoginClick(ActionEvent event) {
 
         /* ------ Recupero informazioni dalla schermata di login ------ */
         String email = emailField.getText();
@@ -59,22 +58,20 @@ public class LoginCtrlGrafico {
                     System.out.println("Utente acceduto, ho recuperato tutto lo user bean");
 
                 }
-            } catch (IncorrectPassword e){
-                showError("Password Errata");
-            } catch (UserDoesNotExist e) {
-                showError("Email non registrata");
+            } catch (IncorrectPassword | UserDoesNotExist e){
+                showError(e.getMessage());
             }
         }
     }
 
     @FXML
-    protected void onRegisterClick(ActionEvent event) throws IOException {
+    protected void onRegisterClick(ActionEvent event) {
         //Push della scena corrente nello stack delle scene e show() della scena seguente
         sceneController.<RegistrazioneCtrlGrafico>goToScene(event, FxmlFileName.REGISTRATION_FXML,null);
     }
 
     @FXML
-    protected void onGuestClick(ActionEvent event) throws IOException {
+    protected void onGuestClick(ActionEvent event) {
         sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
     }
 
