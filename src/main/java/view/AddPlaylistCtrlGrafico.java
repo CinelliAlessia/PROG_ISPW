@@ -51,6 +51,15 @@ public class AddPlaylistCtrlGrafico implements Initializable {
     private UserBean userBean;
 
     private List<CheckBox> checkBoxList;
+    private SceneController sceneController;
+
+    public void setAttributes(UserBean user, SceneController sceneController) {
+        // Deve avere un userBean per compilare tutte le informazioni
+        this.userBean = user;
+        this.sceneController = sceneController;
+
+        System.out.println("ADD_CG setUserBean: " + userBean);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -58,14 +67,10 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 acoustic, reb, country, alternative);
     }
 
-    public void setUserBean(UserBean user) {
-        this.userBean = user;
-        System.out.println("HCG impostato user bean: " + userBean);
-    }
 
     @FXML
     public void onBackClick(ActionEvent event) {
-        SceneController.getInstance().goBack(event);
+        sceneController.goBack(event);
     }
 
     /** Click sul tasto carica Playlist*/
@@ -93,10 +98,10 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
                 if(approved){
-                    SceneController.getInstance().popUp(event, MessageString.ADDED_PLAYLIST);
+                    sceneController.popUp(event, MessageString.ADDED_PLAYLIST);
                 }
                 else{
-                    SceneController.getInstance().popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
+                    sceneController.popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
                 }
                 System.out.println("PLAYLIST AGGIUNTA");
 

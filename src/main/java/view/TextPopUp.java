@@ -9,11 +9,21 @@ import view.utils.SceneController;
 public class TextPopUp {
     @FXML
     private Label adviceText;
+
     private ActionEvent previousEvent;
-    // Utilizzato per impostare il testo nel pop-up in caso di riuso di questa classe per altri avvisi
+
+    private SceneController sceneController;
+
+    public void setAttributes(SceneController sceneController) {
+        // Deve avere un userBean per compilare tutte le informazioni
+        this.sceneController = sceneController;
+    }
+
+    /** Utilizzato per impostare il testo nel pop-up in caso di riuso di questa classe per altri avvisi */
     public void setText(String string){
         adviceText.setText(string);
     }
+
     public void  setPreviousEvent(ActionEvent event){
         previousEvent = event;
     }
@@ -24,6 +34,6 @@ public class TextPopUp {
         stage.close();
         // Devo fare goBack ma l'evento è avvenuto su uno stage diverso di quello del pop-up
         // Devo recuperare lo stage di partenza
-        SceneController.getInstance().goBack(previousEvent);
+        sceneController.goBack(previousEvent);
     }
 }

@@ -21,6 +21,8 @@ public class LoginCtrlGrafico {
     @FXML
     private TextField emailField;
 
+    private final SceneController sceneController = new SceneController();
+
     /** Metodo utilizzato per l'accesso all'applicazione
      * Vengono effettuati i primi controlli sui parametri inseriti
      * Una prima Query per prendere la password associata alla mail e confrontarla con quella inserita
@@ -53,7 +55,7 @@ public class LoginCtrlGrafico {
                     UserBean userBean = loginCtrlApp.loadUser(loginBean);
 
                     /* --------------- Mostro la home page -------------- */
-                    SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
+                    sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
                     System.out.println("Utente acceduto, ho recuperato tutto lo user bean");
 
                 }
@@ -67,12 +69,12 @@ public class LoginCtrlGrafico {
     @FXML
     protected void onRegisterClick(ActionEvent event) throws IOException {
         //Push della scena corrente nello stack delle scene e show() della scena seguente
-        SceneController.getInstance().goToScene(event, FxmlFileName.REGISTRATION_FXML);
+        sceneController.<RegistrazioneCtrlGrafico>goToScene(event, FxmlFileName.REGISTRATION_FXML,null);
     }
 
     @FXML
     protected void onGuestClick(ActionEvent event) throws IOException {
-        SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
+        sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
     }
 
     private boolean checkMailCorrectness(String email) {

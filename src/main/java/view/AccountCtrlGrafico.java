@@ -61,25 +61,28 @@ public class AccountCtrlGrafico implements Initializable {
     private List<CheckBox> checkBoxList;
     private List<PlaylistBean> playlistsUser = null;
 
+    private SceneController sceneController;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
                 acoustic, reb, country, alternative);
     }
 
-    public void setUserBean(UserBean user) {
+    public void setAttributes(UserBean user, SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
         this.userBean = user;
+        this.sceneController = sceneController;
+
         System.out.println("ACG setUserBean: " + userBean);
+        System.out.println(userBean.getEmail()+ " " + userBean.getUsername() +" "+userBean.getPreferences());
+
         initializeData(userBean);
         retrivePlaylist();
     }
 
     public void initializeData(UserBean user){
         this.userBean = user;
-
-        System.out.println("ACG in initializeData: " + userBean);
-        System.out.println(userBean.getEmail()+ " " + userBean.getUsername() +" "+userBean.getPreferences());
 
         usernameText.setText(userBean.getUsername());
         emailText.setText(userBean.getEmail());
@@ -102,8 +105,8 @@ public class AccountCtrlGrafico implements Initializable {
         alternative.setSelected(preferences.contains("Alternative"));
     }
 
+    /** Recupera tutte le playlist dell'utente */
     public void retrivePlaylist() {
-        // Recupera tutte le playlist
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
         playlistsUser = accountCtrlApplicativo.retrivePlaylists(userBean);
 
@@ -112,7 +115,6 @@ public class AccountCtrlGrafico implements Initializable {
         TableManager.createTable(playlistTable, columns, nameColumns, playlistsUser, genreColumn);
 
         // Aggiungi la colonna con bottoni "Approve" o "Reject" e immagini dinamiche
-
     }
 
     @FXML
@@ -132,18 +134,17 @@ public class AccountCtrlGrafico implements Initializable {
         // non va bene, tutti dovrebbero recuperare informazioni per il bean dalla persistenza
         // ##### Mostro pop-up ######
 
-        SceneController.getInstance().popUp(event, MessageString.UPDATED_PREFERNCES);
+        sceneController.popUp(event, MessageString.UPDATED_PREFERNCES);
 
     }
     @FXML
     public void onBackClick(ActionEvent event) {
-        SceneController.getInstance().goBack(event);
+        sceneController.goBack(event);
     }
 
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
-        SceneController.getInstance().goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
-        System.out.println("ACG userBean: " + userBean);
+        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
     }
 
 

@@ -12,19 +12,12 @@ import java.lang.reflect.*;
 import java.util.*;
 
 /** SINGLETON */
-//############### VERIFICARE SE E' GIUSTO CHE SIA SINGLETON -----> NO SBAGLIATO ###################
+//############### SBAGLIATO ###################
 public class SceneController {
-    private static SceneController sceneController = null;
+    private final Deque<Scene> sceneStack;
 
-    private static final Deque<Scene> sceneStack = new LinkedList<>();
-    // Sonar dice che non va bene: private static final Stack<Scene> sceneStack = new Stack<>(); la modifichiamo?
-
-    public static SceneController getInstance() {
-        //Pattern Singleton
-        if (sceneController == null) {
-            sceneController = new SceneController();
-        }
-        return sceneController;
+    public SceneController(){
+        sceneStack = new LinkedList<>();
     }
 
     @FXML
@@ -43,25 +36,12 @@ public class SceneController {
     }
 
     @FXML
-    public void goToScene(ActionEvent event, String fxmlPath) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        Parent root = loader.load();
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        sceneStack.push(stage.getScene()); // Push current scene onto stack
-
-        Scene scene = new Scene(root);  // Creo scena a partire dal Parent
-        stage.setScene(scene);      // Imposto la scena sullo stage
-        stage.show();      // Mostro la scena (nuova)
-    }
-
-    @FXML
     public <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
         T controller = loader.getController();
-        setUserBean(controller, userBean);
+        setAttributes(controller, userBean);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
@@ -71,12 +51,20 @@ public class SceneController {
         stage.show();                   // Mostro la scena (nuova)
     }
 
-    private void setUserBean(Object controller, UserBean userBean) {
+    private void setAttributes(Object controller, UserBean userBean) {
+
         try {
-            Method setUserBeanMethod = controller.getClass().getMethod("setUserBean", UserBean.class);
-            setUserBeanMethod.invoke(controller, userBean);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.fillInStackTrace(); // Trattamento dell'eccezione
+            Method setAttributes = controller.getClass().getMethod("setAttributes", UserBean.class, SceneController.class);
+            setAttributes.invoke(controller, userBean, this);
+        } catch (NoSuchMethodException e) {
+            try {
+                Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
+                setAttributes.invoke(controller, this);
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException error) {
+                error.fillInStackTrace(); // Trattamento dell'eccezione
+            }
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.fillInStackTrace();
         }
     }
 
@@ -86,6 +74,7 @@ public class SceneController {
 
         // Ottieni l'istanza del controller
         TextPopUp controller = loader.getController();
+        setAttributes(controller, null);
 
         // Utilizza il controller per chiamare la funzione setText
         controller.setText(text);

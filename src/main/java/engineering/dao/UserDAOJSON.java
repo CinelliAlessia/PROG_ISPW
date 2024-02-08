@@ -1,6 +1,8 @@
 package engineering.dao;
 
 import com.google.gson.GsonBuilder;
+import engineering.exceptions.EmailAlreadyInUse;
+import engineering.exceptions.UsernameAlreadyInUse;
 import engineering.others.ConfigurationJSON;
 import model.User;
 
@@ -21,7 +23,7 @@ Ho semplificato la funzione updateGenreUser utilizzando il metodo parseUser per 
 public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
 
-    public boolean insertUser(User user) {
+    public boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse {
         if (userExists(user.getEmail(), user.getUsername())) {
             System.out.println("Utente con la stessa email o username esiste già. Inserimento non riuscito.");
             return false;

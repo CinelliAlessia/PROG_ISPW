@@ -26,6 +26,13 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
     @FXML
     private TableColumn<PlaylistBean, Boolean> usernameColumn;
 
+    private SceneController sceneController;
+
+    public void setAttributes(SceneController sceneController) {
+        // Deve avere un userBean per compilare tutte le informazioni
+        this.sceneController = sceneController;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Inizio gestione playlist: ");
@@ -62,7 +69,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
 
     @FXML
     public void onBackClick(ActionEvent event) {
-        SceneController.getInstance().goBack(event);
+        sceneController.goBack(event);
     }
 
 

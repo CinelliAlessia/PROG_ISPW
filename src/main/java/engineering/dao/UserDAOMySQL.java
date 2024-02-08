@@ -18,7 +18,7 @@ public class UserDAOMySQL implements UserDAO {
 
     /** Metodo per inserire un User nel database al momento della registrazione
     * viene effettuato il controllo sulla email scelta e sull'username scelto*/
-    public boolean insertUser(User user) {
+    public boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse{
         Statement stmt = null;
         Connection conn;
         ResultSet rs = null;
@@ -44,7 +44,7 @@ public class UserDAOMySQL implements UserDAO {
 
             QueryLogin.registerUser(stmt, user);
 
-        } catch (SQLException | EmailAlreadyInUse | UsernameAlreadyInUse e) {
+        } catch (SQLException e) {
             // Gestisci l'eccezione
             e.printStackTrace();
             result = false;

@@ -1,5 +1,7 @@
 package engineering.dao;
 
+import engineering.exceptions.EmailAlreadyInUse;
+import engineering.exceptions.UsernameAlreadyInUse;
 import model.User;
 
 import java.util.List;
@@ -8,7 +10,7 @@ public interface UserDAO {
 
     /** Inserimento dell'utente in persistenza
      * Valore di ritorno booleano per verificare la correttezza dell'operazione */
-    boolean insertUser(User user);
+    boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse;
 
     /** Retrive delle informazioni di un utente dalla persistenza, ottenuta dall'email */
     User loadUser(String userEmail);

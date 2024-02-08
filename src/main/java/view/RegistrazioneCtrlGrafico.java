@@ -1,15 +1,17 @@
 package view;
 
 import controller.applicativo.RegistrazioneCtrlApplicativo;
-import engineering.bean.*;
 import org.apache.commons.validator.routines.EmailValidator;
+
+import engineering.bean.*;
+import engineering.exceptions.*;
+
+import view.utils.*;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.text.*;
-import view.utils.FxmlFileName;
-import view.utils.GenreManager;
-import view.utils.SceneController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -58,6 +60,13 @@ public class RegistrazioneCtrlGrafico implements Initializable {
 
     private List<CheckBox> checkBoxList;
 
+    private SceneController sceneController;
+
+    public void setAttributes(SceneController sceneController) {
+        // Deve avere un userBean per compilare tutte le informazioni
+        this.sceneController = sceneController;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
@@ -70,7 +79,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
      */
     @FXML
     protected void onBackClick(ActionEvent event){
-        SceneController.getInstance().goBack(event);
+        sceneController.goBack(event);
     }
 
     /** Gestisce l'evento di clic sul pulsante di registrazione.
@@ -84,18 +93,22 @@ public class RegistrazioneCtrlGrafico implements Initializable {
         if (regBean != null) {
 
             RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo(); //meglio static?
-            UserBean userBean = registrazioneCtrlApplicativo.registerUser(regBean);
 
-            if(userBean != null){
-                System.out.println("Utente registrato con successo");
+            try {
+                UserBean userBean = registrazioneCtrlApplicativo.registerUser(regBean);
+                if (userBean != null) {
+                    System.out.println("Utente registrato con successo");
 
-                /* --------------- Mostro la home page -------------- */
-                SceneController.getInstance().<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
+                    /* --------------- Mostro la home page -------------- */
+                    sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML, userBean);
 
-            } else {
-                showError("REGISTRAZIONE NON RIUSCITA");
+                } else {
+                    showError("REGISTRAZIONE NON RIUSCITA");
+                }
+
+            } catch (EmailAlreadyInUse | UsernameAlreadyInUse e) {
+                showError(e.getMessage());
             }
-
         }
     }
 

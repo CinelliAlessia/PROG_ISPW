@@ -44,7 +44,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     private List<TableColumn<PlaylistBean, ?>> columns = null;
     private List<String> nameColumns = null;
-
+    private SceneController sceneController;
 
     /* OBSERVER */
     private PlaylistCollection playlistCollection; /* ISTANZA DEL MODEL (CONCRETE SUBJECT)*/
@@ -71,11 +71,15 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     }
 
-    /** Viene utilizzata da sceneController per impostare lo userBean */
-    public void setUserBean(UserBean user) {
+    /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare*/
+
+    public void setAttributes(UserBean user, SceneController sceneController) {
+        // Deve avere un userBean per compilare tutte le informazioni
         this.userBean = user;
-        System.out.println("HCG impostato nel set user bean: " + userBean);
+        this.sceneController = sceneController;
+
         initializeField();
+        System.out.println("HCG setUserBean: " + userBean);
     }
     //########## Aggiungere un pop-up che chiede di effettuare la registrazione o login ########<
 
@@ -95,19 +99,19 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     protected void onAccountClick(ActionEvent event) throws IOException {
         System.out.println("HCG userBean: " + userBean);
         if(userBean == null){ // Utente Guest
-            SceneController.getInstance().goToScene(event, FxmlFileName.REGISTRATION_FXML);
+            sceneController.<RegistrazioneCtrlGrafico>goToScene(event, FxmlFileName.REGISTRATION_FXML,null);
         } else { // Utente registrato
-            SceneController.getInstance().<AccountCtrlGrafico>goToScene(event, FxmlFileName.ACCOUNT_FXML, userBean);
+            sceneController.<AccountCtrlGrafico>goToScene(event, FxmlFileName.ACCOUNT_FXML, userBean);
         }
     }
 
     @FXML
     public void addPlaylistClick(ActionEvent event) throws IOException {
-        SceneController.getInstance().<AddPlaylistCtrlGrafico>goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
+        sceneController.<AddPlaylistCtrlGrafico>goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
     }
 
     public void onManagerClick(ActionEvent event) throws IOException {
-        SceneController.getInstance().goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML);
+        sceneController.<PendingPlaylistCtrlGrafico>goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML,null);
     }
 
     public void onSearchPlaylistClick(ActionEvent event) {
