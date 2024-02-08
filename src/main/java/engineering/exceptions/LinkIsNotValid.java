@@ -6,7 +6,7 @@ public class LinkIsNotValid extends Exception {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public LinkIsNotValid(String message) {
-        super(message);
+    public LinkIsNotValid() {
+        super("Il link non è valido!");
     }
 }

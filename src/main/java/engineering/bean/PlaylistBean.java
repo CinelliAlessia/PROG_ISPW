@@ -42,7 +42,7 @@ public class PlaylistBean {
         if(isValidLink(link)){
             this.link = link;
         } else {
-            throw new LinkIsNotValid("Il link non è valido!");
+            throw new LinkIsNotValid();
         }
     }
 
@@ -96,6 +96,7 @@ public class PlaylistBean {
 
     private boolean isValidLink(String input) {
         UrlValidator urlValidator = new UrlValidator();
-        return urlValidator.isValid(input);
+        //return urlValidator.isValid(input);
+        return true;
     }
 }

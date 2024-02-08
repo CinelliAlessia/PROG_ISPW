@@ -44,7 +44,7 @@ public class PlaylistCollection extends Subject {
 
     public void setState(List<Playlist> playlists) {
         allPlaylists = playlists;
-        notifyObservers();
+        //notifyObservers();
     }
 
     /**

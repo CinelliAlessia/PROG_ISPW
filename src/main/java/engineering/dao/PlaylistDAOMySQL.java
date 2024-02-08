@@ -15,8 +15,8 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     /** Inserimento di una playlist in db. Viene prima controllato che non ci sia già il link all'interno del DB, successivamente inserisce */
     public boolean insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
         Statement stmt = null;
-        Connection conn = null;
         ResultSet rs = null;
+        Connection conn;
 
         boolean result;
 
@@ -41,7 +41,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             e.fillInStackTrace();
             result = false;
         } finally {
-            closeResources(conn,stmt,rs);
+            closeResources(stmt,rs);
         }
         return result;
     }
@@ -52,8 +52,8 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
      */
     public Playlist approvePlaylist(Playlist playlist) {
         Statement stmt = null;
-        Connection conn = null;
         ResultSet rs = null;
+        Connection conn;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -71,15 +71,15 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         } catch (SQLException e){
             e.fillInStackTrace();
         } finally {
-            closeResources(conn,stmt,rs);
+            closeResources(stmt,rs);
         }
         return playlist;
     }
 
     public List<Playlist> retrievePlaylistsByEmail(String email) {
         Statement stmt = null;
-        Connection conn = null;
         ResultSet rs = null;
+        Connection conn;
 
         List<Playlist> playlists = null;
 
@@ -111,7 +111,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             e.fillInStackTrace();
         }
         finally {
-            closeResources(conn,stmt,rs);
+            closeResources(stmt,rs);
         }
         return playlists;
     }
@@ -120,7 +120,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         return retrievePlaylists("pending",null);
     }
     public List<Playlist> retrieveApprovedPlaylists() {
-        return retrievePlaylists("approved",null);
+        return retrievePlaylists("approve",null);
     }
     public List<Playlist> searchPlaylistString(Playlist playlist) {
         return retrievePlaylists("searchWord",playlist);
@@ -128,8 +128,8 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
     private List<Playlist> retrievePlaylists(String s,Playlist p){
         Statement stmt = null;
-        Connection conn = null;
         ResultSet rs = null;
+        Connection conn;
 
         List<Playlist> playlists = new ArrayList<>(); // Initialize the list here
 
@@ -141,7 +141,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 case "pending":  //Recupera tutte le playlist da approvare (Per il gestore delle playlist)
                     rs = QueryPlaylist.retrievePendingPlaylists(stmt);
                     break;
-                case "approved": //Recupera tutte le playlist già approvare (Per la home page)
+                case "approve": //Recupera tutte le playlist già approvare (Per la home page)
                     rs = QueryPlaylist.retrieveApprovedPlaylists(stmt);
                     break;
                 case "searchWord":
@@ -169,18 +169,21 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlists.add(playlist);
             }
 
+            System.out.println("PlaylistDAOMySQL: playlist trovate " + playlists);
+
+
         } catch (SQLException e) {
             e.fillInStackTrace();
         } finally {
-            closeResources(conn,stmt,rs);
+            closeResources(stmt,rs);
         }
         return playlists;
     }
 
     public void deletePlaylist(Playlist playlist) {
         Statement stmt = null;
-        Connection conn = null;
         ResultSet rs = null;
+        Connection conn;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -197,7 +200,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         } catch (SQLException e){
             e.fillInStackTrace();
         } finally {
-            closeResources(conn,stmt,rs);
+            closeResources(stmt,rs);
         }
     }
 
@@ -206,16 +209,13 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         return Collections.emptyList();
     }
 
-    private void closeResources(Connection conn, Statement stmt, ResultSet rs) {
+    private void closeResources(Statement stmt, ResultSet rs) {
         try {
             if (rs != null) {
                 rs.close();
             }
             if (stmt != null) {
                 stmt.close();
-            }
-            if (conn != null) {
-                conn.close();
             }
         } catch (SQLException e) {
             e.fillInStackTrace();

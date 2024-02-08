@@ -52,7 +52,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Recupera tutte le playlist
-        System.out.println("Inizio initialize home");
+        System.out.println("GUI Home Page");
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn,genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
@@ -76,7 +76,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         this.sceneController = sceneController;
 
         initializeField();
-        System.out.println("HCG setUserBean: " + userBean);
+        System.out.println("GUI HomePage setAttributes: " + userBean);
     }
 
     public void initializeField() {
@@ -93,7 +93,6 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     @FXML
     protected void onAccountClick(ActionEvent event) {
-        System.out.println("HCG userBean: " + userBean);
         if(userBean == null){ // Utente Guest
             sceneController.<RegistrazioneCtrlGrafico>goToScene(event, FxmlFileName.REGISTRATION_FXML,null);
         } else { // Utente registrato
@@ -118,6 +117,8 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         playlistsBean = homePageController.searchNamePlaylist(pB);                                    // Recupera le playlist approvate
         //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
         TableManager.updateTable(playlistTable, playlistsBean);
+
+        System.out.println("GUI home page: playlist trovate " + playlistsBean);
     }
 
     /** UTILIZZATA PER IL PATTERN OBSERVER */

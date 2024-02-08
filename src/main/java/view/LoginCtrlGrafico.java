@@ -30,13 +30,13 @@ public class LoginCtrlGrafico {
      * */
     @FXML
     protected void onLoginClick(ActionEvent event) {
-
+        System.out.println("GUI Login: inizio");
         /* ------ Recupero informazioni dalla schermata di login ------ */
         String email = emailField.getText();
         String pass = password.getText();
 
         /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
-        if (!checkMailCorrectness(email)){ // NOn va fatto qui il controllo ma in Login Bean
+        if (!checkMailCorrectness(email)){ // Non va fatto qui il controllo ma in Login Bean #####
             showError("Email non valida");
         } else {
 
@@ -46,15 +46,13 @@ public class LoginCtrlGrafico {
 
             try{
                 if (loginCtrlApp.verificaCredenziali(loginBean)) { /* --------------- Credenziali corrette -------------- */
-
-                    System.out.println("CREDENZIALI CORRETTE -> Recupero l'istanza di bean ");
-
                     UserBean userBean = loginCtrlApp.loadUser(loginBean);
+
+                    System.out.println("GUI Login: Credenziali corrette");
+                    System.out.println(userBean + " " + userBean.getEmail() + " " + userBean.getUsername());
 
                     /* --------------- Mostro la home page -------------- */
                     sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
-                    System.out.println("Utente acceduto, ho recuperato tutto lo user bean");
-
                 }
             } catch (IncorrectPassword | UserDoesNotExist e){
                 showError(e.getMessage());
