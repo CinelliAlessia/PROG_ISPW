@@ -2,7 +2,8 @@ package view;
 
 import controller.applicativo.LoginCtrlApplicativo;
 import engineering.bean.*;
-import engineering.exceptions.PasswordErrata;
+import engineering.exceptions.IncorrectPassword;
+import engineering.exceptions.UserDoesNotExist;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -38,9 +39,8 @@ public class LoginCtrlGrafico {
         String pass = password.getText();
 
         /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
-        if (!checkMailCorrectness(email)){
-            errorLabel.isVisible();
-            errorLabel.setText("Email non valida");
+        if (!checkMailCorrectness(email)){ // NOn va fatto qui il controllo ma in Login Bean
+            showError("Email non valida");
         } else {
 
             /* ------ Creo la bean e imposto i parametri ------ */
@@ -59,13 +59,14 @@ public class LoginCtrlGrafico {
                     System.out.println("Utente acceduto, ho recuperato tutto lo user bean");
 
                 }
-            } catch (PasswordErrata e){
-                /* --------------- Credenziali non valide --------------*/
-                errorLabel.isVisible();
-                errorLabel.setText("Password errata");
+            } catch (IncorrectPassword e){
+                showError("Password Errata");
+            } catch (UserDoesNotExist e) {
+                showError("Email non registrata");
             }
         }
     }
+
     @FXML
     protected void onRegisterClick(ActionEvent event) throws IOException {
         //Push della scena corrente nello stack delle scene e show() della scena seguente
@@ -79,6 +80,12 @@ public class LoginCtrlGrafico {
 
     private boolean checkMailCorrectness(String email) {
         return EmailValidator.getInstance().isValid(email);
+    }
+
+    private void showError(String message) {
+        // Mostra un messaggio di errore nell'interfaccia utente.
+        errorLabel.setText(message);
+        errorLabel.setVisible(true);
     }
 
 }

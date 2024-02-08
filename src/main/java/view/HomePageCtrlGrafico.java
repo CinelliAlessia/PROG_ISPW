@@ -1,7 +1,6 @@
 package view;
 
 import controller.applicativo.HomePageCtrlApplicativo;
-import controller.applicativo.PendingPlaylistCtrlApplicativo;
 import engineering.bean.*;
 
 import engineering.exceptions.LinkIsNotValid;

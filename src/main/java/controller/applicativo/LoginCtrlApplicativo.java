@@ -2,7 +2,8 @@ package controller.applicativo;
 
 import engineering.bean.*;
 import engineering.dao.*;
-import engineering.exceptions.PasswordErrata;
+import engineering.exceptions.IncorrectPassword;
+import engineering.exceptions.UserDoesNotExist;
 import model.User;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
@@ -16,7 +17,7 @@ public class LoginCtrlApplicativo {
      * Il loginBean contiene il campo mail e il campo password*/
     /** @return un booleano, per verificare la correttezza dell'operazione effettuata
      * Effettua una Query per recuperare la password e confrontarla con quella inserita  */
-    public boolean verificaCredenziali(LoginBean bean) throws PasswordErrata {
+    public boolean verificaCredenziali(LoginBean bean) throws IncorrectPassword, UserDoesNotExist {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -24,14 +25,14 @@ public class LoginCtrlApplicativo {
         String password = dao.getPasswordByEmail(bean.getEmail());  // ####### se la mail non esiste da errore, trasformiamo in eccezione
 
         if (!password.equals(bean.getPassword())){
-            throw new PasswordErrata();
+            throw new IncorrectPassword();
         } else {
             return true;
         }
     }
 
     /** Recupera l'User dalla persistenza e crea una nuova istanza di UserBean */
-    public UserBean loadUser(LoginBean bean) {
+    public UserBean loadUser(LoginBean bean) throws UserDoesNotExist {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)

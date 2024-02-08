@@ -7,6 +7,6 @@ public class UserDoesNotExist extends Exception {
     private static final long serialVersionUID = 1L;
 
     public UserDoesNotExist() {
-        super("Non esiste nessun account registrato con questa mail !");
+        super("Non esiste nessun account registrato con questa email!");
     }
 }

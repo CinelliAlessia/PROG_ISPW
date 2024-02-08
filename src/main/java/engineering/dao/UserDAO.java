@@ -26,7 +26,3 @@ public interface UserDAO {
     void updateGenreUser(String email, List<String> preferences);
 }
 
-// Devo definire le operazioni che dovranno essere implementate nelle varie interfacce
-
-// Come interagisco con database degli Utenti?
-

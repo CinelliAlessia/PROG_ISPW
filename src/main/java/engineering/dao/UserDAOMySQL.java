@@ -1,18 +1,16 @@
 package engineering.dao;
 
-import engineering.exceptions.UsernameAlreadyInUse;
+import engineering.exceptions.*;
 import engineering.others.Connect;
-import engineering.exceptions.EmailAlreadyInUse;
-import view.utils.GenreManager;
 import engineering.query.QueryLogin;
-import model.Supervisor;
-import model.User;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
+import view.utils.GenreManager;
+
+import model.*;
+
+import java.sql.*;
+
+import java.util.*;
 
 public class UserDAOMySQL implements UserDAO {
 
@@ -31,14 +29,14 @@ public class UserDAOMySQL implements UserDAO {
             String email = user.getEmail();
             rs = QueryLogin.loginUser(stmt, email);
             if (rs.next()) {
-                throw new EmailAlreadyInUse("This email is already in use!");
+                throw new EmailAlreadyInUse();
             }
             rs.close();
 
             String username = user.getUsername();
             rs = QueryLogin.loginUserBUsername(stmt, username);
             if (rs.next()) {
-                throw new UsernameAlreadyInUse("This username is already in use!");
+                throw new UsernameAlreadyInUse();
             }
             rs.close();
 
@@ -65,7 +63,7 @@ public class UserDAOMySQL implements UserDAO {
         return result;
     }
 
-    public User loadUser(String userEmail){
+    public User loadUser(String userEmail) throws UserDoesNotExist {
         Statement stmt;
         Connection conn;
         User user;
@@ -76,7 +74,6 @@ public class UserDAOMySQL implements UserDAO {
         boolean supervisor = false;
 
         ResultSet resultSet = null;
-        ResultSet resultSet2 = null;
 
         List<String> preferences = new ArrayList<>();
 
@@ -91,13 +88,14 @@ public class UserDAOMySQL implements UserDAO {
                 email = resultSet.getString("email");
                 password = resultSet.getString("password");
                 supervisor = resultSet.getBoolean("supervisor");
+            } else {
+                throw new UserDoesNotExist();
             }
-            resultSet.close();
 
-            resultSet2 = QueryLogin.retrivePrefByEmail(stmt, userEmail);
+            resultSet = QueryLogin.retrivePrefByEmail(stmt, userEmail);
 
-            if (resultSet2.next()) {
-                preferences = GenreManager.retriveGenre(resultSet2);
+            if (resultSet.next()) {
+                preferences = GenreManager.retriveGenre(resultSet);
             }
             System.out.println("preferenze in load user " + preferences);
 
@@ -107,9 +105,6 @@ public class UserDAOMySQL implements UserDAO {
             try{
                 if(resultSet != null){
                     resultSet.close();
-                }
-                if(resultSet2 != null){
-                    resultSet2.close();
                 }
             } catch(SQLException e){
                 e.fillInStackTrace();
@@ -132,7 +127,7 @@ public class UserDAOMySQL implements UserDAO {
         return null;
     }
 
-    public String getPasswordByEmail(String email) {
+    public String getPasswordByEmail(String email) throws UserDoesNotExist{
         Statement stmt = null;
         Connection conn;
         String pw = null;
@@ -145,8 +140,9 @@ public class UserDAOMySQL implements UserDAO {
 
             if (rs.next()) {
                 pw = rs.getString("password");
+            } else {
+                throw new UserDoesNotExist();
             }
-
         } catch (SQLException e) {
             // Gestisci l'eccezione
             e.fillInStackTrace();
