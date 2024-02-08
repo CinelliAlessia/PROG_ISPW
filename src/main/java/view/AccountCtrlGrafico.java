@@ -112,7 +112,7 @@ public class AccountCtrlGrafico implements Initializable {
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsUser, genreColumn);
+        TableManager.createTable(playlistTable, columns, nameColumns, playlistsUser);
 
         // Aggiungi la colonna con bottoni "Approve" o "Reject" e immagini dinamiche
     }

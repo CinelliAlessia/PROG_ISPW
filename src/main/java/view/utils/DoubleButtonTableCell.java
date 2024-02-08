@@ -8,12 +8,12 @@ import javafx.scene.layout.HBox;
 import view.PendingPlaylistCtrlGrafico;
 
 // Classe TableCell personalizzata per aggiungere due bottoni nella cella
-public class ButtonTableCell extends TableCell<PlaylistBean, Boolean> {
+public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
 
     private final Button approveButton = new Button("V");
     private final Button rejectButton = new Button("X");
 
-    public ButtonTableCell() {
+    public DoubleButtonTableCell() {
 
         approveButton.setOnAction(event -> {
             PlaylistBean playlist = getTableView().getItems().get(getIndex());

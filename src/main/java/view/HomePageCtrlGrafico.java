@@ -1,6 +1,7 @@
 package view;
 
 import controller.applicativo.HomePageCtrlApplicativo;
+import controller.applicativo.PendingPlaylistCtrlApplicativo;
 import engineering.bean.*;
 
 import engineering.exceptions.LinkIsNotValid;
@@ -10,9 +11,7 @@ import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import model.Playlist;
-import view.utils.FxmlFileName;
-import view.utils.SceneController;
-import view.utils.TableManager;
+import view.utils.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,8 +54,8 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         // Recupera tutte le playlist
         System.out.println("Inizio initialize home");
 
-        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
-        List<String> nameColumns = Arrays.asList("playlistName", "link", "username", "playlistGenre");
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn,genreColumn);
+        List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
 
         /* BYPASSIAMO MVC PER PATTERN OBSERVER */
         playlistCollection = PlaylistCollection.getInstance();
@@ -64,9 +63,10 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
         /* Metodo pull per ricevere i dati dal dao */
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.retrivePlaylistsApproved();                               // Recupera le playlist approvate
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean, genreColumn);   // Aggiorna i parametri della tabella
+        playlistsBean = homePageController.retrivePlaylistsApproved();                  // Recupera le playlist approvate
+        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean);   // Aggiorna i parametri della tabella
 
+        linkColumn.setCellFactory(param -> new SingleButtonTableCell());
     }
 
     /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare */

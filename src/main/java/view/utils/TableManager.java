@@ -13,13 +13,11 @@ public class TableManager {
 
     /**
      * @param playlistTable è la tabella vera e propria
-     * @param columns       contiene le sole colonne semplici
-     * @param nameColumns   è per recuperare dalle get del PlaylistBean
+     * @param columns       è una lista di colonne, contiene le sole colonne semplici (no bottoni)
+     * @param nameColumns   è una lista di stringhe, che viene utilizzata per recuperare i dati dai metodi get del PlaylistBean
      * @param playlists     è la lista delle playlist da rappresentare
-     * @param playlistGenre è una colonna che gestisce un bottone, tutte le tabelle avranno questa colonna -> Puo essere tolta ma ad alessia cosi non
-     *                      piace molto
      */
-    public static void createTable(TableView<PlaylistBean> playlistTable, List<TableColumn<PlaylistBean, ?>> columns, List<String> nameColumns, List<PlaylistBean> playlists, TableColumn<PlaylistBean, List<String>> playlistGenre) {
+    public static void createTable(TableView<PlaylistBean> playlistTable, List<TableColumn<PlaylistBean, ?>> columns, List<String> nameColumns, List<PlaylistBean> playlists) {
 
         // Collega i dati alle colonne della TableView
         int index = 0;
@@ -29,29 +27,6 @@ public class TableManager {
         }
 
         updateTable(playlistTable, playlists);
-
-        // Configura la colonna "Generi musicali"
-        /*
-        playlistGenre.setCellFactory(col -> new TableCell<>() {
-            final Button button = new Button("Dettagli");
-            {
-                button.setOnAction(event -> {
-                    // Deve uscire un PopUp
-                    System.out.println("Tasto Dettagli premuto");
-                });
-            }
-
-            @Override
-            protected void updateItem(List<String> genres, boolean empty) {
-                super.updateItem(genres, empty);
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(button);
-                }
-            }
-        });*/
-
     }
 
     public static void updateTable(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlists) {

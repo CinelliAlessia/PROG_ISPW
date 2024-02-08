@@ -41,12 +41,12 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         PendingPlaylistCtrlApplicativo allPlaylistController = new PendingPlaylistCtrlApplicativo();
         List<PlaylistBean> playlistsPending = allPlaylistController.retrievePlaylists(); // Vengono recuperate tutte le playlist pending
 
-        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn); // Tutte le colonne "semplici"
-        List<String> nameColumns = Arrays.asList("playlistName", "link", "username", "playlistGenre");
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsPending, genreColumn);
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn,genreColumn); // Tutte le colonne "semplici"
+        List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
+        TableManager.createTable(playlistTable, columns, nameColumns, playlistsPending);
 
         // Aggiungi la colonna con bottoni "Approve" o "Reject"
-        approveColumn.setCellFactory(param -> new ButtonTableCell());
+        approveColumn.setCellFactory(param -> new DoubleButtonTableCell());
     }
 
     public static void handlePendingButton(PlaylistBean playlist, boolean approve) {
