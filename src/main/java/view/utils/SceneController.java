@@ -30,7 +30,7 @@ public class SceneController {
     @FXML
     public void goBack(ActionEvent event) {
         if (!sceneStack.isEmpty()) {
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(sceneStack.pop()); // Pop the last scene from stack
             stage.show();
         }
@@ -38,7 +38,7 @@ public class SceneController {
 
     @FXML
     public void pushCurrentScene(ActionEvent event) {
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
     }
 
@@ -47,7 +47,7 @@ public class SceneController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
 
         Scene scene = new Scene(root);  // Creo scena a partire dal Parent
@@ -63,7 +63,7 @@ public class SceneController {
         T controller = loader.getController();
         setUserBean(controller, userBean);
 
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         sceneStack.push(stage.getScene()); // Push current scene onto stack
 
         Scene scene = new Scene(root);  // Creo scena a partire dal Parent
@@ -81,7 +81,7 @@ public class SceneController {
     }
 
     public void popUp(ActionEvent event, String text) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/textPopUp.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML));
         Parent root = loader.load();
 
         // Ottieni l'istanza del controller
@@ -90,7 +90,7 @@ public class SceneController {
         // Utilizza il controller per chiamare la funzione setText
         controller.setText(text);
 
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         Stage popupStage = new Stage();
         popupStage.initOwner(stage);

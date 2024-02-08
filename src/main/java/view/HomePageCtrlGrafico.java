@@ -3,7 +3,6 @@ package view;
 import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.*;
 
-import engineering.exceptions.LinkIsNotValid;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.PlaylistCollection;
 import javafx.event.*;
