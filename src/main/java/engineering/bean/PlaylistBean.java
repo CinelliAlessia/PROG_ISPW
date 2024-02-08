@@ -19,16 +19,6 @@ public class PlaylistBean {
 
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) throws LinkIsNotValid {
-        setEmail(email);
-        setLink(link);
-        setPlaylistName(playlistName);
-        setUsername(username);
-        setPlaylistGenre(playlistGenre);
-        setApproved(approved);
-        setId(id);
-    }
-
     public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved) throws LinkIsNotValid {
         setEmail(email);
         setLink(link);
@@ -37,6 +27,12 @@ public class PlaylistBean {
         setPlaylistGenre(playlistGenre);
         setApproved(approved);
     }
+
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) throws LinkIsNotValid {
+        this(email,username,playlistName,link, playlistGenre, approved);
+        setId(id);
+    }
+
 
     private void setId(String id) {
         this.id = id;
