@@ -2,7 +2,8 @@ package view;
 
 import controller.applicativo.LoginCtrlApplicativo;
 import engineering.bean.*;
-import engineering.exceptions.PasswordErrata;
+import engineering.exceptions.IncorrectPassword;
+import engineering.exceptions.UserDoesNotExist;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -59,10 +60,14 @@ public class LoginCtrlGrafico {
                     System.out.println("Utente acceduto, ho recuperato tutto lo user bean");
 
                 }
-            } catch (PasswordErrata e){
+            } catch (IncorrectPassword e){
                 /* --------------- Credenziali non valide --------------*/
                 errorLabel.isVisible();
-                errorLabel.setText("Password errata");
+                errorLabel.setText(e.getMessage());
+            }
+            catch (UserDoesNotExist e){
+                errorLabel.isVisible();
+                errorLabel.setText(e.getMessage());
             }
         }
     }

@@ -5,18 +5,19 @@ import model.Playlist;
 import java.util.ArrayList;
 import java.util.List;
 
-/** È l'argomento da osservare, il publisher, se viene aggiunto un elemento in allPlaylist va chiamato notify
- * verso i subscribers
- * Questo model rappresenta la lista di Playlist pubblicate, approvate, quelle che verranno viste dal
+/** È l'argomento da osservare (il publisher)
+ * se viene modificata la PlaylistCollection tramite i metodi addPlaylist o removePlaylist, vengono successivamente
+ * informati tutti gli observers(subscribers) utilizzando il metodo notifyObservers.
+
+ * Questo model rappresenta la lista di Playlist approvate.
  * */
 public class PlaylistCollection extends Subject {
-
     private static PlaylistCollection playlistCollection = null;
 
     /** Stato del subject */
     private List<Playlist> allPlaylists = new ArrayList<>();
 
-    /** Singleton poiché tutti gli utenti devono vedere tutte le stesse playlist */
+    /** Singleton poiché tutti gli utenti hanno la stessa vista dello strato di persistenza */
     public static PlaylistCollection getInstance() { //Pattern Singleton
         if (playlistCollection == null) {
             playlistCollection = new PlaylistCollection();
@@ -44,7 +45,7 @@ public class PlaylistCollection extends Subject {
 
     public void setState(List<Playlist> playlists) {
         allPlaylists = playlists;
-        //notifyObservers();
+        notifyObservers();
     }
 
     /**

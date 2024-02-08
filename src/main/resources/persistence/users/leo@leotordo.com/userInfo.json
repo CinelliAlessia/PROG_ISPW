@@ -4,7 +4,8 @@
   "password": "leoleo",
   "pref": [
     "Rock",
-    "Jazz"
+    "Jazz",
+    "Gay"
   ],
-  "supervisor": false
+  "supervisor": true
 }

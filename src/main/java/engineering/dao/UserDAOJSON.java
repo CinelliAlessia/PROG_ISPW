@@ -2,6 +2,7 @@ package engineering.dao;
 
 import com.google.gson.GsonBuilder;
 import engineering.exceptions.EmailAlreadyInUse;
+import engineering.exceptions.UserDoesNotExist;
 import engineering.exceptions.UsernameAlreadyInUse;
 import engineering.others.ConfigurationJSON;
 import model.User;
@@ -24,9 +25,11 @@ public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
 
     public boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse {
-        if (userExists(user.getEmail(), user.getUsername())) {
-            System.out.println("Utente con la stessa email o username esiste già. Inserimento non riuscito.");
-            return false;
+        if (checkIfUserExistsByEmail(user.getEmail())) {
+            throw new EmailAlreadyInUse();
+        }
+        if (retrieveUserByUsername(user.getUsername()) != null) {
+            throw new UsernameAlreadyInUse();
         }
 
         try {
@@ -44,7 +47,8 @@ public class UserDAOJSON implements UserDAO {
         }
     }
 
-    public User loadUser(String userEmail) {
+
+    public User loadUser(String userEmail) throws UserDoesNotExist{
         try {
             Path userInfoFile = Paths.get(BASE_DIRECTORY, userEmail, ConfigurationJSON.USER_INFO_FILE_NAME);
 
@@ -61,7 +65,7 @@ public class UserDAOJSON implements UserDAO {
         return null;
     }
 
-    public String getPasswordByEmail(String email) {
+    public String getPasswordByEmail(String email) throws UserDoesNotExist {
         User user = loadUser(email);
         return user != null ? user.getPassword() : null;
     }
@@ -104,7 +108,7 @@ public class UserDAOJSON implements UserDAO {
 
     private User getUserFromDirectory(Path userDirectory) {
         try {
-            Path userFilePath = userDirectory.resolve("userInfo.json");
+            Path userFilePath = userDirectory.resolve(ConfigurationJSON.USER_INFO_FILE_NAME);
 
             if (Files.exists(userFilePath)) {
                 String content = Files.readString(userFilePath);
@@ -119,9 +123,6 @@ public class UserDAOJSON implements UserDAO {
 
     private User parseUser(String content) {
         return new GsonBuilder().setPrettyPrinting().create().fromJson(content, User.class);
-    }
-    private boolean userExists(String userEmail, String username) {
-        return checkIfUserExistsByEmail(userEmail)  || retrieveUserByUsername(username) != null;
     }
     private boolean checkIfUserExistsByEmail(String userEmail) {
         // Costruisci il percorso della directory dell'utente basandoti sulla mail come nome utente

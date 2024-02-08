@@ -1,0 +1,9 @@
+{
+  "username": "nuovoUtente",
+  "email": "prova@gmail.com",
+  "password": "aaa",
+  "pref": [
+    "Pop"
+  ],
+  "supervisor": false
+}
