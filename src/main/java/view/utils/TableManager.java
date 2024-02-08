@@ -28,7 +28,7 @@ public class TableManager {
             index++;
         }
 
-        //updateTable(playlistTable, playlists);
+        updateTable(playlistTable, playlists);
 
         // Configura la colonna "Generi musicali"
         /*
