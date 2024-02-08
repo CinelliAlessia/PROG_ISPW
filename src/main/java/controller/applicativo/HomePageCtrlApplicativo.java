@@ -7,7 +7,6 @@ import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.PlaylistCollection;
 import engineering.pattern.observer.Subject;
 import model.Playlist;
-import view.HomePageCtrlGrafico;
 
 import java.util.*;
 
@@ -17,10 +16,16 @@ public class HomePageCtrlApplicativo {
     public List<PlaylistBean> retrivePlaylistsApproved() {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = persistenceType.createPlaylistDAO();                   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        List<Playlist> playlists = dao.retrieveApprovedPlaylists();      // Recupero lista Playlist
+        List<Playlist> playlists = dao.retrieveApprovedPlaylists();              // Recupero lista Playlist
         List<PlaylistBean> playlistsBean = new ArrayList<>();
+
+        /* BYPASSIAMO MVC PER PATTERN OBSERVER */
+        PlaylistCollection playlistCollection = PlaylistCollection.getInstance();   // Recupero l'istanza del Model Subject
+        playlistCollection.setState(playlists);                                     // Imposto lo stato del model Subject SETSTATE NON CHIAMA UPDATE
+
+        // Dato che viene fatto set state, serve fare return di un playlist bean se comunque nel setState verrà fatto update?
 
         try{
             for (Playlist p : playlists){
@@ -57,7 +62,7 @@ public class HomePageCtrlApplicativo {
     }
 
     public void observePlaylistTable(Observer observer){
-        Subject playlistCollection = new PlaylistCollection();
+        Subject playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.attach(observer);
     }
 

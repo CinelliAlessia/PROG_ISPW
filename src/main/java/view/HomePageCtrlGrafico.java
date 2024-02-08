@@ -3,6 +3,7 @@ package view;
 import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.*;
 
+import engineering.exceptions.LinkIsNotValid;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.PlaylistCollection;
 import javafx.event.*;
@@ -59,21 +60,14 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
         nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
 
-        /* Metodo pull per ricevere i dati dal dao */
-        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.retrivePlaylistsApproved();                              // Recupera le playlist approvate
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean, genreColumn);   // Aggiorna i parametri della tabella
-
-        /*
-        /* BYPASSIAMO MVC PER PATTERN OBSERVER
-        playlistCollection = new PlaylistCollection();
+        /* BYPASSIAMO MVC PER PATTERN OBSERVER*/
+        playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.attach(this);
 
-        /* CREAIONE STATO DA SETTARE
-        for(PlaylistBean p: playlistsBean){
-            playlists.add(new Playlist(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId()));
-        }
-        playlistCollection.setState(playlists); */
+        /* Metodo pull per ricevere i dati dal dao */
+        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
+        playlistsBean = homePageController.retrivePlaylistsApproved();                               // Recupera le playlist approvate
+        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean, genreColumn);   // Aggiorna i parametri della tabella
 
     }
 
@@ -131,11 +125,11 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     public void update() {
         // Io devo fare getState() ma come conosco il model? mantengo l'istanza
 
-        /* Metodo pull per ricevere i dati dal dao */
+        /* Metodo pull per ricevere i dati dal dao
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistsBean = homePageController.retrivePlaylistsApproved();                              // Recupera le playlist approvate
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean, genreColumn);   // Aggiorna i parametri della tabella
-        /*
+        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean, genreColumn);  // Aggiorna i parametri della tabella
+        */
         try{
             playlists = playlistCollection.getState();
             for(Playlist p: playlists){
@@ -144,7 +138,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
             TableManager.updateTable(playlistTable, playlistsBean);
         } catch (LinkIsNotValid e){
             e.fillInStackTrace();
-        }*/
+        }
 
     }
 }

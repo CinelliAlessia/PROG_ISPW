@@ -11,8 +11,22 @@ import java.util.List;
  * */
 public class PlaylistCollection extends Subject {
 
+    private static PlaylistCollection playlistCollection = null;
+
     /** Stato del subject */
     private List<Playlist> allPlaylists = new ArrayList<>();
+
+    /** Singleton poiché tutti gli utenti devono vedere tutte le stesse playlist */
+    public static PlaylistCollection getInstance() { //Pattern Singleton
+        if (playlistCollection == null) {
+            playlistCollection = new PlaylistCollection();
+        }
+        return playlistCollection;
+    }
+
+    private PlaylistCollection(){
+
+    }
 
     /** Metodo setState()
      * Utilizzata da AddPlaylistCtrlGrafico se il supervisor carica una playlist
@@ -30,7 +44,7 @@ public class PlaylistCollection extends Subject {
 
     public void setState(List<Playlist> playlists) {
         allPlaylists = playlists;
-        notifyObservers();
+        //notifyObservers();
     }
 
     /**

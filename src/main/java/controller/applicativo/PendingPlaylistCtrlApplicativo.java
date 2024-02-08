@@ -19,7 +19,7 @@ public class PendingPlaylistCtrlApplicativo {
 
         Playlist playlistApproved = dao.approvePlaylist(playlist);
 
-        PlaylistCollection playlistCollection = new PlaylistCollection();
+        PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.addPlaylist(playlist);
 
         pB.setApproved(playlistApproved.getApproved());

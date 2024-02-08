@@ -2,6 +2,7 @@ package controller.applicativo;
 
 import engineering.bean.*;
 import engineering.dao.*;
+import engineering.pattern.observer.PlaylistCollection;
 import model.Playlist;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
@@ -21,6 +22,8 @@ public class AddPlaylistCtrlApplicativo {
         // Invio Playlist model al DAO
         if(dao.insertPlaylist(playlist)){
             System.out.println("Playlist caricata correttamente");
+            PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
+            playlistCollection.addPlaylist(playlist);
         } else {
             //################# Se la playlist non viene caricata #################àà
             System.out.println("Playlist non è stata caricata");
