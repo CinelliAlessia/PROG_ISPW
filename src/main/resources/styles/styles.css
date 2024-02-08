@@ -136,19 +136,18 @@
 
 /* Stile generale per le righe della tabella */
 .table-row-cell {
-    -fx-background-color: #FFFFFF;
     -fx-text-fill: #000000;
     -fx-alignment: CENTER;
     -fx-text-alignment: CENTER;
 }
 
 /* Stile per le righe pari */
-.table-row-cell:even {
+.table-view .cell-odd {
     -fx-background-color: #f0f0f0;
 }
 
 /* Stile per le righe dispari */
-.table-row-cell:odd {
+.table-view .cell-even {
     -fx-background-color: #ffffff;
 }
 

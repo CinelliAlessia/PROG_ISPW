@@ -2,8 +2,7 @@ package engineering.dao;
 
 import controller.applicativo.RegistrazioneCtrlApplicativo;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 public enum TypesOfPersistenceLayer {

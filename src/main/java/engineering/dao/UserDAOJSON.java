@@ -1,16 +1,12 @@
 package engineering.dao;
 
 import com.google.gson.GsonBuilder;
-import engineering.exceptions.EmailAlreadyInUse;
-import engineering.exceptions.UserDoesNotExist;
-import engineering.exceptions.UsernameAlreadyInUse;
-import engineering.others.ConfigurationJSON;
+import engineering.exceptions.*;
+import engineering.others.*;
 import model.User;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.List;
 import java.util.stream.Stream;
 

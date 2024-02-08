@@ -1,15 +1,12 @@
 package engineering.dao;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import engineering.others.ConfigurationJSON;
 import model.Playlist;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
 import java.util.*;
+
 import java.util.stream.Stream;
 
 public class PlaylistDAOJSON implements PlaylistDAO {
@@ -106,7 +103,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 // Leggi il contenuto del file
                 String content = Files.readString(playlistPath);
 
-                // ########## Usa Gson per deserializzare il contenuto JSON e ottenere la playlist
+                // ########## Usa Gson per de-serializzare il contenuto JSON e ottenere la playlist
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 Playlist updatedPlaylist = gson.fromJson(content, Playlist.class);
 

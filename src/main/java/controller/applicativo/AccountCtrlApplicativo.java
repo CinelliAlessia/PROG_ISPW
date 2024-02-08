@@ -2,8 +2,10 @@ package controller.applicativo;
 
 import engineering.bean.*;
 import engineering.dao.*;
-import engineering.exceptions.LinkIsNotValid;
+import engineering.exceptions.*;
+
 import model.Playlist;
+
 import java.util.*;
 
 import static engineering.dao.TypesOfPersistenceLayer.*;
@@ -21,7 +23,7 @@ public class AccountCtrlApplicativo {
         List<Playlist> playlists = dao.retrievePlaylistsByEmail(userBean.getEmail()); //##################### ok che dobbiamo passare una stinga ma non userBean.getEmail
 
         ArrayList<PlaylistBean> playlistsBean = new ArrayList<>();
-        try{
+        try {
             for (Playlist p : playlists){
                 PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
                 playlistsBean.add(pB);

@@ -2,8 +2,7 @@ package engineering.pattern.observer;
 
 import model.Playlist;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /** È l'argomento da osservare (il publisher)
  * se viene modificata la PlaylistCollection tramite i metodi addPlaylist o removePlaylist, vengono successivamente
@@ -45,7 +44,7 @@ public class PlaylistCollection extends Subject {
 
     public void setState(List<Playlist> playlists) {
         allPlaylists = playlists;
-        notifyObservers();
+        //notifyObservers();
     }
 
     /**

@@ -4,6 +4,7 @@ import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
+
 import view.utils.SceneController;
 
 public class TextPopUp {

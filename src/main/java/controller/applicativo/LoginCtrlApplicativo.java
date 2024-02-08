@@ -2,8 +2,7 @@ package controller.applicativo;
 
 import engineering.bean.*;
 import engineering.dao.*;
-import engineering.exceptions.IncorrectPassword;
-import engineering.exceptions.UserDoesNotExist;
+import engineering.exceptions.*;
 import model.User;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
@@ -38,7 +37,7 @@ public class LoginCtrlApplicativo {
         UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         User user = dao.loadUser(bean.getEmail());
-        System.out.println("Load User recuperato: " + user + " " + user.getEmail() + " " + user.isSupervisor());
+        System.out.println("Login Applicativo: Load User recuperato: " + user + " " + user.getEmail() + "supervisore: " + user.isSupervisor());
 
         if(user.isSupervisor()){
             return new SupervisorBean(user.getUsername(),user.getEmail(),user.getPref());

@@ -24,26 +24,9 @@ public class Playlist {
         setApproved(approved);
     }
 
-    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, String id){
-        //SI DOVRA FARE UN
-        // UNICO COSTRUTTORE NON DUE; L?HO FATTO PER VEDERE SE FUNZIONA; L'ID MI SERVE NEL DB
-        setEmail(email);
-        setLink(link);
-        setPlaylistName(playlistName);
-        setUsername(username);
-        setPlaylistGenre(playlistGenre);
+    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id){
+        this(email, username, playlistName, link, playlistGenre, approved);
         setId(id);
-        this.approved = false;
-    }
-
-    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) {
-        setEmail(email);
-        setLink(link);
-        setPlaylistName(playlistName);
-        setUsername(username);
-        setPlaylistGenre(playlistGenre);
-        setId(id);
-        setApproved(approved);
     }
 
     public void setLink(String link) {
@@ -54,6 +37,8 @@ public class Playlist {
         return link;
     }
 
+
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -61,6 +46,8 @@ public class Playlist {
     public String getUsername() {
         return username;
     }
+
+
 
     public void setPlaylistName(String playlistName) {
         this.playlistName = playlistName;
@@ -70,6 +57,8 @@ public class Playlist {
         return playlistName;
     }
 
+
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -77,6 +66,8 @@ public class Playlist {
     public String getEmail() {
         return email;
     }
+
+
 
     public void setPlaylistGenre(List<String> playlistGenre) {
         this.playlistGenre = playlistGenre;
@@ -86,6 +77,8 @@ public class Playlist {
         return playlistGenre;
     }
 
+
+
     public void setId(String id) {
         this.id = id;
     }
@@ -93,6 +86,8 @@ public class Playlist {
     public String getId() {
         return id;
     }
+
+
 
     public void setApproved(boolean approved){
         this.approved = approved;

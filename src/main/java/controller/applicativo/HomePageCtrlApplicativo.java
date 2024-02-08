@@ -50,13 +50,15 @@ public class HomePageCtrlApplicativo {
         playlist.setPlaylistName(playlistBean.getPlaylistName());
         List<Playlist> playlists = dao.searchPlaylistString(playlist);  // Recupero lista Playlist
 
+        System.out.println("Applicativo home page: playlist trovate " + playlists);
+
         try{
             for (Playlist p : playlists){
                 PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            e.fillInStackTrace();
+            System.out.println("Home Page applicativo: LinkIsNotValid " + e.getMessage());
         }
         return playlistsBean;
     }

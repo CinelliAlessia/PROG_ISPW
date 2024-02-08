@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import view.utils.*;
 
 import java.util.*;
-import java.io.IOException;
 import java.net.URL;
 public class AccountCtrlGrafico implements Initializable {
 
@@ -74,7 +73,7 @@ public class AccountCtrlGrafico implements Initializable {
         this.userBean = user;
         this.sceneController = sceneController;
 
-        System.out.println("ACG setUserBean: " + userBean);
+        System.out.println("GUI Account setAttributes: " + userBean);
         System.out.println(userBean.getEmail()+ " " + userBean.getUsername() +" "+userBean.getPreferences());
 
         initializeData(userBean);
@@ -118,7 +117,7 @@ public class AccountCtrlGrafico implements Initializable {
     }
 
     @FXML
-    public void onSaveClick(ActionEvent event) throws IOException {
+    public void onSaveClick(ActionEvent event) {
 
         // Recupero preferenze aggiornate
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
@@ -143,7 +142,7 @@ public class AccountCtrlGrafico implements Initializable {
     }
 
     @FXML
-    public void addPlaylistClick(ActionEvent event) throws IOException {
+    public void addPlaylistClick(ActionEvent event) {
         sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
     }
 

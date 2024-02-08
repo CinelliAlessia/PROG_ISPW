@@ -1,8 +1,6 @@
 package engineering.dao;
 
-import engineering.exceptions.EmailAlreadyInUse;
-import engineering.exceptions.UserDoesNotExist;
-import engineering.exceptions.UsernameAlreadyInUse;
+import engineering.exceptions.*;
 import model.User;
 
 import java.util.List;
