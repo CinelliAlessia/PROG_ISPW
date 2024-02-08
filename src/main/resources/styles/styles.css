@@ -152,13 +152,6 @@
     -fx-background-color: #ffffff;
 }
 
-/* Stile per le righe selezionate */
-.table-row-cell:selected {
-    -fx-border-color: #1DB954;
-}
-
-
-
 /* CHECK BOX */
 
 .check-box {
