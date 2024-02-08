@@ -24,26 +24,9 @@ public class Playlist {
         setApproved(approved);
     }
 
-    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, String id){
-        //SI DOVRA FARE UN
-        // UNICO COSTRUTTORE NON DUE; L?HO FATTO PER VEDERE SE FUNZIONA; L'ID MI SERVE NEL DB
-        setEmail(email);
-        setLink(link);
-        setPlaylistName(playlistName);
-        setUsername(username);
-        setPlaylistGenre(playlistGenre);
+    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id){
+        this(email, username, playlistName, link, playlistGenre, approved);
         setId(id);
-        this.approved = false;
-    }
-
-    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) {
-        setEmail(email);
-        setLink(link);
-        setPlaylistName(playlistName);
-        setUsername(username);
-        setPlaylistGenre(playlistGenre);
-        setId(id);
-        setApproved(approved);
     }
 
     public void setLink(String link) {
