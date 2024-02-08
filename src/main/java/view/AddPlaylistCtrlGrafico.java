@@ -1,16 +1,13 @@
 package view;
 
+import view.utils.*;
 import controller.applicativo.AddPlaylistCtrlApplicativo;
-import engineering.bean.*;
 
-import engineering.exceptions.LinkIsNotValid;
-import engineering.exceptions.PlaylistLinkAlreadyInUse;
+import engineering.bean.*;
+import engineering.exceptions.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import view.utils.GenreManager;
-import view.utils.MessageString;
-import view.utils.SceneController;
 
 import java.net.URL;
 import java.util.*;

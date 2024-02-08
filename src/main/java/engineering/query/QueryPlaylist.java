@@ -2,9 +2,7 @@ package engineering.query;
 
 import model.Playlist;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 public class QueryPlaylist {

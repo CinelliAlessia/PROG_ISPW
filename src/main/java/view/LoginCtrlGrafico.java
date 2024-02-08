@@ -2,15 +2,13 @@ package view;
 
 import controller.applicativo.LoginCtrlApplicativo;
 import engineering.bean.*;
-import engineering.exceptions.IncorrectPassword;
-import engineering.exceptions.UserDoesNotExist;
+import engineering.exceptions.*;
+
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.apache.commons.validator.routines.EmailValidator;
-import view.utils.FxmlFileName;
-import view.utils.SceneController;
-
+import view.utils.*;
 
 public class LoginCtrlGrafico {
 

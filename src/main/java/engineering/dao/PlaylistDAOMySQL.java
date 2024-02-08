@@ -1,8 +1,9 @@
 package engineering.dao;
 
-import engineering.exceptions.PlaylistLinkAlreadyInUse;
+import engineering.exceptions.*;
 import engineering.others.*;
-import engineering.query.QueryPlaylist;
+import engineering.query.*;
+
 import model.Playlist;
 import view.utils.GenreManager;
 

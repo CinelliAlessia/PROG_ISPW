@@ -1,18 +1,19 @@
 package view;
 
 import controller.applicativo.HomePageCtrlApplicativo;
-import engineering.bean.*;
 
+import engineering.bean.*;
 import engineering.exceptions.LinkIsNotValid;
 import engineering.pattern.observer.Observer;
-import engineering.pattern.observer.PlaylistCollection;
+import engineering.pattern.observer.*;
+
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+
 import model.Playlist;
 import view.utils.*;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
