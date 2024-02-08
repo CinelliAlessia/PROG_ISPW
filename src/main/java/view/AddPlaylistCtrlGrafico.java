@@ -4,6 +4,7 @@ import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
 
 import engineering.exceptions.LinkIsNotValid;
+import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -75,7 +76,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
 
     /** Click sul tasto carica Playlist*/
     @FXML
-    public void onUploadClick(ActionEvent event) throws IOException {
+    public void onUploadClick(ActionEvent event) {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
