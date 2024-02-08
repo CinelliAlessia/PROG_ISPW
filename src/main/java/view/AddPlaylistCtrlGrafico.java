@@ -4,7 +4,6 @@ import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
 
 import engineering.exceptions.LinkIsNotValid;
-import engineering.pattern.observer.PlaylistCollection;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -93,10 +92,6 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
                 addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-
-
-                // Mostro la pagina precedente dell'ingresso in "Aggiungi Playlist"
-                SceneController.getInstance().goBack(event);
                 if(approved){
                     SceneController.getInstance().popUp(event, MessageString.ADDED_PLAYLIST);
                 }
@@ -118,7 +113,5 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             System.out.println("PLAYLIST NON AGGIUNTA");
         }
     }
-
-
 
 }
