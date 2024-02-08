@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class PlaylistDAOJSON implements PlaylistDAO {
@@ -256,6 +257,17 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
     @Override
     public List<Playlist> searchPlaylistString(Playlist playlist) {
-        return null;
+        // Estrai il nome della playlist da cercare
+        String targetPlaylistName = playlist.getPlaylistName();
+
+        // Recupera tutte le playlist approvate
+        List<Playlist> allApprovedPlaylists = retrieveApprovedPlaylists();
+
+        // Filtra le playlist che contengono il titolo della playlist di destinazione
+        return allApprovedPlaylists.stream()
+                .filter(p -> p.getPlaylistName().toLowerCase().contains(targetPlaylistName.toLowerCase()))
+                .toList();  // Utilizza toList() direttamente su Stream
     }
+
+
 }
