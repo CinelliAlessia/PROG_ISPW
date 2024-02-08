@@ -7,10 +7,12 @@ import engineering.exceptions.LinkIsNotValid;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import org.apache.commons.validator.routines.UrlValidator;
 import view.utils.GenreManager;
 import view.utils.MessageString;
 import view.utils.SceneController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -73,7 +75,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
 
     /** Click sul tasto carica Playlist*/
     @FXML
-    public void onUploadClick(ActionEvent event)  {
+    public void onUploadClick(ActionEvent event) throws IOException {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
@@ -87,8 +89,9 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             boolean approved = userBean.isSupervisor();
 
             // Costruzione della playlistBean con i parametri per il Controller Applicativo
+            PlaylistBean playlistBean = null;
             try {
-                PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
+                playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, approved);
 
                 // Invocazione metodo controller Applicativo che in teoria è static
                 AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
@@ -102,10 +105,8 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 }
                 System.out.println("PLAYLIST AGGIUNTA");
 
-            } catch (LinkIsNotValid e){
-                errorLabel.setText(e.getMessage());
-                System.out.println(e.getMessage());
-                e.fillInStackTrace();
+            } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
+                showError(e.getMessage());
             }
 
 
@@ -114,6 +115,12 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             errorLabel.setText("I campi sono vuoti!");
             System.out.println("PLAYLIST NON AGGIUNTA");
         }
+    }
+
+    private void showError(String message) {
+        // Mostra un messaggio di errore nell'interfaccia utente.
+        errorLabel.setText(message);
+        errorLabel.setVisible(true);
     }
 
 }
