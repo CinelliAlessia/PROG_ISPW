@@ -28,16 +28,20 @@
     -fx-min-height: 40px; /* Imposta l'altezza a use_computed_size */
 }
 
+.button:hover {
+    -fx-background-color: #147533; /* Cambia il colore al passaggio del mouse */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 8,0,0,2 ); /* Aumenta l'ombra al passaggio del mouse */
+    -fx-opacity: 1; /* Ripristina l'opacità al passaggio del mouse */
+}
+
 #addButton {
     -fx-pref-height: 60px;
     -fx-pref-width: 60px;
     -fx-min-width: -1;
     -fx-min-height: -1;
 
-    -fx-border-radius: 50%;
     -fx-background-radius: 50%;
     -fx-border-width: 3;
-    -fx-border-color: #1DB954;
     -fx-background-color: #1DB954;
     -fx-background-image: url("../photo/add_playlist.png");
     -fx-background-size: contain; /* Adatta l'immagine al pulsante */
@@ -50,7 +54,6 @@
 
 #addButton:hover {
     -fx-background-color: #147533; /* Cambia il colore al passaggio del mouse */
-    -fx-border-color: #147533; /* Cambia il colore del bordo al passaggio del mouse */
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 8,0,0,2 ); /* Aumenta l'ombra al passaggio del mouse */
     -fx-opacity: 1; /* Ripristina l'opacità al passaggio del mouse */
 }
