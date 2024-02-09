@@ -15,6 +15,8 @@ public class PlaylistBean {
 
     private String id;
 
+    private List<Double> emotional;
+
     public PlaylistBean(){
 
     }
@@ -31,6 +33,11 @@ public class PlaylistBean {
     public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) throws LinkIsNotValid {
         this(email,username,playlistName,link, playlistGenre, approved);
         setId(id);
+    }
+
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Double> emotional) throws LinkIsNotValid {
+        this(email,username,playlistName,link, playlistGenre, approved);
+        setEmotional(emotional);
     }
 
 
@@ -92,6 +99,15 @@ public class PlaylistBean {
 
     public String getId() {
         return id;
+    }
+
+
+    public void setEmotional(List<Double> emotional) {
+        this.emotional = emotional;
+    }
+
+    public List<Double> getEmotional() {
+        return emotional;
     }
 
     private boolean isValidLink(String input) {

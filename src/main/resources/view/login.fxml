@@ -18,7 +18,7 @@
 
     <top>
         <!-- Barra del titolo TopPage -->
-        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
             <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="LOGIN" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
         </AnchorPane>
     </top>
@@ -64,22 +64,20 @@
    <left>
        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER_LEFT">
            <BorderPane.margin>
-               <Insets left="100.0"/>
+               <Insets left="100.0" />
            </BorderPane.margin>
-           <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                 minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0">
+           <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0">
                <ImageView fitHeight="160.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                   <Image url="@../photo/spotify.png"/>
+                   <Image url="@../photo/spotify.png" />
                </ImageView>
-               <Button fx:id="guest" ellipsisString="" mnemonicParsing="false" onAction="#onGuestClick"
-                       text="Continua come Guest" textAlignment="CENTER" textOverrun="CLIP">
+               <Button fx:id="guest" ellipsisString="" mnemonicParsing="false" onAction="#onGuestClick" text="Continua come Guest" textAlignment="CENTER" textOverrun="CLIP">
                    <VBox.margin>
-                       <Insets top="20.0"/>
+                       <Insets top="20.0" />
                    </VBox.margin>
                </Button>
                <Button mnemonicParsing="false" onAction="#onRegisterClick" text="Registrazione" textAlignment="CENTER">
                    <VBox.margin>
-                       <Insets top="50.0"/>
+                       <Insets top="50.0" />
                    </VBox.margin>
                </Button>
            </VBox>

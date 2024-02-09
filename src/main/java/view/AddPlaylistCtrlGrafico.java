@@ -15,6 +15,15 @@ import java.util.*;
 public class AddPlaylistCtrlGrafico implements Initializable {
 
     @FXML
+    private Slider happySad;
+    @FXML
+    private Slider danceChill;
+    @FXML
+    private Slider electronicAcoustic;
+    @FXML
+    private Slider speakInstrumental;
+
+    @FXML
     private Label errorLabel;
     @FXML
     private TextField title;
@@ -44,6 +53,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
     private CheckBox country;
     @FXML
     private CheckBox alternative;
+
     private UserBean userBean;
 
     private List<CheckBox> checkBoxList;
@@ -72,43 +82,49 @@ public class AddPlaylistCtrlGrafico implements Initializable {
     /** Click sul tasto carica Playlist*/
     @FXML
     public void onUploadClick(ActionEvent event) {
+
+        try{
+            PlaylistBean playlistBean = getDate();
+
+            // Invocazione metodo controller Applicativo che in teoria è static
+            AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
+            addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
+
+            if(userBean.isSupervisor()){
+                sceneController.popUp(event, MessageString.ADDED_PLAYLIST);
+            }
+            else{
+                sceneController.popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
+            }
+            System.out.println("PLAYLIST AGGIUNTA");
+
+        } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
+            showError(e.getMessage());
+        }
+    }
+
+    private PlaylistBean getDate() throws LinkIsNotValid {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
+        List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
+
+        List<Double> sliderValues = Arrays.asList(
+                happySad.getValue(),
+                danceChill.getValue(),
+                electronicAcoustic.getValue(),
+                speakInstrumental.getValue()
+        );
+
         //Controllo sui campi vuoti
-        if( !linkPlaylist.isEmpty() && !titolo.isEmpty() ){
-
-            // Recupero generi della playlist
-            List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
-
-            // La playlist è approvata solo se l'utente è un supervisore
-            boolean approved = userBean.isSupervisor();
-
-            // Costruzione della playlistBean con i parametri per il Controller Applicativo
-            try {
-                PlaylistBean playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, userBean.isSupervisor());
-
-                // Invocazione metodo controller Applicativo che in teoria è static
-                AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
-                addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
-
-                if(approved){
-                    sceneController.popUp(event, MessageString.ADDED_PLAYLIST);
-                }
-                else{
-                    sceneController.popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
-                }
-                System.out.println("PLAYLIST AGGIUNTA");
-
-            } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
-                showError(e.getMessage());
-            }
-
-        } else {
+        if(linkPlaylist.isEmpty() || titolo.isEmpty() ){
             // campi vuoti
             showError("I campi sono vuoti!");
-            System.out.println("PLAYLIST NON AGGIUNTA");
+        } else if(genre.isEmpty()) {
+            showError("Inserisci almeno un genere musicale!");
         }
+
+        return new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, userBean.isSupervisor(), sliderValues);
     }
 
     private void showError(String message) {
