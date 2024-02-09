@@ -85,19 +85,19 @@ public class AddPlaylistCtrlGrafico implements Initializable {
 
         try{
             PlaylistBean playlistBean = getDate();
+            if(playlistBean != null){
+                // Invocazione metodo controller Applicativo che in teoria è static
+                AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
+                addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-            // Invocazione metodo controller Applicativo che in teoria è static
-            AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
-            addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
-
-            if(userBean.isSupervisor()){
-                sceneController.popUp(event, MessageString.ADDED_PLAYLIST);
+                if(userBean.isSupervisor()){
+                    sceneController.popUp(event, MessageString.ADDED_PLAYLIST);
+                }
+                else{
+                    sceneController.popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
+                }
+                System.out.println("PLAYLIST AGGIUNTA");
             }
-            else{
-                sceneController.popUp(event,MessageString.ADDED_PENDING_PLAYLIST);
-            }
-            System.out.println("PLAYLIST AGGIUNTA");
-
         } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
             showError(e.getMessage());
         }
@@ -116,15 +116,17 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 speakInstrumental.getValue()
         );
 
+        PlaylistBean playlistBean = null;
+
         //Controllo sui campi vuoti
-        if(linkPlaylist.isEmpty() || titolo.isEmpty() ){
-            // campi vuoti
+        if( linkPlaylist.isEmpty() || titolo.isEmpty() ){
             showError("I campi sono vuoti!");
         } else if(genre.isEmpty()) {
             showError("Inserisci almeno un genere musicale!");
+        } else {
+           playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, userBean.isSupervisor(), sliderValues);
         }
-
-        return new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, userBean.isSupervisor(), sliderValues);
+        return playlistBean;
     }
 
     private void showError(String message) {
