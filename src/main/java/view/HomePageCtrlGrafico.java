@@ -122,16 +122,16 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
         System.out.println("GUI home page: playlist trovate " + playlistsBean);
     }
+
     @FXML
     protected void onFilterClick(ActionEvent event) {
-        sceneController.popUp(event, MessageString.ADDED_PLAYLIST,true);
+        sceneController.goToScene(event,FxmlFileName.POP_UP_FXML_FILTER,userBean);
     }
 
 
     /** UTILIZZATA PER IL PATTERN OBSERVER */
     @Override
     public void update() {
-
         try{
             playlists = playlistCollection.getState();
             for(Playlist p: playlists){
@@ -141,5 +141,26 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         } catch (LinkIsNotValid e){
             e.fillInStackTrace();
         }
+    }
+
+    public void searchFilter(PlaylistBean playlistBean){
+        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
+        playlistsBean = homePageController.searchPlaylistFilter(playlistBean);                      // Recupera le playlist approvate
+        //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
+        TableManager.updateTable(playlistTable, playlistsBean);
+
+        System.out.println("GUI home page: playlist trovate " + playlistsBean);
+
+    }
+
+    public void onBackClick(ActionEvent event) {
+        sceneController.goBack(event);
+    }
+
+    public void onApplyClick(ActionEvent event) {
+        // recupero tutti i tasti
+        // costruisco un playlist bean
+        // chiudo la scena
+        // effettuo la ricerca searchFilter
     }
 }

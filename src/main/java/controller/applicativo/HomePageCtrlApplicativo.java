@@ -94,4 +94,7 @@ public class HomePageCtrlApplicativo {
         playlistCollection.attach(observer);
     }
 
+    public List<PlaylistBean> searchPlaylistFilter(PlaylistBean playlistBean) {
+        return null;
+    }
 }

@@ -54,29 +54,7 @@ public class SceneController {
         }
     }
 
-    private void handleSceneLoadError(IOException e) {
-        e.fillInStackTrace();
-    }
-
-
-    private void setAttributes(Object controller, UserBean userBean) {
-
-        try {
-            Method setAttributes = controller.getClass().getMethod("setAttributes", UserBean.class, SceneController.class);
-            setAttributes.invoke(controller, userBean, this);
-        } catch (NoSuchMethodException e) {
-            try {
-                Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
-                setAttributes.invoke(controller, this);
-            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException error) {
-                error.fillInStackTrace(); // Trattamento dell'eccezione
-            }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.fillInStackTrace();
-        }
-    }
-
-    public void popUp(ActionEvent event, String text, boolean back) {
+    public void textPopUp(ActionEvent event, String text, boolean back) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML));
             Parent root = loader.load();
@@ -108,5 +86,28 @@ public class SceneController {
             handleSceneLoadError(e);
         }
     }
+
+
+    private void setAttributes(Object controller, UserBean userBean) {
+
+        try {
+            Method setAttributes = controller.getClass().getMethod("setAttributes", UserBean.class, SceneController.class);
+            setAttributes.invoke(controller, userBean, this);
+        } catch (NoSuchMethodException e) {
+            try {
+                Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
+                setAttributes.invoke(controller, this);
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException error) {
+                error.fillInStackTrace(); // Trattamento dell'eccezione
+            }
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.fillInStackTrace();
+        }
+    }
+    private void handleSceneLoadError(IOException e) {
+        e.fillInStackTrace();
+    }
+
+
 }
 

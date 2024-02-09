@@ -4,27 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="corretto errore sul PlaylistDAOJSON che restituiva un model nullo">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/cn_jskòa[3813e5b7-2e59-44e6-ab0f-c3e3ffb2e929].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/cn_jskòa.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/filter.fxml" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiunta slider">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/1[5befd7d1-3e21-43ed-8e07-dce4eb9f71c8]userInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/2[642d0b8f-98ec-4802-9a8e-799f84c56524]userInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/3[36264afb-f525-4c91-a94f-4d913793820a]userInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/a@gmail.com/userInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/userInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/HomePageCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/HomePageCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UserDoesNotExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UserDoesNotExist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/TextPopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TextPopUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/utils/FxmlFileName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/utils/FxmlFileName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/utils/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/utils/SceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/ghcjyuyf[a9516207-80c6-4c3d-aab7-95f1715d920c].json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/ghcjyuyf[a9516207-80c6-4c3d-aab7-95f1715d920c].json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/ghcjyuyf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/ghcjyuyf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/homePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/homePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/filter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/filterPlaylist.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +34,8 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -224,22 +221,6 @@
       <workItem from="1707412740797" duration="3724000" />
       <workItem from="1707428436209" duration="4065000" />
       <workItem from="1707467775442" duration="14823000" />
-    </task>
-    <task id="LOCAL-00017" summary="Aggiornamento view account.fxml&#10;aggiunta possibilità di retrive User dal DB">
-      <option name="closed" value="true" />
-      <created>1706605379427</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1706605379427</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Update with error">
-      <option name="closed" value="true" />
-      <created>1706621487644</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1706621487644</updated>
     </task>
     <task id="LOCAL-00019" summary="Update with error">
       <option name="closed" value="true" />
@@ -617,7 +598,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707432400964</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Aggiunta slider">
+      <option name="closed" value="true" />
+      <created>1707486115511</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1707486115511</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Aggiunta slider">
+      <option name="closed" value="true" />
+      <created>1707486684886</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1707486684886</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +633,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Modifica" />
     <MESSAGE value="Aggiunta possibilità di modificare i generi preferiti a run time" />
     <MESSAGE value="Code smells risolti" />
     <MESSAGE value="Aggiornamento grafiche" />
@@ -661,7 +657,8 @@
     <MESSAGE value="Tolto tutti i lanci di eccezioni del tipo &quot;IOException&quot; dai controller grafici, ora c'è una funzione per gestire questo errore dentro SceneController che attualmente esegue uno &quot;fill in stack trace&quot;" />
     <MESSAGE value="Ho aggiunto il cerca Playlist per nome sul PlaylistDAOJSON (vedi se ti piace)" />
     <MESSAGE value="corretto errore sul PlaylistDAOJSON che restituiva un model nullo" />
-    <option name="LAST_COMMIT_MESSAGE" value="corretto errore sul PlaylistDAOJSON che restituiva un model nullo" />
+    <MESSAGE value="Aggiunta slider" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta slider" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
