@@ -78,13 +78,14 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (updatedInUserFolder && updatedInPendingFolder) {
             copyAndDeletePlaylist(playlist);
             playlist.setApproved(true);
-            System.out.println(playlist.getPlaylistName() + " " + playlist.getApproved() );
+            System.out.println(playlist.getPlaylistName() + " " + playlist.getApproved());
             return playlist;
         }
         return null;
     }
+
     /**
-     *  Imposta il campo Approved a true all'interno del file della playlist
+     * Imposta il campo Approved a true all'interno del file della playlist
      */
     private boolean updatePlaylistApprovedField(Playlist playlist, String folderPath) {
         String fileName;
@@ -92,10 +93,10 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (folderPath.equals(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY) ||
                 folderPath.equals(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY)) {
             fileName = addUuidToPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()), playlist.getId());
-            playlistPath = Paths.get(folderPath,fileName + ConfigurationJSON.FILE_EXTENCTION);
+            playlistPath = Paths.get(folderPath, fileName + ConfigurationJSON.FILE_EXTENCTION);
         } else {
             fileName = formatPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()));
-            playlistPath = Paths.get(folderPath, playlist.getEmail(),fileName + ConfigurationJSON.FILE_EXTENCTION);
+            playlistPath = Paths.get(folderPath, playlist.getEmail(), fileName + ConfigurationJSON.FILE_EXTENCTION);
         }
         //################# Possibile duplicazione da evitare ################################
         if (Files.exists(playlistPath)) {
@@ -115,7 +116,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
                 // Sovrascrivi il file con le informazioni aggiornate
                 Files.writeString(playlistPath, updatedJson);
-                System.out.println(playlist.getPlaylistName() + " " + playlist.getApproved() );
+                System.out.println(playlist.getPlaylistName() + " " + playlist.getApproved());
                 return true;
             } catch (IOException e) {
                 e.fillInStackTrace();
@@ -126,14 +127,17 @@ public class PlaylistDAOJSON implements PlaylistDAO {
             return false;
         }
     }
+
     private String addUuidToPlaylistFileName(String playlistName, String uuid) {
         // Sostituisci gli spazi con underscore, convergi tutto in minuscolo e aggiungi UUID tra parentesi quadre
         return formatPlaylistFileName(playlistName) + "[" + uuid + "]";
     }
+
     private String formatPlaylistFileName(String playlistName) {
         // Sostituisci gli spazi con underscore e convergi tutto in minuscolo
         return playlistName.replace(" ", "_").toLowerCase();
     }
+
     private void copyAndDeletePlaylist(Playlist playlist) {
         String fileNameWithUUID = addUuidToPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()), playlist.getId());
         java.nio.file.Path sourcePath = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY, fileNameWithUUID + ConfigurationJSON.FILE_EXTENCTION);
@@ -214,40 +218,47 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         return playlistList;
     }
 
-    //############################# DA FARE ###################
-    public List<Playlist> searchPlaylistByFilter(Playlist playlist) {
+
+    public List<Playlist> searchPlaylistByFilters(Playlist playlist) {
+        //TODO ###################### DA FARE ###################
         return Collections.emptyList();
     }
+
     private List<Playlist> retrievePlaylistsFromDirectory(Path directory) {
+        List<Playlist> playlists = new ArrayList<>();
+
         try (Stream<Path> paths = Files.list(directory)) {
-            return paths.filter(file ->
+            paths.filter(file ->
                             Files.isRegularFile(file) &&
                                     file.getFileName().toString().endsWith(ConfigurationJSON.FILE_EXTENCTION) &&
                                     !file.getFileName().toString().equals(ConfigurationJSON.USER_INFO_FILE_NAME))
-                    .map(file -> {
+                    .forEach(file -> {
                         try {
                             String content = Files.readString(file);
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                            return gson.fromJson(content, Playlist.class);
+                            Playlist playlist = gson.fromJson(content, Playlist.class);
+                            if (playlist != null) {
+                                playlists.add(playlist);
+                            }
                         } catch (IOException e) {
                             // Gestisci l'eccezione in modo appropriato
                             e.fillInStackTrace();
-                            return null;
                         }
-                    })
-                    .filter(Objects::nonNull)
-                    .toList();
+                    });
         } catch (IOException e) {
             // Gestisci l'eccezione in modo appropriato
             e.fillInStackTrace();
-            return Collections.emptyList();
         }
+
+        return playlists;
     }
+
 
     public List<Playlist> retrievePendingPlaylists() {
         Path pendingPlaylistsDirectory = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY);
         return retrievePlaylistsFromDirectory(pendingPlaylistsDirectory);
     }
+
     public List<Playlist> retrieveApprovedPlaylists() {
         Path approvedPlaylistsDirectory = Paths.get(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY);
         return retrievePlaylistsFromDirectory(approvedPlaylistsDirectory);
@@ -255,15 +266,20 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
     public List<Playlist> searchPlaylistString(Playlist playlist) {
         // Estrai il nome della playlist da cercare
-        String targetPlaylistName = playlist.getPlaylistName();
+        String targetPlaylistName = playlist.getPlaylistName().toLowerCase();
 
         // Recupera tutte le playlist approvate
         List<Playlist> allApprovedPlaylists = retrieveApprovedPlaylists();
 
-        // Filtra le playlist che contengono il titolo della playlist di destinazione
-        return allApprovedPlaylists.stream()
-                .filter(p -> p.getPlaylistName().toLowerCase().contains(targetPlaylistName.toLowerCase()))
-                .toList();  // Utilizza toList() direttamente su Stream
-    }
+        List<Playlist> matchingPlaylists = new ArrayList<>();
 
+        // Filtra le playlist che contengono il titolo della playlist di destinazione
+        for (Playlist p : allApprovedPlaylists) {
+            if (p.getPlaylistName().toLowerCase().contains(targetPlaylistName)) {
+                matchingPlaylists.add(p);
+            }
+        }
+
+        return matchingPlaylists;
+    }
 }

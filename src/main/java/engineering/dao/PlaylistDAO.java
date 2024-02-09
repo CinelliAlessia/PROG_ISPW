@@ -20,7 +20,7 @@ public interface PlaylistDAO {
     List<Playlist> retrievePlaylistsByEmail(String email);
 
     /** Recupera tutte le playlist, filtrandole per genere  */
-    List<Playlist> searchPlaylistByFilter(Playlist playlist);
+    List<Playlist> searchPlaylistByFilters(Playlist playlist);
 
     List<Playlist> retrievePendingPlaylists();
     List<Playlist> retrieveApprovedPlaylists();

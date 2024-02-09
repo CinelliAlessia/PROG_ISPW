@@ -116,7 +116,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         playlistBean.setPlaylistName(searchText.getText());
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.searchNamePlaylist(playlistBean);                                    // Recupera le playlist approvate
+        playlistsBean = homePageController.searchPlaylistByName(playlistBean);                                    // Recupera le playlist approvate
         //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
         TableManager.updateTable(playlistTable, playlistsBean);
 
@@ -145,7 +145,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     public void searchFilter(PlaylistBean playlistBean){
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.searchPlaylistFilter(playlistBean);                      // Recupera le playlist approvate
+        playlistsBean = homePageController.searchPlaylistByFilters(playlistBean);                      // Recupera le playlist approvate
         //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
         TableManager.updateTable(playlistTable, playlistsBean);
 

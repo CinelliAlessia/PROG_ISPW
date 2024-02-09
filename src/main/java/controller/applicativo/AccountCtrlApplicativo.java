@@ -25,7 +25,8 @@ public class AccountCtrlApplicativo {
         ArrayList<PlaylistBean> playlistsBean = new ArrayList<>();
         try {
             for (Playlist p : playlists){
-                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
+                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
+                pB.setId(p.getId());
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
@@ -53,7 +54,8 @@ public class AccountCtrlApplicativo {
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved());
+        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
+        playlist.setId(pB.getId());
 
         dao.deletePlaylist(playlist);
 

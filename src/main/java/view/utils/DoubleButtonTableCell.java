@@ -16,13 +16,13 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
     public DoubleButtonTableCell() {
 
         approveButton.setOnAction(event -> {
-            PlaylistBean playlist = getTableView().getItems().get(getIndex());
-            PendingPlaylistCtrlGrafico.handlePendingButton(playlist,true);
+            PlaylistBean playlistBean = getTableView().getItems().get(getIndex());
+            PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean,true);
         });
 
         rejectButton.setOnAction(event -> {
-            PlaylistBean playlist = getTableView().getItems().get(getIndex());
-            PendingPlaylistCtrlGrafico.handlePendingButton(playlist,false);
+            PlaylistBean playlistBean = getTableView().getItems().get(getIndex());
+            PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean,false);
         });
 
         approveButton.setStyle("-fx-background-color: #1DB954; -fx-text-fill: white; -fx-pref-height: 25px; -fx-pref-width: 25px; " +

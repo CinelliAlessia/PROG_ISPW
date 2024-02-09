@@ -26,6 +26,7 @@ public class Playlist {
         setLink(link);
         setPlaylistGenre(playlistGenre);
         setApproved(approved);
+        this.id = "";
     }
 
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id){
@@ -36,6 +37,7 @@ public class Playlist {
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Double> emotional){
         this(email,username,playlistName,link, playlistGenre, approved);
         setEmotional(emotional);
+        this.id = "";
     }
 
     public void setEmotional(List<Double> emotional) {

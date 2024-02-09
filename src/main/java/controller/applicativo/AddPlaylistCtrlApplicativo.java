@@ -11,25 +11,26 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 public class AddPlaylistCtrlApplicativo {
 
     public void insertPlaylist(PlaylistBean pB) throws PlaylistLinkAlreadyInUse {
-        //###################### IMPORTANTE CAPIRE COSA FARE CON QUESTO ID ######################
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        // Crea la Playlist (model)
+        // Crea la Playlist (model), id verrà impostato dal dao
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
-        System.out.println("AddPlaylist applicativo: "+playlist.getEmail()+ " " + playlist.getUsername()+ " " + playlist.getPlaylistName() + " " + playlist.getLink() + " " + playlist.getPlaylistGenre());
+        System.out.println("AddPlaylist applicativo: "+playlist.getEmail()+ " " + playlist.getUsername()+ " " + playlist.getPlaylistName() + " " + playlist.getLink() + " " + playlist.getPlaylistGenre() + " "+playlist.getEmotional());
+        // Id della playlist definito in fase di inserimento dal DAO
 
         // Invio Playlist model al DAO
         if(dao.insertPlaylist(playlist)){
             System.out.println("Playlist caricata correttamente");
+            /* Per pattern Observer */
             PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
 
-            if(playlist.getApproved()){ // La notifica all'observer solo se la playlist è approvata
+            if(playlist.getApproved()){ // La notifica all observer solo se la playlist è approvata
                 playlistCollection.addPlaylist(playlist);
             }
         } else {
-            //################# Se la playlist non viene caricata #################àà
+            //################# Se la playlist non viene caricata Dovrei restituire un eccezione #################àà
             System.out.println("Playlist non è stata caricata");
         }
     }

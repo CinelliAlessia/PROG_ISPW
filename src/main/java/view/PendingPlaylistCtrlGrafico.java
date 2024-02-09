@@ -49,21 +49,20 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         approveColumn.setCellFactory(param -> new DoubleButtonTableCell());
     }
 
-    public static void handlePendingButton(PlaylistBean playlist, boolean approve) {
+    public static void handlePendingButton(PlaylistBean playlistBean, boolean approve) {
         // Logica per gestire l'approvazione o il rifiuto della playlist
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
         if (approve) {
-            System.out.println("Approvazione della playlist: " + playlist.getPlaylistName());
-            // Implementa la logica per l'approvazione della playlist
+            System.out.println("Approvazione della playlist: " + playlistBean.getPlaylistName());
 
             // Approva Playlist
-            pendingPlaylistCtrlApplicativo.approvePlaylist(playlist);
+            pendingPlaylistCtrlApplicativo.approvePlaylist(playlistBean);
         } else {
-            System.out.println("Rifiuto della playlist: " + playlist.getPlaylistName());
+            System.out.println("Rifiuto della playlist: " + playlistBean.getPlaylistName());
             // Implementa la logica per il rifiuto della playlist con notifica all'utente
 
             // Rifiuta Playlist
-            pendingPlaylistCtrlApplicativo.rejectPlaylist(playlist);
+            pendingPlaylistCtrlApplicativo.rejectPlaylist(playlistBean);
         }
     }
 

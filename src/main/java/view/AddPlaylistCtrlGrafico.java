@@ -125,6 +125,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
             showError("Inserisci almeno un genere musicale!");
         } else {
            playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, userBean.isSupervisor(), sliderValues);
+           playlistBean.setId("");
         }
         return playlistBean;
     }

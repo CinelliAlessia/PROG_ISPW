@@ -204,7 +204,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
     }
 
-    public List<Playlist> searchPlaylistByFilter(Playlist playlistSearch) {
+    public List<Playlist> searchPlaylistByFilters(Playlist playlistSearch) {
         Statement stmt = null;
         ResultSet rs = null;
         Connection conn;

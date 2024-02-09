@@ -26,10 +26,11 @@ public class HomePageCtrlApplicativo {
         playlistCollection.setState(playlists);                                     // Imposto lo stato del model Subject SETSTATE NON CHIAMA UPDATE
 
         // Dato che viene fatto set state, serve fare return di un playlist bean se comunque nel setState verrà fatto update?
-
         try{
             for (Playlist p : playlists){
-                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
+                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
+                pB.setId(p.getId());
+
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
@@ -39,7 +40,7 @@ public class HomePageCtrlApplicativo {
         return playlistsBean;
     }
 
-    public List<PlaylistBean> searchNamePlaylist(PlaylistBean playlistBean) {
+    public List<PlaylistBean> searchPlaylistByName(PlaylistBean playlistBean) {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -47,6 +48,7 @@ public class HomePageCtrlApplicativo {
         List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean
         Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
 
+        // Devo cercare solo il nome, non ho bisogno di impostare altro
         playlist.setPlaylistName(playlistBean.getPlaylistName());
         List<Playlist> playlists = dao.searchPlaylistString(playlist);  // Recupero lista Playlist
 
@@ -54,7 +56,9 @@ public class HomePageCtrlApplicativo {
 
         try{
             for (Playlist p : playlists){
-                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
+                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
+                pB.setId(p.getId());
+
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
@@ -63,24 +67,27 @@ public class HomePageCtrlApplicativo {
         return playlistsBean;
     }
 
-    public List<PlaylistBean> searchGenrePlaylist(PlaylistBean playlistBean) {
+    /* ############# Dovrebbe essere fuso con il searchPlaylistByName ################ */
+    public List<PlaylistBean> searchPlaylistByFilters(PlaylistBean playlistBean) {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean
+        List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean da restituire al Grafico
         Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
 
         playlist.setPlaylistGenre(playlistBean.getPlaylistGenre());
         playlist.setEmotional(playlistBean.getEmotional());
 
-        List<Playlist> playlists = dao.searchPlaylistByFilter(playlist);  // Recupero lista Playlist
+        List<Playlist> playlists = dao.searchPlaylistByFilters(playlist);  // Recupero lista Playlist
 
         System.out.println("Applicativo home page: playlist trovate " + playlists);
 
         try{
             for (Playlist p : playlists){
-                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
+                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
+                pB.setId(p.getId());
+
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
@@ -94,7 +101,4 @@ public class HomePageCtrlApplicativo {
         playlistCollection.attach(observer);
     }
 
-    public List<PlaylistBean> searchPlaylistFilter(PlaylistBean playlistBean) {
-        return null;
-    }
 }

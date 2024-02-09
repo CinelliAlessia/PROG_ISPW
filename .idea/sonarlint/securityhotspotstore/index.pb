@@ -121,11 +121,5 @@ T
 $src/main/resources/styles/styles.css,c\0\c0f94ea59cfe496c556d890ceed2dd5f800081e7
 Y
 )src/main/java/start/MainApplication2.java,2\a\2afa60b86a39cb4edc4383d417a858c82a4bf4bf
-W
-'src/main/java/view/TextPopUpGoBack.java,f\d\fdaa34ed6936c8cf1dcb678f2e3f863d32beb1d6
-R
-"src/main/java/view/TextPopUp2.java,4\b\4bf9d5dba782276b5bf4653dbb42e5baf42d394b
-Y
-)src/main/java/view/FilterCtrlManager.java,1\f\1faafe2b57d4684866eeac9c35ccf68af55e3dec
 Y
 )src/main/java/view/FilterCtrlGrafico.java,5\0\5091068bb997361a43690e7c6b1e94f0385f7e09

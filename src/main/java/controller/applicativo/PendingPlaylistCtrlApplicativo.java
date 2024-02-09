@@ -14,14 +14,19 @@ public class PendingPlaylistCtrlApplicativo {
     public PlaylistBean approvePlaylist(PlaylistBean pB){
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        System.out.println("ApprovePlaylist il bean contiene:"+ pB.getPlaylistName() + pB.getId() );
 
-        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getId());
+        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
+        playlist.setId(pB.getId());
 
+        System.out.println("ApprovePlaylist la playlist contiene:"+ playlist.getPlaylistName() + playlist.getId() );
+        // Istanza di playlist ha ancora il parametro approved a false
         Playlist playlistApproved = dao.approvePlaylist(playlist);
 
         PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
-        playlistCollection.addPlaylist(playlist);
+        playlistCollection.addPlaylist(playlist); // Lancio metodo con approved = false
 
+        // ############ Imposto approved a true sul bean (?) ############
         pB.setApproved(playlistApproved.getApproved());
         return pB;
     }
@@ -38,7 +43,9 @@ public class PendingPlaylistCtrlApplicativo {
 
         try{
             for (Playlist p : playlists){
-                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
+                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
+                pB.setId(p.getId());
+
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
@@ -53,7 +60,8 @@ public class PendingPlaylistCtrlApplicativo {
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getId());
+        Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
+        playlist.setId(pB.getId());
 
         dao.deletePlaylist(playlist);
     }
