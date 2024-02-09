@@ -85,23 +85,9 @@ public class AccountCtrlGrafico implements Initializable {
 
         usernameText.setText(userBean.getUsername());
         emailText.setText(userBean.getEmail());
-
         List<String> preferences = userBean.getPreferences();
 
-        pop.setSelected(preferences.contains("Pop"));
-        indie.setSelected(preferences.contains("Indie"));
-        classic.setSelected(preferences.contains("Classic"));
-        rock.setSelected(preferences.contains("Rock"));
-
-        electronic.setSelected(preferences.contains("Electronic"));
-        house.setSelected(preferences.contains("House"));
-        hipHop.setSelected(preferences.contains("HipHop"));
-        jazz.setSelected(preferences.contains("Jazz"));
-
-        acoustic.setSelected(preferences.contains("Acoustic"));
-        reb.setSelected(preferences.contains("REB"));
-        country.setSelected(preferences.contains("Country"));
-        alternative.setSelected(preferences.contains("Alternative"));
+        GenreManager.setCheckList(preferences,checkBoxList);
     }
 
     /** Recupera tutte le playlist dell'utente */
