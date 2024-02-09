@@ -215,7 +215,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     }
 
     //############################# DA FARE ###################
-    public List<Playlist> retrievePlaylistsByGenre(List<String> genres) {
+    public List<Playlist> searchPlaylistByFilter(Playlist playlist) {
         return Collections.emptyList();
     }
     private List<Playlist> retrievePlaylistsFromDirectory(Path directory) {

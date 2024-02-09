@@ -36,9 +36,10 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             rs.close();
 
             QueryPlaylist.insertPlaylist(stmt, playlist);
+
             result = true;
         } catch (SQLException e) {
-            e.fillInStackTrace();
+            e.printStackTrace();
             result = false;
         } finally {
             closeResources(stmt,rs);
@@ -115,7 +116,6 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
         return playlists;
     }
-
     public List<Playlist> retrievePendingPlaylists() {
         return retrievePlaylists("pending",null);
     }
@@ -204,9 +204,44 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
     }
 
-    public List<Playlist> retrievePlaylistsByGenre(List<String> genres) {
-        //TODO
-        return Collections.emptyList();
+    public List<Playlist> searchPlaylistByFilter(Playlist playlistSearch) {
+        Statement stmt = null;
+        ResultSet rs = null;
+        Connection conn;
+
+        List<Playlist> playlists = new ArrayList<>(); // Initialize the list here
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            rs = QueryPlaylist.searchPlaylistsByFilter(stmt,playlistSearch);
+
+            while (true) {
+                assert rs != null;
+                if (!rs.next()) break;
+
+                Playlist playlist = new Playlist();
+
+                playlist.setLink(rs.getString("link"));
+                playlist.setUsername(rs.getString("username"));
+                playlist.setEmail(rs.getString("email"));
+                playlist.setPlaylistName(rs.getString("namePlaylist"));
+
+                playlist.setPlaylistGenre(playlistSearch.getPlaylistGenre());
+                playlist.setEmotional(playlistSearch.getEmotional());
+                playlists.add(playlist);
+            }
+
+            System.out.println("PlaylistDAOMySQL: playlist trovate " + playlists);
+
+
+        } catch (SQLException e) {
+            e.fillInStackTrace();
+        } finally {
+            closeResources(stmt,rs);
+        }
+        return playlists;
     }
 
     private void closeResources(Statement stmt, ResultSet rs) {

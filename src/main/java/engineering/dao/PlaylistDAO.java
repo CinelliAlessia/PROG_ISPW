@@ -19,8 +19,8 @@ public interface PlaylistDAO {
     /** Recupera tutte le playlist dell'utente dall'email */
     List<Playlist> retrievePlaylistsByEmail(String email);
 
-    /** Recupera tutte le playlist globali per genere  */
-    List<Playlist> retrievePlaylistsByGenre(List<String> genres);
+    /** Recupera tutte le playlist, filtrandole per genere  */
+    List<Playlist> searchPlaylistByFilter(Playlist playlist);
 
     List<Playlist> retrievePendingPlaylists();
     List<Playlist> retrieveApprovedPlaylists();

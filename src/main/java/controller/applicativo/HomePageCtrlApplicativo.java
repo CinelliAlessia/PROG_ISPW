@@ -63,6 +63,32 @@ public class HomePageCtrlApplicativo {
         return playlistsBean;
     }
 
+    public List<PlaylistBean> searchGenrePlaylist(PlaylistBean playlistBean) {
+
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
+        PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+
+        List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean
+        Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
+
+        playlist.setPlaylistGenre(playlistBean.getPlaylistGenre());
+        playlist.setEmotional(playlistBean.getEmotional());
+
+        List<Playlist> playlists = dao.searchPlaylistByFilter(playlist);  // Recupero lista Playlist
+
+        System.out.println("Applicativo home page: playlist trovate " + playlists);
+
+        try{
+            for (Playlist p : playlists){
+                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId());
+                playlistsBean.add(pB);
+            }
+        } catch (LinkIsNotValid e){
+            System.out.println("Home Page applicativo: LinkIsNotValid " + e.getMessage());
+        }
+        return playlistsBean;
+    }
+
     public void observePlaylistTable(Observer observer){
         Subject playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.attach(observer);
