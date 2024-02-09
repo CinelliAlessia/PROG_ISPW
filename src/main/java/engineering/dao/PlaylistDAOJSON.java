@@ -3,7 +3,6 @@ package engineering.dao;
 import com.google.gson.*;
 import engineering.others.ConfigurationJSON;
 import model.Playlist;
-
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
@@ -220,26 +219,31 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         return Collections.emptyList();
     }
     private List<Playlist> retrievePlaylistsFromDirectory(Path directory) {
-        List<Playlist> playlists = new ArrayList<>();
-
-        try (Stream<Path> paths = Files.walk(directory)) {
-            paths.filter(Files::isRegularFile)
-                    .forEach(file -> {
+        try (Stream<Path> paths = Files.list(directory)) {
+            return paths.filter(file ->
+                            Files.isRegularFile(file) &&
+                                    file.getFileName().toString().endsWith(ConfigurationJSON.FILE_EXTENCTION) &&
+                                    !file.getFileName().toString().equals(ConfigurationJSON.USER_INFO_FILE_NAME))
+                    .map(file -> {
                         try {
                             String content = Files.readString(file);
                             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                            Playlist playlist = gson.fromJson(content, Playlist.class);
-                            playlists.add(playlist);
+                            return gson.fromJson(content, Playlist.class);
                         } catch (IOException e) {
-                            e.fillInStackTrace(); // Puoi gestire l'eccezione in modo appropriato
+                            // Gestisci l'eccezione in modo appropriato
+                            e.fillInStackTrace();
+                            return null;
                         }
-                    });
+                    })
+                    .filter(Objects::nonNull)
+                    .toList();
         } catch (IOException e) {
-            e.fillInStackTrace(); // Puoi gestire l'eccezione in modo appropriato
+            // Gestisci l'eccezione in modo appropriato
+            e.fillInStackTrace();
+            return Collections.emptyList();
         }
-
-        return playlists;
     }
+
     public List<Playlist> retrievePendingPlaylists() {
         Path pendingPlaylistsDirectory = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY);
         return retrievePlaylistsFromDirectory(pendingPlaylistsDirectory);
@@ -249,7 +253,6 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         return retrievePlaylistsFromDirectory(approvedPlaylistsDirectory);
     }
 
-    @Override
     public List<Playlist> searchPlaylistString(Playlist playlist) {
         // Estrai il nome della playlist da cercare
         String targetPlaylistName = playlist.getPlaylistName();
@@ -262,6 +265,5 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 .filter(p -> p.getPlaylistName().toLowerCase().contains(targetPlaylistName.toLowerCase()))
                 .toList();  // Utilizza toList() direttamente su Stream
     }
-
 
 }

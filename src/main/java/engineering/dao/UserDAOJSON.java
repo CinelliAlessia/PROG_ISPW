@@ -53,6 +53,7 @@ public class UserDAOJSON implements UserDAO {
                 return parseUser(content);
             } else {
                 System.out.println("Utente non trovato");
+                throw new UserDoesNotExist();
             }
         } catch (IOException e) {
             handleDAOException(e);
