@@ -7,7 +7,8 @@ import javafx.stage.*;
 
 import view.utils.SceneController;
 
-public class TextPopUp {
+public class TextPopUp
+{
     @FXML
     private Label adviceText;
 

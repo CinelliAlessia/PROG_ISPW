@@ -95,3 +95,11 @@ k
 -src/main/java/view/utils/SceneController.java,f\f\ff299f43dcbd14d1d5283b7e5c5317075b6d9f8c
 b
 2src/main/java/view/PendingPlaylistCtrlGrafico.java,8\a\8a71eadf6e4875869e5fc1cfb3a2459855a28402
+[
++src/main/java/view/utils/MessageString.java,7\8\78d15b6a3baf81d601308d88aef95817f50a1654
+Z
+*src/main/java/view/utils/GenreManager.java,6\3\63c24d1ca804639b426dd234f9711fd2a0eae5c9
+W
+'src/main/java/view/TextPopUpGoBack.java,f\d\fdaa34ed6936c8cf1dcb678f2e3f863d32beb1d6
+R
+"src/main/java/view/TextPopUp2.java,4\b\4bf9d5dba782276b5bf4653dbb42e5baf42d394b

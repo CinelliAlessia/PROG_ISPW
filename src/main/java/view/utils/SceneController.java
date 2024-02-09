@@ -76,7 +76,7 @@ public class SceneController {
         }
     }
 
-    public void popUp(ActionEvent event, String text) {
+    public void popUpGoBack(ActionEvent event, String text) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML));
             Parent root = loader.load();
@@ -104,6 +104,5 @@ public class SceneController {
             handleSceneLoadError(e);
         }
     }
-
 }
 

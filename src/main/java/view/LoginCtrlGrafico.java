@@ -36,8 +36,10 @@ public class LoginCtrlGrafico {
         String pass = password.getText();
 
         /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
-        if (!checkMailCorrectness(email)){ // Non va fatto qui il controllo ma in Login Bean #####
-            showError("Email non valida");
+        if (email.isEmpty() || pass.isEmpty()) {
+            showError("Ci sono dei campi vuoti !");
+        } else if (!checkMailCorrectness(email)) { // Non va fatto qui il controllo ma in Login Bean #####
+            showError("Email non valida !");
         } else {
 
             /* ------ Creo la bean e imposto i parametri ------ */

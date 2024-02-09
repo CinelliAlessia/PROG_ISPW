@@ -14,6 +14,7 @@ public class Playlist {
     private boolean approved = false;
     private List<Double> emotional;
 
+
     public Playlist(){
         this.approved = false;
     }
@@ -112,4 +113,6 @@ public class Playlist {
     public boolean getApproved(){
         return approved;
     }
+
+
 }

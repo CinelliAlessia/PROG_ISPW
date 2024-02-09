@@ -105,10 +105,12 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         sceneController.<AddPlaylistCtrlGrafico>goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
     }
 
+    @FXML
     public void onManagerClick(ActionEvent event) {
         sceneController.<PendingPlaylistCtrlGrafico>goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML,null);
     }
 
+    @FXML
     public void onSearchPlaylistClick() {
         PlaylistBean pB = new PlaylistBean();
         pB.setPlaylistName(searchText.getText());
@@ -120,6 +122,11 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
         System.out.println("GUI home page: playlist trovate " + playlistsBean);
     }
+    @FXML
+    protected void onFilterClick(ActionEvent event) {
+
+    }
+
 
     /** UTILIZZATA PER IL PATTERN OBSERVER */
     @Override
@@ -134,6 +141,5 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         } catch (LinkIsNotValid e){
             e.fillInStackTrace();
         }
-
     }
 }

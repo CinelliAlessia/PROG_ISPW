@@ -58,7 +58,7 @@ public class HomePageCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            System.out.println("Home Page applicativo: LinkIsNotValid " + e.getMessage());
+            System.out.println("Home Page applicativo: " + e.getMessage());
         }
         return playlistsBean;
     }

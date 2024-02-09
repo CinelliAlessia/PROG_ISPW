@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Filter">
+
+    <top>
+        <!-- Barra del titolo TopPage -->
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+            <Button layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="15.0" />
+            <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="APPLICA FILTRI" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
+        </AnchorPane>
+    </top>
+
+
+    <bottom>
+        <AnchorPane BorderPane.alignment="BOTTOM_CENTER">
+            <!-- Bottone Salva -->
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="452.0" onAction="#onUploadClick" text="Applica Filtri" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.bottomAnchor="35.0" />
+        </AnchorPane>
+    </bottom>
+    <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER" spacing="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                  <VBox alignment="CENTER" spacing="95.0">
+      
+                      <!-- Selezione dei generi musicali - CheckBox -->
+                      <HBox alignment="CENTER" spacing="20.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="15.0">
+                          <VBox spacing="10.0">
+                              <CheckBox fx:id="pop" text="Pop" />
+                              <CheckBox fx:id="indie" text="Indie" />
+                              <CheckBox fx:id="classic" text="Classic" />
+                              <CheckBox fx:id="rock" text="Rock" />
+                              <CheckBox fx:id="electronic" text="Electronic" />
+                              <CheckBox fx:id="house" text="House" />
+                          </VBox>
+                          <VBox spacing="10.0">
+                              <CheckBox fx:id="hipHop" text="HipHop" />
+                              <CheckBox fx:id="jazz" text="Jazz" />
+                              <CheckBox fx:id="acoustic" text="Acoustic" />
+                              <CheckBox fx:id="reb" text="REB" />
+                              <CheckBox fx:id="country" text="Country" />
+                              <CheckBox fx:id="alternative" text="Alternative" textOverrun="CLIP" />
+                          </VBox>
+                      </HBox>
+      
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="85.0">
+      
+                      <VBox alignment="CENTER" spacing="50.0" AnchorPane.rightAnchor="0.0">
+                          <HBox alignment="CENTER" prefWidth="500.0">
+                              <Label alignment="CENTER" prefWidth="130.0" text="Sadness" textAlignment="CENTER" />
+                              <Slider fx:id="happySad" blockIncrement="1.0" max="3.0" min="-3.0" prefWidth="250.0" />
+                              <Label alignment="CENTER" prefWidth="130.0" text="Happiness" />
+                          </HBox>
+                          <HBox alignment="CENTER" prefWidth="500.0">
+                              <Label alignment="CENTER" prefWidth="130.0" text="Danceble" />
+                              <Slider fx:id="danceChill" blockIncrement="1.0" max="3.0" min="-3.0" prefWidth="250.0" />
+                              <Label alignment="CENTER" prefWidth="130.0" text="Chill" />
+                          </HBox>
+                          <HBox alignment="CENTER" prefWidth="500.0">
+                              <Label alignment="CENTER" prefWidth="130.0" text="Electronic" />
+                              <Slider fx:id="electronicAcoustic" blockIncrement="1.0" max="3.0" min="-3.0" prefWidth="250.0" />
+                              <Label alignment="CENTER" prefWidth="130.0" text="Acoustic" />
+                          </HBox>
+                          <HBox alignment="CENTER" prefWidth="500.0">
+                              <Label alignment="CENTER" prefWidth="130.0" text="Speechiness" />
+                              <Slider fx:id="speakInstrumental" blockIncrement="1.0" max="3.0" min="-3.0" prefWidth="250.0" />
+                              <Label alignment="CENTER" prefWidth="130.0" text="Instrumental" />
+                          </HBox>
+                      </VBox>
+      
+                  </VBox>
+            </children>
+         </HBox>
+        </AnchorPane>
+    </center>
+
+</BorderPane>

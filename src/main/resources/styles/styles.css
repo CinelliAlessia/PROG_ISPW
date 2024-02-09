@@ -7,7 +7,19 @@
     -fx-background-radius: 20;
     -fx-border-radius: 20;
 }
+
 /* ----- BOTTONI ----- */
+#addButton, #filterButton, #searchButton{
+    -fx-background-radius: 50%;
+    -fx-border-width: 3;
+    -fx-background-color: #1DB954;
+    -fx-background-size: contain; /* Adatta l'immagine al pulsante */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center; /* Posiziona l'immagine al centro */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 5,0,0,1 ); /* Aggiunge un'ombra */
+    -fx-cursor: hand; /* Cambia il cursore al passaggio del mouse */
+    -fx-opacity: 0.9; /* Opacità del pulsante */
+}
 
 .button {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
@@ -37,25 +49,31 @@
 #addButton {
     -fx-pref-height: 60px;
     -fx-pref-width: 60px;
+    -fx-background-image: url("../photo/add_playlist.png");
     -fx-min-width: -1;
     -fx-min-height: -1;
-
-    -fx-background-radius: 50%;
-    -fx-border-width: 3;
-    -fx-background-color: #1DB954;
-    -fx-background-image: url("../photo/add_playlist.png");
-    -fx-background-size: contain; /* Adatta l'immagine al pulsante */
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center; /* Posiziona l'immagine al centro */
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 5,0,0,1 ); /* Aggiunge un'ombra */
-    -fx-cursor: hand; /* Cambia il cursore al passaggio del mouse */
-    -fx-opacity: 0.9; /* Opacità del pulsante */
 }
 
-#addButton:hover {
+#addButton:hover, #searchButton:hover, #filterButton:hover {
     -fx-background-color: #147533; /* Cambia il colore al passaggio del mouse */
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.8) , 8,0,0,2 ); /* Aumenta l'ombra al passaggio del mouse */
     -fx-opacity: 1; /* Ripristina l'opacità al passaggio del mouse */
+}
+
+#searchButton{
+    -fx-pref-height: 40px;
+    -fx-pref-width: 40px;
+    -fx-background-image: url("../photo/add_playlist.png");
+    -fx-min-width: -1;
+    -fx-min-height: -1;
+}
+
+#filterButton{
+    -fx-pref-height: 40px;
+    -fx-pref-width: 40px;
+    -fx-background-image: url("../photo/add_playlist.png");
+    -fx-min-width: -1;
+    -fx-min-height: -1;
 }
 
 .approveButton {
@@ -107,6 +125,16 @@
     -fx-text-fill: white; /* Colore del testo bianco */
 }
 
+.slider .thumb {
+    -fx-background-color: #1db954;
+    -fx-shape: "M10 0 A10 10 0 1 0 0 10 A10 10 0 0 0 10 0 Z"; /* Forma di un cerchio */
+}
+.slider .axis {
+    -fx-tick-mark-visible: true;   /* Mostra le tacche */
+    -fx-tick-mark-fill: #1db954;      /* Colore delle tacche */
+    -fx-tick-mark-stroke: #1db954;    /* Colore del bordo delle tacche */
+    -fx-tick-mark-stroke-width: 2;  /* Spessore del bordo delle tacche */
+}
 /* TABLE VIEW */
 
 /* Stile generale per le colonne della tabella */
