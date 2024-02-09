@@ -41,7 +41,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         PendingPlaylistCtrlApplicativo allPlaylistController = new PendingPlaylistCtrlApplicativo();
         List<PlaylistBean> playlistsPending = allPlaylistController.retrievePlaylists(); // Vengono recuperate tutte le playlist pending
 
-        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn,genreColumn); // Tutte le colonne "semplici"
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn); // Tutte le colonne della table view
         List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
         TableManager.createTable(playlistTable, columns, nameColumns, playlistsPending);
 

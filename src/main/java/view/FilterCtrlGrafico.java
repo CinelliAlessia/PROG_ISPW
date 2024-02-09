@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class FilterCtrlGrafico implements Initializable {
+
     @FXML
     private Slider happySad;
     @FXML
@@ -31,6 +32,7 @@ public class FilterCtrlGrafico implements Initializable {
     private TextField title;
     @FXML
     private TextField link;
+
     @FXML
     private CheckBox pop;
     @FXML
@@ -97,6 +99,7 @@ public class FilterCtrlGrafico implements Initializable {
                 happySad.getValue(),
                 danceChill.getValue()
         );
+
         playlistBean.setPlaylistGenre(genre);
         playlistBean.setEmotional(sliderValues);
 
@@ -105,7 +108,9 @@ public class FilterCtrlGrafico implements Initializable {
         stage.close();
     }
     @FXML
-    private void onBackClick(ActionEvent actionEvent) {
-
+    private void onBackClick(ActionEvent event) {
+        // Chiudi il popup
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 }

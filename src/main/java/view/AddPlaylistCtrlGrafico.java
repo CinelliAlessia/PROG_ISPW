@@ -96,7 +96,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 else{
                     sceneController.textPopUp(event,MessageString.ADDED_PENDING_PLAYLIST,true);
                 }
-                System.out.println("PLAYLIST AGGIUNTA");
+                System.out.println("ADD GUI PLAYLIST AGGIUNTA");
             }
         } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
             showError(e.getMessage());

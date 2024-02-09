@@ -129,6 +129,6 @@ public class UserDAOJSON implements UserDAO {
         return Files.exists(userDirectory);
     }
     private void handleDAOException(Exception e) {
-        e.fillInStackTrace();
+        e.printStackTrace();
     }
 }

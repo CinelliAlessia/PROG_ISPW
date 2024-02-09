@@ -76,6 +76,7 @@ public class HomePageCtrlApplicativo {
         List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean da restituire al Grafico
         Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
 
+        playlist.setPlaylistName(playlistBean.getPlaylistName());
         playlist.setPlaylistGenre(playlistBean.getPlaylistGenre());
         playlist.setEmotional(playlistBean.getEmotional());
 

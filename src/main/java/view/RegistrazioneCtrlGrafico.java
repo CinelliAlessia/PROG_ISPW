@@ -91,7 +91,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
 
         if (regBean != null) {
 
-            RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo(); //meglio static?
+            RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo();
 
             try {
                 UserBean userBean = registrazioneCtrlApplicativo.registerUser(regBean);

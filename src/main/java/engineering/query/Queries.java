@@ -33,9 +33,9 @@ public class Queries {
     public static final String SELECT_PLAYLIST_BY_EMAIL = "SELECT * FROM playlist_utente WHERE email = '%s'";
 
     public static final String SELECT_SEARCH_PLAYLISTS_BY_FILTER = "SELECT * FROM playlist_utente WHERE " +
-            "slider1 = ? AND slider2 = ? AND slider3 = ? AND slider4 = ?" +
-            "Pop = ? AND Indie = ? AND Classic = ? AND Rock = ? AND Electronic = ? AND House = ? " +
-            "AND HipHop = ? AND Jazz = ? AND Acoustic = ? AND REB = ? AND Country = ? AND Alternative = ?";
+            "namePlaylist LIKE '%s' AND approved = '1' AND slider1 = '%f' AND slider2 = '%f' AND slider3 = '%f' AND slider4 = '%f' " +
+            "Pop = '%d' AND Indie = '%d' AND Classic = '%d' AND Rock = '%d' AND Electronic = '%d' AND House = '%d' " +
+            "AND HipHop = '%d' AND Jazz = '%d' AND Acoustic = '%d' AND REB = '%d' AND Country = '%d' AND Alternative = '%d'";
 
     public static final String SELECT_ALL_PLAYLIST = "SELECT * FROM playlist_utente"; // Recupero tutto ma non uso tutto
     public static final String SELECT_PENDING_PLAYLISTS = "SELECT * FROM playlist_utente WHERE approved = '%d'";

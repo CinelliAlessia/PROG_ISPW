@@ -1,7 +1,7 @@
 package model;
 
-import engineering.exceptions.LinkIsNotValid;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Playlist {
@@ -12,8 +12,7 @@ public class Playlist {
     private String email;
     private List<String> playlistGenre;
     private boolean approved = false;
-    private List<Double> emotional;
-
+    List<Double> emotional = new ArrayList<>(List.of(0.0, 0.0, 0.0, 0.0));
 
     public Playlist(){
         this.approved = false;
@@ -36,6 +35,7 @@ public class Playlist {
 
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Double> emotional){
         this(email,username,playlistName,link, playlistGenre, approved);
+        setId("");
         setEmotional(emotional);
         this.id = "";
     }

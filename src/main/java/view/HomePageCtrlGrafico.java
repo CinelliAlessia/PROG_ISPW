@@ -44,8 +44,8 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     private SceneController sceneController;
     private final PlaylistBean playlistBean = new PlaylistBean();
 
-    /* OBSERVER */
-    private PlaylistCollection playlistCollection; /* ISTANZA DEL MODEL (CONCRETE SUBJECT) */
+    /** OBSERVER */
+    private PlaylistCollection playlistCollection; /** ISTANZA DEL MODEL (CONCRETE SUBJECT) */
     private List<Playlist> playlists = new ArrayList<>(); /** Observer state -> Model ma serve cosi per il pattern */
     private List<PlaylistBean> playlistsBean = new ArrayList<>();
 
@@ -54,7 +54,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         // Recupera tutte le playlist
         System.out.println("GUI Home Page");
 
-        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn,genreColumn);
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
 
         /* BYPASSIAMO MVC PER PATTERN OBSERVER */
@@ -112,11 +112,13 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     @FXML
     public void onSearchPlaylistClick() {
-
+        // Se sono stati impostati i filtri verranno presi
         playlistBean.setPlaylistName(searchText.getText());
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.searchPlaylistByName(playlistBean);                                    // Recupera le playlist approvate
+        //playlistsBean = homePageController.searchPlaylistByFilters(playlistBean);                 // Recupera le playlist approvate
+
+        playlistsBean = homePageController.searchPlaylistByName(playlistBean);                    // Recupera le playlist approvate
         //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
         TableManager.updateTable(playlistTable, playlistsBean);
 
@@ -135,7 +137,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
         try{
             playlists = playlistCollection.getState();
             for(Playlist p: playlists){
-                playlistsBean.add(new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getId()));
+                playlistsBean.add(new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional()));
             }
             TableManager.updateTable(playlistTable, playlistsBean);
         } catch (LinkIsNotValid e){
@@ -145,7 +147,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     public void searchFilter(PlaylistBean playlistBean){
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.searchPlaylistByFilters(playlistBean);                      // Recupera le playlist approvate
+        playlistsBean = homePageController.searchPlaylistByFilters(playlistBean);                 // Recupera le playlist approvate
         //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
         TableManager.updateTable(playlistTable, playlistsBean);
 

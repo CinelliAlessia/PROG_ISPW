@@ -107,7 +107,7 @@ public class AccountCtrlGrafico implements Initializable {
 
         // Recupero preferenze aggiornate
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
-        System.out.println("Hai premuto salva " + preferences);
+        System.out.println("GUI ACCOUNT Hai premuto salva " + preferences);
 
         // Imposto le preferenze sullo user bean
         userBean.setPreferences(preferences);

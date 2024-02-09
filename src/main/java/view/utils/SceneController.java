@@ -1,13 +1,12 @@
 package view.utils;
 
-import engineering.bean.PlaylistBean;
-import engineering.bean.UserBean;
-import javafx.event.ActionEvent;
+import view.*;
+
+import engineering.bean.*;
+import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
-import view.FilterCtrlGrafico;
-import view.TextPopUp;
 
 import java.io.IOException;
 import java.lang.reflect.*;
@@ -88,6 +87,7 @@ public class SceneController {
             handleSceneLoadError(e);
         }
     }
+
     public void goToFilterPopUp(ActionEvent event, UserBean userBean, PlaylistBean playlistBean) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML_FILTER));
