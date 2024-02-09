@@ -124,7 +124,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     }
     @FXML
     protected void onFilterClick(ActionEvent event) {
-
+        sceneController.popUp(event, MessageString.ADDED_PLAYLIST,true);
     }
 
 

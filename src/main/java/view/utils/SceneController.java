@@ -76,7 +76,7 @@ public class SceneController {
         }
     }
 
-    public void popUpGoBack(ActionEvent event, String text) {
+    public void popUp(ActionEvent event, String text, boolean back) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML));
             Parent root = loader.load();
@@ -87,9 +87,13 @@ public class SceneController {
 
             // Utilizza il controller per chiamare la funzione setText
             controller.setText(text);
-
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            controller.setPreviousEvent(event);
+
+            if(back){
+                controller.setPreviousEvent(event);
+            } else {
+                controller.setPreviousEvent(null);
+            }
 
             Stage popupStage = new Stage();
             popupStage.initOwner(stage);

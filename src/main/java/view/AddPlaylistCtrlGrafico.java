@@ -91,10 +91,10 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
                 if(userBean.isSupervisor()){
-                    sceneController.popUpGoBack(event, MessageString.ADDED_PLAYLIST);
+                    sceneController.popUp(event, MessageString.ADDED_PLAYLIST,true);
                 }
                 else{
-                    sceneController.popUpGoBack(event,MessageString.ADDED_PENDING_PLAYLIST);
+                    sceneController.popUp(event,MessageString.ADDED_PENDING_PLAYLIST,true);
                 }
                 System.out.println("PLAYLIST AGGIUNTA");
             }
