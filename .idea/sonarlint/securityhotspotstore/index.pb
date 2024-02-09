@@ -127,3 +127,5 @@ R
 "src/main/java/view/TextPopUp2.java,4\b\4bf9d5dba782276b5bf4653dbb42e5baf42d394b
 Y
 )src/main/java/view/FilterCtrlManager.java,1\f\1faafe2b57d4684866eeac9c35ccf68af55e3dec
+Y
+)src/main/java/view/FilterCtrlGrafico.java,5\0\5091068bb997361a43690e7c6b1e94f0385f7e09

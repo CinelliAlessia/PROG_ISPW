@@ -1,10 +1,12 @@
 package view.utils;
 
+import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
+import view.FilterCtrlGrafico;
 import view.TextPopUp;
 
 import java.io.IOException;
@@ -86,7 +88,35 @@ public class SceneController {
             handleSceneLoadError(e);
         }
     }
+    public void goToFilterPopUp(ActionEvent event, UserBean userBean, PlaylistBean playlistBean) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML_FILTER));
+            Parent root = loader.load();
 
+            // Ottieni l'istanza del controller
+            FilterCtrlGrafico controller = loader.getController();
+            setAttributes(controller, userBean);
+
+            // Stage di partenza
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Utilizza il controller per chiamare la funzione setPlaylistBean
+            controller.setPlaylistBean(playlistBean);
+            /* ############################# Questa può essere una funzione ################ */
+            // Nuovo popUp stage
+            Stage popupStage = new Stage();
+            popupStage.initOwner(stage);
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+
+            Scene scene = new Scene(root);
+            popupStage.setScene(scene);
+
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            // Gestione dell'errore durante il caricamento del popup
+            handleSceneLoadError(e);
+        }
+    }
 
     private void setAttributes(Object controller, UserBean userBean) {
 
@@ -105,9 +135,7 @@ public class SceneController {
         }
     }
     private void handleSceneLoadError(IOException e) {
-        e.fillInStackTrace();
+        e.printStackTrace();
     }
-
-
 }
 

@@ -42,7 +42,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     private UserBean userBean;
     private SceneController sceneController;
-
+    private final PlaylistBean playlistBean = new PlaylistBean();
 
     /* OBSERVER */
     private PlaylistCollection playlistCollection; /* ISTANZA DEL MODEL (CONCRETE SUBJECT) */
@@ -112,11 +112,11 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     @FXML
     public void onSearchPlaylistClick() {
-        PlaylistBean pB = new PlaylistBean();
-        pB.setPlaylistName(searchText.getText());
+
+        playlistBean.setPlaylistName(searchText.getText());
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.searchNamePlaylist(pB);                                    // Recupera le playlist approvate
+        playlistsBean = homePageController.searchNamePlaylist(playlistBean);                                    // Recupera le playlist approvate
         //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
         TableManager.updateTable(playlistTable, playlistsBean);
 
@@ -125,7 +125,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     @FXML
     protected void onFilterClick(ActionEvent event) {
-        sceneController.goToScene(event,FxmlFileName.POP_UP_FXML_FILTER,userBean);
+        sceneController.goToFilterPopUp(event,userBean,playlistBean);
     }
 
 
