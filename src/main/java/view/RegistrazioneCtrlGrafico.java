@@ -96,7 +96,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
             try {
                 UserBean userBean = registrazioneCtrlApplicativo.registerUser(regBean);
                 if (userBean != null) {
-                    System.out.println("Utente registrato con successo");
+                    System.out.println("GUI Registrazione: Utente registrato con successo");
 
                     /* --------------- Mostro la home page -------------- */
                     sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML, userBean);
@@ -114,7 +114,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
     /** Ottiene i dati inseriti dall'utente dalla GUI e restituisce un oggetto RegistrationBean. */
     private RegistrationBean getData() {
 
-        String userName = name.getText().trim();
+        String userName = name.getText().trim(); //.trim() Rimuove gli spazi da inizio e fine stringa
         String userEmail = email.getText().trim();
 
         String userPassword = password.getText();
@@ -127,26 +127,29 @@ public class RegistrazioneCtrlGrafico implements Initializable {
             showError("CAMPI VUOTI");
         } else if (!verificaPassword(userPassword, userConfPw)) {
             showError("LE PASSWORD NON CORRISPONDONO");
-        } else if (!checkMailCorrectness(userEmail)) {
+        } else if (!checkMailCorrectness(userEmail)) { //Questo controllo dovrebbe essere fatto nel Bean
             showError("EMAIL NON VALIDA");
         } else {
-            return new RegistrationBean(userName, userEmail,userPassword,preferences);
+            return new RegistrationBean(userName, userEmail, userPassword, preferences);
         }
 
         return null;
     }
 
+    /** Mostra un messaggio di errore nell'interfaccia utente */
     private void showError(String message) {
-        // Mostra un messaggio di errore nell'interfaccia utente.
+        //
         errorField.setText(message);
         errorField.setVisible(true);
     }
 
-    // Verifica se le password inserite coincidono.
+    /** Verifica se le password inserite dall'utente coincidono. */
     private boolean verificaPassword(String password, String confermaPassword) {
         return password.equals(confermaPassword);
     }
 
+    /** Verifica se la email inserita rispetta i canoni per essere una email
+     * Dovrebbe essere fatto nel Bean */
     private boolean checkMailCorrectness(String email) {
         return EmailValidator.getInstance().isValid(email);
     }

@@ -11,7 +11,8 @@ public interface UserDAO {
      * Valore di ritorno booleano per verificare la correttezza dell'operazione */
     boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse;
 
-    /** Retrive delle informazioni di un utente dalla persistenza, ottenuta dall'email */
+    /** Recupera le informazioni di un utente in persistenza, ottenuta dall'email
+     * Problema: dobbiamo passare solo User*/
     User loadUser(String userEmail) throws UserDoesNotExist;
 
     /** Retrive delle informazioni di un utente dalla persistenza, ottenuta dall'username che abbiamo detto essere unico */

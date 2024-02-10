@@ -15,7 +15,7 @@ import java.util.*;
 public class UserDAOMySQL implements UserDAO {
 
     /** Metodo per inserire un User nel database al momento della registrazione
-    * viene effettuato il controllo sulla email scelta e sull'username scelto*/
+    * viene effettuato il controllo sulla email scelta e sull'username scelto */
     public boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse{
         Statement stmt = null;
         Connection conn;
@@ -48,23 +48,16 @@ public class UserDAOMySQL implements UserDAO {
             result = false;
 
         } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-            } catch (SQLException e) {
-                // Gestisci l'eccezione
-                e.fillInStackTrace();
-            }
+            // Chiusura delle risorse
+            closeResources(stmt,rs);
         }
         return result;
     }
 
     public User loadUser(String userEmail) throws UserDoesNotExist {
-        Statement stmt;
+        Statement stmt = null;
+        ResultSet resultSet = null;
+
         Connection conn;
         User user;
 
@@ -72,8 +65,6 @@ public class UserDAOMySQL implements UserDAO {
         String email = "";
         String password = "";
         boolean supervisor = false;
-
-        ResultSet resultSet = null;
 
         List<String> preferences = new ArrayList<>();
 
@@ -102,13 +93,8 @@ public class UserDAOMySQL implements UserDAO {
         } catch(SQLException e){
             e.fillInStackTrace();
         } finally {
-            try{
-                if(resultSet != null){
-                    resultSet.close();
-                }
-            } catch(SQLException e){
-                e.fillInStackTrace();
-            }
+            // Chiusura delle risorse
+            closeResources(stmt,resultSet);
 
             System.out.println("Supervisore: " + supervisor);
 
@@ -147,20 +133,9 @@ public class UserDAOMySQL implements UserDAO {
             // Gestisci l'eccezione
             e.fillInStackTrace();
         } finally {
-            // Chiudi le risorse (ResultSet, Statement, Connection)
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-            } catch (SQLException e) {
-                // Gestisci l'eccezione
-                e.fillInStackTrace();
-            }
+            // Chiusura delle risorse
+            closeResources(stmt,rs);
         }
-
         return pw; // Se non trovi una corrispondenza
     }
 
@@ -178,15 +153,22 @@ public class UserDAOMySQL implements UserDAO {
             // Gestisci l'eccezione
             e.fillInStackTrace();
         } finally {
-            // Chiudi le risorse (ResultSet, Statement, Connection)
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-            } catch (SQLException e) {
-                // Gestisci l'eccezione
-                e.fillInStackTrace();
+            // Chiusura delle risorse
+            closeResources(stmt,null);
+        }
+    }
+
+    /** Metodo utilizzato per chiudere le risorse utilizzate */
+    private void closeResources(Statement stmt, ResultSet rs) {
+        try {
+            if (rs != null) {
+                rs.close();
             }
+            if (stmt != null) {
+                stmt.close();
+            }
+        } catch (SQLException e) {
+            e.fillInStackTrace();
         }
     }
 }

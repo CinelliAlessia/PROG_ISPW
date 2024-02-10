@@ -11,6 +11,7 @@ public class QueryLogin {
 
     /** Carica nel database un nuovo utente e i suoi generi musicali preferiti */
     public static void registerUser(Statement stmt, User user) {
+
         String name = user.getUsername();
         String email = user.getEmail();
         String password = user.getPassword();

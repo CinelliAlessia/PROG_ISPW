@@ -6,7 +6,6 @@ public class UserBean {
     private String username;
     private String email;
     private List<String> preferences;
-
     protected boolean supervisor = false;
 
     public UserBean() {

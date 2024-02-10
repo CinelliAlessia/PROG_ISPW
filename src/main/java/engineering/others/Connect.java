@@ -25,10 +25,17 @@ public class Connect {
         return instance;
     }
 
-    public synchronized Connection getDBConnection() throws SQLException {
+    public synchronized Connection getDBConnection() {
         if (this.conn == null) {
             getInfo();
-            this.conn = DriverManager.getConnection(jdbc, user, password);
+
+            try{
+                this.conn = DriverManager.getConnection(jdbc, user, password);
+            } catch (SQLException e){
+                System.out.println("Error in Connect.java " + e.getMessage());
+                e.fillInStackTrace();
+            }
+
         }
         return this.conn;
     }
