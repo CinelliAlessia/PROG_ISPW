@@ -6,6 +6,7 @@ public class Notice {
 
     public Notice(String title, String body){
         setTitle(title);
+        setBody(body);
     }
 
     public void setTitle(String title) {
