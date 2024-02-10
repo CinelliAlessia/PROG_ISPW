@@ -24,6 +24,4 @@ public class Notice {
     public String getBody() {
         return body;
     }
-
-
 }
