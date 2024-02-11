@@ -1,17 +1,19 @@
 package engineering.bean;
 
+import engineering.exceptions.EmailIsNotValid;
+
 import java.util.List;
 
 public class UserBean extends ClientBean{
 
     private List<NoticeBean> notices;
 
-    public UserBean(String email){
+    public UserBean(String email) throws EmailIsNotValid {
         setEmail(email);
         super.supervisor = false;
     }
 
-    public UserBean(String username, String email, List<String> preferences){
+    public UserBean(String username, String email, List<String> preferences) throws EmailIsNotValid {
         super(username,email,preferences);
         super.supervisor = false;
     }

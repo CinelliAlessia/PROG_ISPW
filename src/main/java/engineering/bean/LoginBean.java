@@ -1,5 +1,7 @@
 package engineering.bean;
 
+import engineering.exceptions.EmailIsNotValid;
+
 import java.util.List;
 
 /** Differenziata dalla UserBean per non mantenere la password nel sistema  */
@@ -9,13 +11,13 @@ public class LoginBean extends ClientBean {
     public LoginBean(){}
 
     /** Utilizzato in fase di login */
-    public LoginBean(String email, String password){
+    public LoginBean(String email, String password) throws EmailIsNotValid {
         setEmail(email);
         setPassword(password);
     }
 
     /** Utilizzato in fase di registrazione */
-    public LoginBean(String username, String email, String password, List<String> preferences){
+    public LoginBean(String username, String email, String password, List<String> preferences) throws EmailIsNotValid {
         super(username, email, preferences);
         setPassword(password);
     }

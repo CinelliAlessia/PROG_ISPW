@@ -1,5 +1,9 @@
 package engineering.bean;
 
+import engineering.exceptions.EmailAlreadyInUse;
+import engineering.exceptions.EmailIsNotValid;
+import org.apache.commons.validator.routines.EmailValidator;
+
 import java.util.List;
 
 public abstract class ClientBean {
@@ -13,14 +17,18 @@ public abstract class ClientBean {
     protected ClientBean() {
     }
 
-    protected ClientBean(String username, String email, List<String> preferences) {
+    protected ClientBean(String username, String email, List<String> preferences) throws EmailIsNotValid {
         setUsername(username);
         setEmail(email);
         setPreferences(preferences);
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String email) throws EmailIsNotValid {
+        if(checkMailCorrectness(email)){
+            this.email = email;
+        } else {
+            throw new EmailIsNotValid();
+        }
     }
     public String getEmail() {
         return email;
@@ -45,5 +53,9 @@ public abstract class ClientBean {
 
     public boolean isSupervisor() {
         return supervisor;
+    }
+
+    private boolean checkMailCorrectness(String email) {
+        return EmailValidator.getInstance().isValid(email);
     }
 }

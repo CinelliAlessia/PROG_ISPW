@@ -7,7 +7,6 @@ import engineering.exceptions.*;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.apache.commons.validator.routines.EmailValidator;
 import view.utils.*;
 
 public class LoginCtrlGrafico {
@@ -39,15 +38,13 @@ public class LoginCtrlGrafico {
         /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
         if (email.isEmpty() || pass.isEmpty()) {
             showError("Ci sono dei campi vuoti!");
-        } else if (!checkMailCorrectness(email)) { // Non va fatto qui il controllo ma in Login Bean #####
-            showError("Email non valida!");
         } else {
-
-            /* ------ Creo il bean e imposto i parametri ------ */
-            LoginBean loginBean = new LoginBean(email,pass);
-            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); // Creo istanza del Login controller applicativo
-
             try{
+                /* ------ Creo il bean e imposto i parametri ------ */
+                LoginBean loginBean = new LoginBean(email,pass);
+                LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); // Creo istanza del Login controller applicativo
+
+
                 if (loginCtrlApp.verificaCredenziali(loginBean)) {
                     /* --------------- Credenziali corrette -------------- */
                     ClientBean clientBean = loginCtrlApp.loadUser(loginBean); // Ottengo istanza di clientBean
@@ -55,9 +52,9 @@ public class LoginCtrlGrafico {
                     System.out.println("GUI Login: Client " + clientBean +" Supervisor: " + clientBean.isSupervisor());
 
                     /* --------------- Mostro la home page -------------- */
-                    sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean
+                    sceneController.<HomePageCtrlGrafico<ClientBean>>goToScene(event, FxmlFileName.HOME_PAGE_FXML,clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean
                 }
-            } catch (IncorrectPassword | UserDoesNotExist e){
+            } catch (IncorrectPassword | UserDoesNotExist | EmailIsNotValid e){
                 showError(e.getMessage());
             }
         }
@@ -71,11 +68,8 @@ public class LoginCtrlGrafico {
 
     @FXML
     protected void onGuestClick(ActionEvent event) {
-        sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
-    }
-
-    private boolean checkMailCorrectness(String email) {
-        return EmailValidator.getInstance().isValid(email);
+        /* Creiamo un'istanza di HomePageCtrlGrafico in cui T è sostituito con UserBean */
+        sceneController.<HomePageCtrlGrafico<UserBean>>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
     }
 
     private void showError(String message) {

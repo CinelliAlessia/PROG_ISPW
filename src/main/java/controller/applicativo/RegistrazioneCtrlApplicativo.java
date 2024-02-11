@@ -3,6 +3,7 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.EmailAlreadyInUse;
+import engineering.exceptions.EmailIsNotValid;
 import engineering.exceptions.UsernameAlreadyInUse;
 import model.Client;
 import model.Login;
@@ -14,7 +15,7 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 public class RegistrazioneCtrlApplicativo {
 
     /** Query al dao per registrare un utente */
-    public void registerUser(LoginBean regBean, ClientBean clientBean) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+    public void registerUser(LoginBean regBean, ClientBean clientBean) throws EmailAlreadyInUse, UsernameAlreadyInUse, EmailIsNotValid {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)

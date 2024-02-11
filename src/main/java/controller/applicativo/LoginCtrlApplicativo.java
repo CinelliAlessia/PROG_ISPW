@@ -34,7 +34,7 @@ public class LoginCtrlApplicativo {
     }
 
     /** Recupera l'User dalla persistenza e crea una nuova istanza di UserBean */
-    public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist {
+    public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist, EmailIsNotValid {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -54,6 +54,8 @@ public class LoginCtrlApplicativo {
 
         } catch (UserDoesNotExist e){
             throw new UserDoesNotExist();
+        } catch (EmailIsNotValid e) {
+            throw new EmailIsNotValid();
         }
         return null;
     }

@@ -100,10 +100,9 @@ public class RegistrazioneCtrlGrafico implements Initializable {
                 System.out.println("GUI Registrazione: Utente registrato con successo");
 
                 /* --------------- Mostro la home page -------------- */
-                sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);
+                sceneController.<HomePageCtrlGrafico<ClientBean>>goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);
 
-            } catch (EmailAlreadyInUse | UsernameAlreadyInUse e) {
-                showError("REGISTRAZIONE NON RIUSCITA");
+            } catch (EmailAlreadyInUse | UsernameAlreadyInUse | EmailIsNotValid e) {
                 showError(e.getMessage());
             }
         }
@@ -125,13 +124,16 @@ public class RegistrazioneCtrlGrafico implements Initializable {
             showError("CAMPI VUOTI");
         } else if (!verificaPassword(userPassword, userConfPw)) {
             showError("LE PASSWORD NON CORRISPONDONO");
-        } else if (!checkMailCorrectness(userEmail)) { //Questo controllo dovrebbe essere fatto nel Bean
-            showError("EMAIL NON VALIDA");
         } else {
-            loginBean.setUsername(username);
-            loginBean.setEmail(userEmail);
-            loginBean.setPassword(userPassword);
-            loginBean.setPreferences(preferences);
+            try{
+                loginBean.setUsername(username);
+                loginBean.setEmail(userEmail);
+                loginBean.setPassword(userPassword);
+                loginBean.setPreferences(preferences);
+            } catch (EmailIsNotValid e){
+                showError(e.getMessage());
+            }
+
         }
     }
 

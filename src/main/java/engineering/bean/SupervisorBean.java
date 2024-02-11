@@ -1,17 +1,19 @@
 package engineering.bean;
 
+import engineering.exceptions.EmailIsNotValid;
+
 import java.util.List;
 
 public class SupervisorBean extends ClientBean {
 
     public SupervisorBean(){}
 
-    public SupervisorBean(String email) {
+    public SupervisorBean(String email) throws EmailIsNotValid {
         setEmail(email);
         super.supervisor = true;
     }
 
-    public SupervisorBean(String username, String email, List<String> preferences){
+    public SupervisorBean(String username, String email, List<String> preferences) throws EmailIsNotValid {
         super(username, email, preferences);
         super.supervisor = true;
     }
