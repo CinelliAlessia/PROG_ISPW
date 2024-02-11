@@ -1,5 +1,6 @@
 package engineering.query;
 
+import model.Login;
 import model.User;
 
 import java.sql.*;
@@ -10,7 +11,7 @@ public class QueryLogin {
     }
 
     /** Carica nel database un nuovo utente e i suoi generi musicali preferiti */
-    public static void registerUser(Statement stmt, User user) {
+    public static void registerUser(Statement stmt, Login user) {
 
         String name = user.getUsername();
         String email = user.getEmail();
@@ -29,9 +30,9 @@ public class QueryLogin {
             stmt.executeUpdate(insertUserStatement);
 
             // Poi inserisci i generi musicali nella tabella 'generi_musicali'
-            insertGeneriMusicali(stmt, email, user.getPref());
+            insertGeneriMusicali(stmt, email, user.getPreferences());
         } catch (SQLException e){
-            e.fillInStackTrace();
+            e.printStackTrace();
         }
 
     }
@@ -66,10 +67,11 @@ public class QueryLogin {
                     generiMusicali.contains("Alternative") ? 1 : 0,
                     userEmail);
 
+            System.out.println("UPDATE DAO: " +query);
             // Esegui la query
             stmt.executeUpdate(query);
         } catch (SQLException e) {
-            e.fillInStackTrace();
+            e.printStackTrace();
         }
     }
 

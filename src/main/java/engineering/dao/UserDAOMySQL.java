@@ -15,55 +15,52 @@ import java.util.*;
 public class UserDAOMySQL implements UserDAO {
 
     /** Metodo per inserire un User nel database al momento della registrazione
-    * viene effettuato il controllo sulla email scelta e sull'username scelto */
-    public boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse{
+     * viene effettuato il controllo sulla email scelta e sull'username scelto */
+    public void insertUser(Login registration) throws EmailAlreadyInUse, UsernameAlreadyInUse{
+
         Statement stmt = null;
         Connection conn;
         ResultSet rs = null;
-        boolean result = true;
 
         try {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            String email = user.getEmail();
+            String email = registration.getEmail();
             rs = QueryLogin.loginUser(stmt, email);
             if (rs.next()) {
                 throw new EmailAlreadyInUse();
             }
             rs.close();
 
-            String username = user.getUsername();
+            String username = registration.getUsername();
             rs = QueryLogin.loginUserBUsername(stmt, username);
             if (rs.next()) {
                 throw new UsernameAlreadyInUse();
             }
             rs.close();
 
-            QueryLogin.registerUser(stmt, user);
+            QueryLogin.registerUser(stmt, registration);
 
         } catch (SQLException e) {
             // Gestisci l'eccezione
             e.fillInStackTrace();
-            result = false;
 
         } finally {
             // Chiusura delle risorse
             closeResources(stmt,rs);
         }
-        return result;
     }
 
-    public User loadUser(String userEmail) throws UserDoesNotExist {
+    public Client loadUser(Login login) throws UserDoesNotExist{
+
         Statement stmt = null;
         ResultSet resultSet = null;
 
         Connection conn;
-        User user;
 
         String username = "";
         String email = "";
-        String password = "";
         boolean supervisor = false;
 
         List<String> preferences = new ArrayList<>();
@@ -72,18 +69,17 @@ public class UserDAOMySQL implements UserDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            resultSet = QueryLogin.loginUser(stmt, userEmail);
+            resultSet = QueryLogin.loginUser(stmt, login.getEmail());
 
             if (resultSet.next()) {
                 username = resultSet.getString("username");
                 email = resultSet.getString("email");
-                password = resultSet.getString("password");
                 supervisor = resultSet.getBoolean("supervisor");
             } else {
                 throw new UserDoesNotExist();
             }
 
-            resultSet = QueryLogin.retrivePrefByEmail(stmt, userEmail);
+            resultSet = QueryLogin.retrivePrefByEmail(stmt, login.getEmail());
 
             if (resultSet.next()) {
                 preferences = GenreManager.retriveGenre(resultSet);
@@ -95,17 +91,16 @@ public class UserDAOMySQL implements UserDAO {
         } finally {
             // Chiusura delle risorse
             closeResources(stmt,resultSet);
-
-            System.out.println("Supervisore: " + supervisor);
-
-            if(supervisor){
-                user = new Supervisor(username, email, password, preferences);
-                System.out.println("UserDao Supervisore");
-            } else {
-                user = new User(username, email, password, preferences);
-            }
         }
-        return user;
+
+        if(supervisor){
+            System.out.println("UserDao Supervisore");
+            return new Supervisor(username,email,preferences);
+
+        } else {
+            System.out.println("UserDao User");
+            return new User(username,email,preferences);
+        }
     }
 
     public User retrieveUserByUsername(String userName) {
@@ -139,19 +134,19 @@ public class UserDAOMySQL implements UserDAO {
         return pw; // Se non trovi una corrispondenza
     }
 
-    public void updateGenreUser(String email, List<String> preferences) {
+    public void updateGenreUser(Client client) {
         Statement stmt = null;
         Connection conn;
 
         try {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
-
-            QueryLogin.uploadGeneriMusicali(stmt,email,preferences);
+            System.out.println("CIAOOOO " + client.getEmail());
+            QueryLogin.uploadGeneriMusicali(stmt,client.getEmail(),client.getPreferences());
 
         } catch (SQLException e) {
             // Gestisci l'eccezione
-            e.fillInStackTrace();
+            e.printStackTrace();
         } finally {
             // Chiusura delle risorse
             closeResources(stmt,null);

@@ -3,6 +3,9 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
+import model.Client;
+import model.Login;
+import model.Supervisor;
 import model.User;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
@@ -31,18 +34,27 @@ public class LoginCtrlApplicativo {
     }
 
     /** Recupera l'User dalla persistenza e crea una nuova istanza di UserBean */
-    public UserBean loadUser(LoginBean bean) throws UserDoesNotExist {
+    public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        User user = dao.loadUser(bean.getEmail());
-        System.out.println("Login Applicativo: Load User recuperato: " + user + " " + user.getEmail() + "supervisore: " + user.isSupervisor());
+        Login login = new Login(bean.getEmail(), bean.getPassword());           // Creo model Login per comunicare con il dao
 
-        if(user.isSupervisor()){
-            return new SupervisorBean(user.getUsername(),user.getEmail(),user.getPref());
-        } else {
-            return new UserBean(user.getUsername(),user.getEmail(),user.getPref());
+        try{
+            Client client = dao.loadUser(login);
+
+            if(client instanceof User){
+                System.out.println("Login APP: Client " + client +" Supervisor: " + client.isSupervisor());
+                return new UserBean(client.getUsername(),client.getEmail(),client.getPreferences());
+            } else if(client instanceof Supervisor){
+                System.out.println("Login APP: Client " + client +" Supervisor: " + client.isSupervisor());
+                return new SupervisorBean(client.getUsername(),client.getEmail(),client.getPreferences());
+            }
+
+        } catch (UserDoesNotExist e){
+            throw new UserDoesNotExist();
         }
+        return null;
     }
 }

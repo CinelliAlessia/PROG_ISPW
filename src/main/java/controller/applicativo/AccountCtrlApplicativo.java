@@ -1,26 +1,33 @@
 package controller.applicativo;
 
-import engineering.bean.*;
-import engineering.dao.*;
-import engineering.exceptions.*;
-
+import engineering.bean.ClientBean;
+import engineering.bean.PlaylistBean;
+import engineering.bean.UserBean;
+import engineering.dao.PlaylistDAO;
+import engineering.dao.TypesOfPersistenceLayer;
+import engineering.dao.UserDAO;
+import engineering.exceptions.LinkIsNotValid;
+import model.Client;
 import model.Playlist;
+import model.Supervisor;
+import model.User;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import static engineering.dao.TypesOfPersistenceLayer.*;
+import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AccountCtrlApplicativo {
 
     /** Recupera tutte le playlist globali by username
      */
-    public List<PlaylistBean> retrivePlaylists(UserBean userBean) {
+    public List<PlaylistBean> retrivePlaylists(ClientBean clientBean) {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         // Recupero lista Playlist
-        List<Playlist> playlists = dao.retrievePlaylistsByEmail(userBean.getEmail()); //##################### ok che dobbiamo passare una stinga ma non userBean.getEmail
+        List<Playlist> playlists = dao.retrievePlaylistsByEmail(clientBean.getEmail()); //##################### ok che dobbiamo passare una stinga ma non userBean.getEmail
 
         ArrayList<PlaylistBean> playlistsBean = new ArrayList<>();
         try {
@@ -37,13 +44,20 @@ public class AccountCtrlApplicativo {
     }
 
     /** Utilizzata per aggiornare i generi musicali preferiti dell'utente in caso in cui prema il bottone Salva */
-    public void updateGenreUser(UserBean userBean){
+    public void updateGenreUser(ClientBean clientBean){
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         UserDAO dao = persistenceType.createUserDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
+        Client client;
+        if(clientBean.isSupervisor()){
+            client = new Supervisor(clientBean.getUsername(),clientBean.getEmail(),clientBean.getPreferences());
+        } else {
+            client = new User(clientBean.getUsername(),clientBean.getEmail(),clientBean.getPreferences());
+        }
+
         // Invio utente model al DAO
-        dao.updateGenreUser(userBean.getEmail(), userBean.getPreferences());
+        dao.updateGenreUser(client);
 
     }
 

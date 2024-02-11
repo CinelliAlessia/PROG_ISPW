@@ -4,6 +4,8 @@ import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.EmailAlreadyInUse;
 import engineering.exceptions.UsernameAlreadyInUse;
+import model.Client;
+import model.Login;
 import model.User;
 
 
@@ -11,19 +13,26 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 
 public class RegistrazioneCtrlApplicativo {
 
-    public UserBean registerUser(RegistrationBean regBean) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+    /** Query al dao per registrare un utente */
+    public void registerUser(LoginBean regBean, ClientBean clientBean) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        UserDAO dao = persistenceType.createUserDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         // Crea l'utente (model) per inviarlo al DAO
-        User user = new User(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
-        // Creo bean per la risposta da inviare al ctrl Grafico
-        UserBean userBean = null;
+        Login registration = new Login(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
 
-        // Invio utente (model) al DAO e verifico se l'operazione di aggiunta utente è andata a buon fine
-        if(dao.insertUser(user)){
-            userBean = new UserBean(user.getUsername(),user.getEmail(),user.getPref());
+        try{
+            dao.insertUser(registration);
+        } catch (EmailAlreadyInUse e){
+            throw new EmailAlreadyInUse();
+        } catch (UsernameAlreadyInUse e){
+            throw new UsernameAlreadyInUse();
         }
-        return userBean;
+
+        UserBean userBean = (UserBean) clientBean;
+        userBean.setUsername(registration.getUsername());
+        userBean.setEmail(regBean.getEmail());
+        userBean.setPreferences(registration.getPreferences());
     }
 }

@@ -1,10 +1,11 @@
 package view.utils;
 
-import view.PendingPlaylistCtrlGrafico;
 import engineering.bean.PlaylistBean;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.layout.HBox;
+import view.PendingPlaylistCtrlGrafico;
 
 
 // Classe TableCell personalizzata per aggiungere due bottoni nella cella

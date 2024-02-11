@@ -1,7 +1,8 @@
 package controller.applicativo;
 
-import engineering.bean.*;
-import engineering.dao.*;
+import engineering.bean.PlaylistBean;
+import engineering.dao.PlaylistDAO;
+import engineering.dao.TypesOfPersistenceLayer;
 import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import engineering.pattern.observer.PlaylistCollection;
 import model.Playlist;
@@ -22,7 +23,7 @@ public class AddPlaylistCtrlApplicativo {
 
         // Invio Playlist model al DAO
         if(dao.insertPlaylist(playlist)){
-            System.out.println("Playlist caricata correttamente");
+            System.out.println("ADD APP: Playlist caricata correttamente");
             /* Per pattern Observer */
             PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
 
@@ -31,7 +32,7 @@ public class AddPlaylistCtrlApplicativo {
             }
         } else {
             //################# Se la playlist non viene caricata Dovrei restituire un eccezione #################àà
-            System.out.println("Playlist non è stata caricata");
+            System.out.println("ADD APP: Playlist non è stata caricata");
         }
     }
 

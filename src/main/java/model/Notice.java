@@ -4,6 +4,7 @@ public class Notice {
     private String title;
     private String body;
 
+
     public Notice(String title, String body){
         setTitle(title);
         setBody(body);
