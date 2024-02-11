@@ -43,9 +43,7 @@ public class UserDAOMySQL implements UserDAO {
             QueryLogin.registerUser(stmt, registration);
 
         } catch (SQLException e) {
-            // Gestisci l'eccezione
-            e.fillInStackTrace();
-
+            handleDAOException(e);
         } finally {
             // Chiusura delle risorse
             closeResources(stmt,rs);
@@ -87,7 +85,7 @@ public class UserDAOMySQL implements UserDAO {
             System.out.println("preferenze in load user " + preferences);
 
         } catch(SQLException e){
-            e.fillInStackTrace();
+            handleDAOException(e);
         } finally {
             // Chiusura delle risorse
             closeResources(stmt,resultSet);
@@ -125,8 +123,7 @@ public class UserDAOMySQL implements UserDAO {
                 throw new UserDoesNotExist();
             }
         } catch (SQLException e) {
-            // Gestisci l'eccezione
-            e.fillInStackTrace();
+            handleDAOException(e);
         } finally {
             // Chiusura delle risorse
             closeResources(stmt,rs);
@@ -146,7 +143,7 @@ public class UserDAOMySQL implements UserDAO {
 
         } catch (SQLException e) {
             // Gestisci l'eccezione
-            e.printStackTrace();
+            handleDAOException(e);
         } finally {
             // Chiusura delle risorse
             closeResources(stmt,null);
@@ -163,7 +160,12 @@ public class UserDAOMySQL implements UserDAO {
                 stmt.close();
             }
         } catch (SQLException e) {
-            e.fillInStackTrace();
+            handleDAOException(e);
         }
     }
+
+    private void handleDAOException(Exception e) {
+        e.printStackTrace();
+    }
+
 }

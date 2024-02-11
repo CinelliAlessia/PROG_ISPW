@@ -39,7 +39,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
             result = true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            handleDAOException(e);
             result = false;
         } finally {
             closeResources(stmt,rs);
@@ -70,7 +70,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             }
 
         } catch (SQLException e){
-            e.fillInStackTrace();
+            handleDAOException(e);
         } finally {
             closeResources(stmt,rs);
         }
@@ -109,7 +109,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             rs.close();
         }
         catch (SQLException e){
-            e.fillInStackTrace();
+            handleDAOException(e);
         }
         finally {
             closeResources(stmt,rs);
@@ -173,7 +173,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
 
         } catch (SQLException e) {
-            e.fillInStackTrace();
+            handleDAOException(e);
         } finally {
             closeResources(stmt,rs);
         }
@@ -198,7 +198,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             }
 
         } catch (SQLException e){
-            e.fillInStackTrace();
+            handleDAOException(e);
         } finally {
             closeResources(stmt,rs);
         }
@@ -237,7 +237,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
 
         } catch (SQLException e) {
-            e.fillInStackTrace();
+            handleDAOException(e);
         } finally {
             closeResources(stmt,rs);
         }
@@ -253,8 +253,12 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 stmt.close();
             }
         } catch (SQLException e) {
-            e.fillInStackTrace();
+            handleDAOException(e);
         }
+    }
+
+    private void handleDAOException(Exception e) {
+        e.printStackTrace();
     }
 
 

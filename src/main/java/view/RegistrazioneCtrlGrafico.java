@@ -1,8 +1,6 @@
 package view;
 
 import controller.applicativo.RegistrazioneCtrlApplicativo;
-import org.apache.commons.validator.routines.EmailValidator;
-
 import engineering.bean.*;
 import engineering.exceptions.*;
 
@@ -148,12 +146,4 @@ public class RegistrazioneCtrlGrafico implements Initializable {
     private boolean verificaPassword(String password, String confermaPassword) {
         return password.equals(confermaPassword);
     }
-
-    /** Verifica se la email inserita rispetta i canoni per essere una email
-     * Dovrebbe essere fatto nel Bean */
-    private boolean checkMailCorrectness(String email) {
-        return EmailValidator.getInstance().isValid(email);
-    }
-
-
 }

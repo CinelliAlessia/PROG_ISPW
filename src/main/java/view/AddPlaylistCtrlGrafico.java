@@ -1,27 +1,17 @@
 package view;
 
 import controller.applicativo.AddPlaylistCtrlApplicativo;
-import engineering.bean.ClientBean;
-import engineering.bean.PlaylistBean;
-import engineering.bean.UserBean;
-import engineering.exceptions.LinkIsNotValid;
-import engineering.exceptions.PlaylistLinkAlreadyInUse;
+import engineering.bean.*;
+import engineering.exceptions.*;
+
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
-import model.Client;
-import view.utils.GenreManager;
-import view.utils.MessageString;
-import view.utils.SceneController;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+
+import view.utils.*;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializable {
 

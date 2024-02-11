@@ -2,12 +2,8 @@ package controller.applicativo;
 
 import engineering.bean.*;
 import engineering.dao.*;
-import engineering.exceptions.EmailAlreadyInUse;
-import engineering.exceptions.EmailIsNotValid;
-import engineering.exceptions.UsernameAlreadyInUse;
-import model.Client;
-import model.Login;
-import model.User;
+import engineering.exceptions.*;
+import model.*;
 
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;

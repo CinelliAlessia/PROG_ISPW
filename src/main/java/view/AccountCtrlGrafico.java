@@ -1,10 +1,7 @@
 package view;
 
 import controller.applicativo.AccountCtrlApplicativo;
-import engineering.bean.ClientBean;
-import engineering.bean.PlaylistBean;
-import engineering.bean.SupervisorBean;
-import engineering.bean.UserBean;
+import engineering.bean.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,9 +9,7 @@ import javafx.scene.control.*;
 import view.utils.*;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
 

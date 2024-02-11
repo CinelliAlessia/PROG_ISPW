@@ -1,20 +1,14 @@
 package view;
 
-import engineering.bean.ClientBean;
-import engineering.bean.PlaylistBean;
-import engineering.bean.UserBean;
+import engineering.bean.*;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import view.utils.GenreManager;
-import view.utils.SceneController;
+import view.utils.*;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
 
@@ -26,13 +20,6 @@ public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
     private Slider electronicAcoustic;
     @FXML
     private Slider speakInstrumental;
-
-    @FXML
-    private Label errorLabel;
-    @FXML
-    private TextField title;
-    @FXML
-    private TextField link;
 
     @FXML
     private CheckBox pop;

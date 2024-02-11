@@ -1,6 +1,5 @@
 package engineering.bean;
 
-import engineering.exceptions.EmailAlreadyInUse;
 import engineering.exceptions.EmailIsNotValid;
 import org.apache.commons.validator.routines.EmailValidator;
 
@@ -55,6 +54,7 @@ public abstract class ClientBean {
         return supervisor;
     }
 
+    /** Verifica se la email inserita rispetta i canoni per essere una email */
     private boolean checkMailCorrectness(String email) {
         return EmailValidator.getInstance().isValid(email);
     }
