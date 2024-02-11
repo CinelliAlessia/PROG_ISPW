@@ -2,8 +2,8 @@ package model;
 
 import java.util.List;
 
-
-public class Client {
+/** Rappresenta la base di ogni utilizzatore della piattaforma */
+public abstract class Client {
 
     private String email;
     private String username;
@@ -11,7 +11,7 @@ public class Client {
 
     protected boolean supervisor;
 
-    public Client(){
+    protected Client(){
     }
     protected Client(String username, String email, List<String> preferences){
         setUsername(username);
