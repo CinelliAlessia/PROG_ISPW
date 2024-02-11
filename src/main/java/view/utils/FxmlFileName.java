@@ -11,6 +11,6 @@ public class FxmlFileName {
     public static final String POP_UP_FXML = "/view/textPopUp.fxml";
     public static final String POP_UP_FXML_FILTER = "/view/filterPlaylist.fxml";
 
-    public static final String MANAGER_PLAYLIST_FXML = "/view/playlistToApprove.fxml";
-    public static final String UPLOAD_PLAYLIST_FXML = "/view/caricaPlaylist.fxml";
+    public static final String MANAGER_PLAYLIST_FXML = "/view/pendingPlaylists.fxml";
+    public static final String UPLOAD_PLAYLIST_FXML = "/view/addPlaylist.fxml";
 }

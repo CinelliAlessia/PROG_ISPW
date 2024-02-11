@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.*;
 
 /** Home page controller grafico rappresenta il Concrete Observer */
-public class HomePageCtrlGrafico implements Initializable, Observer {
+public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable, Observer {
 
     @FXML
     private TextField searchText;
@@ -40,7 +40,8 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     @FXML
     private Button addButton;
 
-    private UserBean userBean;
+    private T clientBean;
+
     private SceneController sceneController;
     private final PlaylistBean playlistBean = new PlaylistBean();
 
@@ -70,39 +71,38 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
     }
 
     /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare */
-    public void setAttributes(UserBean user, SceneController sceneController) {
-        // Deve avere un userBean per compilare tutte le informazioni
-        this.userBean = user;
+    public void setAttributes(T clientBean, SceneController sceneController) {
+        this.clientBean = clientBean;
         this.sceneController = sceneController;
-
         initializeField();
-        System.out.println("GUI HomePage setAttributes: " + userBean);
+        System.out.println("GUI HomePage setAttributes: " + clientBean);
     }
 
     public void initializeField() {
-        if(userBean == null){
-            account.setText("Registrati");
+        if(clientBean == null){
+            System.out.println("GUI HomePage: Accesso come Guest");
             addButton.setVisible(false);
             manager.setVisible(false);
-        } else {
-            account.setText(userBean.getUsername());
-            manager.setVisible(userBean.isSupervisor());
+            account.setText("Registrati");
+        } else { // UserBean o SupervisorBean
+            System.out.println("GUI HomePage: Accesso come Client, Supervisor: "+clientBean.isSupervisor());
             addButton.setVisible(true);
+            manager.setVisible(clientBean.isSupervisor());
+            account.setText(clientBean.getUsername());
         }
     }
-
     @FXML
     protected void onAccountClick(ActionEvent event) {
-        if(userBean == null){ // Utente Guest
+        if(clientBean == null){ // Utente Guest
             sceneController.<RegistrazioneCtrlGrafico>goToScene(event, FxmlFileName.REGISTRATION_FXML,null);
         } else { // Utente registrato
-            sceneController.<AccountCtrlGrafico>goToScene(event, FxmlFileName.ACCOUNT_FXML, userBean);
+            sceneController.<AccountCtrlGrafico<T>>goToScene(event, FxmlFileName.ACCOUNT_FXML, clientBean);
         }
     }
 
     @FXML
     public void addPlaylistClick(ActionEvent event) {
-        sceneController.<AddPlaylistCtrlGrafico>goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
+        sceneController.<AddPlaylistCtrlGrafico<T>>goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean);
     }
 
     @FXML
@@ -127,7 +127,7 @@ public class HomePageCtrlGrafico implements Initializable, Observer {
 
     @FXML
     protected void onFilterClick(ActionEvent event) {
-        sceneController.goToFilterPopUp(event,userBean,playlistBean);
+        sceneController.goToFilterPopUp(event,clientBean,playlistBean);
     }
 
 

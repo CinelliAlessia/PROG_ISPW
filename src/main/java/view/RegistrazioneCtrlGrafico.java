@@ -86,54 +86,53 @@ public class RegistrazioneCtrlGrafico implements Initializable {
      * si imposta la scena sulla Home Page */
     @FXML
     protected void onRegisterClick(ActionEvent event){
-        // L'utente chiede di registrarsi con una determinata mail e un nome utente
-        RegistrationBean regBean = getData();
+        LoginBean regBean = new LoginBean();
+        getData(regBean);
 
-        if (regBean != null) {
+        if (!regBean.getEmail().isEmpty()) {
 
             RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo();
 
             try {
-                UserBean userBean = registrazioneCtrlApplicativo.registerUser(regBean);
-                if (userBean != null) {
-                    System.out.println("GUI Registrazione: Utente registrato con successo");
+                ClientBean clientBean = new UserBean(regBean.getEmail());
+                registrazioneCtrlApplicativo.registerUser(regBean, clientBean);
 
-                    /* --------------- Mostro la home page -------------- */
-                    sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML, userBean);
+                System.out.println("GUI Registrazione: Utente registrato con successo");
 
-                } else {
-                    showError("REGISTRAZIONE NON RIUSCITA");
-                }
+                /* --------------- Mostro la home page -------------- */
+                sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);
 
             } catch (EmailAlreadyInUse | UsernameAlreadyInUse e) {
+                showError("REGISTRAZIONE NON RIUSCITA");
                 showError(e.getMessage());
             }
         }
     }
 
     /** Ottiene i dati inseriti dall'utente dalla GUI e restituisce un oggetto RegistrationBean. */
-    private RegistrationBean getData() {
+    private void getData(LoginBean loginBean) {
 
-        String userName = name.getText().trim(); //.trim() Rimuove gli spazi da inizio e fine stringa
+        String username = name.getText().trim(); //.trim() Rimuove gli spazi da inizio e fine stringa
         String userEmail = email.getText().trim();
 
-        String userPassword = password.getText();
-        String userConfPw = confPassword.getText();
+        String userPassword = password.getText().trim();
+        String userConfPw = confPassword.getText().trim();
 
         // Recupero preferenze aggiornate
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
 
-        if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userConfPw.isEmpty()) {
+        if (username.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userConfPw.isEmpty()) {
             showError("CAMPI VUOTI");
         } else if (!verificaPassword(userPassword, userConfPw)) {
             showError("LE PASSWORD NON CORRISPONDONO");
         } else if (!checkMailCorrectness(userEmail)) { //Questo controllo dovrebbe essere fatto nel Bean
             showError("EMAIL NON VALIDA");
         } else {
-            return new RegistrationBean(userName, userEmail, userPassword, preferences);
+            loginBean.setUsername(username);
+            loginBean.setEmail(userEmail);
+            loginBean.setPassword(userPassword);
+            loginBean.setPreferences(preferences);
         }
-
-        return null;
     }
 
     /** Mostra un messaggio di errore nell'interfaccia utente */

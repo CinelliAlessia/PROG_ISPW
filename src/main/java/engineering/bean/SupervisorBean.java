@@ -2,10 +2,17 @@ package engineering.bean;
 
 import java.util.List;
 
-public class SupervisorBean extends UserBean {
+public class SupervisorBean extends ClientBean {
+
     public SupervisorBean(){}
-    public SupervisorBean(String username, String email, List<String> preferences) {
+
+    public SupervisorBean(String email) {
+        setEmail(email);
+        super.supervisor = true;
+    }
+
+    public SupervisorBean(String username, String email, List<String> preferences){
         super(username, email, preferences);
-        supervisor = true;
+        super.supervisor = true;
     }
 }

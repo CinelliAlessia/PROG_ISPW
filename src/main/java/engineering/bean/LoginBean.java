@@ -1,25 +1,27 @@
 package engineering.bean;
 
-public class LoginBean {
+import java.util.List;
 
-    private String email;
+/** Differenziata dalla UserBean per non mantenere la password nel sistema  */
+public class LoginBean extends ClientBean {
     private String password;
 
+    public LoginBean(){}
+
+    /** Utilizzato in fase di login */
     public LoginBean(String email, String password){
         setEmail(email);
         setPassword(password);
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    /** Utilizzato in fase di registrazione */
+    public LoginBean(String username, String email, String password, List<String> preferences){
+        super(username, email, preferences);
+        setPassword(password);
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public String getPassword() {

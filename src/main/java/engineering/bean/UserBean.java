@@ -1,49 +1,28 @@
 package engineering.bean;
 
+import model.Notice;
+
 import java.util.List;
 
-public class UserBean {
-    private String username;
-    private String email;
-    private List<String> preferences;
-    protected boolean supervisor = false;
+public class UserBean extends ClientBean{
 
-    public UserBean() {
+    private List<NoticeBean> notices;
 
-    }
-    public UserBean(String username, String email, List<String> preferences) {
-        setUsername(username);
+    public UserBean(String email){
         setEmail(email);
-        setPreferences(preferences);
+        super.supervisor = false;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public UserBean(String username, String email, List<String> preferences){
+        super(username,email,preferences);
+        super.supervisor = false;
     }
 
-    public void setUsername(String nome) {
-        this.username = nome;
+    public void setNotices(List<NoticeBean> notices) {
+        this.notices = notices;
     }
 
-    public void setPreferences(List<String> preferences) {
-        this.preferences = preferences;
+    public List<NoticeBean> getNotices() {
+        return notices;
     }
-
-    public boolean isSupervisor() {
-        return supervisor;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public List<String> getPreferences() {
-        return preferences;
-    }
-
-
 }

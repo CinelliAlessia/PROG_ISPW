@@ -47,9 +47,11 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
                 if (playlist.getApproved()) {
                     // Se la playlist è approvata, salvala nella cartella delle playlist approvate
+                    createDirectoryIfNotExists(Path.of(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY));
                     allPlaylistsPath = Paths.get(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY, uuidPlaylistFileName + ConfigurationJSON.FILE_EXTENCTION);
                 } else {
                     // Altrimenti, salvala nella cartella delle playlist non approvate
+                    createDirectoryIfNotExists(Path.of(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY));
                     allPlaylistsPath = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY, uuidPlaylistFileName + ConfigurationJSON.FILE_EXTENCTION);
                 }
 
@@ -62,7 +64,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
             }
 
         } catch (IOException e) {
-            e.fillInStackTrace();
+            handleDAOException(e);
         }
         return result;
     }
@@ -119,7 +121,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 System.out.println(playlist.getPlaylistName() + " " + playlist.getApproved());
                 return true;
             } catch (IOException e) {
-                e.fillInStackTrace();
+                handleDAOException(e);
                 return false;
             }
         } else {
@@ -147,7 +149,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
             Files.copy(sourcePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
             deletePlaylistFromFolder(sourcePath);
         } catch (IOException e) {
-            e.fillInStackTrace();
+            handleDAOException(e);
         }
     }
 
@@ -159,7 +161,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
             Files.deleteIfExists(playlistPath);
             return true; // Ritorna true se l'eliminazione ha avuto successo
         } catch (IOException e) {
-            e.fillInStackTrace();
+            handleDAOException(e);
             return false; // Ritorna false se si verifica un'eccezione durante l'eliminazione
         }
     }
@@ -242,12 +244,12 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                             }
                         } catch (IOException e) {
                             // Gestisci l'eccezione in modo appropriato
-                            e.fillInStackTrace();
+                            handleDAOException(e);
                         }
                     });
         } catch (IOException e) {
             // Gestisci l'eccezione in modo appropriato
-            e.fillInStackTrace();
+            handleDAOException(e);
         }
 
         return playlists;
@@ -256,12 +258,24 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
     public List<Playlist> retrievePendingPlaylists() {
         Path pendingPlaylistsDirectory = Paths.get(ConfigurationJSON.PENDING_PLAYLISTS_BASE_DIRECTORY);
+        createDirectoryIfNotExists(pendingPlaylistsDirectory);
         return retrievePlaylistsFromDirectory(pendingPlaylistsDirectory);
     }
 
     public List<Playlist> retrieveApprovedPlaylists() {
         Path approvedPlaylistsDirectory = Paths.get(ConfigurationJSON.APPROVED_PLAYLIST_BASE_DIRECTORY);
+        createDirectoryIfNotExists(approvedPlaylistsDirectory);
         return retrievePlaylistsFromDirectory(approvedPlaylistsDirectory);
+    }
+
+    private void createDirectoryIfNotExists(Path directory) {
+        try {
+            if (!Files.exists(directory)) {
+                Files.createDirectories(directory);
+            }
+        } catch (IOException e) {
+            handleDAOException(e);
+        }
     }
 
     public List<Playlist> searchPlaylistString(Playlist playlist) {
@@ -282,4 +296,9 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
         return matchingPlaylists;
     }
+
+    private void handleDAOException(Exception e) {
+        e.printStackTrace();
+    }
+
 }

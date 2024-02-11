@@ -1,18 +1,29 @@
 package view;
 
-import view.utils.*;
 import controller.applicativo.AddPlaylistCtrlApplicativo;
-
-import engineering.bean.*;
-import engineering.exceptions.*;
+import engineering.bean.ClientBean;
+import engineering.bean.PlaylistBean;
+import engineering.bean.UserBean;
+import engineering.exceptions.LinkIsNotValid;
+import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import javafx.event.ActionEvent;
-import javafx.fxml.*;
-import javafx.scene.control.*;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import model.Client;
+import view.utils.GenreManager;
+import view.utils.MessageString;
+import view.utils.SceneController;
 
 import java.net.URL;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class AddPlaylistCtrlGrafico implements Initializable {
+public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializable {
 
     @FXML
     private Slider happySad;
@@ -54,17 +65,17 @@ public class AddPlaylistCtrlGrafico implements Initializable {
     @FXML
     private CheckBox alternative;
 
-    private UserBean userBean;
+    private T clientBean;
 
     private List<CheckBox> checkBoxList;
     private SceneController sceneController;
 
-    public void setAttributes(UserBean user, SceneController sceneController) {
+    public void setAttributes(T clientBean, SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
-        this.userBean = user;
+        this.clientBean = clientBean;
         this.sceneController = sceneController;
 
-        System.out.println("ADD_CG setUserBean: " + userBean);
+        System.out.println("ADD_CG setUserBean: " + clientBean);
     }
 
     @Override
@@ -90,7 +101,7 @@ public class AddPlaylistCtrlGrafico implements Initializable {
                 AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
                 addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-                if(userBean.isSupervisor()){
+                if(clientBean.isSupervisor()){
                     sceneController.textPopUp(event, MessageString.ADDED_PLAYLIST,true);
                 }
                 else{
@@ -124,8 +135,8 @@ public class AddPlaylistCtrlGrafico implements Initializable {
         } else if(genre.isEmpty()) {
             showError("Inserisci almeno un genere musicale!");
         } else {
-           playlistBean = new PlaylistBean(userBean.getEmail(), userBean.getUsername(), titolo, linkPlaylist, genre, userBean.isSupervisor(), sliderValues);
-           playlistBean.setId("");
+            playlistBean = new PlaylistBean(clientBean.getEmail(), clientBean.getUsername(), titolo, linkPlaylist, genre, clientBean.isSupervisor(), sliderValues);
+            playlistBean.setId("");
         }
         return playlistBean;
     }

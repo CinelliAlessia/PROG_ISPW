@@ -39,12 +39,8 @@ b
 2src/main/java/engineering/bean/SupervisorBean.java,2\4\248d8316ab0246317542ad00314032b24d16b588
 v
 Fsrc/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java,a\d\ad4b6617709a02c3df495167ba7181472c2fd41a
-d
-4src/main/java/engineering/bean/RegistrationBean.java,1\0\10a68d84969c8617514c3efeab63993c35227e64
 `
 0src/main/java/view/RegistrazioneCtrlGrafico.java,5\4\54497e433d46223150434797986fe01583c59b2c
-N
-src/main/java/model/Guest.java,f\d\fd001cf7fa987affa7cb708aa580d1d965b2fd52
 j
 :src/main/java/engineering/dao/TypesOfPersistenceLayer.java,8\7\872b8ee48821e2597ff8685bf1eb976aeb285719
 g
@@ -123,3 +119,13 @@ Y
 )src/main/java/start/MainApplication2.java,2\a\2afa60b86a39cb4edc4383d417a858c82a4bf4bf
 Y
 )src/main/java/view/FilterCtrlGrafico.java,5\0\5091068bb997361a43690e7c6b1e94f0385f7e09
+O
+src/main/java/model/Notice.java,c\a\ca2ff503b7190d4c410378271e03c2ebd7b539ab
+O
+src/main/java/model/Client.java,b\f\bfded7b637e777f50fe8fcb194e9f89da888e4db
+^
+.src/main/java/engineering/bean/ClientBean.java,0\4\04106127bccf0a7f2689ce58279887305f235116
+N
+src/main/java/model/Login.java,0\7\073d7844f3a71ed7ba607c6012c85671667ce218
+^
+.src/main/java/engineering/bean/NoticeBean.java,a\e\aeb6bd2efce09a52d3cbd19c02cabd527c1eed7b

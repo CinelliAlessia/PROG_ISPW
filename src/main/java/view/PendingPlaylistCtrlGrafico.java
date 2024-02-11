@@ -1,15 +1,20 @@
 package view;
 
-import view.utils.*;
 import controller.applicativo.PendingPlaylistCtrlApplicativo;
-import engineering.bean.*;
-
-import javafx.event.*;
-import javafx.fxml.*;
-import javafx.scene.control.*;
+import engineering.bean.PlaylistBean;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import view.utils.DoubleButtonTableCell;
+import view.utils.SceneController;
+import view.utils.TableManager;
 
 import java.net.URL;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class PendingPlaylistCtrlGrafico implements Initializable {
 

@@ -35,13 +35,13 @@ public class SceneController {
     }
 
     @FXML
-    public <T> void goToScene(ActionEvent event, String fxmlPath, UserBean userBean) {
+    public <T> void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
             T controller = loader.getController();
-            setAttributes(controller, userBean);
+            setAttributes(controller, clientBean);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             sceneStack.push(stage.getScene()); // Push current scene onto stack
@@ -53,6 +53,25 @@ public class SceneController {
             // Gestione dell'errore durante il caricamento della scena
             handleSceneLoadError(e);
         }
+    }
+    private void setAttributes(Object controller, ClientBean clientBean) {
+
+        try {
+            Method setAttributes = controller.getClass().getMethod("setAttributes", ClientBean.class, SceneController.class);
+            setAttributes.invoke(controller, clientBean, this);
+        } catch (NoSuchMethodException e) {
+            try {
+                Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
+                setAttributes.invoke(controller, this);
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException error) {
+                error.fillInStackTrace(); // Trattamento dell'eccezione
+            }
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.fillInStackTrace();
+        }
+    }
+    private void handleSceneLoadError(IOException e) {
+        e.printStackTrace();
     }
 
     public void textPopUp(ActionEvent event, String text, boolean back) {
@@ -88,14 +107,14 @@ public class SceneController {
         }
     }
 
-    public void goToFilterPopUp(ActionEvent event, UserBean userBean, PlaylistBean playlistBean) {
+    public void goToFilterPopUp(ActionEvent event, ClientBean clientBean, PlaylistBean playlistBean) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML_FILTER));
             Parent root = loader.load();
 
             // Ottieni l'istanza del controller
             FilterCtrlGrafico controller = loader.getController();
-            setAttributes(controller, userBean);
+            setAttributes(controller, clientBean);
 
             // Stage di partenza
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -118,24 +137,5 @@ public class SceneController {
         }
     }
 
-    private void setAttributes(Object controller, UserBean userBean) {
-
-        try {
-            Method setAttributes = controller.getClass().getMethod("setAttributes", UserBean.class, SceneController.class);
-            setAttributes.invoke(controller, userBean, this);
-        } catch (NoSuchMethodException e) {
-            try {
-                Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
-                setAttributes.invoke(controller, this);
-            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException error) {
-                error.fillInStackTrace(); // Trattamento dell'eccezione
-            }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.fillInStackTrace();
-        }
-    }
-    private void handleSceneLoadError(IOException e) {
-        e.printStackTrace();
-    }
 }
 

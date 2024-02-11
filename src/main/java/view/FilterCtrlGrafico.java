@@ -1,5 +1,6 @@
 package view;
 
+import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
 import engineering.bean.UserBean;
 import javafx.event.ActionEvent;
@@ -15,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class FilterCtrlGrafico implements Initializable {
+public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
 
     @FXML
     private Slider happySad;
@@ -58,7 +59,7 @@ public class FilterCtrlGrafico implements Initializable {
     @FXML
     private CheckBox alternative;
 
-    private UserBean userBean;
+    private T clientBean;
 
     private PlaylistBean playlistBean;
 
@@ -74,14 +75,14 @@ public class FilterCtrlGrafico implements Initializable {
     }
 
     /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare */
-    public void setAttributes(UserBean user, SceneController sceneController) {
+    public void setAttributes(T clientBean, SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
-        this.userBean = user;
+        this.clientBean = clientBean;
         this.sceneController = sceneController;
 
-        GenreManager.setCheckList(userBean.getPreferences(),checkBoxList);
+        GenreManager.setCheckList(clientBean.getPreferences(),checkBoxList);
 
-        System.out.println("Filter GUI setAttributes: " + userBean);
+        System.out.println("Filter GUI setAttributes: " + clientBean);
     }
 
     public void setPlaylistBean(PlaylistBean playlistBean) {

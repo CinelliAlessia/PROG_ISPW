@@ -1,8 +1,11 @@
 package engineering.dao;
 
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import engineering.exceptions.*;
 import engineering.others.*;
+import model.Client;
+import model.Login;
+import model.Supervisor;
 import model.User;
 
 import java.io.IOException;
@@ -20,37 +23,44 @@ Ho semplificato la funzione updateGenreUser utilizzando il metodo parseUser per 
 public class UserDAOJSON implements UserDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
 
-    public boolean insertUser(User user) throws EmailAlreadyInUse, UsernameAlreadyInUse {
-        if (checkIfUserExistsByEmail(user.getEmail())) {
-            throw new EmailAlreadyInUse();
-        }
-        if (retrieveUserByUsername(user.getUsername()) != null) {
-            throw new UsernameAlreadyInUse();
-        }
-
+    public void insertUser(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
         try {
-            Path userDirectory = Files.createDirectories(Paths.get(BASE_DIRECTORY, user.getEmail()));
+            // Verifica se la cartella persistence esiste, altrimenti la crea
+            Path persistenceDirectory = Paths.get(ConfigurationJSON.PERSISTENCE_BASE_DIRECTORY);
+            if (!Files.exists(persistenceDirectory)) {
+                Files.createDirectories(persistenceDirectory);
+            }
+
+            // Verifica se l'utente esiste già per email o username
+            if (checkIfUserExistsByEmail(login.getEmail())) {
+                throw new EmailAlreadyInUse();
+            }
+            if (retrieveUserByUsername(login.getUsername()) != null) {
+                throw new UsernameAlreadyInUse();
+            }
+
+            // Crea la directory dell'utente e il file di informazioni
+            Path userDirectory = Files.createDirectories(Paths.get(BASE_DIRECTORY, login.getEmail()));
             Path userInfoFile = userDirectory.resolve(ConfigurationJSON.USER_INFO_FILE_NAME);
 
-            String json = new GsonBuilder().setPrettyPrinting().create().toJson(user);
+            // Serializza l'oggetto Login in formato JSON e scrivi nel file
+            String json = new GsonBuilder().setPrettyPrinting().create().toJson(login);
             Files.writeString(userInfoFile, json);
 
             System.out.println("Utente inserito con successo!");
-            return true;
         } catch (IOException e) {
             handleDAOException(e);
-            return false;
         }
     }
 
 
-    public User loadUser(String userEmail) throws UserDoesNotExist{
+    public Client loadUser(Login login) throws UserDoesNotExist {
         try {
-            Path userInfoFile = Paths.get(BASE_DIRECTORY, userEmail, ConfigurationJSON.USER_INFO_FILE_NAME);
+            Path userInfoFile = Paths.get(BASE_DIRECTORY, login.getEmail(), ConfigurationJSON.USER_INFO_FILE_NAME);
 
             if (Files.exists(userInfoFile)) {
                 String content = Files.readString(userInfoFile);
-                return parseUser(content);
+                return parseClient(content);
             } else {
                 System.out.println("Utente non trovato");
                 throw new UserDoesNotExist();
@@ -62,16 +72,55 @@ public class UserDAOJSON implements UserDAO {
         return null;
     }
 
-    public String getPasswordByEmail(String email) throws UserDoesNotExist {
-        User user = loadUser(email);
-        return user != null ? user.getPassword() : null;
+    private Client parseClient(String content) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
+
+        boolean isSupervisor = jsonObject.getAsJsonPrimitive("supervisor").getAsBoolean();
+
+        if (isSupervisor) {
+            return parseSupervisor(content);
+        } else {
+            return parseUser(content);
+        }
     }
-    public User retrieveUserByUsername(String username) {
+
+    private User parseUser(String content) {
+        return new GsonBuilder().setPrettyPrinting().create().fromJson(content, User.class);
+    }
+
+    private Supervisor parseSupervisor(String content) {
+        return new GsonBuilder().setPrettyPrinting().create().fromJson(content, Supervisor.class);
+    }
+
+
+    public String getPasswordByEmail(String email) throws UserDoesNotExist {
+        try {
+            Path userInfoFile = Paths.get(BASE_DIRECTORY, email, ConfigurationJSON.USER_INFO_FILE_NAME);
+
+            if (!Files.exists(userInfoFile)) {
+                throw new UserDoesNotExist(); // Lanciare l'eccezione se il file non esiste
+            }
+
+            String content = Files.readString(userInfoFile);
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
+            return jsonObject.getAsJsonPrimitive("password").getAsString();
+
+        } catch (IOException e) {
+            handleDAOException(e);
+            return ""; // Restituisci una stringa vuota in caso di eccezione
+        }
+    }
+
+
+    public Client retrieveUserByUsername(String username) {
         try (Stream<Path> userDirectories = Files.list(Paths.get(BASE_DIRECTORY))) {
             return userDirectories
                     .filter(Files::isDirectory)
                     .map(this::getUserFromDirectory)
-                    .filter(user -> user != null && user.getUsername().equals(username))
+                    .filter(client -> client != null && client.getUsername().equals(username))
                     .findFirst()
                     .orElse(null);
         } catch (IOException e) {
@@ -80,18 +129,24 @@ public class UserDAOJSON implements UserDAO {
         }
     }
 
-    public void updateGenreUser(String email, List<String> preferences) {
+
+    public void updateGenreUser(Client client) {
         try {
-            Path userInfoFile = Paths.get(BASE_DIRECTORY, email, ConfigurationJSON.USER_INFO_FILE_NAME);
+            Path userInfoFile = Paths.get(BASE_DIRECTORY, client.getEmail(), ConfigurationJSON.USER_INFO_FILE_NAME);
 
             if (Files.exists(userInfoFile)) {
                 String content = Files.readString(userInfoFile);
-                User user = parseUser(content);
+                JsonObject jsonObject = JsonParser.parseString(content).getAsJsonObject();
 
-                user.setPref(preferences);
-                System.out.println("Nuove preferenze: " + user.getPref());
+                // Aggiorna solo il campo delle preferenze
+                JsonArray newPreferences = new Gson().toJsonTree(client.getPreferences()).getAsJsonArray();
+                jsonObject.add("preferences", newPreferences);
 
-                String updatedJson = new GsonBuilder().setPrettyPrinting().create().toJson(user);
+                // Imposta l'indentazione del JSON
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                String updatedJson = gson.toJson(jsonObject);
+
+                // Sovrascrive il file solo con le informazioni aggiornate
                 Files.writeString(userInfoFile, updatedJson);
 
                 System.out.println("Preferenze utente aggiornate con successo!");
@@ -103,13 +158,16 @@ public class UserDAOJSON implements UserDAO {
         }
     }
 
-    private User getUserFromDirectory(Path userDirectory) {
+
+
+
+    private Client getUserFromDirectory(Path userDirectory) {
         try {
             Path userFilePath = userDirectory.resolve(ConfigurationJSON.USER_INFO_FILE_NAME);
 
             if (Files.exists(userFilePath)) {
                 String content = Files.readString(userFilePath);
-                return parseUser(content);
+                return parseClient(content);
             }
         } catch (IOException e) {
             handleDAOException(e);
@@ -118,9 +176,6 @@ public class UserDAOJSON implements UserDAO {
         return null;
     }
 
-    private User parseUser(String content) {
-        return new GsonBuilder().setPrettyPrinting().create().fromJson(content, User.class);
-    }
     private boolean checkIfUserExistsByEmail(String userEmail) {
         // Costruisci il percorso della directory dell'utente basandoti sulla mail come nome utente
         Path userDirectory = Paths.get(BASE_DIRECTORY, userEmail);

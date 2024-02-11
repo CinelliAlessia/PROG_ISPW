@@ -4,48 +4,101 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="bottone filtri e schermata dei filtri iniziata">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/bfbxd[fa901e0f-9d4c-443e-988c-a9d6e519303b].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/cxvzbdfbfdzbz[60608c12-2cee-4356-a381-4d02308b83c6].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/dfhdz[fabae26c-47d3-4b0e-b001-73539622a51a].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/edx[686121c5-9b7b-4201-851d-f0afd8f65669].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/finalmente[709a6186-e532-438c-a026-80017455dc27].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/mnkj[135bfcd2-c953-4468-b45d-1ad48e9bbc78].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/prova_cosi_alessia_è_contenta[3cda994c-6491-4370-b5d1-0c3ca877c5fd].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/uffa[268d21ec-fa87-4204-940a-e702eb4faf47].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/uffaaaaaaa[c90a3403-0db5-4918-99c3-4a22070c86f8].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/ultima_prova[9110a410-4739-4b51-934b-000c10742425].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/vnvn[d4ee4fcd-82f9-471f-bf57-f7dcaddc5965].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/prova_pending[59bd4a35-77f3-4c27-9906-c6eeaf71f63e].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/a@gmail.com/prova_pending.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/bfbxd.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/cxvzbdfbfdzbz.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/dfhdz.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/edx.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/finalmente.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/mnkj.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/prova_cosi_alessia_è_contenta.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/uffa.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/uffaaaaaaa.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/ultima_prova.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/vnvn.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="ora funziona il daoJSON (risolto problema immutable list)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/ClientBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/NoticeBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/AccountCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/AccountCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/AddPlaylistCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/AddPlaylistCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/HomePageCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/HomePageCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/PendingPlaylistCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/PendingPlaylistCtrlApplicativo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/PlaylistBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/PlaylistBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/LoginBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/LoginBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/SupervisorBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/SupervisorBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/UserBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/others/ConfigurationJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/others/ConfigurationJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddPlaylistCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/FilterCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/FilterCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/PendingPlaylistCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/PendingPlaylistCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/utils/DoubleButtonTableCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/utils/DoubleButtonTableCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegistrazioneCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/TextPopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TextPopUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/utils/FxmlFileName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/utils/FxmlFileName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/utils/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/utils/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/1[decba506-4257-4598-a12a-34d8c49acab8].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/2[960b1ad6-1fd8-4b2d-aa7d-b390d8ec6a07].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/3[0c1652f5-e49d-48ce-b2e3-787121220c11].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/bfbxd[fa901e0f-9d4c-443e-988c-a9d6e519303b].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/buonanotte[2a9503cc-109a-4b38-95b7-8750f23323c0].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/cn_jskòa[3813e5b7-2e59-44e6-ab0f-c3e3ffb2e929].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/cxvzbdfbfdzbz[60608c12-2cee-4356-a381-4d02308b83c6].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/dfhdz[fabae26c-47d3-4b0e-b001-73539622a51a].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/edx[686121c5-9b7b-4201-851d-f0afd8f65669].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/fd,lg_dkç[b1182b74-3829-4c88-a42e-370dd23e2ddc].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/finalmente[709a6186-e532-438c-a026-80017455dc27].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/ghcjyuyf[a9516207-80c6-4c3d-aab7-95f1715d920c].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/hey[5cf17ef8-db0d-41e4-9746-31d07c0ef3b8].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/mnkj[135bfcd2-c953-4468-b45d-1ad48e9bbc78].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/nuova[737625f7-4a1c-478c-8198-805d56df7500].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/nuova_2[9ebdd932-58c0-4051-b27c-377f3cd22629].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/nuovodao[86b9e70f-c5a4-4a11-b619-7cfa5e5c175b].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/pippopippopipponeve[2534f47c-b109-4ad1-8e0d-c325b735511d].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/playlist_1[b1795ccc-20b4-4757-9507-43e6a32f30c5].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/playlist_2[504c06c6-20a5-4575-8cdf-5714a1fb5817].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/playlist_approvata_prova[714c4f88-f152-4e83-8673-a0359ba99b28].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/prova_cosi_alessia_è_contenta[3cda994c-6491-4370-b5d1-0c3ca877c5fd].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/prova_pop_up[3c1dc767-3b8d-4796-a543-80db0de6856a].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/prova_print[8d9569e5-f6fa-4aea-b981-da7ac4b9bcdc].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/provaalessia[4d6acdc0-78b9-4b47-8fa8-f944a1aaa92a].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/provadao2[bfda949d-10ec-4c34-acdf-32b1654abb84].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/provafinale[adfa4256-19e4-4e01-8e06-33fcd9f14de0].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/uffa[268d21ec-fa87-4204-940a-e702eb4faf47].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/uffaaaaaaa[c90a3403-0db5-4918-99c3-4a22070c86f8].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/ultima_prova[9110a410-4739-4b51-934b-000c10742425].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/vnvn[d4ee4fcd-82f9-471f-bf57-f7dcaddc5965].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/inutile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/pendingPlaylists/prova_pending[59bd4a35-77f3-4c27-9906-c6eeaf71f63e].json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/a@gmail.com/prova_pending.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/a@gmail.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/bfbxd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/buonanotte.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/cn_jskòa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/cxvzbdfbfdzbz.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/dfhdz.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/edx.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/fd,lg_dkç.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/finalmente.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/mnkj.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/nuova.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/nuova_2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/playlist_approvata_prova.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/prova_cosi_alessia_è_contenta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/prova_pop_up.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/prova_print.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/provaalessia.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/uffa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/uffaaaaaaa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/ultima_prova.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/vnvn.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/hey.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/playlist_1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/playlist_2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/ale@gmail.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/andrea@gmail.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/ghcjyuyf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/provafinale.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/davide@gmail.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/inutile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/leo@leotordo.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/prova@gmail.com/userInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/nuovodao.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/provadao2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/persistence/users/provaDAO@gmail.com/userInfo.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,46 +158,47 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MongoDBConnector.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StartByMain.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/cinel/Desktop/Università/ISPW/Progetto/PROG_ISPW/src/main/java/view&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Desktop/GoF2&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.37587237&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.MainApplication.executor": "Run",
+    "Application.MainApplication2.executor": "Run",
+    "Application.MongoDBConnector.executor": "Run",
+    "Application.StartByMain.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "database.data.extractors.current.export.id": "JSON-Groovy.json.groovy",
+    "database.data.extractors.current.id": "JSON-Groovy.json.groovy",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/cinel/Desktop/Università/ISPW/Progetto/PROG_ISPW/src/main/java/view",
+    "last_opened_file_path": "C:/Users/andre/Downloads/Telegram Desktop/PROG_ISPW che cazzo stiamo a fa/PROG_ISPW che cazzo stiamo a fa",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37587237",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="engineering.exceptions" />
@@ -245,15 +299,9 @@
       <workItem from="1707412740797" duration="3724000" />
       <workItem from="1707428436209" duration="4065000" />
       <workItem from="1707467775442" duration="14823000" />
-      <workItem from="1707506570488" duration="7282000" />
-    </task>
-    <task id="LOCAL-00020" summary="Risolti errori per il load dell'user bean">
-      <option name="closed" value="true" />
-      <created>1706649077941</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1706649077941</updated>
+      <workItem from="1707506570488" duration="8258000" />
+      <workItem from="1707601433175" duration="10883000" />
+      <workItem from="1707667605090" duration="765000" />
     </task>
     <task id="LOCAL-00021" summary="Carivamento playlist funzionante">
       <option name="closed" value="true" />
@@ -639,7 +687,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707495421116</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="ora funziona il daoJSON (risolto problema immutable list)">
+      <option name="closed" value="true" />
+      <created>1707515310373</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1707515310374</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +714,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Code smells risolti" />
     <MESSAGE value="Aggiornamento grafiche" />
     <MESSAGE value="Inizio implementazione Observer" />
     <MESSAGE value="Risoluzione Sicurezza aggiungendo un connection.properties" />
@@ -683,7 +738,8 @@
     <MESSAGE value="corretto errore sul PlaylistDAOJSON che restituiva un model nullo" />
     <MESSAGE value="Aggiunta slider" />
     <MESSAGE value="bottone filtri e schermata dei filtri iniziata" />
-    <option name="LAST_COMMIT_MESSAGE" value="bottone filtri e schermata dei filtri iniziata" />
+    <MESSAGE value="ora funziona il daoJSON (risolto problema immutable list)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ora funziona il daoJSON (risolto problema immutable list)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -698,7 +754,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/applicativo/AddPlaylistCtrlApplicativo.java</url>
-          <line>29</line>
+          <line>30</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

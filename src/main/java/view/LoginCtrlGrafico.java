@@ -7,6 +7,8 @@ import engineering.exceptions.*;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import model.Supervisor;
+import model.User;
 import org.apache.commons.validator.routines.EmailValidator;
 import view.utils.*;
 
@@ -31,30 +33,31 @@ public class LoginCtrlGrafico {
     @FXML
     protected void onLoginClick(ActionEvent event) {
         System.out.println("GUI Login: inizio");
+
         /* ------ Recupero informazioni dalla schermata di login ------ */
-        String email = emailField.getText();
-        String pass = password.getText();
+        String email = emailField.getText().trim();
+        String pass = password.getText().trim();
 
         /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
         if (email.isEmpty() || pass.isEmpty()) {
-            showError("Ci sono dei campi vuoti !");
+            showError("Ci sono dei campi vuoti!");
         } else if (!checkMailCorrectness(email)) { // Non va fatto qui il controllo ma in Login Bean #####
-            showError("Email non valida !");
+            showError("Email non valida!");
         } else {
 
-            /* ------ Creo la bean e imposto i parametri ------ */
+            /* ------ Creo il bean e imposto i parametri ------ */
             LoginBean loginBean = new LoginBean(email,pass);
             LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); // Creo istanza del Login controller applicativo
 
             try{
-                if (loginCtrlApp.verificaCredenziali(loginBean)) { /* --------------- Credenziali corrette -------------- */
-                    UserBean userBean = loginCtrlApp.loadUser(loginBean);
-
+                if (loginCtrlApp.verificaCredenziali(loginBean)) {
+                    /* --------------- Credenziali corrette -------------- */
+                    ClientBean clientBean = loginCtrlApp.loadUser(loginBean); // Ottengo istanza di clientBean
                     System.out.println("GUI Login: Credenziali corrette");
-                    System.out.println(userBean + " " + userBean.getEmail() + " " + userBean.getUsername());
+                    System.out.println("GUI Login: Client " + clientBean +" Supervisor: " + clientBean.isSupervisor());
 
                     /* --------------- Mostro la home page -------------- */
-                    sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,userBean);
+                    sceneController.<HomePageCtrlGrafico>goToScene(event, FxmlFileName.HOME_PAGE_FXML,clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean
                 }
             } catch (IncorrectPassword | UserDoesNotExist e){
                 showError(e.getMessage());

@@ -1,16 +1,22 @@
 package view;
 
-import controller.applicativo.*;
-import engineering.bean.*;
-
-import javafx.event.*;
-import javafx.fxml.*;
+import controller.applicativo.AccountCtrlApplicativo;
+import engineering.bean.ClientBean;
+import engineering.bean.PlaylistBean;
+import engineering.bean.SupervisorBean;
+import engineering.bean.UserBean;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import view.utils.*;
 
-import java.util.*;
 import java.net.URL;
-public class AccountCtrlGrafico implements Initializable {
+import java.util.Arrays;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
 
     @FXML
     public Button saveButton;
@@ -55,7 +61,7 @@ public class AccountCtrlGrafico implements Initializable {
     @FXML
     private CheckBox alternative;
 
-    private UserBean userBean;
+    private T clientBean;
 
     private List<CheckBox> checkBoxList;
     private List<PlaylistBean> playlistsUser = null;
@@ -68,32 +74,29 @@ public class AccountCtrlGrafico implements Initializable {
                 acoustic, reb, country, alternative);
     }
 
-    public void setAttributes(UserBean user, SceneController sceneController) {
+    public void setAttributes(T clientBean, SceneController sceneController) { // T è una classe che estende ClientBean -> UserBean o SupervisorBean
         // Deve avere un userBean per compilare tutte le informazioni
-        this.userBean = user;
+        this.clientBean = clientBean;
         this.sceneController = sceneController;
 
-        System.out.println("GUI Account setAttributes: " + userBean);
-        System.out.println(userBean.getEmail()+ " " + userBean.getUsername() +" "+userBean.getPreferences());
+        System.out.println("GUI Account setAttributes: " + clientBean);
+        System.out.println(clientBean.getEmail()+ " " + clientBean.getUsername() +" "+clientBean.getPreferences());
 
-        initializeData(userBean);
+        initializeData();
         retrivePlaylist();
     }
 
-    public void initializeData(UserBean user){
-        this.userBean = user;
-
-        usernameText.setText(userBean.getUsername());
-        emailText.setText(userBean.getEmail());
-        List<String> preferences = userBean.getPreferences();
-
+    public void initializeData(){
+        usernameText.setText(clientBean.getUsername());
+        emailText.setText(clientBean.getEmail());
+        List<String> preferences = clientBean.getPreferences();
         GenreManager.setCheckList(preferences,checkBoxList);
     }
 
     /** Recupera tutte le playlist dell'utente */
     public void retrivePlaylist() {
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
-        playlistsUser = accountCtrlApplicativo.retrivePlaylists(userBean);
+        playlistsUser = accountCtrlApplicativo.retrivePlaylists(clientBean);
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
@@ -110,16 +113,16 @@ public class AccountCtrlGrafico implements Initializable {
         System.out.println("GUI ACCOUNT Hai premuto salva " + preferences);
 
         // Imposto le preferenze sullo user bean
-        userBean.setPreferences(preferences);
+        clientBean.setPreferences(preferences);
 
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
-        accountCtrlApplicativo.updateGenreUser(userBean);
+        accountCtrlApplicativo.updateGenreUser(clientBean);
 
         // Devo aggiornare il bean? Di tutto lo stack però,
         // non va bene, tutti dovrebbero recuperare informazioni per il bean dalla persistenza
         // ##### Mostro pop-up ######
 
-        sceneController.textPopUp(event, MessageString.UPDATED_PREFERNCES,false);
+        sceneController.textPopUp(event, MessageString.UPDATED_PREFERNCES, false);
 
     }
     @FXML
@@ -129,7 +132,7 @@ public class AccountCtrlGrafico implements Initializable {
 
     @FXML
     public void addPlaylistClick(ActionEvent event) {
-        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, userBean);
+        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean);
     }
 
 
