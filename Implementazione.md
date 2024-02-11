@@ -18,6 +18,6 @@ L'utente può non mettere alcun tipo di genere musicale preferito associato al s
 
 **PROBLEMI:**
 
-Un RegistrationBean e un LoginBean ma nessun tipo di model corrispondente.
-
 Consistenza Italiano Inglese, preferibilmente tutto in inglese.
+
+Correzione Observable list in account e in pending playlist.

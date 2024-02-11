@@ -1,16 +1,9 @@
 package controller.applicativo;
 
-import engineering.bean.ClientBean;
-import engineering.bean.PlaylistBean;
-import engineering.bean.UserBean;
-import engineering.dao.PlaylistDAO;
-import engineering.dao.TypesOfPersistenceLayer;
-import engineering.dao.UserDAO;
-import engineering.exceptions.LinkIsNotValid;
-import model.Client;
-import model.Playlist;
-import model.Supervisor;
-import model.User;
+import engineering.bean.*;
+import engineering.dao.*;
+import engineering.exceptions.*;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.List;

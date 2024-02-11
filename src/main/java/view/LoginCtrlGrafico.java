@@ -7,8 +7,6 @@ import engineering.exceptions.*;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import model.Supervisor;
-import model.User;
 import org.apache.commons.validator.routines.EmailValidator;
 import view.utils.*;
 

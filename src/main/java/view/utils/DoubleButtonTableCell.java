@@ -2,8 +2,7 @@ package view.utils;
 
 import engineering.bean.PlaylistBean;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import view.PendingPlaylistCtrlGrafico;
 

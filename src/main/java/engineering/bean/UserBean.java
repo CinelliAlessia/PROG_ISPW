@@ -1,7 +1,5 @@
 package engineering.bean;
 
-import model.Notice;
-
 import java.util.List;
 
 public class UserBean extends ClientBean{
