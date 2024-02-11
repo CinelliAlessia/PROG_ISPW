@@ -74,7 +74,6 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
                 acoustic, reb, country, alternative);
     }
 
-
     @FXML
     public void onBackClick(ActionEvent event) {
         sceneController.goBack(event);

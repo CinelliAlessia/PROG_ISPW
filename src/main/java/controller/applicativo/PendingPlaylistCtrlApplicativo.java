@@ -17,12 +17,10 @@ public class PendingPlaylistCtrlApplicativo {
 
     public void approvePlaylist(PlaylistBean pB){
         PlaylistDAO dao = getDAO();
-        System.out.println("ApprovePlaylist il bean contiene:"+ pB.getPlaylistName() + pB.getId() );
 
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
         playlist.setId(pB.getId());
 
-        System.out.println("ApprovePlaylist la playlist contiene:"+ playlist.getPlaylistName() + playlist.getId() );
         // Istanza di playlist ha ancora il parametro approved a false
         Playlist playlistApproved = dao.approvePlaylist(playlist);
 

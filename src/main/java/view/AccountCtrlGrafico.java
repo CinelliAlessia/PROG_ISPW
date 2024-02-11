@@ -57,10 +57,8 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     private CheckBox alternative;
 
     private T clientBean;
-
     private List<CheckBox> checkBoxList;
     private List<PlaylistBean> playlistsUser = null;
-
     private SceneController sceneController;
 
     @Override
@@ -70,29 +68,34 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     }
 
     public void setAttributes(T clientBean, SceneController sceneController) { // T è una classe che estende ClientBean -> UserBean o SupervisorBean
-        // Deve avere un userBean per compilare tutte le informazioni
         this.clientBean = clientBean;
         this.sceneController = sceneController;
 
         System.out.println("GUI Account setAttributes: " + clientBean);
         System.out.println(clientBean.getEmail()+ " " + clientBean.getUsername() +" "+clientBean.getPreferences());
 
+        // Inizializza i dati nella GUI
         initializeData();
+        // Recupera e visualizza le playlist dell'utente
         retrivePlaylist();
     }
 
+    /** Inizializza i dati della GUI con le informazioni del client */
     public void initializeData(){
         usernameText.setText(clientBean.getUsername());
         emailText.setText(clientBean.getEmail());
         List<String> preferences = clientBean.getPreferences();
+        // Imposta le CheckBox in base alle preferenze del client
         GenreManager.setCheckList(preferences,checkBoxList);
     }
 
     /** Recupera tutte le playlist dell'utente */
     public void retrivePlaylist() {
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
+        // Recupera le playlist dell'utente
         playlistsUser = accountCtrlApplicativo.retrivePlaylists(clientBean);
 
+        // Configura e popola la TableView con le colonne appropriate
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
         TableManager.createTable(playlistTable, columns, nameColumns, playlistsUser);
@@ -100,33 +103,35 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         // Aggiungi la colonna con bottoni "Approve" o "Reject" e immagini dinamiche
     }
 
+    /** Gestisce il click sul pulsante Salva */
     @FXML
     public void onSaveClick(ActionEvent event) {
-
-        // Recupero preferenze aggiornate
+        // Recupera le preferenze aggiornate dalle CheckBox
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
         System.out.println("GUI ACCOUNT Hai premuto salva " + preferences);
 
-        // Imposto le preferenze sullo user bean
+        // Aggiorna le preferenze nel bean del cliente
         clientBean.setPreferences(preferences);
 
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
+        // Aggiorna le preferenze nel backend
         accountCtrlApplicativo.updateGenreUser(clientBean);
 
-        // Devo aggiornare il bean? Di tutto lo stack però,
-        // non va bene, tutti dovrebbero recuperare informazioni per il bean dalla persistenza
-        // ##### Mostro pop-up ######
-
+        // Mostra una notifica pop-up
         sceneController.textPopUp(event, MessageString.UPDATED_PREFERNCES, false);
-
     }
+
+    /** Gestisce il click sul pulsante Indietro */
     @FXML
     public void onBackClick(ActionEvent event) {
+        // Torna alla schermata precedente
         sceneController.goBack(event);
     }
 
+    /** Gestisce il click sul pulsante Aggiungi Playlist */
     @FXML
     public void addPlaylistClick(ActionEvent event) {
+        // Passa alla schermata di caricamento della playlist, passando il bean del cliente
         sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean);
     }
 

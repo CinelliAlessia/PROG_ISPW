@@ -3,8 +3,6 @@ package engineering.dao;
 import engineering.exceptions.*;
 import model.*;
 
-import java.util.List;
-
 public interface UserDAO {
 
     /** Inserimento dell'utente in persistenza

@@ -1,20 +1,16 @@
 package view;
 
+import view.utils.*;
+
 import controller.applicativo.PendingPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
+
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import view.utils.DoubleButtonTableCell;
-import view.utils.SceneController;
-import view.utils.TableManager;
+import javafx.fxml.*;
+import javafx.scene.control.*;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PendingPlaylistCtrlGrafico implements Initializable {
 
@@ -51,12 +47,15 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         TableManager.createTable(playlistTable, columns, nameColumns, playlistsPending);
 
         // Aggiungi la colonna con bottoni "Approve" o "Reject"
-        approveColumn.setCellFactory(param -> new DoubleButtonTableCell());
+        approveColumn.setCellFactory(_ -> new DoubleButtonTableCell());
     }
 
-    public static void handlePendingButton(PlaylistBean playlistBean, boolean approve) {
+    /** Static perché deve essere chiamata da DoubleButtonTableCell, è l'azione che viene compiuta al click del bottone */
+    public static void handlePendingButton(PlaylistBean playlistBean, boolean approve, TableView<PlaylistBean> tableView) {
+
         // Logica per gestire l'approvazione o il rifiuto della playlist
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
+
         if (approve) {
             System.out.println("Approvazione della playlist: " + playlistBean.getPlaylistName());
 
@@ -64,11 +63,14 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
             pendingPlaylistCtrlApplicativo.approvePlaylist(playlistBean);
         } else {
             System.out.println("Rifiuto della playlist: " + playlistBean.getPlaylistName());
-            // Implementa la logica per il rifiuto della playlist con notifica all'utente
 
             // Rifiuta Playlist
             pendingPlaylistCtrlApplicativo.rejectPlaylist(playlistBean);
         }
+
+        // Vengono recuperate tutte le playlist pending
+        List<PlaylistBean> playlistsPending = pendingPlaylistCtrlApplicativo.retrievePlaylists();
+        TableManager.updateTable(tableView, playlistsPending);
     }
 
     @FXML

@@ -15,15 +15,22 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
 
     public DoubleButtonTableCell() {
 
-        approveButton.setOnAction(event -> {
-            PlaylistBean playlistBean = getTableView().getItems().get(getIndex());
-            PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean,true);
+        approveButton.setOnAction(_ -> {
+            TableRow<PlaylistBean> tableRow = getTableRow();
+            if (tableRow != null) {
+                PlaylistBean playlistBean = tableRow.getItem();
+                PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean, true, getTableView());
+            }
         });
 
-        rejectButton.setOnAction(event -> {
-            PlaylistBean playlistBean = getTableView().getItems().get(getIndex());
-            PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean,false);
+        rejectButton.setOnAction(_ -> {
+            TableRow<PlaylistBean> tableRow = getTableRow();
+            if (tableRow != null) {
+                PlaylistBean playlistBean = tableRow.getItem();
+                PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean, false, getTableView());
+            }
         });
+
 
         approveButton.setStyle("-fx-background-color: #1DB954; -fx-text-fill: white; -fx-pref-height: 25px; -fx-pref-width: 25px; " +
                 "-fx-min-width: -1; -fx-min-height: -1; -fx-background-radius: 50%; -fx-stroke: 50; -fx-border-radius: 50%;");

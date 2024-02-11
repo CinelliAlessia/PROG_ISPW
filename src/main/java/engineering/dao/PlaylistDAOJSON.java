@@ -1,6 +1,7 @@
 package engineering.dao;
 
 import com.google.gson.*;
+import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import engineering.others.ConfigurationJSON;
 import model.Playlist;
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
      * Questo metodo inserisce la playlist sia sulla cartella del singolo utente
      * Aggiunge inoltre sulle cartelle generali delle playlist approvate e delle playlist in attesa di approvazione
      */
-    public boolean insertPlaylist(Playlist playlist) {
+    public boolean insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
         // Costruisco il percorso del file playlist.json per l'utente
         java.nio.file.Path userDirectory = Paths.get(ConfigurationJSON.USER_BASE_DIRECTORY, playlist.getEmail());
         boolean result = false;
@@ -61,6 +62,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
             } else {
                 System.out.println("Una playlist con questo nome esiste già per questo utente.");
+                throw new PlaylistLinkAlreadyInUse();
             }
 
         } catch (IOException e) {
