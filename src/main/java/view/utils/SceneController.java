@@ -76,10 +76,12 @@ public class SceneController {
     private void setAttributes(Object controller, ClientBean clientBean, PlaylistBean playlistBean) {
         Class<?>[] parameterTypes = {ClientBean.class, PlaylistBean.class};
 
-        for (Class<?> paramType : parameterTypes) {
+        for (Class<?> paramType : parameterTypes) { // Prova setAttributes(ClientBean, SceneController) e  Prova setAttributes(PlaylistBean, SceneController)
             try {
                 Method setAttributes = controller.getClass().getMethod("setAttributes", paramType, SceneController.class);
                 setAttributes.invoke(controller, paramType == ClientBean.class ? clientBean : playlistBean, this);
+                System.out.println("TIPO: " + paramType + " " + SceneController.class);
+
                 return; // Esce dal metodo se trova una firma valida
             } catch (NoSuchMethodException ignored) {
                 // Ignorato perché cercherà la prossima firma se questa non è presente
@@ -92,13 +94,28 @@ public class SceneController {
         try{
             Method setAttributes = controller.getClass().getMethod("setAttributes", ClientBean.class, PlaylistBean.class, SceneController.class);
             setAttributes.invoke(controller,clientBean, playlistBean, this);
-            // Esce dal metodo se trova una firma valida
-        } catch (NoSuchMethodException ignored) {
+            System.out.println("TIPO: " + ClientBean.class + " " + PlaylistBean.class + " " + SceneController.class);
+
+            return; // Esce dal metodo se trova una firma valida
+
+        } catch (NoSuchMethodException _) {
+            // Ignorato di proposito
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            handleSceneLoadError(e);
+        }
+
+        try {
+            Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
+            setAttributes.invoke(controller, this);
+            System.out.println("TIPO: " + SceneController.class);
+
+            return; // Esce dal metodo se trova una firma valida
+        } catch (NoSuchMethodException _) {
             handleSceneLoadError(new NoSuchMethodException("Nessuna firma valida del metodo setAttributes trovata"));
         } catch (IllegalAccessException | InvocationTargetException e) {
             handleSceneLoadError(e);
         }
-        // Se nessuna firma del metodo è stata trovata, gestisce l'errore
+
     }
 
 
