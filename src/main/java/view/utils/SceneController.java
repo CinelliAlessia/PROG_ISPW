@@ -35,44 +35,72 @@ public class SceneController {
     }
 
     @FXML
-    public <T> void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean) {
+    public <T> void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean, PlaylistBean playlistBean) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
             T controller = loader.getController();
-            setAttributes(controller, clientBean);
+            setAttributes(controller, clientBean, playlistBean);
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            sceneStack.push(stage.getScene()); // Push current scene onto stack
-
-            Scene scene = new Scene(root);  // Creo scena a partire dal Parent
-            stage.setScene(scene);          // Imposto la scena sullo stage
-            stage.show();                   // Mostro la scena (nuova)
+            switchScene(event, root);
         } catch (IOException e) {
-            // Gestione dell'errore durante il caricamento della scena
             handleSceneLoadError(e);
         }
     }
-    private void setAttributes(Object controller, ClientBean clientBean) {
+    @FXML
+    public void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean) {
+        goToScene(event, fxmlPath, clientBean, null);
+    }
 
-        try {
-            Method setAttributes = controller.getClass().getMethod("setAttributes", ClientBean.class, SceneController.class);
-            setAttributes.invoke(controller, clientBean, this);
-        } catch (NoSuchMethodException e) {
+    @FXML
+    public void goToScene(ActionEvent event, String fxmlPath, PlaylistBean playlistBean) {
+        goToScene(event, fxmlPath, null, playlistBean);
+    }
+
+    @FXML
+    public void goToScene(ActionEvent event, String fxmlPath) {
+        goToScene(event, fxmlPath, null, null);
+    }
+
+    private void switchScene(ActionEvent event, Parent root) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        sceneStack.push(stage.getScene()); // Push current scene onto stack
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    private void setAttributes(Object controller, ClientBean clientBean, PlaylistBean playlistBean) {
+        Class<?>[] parameterTypes = {ClientBean.class, PlaylistBean.class};
+
+        for (Class<?> paramType : parameterTypes) {
             try {
-                Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
-                setAttributes.invoke(controller, this);
-            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException error) {
-                error.fillInStackTrace(); // Trattamento dell'eccezione
+                Method setAttributes = controller.getClass().getMethod("setAttributes", paramType, SceneController.class);
+                setAttributes.invoke(controller, paramType == ClientBean.class ? clientBean : playlistBean, this);
+                return; // Esce dal metodo se trova una firma valida
+            } catch (NoSuchMethodException ignored) {
+                // Ignorato perché cercherà la prossima firma se questa non è presente
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                handleSceneLoadError(e);
+                return; // Esce dal metodo in caso di eccezione
             }
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            e.fillInStackTrace();
         }
+
+        try{
+            Method setAttributes = controller.getClass().getMethod("setAttributes", ClientBean.class, PlaylistBean.class, SceneController.class);
+            setAttributes.invoke(controller,clientBean, playlistBean, this);
+            // Esce dal metodo se trova una firma valida
+        } catch (NoSuchMethodException ignored) {
+            handleSceneLoadError(new NoSuchMethodException("Nessuna firma valida del metodo setAttributes trovata"));
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            handleSceneLoadError(e);
+        }
+        // Se nessuna firma del metodo è stata trovata, gestisce l'errore
     }
-    private void handleSceneLoadError(IOException e) {
-        e.printStackTrace();
-    }
+
 
     public void textPopUp(ActionEvent event, String text, boolean back) {
         try {
@@ -81,7 +109,7 @@ public class SceneController {
 
             // Ottieni l'istanza del controller
             TextPopUp controller = loader.getController();
-            setAttributes(controller, null);
+            setAttributes(controller, null,null);
 
             // Utilizza il controller per chiamare la funzione setText
             controller.setText(text);
@@ -114,13 +142,13 @@ public class SceneController {
 
             // Ottieni l'istanza del controller
             FilterCtrlGrafico controller = loader.getController();
-            setAttributes(controller, clientBean);
+            setAttributes(controller, clientBean,playlistBean);
 
             // Stage di partenza
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             // Utilizza il controller per chiamare la funzione setPlaylistBean
-            controller.setPlaylistBean(playlistBean);
+            //controller.setPlaylistBean(playlistBean);
             /* ############################# Questa può essere una funzione ################ */
             // Nuovo popUp stage
             Stage popupStage = new Stage();
@@ -136,6 +164,12 @@ public class SceneController {
             handleSceneLoadError(e);
         }
     }
+
+
+    private void handleSceneLoadError(Exception e) {
+        e.printStackTrace();
+    }
+
 
 }
 
