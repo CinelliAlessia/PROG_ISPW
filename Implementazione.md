@@ -26,6 +26,10 @@ Cambiare nome funzioni, da Usar a Client
 
 Seconda interfaccia
 
+Parte intera superiore Emotional
+
+Correzione Alessia Filtraggio
+
 Tasto indietro
 
 Notifiche 
