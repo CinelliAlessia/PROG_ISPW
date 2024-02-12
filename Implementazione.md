@@ -24,5 +24,7 @@ Correzione Observable list in account e in pending playlist.
 
 Cambiare nome funzioni, da Usar a Client 
 
+Seconda interfaccia
+
 Notifiche 
 
