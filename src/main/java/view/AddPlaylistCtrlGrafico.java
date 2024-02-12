@@ -56,14 +56,15 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
     private CheckBox alternative;
 
     private T clientBean;
-
+    private PlaylistBean playlistBean;
     private List<CheckBox> checkBoxList;
     private SceneController sceneController;
 
-    public void setAttributes(T clientBean, SceneController sceneController) {
+    public void setAttributes(T clientBean, PlaylistBean playlistBean, SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
         this.clientBean = clientBean;
         this.sceneController = sceneController;
+        this.playlistBean = playlistBean;
 
         System.out.println("ADD_CG setUserBean: " + clientBean);
     }
@@ -84,7 +85,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
     public void onUploadClick(ActionEvent event) {
 
         try{
-            PlaylistBean playlistBean = getDate();
+            getData(playlistBean);
             if(playlistBean != null){
                 // Invocazione metodo controller Applicativo che in teoria è static
                 AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
@@ -103,7 +104,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
         }
     }
 
-    private PlaylistBean getDate() throws LinkIsNotValid {
+    private void getData(PlaylistBean playlistBean) throws LinkIsNotValid {
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 
@@ -115,20 +116,23 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
                 electronicAcoustic.getValue(),
                 speakInstrumental.getValue()
         );
-
-        PlaylistBean playlistBean = null;
-
-        //Controllo sui campi vuoti
-        if( linkPlaylist.isEmpty() || titolo.isEmpty() ){
+        // Controllo sui campi vuoti
+        if (linkPlaylist.isEmpty() || titolo.isEmpty()) {
             showError("I campi sono vuoti!");
-        } else if(genre.isEmpty()) {
+        } else if (genre.isEmpty()) {
             showError("Inserisci almeno un genere musicale!");
         } else {
-            playlistBean = new PlaylistBean(clientBean.getEmail(), clientBean.getUsername(), titolo, linkPlaylist, genre, clientBean.isSupervisor(), sliderValues);
-            playlistBean.setId("");
+            // Imposta i campi del playlistBean in ingresso
+            playlistBean.setEmail(clientBean.getEmail());
+            playlistBean.setUsername(clientBean.getUsername());
+            playlistBean.setPlaylistName(titolo);
+            playlistBean.setLink(linkPlaylist);
+            playlistBean.setPlaylistGenre(genre);
+            playlistBean.setApproved(clientBean.isSupervisor());
+            playlistBean.setEmotional(sliderValues);
         }
-        return playlistBean;
     }
+
 
     private void showError(String message) {
         // Mostra un messaggio di errore nell'interfaccia utente.
