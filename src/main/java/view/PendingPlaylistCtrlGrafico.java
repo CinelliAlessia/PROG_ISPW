@@ -44,8 +44,8 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn); // Tutte le colonne della table view
         List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsPending);
-
+        TableManager.setColumnsTableView(columns, nameColumns);
+        TableManager.updateTable(playlistTable,playlistsPending);
         // Aggiungi la colonna con bottoni "Approve" o "Reject"
         approveColumn.setCellFactory(_ -> new DoubleButtonTableCell());
     }

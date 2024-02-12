@@ -2,6 +2,8 @@ package view;
 
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -58,13 +60,21 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
 
     private T clientBean;
     private List<CheckBox> checkBoxList;
-    private List<PlaylistBean> playlistsUser = null;
+    private List<PlaylistBean> userPlaylists = null;
+    private ObservableList<PlaylistBean> observableList;
     private SceneController sceneController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
                 acoustic, reb, country, alternative);
+    }
+    public void showUserInfo(){
+        usernameText.setText(clientBean.getUsername());
+        emailText.setText(clientBean.getEmail());
+        List<String> preferences = clientBean.getPreferences();
+        // Imposta le CheckBox in base alle preferenze del client
+        GenreManager.setCheckList(preferences,checkBoxList);
     }
 
     public void setAttributes(T clientBean, SceneController sceneController) { // T è una classe che estende ClientBean -> UserBean o SupervisorBean
@@ -75,31 +85,36 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         System.out.println(clientBean.getEmail()+ " " + clientBean.getUsername() +" "+clientBean.getPreferences());
 
         // Inizializza i dati nella GUI
-        initializeData();
+        showUserInfo();
         // Recupera e visualizza le playlist dell'utente
         retrivePlaylist();
     }
 
     /** Inizializza i dati della GUI con le informazioni del client */
-    public void initializeData(){
-        usernameText.setText(clientBean.getUsername());
-        emailText.setText(clientBean.getEmail());
-        List<String> preferences = clientBean.getPreferences();
-        // Imposta le CheckBox in base alle preferenze del client
-        GenreManager.setCheckList(preferences,checkBoxList);
-    }
+
 
     /** Recupera tutte le playlist dell'utente */
     public void retrivePlaylist() {
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
         // Recupera le playlist dell'utente
-        playlistsUser = accountCtrlApplicativo.retrivePlaylists(clientBean);
+        userPlaylists = accountCtrlApplicativo.retrivePlaylists(clientBean);
 
-        // Configura e popola la TableView con le colonne appropriate
+        // Imposto la struttura delle colonne della Table View
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsUser);
+        TableManager.setColumnsTableView(columns, nameColumns);
 
+        observableList = FXCollections.observableArrayList(userPlaylists);
+        playlistTable.setItems(observableList);
+
+        // ######################
+        // Configura e popola la TableView con le colonne appropriate
+        /*
+        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
+        List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
+        TableManager.setColumnsTableView(columns, nameColumns);
+        TableManager.updateTable(playlistTable, userPlaylists);
+        */
         // Aggiungi la colonna con bottoni "Approve" o "Reject" e immagini dinamiche
     }
 
@@ -132,7 +147,9 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     @FXML
     public void addPlaylistClick(ActionEvent event) {
         // Passa alla schermata di caricamento della playlist, passando il bean del cliente
+        observableList.add(new PlaylistBean());
         sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean);
+        System.out.println("Sono dopo la riga gotoScene");
     }
 
 

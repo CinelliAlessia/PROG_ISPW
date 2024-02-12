@@ -65,8 +65,8 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         /* Metodo pull per ricevere i dati dal dao */
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistsBean = homePageController.retrivePlaylistsApproved();                  // Recupera le playlist approvate
-        TableManager.createTable(playlistTable, columns, nameColumns, playlistsBean);   // Aggiorna i parametri della tabella
-
+        TableManager.setColumnsTableView(columns, nameColumns);   // Aggiorna i parametri della tabella
+        TableManager.updateTable(playlistTable,playlistsBean);
         linkColumn.setCellFactory(param -> new SingleButtonTableCell());
     }
 
