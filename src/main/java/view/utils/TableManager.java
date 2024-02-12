@@ -12,23 +12,22 @@ public class TableManager {
     private TableManager(){}
 
     /**
-     * @param playlistTable è la tabella vera e propria
      * @param columns       è una lista di colonne, contiene le sole colonne semplici (no bottoni)
      * @param nameColumns   è una lista di stringhe, che viene utilizzata per recuperare i dati dai metodi get del PlaylistBean
-     * @param playlists     è la lista delle playlist da rappresentare
      */
-    public static void createTable(TableView<PlaylistBean> playlistTable, List<TableColumn<PlaylistBean, ?>> columns, List<String> nameColumns, List<PlaylistBean> playlists) {
+    public static void setColumnsTableView(List<TableColumn<PlaylistBean, ?>> columns, List<String> nameColumns) {
 
         // Collega i dati alle colonne della TableView
         int index = 0;
-        for( TableColumn<PlaylistBean, ? > column:columns){
+        for(TableColumn<PlaylistBean, ? > column:columns){
             column.setCellValueFactory(new PropertyValueFactory<>(nameColumns.get(index)));
             index++;
         }
-
-        updateTable(playlistTable, playlists);
     }
-
+    /**
+     * @param playlistTable è la tabella vera e propria
+     * @param playlists     è la lista delle playlist da rappresentare
+     */
     public static void updateTable(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlists) {
 
         List<PlaylistBean> currentPlaylists = playlistTable.getItems();     // Ottenere la lista attuale di playlist dalla TableView
@@ -41,10 +40,6 @@ public class TableManager {
 
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
         playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
-
-        List<PlaylistBean> newPlaylist = playlistTable.getItems();          // Ottenere la lista attuale di playlist dalla TableView
-        System.out.println("Table Manager update: playlist in table" + newPlaylist);
-
     }
 
 }
