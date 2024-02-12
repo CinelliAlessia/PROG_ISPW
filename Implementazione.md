@@ -26,5 +26,7 @@ Cambiare nome funzioni, da Usar a Client
 
 Seconda interfaccia
 
+Tasto indietro
+
 Notifiche 
 
