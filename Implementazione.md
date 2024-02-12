@@ -21,3 +21,8 @@ L'utente può non mettere alcun tipo di genere musicale preferito associato al s
 Consistenza Italiano Inglese, preferibilmente tutto in inglese.
 
 Correzione Observable list in account e in pending playlist.
+
+Cambiare nome funzioni, da Usar a Client 
+
+Notifiche 
+
