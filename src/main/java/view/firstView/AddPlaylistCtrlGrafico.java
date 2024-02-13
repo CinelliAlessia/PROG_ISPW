@@ -12,6 +12,7 @@ import view.firstView.utils.*;
 
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializable {
 
@@ -61,12 +62,14 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
     private List<CheckBox> checkBoxList;
     private SceneController sceneController;
 
+    private static final Logger logger = Logger.getLogger(AddPlaylistCtrlGrafico.class.getName());
+
+
     public void setAttributes(T clientBean, PlaylistBean playlistBean, SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
         this.clientBean = clientBean;
         this.sceneController = sceneController;
         this.playlistBean = playlistBean;
-        System.out.println("ADD_CG setUserBean: " + clientBean);
     }
 
     @Override
@@ -99,7 +102,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
                 else{
                     sceneController.textPopUp(event,MessageString.ADDED_PENDING_PLAYLIST,true);
                 }
-                System.out.println("ADD GUI PLAYLIST AGGIUNTA");
+                logger.info("ADD GUI: PLAYLIST AGGIUNTA");
             }
         } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
             showError(e.getMessage());

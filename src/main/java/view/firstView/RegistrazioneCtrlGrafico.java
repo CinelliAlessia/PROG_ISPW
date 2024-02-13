@@ -13,6 +13,7 @@ import javafx.scene.text.*;
 
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class RegistrazioneCtrlGrafico implements Initializable {
 
@@ -58,6 +59,8 @@ public class RegistrazioneCtrlGrafico implements Initializable {
     private List<CheckBox> checkBoxList;
 
     private SceneController sceneController;
+    private static final Logger logger = Logger.getLogger(RegistrazioneCtrlGrafico.class.getName());
+
 
     public void setAttributes(SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
@@ -95,7 +98,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
                 ClientBean clientBean = new UserBean(regBean.getEmail());
                 registrazioneCtrlApplicativo.registerUser(regBean, clientBean);
 
-                System.out.println("GUI Registrazione: Utente registrato con successo");
+                logger.info("GUI Registrazione: Utente registrato con successo");
 
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);

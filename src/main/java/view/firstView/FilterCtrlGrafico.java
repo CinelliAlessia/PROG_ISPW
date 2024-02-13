@@ -9,8 +9,9 @@ import view.firstView.utils.*;
 
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Logger;
 
-public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
+public class FilterCtrlGrafico implements Initializable {
 
     @FXML
     private Slider happySad;
@@ -51,6 +52,7 @@ public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
     private List<CheckBox> checkBoxList;
     private SceneController sceneController;
 
+    private static final Logger logger = Logger.getLogger(FilterCtrlGrafico.class.getName());
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -90,7 +92,7 @@ public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
         List<String> preferences = playlistBean.getPlaylistGenre();
         List<Integer> emotional = playlistBean.getEmotional();
 
-        System.out.println("Filter GUI setData: " + playlistBean.getPlaylistGenre() + " " + playlistBean.getEmotional());
+        logger.info(STR."Filter GUI setData: \{playlistBean.getPlaylistGenre()} \{playlistBean.getEmotional()}");
 
         if(preferences != null){
             GenreManager.setCheckList(preferences,checkBoxList);
@@ -109,12 +111,6 @@ public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
         }
 
 
-    }
-    @FXML
-    private void onBackClick(ActionEvent event) {
-        // Chiudi il popup
-        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        stage.close();
     }
 
     @FXML

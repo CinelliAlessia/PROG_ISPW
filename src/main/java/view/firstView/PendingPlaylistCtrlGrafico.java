@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class PendingPlaylistCtrlGrafico implements Initializable {
 
@@ -29,7 +30,9 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
     private TableColumn<PlaylistBean, Boolean> usernameColumn;
 
     private SceneController sceneController;
-    private static ObservableList<PlaylistBean> osservableList;
+    private static ObservableList<PlaylistBean> observableList;
+    private static final Logger logger = Logger.getLogger(PendingPlaylistCtrlGrafico.class.getName());
+
 
     public void setAttributes(SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
@@ -53,7 +56,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         approveColumn.setCellFactory(_ -> new DoubleButtonTableCell());
 
         TableManager tableManager = new TableManager();
-        osservableList = tableManager.collegamento(playlistTable,playlistsPending);
+        observableList = tableManager.collegamento(playlistTable,playlistsPending);
     }
 
     /** Static perché deve essere chiamata da DoubleButtonTableCell, è l'azione che viene compiuta al click del bottone */
@@ -63,18 +66,18 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
 
         if (approve) {
-            System.out.println("Approvazione della playlist: " + playlistBean.getPlaylistName());
+            logger.info(STR."Approvazione della playlist: \{playlistBean.getPlaylistName()}");
 
             // Approva Playlist
             pendingPlaylistCtrlApplicativo.approvePlaylist(playlistBean);
         } else {
-            System.out.println("Rifiuto della playlist: " + playlistBean.getPlaylistName());
+            logger.info(STR."Rifiuto della playlist: \{playlistBean.getPlaylistName()}");
 
             // Rifiuta Playlist
             pendingPlaylistCtrlApplicativo.rejectPlaylist(playlistBean);
 
         }
-        osservableList.remove(playlistBean);
+        observableList.remove(playlistBean);
     }
 
     @FXML
