@@ -54,6 +54,7 @@ public class AccountCtrlApplicativo {
 
     }
 
+
     /** Utilizzata per eliminare le playlist
      * vanno aggiunti dei controlli per capire chi può eliminare */
     public static Boolean deletePlaylist(PlaylistBean pB){

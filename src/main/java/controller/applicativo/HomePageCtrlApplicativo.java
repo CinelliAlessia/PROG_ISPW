@@ -82,7 +82,7 @@ public class HomePageCtrlApplicativo {
 
         List<Playlist> playlists = dao.searchPlaylistByFilters(playlist);  // Recupero lista Playlist
 
-        System.out.println("Applicativo home page: playlist trovate " + playlists);
+        System.err.println("Applicativo home page: playlist trovate " + playlists);
 
         try{
             for (Playlist p : playlists){
@@ -92,7 +92,7 @@ public class HomePageCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            System.out.println("Home Page applicativo: LinkIsNotValid " + e.getMessage());
+            System.err.println("Home Page applicativo: LinkIsNotValid " + e.getMessage());
         }
         return playlistsBean;
     }

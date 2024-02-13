@@ -32,12 +32,12 @@ public class TableManager {
     public static void updateTable(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlists) {
 
         List<PlaylistBean> currentPlaylists = playlistTable.getItems();     // Ottenere la lista attuale di playlist dalla TableView
-        System.out.println("Table Manager update: playlist corrente" + currentPlaylists);
-        System.out.println("Table Manager update: playlist totale nuova" + playlists);
+        System.err.println("Table Manager update: playlist corrente" + currentPlaylists);
+        System.err.println("Table Manager update: playlist totale nuova" + playlists);
 
         playlists.removeAll(currentPlaylists);                              // Rimuove le playlist già caricate, cosi da avere una lista di playlist nuove
         // ### Problema se viene rimossa una playlist
-        System.out.println("Table Manager update: playlist da aggiungere" + playlists);
+        System.err.println("Table Manager update: playlist da aggiungere" + playlists);
 
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
         playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
@@ -53,12 +53,12 @@ public class TableManager {
         observableList.addListener((ListChangeListener<PlaylistBean>) change -> {
             while (change.next()) {
                 if (change.wasAdded() && isUpdatingTableView) { ///// non accade mai
-                    System.out.println("Elementi aggiunti: " + change.getAddedSubList());
+                    System.err.println("Elementi aggiunti: " + change.getAddedSubList());
                     isUpdatingTableView = false;
                     playlistTable.getItems().addAll(change.getAddedSubList());
                     isUpdatingTableView = true;
                 } else if (change.wasRemoved() && isUpdatingTableView) {
-                    System.out.println("Elementi rimossi: " + change.getRemoved());
+                    System.err.println("Elementi rimossi: " + change.getRemoved());
                     isUpdatingTableView = false;
                     playlistTable.getItems().removeAll(change.getRemoved());
                     isUpdatingTableView = true;
