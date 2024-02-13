@@ -83,3 +83,5 @@ j
 :src/main/java/view/firstView/RegistrazioneCtrlGrafico.java,a\a\aabc02e30bcb5ee8a441e0ddbe19d9f5ea127b9d
 [
 +src/main/java/view/firstView/TextPopUp.java,b\8\b89b3ec4ee6e0e9ca1654dc86217d9e04f6b59a6
+d
+4src/main/java/view/firstView/utils/TableManager.java,9\9\99f8bbeb92a472e5caa89def8a946c9660683ffb
