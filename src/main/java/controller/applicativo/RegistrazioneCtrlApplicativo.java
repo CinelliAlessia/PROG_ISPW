@@ -38,7 +38,7 @@ public class RegistrazioneCtrlApplicativo {
         }*/
 
         /* SIAMO SICURI CHE L'UTENTE CHE SI REGISTRA SIA UN UserBean
-        * NON CI SI PUO REGISTRARE COME UN SupervisorBean */
+        * NON CI SI PUO REGISTRARE COME UN Supervisore */
 
         UserBean userBean = (UserBean) clientBean;
         userBean.setUsername(registration.getUsername());

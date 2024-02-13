@@ -8,7 +8,7 @@ public class InvalidEmailException extends Exception{
     private static final long serialVersionUID = 1L;
 
     public InvalidEmailException() {
-        super("Invalid email entered!");
+        super("Invalid email entered !");
     }
 
 }

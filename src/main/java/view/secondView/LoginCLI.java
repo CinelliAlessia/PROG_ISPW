@@ -10,7 +10,6 @@ public class LoginCLI {
 
     private final Scanner scanner = new Scanner(System.in);
 
-
     public void start() {
         boolean continueRunning = true;
 
@@ -51,7 +50,7 @@ public class LoginCLI {
     private int getUserChoice() {
         System.out.print("Scelta: ");
         while (!scanner.hasNextInt()) { // Controllo se il valore inserito dall'utente è un intero
-            System.err.println("Inserisci un numero valido.");
+            System.out.println("! Inserisci un numero valido !");
             scanner.next(); // Consuma il valore errato non utilizzabile
         }
         return scanner.nextInt();
@@ -75,9 +74,6 @@ public class LoginCLI {
             /* ----- Verrà eseguito se non ci sono eccezioni ----- */
             ClientBean clientBean = loginCtrlApp.loadUser(loginBean);
 
-
-            System.out.println("Login riuscito!");
-
             /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
 
             if (clientBean instanceof UserBean userBean) {
@@ -93,7 +89,7 @@ public class LoginCLI {
             }
 
         } catch (IncorrectPassword | UserDoesNotExist | InvalidEmailException e) {
-            System.err.println(e.getMessage());
+            System.out.println(STR."! \{e.getMessage()}");
         }
     }
 

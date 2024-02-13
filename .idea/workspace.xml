@@ -4,13 +4,69 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/view2/AddPlaylistCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/view2/utils/ITAStringCLI.java" afterDir="false" />
+    <list default="true" id="25c59233-3d5f-4b52-9c99-364fa8c9f104" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/secondView/AccountCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d/storage_v2/_src_/schema/sakila.oXLGyQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af4b20-fc80-45c2-83c7-5966d5e0fe5d/storage_v2/_src_/schema/user.y-s2AA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/cinel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_2023_14_25__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2023_16_11__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_12_2023_10_44__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2024_14_49_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2024_14_49__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2024_15_40_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2024_15_40__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/46a8ae01c469d2bc54ab5a24805c53bcda93ba21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/0/5091068bb997361a43690e7c6b1e94f0385f7e09" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/63924bd3d202333fc2cbfc335afacd222648aae4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/0/f0d38a3415b5db749ea141bae6613b2c8d60366e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/f/3fcf82073f540c071ce1f06295d62789c764dc38" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/6/46a8ae01c469d2bc54ab5a24805c53bcda93ba21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/0/5091068bb997361a43690e7c6b1e94f0385f7e09" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/4/54497e433d46223150434797986fe01583c59b2c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/3/63924bd3d202333fc2cbfc335afacd222648aae4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/b/8bb21e5a57a1a38e2cc9324a262b4c6c3431d61a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/e/dea90fd6b5fd3ee9ef0abc1be2d82a2900930d37" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/0/f0d38a3415b5db749ea141bae6613b2c8d60366e" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/view2/HomePageCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view2/HomePageCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/view2/RegistrationCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view2/RegistrationCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/EmailAlreadyInUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/EmailAlreadyInUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/IncorrectPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/IncorrectPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/InvalidEmailException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/InvalidEmailException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/LinkIsNotValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/LinkIsNotValid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/PlaylistLinkAlreadyInUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/PlaylistLinkAlreadyInUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UserDoesNotExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UserDoesNotExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UsernameAlreadyInUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/exceptions/UsernameAlreadyInUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/pattern/observer/PlaylistCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/pattern/observer/PlaylistCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/firstView/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/firstView/HomePageCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/AddPlaylistCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/AddPlaylistCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/HomePageCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/HomePageCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/LoginCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/LoginCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/RegistrationCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/RegistrationCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/view2.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,33 +77,23 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Enum" />
-        <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
-      </GitPushTagMode>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;mzlala&quot;
+    &quot;assignee&quot;: &quot;andreatozzi99&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="abec164f-27d4-42ac-a43d-09f2629c05d4" />
+        <option name="accountId" value="860a6e10-297d-4de5-b13b-9d9d26b37310" />
         <option name="url" value="https://github.com/mzlala/PROG_ISPW.git" />
       </UrlAndAccount>
     </option>
@@ -55,94 +101,34 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2ZoVPF9GIOXZOMXQACOzvhMkf5x" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2cJeLEZJpSPAcXF3LfJ7UtXxsBn" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showScratchesAndConsoles" value="false" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApplication2.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MongoDBConnector.executor&quot;: &quot;Run&quot;,
     &quot;Application.StartByMain.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/cinel/Desktop/Università/ISPW/Progetto/PROG_ISPW/src/main/java/view&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Downloads/Telegram Desktop/PROG_ISPW che cazzo stiamo a fa/PROG_ISPW che cazzo stiamo a fa&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.37587237&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
-    ]
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="engineering.exceptions" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\andre\Desktop\ISPW\Progetto\PROG_ISPW\src\main\resources" />
-      <recent name="C:\Users\cinel\Desktop\Università\ISPW\Progetto\PROG_ISPW\src\main\java\logic" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="error_field" />
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="StartByMain" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="start.MainApplication" />
       <module name="spotify" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="PROG_ISPW" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="PROG_ISPW" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,520 +144,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="" />
-      <created>1703088395878</created>
+      <changelist id="25c59233-3d5f-4b52-9c99-364fa8c9f104" name="Changes" comment="" />
+      <created>1707834059240</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1703088395878</updated>
-      <workItem from="1703088399448" duration="14000" />
-      <workItem from="1703142487444" duration="4686000" />
-      <workItem from="1703165322229" duration="2796000" />
-      <workItem from="1703171298288" duration="11000" />
-      <workItem from="1703174947490" duration="181000" />
-      <workItem from="1703175800989" duration="395000" />
-      <workItem from="1703954545008" duration="13000" />
-      <workItem from="1704726434904" duration="11000" />
-      <workItem from="1704752423900" duration="647000" />
-      <workItem from="1704787655010" duration="7654000" />
-      <workItem from="1706172107942" duration="7567000" />
-      <workItem from="1706188118080" duration="6901000" />
-      <workItem from="1706196693438" duration="4654000" />
-      <workItem from="1706255400628" duration="13376000" />
-      <workItem from="1706283660929" duration="2569000" />
-      <workItem from="1706350166101" duration="10343000" />
-      <workItem from="1706517459267" duration="7516000" />
-      <workItem from="1706526250959" duration="4120000" />
-      <workItem from="1706535196911" duration="3325000" />
-      <workItem from="1706548582802" duration="3054000" />
-      <workItem from="1706556718106" duration="9320000" />
-      <workItem from="1706600729068" duration="16941000" />
-      <workItem from="1706620899009" duration="12289000" />
-      <workItem from="1706634398060" duration="2262000" />
-      <workItem from="1706639484242" duration="7619000" />
-      <workItem from="1706686449597" duration="3137000" />
-      <workItem from="1706732648918" duration="7912000" />
-      <workItem from="1706794043130" duration="10636000" />
-      <workItem from="1706806985445" duration="3138000" />
-      <workItem from="1706814706527" duration="4409000" />
-      <workItem from="1706820232063" duration="5462000" />
-      <workItem from="1706859194520" duration="26889000" />
-      <workItem from="1706903176179" duration="10650000" />
-      <workItem from="1706914899387" duration="184000" />
-      <workItem from="1706970072313" duration="2128000" />
-      <workItem from="1707064767443" duration="14000" />
-      <workItem from="1707064961308" duration="1665000" />
-      <workItem from="1707066647999" duration="2332000" />
-      <workItem from="1707072819193" duration="9340000" />
-      <workItem from="1707119992525" duration="3007000" />
-      <workItem from="1707138653024" duration="3165000" />
-      <workItem from="1707141876665" duration="9657000" />
-      <workItem from="1707208299461" duration="22380000" />
-      <workItem from="1707292048157" duration="2589000" />
-      <workItem from="1707316003361" duration="1421000" />
-      <workItem from="1707402695071" duration="6535000" />
-      <workItem from="1707412740797" duration="3724000" />
-      <workItem from="1707428436209" duration="4065000" />
-      <workItem from="1707467775442" duration="14823000" />
-      <workItem from="1707506570488" duration="8258000" />
-      <workItem from="1707601433175" duration="10883000" />
-      <workItem from="1707667605090" duration="765000" />
-      <workItem from="1707771527823" duration="8085000" />
-      <workItem from="1707810991916" duration="12696000" />
+      <updated>1707834059240</updated>
+      <workItem from="1707834063756" duration="2735000" />
+      <workItem from="1707837392408" duration="5611000" />
     </task>
-    <task id="LOCAL-00022" summary="Carivamento playlist funzionante">
-      <option name="closed" value="true" />
-      <created>1706703241298</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1706703241298</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Correzione Code Smells">
-      <option name="closed" value="true" />
-      <created>1706723639019</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1706723639019</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Correzione Code Smells">
-      <option name="closed" value="true" />
-      <created>1706732889217</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1706732889217</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Correzione Code Smells">
-      <option name="closed" value="true" />
-      <created>1706732978668</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1706732978668</updated>
-    </task>
-    <task id="LOCAL-00026" summary="aggiornamento database">
-      <option name="closed" value="true" />
-      <created>1706737554266</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1706737554266</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Persistenza database funzionante">
-      <option name="closed" value="true" />
-      <created>1706740198522</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1706740198522</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Persistenza database funzionante">
-      <option name="closed" value="true" />
-      <created>1706796343615</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1706796343615</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Modifica della struttura del database, caricamento corretto di playlist nel database e bozza di playlist in attesa di approvazione">
-      <option name="closed" value="true" />
-      <created>1706808188377</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1706808188378</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Correzione code smells">
-      <option name="closed" value="true" />
-      <created>1706810339472</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1706810339472</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Modifica">
-      <option name="closed" value="true" />
-      <created>1706819014647</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1706819014647</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Update">
-      <option name="closed" value="true" />
-      <created>1706819174974</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1706819174974</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Aggiunta possibilità di modificare i generi preferiti a run time">
-      <option name="closed" value="true" />
-      <created>1706823535105</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1706823535105</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Code smells risolti">
-      <option name="closed" value="true" />
-      <created>1706825126631</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1706825126631</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Aggiornamento grafiche">
-      <option name="closed" value="true" />
-      <created>1706865700564</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1706865700564</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Inizio implementazione Observer">
-      <option name="closed" value="true" />
-      <created>1706873398689</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1706873398689</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Risoluzione Sicurezza aggiungendo un connection.properties">
-      <option name="closed" value="true" />
-      <created>1706873447397</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1706873447397</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Risoluzione Sicurezza aggiungendo un connection.properties">
-      <option name="closed" value="true" />
-      <created>1706888805424</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1706888805424</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Update return value">
-      <option name="closed" value="true" />
-      <created>1706888825546</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1706888825546</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Aggiornamento e risoluzione code smells">
-      <option name="closed" value="true" />
-      <created>1706888858895</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1706888858895</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Risoluzione code smells">
-      <option name="closed" value="true" />
-      <created>1706889401792</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1706889401792</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Risoluzione code smells">
-      <option name="closed" value="true" />
-      <created>1706911257646</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1706911257647</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Risoluzione code smells">
-      <option name="closed" value="true" />
-      <created>1706911385031</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1706911385031</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Risoluzione code smells, ridotto il riuso di codice">
-      <option name="closed" value="true" />
-      <created>1706912172189</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1706912172189</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Risoluzione code smells, ridotto il riuso di codice">
-      <option name="closed" value="true" />
-      <created>1706912497856</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1706912497856</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Update">
-      <option name="closed" value="true" />
-      <created>1706915003727</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1706915003727</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Update">
-      <option name="closed" value="true" />
-      <created>1706971229104</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1706971229105</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Update">
-      <option name="closed" value="true" />
-      <created>1706972081659</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1706972081659</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Update">
-      <option name="closed" value="true" />
-      <created>1707068097167</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1707068097167</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Aggiunto prova per Schermata supervisore">
-      <option name="closed" value="true" />
-      <created>1707086267310</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1707086267310</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Update">
-      <option name="closed" value="true" />
-      <created>1707123347379</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1707123347380</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Update, modifica delle view &#10;Aggiunta base approvazione playlist">
-      <option name="closed" value="true" />
-      <created>1707135370028</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1707135370029</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Aggiunta base approvazione playlist">
-      <option name="closed" value="true" />
-      <created>1707135452171</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1707135452171</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Update">
-      <option name="closed" value="true" />
-      <created>1707144341204</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1707144341204</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Update code Smells">
-      <option name="closed" value="true" />
-      <created>1707146595737</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1707146595737</updated>
-    </task>
-    <task id="LOCAL-00056" summary="approve playlist fatto con json: da migliorare duplicazione codice">
-      <option name="closed" value="true" />
-      <created>1707208469636</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1707208469638</updated>
-    </task>
-    <task id="LOCAL-00057" summary="aggiornato playlist dao json">
-      <option name="closed" value="true" />
-      <created>1707215624873</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1707215624873</updated>
-    </task>
-    <task id="LOCAL-00058" summary="inizio ricerca playlist tramite la search bar">
-      <option name="closed" value="true" />
-      <created>1707238912084</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1707238912084</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Pop up ora utilizzabile per qualunque tipo di avviso. Verificare se UserDAOJSON ha bassa replicazione">
-      <option name="closed" value="true" />
-      <created>1707260173721</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1707260173722</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Aggiustato TextPopUp, ora non crea più il duplicato e torna indietro dopo aver premuto ok">
-      <option name="closed" value="true" />
-      <created>1707389497431</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1707389497431</updated>
-    </task>
-    <task id="LOCAL-00061" summary="gestione delle eccezioni sul LoginCtrlGrafico">
-      <option name="closed" value="true" />
-      <created>1707412841379</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1707412841380</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Tolto tutti i lanci di eccezioni del tipo &quot;IOException&quot; dai controller grafici, ora c'è una funzione per gestire questo errore dentro SceneController che attualmente esegue uno &quot;fill in stack trace&quot;">
-      <option name="closed" value="true" />
-      <created>1707414785386</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1707414785386</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Tolto tutti i lanci di eccezioni del tipo &quot;IOException&quot; dai controller grafici, ora c'è una funzione per gestire questo errore dentro SceneController che attualmente esegue uno &quot;fill in stack trace&quot;">
-      <option name="closed" value="true" />
-      <created>1707415013498</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1707415013498</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Ho aggiunto il cerca Playlist per nome sul PlaylistDAOJSON (vedi se ti piace)">
-      <option name="closed" value="true" />
-      <created>1707416175904</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1707416175904</updated>
-    </task>
-    <task id="LOCAL-00065" summary="corretto errore sul PlaylistDAOJSON che restituiva un model nullo">
-      <option name="closed" value="true" />
-      <created>1707432400964</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1707432400964</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Aggiunta slider">
-      <option name="closed" value="true" />
-      <created>1707486115511</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1707486115511</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Aggiunta slider">
-      <option name="closed" value="true" />
-      <created>1707486684886</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1707486684886</updated>
-    </task>
-    <task id="LOCAL-00068" summary="bottone filtri e schermata dei filtri iniziata">
-      <option name="closed" value="true" />
-      <created>1707495421115</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1707495421116</updated>
-    </task>
-    <task id="LOCAL-00069" summary="ora funziona il daoJSON (risolto problema immutable list)">
-      <option name="closed" value="true" />
-      <created>1707515310373</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1707515310374</updated>
-    </task>
-    <task id="LOCAL-00070" summary="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare">
-      <option name="closed" value="true" />
-      <created>1707811289293</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1707811289295</updated>
-    </task>
-    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Inizio implementazione Observer" />
-    <MESSAGE value="Risoluzione Sicurezza aggiungendo un connection.properties" />
-    <MESSAGE value="Update return value" />
-    <MESSAGE value="Aggiornamento e risoluzione code smells" />
-    <MESSAGE value="Risoluzione code smells" />
-    <MESSAGE value="Risoluzione code smells, ridotto il riuso di codice" />
-    <MESSAGE value="Aggiunto prova per Schermata supervisore" />
-    <MESSAGE value="Update, modifica delle view &#10;Aggiunta base approvazione playlist" />
-    <MESSAGE value="Aggiunta base approvazione playlist" />
-    <MESSAGE value="Update" />
-    <MESSAGE value="Update code Smells" />
-    <MESSAGE value="approve playlist fatto con json: da migliorare duplicazione codice" />
-    <MESSAGE value="aggiornato playlist dao json" />
-    <MESSAGE value="aggiornamenti sui pop-up, sto cercando di rendere quel pop-up che abbiamo, generico per altri pop-up, lo chiameremo &quot;simplePopUP&quot;" />
-    <MESSAGE value="inizio ricerca playlist tramite la search bar" />
-    <MESSAGE value="Pop up ora utilizzabile per qualunque tipo di avviso. Verificare se UserDAOJSON ha bassa replicazione" />
-    <MESSAGE value="Aggiustato TextPopUp, ora non crea più il duplicato e torna indietro dopo aver premuto ok" />
-    <MESSAGE value="gestione delle eccezioni sul LoginCtrlGrafico" />
-    <MESSAGE value="Tolto tutti i lanci di eccezioni del tipo &quot;IOException&quot; dai controller grafici, ora c'è una funzione per gestire questo errore dentro SceneController che attualmente esegue uno &quot;fill in stack trace&quot;" />
-    <MESSAGE value="Ho aggiunto il cerca Playlist per nome sul PlaylistDAOJSON (vedi se ti piace)" />
-    <MESSAGE value="corretto errore sul PlaylistDAOJSON che restituiva un model nullo" />
-    <MESSAGE value="Aggiunta slider" />
-    <MESSAGE value="bottone filtri e schermata dei filtri iniziata" />
-    <MESSAGE value="ora funziona il daoJSON (risolto problema immutable list)" />
-    <MESSAGE value="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare" />
-    <option name="LAST_COMMIT_MESSAGE" value="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.sql.SQLException" package="java.sql" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.UnsupportedOperationException" package="java.lang" />
-          <option name="timeStamp" value="4" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

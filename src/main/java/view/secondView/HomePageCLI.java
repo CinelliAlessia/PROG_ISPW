@@ -4,6 +4,8 @@ import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
 import engineering.bean.SupervisorBean;
+import engineering.exceptions.LinkIsNotValid;
+import view.firstView.utils.TableManager;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,9 +13,14 @@ import java.util.Scanner;
 public class HomePageCLI<T extends ClientBean>{
 
     private final Scanner scanner = new Scanner(System.in);
+    private PlaylistBean playlistBean = new PlaylistBean();
     private T clientBean;
     public void setClientBean(T clientBean) {
         this.clientBean = clientBean;
+    }
+
+    public void setPlaylistBean(PlaylistBean playlistBean){
+        this.playlistBean = playlistBean;
     }
 
     public void start() {
@@ -44,11 +51,22 @@ public class HomePageCLI<T extends ClientBean>{
                     break;
                 case 6:
                     // Passa al menu del profilo utente
-                    exit = true;  // Imposta exit a true per uscire dal loop
+                    if(clientBean == null) {
+                        // Vai alla registrazione
+                        goToRegistration();
+                        exit = true;  // Esci dal loop e dal programma
+                    }
+                    else{
+                        account();
+                    }
                     break;
                 case 7:
                     // Passa al menu approvazione playlist
-                    // TODO completare
+                    // Verifica per maggiore sicurezza
+                    if(clientBean instanceof SupervisorBean) {
+                        goToApprovePlaylist();
+                    }
+                    break;
                 case 0:
                     exit = true;  // Esci dal loop e dal programma
                     break;
@@ -56,6 +74,21 @@ public class HomePageCLI<T extends ClientBean>{
                     System.out.println("Scelta non valida. Riprova.");
             }
         }
+    }
+
+    private void goToApprovePlaylist() {
+        ManagePlaylistsCLI manager = new ManagePlaylistsCLI();
+        manager.start();
+    }
+
+    private void goToRegistration() {
+        RegistrationCLI registrationCLI = new RegistrationCLI();
+        registrationCLI.start();
+    }
+
+    private void account() {
+        AccountCLI accountCLI = new AccountCLI();
+        accountCLI.start();
     }
 
     private void printMenu() {
@@ -70,7 +103,7 @@ public class HomePageCLI<T extends ClientBean>{
         System.out.println("4. Elimina il filtro di ricerca");
         System.out.println("5. Cerca una playlist per nome");
         if (clientBean != null) {
-            System.out.println("6. visualizza il tuo profilo");
+            System.out.println("6. Visualizza il tuo profilo");
         } else {
             System.out.println("6. !!! Non hai un profilo da visualizzare -> Registrati !!!");
         }
@@ -95,7 +128,7 @@ public class HomePageCLI<T extends ClientBean>{
 
         while (true) {
             // Per copiare il link della playlist, l'utente deve inserire il numero corrispondente
-            System.err.flush();
+
             System.out.print("Inserisci il numero della playlist per ricevere il link (0 per tornare al menu): ");
 
             int playlistChoice = scanner.nextInt();
@@ -107,7 +140,7 @@ public class HomePageCLI<T extends ClientBean>{
                 // Torna al menu principale
                 break;
             } else {
-                System.err.println("Scelta non valida. Riprova.");
+                System.out.println("! Scelta non valida ! -> Riprova");
             }
         }
     }
@@ -132,8 +165,43 @@ public class HomePageCLI<T extends ClientBean>{
     }
 
     private void searchPlaylist() {
-        // Implementa la logica per cercare una playlist per nome
-        // Usa il controller applicativo per effettuare la ricerca
-        // e mostra i risultati all'utente
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nInserisci il nome della playlist da cercare: ");
+        String playlistName = scanner.nextLine();
+
+        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
+        playlistBean.setPlaylistName(playlistName);
+        List<PlaylistBean> playlistsList = homePageController.searchPlaylistByName(playlistBean);
+
+        System.out.println(STR."Playlist che contengono:\{playlistName} nel titolo");
+
+        if (playlistsList.isEmpty()) {
+            System.out.println("Nessuna playlist trovata con il nome specificato.");
+        } else {
+            int index = 1;
+            for (PlaylistBean playlist : playlistsList) {
+                System.out.println(STR."\{index}. Nome: \{playlist.getPlaylistName()}, Username: \{playlist.getUsername()}, Generi: \{playlist.getPlaylistGenre()}, Emozionale: \{playlist.getEmotional()}");
+                index++;
+            }
+
+            int selectedPlaylistIndex;
+            while (true) {
+                System.out.print("Inserisci il numero corrispondente alla playlist desiderata (inserisci 0 per uscire): ");
+                selectedPlaylistIndex = scanner.nextInt();
+
+                if (selectedPlaylistIndex == 0) {
+                    break; // Esce dal ciclo interno se l'utente inserisce 0
+                }
+
+                if (selectedPlaylistIndex >= 1 && selectedPlaylistIndex <= playlistsList.size()) {
+                    PlaylistBean selectedPlaylist = playlistsList.get(selectedPlaylistIndex - 1);
+                    System.out.println(STR."Link della playlist selezionata: \{selectedPlaylist.getLink()}");
+                } else {
+                    System.out.println(" ! Selezione non valida-> Riprova !");
+                }
+            }
+        }
     }
+
 }

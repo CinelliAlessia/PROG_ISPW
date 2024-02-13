@@ -118,8 +118,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         // Se sono stati impostati i filtri verranno presi
         filterPlaylist.setPlaylistName(searchText.getText());
 
-        System.out.println("GUI home page: " + filterPlaylist + " nome: " + filterPlaylist.getPlaylistName()
-                + " genre: " + filterPlaylist.getPlaylistGenre() + " emotional: " + filterPlaylist.getEmotional());
+        System.out.println(STR."GUI home page: \{filterPlaylist} nome: \{filterPlaylist.getPlaylistName()} genre: \{filterPlaylist.getPlaylistGenre()} emotional: \{filterPlaylist.getEmotional()}");
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         //playlistsBean = homePageController.searchPlaylistByFilters(playlistBean);              // Recupera le playlist approvate
