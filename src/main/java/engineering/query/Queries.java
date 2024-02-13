@@ -2,6 +2,7 @@ package engineering.query;
 
 public class Queries {
 
+
     private Queries(){}
 
     /* ---------- QUERY LOGIN ---------- */
@@ -58,5 +59,7 @@ public class Queries {
     public static final String UPDATE_APPROVE_PLAYLIST = "UPDATE playlist_utente SET approved = '%d' WHERE link = '%s' ";
 
     public static final String DELETE_PLAYLIST_BY_LINK_PLAYLIST_UTENTE = "DELETE * FROM playlist_utente WHERE link = '%s'" ;
+
+    public static final String INSERT_NOTICE_USER = "INSERT INTO notifiche (username, title, body) VALUES ('%s','%s','%s')";
 
 }

@@ -10,6 +10,7 @@ import view.firstView.utils.*;
 
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
 
@@ -62,6 +63,9 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     private ObservableList<PlaylistBean> observableList;
     private SceneController sceneController;
 
+    private static final Logger logger = Logger.getLogger(AccountCtrlGrafico.class.getName());
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
@@ -71,6 +75,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         usernameText.setText(clientBean.getUsername());
         emailText.setText(clientBean.getEmail());
         List<String> preferences = clientBean.getPreferences();
+
         // Imposta le CheckBox in base alle preferenze del client
         GenreManager.setCheckList(preferences,checkBoxList);
     }
@@ -79,17 +84,13 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         this.clientBean = clientBean;
         this.sceneController = sceneController;
 
-        System.out.println("GUI Account setAttributes: " + clientBean);
-        System.out.println(clientBean.getEmail()+ " " + clientBean.getUsername() +" "+clientBean.getPreferences());
+        logger.info(STR."GUI Account setAttributes: \{clientBean}");
 
         // Inizializza i dati nella GUI
         showUserInfo();
         // Recupera e visualizza le playlist dell'utente
         retrivePlaylist();
     }
-
-    /** Inizializza i dati della GUI con le informazioni del client */
-
 
     /** Recupera tutte le playlist dell'utente */
     public void retrivePlaylist() {
@@ -122,7 +123,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     public void onSaveClick(ActionEvent event) {
         // Recupera le preferenze aggiornate dalle CheckBox
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
-        System.out.println("GUI ACCOUNT Hai premuto salva " + preferences);
+        System.out.println(STR."GUI ACCOUNT Hai premuto salva \{preferences}");
 
         // Aggiorna le preferenze nel bean del cliente
         clientBean.setPreferences(preferences);

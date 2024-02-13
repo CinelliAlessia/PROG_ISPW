@@ -1,11 +1,13 @@
 package model;
 
 public class Notice {
+    private String usernameAuthor;
     private String title;
     private String body;
 
 
-    public Notice(String title, String body){
+    public Notice(String title, String body, String usernameAuthor){
+        this.usernameAuthor = usernameAuthor;
         this.title = title;
         this.body = body;
     }
@@ -24,5 +26,13 @@ public class Notice {
 
     public String getBody() {
         return body;
+    }
+
+    public void setUsernameAuthor(String usernameAuthor) {
+        this.usernameAuthor = usernameAuthor;
+    }
+
+    public String getUsernameAuthor() {
+        return usernameAuthor;
     }
 }

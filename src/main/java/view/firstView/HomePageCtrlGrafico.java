@@ -55,7 +55,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Recupera tutte le playlist
-        System.out.println("GUI Home Page");
+        logger.info("GUI Home Page");
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");

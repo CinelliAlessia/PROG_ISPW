@@ -18,17 +18,17 @@ L'utente può non mettere alcun tipo di genere musicale preferito associato al s
 
 **PROBLEMI:**
 
-Consistenza Italiano Inglese, preferibilmente tutto in inglese.
+Consistenza Italiano Inglese, preferibilmente tutto in inglese. OK
 
-Correzione Observable list in account e in pending playlist.
+Correzione Observable list in account e in pending playlist. OK PENDING NO ACCOUNT
 
 Cambiare nome funzioni, da Usar a Client 
 
-Seconda interfaccia
+Seconda interfaccia OK CLI
 
-Parte intera superiore Emotional
+Parte intera superiore Emotional OK INT
 
-Correzione Alessia Filtraggio
+Correzione Alessia Filtraggio OK YEE
 
 Tasto indietro
 

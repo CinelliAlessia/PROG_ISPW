@@ -23,4 +23,5 @@ public interface UserDAO {
 
     void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse;
 
+    void addNotice(Notice notice);
 }

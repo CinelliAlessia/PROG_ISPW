@@ -31,6 +31,7 @@ public class UserDAOMySQL implements UserDAO {
 
             String email = registration.getEmail();
             rs = QueryLogin.loginUser(stmt, email);
+            assert rs != null;
             if (rs.next()) {
                 throw new EmailAlreadyInUse();
             }
@@ -38,6 +39,7 @@ public class UserDAOMySQL implements UserDAO {
 
             String username = registration.getUsername();
             rs = QueryLogin.loginUserByUsername(stmt, username);
+            assert rs != null;
             if (rs.next()) {
                 throw new UsernameAlreadyInUse();
             }
@@ -72,6 +74,7 @@ public class UserDAOMySQL implements UserDAO {
 
             resultSet = QueryLogin.loginUser(stmt, login.getEmail());
 
+            assert resultSet != null;
             if (resultSet.next()) {
                 username = resultSet.getString("username");
                 email = resultSet.getString("email");
@@ -115,6 +118,7 @@ public class UserDAOMySQL implements UserDAO {
             stmt = conn.createStatement();
             rs = QueryLogin.loginUserByUsername(stmt, username);
 
+            assert rs != null;
             if (rs.next()) {
                 username = rs.getString("username");
                 email = rs.getString("email");
@@ -213,6 +217,25 @@ public class UserDAOMySQL implements UserDAO {
             // Chiusura delle risorse
             closeResources(stmt,rs);
         }
+    }
+
+    public void addNotice(Notice notice) {
+        Statement stmt = null;
+        Connection conn;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            QueryLogin.addNotice(stmt, notice);
+
+        } catch (SQLException e) {
+            handleDAOException(e);
+        } finally {
+            // Chiusura delle risorse
+            closeResources(stmt,null);
+        }
+
     }
 
     /** Metodo utilizzato per chiudere le risorse utilizzate */
