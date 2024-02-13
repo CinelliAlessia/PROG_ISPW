@@ -115,24 +115,20 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
     @FXML
     public void onSearchPlaylistClick() {
-        // Se sono stati impostati i filtri verranno presi
         filterPlaylist.setPlaylistName(searchText.getText());
 
-        System.out.println("GUI home page: " + filterPlaylist + " nome: " + filterPlaylist.getPlaylistName()
-                + " genre: " + filterPlaylist.getPlaylistGenre() + " emotional: " + filterPlaylist.getEmotional());
-
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        //playlistsBean = homePageController.searchPlaylistByFilters(playlistBean);              // Recupera le playlist approvate
+        playlistsBean = homePageController.searchPlaylistByFilters(filterPlaylist);        // Recupera le playlist approvate
 
-        playlistsBean = homePageController.searchPlaylistByName(filterPlaylist);                 // Recupera le playlist approvate
-        //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);  // Aggiorna i parametri della tabella
+        //playlistsBean = homePageController.searchPlaylistByName(filterPlaylist);         // Recupera le playlist cercando per nome
         TableManager.updateTable(playlistTable, playlistsBean);
 
-
+        System.err.println("GUI home page search click: " + filterPlaylist + " nome: " + filterPlaylist.getPlaylistName()
+                + " genre: " + filterPlaylist.getPlaylistGenre() + " emotional: " + filterPlaylist.getEmotional());
     }
 
     @FXML
-    protected void onFilterClick(ActionEvent event) {
+    public void onFilterClick(ActionEvent event) {
         sceneController.goToFilterPopUp(event, clientBean, filterPlaylist);
     }
 
@@ -151,13 +147,5 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         }
     }
 
-    public void searchFilter(PlaylistBean playlistBean){
-        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
-        playlistsBean = homePageController.searchPlaylistByFilters(playlistBean);                 // Recupera le playlist approvate
-        //TableManager.createTable(playlistTable,columns, nameColumns, playlists, genreColumn);   // Aggiorna i parametri della tabella
-        TableManager.updateTable(playlistTable, playlistsBean);
 
-        System.out.println("GUI home page: playlist trovate " + playlistsBean);
-
-    }
 }

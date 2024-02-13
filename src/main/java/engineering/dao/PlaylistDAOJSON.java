@@ -280,7 +280,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         }
     }
 
-    public List<Playlist> searchPlaylistString(Playlist playlist) {
+    public List<Playlist> searchPlaylistTitle(Playlist playlist) {
         // Estrai il nome della playlist da cercare
         String targetPlaylistName = playlist.getPlaylistName().toLowerCase();
 
@@ -297,6 +297,14 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         }
 
         return matchingPlaylists;
+    }
+
+    public List<Playlist> searchPlaylistByGenre(Playlist playlist) {
+        return null;
+    }
+
+    public List<Playlist> searchPlaylistByEmotional(Playlist playlist) {
+        return null;
     }
 
     private void handleDAOException(Exception e) {

@@ -33,7 +33,6 @@ public class PlaylistCollection extends Subject {
      * Utilizzata da PendingPlaylistCtrlGrafico se il supervisor accetta una playlist
      * */
     public void addPlaylist(Playlist playlist) {
-        System.err.println(playlist.getLink() + " " + playlist.getId() + " " +  playlist.getEmotional());
         allPlaylists.add(playlist);
         notifyObservers();
     }
@@ -44,10 +43,6 @@ public class PlaylistCollection extends Subject {
     }
 
     public void setState(List<Playlist> playlists) {
-        for(Playlist p: playlists){
-            System.err.println(p.getLink() + " " + p.getId() + " " +  p.getEmotional());
-        }
-
         allPlaylists = playlists;
         //notifyObservers();
     }

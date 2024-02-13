@@ -17,7 +17,7 @@ public class QueryPlaylist {
         String link = playlist.getLink();
         String namePlaylist = playlist.getPlaylistName();
         List<String> playlistGenre = playlist.getPlaylistGenre();
-        List<Double> emotional = playlist.getEmotional();
+        List<Integer> emotional = playlist.getEmotional();
 
         int approved;
         if(playlist.getApproved()){
@@ -43,10 +43,10 @@ public class QueryPlaylist {
         return stmt.executeQuery(sql);
     }
 
-    /** Cerca la parola @param searchTerm passata come argomento */
-    public static ResultSet searchPlaylistString(Statement stmt, String searchTerm) throws SQLException {
+    /** Cerca la parola
+     * @param searchTerm passata come argomento */
+    public static ResultSet searchPlaylistTitle(Statement stmt, String searchTerm) throws SQLException {
         String word = "%" + searchTerm + "%";
-        System.out.println(word);
         String sql = String.format(Queries.SELECT_SEARCH_PLAYLIST, word);
         return stmt.executeQuery(sql);
     }
@@ -57,18 +57,19 @@ public class QueryPlaylist {
         //String emotional = buildEmotionalQueryString(playlist.getEmotional());
 
         if(playlist.getEmotional() == null){
-            playlist.setEmotional(List.of(0.0, 0.0, 0.0, 0.0));
+            playlist.setEmotional(List.of(0,0,0,0));
         }
 
         String genre = buildGenresQueryString(playlist.getPlaylistGenre());
-        System.out.println("QUERY " +genre);
+        genre = genre.replace(" ", "").replace(",", "");
+
 
         String sql = String.format(Queries.SELECT_SEARCH_PLAYLISTS_BY_FILTER,
                 "%" + playlist.getPlaylistName() + "%",
-                playlist.getEmotional().get(0).doubleValue(),
-                playlist.getEmotional().get(1).doubleValue(),
-                playlist.getEmotional().get(2).doubleValue(),
-                playlist.getEmotional().get(3).doubleValue(),
+                playlist.getEmotional().get(0),
+                playlist.getEmotional().get(1),
+                playlist.getEmotional().get(2),
+                playlist.getEmotional().get(3),
                 (genre.charAt(0) == '1') ? 1 : 0, // Pop
                 (genre.charAt(1) == '1') ? 1 : 0, // Indie
                 (genre.charAt(2) == '1') ? 1 : 0, // Classic
@@ -82,8 +83,6 @@ public class QueryPlaylist {
                 (genre.charAt(10) == '1') ? 1 : 0, // Country
                 (genre.charAt(11) == '1') ? 1 : 0  // Alternative
         );
-
-        System.out.println(sql); //##################################
         return stmt.executeQuery(sql);
     }
 
@@ -139,8 +138,40 @@ public class QueryPlaylist {
         return stmt.executeQuery(sql);
     }
 
+    public static ResultSet searchPlaylistsByGenre(Statement stmt, Playlist p) throws SQLException {
 
+        String genre = buildGenresQueryString(p.getPlaylistGenre());
+        genre = genre.replace(" ", "").replace(",", "");
 
+        String sql = String.format(Queries.SELECT_SEARCH_BY_GENRE,
+                STR."%\{p.getPlaylistName()}%",
+                (genre.charAt(0) == '1') ? 1 : 0, // Pop
+                (genre.charAt(1) == '1') ? 1 : 0, // Indie
+                (genre.charAt(2) == '1') ? 1 : 0, // Classic
+                (genre.charAt(3) == '1') ? 1 : 0, // Rock
+                (genre.charAt(4) == '1') ? 1 : 0, // Electronic
+                (genre.charAt(5) == '1') ? 1 : 0, // House
+                (genre.charAt(6) == '1') ? 1 : 0, // HipHop
+                (genre.charAt(7) == '1') ? 1 : 0, // Jazz
+                (genre.charAt(8) == '1') ? 1 : 0, // Acoustic
+                (genre.charAt(9) == '1') ? 1 : 0, // REB
+                (genre.charAt(10) == '1') ? 1 : 0, // Country
+                (genre.charAt(11) == '1') ? 1 : 0  // Alternative
+        );
+
+        return stmt.executeQuery(sql);
+    }
+
+    public static ResultSet searchPlaylistsByEmotional(Statement stmt, Playlist p) throws SQLException {
+        String sql = String.format(Queries.SELECT_SEARCH_BY_EMOTIONAL,
+                STR."%\{p.getPlaylistName()}%",
+                p.getEmotional().get(0),
+                p.getEmotional().get(1),
+                p.getEmotional().get(2),
+                p.getEmotional().get(3));
+
+        return stmt.executeQuery(sql);
+    }
 
     /** Non dovrebbe servire */
     public static ResultSet retrieveIDbyEmail(Statement stmt, String email) throws SQLException {
@@ -168,12 +199,10 @@ public class QueryPlaylist {
 
 
     /** Genera un unica stringa per i quattro valori di slider */
-    private static String buildEmotionalQueryString(List<Double> emotional) {
+    private static String buildEmotionalQueryString(List<Integer> emotional) {
         StringBuilder query = new StringBuilder();
 
-        System.out.println("emotional search: " + emotional);
-
-        for (Double slider : emotional) {
+        for (Integer slider : emotional) {
             query.append(slider).append(",");
         }
 
@@ -185,7 +214,8 @@ public class QueryPlaylist {
         return query.toString();
     }
 
-    /**Genera una stringa corretta per effettuare la query, impostando correttamente il true o false dei generi musicali */
+    /**Genera una stringa corretta per effettuare la query, impostando correttamente il true o false dei generi musicali
+     * la crea per un insert (0, 1, ...) se bisogna usarla per i search attenzione a " " o ","*/
     private static String buildGenresQueryString(List<String> generiMusicali) {
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
         StringBuilder query = new StringBuilder();

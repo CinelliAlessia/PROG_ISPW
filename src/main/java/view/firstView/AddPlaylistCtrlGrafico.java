@@ -112,11 +112,11 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
 
         List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
 
-        List<Double> sliderValues = Arrays.asList(
-                happySad.getValue(),
-                danceChill.getValue(),
-                electronicAcoustic.getValue(),
-                speakInstrumental.getValue()
+        List<Integer> sliderValues = List.of(
+                (int) happySad.getValue(),
+                (int) danceChill.getValue(),
+                (int) electronicAcoustic.getValue(),
+                (int) speakInstrumental.getValue()
         );
 
         //Controllo sui campi vuoti

@@ -82,7 +82,6 @@ public class UserDAOMySQL implements UserDAO {
             if (resultSet.next()) {
                 preferences = GenreManager.retriveGenre(resultSet);
             }
-            System.err.println("USERDAO: preferenze in load user " + preferences);
 
         } catch(SQLException e){
             handleDAOException(e);
@@ -92,11 +91,9 @@ public class UserDAOMySQL implements UserDAO {
         }
 
         if(supervisor){
-            System.err.println("USERDAO: UserDao Supervisore");
             return new Supervisor(username,email,preferences);
 
         } else {
-            System.err.println("USERDAO: UserDao User");
             return new User(username,email,preferences);
         }
     }

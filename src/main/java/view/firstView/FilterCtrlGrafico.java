@@ -71,11 +71,12 @@ public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
         // Devo modificare i campi del PlaylistBean
         List<String> genre = GenreManager.retrieveCheckList(checkBoxList);
 
-        List<Double> sliderValues = Arrays.asList(
-                happySad.getValue(),
-                danceChill.getValue(),
-                electronicAcoustic.getValue(),
-                speakInstrumental.getValue());
+        List<Integer> sliderValues = List.of(
+                (int) happySad.getValue(),
+                (int) danceChill.getValue(),
+                (int) electronicAcoustic.getValue(),
+                (int) speakInstrumental.getValue()
+        );
 
         playlistBean.setPlaylistGenre(genre);
         playlistBean.setEmotional(sliderValues);
@@ -87,7 +88,7 @@ public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
 
     private void setData(){
         List<String> preferences = playlistBean.getPlaylistGenre();
-        List<Double> emotional = playlistBean.getEmotional();
+        List<Integer> emotional = playlistBean.getEmotional();
 
         System.out.println("Filter GUI setData: " + playlistBean.getPlaylistGenre() + " " + playlistBean.getEmotional());
 
@@ -119,18 +120,12 @@ public class FilterCtrlGrafico<T extends ClientBean> implements Initializable {
     @FXML
     public void onResetClick() {
         List<String> genre = new ArrayList<>();
-        List<Double> emotional = new ArrayList<>(4);
 
-        // Aggiungi valori alla lista
-        emotional.add(0.0);
-        emotional.add(0.0);
-        emotional.add(0.0);
-        emotional.add(0.0);
+        List<Integer> emotional = List.of(0,0,0,0);
 
         playlistBean.setEmotional(emotional);
         playlistBean.setPlaylistGenre(genre);
 
         setData();
     }
-
 }

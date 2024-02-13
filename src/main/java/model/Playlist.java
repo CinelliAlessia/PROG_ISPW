@@ -10,7 +10,7 @@ public class Playlist {
     private String email;
     private List<String> playlistGenre;
     private boolean approved = false;
-    List<Double> emotional = new ArrayList<>(List.of(0.0, 0.0, 0.0, 0.0));
+    List<Integer> emotional = List.of(0,0,0,0);
 
     public Playlist(){
         this.approved = false;
@@ -31,18 +31,18 @@ public class Playlist {
         setId(id);
     }
 
-    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Double> emotional){
+    public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Integer> emotional){
         this(email,username,playlistName,link, playlistGenre, approved);
         setId("");
         setEmotional(emotional);
         this.id = "";
     }
 
-    public void setEmotional(List<Double> emotional) {
+    public void setEmotional(List<Integer> emotional) {
         this.emotional = emotional;
     }
 
-    public List<Double> getEmotional() {
+    public List<Integer> getEmotional() {
         return emotional;
     }
 

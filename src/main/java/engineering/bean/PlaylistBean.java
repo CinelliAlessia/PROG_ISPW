@@ -14,7 +14,7 @@ public class PlaylistBean {
     private String link;
     private String playlistName;
     private List<String> playlistGenre;
-    private List<Double> emotional;
+    private List<Integer> emotional;
     private boolean approved = false;
     private String id;
 
@@ -46,7 +46,7 @@ public class PlaylistBean {
         setId(id);
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Double> emotional) throws LinkIsNotValid {
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Integer> emotional) throws LinkIsNotValid {
         this(email,username,playlistName,link, playlistGenre, approved);
         setEmotional(emotional);
     }
@@ -113,19 +113,12 @@ public class PlaylistBean {
     }
 
 
-    public void setEmotional(List<Double> emotional) {
-        // Creo una nuova lista di interi arrotondando ogni numero double verso l'alto
-        List<Double> roundedEmotional = emotional.stream()
-                .map(Double::intValue) // Trasforma ogni Double in Integer (tronca la parte decimale)
-                .map(Math::ceil) // Arrotonda ogni Integer alla parte intera superiore
-                .collect(Collectors.toList()).reversed();
-
-        // Assegno la nuova lista di interi alla variabile emotional
-        this.emotional = roundedEmotional;
+    public void setEmotional(List<Integer> emotional) {
+        this.emotional = emotional;
     }
 
 
-    public List<Double> getEmotional() {
+    public List<Integer> getEmotional() {
         return emotional;
     }
 

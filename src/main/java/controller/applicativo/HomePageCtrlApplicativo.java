@@ -40,49 +40,35 @@ public class HomePageCtrlApplicativo {
         return playlistsBean;
     }
 
-    public List<PlaylistBean> searchPlaylistByName(PlaylistBean playlistBean) {
-
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-
-        List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean
-        Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
-
-        // Devo cercare solo il nome, non ho bisogno di impostare altro
-        playlist.setPlaylistName(playlistBean.getPlaylistName());
-        List<Playlist> playlists = dao.searchPlaylistString(playlist);  // Recupero lista Playlist
-
-        System.err.println("Applicativo home page: playlist trovate " + playlists);
-
-        try{
-            for (Playlist p : playlists){
-                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
-                pB.setId(p.getId());
-
-                playlistsBean.add(pB);
-            }
-        } catch (LinkIsNotValid e){
-            System.err.println("Home Page applicativo: " + e.getMessage());
-        }
-        return playlistsBean;
-    }
 
     /* ############# Dovrebbe essere fuso con il searchPlaylistByName ################ */
     public List<PlaylistBean> searchPlaylistByFilters(PlaylistBean playlistBean) {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = persistenceType.createPlaylistDAO();                   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean da restituire al Grafico
         Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
 
+        /* Popolo la playlist da cercare con solo le informazioni di cui l'utente è interessato */
         playlist.setPlaylistName(playlistBean.getPlaylistName());
         playlist.setPlaylistGenre(playlistBean.getPlaylistGenre());
         playlist.setEmotional(playlistBean.getEmotional());
 
-        List<Playlist> playlists = dao.searchPlaylistByFilters(playlist);  // Recupero lista Playlist
-
-        System.err.println("Applicativo home page: playlist trovate " + playlists);
+        List<Playlist> playlists;
+        if(emotionalEmpty(playlist.getEmotional()) && genreEmpty(playlist.getPlaylistGenre())){
+            playlists = dao.searchPlaylistTitle(playlist);  // Recupero lista Playlist filtrata solo per titolo della playlist
+            System.out.println("Cerco solo per titolo");
+        } else if (!emotionalEmpty(playlist.getEmotional()) && !genreEmpty(playlist.getPlaylistGenre())){
+            playlists = dao.searchPlaylistByFilters(playlist);  // Recupero lista Playlist controllando tutti i filtri
+            System.out.println("Cerco con tutti i filtri");
+        } else if (emotionalEmpty(playlist.getEmotional())) {
+            playlists = dao.searchPlaylistByGenre(playlist);  // Recupero lista Playlist controllando Titolo e Generi musicali
+            System.out.println("Cerco solo per genere");
+        } else {
+            playlists = dao.searchPlaylistByEmotional(playlist);  // Recupero lista Playlist controllando Titolo ed Emotional
+            System.out.println("Cerco solo per emotional");
+        }
 
         try{
             for (Playlist p : playlists){
@@ -92,10 +78,30 @@ public class HomePageCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            System.err.println("Home Page applicativo: LinkIsNotValid " + e.getMessage());
+            System.err.println("HomePage APP: LinkIsNotValid " + e.getMessage());
         }
         return playlistsBean;
     }
+
+    private boolean emotionalEmpty(List<Integer> emotional) {
+        if(emotional == null){
+            return true;
+        }
+
+        for (Integer value : emotional) {
+            if (value != 0) {
+                return false; // Se anche un solo valore non è 0.0, restituisci false
+            }
+        }
+
+        return true; // Tutti i valori sono 0.0
+    }
+
+    private boolean genreEmpty(List<String> genre){
+        return genre == null || genre.isEmpty();
+    }
+
+
 
     public void observePlaylistTable(Observer observer){
         Subject playlistCollection = PlaylistCollection.getInstance();
