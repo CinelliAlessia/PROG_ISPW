@@ -10,6 +10,7 @@ public class LoginCLI {
 
     private final Scanner scanner = new Scanner(System.in);
 
+
     public void start() {
         boolean continueRunning = true;
 
@@ -73,14 +74,23 @@ public class LoginCLI {
 
             /* ----- Verrà eseguito se non ci sono eccezioni ----- */
             ClientBean clientBean = loginCtrlApp.loadUser(loginBean);
+
+
             System.out.println("Login riuscito!");
 
             /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
-            HomePageCLI homePageCLI = new HomePageCLI();
-            homePageCLI.setClientBean(clientBean);
 
-            /* ----- Avvia il metodo start del HomePageCLInterface ----- */
-            homePageCLI.start();
+            if (clientBean instanceof UserBean userBean) {
+                HomePageCLI<UserBean> homePageCLI = new HomePageCLI<>();
+                homePageCLI.setClientBean(userBean);
+                /* ----- Avvia il metodo start del HomePageCLInterface ----- */
+                homePageCLI.start();
+            } else if (clientBean instanceof SupervisorBean supervisorBean) {
+                HomePageCLI<SupervisorBean> homePageCLI = new HomePageCLI<>();
+                homePageCLI.setClientBean(supervisorBean);
+                /* ----- Avvia il metodo start del HomePageCLInterface ----- */
+                homePageCLI.start();
+            }
 
         } catch (IncorrectPassword | UserDoesNotExist | InvalidEmailException e) {
             System.err.println(e.getMessage());
@@ -97,7 +107,9 @@ public class LoginCLI {
     /** Non vengono effettuati controlli, si passa direttamente alla home page */
     private void guestChoice() {
         System.out.println("Accesso come Guest.");
-        HomePageCLI homePageCLI = new HomePageCLI();
+
+        //UserBean perché un guest non è sicuramente Supervisor
+        HomePageCLI<UserBean> homePageCLI = new HomePageCLI<>();
         homePageCLI.setClientBean(null);
         homePageCLI.start();
     }

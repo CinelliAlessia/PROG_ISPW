@@ -40,21 +40,21 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
 
-                    <Label text="Nome Utente" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label text="Username" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                     <Label text="Email" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                     <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <Label text="Conferma Password" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label text="Confirm password" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
-                    <TextField fx:id="name" promptText="Nome Utente" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <TextField fx:id="name" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                     <TextField fx:id="email" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <PasswordField fx:id="password" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                    <PasswordField fx:id="confPassword" promptText="Conferma Password" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <PasswordField fx:id="confPassword" promptText="Confirm password" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                 </GridPane>
 
                 <!-- Selezione dei generi musicali - CheckBox -->
                 <VBox alignment="CENTER">
-                    <Label text="I tuoi generi musicali preferiti" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="2.0">
+                    <Label text="Your favorite musical genres" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="2.0">
                         <padding>
                             <Insets bottom="15.0" />
                         </padding>
@@ -94,7 +94,7 @@
         <AnchorPane BorderPane.alignment="CENTER">
             <VBox alignment="CENTER" spacing="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                 <Text fx:id="errorField" boundsType="LOGICAL_VERTICAL_CENTER" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" textOrigin="CENTER" visible="false" />
-                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRegisterClick" stylesheets="@../styles/styles.css" text="Registrati" textAlignment="CENTER">
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRegisterClick" stylesheets="@../styles/styles.css" text="Sign in" textAlignment="CENTER">
                     <VBox.margin>
                         <Insets bottom="25.0" />
                     </VBox.margin>

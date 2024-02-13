@@ -20,7 +20,7 @@
             <!-- Pulsante Account -->
             <Button fx:id="account" layoutX="14.0" layoutY="19.0" onAction="#onAccountClick" text="Account" AnchorPane.rightAnchor="15.0" />
             <!-- Pulsante Account -->
-            <Button fx:id="manager" layoutX="14.0" layoutY="19.0" onAction="#onManagerClick" text="Gestione Playlist" AnchorPane.leftAnchor="15.0" />
+            <Button fx:id="manager" layoutX="14.0" layoutY="19.0" onAction="#onManagerClick" text="Playlist Management" AnchorPane.leftAnchor="15.0" />
 
         </AnchorPane>
     </top>
@@ -41,10 +41,10 @@
                     <!-- Tabella Playlist -->
                     <TableView fx:id="playlistTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                         <columns>
-                            <TableColumn fx:id="playlistNameColumn" prefWidth="150.0" text="Titolo" />
+                            <TableColumn fx:id="playlistNameColumn" prefWidth="150.0" text="Title" />
                             <TableColumn fx:id="linkColumn" prefWidth="150.0" text="Link" />
-                            <TableColumn fx:id="genreColumn" prefWidth="200.0" text="Generi Musicali" />
-                            <TableColumn fx:id="usernameColumn" prefWidth="150.0" text="Autore" />
+                            <TableColumn fx:id="genreColumn" prefWidth="200.0" text="Musical genres" />
+                            <TableColumn fx:id="usernameColumn" prefWidth="150.0" text="Author" />
                         </columns>
                         <columnResizePolicy>
                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

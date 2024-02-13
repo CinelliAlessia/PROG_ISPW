@@ -61,8 +61,16 @@ public class RegistrationCLI {
             RegistrazioneCtrlApplicativo registrazioneCtrlApp = new RegistrazioneCtrlApplicativo();
 
             // ----- Utilizzo controller applicativo -----
-            registrazioneCtrlApp.registerUser(regBean, new UserBean(email));
+            UserBean userBean = new UserBean(email);
+            registrazioneCtrlApp.registerUser(regBean, userBean);
             System.out.println("Registrazione utente avvenuta con successo!");
+
+            /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
+            HomePageCLI<ClientBean> homePageCLI = new HomePageCLI<>();
+            homePageCLI.setClientBean(userBean);
+
+            /* ----- Avvia il metodo start del HomePageCLInterface ----- */
+            homePageCLI.start();
 
         } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
             System.err.println(e.getMessage());

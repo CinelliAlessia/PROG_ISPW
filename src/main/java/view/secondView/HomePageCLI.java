@@ -12,7 +12,6 @@ public class HomePageCLI<T extends ClientBean>{
 
     private final Scanner scanner = new Scanner(System.in);
     private T clientBean;
-
     public void setClientBean(T clientBean) {
         this.clientBean = clientBean;
     }

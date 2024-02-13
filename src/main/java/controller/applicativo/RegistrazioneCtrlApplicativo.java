@@ -10,6 +10,9 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 
 public class RegistrazioneCtrlApplicativo {
 
+
+    // CLI PROBLEMA: Verificare email e username prima di creare realmente l'utente
+
     /** Query al dao per registrare un utente */
     public void registerUser(LoginBean regBean, ClientBean clientBean) throws EmailAlreadyInUse, UsernameAlreadyInUse, InvalidEmailException {
 
@@ -19,12 +22,37 @@ public class RegistrazioneCtrlApplicativo {
         // Crea l'utente (model) per inviarlo al DAO
         Login registration = new Login(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
 
+        try{
+            dao.insertUser(registration);
+        } catch (EmailAlreadyInUse e){
+            throw new EmailAlreadyInUse();
+        } catch (UsernameAlreadyInUse e){
+            throw new UsernameAlreadyInUse();
+        }
+
         /*
         try{
             dao.loadUser(registration);
         } catch (UserDoesNotExist _){
             dao.retrieveUserByUsername(registration);
         }*/
+
+        /* SIAMO SICURI CHE L'UTENTE CHE SI REGISTRA SIA UN UserBean
+        * NON CI SI PUO REGISTRARE COME UN SupervisorBean */
+
+        UserBean userBean = (UserBean) clientBean;
+        userBean.setUsername(registration.getUsername());
+        userBean.setEmail(regBean.getEmail());
+        userBean.setPreferences(registration.getPreferences());
+    }
+
+    public void emailAlreadyInUse(LoginBean regBean) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
+        UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+
+        // Crea l'utente (model) per inviarlo al DAO
+        Login registration = new Login(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
 
         try{
             dao.insertUser(registration);
@@ -34,12 +62,5 @@ public class RegistrazioneCtrlApplicativo {
             throw new UsernameAlreadyInUse();
         }
 
-        /* SIAMO SICURI CHE L'UTENTE CHE SI REGISTRA SIA UN UserBean
-        * NON CI SI PUO REGISTRARE COME UN SupervisorBean */
-
-        UserBean userBean = (UserBean) clientBean;
-        userBean.setUsername(registration.getUsername());
-        userBean.setEmail(regBean.getEmail());
-        userBean.setPreferences(registration.getPreferences());
     }
 }

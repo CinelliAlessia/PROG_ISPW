@@ -19,7 +19,7 @@
         <AnchorPane layoutX="50.0" layoutY="150.0" BorderPane.alignment="CENTER">
 
             <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="122.0" prefWidth="467.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="65.0">
-                <Label text="Nome Utente:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                <Label text="Username:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
                 <Label fx:id="usernameText" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="5.0" />
                 <Label text="Email:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="50.0" />
                 <Label fx:id="emailText" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="50.0" />
@@ -28,7 +28,7 @@
             <!-- Generi musicali -->
             <AnchorPane layoutX="615.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="35.0">
                 <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                    <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onSaveClick" text="Salva" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0">
+                    <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onSaveClick" text="Save" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0">
                   <HBox.margin>
                      <Insets bottom="15.0" />
                   </HBox.margin></Button>
@@ -55,17 +55,17 @@
                         <CheckBox fx:id="alternative" mnemonicParsing="false" text="Alternative" />
                     </VBox>
                 </HBox>
-                <Label text="Generi Musicali" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="2.0" />
+                <Label text="Musical Genres" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="2.0" />
             </AnchorPane>
 
             <!-- Tabella playlist -->
             <AnchorPane AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                 <TableView fx:id="playlistTable" fixedCellSize="0.0" layoutX="151.0" layoutY="52.0" prefHeight="240.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0">
                     <columns>
-                        <TableColumn fx:id="approveColumn" prefWidth="75.0" text="Approvata" />
-                        <TableColumn fx:id="playlistNameColumn" prefWidth="150.0" text="Titolo" />
+                        <TableColumn fx:id="approveColumn" prefWidth="75.0" text="Approved" />
+                        <TableColumn fx:id="playlistNameColumn" prefWidth="150.0" text="Title" />
                         <TableColumn fx:id="linkColumn" prefWidth="200.0" text="Link" />
-                        <TableColumn fx:id="genreColumn" prefWidth="200.0" text="Generi Musicali" />
+                        <TableColumn fx:id="genreColumn" prefWidth="200.0" text="Musical genres" />
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
