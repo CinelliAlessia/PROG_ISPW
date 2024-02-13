@@ -6,6 +6,7 @@ import org.apache.commons.validator.routines.UrlValidator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PlaylistBean {
     private String username;
@@ -113,8 +114,16 @@ public class PlaylistBean {
 
 
     public void setEmotional(List<Double> emotional) {
-        this.emotional = emotional;
+        // Creo una nuova lista di interi arrotondando ogni numero double verso l'alto
+        List<Double> roundedEmotional = emotional.stream()
+                .map(Double::intValue) // Trasforma ogni Double in Integer (tronca la parte decimale)
+                .map(Math::ceil) // Arrotonda ogni Integer alla parte intera superiore
+                .collect(Collectors.toList()).reversed();
+
+        // Assegno la nuova lista di interi alla variabile emotional
+        this.emotional = roundedEmotional;
     }
+
 
     public List<Double> getEmotional() {
         return emotional;

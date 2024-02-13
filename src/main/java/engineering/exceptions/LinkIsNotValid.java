@@ -7,6 +7,6 @@ public class LinkIsNotValid extends Exception {
     private static final long serialVersionUID = 1L;
 
     public LinkIsNotValid() {
-        super("Il link non è valido!");
+        super("The link is not valid!");
     }
 }

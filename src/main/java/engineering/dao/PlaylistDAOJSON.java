@@ -57,11 +57,11 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 }
 
                 Files.copy(playlistPath, allPlaylistsPath, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Playlist inserita con successo!");
+                System.err.println("Playlist inserita con successo!");
                 result = true;
 
             } else {
-                System.out.println("Una playlist con questo nome esiste già per questo utente.");
+                System.err.println("Una playlist con questo nome esiste già per questo utente.");
                 throw new PlaylistLinkAlreadyInUse();
             }
 
@@ -82,7 +82,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (updatedInUserFolder && updatedInPendingFolder) {
             copyAndDeletePlaylist(playlist);
             playlist.setApproved(true);
-            System.out.println(playlist.getPlaylistName() + " " + playlist.getApproved());
+            System.err.println(playlist.getPlaylistName() + " " + playlist.getApproved());
             return playlist;
         }
         return null;
@@ -120,14 +120,14 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
                 // Sovrascrivi il file con le informazioni aggiornate
                 Files.writeString(playlistPath, updatedJson);
-                System.out.println(playlist.getPlaylistName() + " " + playlist.getApproved());
+                System.err.println(playlist.getPlaylistName() + " " + playlist.getApproved());
                 return true;
             } catch (IOException e) {
                 handleDAOException(e);
                 return false;
             }
         } else {
-            System.out.println("File della playlist non trovato.");
+            System.err.println("File della playlist non trovato.");
             return false;
         }
     }
@@ -200,9 +200,9 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         boolean deletedFromGlobalFolder = deletePlaylistFromFolder(allPlaylistsPath);
 
         if (deletedFromUserFolder && deletedFromGlobalFolder) {
-            System.out.println("Playlist eliminata con successo!");
+            System.err.println("Playlist eliminata con successo!");
         } else {
-            System.out.println("Errore durante l'eliminazione della playlist.");
+            System.err.println("Errore durante l'eliminazione della playlist.");
         }
     }
 
@@ -216,7 +216,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (Files.exists(userDirectory)) {
             playlistList = retrievePlaylistsFromDirectory(userDirectory);
         } else {
-            System.out.println("Utente non trovato!");
+            System.err.println("Utente non trovato!");
         }
 
         return playlistList;

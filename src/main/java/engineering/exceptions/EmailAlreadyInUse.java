@@ -7,7 +7,7 @@ public class EmailAlreadyInUse extends Exception {
         private static final long serialVersionUID = 1L;
 
         public EmailAlreadyInUse() {
-            super("Email già registrata!");
+            super("Email already registered!");
         }
 }
 

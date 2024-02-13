@@ -1,6 +1,6 @@
 package engineering.bean;
 
-import engineering.exceptions.EmailIsNotValid;
+import engineering.exceptions.InvalidEmailException;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
@@ -16,17 +16,17 @@ public abstract class ClientBean {
     protected ClientBean() {
     }
 
-    protected ClientBean(String username, String email, List<String> preferences) throws EmailIsNotValid {
+    protected ClientBean(String username, String email, List<String> preferences) throws InvalidEmailException {
         setUsername(username);
         setEmail(email);
         setPreferences(preferences);
     }
 
-    public void setEmail(String email) throws EmailIsNotValid {
+    public void setEmail(String email) throws InvalidEmailException {
         if(checkMailCorrectness(email)){
             this.email = email;
         } else {
-            throw new EmailIsNotValid();
+            throw new InvalidEmailException();
         }
     }
     public String getEmail() {

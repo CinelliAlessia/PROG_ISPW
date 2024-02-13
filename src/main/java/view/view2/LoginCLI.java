@@ -82,7 +82,7 @@ public class LoginCLI {
             /* ----- Avvia il metodo start del HomePageCLInterface ----- */
             homePageCLI.start();
 
-        } catch (IncorrectPassword | UserDoesNotExist | EmailIsNotValid e) {
+        } catch (IncorrectPassword | UserDoesNotExist | InvalidEmailException e) {
             System.err.println(e.getMessage());
         }
     }

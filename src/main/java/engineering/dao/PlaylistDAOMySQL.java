@@ -173,7 +173,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlists.add(playlist);
             }
 
-            System.out.println("PlaylistDAOMySQL: playlist trovate " + playlists);
+            System.err.println("PlaylistDAOMySQL: playlist trovate " + playlists);
 
 
         } catch (SQLException e) {
@@ -232,7 +232,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 playlists.add(playlist);
             }
 
-            System.out.println("PlaylistDAOMySQL: playlist trovate " + playlists);
+            System.err.println("PlaylistDAOMySQL: playlist trovate " + playlists);
 
 
         } catch (SQLException e) {

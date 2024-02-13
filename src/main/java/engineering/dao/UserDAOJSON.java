@@ -46,7 +46,7 @@ public class UserDAOJSON implements UserDAO {
             String json = new GsonBuilder().setPrettyPrinting().create().toJson(login);
             Files.writeString(userInfoFile, json);
 
-            System.out.println("Utente inserito con successo!");
+            System.err.println("USERDAO: Utente inserito con successo!");
         } catch (IOException e) {
             handleDAOException(e);
         }
@@ -61,7 +61,7 @@ public class UserDAOJSON implements UserDAO {
                 String content = Files.readString(userInfoFile);
                 return parseClient(content);
             } else {
-                System.out.println("Utente non trovato");
+                System.err.println("USERDAO: Utente non trovato");
                 throw new UserDoesNotExist();
             }
         } catch (IOException e) {
@@ -148,9 +148,9 @@ public class UserDAOJSON implements UserDAO {
                 // Sovrascrive il file solo con le informazioni aggiornate
                 Files.writeString(userInfoFile, updatedJson);
 
-                System.out.println("Preferenze utente aggiornate con successo!");
+                System.err.println("USERDAO: Preferenze utente aggiornate con successo!");
             } else {
-                System.out.println("Utente non trovato o file userInfo.json mancante.");
+                System.err.println("USERDAO: Utente non trovato o file userInfo.json mancante.");
             }
         } catch (IOException e) {
             handleDAOException(e);

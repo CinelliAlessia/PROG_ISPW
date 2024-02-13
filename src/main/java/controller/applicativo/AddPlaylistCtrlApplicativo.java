@@ -18,12 +18,12 @@ public class AddPlaylistCtrlApplicativo {
 
         // Crea la Playlist (model), id verrà impostato dal dao
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
-        System.out.println("AddPlaylist applicativo: "+playlist.getEmail()+ " " + playlist.getUsername()+ " " + playlist.getPlaylistName() + " " + playlist.getLink() + " " + playlist.getPlaylistGenre() + " "+playlist.getEmotional());
+        System.err.println("AddPlaylist applicativo: "+playlist.getEmail()+ " " + playlist.getUsername()+ " " + playlist.getPlaylistName() + " " + playlist.getLink() + " " + playlist.getPlaylistGenre() + " "+playlist.getEmotional());
         // Id della playlist definito in fase di inserimento dal DAO
 
         // Invio Playlist model al DAO
         if(dao.insertPlaylist(playlist)){
-            System.out.println("ADD APP: Playlist caricata correttamente");
+            System.err.println("ADD APP: Playlist caricata correttamente");
             /* Per pattern Observer */
             PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
 
@@ -32,7 +32,7 @@ public class AddPlaylistCtrlApplicativo {
             }
         } else {
             //################# Se la playlist non viene caricata Dovrei restituire un eccezione #################àà
-            System.out.println("ADD APP: Playlist non è stata caricata");
+            System.err.println("ADD APP: Playlist non è stata caricata");
         }
     }
 

@@ -82,7 +82,7 @@ public class UserDAOMySQL implements UserDAO {
             if (resultSet.next()) {
                 preferences = GenreManager.retriveGenre(resultSet);
             }
-            System.out.println("preferenze in load user " + preferences);
+            System.err.println("USERDAO: preferenze in load user " + preferences);
 
         } catch(SQLException e){
             handleDAOException(e);
@@ -92,11 +92,11 @@ public class UserDAOMySQL implements UserDAO {
         }
 
         if(supervisor){
-            System.out.println("UserDao Supervisore");
+            System.err.println("USERDAO: UserDao Supervisore");
             return new Supervisor(username,email,preferences);
 
         } else {
-            System.out.println("UserDao User");
+            System.err.println("USERDAO: UserDao User");
             return new User(username,email,preferences);
         }
     }
@@ -138,7 +138,6 @@ public class UserDAOMySQL implements UserDAO {
         try {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
-            System.out.println("CIAOOOO " + client.getEmail());
             QueryLogin.uploadGeneriMusicali(stmt,client.getEmail(),client.getPreferences());
 
         } catch (SQLException e) {

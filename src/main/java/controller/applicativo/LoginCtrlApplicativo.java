@@ -32,7 +32,7 @@ public class LoginCtrlApplicativo {
     }
 
     /** Recupera l'User dalla persistenza e crea una nuova istanza di UserBean */
-    public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist, EmailIsNotValid {
+    public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist, InvalidEmailException {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -43,17 +43,17 @@ public class LoginCtrlApplicativo {
             Client client = dao.loadUser(login);
 
             if(client instanceof User){
-                System.out.println("Login APP: Client " + client +" Supervisor: " + client.isSupervisor());
+                System.err.println("Login APP: Client " + client +" Supervisor: " + client.isSupervisor());
                 return new UserBean(client.getUsername(),client.getEmail(),client.getPreferences());
             } else if(client instanceof Supervisor){
-                System.out.println("Login APP: Client " + client +" Supervisor: " + client.isSupervisor());
+                System.err.println("Login APP: Client " + client +" Supervisor: " + client.isSupervisor());
                 return new SupervisorBean(client.getUsername(),client.getEmail(),client.getPreferences());
             }
 
         } catch (UserDoesNotExist e){
             throw new UserDoesNotExist();
-        } catch (EmailIsNotValid e) {
-            throw new EmailIsNotValid();
+        } catch (InvalidEmailException e) {
+            throw new InvalidEmailException();
         }
         return null;
     }

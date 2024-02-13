@@ -63,7 +63,7 @@ public class RegistrationCLI {
             registrazioneCtrlApp.registerUser(regBean, new UserBean(email));
             System.out.println("Registrazione utente avvenuta con successo!");
 
-        } catch (EmailAlreadyInUse | UsernameAlreadyInUse | EmailIsNotValid e) {
+        } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
             System.err.println(e.getMessage());
         }
     }

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="view.HomePageCtrlGrafico">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HomePageCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
@@ -24,7 +31,7 @@
 
                 <!-- Barra di ricerca -->
                 <HBox alignment="CENTER" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
-                    <Button fx:id="filterButton" mnemonicParsing="false" onAction="#onFilterClick" prefHeight="30.0" prefWidth="30.0"/>
+                    <Button fx:id="filterButton" mnemonicParsing="false" onAction="#onFilterClick" prefHeight="30.0" prefWidth="30.0" />
                     <TextField fx:id="searchText" prefWidth="800.0" promptText="Cerca qui" />
                     <Button fx:id="searchButton" mnemonicParsing="false" onAction="#onSearchPlaylistClick" prefHeight="30.0" prefWidth="30.0" />
                 </HBox>
