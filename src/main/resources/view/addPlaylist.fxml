@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="view.AddPlaylistCtrlGrafico">
+<BorderPane prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="view.firstView.AddPlaylistCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
