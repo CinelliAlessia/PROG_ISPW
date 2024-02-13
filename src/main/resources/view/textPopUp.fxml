@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="150.0" prefWidth="300.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="view.firstView.TextPopUp">
 
     <VBox alignment="CENTER" spacing="35.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Label fx:id="adviceText" text="Preferenze aggiornate!" />
+        <Label fx:id="adviceText" text="Preferences updated!" />
         <Button onAction="#closePopup" text="OK" />
     </VBox>
 
