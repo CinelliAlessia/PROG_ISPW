@@ -9,7 +9,7 @@ public class Playlist {
     private String username;
     private String email;
     private List<String> playlistGenre;
-    private boolean approved = false;
+    private boolean approved;
     List<Integer> emotional = List.of(0,0,0,0);
 
     public Playlist(){
@@ -17,18 +17,18 @@ public class Playlist {
     }
 
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved){
-        setEmail(email);
-        setUsername(username);
-        setPlaylistName(playlistName);
-        setLink(link);
-        setPlaylistGenre(playlistGenre);
-        setApproved(approved);
+        this.email = email;
+        this.username = username;
+        this.playlistName = playlistName;
+        this.link = link;
+        this.playlistGenre = playlistGenre;
+        this.approved = approved;
         this.id = "";
     }
 
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id){
         this(email, username, playlistName, link, playlistGenre, approved);
-        setId(id);
+        this.id = id;
     }
 
     public Playlist(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Integer> emotional){

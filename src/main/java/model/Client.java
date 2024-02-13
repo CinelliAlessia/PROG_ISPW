@@ -13,10 +13,11 @@ public abstract class Client {
 
     protected Client(){
     }
+
     protected Client(String username, String email, List<String> preferences){
-        setUsername(username);
-        setEmail(email);
-        setPreferences(preferences);
+        this.username = username;
+        this.email = email;
+        this.preferences = preferences;
     }
 
     public void setEmail(String email) {

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiornata gestione cartelle">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/firstView/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/firstView/AccountCtrlGrafico.java" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Aggiunta tasto copia link in account">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,14 +227,6 @@
       <workItem from="1707810991916" duration="12696000" />
       <workItem from="1707833653456" duration="9057000" />
       <workItem from="1707843680251" duration="1891000" />
-    </task>
-    <task id="LOCAL-00022" summary="Carivamento playlist funzionante">
-      <option name="closed" value="true" />
-      <created>1706703241298</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1706703241298</updated>
     </task>
     <task id="LOCAL-00023" summary="Correzione Code Smells">
       <option name="closed" value="true" />
@@ -622,7 +612,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707811289295</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Aggiunta tasto copia link in account">
+      <option name="closed" value="true" />
+      <created>1707846806432</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1707846806432</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +639,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Inizio implementazione Observer" />
     <MESSAGE value="Risoluzione Sicurezza aggiungendo un connection.properties" />
     <MESSAGE value="Update return value" />
     <MESSAGE value="Aggiornamento e risoluzione code smells" />
@@ -666,7 +663,8 @@
     <MESSAGE value="bottone filtri e schermata dei filtri iniziata" />
     <MESSAGE value="ora funziona il daoJSON (risolto problema immutable list)" />
     <MESSAGE value="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare" />
-    <option name="LAST_COMMIT_MESSAGE" value="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare" />
+    <MESSAGE value="Aggiunta tasto copia link in account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta tasto copia link in account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
