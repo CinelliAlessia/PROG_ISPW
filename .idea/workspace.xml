@@ -6,18 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare">
       <change afterPath="$PROJECT_DIR$/src/main/java/view/view2/AddPlaylistCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/p1[fc3d9e63-b2aa-4af0-9524-a21a31bea8fc].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/p2[80044958-6483-456b-a340-143f86ff4300].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/p3[0fe019ac-58b4-4bdf-af24-8b669769fdd0].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/p1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/p2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/p3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/view2/utils/ITAStringCLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/view2/HomePageCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view2/HomePageCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/view2/LoginCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view2/LoginCLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/view2/RegistrationCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view2/RegistrationCLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
     </list>

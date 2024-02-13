@@ -1,4 +1,4 @@
-package view.utils;
+package view.firstView.utils;
 
 public class MessageString {
     private MessageString(){}

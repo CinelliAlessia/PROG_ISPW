@@ -1,4 +1,4 @@
-package view.utils;
+package view.firstView.utils;
 
 import engineering.bean.PlaylistBean;
 import javafx.collections.*;

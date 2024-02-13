@@ -1,6 +1,5 @@
-package view.view2;
+package view.secondView;
 
-import engineering.bean.*;
 import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
@@ -115,8 +114,9 @@ public class HomePageCLI<T extends ClientBean>{
     }
 
     private void addPlaylist() {
-        // Passa al controller grafico per aggiungere una playlist
-        // Implementa questa parte in base alle tue esigenze
+        AddPlaylistCLI addPlaylistCLI = new AddPlaylistCLI();
+        addPlaylistCLI.setClientBean(clientBean);
+        addPlaylistCLI.start();
     }
 
     private void addFilter() {

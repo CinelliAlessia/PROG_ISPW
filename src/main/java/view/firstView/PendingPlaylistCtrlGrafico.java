@@ -1,9 +1,7 @@
-package view;
+package view.firstView;
 
-import engineering.bean.SupervisorBean;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import view.utils.*;
+import view.firstView.utils.*;
 
 import controller.applicativo.PendingPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;

@@ -1,4 +1,4 @@
-package view.view2;
+package view.secondView;
 
 import controller.applicativo.*;
 import engineering.bean.*;

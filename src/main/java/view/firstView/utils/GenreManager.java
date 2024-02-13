@@ -1,4 +1,4 @@
-package view.utils;
+package view.firstView.utils;
 
 import javafx.scene.control.CheckBox;
 import java.sql.*;

@@ -1,12 +1,12 @@
-package view.utils;
-
-import view.*;
+package view.firstView.utils;
 
 import engineering.bean.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
+import view.firstView.FilterCtrlGrafico;
+import view.firstView.TextPopUp;
 
 import java.io.IOException;
 import java.lang.reflect.*;

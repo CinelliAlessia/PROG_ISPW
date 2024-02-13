@@ -1,11 +1,11 @@
-package view;
+package view.firstView;
 
 import engineering.bean.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import view.utils.*;
+import view.firstView.utils.*;
 
 import java.net.URL;
 import java.util.*;

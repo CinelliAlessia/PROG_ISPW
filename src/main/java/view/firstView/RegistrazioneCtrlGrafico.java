@@ -1,10 +1,10 @@
-package view;
+package view.firstView;
 
 import controller.applicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
 
-import view.utils.*;
+import view.firstView.utils.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.*;

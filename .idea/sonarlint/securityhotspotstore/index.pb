@@ -133,7 +133,9 @@ V
 &src/main/java/view/view2/LoginCLI.java,5\6\568f87d81d1e4d9dfc75c952d55cb4ea45efb9d0
 Y
 )src/main/java/view/view2/HomePageCLI.java,4\e\4e094cf1593d876a8555cf01144f1175abd33a1a
-T
-$src/main/java/view/view2/HomePageCLI,8\f\8fb0445f4bc7647a8ce61e3690b6a0d9a5bc5509
-\
-,src/main/java/view/view2/AddPlaylistCLI.java,3\2\3240aeb42fb0ce4d46718d17e2c1159b227926f3
+d
+4src/main/java/view/firstView/utils/GenreManager.java,f\1\f1618d04a1fc99c160e314000b3d36c9566af014
+c
+3src/main/java/view/firstView/FilterCtrlGrafico.java,a\a\aacd12f4c194b1a2a435910781daa4247c8c0ff5
+[
++src/main/java/view/firstView/TextPopUp.java,b\8\b89b3ec4ee6e0e9ca1654dc86217d9e04f6b59a6
