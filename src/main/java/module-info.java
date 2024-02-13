@@ -8,8 +8,17 @@ module logic {
     exports start;
     opens start to javafx.fxml;
 
-    exports view;
-    opens view to javafx.fxml;
+    exports view.firstView.utils;
+    opens view.firstView.utils to javafx.fxml;
+
+    exports view.firstView;
+    opens view.firstView to javafx.fxml;
+
+    exports view.secondView;
+    opens view.secondView to javafx.fxml;
+
+    exports view.secondView.utils;
+    opens view.secondView.utils to javafx.fxml;
 
 
     exports engineering.dao;
@@ -34,6 +43,4 @@ module logic {
 
     exports model;
     opens model to com.google.gson;
-    exports view.firstView;
-    opens view.firstView to javafx.fxml;
 }
