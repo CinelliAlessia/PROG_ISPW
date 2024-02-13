@@ -28,8 +28,7 @@ public class MainApplication extends Application {
             // Interfaccia a riga di comando
             startCommandLineInterface();
         } else {
-            System.err.println("Tipo di interfaccia specificata non valida nel file di configurazione.");
-            // Aggiunta tipo default
+            System.err.println("Tipo di interfaccia specificata nel file di configurazione non valida.");
         }
     }
 
@@ -58,7 +57,7 @@ public class MainApplication extends Application {
             }
         } catch (IOException e) {
             System.out.println("Errore durante la lettura del file di configurazione.");
-            e.printStackTrace();
+            e.fillInStackTrace();
         }
         return properties;
     }

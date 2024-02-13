@@ -1,0 +1,18 @@
+{
+  "id": "0fe019ac-58b4-4bdf-af24-8b669769fdd0",
+  "playlistName": "P3",
+  "link": "L3",
+  "username": "aaa",
+  "email": "aaa@aaa.com",
+  "playlistGenre": [
+    "House",
+    "HipHop"
+  ],
+  "approved": true,
+  "emotional": [
+    0.0,
+    1.7965616045845252,
+    -2.7421203438395425,
+    0.0
+  ]
+}

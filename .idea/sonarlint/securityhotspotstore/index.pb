@@ -133,3 +133,7 @@ V
 &src/main/java/view/view2/LoginCLI.java,5\6\568f87d81d1e4d9dfc75c952d55cb4ea45efb9d0
 Y
 )src/main/java/view/view2/HomePageCLI.java,4\e\4e094cf1593d876a8555cf01144f1175abd33a1a
+T
+$src/main/java/view/view2/HomePageCLI,8\f\8fb0445f4bc7647a8ce61e3690b6a0d9a5bc5509
+\
+,src/main/java/view/view2/AddPlaylistCLI.java,3\2\3240aeb42fb0ce4d46718d17e2c1159b227926f3

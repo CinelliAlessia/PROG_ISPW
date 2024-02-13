@@ -46,7 +46,7 @@ public class RegistrationCLI {
 
         // Richiedi generi musicali disponibili all'utente
         System.out.println("Generi musicali disponibili:");
-        Map<Integer, String> availableGenres = getAvailableGenres(genreListFile);
+        Map<Integer, String> availableGenres = getAvailableGenres();
         printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
@@ -70,11 +70,11 @@ public class RegistrationCLI {
 
     /** Legge dal file dei generi musicali e genera una hash map (Intero, Stringa) che poi verrà
      * stampata da printGenres() */
-    private Map<Integer, String> getAvailableGenres(String filePath) {
+    private Map<Integer, String> getAvailableGenres() {
         // Restituisci una mappa di generi musicali disponibili letti da un file
         Map<Integer, String> availableGenres = new HashMap<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(genreListFile))) {
             String line;
             int index = 1;
             while ((line = br.readLine()) != null) {

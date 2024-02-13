@@ -27,7 +27,7 @@ public class LoginCLI {
                 case 3:
                     guestChoice();
                     break;
-                case 4:
+                case 0:
                     System.out.println("Grazie per aver utilizzato l'applicazione. Arrivederci!");
                     continueRunning = false;  // Imposta la condizione di uscita
                     break;
@@ -43,7 +43,7 @@ public class LoginCLI {
         System.out.println("1: Login");
         System.out.println("2: Registrazione");
         System.out.println("3: Ingresso come Guest");
-        System.out.println("4: Esci");
+        System.out.println("0: Esci");
     }
 
     /** Attesa Bloccante della scelta dell'utente */

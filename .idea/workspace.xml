@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="ora funziona il daoJSON (risolto problema immutable list)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/view2/HomePageCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/view2/LoginCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/view2/RegistrationCLI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/musicGenres" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/userInfo.json" afterDir="false" />
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/view2/AddPlaylistCLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/p1[fc3d9e63-b2aa-4af0-9524-a21a31bea8fc].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/p2[80044958-6483-456b-a340-143f86ff4300].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/approvedPlaylists/p3[0fe019ac-58b4-4bdf-af24-8b669769fdd0].json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/p1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/p2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence/users/aaa@aaa.com/p3.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/UserDAOJSON.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/start/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AccountCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePageCtrlGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginCtrlGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/view2/HomePageCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view2/HomePageCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/view2/LoginCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view2/LoginCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/view2/RegistrationCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view2/RegistrationCLI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,14 +224,7 @@
       <workItem from="1707601433175" duration="10883000" />
       <workItem from="1707667605090" duration="765000" />
       <workItem from="1707771527823" duration="8085000" />
-    </task>
-    <task id="LOCAL-00021" summary="Carivamento playlist funzionante">
-      <option name="closed" value="true" />
-      <created>1706686604761</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1706686604761</updated>
+      <workItem from="1707810991916" duration="12696000" />
     </task>
     <task id="LOCAL-00022" summary="Carivamento playlist funzionante">
       <option name="closed" value="true" />
@@ -614,7 +610,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707515310374</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare">
+      <option name="closed" value="true" />
+      <created>1707811289293</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1707811289295</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +637,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aggiornamento grafiche" />
     <MESSAGE value="Inizio implementazione Observer" />
     <MESSAGE value="Risoluzione Sicurezza aggiungendo un connection.properties" />
     <MESSAGE value="Update return value" />
@@ -658,7 +661,8 @@
     <MESSAGE value="Aggiunta slider" />
     <MESSAGE value="bottone filtri e schermata dei filtri iniziata" />
     <MESSAGE value="ora funziona il daoJSON (risolto problema immutable list)" />
-    <option name="LAST_COMMIT_MESSAGE" value="ora funziona il daoJSON (risolto problema immutable list)" />
+    <MESSAGE value="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare" />
+    <option name="LAST_COMMIT_MESSAGE" value="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -671,11 +675,6 @@
           <properties class="java.lang.UnsupportedOperationException" package="java.lang" />
           <option name="timeStamp" value="4" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/applicativo/AddPlaylistCtrlApplicativo.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

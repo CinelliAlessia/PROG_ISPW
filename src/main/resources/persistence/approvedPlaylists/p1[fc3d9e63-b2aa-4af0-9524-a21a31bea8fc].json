@@ -1,0 +1,18 @@
+{
+  "id": "fc3d9e63-b2aa-4af0-9524-a21a31bea8fc",
+  "playlistName": "P1",
+  "link": "L1",
+  "username": "aaa",
+  "email": "aaa@aaa.com",
+  "playlistGenre": [
+    "Pop",
+    "Rock"
+  ],
+  "approved": true,
+  "emotional": [
+    -2.140401146131805,
+    1.5128939172258349,
+    0.0,
+    0.0
+  ]
+}

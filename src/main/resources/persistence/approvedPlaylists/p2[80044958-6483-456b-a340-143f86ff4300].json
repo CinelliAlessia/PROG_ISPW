@@ -1,0 +1,17 @@
+{
+  "id": "80044958-6483-456b-a340-143f86ff4300",
+  "playlistName": "P2",
+  "link": "L2",
+  "username": "aaa",
+  "email": "aaa@aaa.com",
+  "playlistGenre": [
+    "Classic"
+  ],
+  "approved": true,
+  "emotional": [
+    0.0,
+    -2.0802292591521256,
+    -2.191977077363897,
+    3.0
+  ]
+}

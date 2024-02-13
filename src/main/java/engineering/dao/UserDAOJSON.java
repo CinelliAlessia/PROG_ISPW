@@ -128,7 +128,6 @@ public class UserDAOJSON implements UserDAO {
         }
     }
 
-
     public void updateGenreUser(Client client) {
         try {
             Path userInfoFile = Paths.get(BASE_DIRECTORY, client.getEmail(), ConfigurationJSON.USER_INFO_FILE_NAME);
