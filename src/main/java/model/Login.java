@@ -8,7 +8,7 @@ public class Login extends Client {
     /** Utilizzato in fase di login */
     public Login(String email, String password){
         setEmail(email);
-        setPassword(password);
+        this.password = password;
     }
 
     /** Utilizzato in fase di registrazione */

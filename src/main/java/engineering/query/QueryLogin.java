@@ -119,8 +119,18 @@ public class QueryLogin {
     }
 
     public static void addNotice(Statement stmt, Notice notice) throws SQLException {
-        StringBuilder query = new StringBuilder(String.format(Queries.INSERT_NOTICE_USER, notice.getUsernameAuthor(), notice.getTitle(), notice.getBody()));
-        stmt.executeUpdate(query.toString());
+        String query = String.format(Queries.INSERT_NOTICE_USER, notice.getUsernameAuthor(), notice.getTitle(), notice.getBody());
+        stmt.executeUpdate(query);
+    }
+
+    public static ResultSet retrieveNotice(Statement stmt, String username) {
+        try{
+            String query = String.format(Queries.SELECT_NOTICE_USER, username);
+            return stmt.executeQuery(query);
+        } catch (SQLException e){
+            handleException(e);
+            return null;
+        }
     }
 
     private static void handleException(Exception e) {
@@ -140,5 +150,4 @@ public class QueryLogin {
 
         return query.toString();
     }
-
 }

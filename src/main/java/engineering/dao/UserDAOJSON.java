@@ -7,6 +7,7 @@ import model.*;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
@@ -162,6 +163,11 @@ public class UserDAOJSON implements UserDAO {
 
     public void addNotice(Notice notice) {
         //TODO
+    }
+
+    public List<Notice> retrieveNotice(User user) {
+        //TODO
+        return null;
     }
 
 
