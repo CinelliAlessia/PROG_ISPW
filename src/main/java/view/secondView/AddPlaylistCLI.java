@@ -25,12 +25,12 @@ public class AddPlaylistCLI {
 
         playlistBean.setApproved(clientBean.isSupervisor());
         playlistBean.setUsername(clientBean.getUsername());
+        playlistBean.setEmail(clientBean.getEmail());
 
         // Chiedi all'utente di inserire i dati della playlist
         System.out.print("Inserisci il titolo della playlist: ");
         playlistBean.setPlaylistName(scanner.nextLine());
 
-        // #################### Devo prendere le emotional da input utente #############################à
         boolean linkIsValid = false;
         while (!linkIsValid) {
             System.out.print("Inserisci il link della playlist: ");
@@ -38,7 +38,7 @@ public class AddPlaylistCLI {
                 playlistBean.setLink(scanner.nextLine());
                 linkIsValid = true; // Se non viene lanciata l'eccezione, il link è valido e usciamo dal ciclo
             } catch (LinkIsNotValid e) {
-                System.err.println("Link non valido. Riprova.");
+                System.out.println("! Link non valido-> Riprova !");
             }
         }
 
@@ -47,11 +47,14 @@ public class AddPlaylistCLI {
         printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
-        System.out.print("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
+        System.out.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = extractGenres(availableGenres, genreInput);
         playlistBean.setPlaylistGenre(preferences);
+
+        // #################### Devo prendere le emotional da input utente #############################
+        playlistBean.setEmotional(Arrays.asList(0.0, 0.0, 0.0, 0.0));
 
         try {
             // Invocazione del controller applicativo per inserire la playlist
@@ -60,8 +63,8 @@ public class AddPlaylistCLI {
 
             System.out.println("Playlist aggiunta con successo!");
         } catch (PlaylistLinkAlreadyInUse e) {
-            System.err.println(STR."Errore durante l'aggiunta della playlist: \{e.getMessage()}");
-            // Puoi gestire ulteriori azioni in caso di errore, se necessario
+            System.out.println(STR." ! Il link relativo playlist è già presente nel sistema !");
+
         }
     }
 
@@ -98,10 +101,10 @@ public class AddPlaylistCLI {
                 if (availableGenres.containsKey(genreIndex)) {
                     preferences.add(availableGenres.get(genreIndex));
                 } else {
-                    System.err.println(STR."Numero genere non valido: \{index}");
+                    System.out.println(STR." ! Numero genere non valido: \{index} !");
                 }
             } catch (NumberFormatException e) {
-                System.err.println(STR."Input non valido: \{index}");
+                System.out.println(STR." ! Input non valido: \{index} !");
             }
         }
         return preferences;

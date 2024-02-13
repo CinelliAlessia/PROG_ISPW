@@ -39,7 +39,7 @@ public class RegistrationCLI {
             confirmPassword = scanner.next();
 
             if(!password.equals(confirmPassword)){
-                System.err.println("Le password non coincidono. Riprova.");
+                System.out.println(" ! Le password non coincidono -> Riprova !");
             } else {
                 retry = false;
             }
@@ -73,7 +73,7 @@ public class RegistrationCLI {
             homePageCLI.start();
 
         } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
-            System.err.println(e.getMessage());
+            System.out.println(STR."! \{e.getMessage()} !");
         }
     }
 
@@ -95,7 +95,6 @@ public class RegistrationCLI {
             // Gestisci l'eccezione qui senza lanciarla di nuovo
             System.err.println(STR."Errore durante la lettura del file: \{e.getMessage()}");
         }
-
         return availableGenres;
     }
 
@@ -115,10 +114,10 @@ public class RegistrationCLI {
                 if (availableGenres.containsKey(genreIndex)) {
                     preferences.add(availableGenres.get(genreIndex));
                 } else {
-                    System.err.println(STR."Numero genere non valido: \{index}");
+                    System.out.println(STR."! Numero genere non valido: \{index} !");
                 }
             } catch (NumberFormatException e) {
-                System.err.println(STR."Input non valido: \{index}");
+                System.out.println(STR." ! Input non valido: \{index} !");
             }
         }
         return preferences;
