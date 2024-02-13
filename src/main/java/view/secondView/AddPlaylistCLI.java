@@ -5,15 +5,10 @@ import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
 import engineering.exceptions.LinkIsNotValid;
 import engineering.exceptions.PlaylistLinkAlreadyInUse;
-import view.secondView.utils.ITAStringCLI;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import view.secondView.utils.GenreManager;
 import java.util.*;
 
 public class AddPlaylistCLI {
-    private final String genreListFile = ITAStringCLI.GENERES_FILE_PATH;
     private ClientBean clientBean;
     private final Scanner scanner = new Scanner(System.in);
 
@@ -43,14 +38,15 @@ public class AddPlaylistCLI {
         }
 
         // Richiedi all'utente di selezionare i generi musicali
-        Map<Integer, String> availableGenres = getAvailableGenres();
-        printGenres(availableGenres);
+        GenreManager genreManager = new GenreManager();
+        Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
+        genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
         System.out.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
         String genreInput = scanner.next();
 
-        List<String> preferences = extractGenres(availableGenres, genreInput);
+        List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
         playlistBean.setPlaylistGenre(preferences);
 
         // #################### Devo prendere le emotional da input utente #############################
@@ -63,51 +59,8 @@ public class AddPlaylistCLI {
 
             System.out.println("Playlist aggiunta con successo!");
         } catch (PlaylistLinkAlreadyInUse e) {
-            System.out.println(STR." ! Il link relativo playlist è già presente nel sistema !");
+            System.out.println(" ! Il link relativo playlist è già presente nel sistema !");
 
         }
     }
-
-    private Map<Integer, String> getAvailableGenres() {
-        // Restituisci una mappa di generi musicali disponibili letti da un file
-        Map<Integer, String> availableGenres = new HashMap<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(genreListFile))) {
-            String line;
-            int index = 1;
-            while ((line = br.readLine()) != null) {
-                // Aggiungi il genere alla mappa con un numero di indice
-                availableGenres.put(index, line.trim());
-                index++;
-            }
-        } catch (IOException e) {
-            // Gestisci l'eccezione qui senza lanciarla di nuovo
-            System.err.println(STR."Errore durante la lettura del file: \{e.getMessage()}");
-        }
-
-        return availableGenres;
-    }
-    private void printGenres(Map<Integer, String> genres) {
-        // Stampa i generi musicali disponibili
-        genres.forEach((key, value) -> System.out.println(STR."\{key}: \{value}"));
-    }
-    private List<String> extractGenres(Map<Integer, String> availableGenres, String genreInput) {
-        // Estrai i generi musicali selezionati dall'utente
-        List<String> preferences = new ArrayList<>();
-        String[] genreIndices = genreInput.split(",");
-        for (String index : genreIndices) {
-            try {
-                int genreIndex = Integer.parseInt(index.trim());
-                if (availableGenres.containsKey(genreIndex)) {
-                    preferences.add(availableGenres.get(genreIndex));
-                } else {
-                    System.out.println(STR." ! Numero genere non valido: \{index} !");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println(STR." ! Input non valido: \{index} !");
-            }
-        }
-        return preferences;
-    }
-
 }

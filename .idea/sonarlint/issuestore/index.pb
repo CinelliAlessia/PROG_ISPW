@@ -65,3 +65,17 @@ x
 Hsrc/main/java/controller/applicativo/PendingPlaylistCtrlApplicativo.java,9\c\9c4c16488564b843fe37e935bb5ac96c3cf7c27b
 v
 Fsrc/main/java/controller/applicativo/RegistrazioneCtrlApplicativo.java,a\d\ad4b6617709a02c3df495167ba7181472c2fd41a
+e
+5src/main/java/view/secondView/ManagePlaylistsCLI.java,6\6\6684108c3a6644d720de46620525164ef4834d95
+]
+-src/main/java/view/secondView/AccountCLI.java,1\2\12882c64a17075fc25b2aee30621398d156d16fa
+h
+8src/main/java/view/firstView/AddPlaylistCtrlGrafico.java,7\6\76dd73df286c360c707767364c649a9ba7462df1
+e
+5src/main/java/view/secondView/utils/GenreManager.java,1\7\1787c1655db5fbf23545becaa29c6b08ffc038c3
+b
+2src/main/java/view/secondView/RegistrationCLI.java,d\3\d384a707215dff6078c1991fe345ec73a002a462
+b
+2src/main/java/view/secondView/utils/StringCLI.java,0\7\07548fa9c5a066af6f78e9f766cb10f7f4184898
+l
+<src/main/java/view/firstView/PendingPlaylistCtrlGrafico.java,8\0\808442a8aed5241150d707c10549e20b9fe243f5

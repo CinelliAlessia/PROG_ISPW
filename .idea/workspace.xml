@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Eliminazione duplicazione">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/secondView/utils/GenreManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/bean/PlaylistBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/bean/PlaylistBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engineering/dao/PlaylistDAOMySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/AccountCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/AccountCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/AddPlaylistCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/AddPlaylistCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/HomePageCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/HomePageCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/ManagePlaylistsCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/ManagePlaylistsCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/RegistrationCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/RegistrationCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/utils/ITAStringCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/utils/StringCLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +51,7 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="abec164f-27d4-42ac-a43d-09f2629c05d4" />
+        <option name="accountId" value="860a6e10-297d-4de5-b13b-9d9d26b37310" />
         <option name="url" value="https://github.com/mzlala/PROG_ISPW.git" />
       </UrlAndAccount>
     </option>
@@ -104,7 +110,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.37587237",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "settings.editor.selected.configurable": "project.scopes",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {

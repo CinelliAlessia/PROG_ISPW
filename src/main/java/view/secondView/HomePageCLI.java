@@ -4,8 +4,6 @@ import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
 import engineering.bean.SupervisorBean;
-import engineering.exceptions.LinkIsNotValid;
-import view.firstView.utils.TableManager;
 
 import java.util.List;
 import java.util.Scanner;
@@ -88,11 +86,12 @@ public class HomePageCLI<T extends ClientBean>{
 
     private void account() {
         AccountCLI accountCLI = new AccountCLI();
+        accountCLI.setClientBean(clientBean);
         accountCLI.start();
     }
 
     private void printMenu() {
-        System.out.println(" ----- Benvenuto nella Home Page ----- ");
+        System.out.println(" ----- Home Page ----- ");
         System.out.println("1. Visualizza tutte le playlist");
         if (clientBean != null) {
             System.out.println("2. Aggiungi una playlist");
@@ -203,5 +202,4 @@ public class HomePageCLI<T extends ClientBean>{
             }
         }
     }
-
 }

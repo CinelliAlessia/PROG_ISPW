@@ -3,9 +3,11 @@ package view.secondView;
 import controller.applicativo.*;
 import engineering.bean.*;
 import engineering.exceptions.*;
-import view.secondView.utils.ITAStringCLI;
+import view.secondView.utils.GenreManager;
+import view.secondView.utils.StringCLI;
 
 import java.io.*;
+import java.lang.reflect.GenericArrayType;
 import java.util.*;
 
 // In questa interfaccia noto che il modo in cui è stato costruito il controller applicativo,
@@ -14,7 +16,7 @@ import java.util.*;
 // che purtroppo vengono effettuati solo quando si prova a inserire l'utente.
 // Esempio: non posso verificare se la password è già in uso immediatamente, perché non posseggo il metodo sull'applicativo: searchEmail
 public class RegistrationCLI {
-    private final String genreListFile = ITAStringCLI.GENERES_FILE_PATH;
+    private final String genreListFile = StringCLI.GENERES_FILE_PATH;
     private final Scanner scanner = new Scanner(System.in);
 
     public void start() {
@@ -47,14 +49,15 @@ public class RegistrationCLI {
 
         // Richiedi generi musicali disponibili all'utente
         System.out.println("Generi musicali disponibili:");
-        Map<Integer, String> availableGenres = getAvailableGenres();
-        printGenres(availableGenres);
+        GenreManager genreManager = new GenreManager();
+        Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
+        genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
         System.out.print("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
         String genreInput = scanner.next();
 
-        List<String> preferences = extractGenres(availableGenres, genreInput);
+        List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
 
         try {
             LoginBean regBean = new LoginBean(username, email, password, preferences);
@@ -77,50 +80,5 @@ public class RegistrationCLI {
         }
     }
 
-    /** Legge dal file dei generi musicali e genera una hash map (Intero, Stringa) che poi verrà
-     * stampata da printGenres() */
-    private Map<Integer, String> getAvailableGenres() {
-        // Restituisci una mappa di generi musicali disponibili letti da un file
-        Map<Integer, String> availableGenres = new HashMap<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(genreListFile))) {
-            String line;
-            int index = 1;
-            while ((line = br.readLine()) != null) {
-                // Aggiungi il genere alla mappa con un numero di indice
-                availableGenres.put(index, line.trim());
-                index++;
-            }
-        } catch (IOException e) {
-            // Gestisci l'eccezione qui senza lanciarla di nuovo
-            System.err.println(STR."Errore durante la lettura del file: \{e.getMessage()}");
-        }
-        return availableGenres;
-    }
-
-    private void printGenres(Map<Integer, String> genres) {
-        // Stampa i generi musicali disponibili
-        genres.forEach((key, value) -> System.out.println(STR."\{key}: \{value}"));
-    }
-
-    /** Parse dei generi inseriti dall'utente e controllo di corretto inserimento */
-    private List<String> extractGenres(Map<Integer, String> availableGenres, String genreInput) {
-        // Estrai i generi musicali selezionati dall'utente
-        List<String> preferences = new ArrayList<>();
-        String[] genreIndices = genreInput.split(",");
-        for (String index : genreIndices) {
-            try {
-                int genreIndex = Integer.parseInt(index.trim());
-                if (availableGenres.containsKey(genreIndex)) {
-                    preferences.add(availableGenres.get(genreIndex));
-                } else {
-                    System.out.println(STR."! Numero genere non valido: \{index} !");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println(STR." ! Input non valido: \{index} !");
-            }
-        }
-        return preferences;
-    }
 }
 
