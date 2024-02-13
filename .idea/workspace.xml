@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Eliminazione duplicazione">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/secondView/utils/GenreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/AccountCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/AccountCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/AddPlaylistCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/AddPlaylistCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/HomePageCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/HomePageCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/ManagePlaylistsCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/ManagePlaylistsCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/RegistrationCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/RegistrationCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/secondView/utils/ITAStringCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/secondView/utils/StringCLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-    </list>
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="&#10;Aggiunta Logger" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +39,7 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="860a6e10-297d-4de5-b13b-9d9d26b37310" />
+        <option name="accountId" value="abec164f-27d4-42ac-a43d-09f2629c05d4" />
         <option name="url" value="https://github.com/mzlala/PROG_ISPW.git" />
       </UrlAndAccount>
     </option>
@@ -110,7 +98,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.37587237",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.scopes",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -237,23 +225,7 @@
       <workItem from="1707810991916" duration="12696000" />
       <workItem from="1707833653456" duration="9057000" />
       <workItem from="1707843680251" duration="1891000" />
-      <workItem from="1707854286593" duration="958000" />
-    </task>
-    <task id="LOCAL-00024" summary="Correzione Code Smells">
-      <option name="closed" value="true" />
-      <created>1706732889217</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1706732889217</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Correzione Code Smells">
-      <option name="closed" value="true" />
-      <created>1706732978668</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1706732978668</updated>
+      <workItem from="1707854286593" duration="3771000" />
     </task>
     <task id="LOCAL-00026" summary="aggiornamento database">
       <option name="closed" value="true" />
@@ -631,7 +603,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707854837263</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Eliminazione duplicazione&#10;Correzione controllerApplicativo&#10;Aggiunta Logger">
+      <option name="closed" value="true" />
+      <created>1707857885050</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1707857885050</updated>
+    </task>
+    <task id="LOCAL-00074" summary="&#10;Aggiunta Logger">
+      <option name="closed" value="true" />
+      <created>1707858652012</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1707858652012</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,8 +638,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update return value" />
-    <MESSAGE value="Aggiornamento e risoluzione code smells" />
     <MESSAGE value="Risoluzione code smells" />
     <MESSAGE value="Risoluzione code smells, ridotto il riuso di codice" />
     <MESSAGE value="Aggiunto prova per Schermata supervisore" />
@@ -675,7 +661,9 @@
     <MESSAGE value="introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare" />
     <MESSAGE value="Aggiunta tasto copia link in account" />
     <MESSAGE value="Eliminazione duplicazione" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eliminazione duplicazione" />
+    <MESSAGE value="Eliminazione duplicazione&#10;Correzione controllerApplicativo&#10;Aggiunta Logger" />
+    <MESSAGE value="&#10;Aggiunta Logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;Aggiunta Logger" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

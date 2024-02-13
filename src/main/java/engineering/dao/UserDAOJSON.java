@@ -3,13 +3,11 @@ package engineering.dao;
 import com.google.gson.*;
 import engineering.exceptions.*;
 import engineering.others.*;
-import model.Client;
-import model.Login;
-import model.Supervisor;
-import model.User;
+import model.*;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
@@ -161,6 +159,15 @@ public class UserDAOJSON implements UserDAO {
 
     public void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
         //TODO
+    }
+
+    public void addNotice(Notice notice) {
+        //TODO
+    }
+
+    public List<Notice> retrieveNotice(User user) {
+        //TODO
+        return null;
     }
 
 

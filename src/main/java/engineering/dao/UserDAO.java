@@ -3,6 +3,8 @@ package engineering.dao;
 import engineering.exceptions.*;
 import model.*;
 
+import java.util.List;
+
 public interface UserDAO {
 
     /** Inserimento dell'utente in persistenza
@@ -23,4 +25,7 @@ public interface UserDAO {
 
     void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse;
 
+    void addNotice(Notice notice);
+
+    List<Notice> retrieveNotice(User user);
 }

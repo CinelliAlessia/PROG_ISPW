@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import view.firstView.utils.*;
 
+import java.util.logging.Logger;
+
 public class LoginCtrlGrafico {
 
     @FXML
@@ -17,6 +19,8 @@ public class LoginCtrlGrafico {
     private PasswordField password;
     @FXML
     private TextField emailField;
+
+    private static final Logger logger = Logger.getLogger(LoginCtrlGrafico.class.getName());
 
     private final SceneController sceneController = new SceneController();
 
@@ -29,7 +33,7 @@ public class LoginCtrlGrafico {
      * */
     @FXML
     protected void onLoginClick(ActionEvent event) {
-        System.out.println("GUI Login: inizio");
+        logger.info("GUI Login: inizio");
 
         /* ------ Recupero informazioni dalla schermata di login ------ */
         String email = emailField.getText().trim();
@@ -39,8 +43,8 @@ public class LoginCtrlGrafico {
         if (email.isEmpty() || pass.isEmpty()) {
             showError("Ci sono dei campi vuoti!");
         } else {
+            /* ------ Creo il bean e imposto i parametri ------ */
             try{
-                /* ------ Creo il bean e imposto i parametri ------ */
                 LoginBean loginBean = new LoginBean(email,pass);
                 LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); // Creo istanza del Login controller applicativo
 
@@ -49,8 +53,8 @@ public class LoginCtrlGrafico {
 
                 /* --------------- Credenziali corrette se non è scaturita l'eccezione -------------- */
                 ClientBean clientBean = loginCtrlApp.loadUser(loginBean); // Ottengo istanza di clientBean
-                System.out.println("GUI Login: Credenziali corrette");
-                System.out.println("GUI Login: Client " + clientBean + " Supervisor: " + clientBean.isSupervisor());
+                logger.info("GUI Login: Credenziali corrette");
+                logger.info(STR."GUI Login: Client \{clientBean} Supervisor: \{clientBean.isSupervisor()}");
 
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean

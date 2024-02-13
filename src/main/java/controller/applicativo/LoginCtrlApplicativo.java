@@ -3,10 +3,10 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
-import model.Client;
-import model.Login;
-import model.Supervisor;
-import model.User;
+import model.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
@@ -41,8 +41,20 @@ public class LoginCtrlApplicativo {
         try{
             Client client = dao.loadUser(login);
 
-            if(client instanceof User){
-                return new UserBean(client.getUsername(),client.getEmail(),client.getPreferences());
+
+            if(client instanceof User user){
+                UserBean userBean = new UserBean(client.getUsername(),client.getEmail(),client.getPreferences());
+
+                List<NoticeBean> noticeBeanList = new ArrayList<>();
+                List<Notice> noticeList = retriveNotice(user);
+
+                for(Notice notice: noticeList){
+                    NoticeBean noticeBean = new NoticeBean(notice.getTitle(),notice.getBody(),notice.getUsernameAuthor());
+                    noticeBeanList.add(noticeBean);
+                }
+                userBean.setNotices(noticeBeanList);
+                return userBean;
+
             } else if(client instanceof Supervisor){
                 return new SupervisorBean(client.getUsername(),client.getEmail(),client.getPreferences());
             }
@@ -53,5 +65,12 @@ public class LoginCtrlApplicativo {
             throw new InvalidEmailException();
         }
         return null;
+    }
+
+    public List<Notice> retriveNotice(User user){
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
+        UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+
+        return dao.retrieveNotice(user);
     }
 }

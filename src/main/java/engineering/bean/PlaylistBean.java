@@ -3,10 +3,7 @@ package engineering.bean;
 import engineering.exceptions.LinkIsNotValid;
 import org.apache.commons.validator.routines.UrlValidator;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PlaylistBean {
     private String username;

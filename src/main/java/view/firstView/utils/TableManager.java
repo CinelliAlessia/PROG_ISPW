@@ -6,9 +6,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public class TableManager {
     private boolean isUpdatingTableView = true;
+    private static final Logger logger = Logger.getLogger(TableManager.class.getName());
+
 
 
     /** Associa a ciascuna colonna i relativi metodi get di PlaylistBean
@@ -32,12 +35,12 @@ public class TableManager {
     public static void updateTable(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlists) {
 
         List<PlaylistBean> currentPlaylists = playlistTable.getItems();     // Ottenere la lista attuale di playlist dalla TableView
-        System.err.println("Table Manager update: playlist corrente" + currentPlaylists);
-        System.err.println("Table Manager update: playlist totale nuova" + playlists);
+        logger.info(STR."Table Manager update: playlist corrente\{currentPlaylists}");
+        logger.info(STR."Table Manager update: playlist totale nuova\{playlists}");
 
         playlists.removeAll(currentPlaylists);                              // Rimuove le playlist già caricate, cosi da avere una lista di playlist nuove
         // ### Problema se viene rimossa una playlist
-        System.err.println("Table Manager update: playlist da aggiungere" + playlists);
+        logger.info(STR."Table Manager update: playlist da aggiungere\{playlists}");
 
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
         playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
@@ -52,13 +55,13 @@ public class TableManager {
         // Aggiunta di un listener di modifica al ObservableList
         observableList.addListener((ListChangeListener<PlaylistBean>) change -> {
             while (change.next()) {
-                if (change.wasAdded() && isUpdatingTableView) { ///// non accade mai
-                    System.err.println("Elementi aggiunti: " + change.getAddedSubList());
+                if (change.wasAdded() && isUpdatingTableView) { ///// non accade mai #########
+                    logger.info(STR."Elementi aggiunti: \{change.getAddedSubList()}");
                     isUpdatingTableView = false;
                     playlistTable.getItems().addAll(change.getAddedSubList());
                     isUpdatingTableView = true;
                 } else if (change.wasRemoved() && isUpdatingTableView) {
-                    System.err.println("Elementi rimossi: " + change.getRemoved());
+                    logger.info(STR."Elementi rimossi: \{change.getRemoved()}");
                     isUpdatingTableView = false;
                     playlistTable.getItems().removeAll(change.getRemoved());
                     isUpdatingTableView = true;

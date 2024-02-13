@@ -1,6 +1,8 @@
 package view.firstView;
 
+import engineering.bean.NoticeBean;
 import javafx.collections.ObservableList;
+import model.Notice;
 import view.firstView.utils.*;
 
 import controller.applicativo.PendingPlaylistCtrlApplicativo;
@@ -12,6 +14,7 @@ import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class PendingPlaylistCtrlGrafico implements Initializable {
 
@@ -29,7 +32,9 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
     private TableColumn<PlaylistBean, Boolean> usernameColumn;
 
     private SceneController sceneController;
-    private static ObservableList<PlaylistBean> osservableList;
+    private static ObservableList<PlaylistBean> observableList;
+    private static final Logger logger = Logger.getLogger(PendingPlaylistCtrlGrafico.class.getName());
+
 
     public void setAttributes(SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
@@ -53,28 +58,40 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         approveColumn.setCellFactory(_ -> new DoubleButtonTableCell());
 
         TableManager tableManager = new TableManager();
-        osservableList = tableManager.collegamento(playlistTable,playlistsPending);
+        observableList = tableManager.collegamento(playlistTable,playlistsPending);
     }
 
-    /** Static perché deve essere chiamata da DoubleButtonTableCell, è l'azione che viene compiuta al click del bottone */
+    /** Static perché deve essere chiamata da DoubleButtonTableCell, è l'azione che viene compiuta al click del bottone Accept o Reject */
     public static void handlePendingButton(PlaylistBean playlistBean, boolean approve, TableView<PlaylistBean> tableView) {
 
         // Logica per gestire l'approvazione o il rifiuto della playlist
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
 
+        String title;
+        String body;
+
         if (approve) {
-            System.out.println("Approvazione della playlist: " + playlistBean.getPlaylistName());
+            logger.info(STR."Approvazione della playlist: \{playlistBean.getPlaylistName()}");
+
+            title = "Approved";
+            body = String.format("Your playlist %s is approved!",playlistBean.getPlaylistName());
 
             // Approva Playlist
             pendingPlaylistCtrlApplicativo.approvePlaylist(playlistBean);
         } else {
-            System.out.println("Rifiuto della playlist: " + playlistBean.getPlaylistName());
+            logger.info(STR."Rifiuto della playlist: \{playlistBean.getPlaylistName()}");
+
+            title = "Rejected";
+            body = String.format("Your playlist %s is rejected!",playlistBean.getPlaylistName());
 
             // Rifiuta Playlist
             pendingPlaylistCtrlApplicativo.rejectPlaylist(playlistBean);
 
         }
-        osservableList.remove(playlistBean);
+
+        NoticeBean noticeBean = new NoticeBean(title, body, playlistBean.getUsername());
+        pendingPlaylistCtrlApplicativo.sendNotification(noticeBean);
+        observableList.remove(playlistBean);
     }
 
     @FXML

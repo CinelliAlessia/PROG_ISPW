@@ -77,7 +77,7 @@ public class HomePageCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            logger.info("HomePage APP: LinkIsNotValid " + e.getMessage());
+            logger.info(STR."HomePage APP: LinkIsNotValid \{e.getMessage()}");
         }
         return playlistsBean;
     }
@@ -89,11 +89,11 @@ public class HomePageCtrlApplicativo {
 
         for (Integer value : emotional) {
             if (value != 0) {
-                return false; // Se anche un solo valore non è 0.0, restituisci false
+                return false; // Se anche un solo valore non è 0, restituisci false
             }
         }
 
-        return true; // Tutti i valori sono 0.0
+        return true; // Tutti i valori sono 0
     }
 
     private boolean genreEmpty(List<String> genre){

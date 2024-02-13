@@ -17,6 +17,8 @@ public class UserDAOMySQL implements UserDAO {
 
     private static final Logger logger = Logger.getLogger(UserDAOMySQL.class.getName());
 
+    private static final String USERNAME = "username";
+
     /** Metodo per inserire un User nel database al momento della registrazione
      * viene effettuato il controllo sulla email scelta e sull'username scelto */
     public void insertUser(Login registration) throws EmailAlreadyInUse, UsernameAlreadyInUse{
@@ -31,6 +33,7 @@ public class UserDAOMySQL implements UserDAO {
 
             String email = registration.getEmail();
             rs = QueryLogin.loginUser(stmt, email);
+            assert rs != null;
             if (rs.next()) {
                 throw new EmailAlreadyInUse();
             }
@@ -38,6 +41,7 @@ public class UserDAOMySQL implements UserDAO {
 
             String username = registration.getUsername();
             rs = QueryLogin.loginUserByUsername(stmt, username);
+            assert rs != null;
             if (rs.next()) {
                 throw new UsernameAlreadyInUse();
             }
@@ -72,8 +76,9 @@ public class UserDAOMySQL implements UserDAO {
 
             resultSet = QueryLogin.loginUser(stmt, login.getEmail());
 
+            assert resultSet != null;
             if (resultSet.next()) {
-                username = resultSet.getString("username");
+                username = resultSet.getString(USERNAME);
                 email = resultSet.getString("email");
                 supervisor = resultSet.getBoolean("supervisor");
             } else {
@@ -115,8 +120,9 @@ public class UserDAOMySQL implements UserDAO {
             stmt = conn.createStatement();
             rs = QueryLogin.loginUserByUsername(stmt, username);
 
+            assert rs != null;
             if (rs.next()) {
-                username = rs.getString("username");
+                username = rs.getString(USERNAME);
                 email = rs.getString("email");
                 supervisor = rs.getBoolean("supervisor");
             } else {
@@ -213,6 +219,61 @@ public class UserDAOMySQL implements UserDAO {
             // Chiusura delle risorse
             closeResources(stmt,rs);
         }
+    }
+
+    public void addNotice(Notice notice) {
+        Statement stmt = null;
+        Connection conn;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            QueryLogin.addNotice(stmt, notice);
+
+        } catch (SQLException e) {
+            handleDAOException(e);
+        } finally {
+            // Chiusura delle risorse
+            closeResources(stmt,null);
+        }
+
+    }
+
+    public List<Notice> retrieveNotice(User user) {
+        Statement stmt = null;
+        Connection conn;
+        ResultSet rs = null;
+
+        List<Notice> noticeList = new ArrayList<>();
+
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            rs = QueryLogin.retrieveNotice(stmt, user.getUsername());
+
+            while (true) {
+                assert rs != null;
+                if (!rs.next()) break;
+
+                String title = rs.getString("title");
+                String body = rs.getString("body");
+                String author = rs.getString(USERNAME);
+
+                Notice notice = new Notice(title,body,author);
+                noticeList.add(notice);
+            }
+            rs.close();
+
+        } catch (SQLException e) {
+            handleDAOException(e);
+        } finally {
+            // Chiusura delle risorse
+            closeResources(stmt,rs);
+        }
+        return noticeList;
     }
 
     /** Metodo utilizzato per chiudere le risorse utilizzate */

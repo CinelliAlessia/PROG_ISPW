@@ -10,8 +10,11 @@ import view.secondView.LoginCLI;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class MainApplication extends Application {
+    private static final Logger logger = Logger.getLogger(MainApplication.class.getName());
+
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -28,7 +31,7 @@ public class MainApplication extends Application {
             // Interfaccia a riga di comando
             startCommandLineInterface();
         } else {
-            System.err.println("Tipo di interfaccia specificata nel file di configurazione non valida.");
+            logger.info("Tipo di interfaccia specificata nel file di configurazione non valida.");
         }
     }
 
@@ -53,11 +56,10 @@ public class MainApplication extends Application {
             if (input != null) {
                 properties.load(input);
             } else {
-                System.out.println("Impossibile trovare il file di configurazione.");
+                logger.severe("Impossibile trovare il file di configurazione.");
             }
         } catch (IOException e) {
-            System.out.println("Errore durante la lettura del file di configurazione.");
-            e.fillInStackTrace();
+           logger.info(STR."Errore durante la lettura del file di configurazione.\{e.getMessage()}");
         }
         return properties;
     }
