@@ -98,7 +98,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
                 System.out.println("GUI Registrazione: Utente registrato con successo");
 
                 /* --------------- Mostro la home page -------------- */
-                sceneController.<HomePageCtrlGrafico<ClientBean>>goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);
+                sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);
 
             } catch (EmailAlreadyInUse | UsernameAlreadyInUse | EmailIsNotValid e) {
                 showError(e.getMessage());

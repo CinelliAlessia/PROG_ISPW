@@ -6,8 +6,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import view.utils.SceneController;
 
-public class TextPopUp
-{
+public class TextPopUp {
     @FXML
     private Label adviceText;
 
@@ -28,6 +27,7 @@ public class TextPopUp
     public void  setPreviousEvent(ActionEvent event){
         previousEvent = event;
     }
+
     @FXML
     private void closePopup(ActionEvent event) {
         // Chiudi il popup

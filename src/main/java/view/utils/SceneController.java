@@ -48,6 +48,7 @@ public class SceneController {
             handleSceneLoadError(e);
         }
     }
+
     @FXML
     public void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean) {
         goToScene(event, fxmlPath, clientBean, null);
@@ -110,9 +111,7 @@ public class SceneController {
             System.out.println("TIPO: " + SceneController.class);
 
             return; // Esce dal metodo se trova una firma valida
-        } catch (NoSuchMethodException _) {
-            handleSceneLoadError(new NoSuchMethodException("Nessuna firma valida del metodo setAttributes trovata"));
-        } catch (IllegalAccessException | InvocationTargetException e) {
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             handleSceneLoadError(e);
         }
 

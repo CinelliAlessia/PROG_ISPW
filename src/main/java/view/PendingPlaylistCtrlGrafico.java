@@ -1,5 +1,6 @@
 package view;
 
+import engineering.bean.SupervisorBean;
 import view.utils.*;
 
 import controller.applicativo.PendingPlaylistCtrlApplicativo;

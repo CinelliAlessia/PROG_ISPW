@@ -12,6 +12,20 @@ import java.util.*;
 
 public class PlaylistDAOMySQL implements PlaylistDAO {
 
+    /* Stringhe dei campi nel DB my SQL */
+    private static final String USERNAME = "username";
+    private static final String LINK = "link";
+    private static final String EMAIL = "email";
+    private static final String NAME_PLAYLIST = "namePlaylist";
+    private static final String APPROVED = "approved";
+    private static final String PENDING = "pending";
+    private static final String SEARCH_WORD = "searchWord";
+    private static final String SLIDER1 = "slider1";
+    private static final String SLIDER2 = "slider2";
+    private static final String SLIDER3 = "slider3";
+    private static final String SLIDER4 = "slider4";
+
+
     /** Inserimento di una playlist in db. Viene prima controllato che non ci sia già il link all'interno del DB, successivamente inserisce */
     public boolean insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
         Statement stmt = null;
@@ -96,12 +110,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
             while (rs.next()) {
                 Playlist playlist = new Playlist();
-                playlist.setUsername(rs.getString("username"));
-                playlist.setLink(rs.getString("link"));
-                playlist.setEmail(rs.getString("email"));
-                playlist.setPlaylistName(rs.getString("namePlaylist"));
-                playlist.setApproved(rs.getBoolean("approved"));
-
+                fillModelFromResultSet(playlist,rs);
                 genres = GenreManager.retriveGenre(rs);
                 playlist.setPlaylistGenre(genres);
                 playlists.add(playlist);
@@ -117,13 +126,13 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         return playlists;
     }
     public List<Playlist> retrievePendingPlaylists() {
-        return retrievePlaylists("pending",null);
+        return retrievePlaylists(PENDING,null);
     }
     public List<Playlist> retrieveApprovedPlaylists() {
-        return retrievePlaylists("approve",null);
+        return retrievePlaylists(APPROVED,null);
     }
     public List<Playlist> searchPlaylistString(Playlist playlist) {
-        return retrievePlaylists("searchWord",playlist);
+        return retrievePlaylists(SEARCH_WORD,playlist);
     }
 
     private List<Playlist> retrievePlaylists(String s,Playlist p){
@@ -138,13 +147,13 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             stmt = conn.createStatement();
 
             switch (s){
-                case "pending":  //Recupera tutte le playlist da approvare (Per il gestore delle playlist)
+                case PENDING:  //Recupera tutte le playlist da approvare (Per il gestore delle playlist)
                     rs = QueryPlaylist.retrievePendingPlaylists(stmt);
                     break;
-                case "approve": //Recupera tutte le playlist già approvare (Per la home page)
+                case APPROVED: //Recupera tutte le playlist già approvare (Per la home page)
                     rs = QueryPlaylist.retrieveApprovedPlaylists(stmt);
                     break;
-                case "searchWord":
+                case SEARCH_WORD:
                     if(p != null){
                         rs = QueryPlaylist.searchPlaylistString(stmt,p.getPlaylistName());
                     }
@@ -158,12 +167,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 if (!rs.next()) break;
 
                 Playlist playlist = new Playlist();
-
-                playlist.setLink(rs.getString("link"));
-                playlist.setUsername(rs.getString("username"));
-                playlist.setEmail(rs.getString("email"));
-                playlist.setPlaylistName(rs.getString("namePlaylist"));
-
+                fillModelFromResultSet(playlist,rs);
                 List<String> genres = GenreManager.retriveGenre(rs);
                 playlist.setPlaylistGenre(genres);
                 playlists.add(playlist);
@@ -222,12 +226,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 if (!rs.next()) break;
 
                 Playlist playlist = new Playlist();
-
-                playlist.setLink(rs.getString("link"));
-                playlist.setUsername(rs.getString("username"));
-                playlist.setEmail(rs.getString("email"));
-                playlist.setPlaylistName(rs.getString("namePlaylist"));
-
+                fillModelFromResultSet(playlist,rs);
                 playlist.setPlaylistGenre(playlistSearch.getPlaylistGenre());
                 playlist.setEmotional(playlistSearch.getEmotional());
                 playlists.add(playlist);
@@ -261,5 +260,13 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         e.printStackTrace();
     }
 
+    /** Imposta i campi username, email, link, nome Playlist e approved */
+    private void fillModelFromResultSet(Playlist playlist, ResultSet rs) throws SQLException {
+        playlist.setLink(rs.getString(LINK));
+        playlist.setUsername(rs.getString(USERNAME));
+        playlist.setEmail(rs.getString(EMAIL));
+        playlist.setPlaylistName(rs.getString(NAME_PLAYLIST));
+        playlist.setApproved(rs.getBoolean(APPROVED));
+    }
 
 }

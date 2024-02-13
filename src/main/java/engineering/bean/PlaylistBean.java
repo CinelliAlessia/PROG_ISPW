@@ -3,6 +3,8 @@ package engineering.bean;
 import engineering.exceptions.LinkIsNotValid;
 import org.apache.commons.validator.routines.UrlValidator;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PlaylistBean {
@@ -11,14 +13,22 @@ public class PlaylistBean {
     private String link;
     private String playlistName;
     private List<String> playlistGenre;
+    private List<Double> emotional;
     private boolean approved = false;
-
     private String id;
 
-    private List<Double> emotional;
+    public PlaylistBean() {
+        /*setEmail("");
+        this.link = "";
+        setPlaylistName("");
+        setUsername("");
+        setApproved(approved);
 
-    public PlaylistBean(){
+        List<String> genre = new ArrayList<>();
+        List<Double> emotionalDefault = new ArrayList<>(4);
 
+        setPlaylistGenre(genre);
+        setEmotional(emotionalDefault);*/
     }
 
     public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved) throws LinkIsNotValid {

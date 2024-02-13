@@ -52,7 +52,7 @@ public class LoginCtrlGrafico {
                     System.out.println("GUI Login: Client " + clientBean +" Supervisor: " + clientBean.isSupervisor());
 
                     /* --------------- Mostro la home page -------------- */
-                    sceneController.<HomePageCtrlGrafico<ClientBean>>goToScene(event, FxmlFileName.HOME_PAGE_FXML,clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean
+                    sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean
                 }
             } catch (IncorrectPassword | UserDoesNotExist | EmailIsNotValid e){
                 showError(e.getMessage());
@@ -63,13 +63,13 @@ public class LoginCtrlGrafico {
     @FXML
     protected void onRegisterClick(ActionEvent event) {
         //Push della scena corrente nello stack delle scene e show() della scena seguente
-        sceneController.<RegistrazioneCtrlGrafico>goToScene(event, FxmlFileName.REGISTRATION_FXML,null);
+        sceneController.goToScene(event, FxmlFileName.REGISTRATION_FXML);
     }
 
     @FXML
     protected void onGuestClick(ActionEvent event) {
         /* Creiamo un'istanza di HomePageCtrlGrafico in cui T è sostituito con UserBean */
-        sceneController.<HomePageCtrlGrafico<UserBean>>goToScene(event, FxmlFileName.HOME_PAGE_FXML,null);
+        sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML);
     }
 
     private void showError(String message) {

@@ -7,7 +7,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import view.utils.*;
 
 import java.net.URL;
@@ -147,8 +149,12 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     @FXML
     public void addPlaylistClick(ActionEvent event) {
         // Passa alla schermata di caricamento della playlist, passando il bean del cliente
-        observableList.add(new PlaylistBean());
-        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean);
+        PlaylistBean playlistBean = new PlaylistBean();
+        playlistBean.setEmail(clientBean.getEmail());
+
+        observableList.add(playlistBean);
+
+        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean, playlistBean);
         System.out.println("Sono dopo la riga gotoScene");
     }
 
