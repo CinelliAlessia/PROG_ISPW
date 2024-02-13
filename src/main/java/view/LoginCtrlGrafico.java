@@ -45,15 +45,16 @@ public class LoginCtrlGrafico {
                 LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo(); // Creo istanza del Login controller applicativo
 
 
-                if (loginCtrlApp.verificaCredenziali(loginBean)) {
-                    /* --------------- Credenziali corrette -------------- */
-                    ClientBean clientBean = loginCtrlApp.loadUser(loginBean); // Ottengo istanza di clientBean
-                    System.out.println("GUI Login: Credenziali corrette");
-                    System.out.println("GUI Login: Client " + clientBean +" Supervisor: " + clientBean.isSupervisor());
+                loginCtrlApp.verificaCredenziali(loginBean);
 
-                    /* --------------- Mostro la home page -------------- */
-                    sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean
-                }
+                /* --------------- Credenziali corrette se non è scaturita l'eccezione -------------- */
+                ClientBean clientBean = loginCtrlApp.loadUser(loginBean); // Ottengo istanza di clientBean
+                System.out.println("GUI Login: Credenziali corrette");
+                System.out.println("GUI Login: Client " + clientBean + " Supervisor: " + clientBean.isSupervisor());
+
+                /* --------------- Mostro la home page -------------- */
+                sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean
+
             } catch (IncorrectPassword | UserDoesNotExist | EmailIsNotValid e){
                 showError(e.getMessage());
             }

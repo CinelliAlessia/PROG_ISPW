@@ -2,14 +2,10 @@ package view;
 
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.fxml.*;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import view.utils.*;
 
 import java.net.URL;

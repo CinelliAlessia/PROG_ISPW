@@ -1,25 +1,19 @@
 package view.view2;
 
-import controller.applicativo.RegistrazioneCtrlApplicativo;
-import engineering.bean.ClientBean;
-import engineering.bean.LoginBean;
-import engineering.bean.UserBean;
-import engineering.exceptions.EmailAlreadyInUse;
-import engineering.exceptions.EmailIsNotValid;
-import engineering.exceptions.UsernameAlreadyInUse;
+import controller.applicativo.*;
+import engineering.bean.*;
+import engineering.exceptions.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
+
 // In questa interfaccia noto che il modo in cui è stato costruito il controller applicativo,
 // mi rende impossibile invocare metodi diversi da loadUser
 // questo rende complicata la gestione di questa interfaccia, che essendo diversa ha bisogno di ulteriori controlli,
 // che purtroppo vengono effettuati solo quando si prova a inserire l'utente.
 // Esempio: non posso verificare se la password è già in uso immediatamente, perché non posseggo il metodo sull'applicativo: searchEmail
 public class RegistrationCLI {
-    private String gennereListFile = "src/main/resources/musicGenres";
-    private final RegistrazioneCtrlApplicativo registrazioneCtrlApp = new RegistrazioneCtrlApplicativo();
+    private final String genreListFile = "src/main/resources/musicGenres";
     private final Scanner scanner = new Scanner(System.in);
 
     public void start() {
@@ -30,42 +24,52 @@ public class RegistrationCLI {
         System.out.print("Email: ");
         String email = scanner.next();
 
-        System.out.print("Password: ");
-        String password = scanner.next();
-
-        System.out.print("Conferma password: ");
-        String confirmPassword = scanner.next();
+        String password = null;
+        String confirmPassword;
+        boolean retry = true;
 
         // Controllo se le due password sono identiche
-        while (!password.equals(confirmPassword)) {
-            System.out.println("Le password non coincidono. Riprova.");
+        while (retry) {
+
             System.out.print("Password: ");
             password = scanner.next();
+
             System.out.print("Conferma password: ");
             confirmPassword = scanner.next();
+
+            if(!password.equals(confirmPassword)){
+                System.err.println("Le password non coincidono. Riprova.");
+            } else {
+                retry = false;
+            }
         }
 
         // Richiedi generi musicali disponibili all'utente
         System.out.println("Generi musicali disponibili:");
-        Map<Integer, String> availableGenres = getAvailableGenres(gennereListFile);
+        Map<Integer, String> availableGenres = getAvailableGenres(genreListFile);
         printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
         System.out.print("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
         String genreInput = scanner.next();
+
         List<String> preferences = extractGenres(availableGenres, genreInput);
 
         try {
             LoginBean regBean = new LoginBean(username, email, password, preferences);
+            RegistrazioneCtrlApplicativo registrazioneCtrlApp = new RegistrazioneCtrlApplicativo();
+
             // ----- Utilizzo controller applicativo -----
             registrazioneCtrlApp.registerUser(regBean, new UserBean(email));
             System.out.println("Registrazione utente avvenuta con successo!");
+
         } catch (EmailAlreadyInUse | UsernameAlreadyInUse | EmailIsNotValid e) {
-            System.out.println(STR."Errore durante la registrazione: \{e.getMessage()}");
-            // Gestione dell'errore se necessario
+            System.err.println(e.getMessage());
         }
     }
 
+    /** Legge dal file dei generi musicali e genera una hash map (Intero, Stringa) che poi verrà
+     * stampata da printGenres() */
     private Map<Integer, String> getAvailableGenres(String filePath) {
         // Restituisci una mappa di generi musicali disponibili letti da un file
         Map<Integer, String> availableGenres = new HashMap<>();
@@ -80,7 +84,7 @@ public class RegistrationCLI {
             }
         } catch (IOException e) {
             // Gestisci l'eccezione qui senza lanciarla di nuovo
-            System.out.println(STR."Errore durante la lettura del file: \{e.getMessage()}");
+            System.err.println(STR."Errore durante la lettura del file: \{e.getMessage()}");
         }
 
         return availableGenres;
@@ -102,10 +106,10 @@ public class RegistrationCLI {
                 if (availableGenres.containsKey(genreIndex)) {
                     preferences.add(availableGenres.get(genreIndex));
                 } else {
-                    System.out.println(STR."Numero genere non valido: \{index}");
+                    System.err.println(STR."Numero genere non valido: \{index}");
                 }
             } catch (NumberFormatException e) {
-                System.out.println(STR."Input non valido: \{index}");
+                System.err.println(STR."Input non valido: \{index}");
             }
         }
         return preferences;

@@ -24,6 +24,7 @@ public class PendingPlaylistCtrlApplicativo {
         // Istanza di playlist ha ancora il parametro approved a false
         Playlist playlistApproved = dao.approvePlaylist(playlist);
 
+        /* OBSERVER -> ADD PER FAR AGGIORNARE LA HOME PAGE*/
         PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.addPlaylist(playlist); // Lancio metodo con approved = false ######################
 

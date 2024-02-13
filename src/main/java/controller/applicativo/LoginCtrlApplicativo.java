@@ -19,7 +19,7 @@ public class LoginCtrlApplicativo {
      * Il loginBean contiene il campo mail e il campo password*/
     /** @return un booleano, per verificare la correttezza dell'operazione effettuata
      * Effettua una Query per recuperare la password e confrontarla con quella inserita  */
-    public boolean verificaCredenziali(LoginBean bean) throws IncorrectPassword, UserDoesNotExist {
+    public void verificaCredenziali(LoginBean bean) throws IncorrectPassword, UserDoesNotExist {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -28,8 +28,6 @@ public class LoginCtrlApplicativo {
 
         if (!password.equals(bean.getPassword())){
             throw new IncorrectPassword();
-        } else {
-            return true;
         }
     }
 

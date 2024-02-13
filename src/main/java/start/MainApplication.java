@@ -28,7 +28,8 @@ public class MainApplication extends Application {
             // Interfaccia a riga di comando
             startCommandLineInterface();
         } else {
-            System.out.println("Tipo di interfaccia non valido nel file di configurazione.");
+            System.err.println("Tipo di interfaccia specificata non valida nel file di configurazione.");
+            // Aggiunta tipo default
         }
     }
 
@@ -46,6 +47,7 @@ public class MainApplication extends Application {
         loginCLI.start();
     }
 
+    /** Lettura dal file di configurazione per la scelta dell'interfaccia */
     private Properties loadConfigurationProperties() {
         Properties properties = new Properties();
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {

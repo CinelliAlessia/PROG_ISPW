@@ -8,10 +8,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.List;
 
 public class TableManager {
+    private boolean isUpdatingTableView = true;
 
-    private TableManager(){}
 
-    /**
+    /** Associa a ciascuna colonna i relativi metodi get di PlaylistBean
      * @param columns       è una lista di colonne, contiene le sole colonne semplici (no bottoni)
      * @param nameColumns   è una lista di stringhe, che viene utilizzata per recuperare i dati dai metodi get del PlaylistBean
      */
@@ -24,6 +24,7 @@ public class TableManager {
             index++;
         }
     }
+
     /**
      * @param playlistTable è la tabella vera e propria
      * @param playlists     è la lista delle playlist da rappresentare
@@ -40,6 +41,32 @@ public class TableManager {
 
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
         playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
+    }
+
+
+    public ObservableList<PlaylistBean> collegamento(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlistBeanList) {
+
+        ObservableList<PlaylistBean> observableList = FXCollections.observableList(playlistBeanList);
+        playlistTable.setItems(observableList);
+
+        // Aggiunta di un listener di modifica al ObservableList
+        observableList.addListener((ListChangeListener<PlaylistBean>) change -> {
+            while (change.next()) {
+                if (change.wasAdded() && isUpdatingTableView) { ///// non accade mai
+                    System.out.println("Elementi aggiunti: " + change.getAddedSubList());
+                    isUpdatingTableView = false;
+                    playlistTable.getItems().addAll(change.getAddedSubList());
+                    isUpdatingTableView = true;
+                } else if (change.wasRemoved() && isUpdatingTableView) {
+                    System.out.println("Elementi rimossi: " + change.getRemoved());
+                    isUpdatingTableView = false;
+                    playlistTable.getItems().removeAll(change.getRemoved());
+                    isUpdatingTableView = true;
+                }
+            }
+        });
+
+        return observableList;
     }
 
 }

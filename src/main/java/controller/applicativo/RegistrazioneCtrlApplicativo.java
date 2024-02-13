@@ -19,6 +19,13 @@ public class RegistrazioneCtrlApplicativo {
         // Crea l'utente (model) per inviarlo al DAO
         Login registration = new Login(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
 
+        /*
+        try{
+            dao.loadUser(registration);
+        } catch (UserDoesNotExist _){
+            dao.retrieveUserByUsername(registration);
+        }*/
+
         try{
             dao.insertUser(registration);
         } catch (EmailAlreadyInUse e){
@@ -26,6 +33,9 @@ public class RegistrazioneCtrlApplicativo {
         } catch (UsernameAlreadyInUse e){
             throw new UsernameAlreadyInUse();
         }
+
+        /* SIAMO SICURI CHE L'UTENTE CHE SI REGISTRA SIA UN UserBean
+        * NON CI SI PUO REGISTRARE COME UN SupervisorBean */
 
         UserBean userBean = (UserBean) clientBean;
         userBean.setUsername(registration.getUsername());

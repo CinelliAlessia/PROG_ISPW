@@ -1,10 +1,11 @@
 package view.view2;
 
-import engineering.bean.ClientBean;
+import engineering.bean.*;
 
-public class HomePageCLI {
-    private ClientBean clientBean;
-    public void setClientBean(ClientBean clientBean) {
+public class HomePageCLI<T extends ClientBean>{
+    private T clientBean;
+
+    public void setClientBean(T clientBean) {
         this.clientBean = clientBean;
     }
 

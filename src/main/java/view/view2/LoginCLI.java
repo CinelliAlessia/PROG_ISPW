@@ -1,18 +1,13 @@
 package view.view2;
 
-import controller.applicativo.LoginCtrlApplicativo;
-import engineering.bean.ClientBean;
-import engineering.bean.LoginBean;
-import engineering.exceptions.EmailIsNotValid;
-import engineering.exceptions.IncorrectPassword;
-import engineering.exceptions.UserDoesNotExist;
+import controller.applicativo.*;
+import engineering.bean.*;
+import engineering.exceptions.*;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class LoginCLI {
 
-    private final LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
     private final Scanner scanner = new Scanner(System.in);
 
     public void start() {
@@ -20,7 +15,7 @@ public class LoginCLI {
 
         while (continueRunning) {
             printMenu();
-            int choice = getUserChoice();
+            int choice = getUserChoice(); // Attesa bloccante
 
             switch (choice) {
                 case 1:
@@ -42,6 +37,7 @@ public class LoginCLI {
         }
     }
 
+    /** Print del menù iniziale per procedere con l'accesso */
     private void printMenu() {
         System.out.println("// ------- Seleziona un'opzione: ------- //");
         System.out.println("1: Login");
@@ -50,51 +46,55 @@ public class LoginCLI {
         System.out.println("4: Esci");
     }
 
+    /** Attesa Bloccante della scelta dell'utente */
     private int getUserChoice() {
         System.out.print("Scelta: ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("Inserisci un numero valido.");
-            scanner.next(); // consume non-int input
+        while (!scanner.hasNextInt()) { // Controllo se il valore inserito dall'utente è un intero
+            System.err.println("Inserisci un numero valido.");
+            scanner.next(); // Consuma il valore errato non utilizzabile
         }
         return scanner.nextInt();
     }
 
+    /** Funzione per accedere alla home page se le credenziali inserite sono corrette */
     private void loginChoice() {
-        System.out.println("Inserisci l'indirizzo email:");
+        System.out.print("Inserisci l'indirizzo email: ");
         String email = scanner.next();
 
-        System.out.println("Inserisci la password:");
+        System.out.print("Inserisci la password: ");
         String password = scanner.next();
 
         try {
             LoginBean loginBean = new LoginBean(email, password);
+            LoginCtrlApplicativo loginCtrlApp = new LoginCtrlApplicativo();
+
             // ----- Utilizzo controller applicativo -----
-            if (loginCtrlApp.verificaCredenziali(loginBean)) {
-                ClientBean clientBean = loginCtrlApp.loadUser(loginBean);
-                System.out.println("Login riuscito!");
+            loginCtrlApp.verificaCredenziali(loginBean);
 
-                /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
-                HomePageCLI homePageCLI = new HomePageCLI();
-                homePageCLI.setClientBean(clientBean);
+            /* ----- Verrà eseguito se non ci sono eccezioni ----- */
+            ClientBean clientBean = loginCtrlApp.loadUser(loginBean);
+            System.out.println("Login riuscito!");
 
-                /* ----- Avvia il metodo start del HomePageCLInterface ----- */
-                homePageCLI.start();
-            } else {
-                System.out.println("Credenziali non valide. Riprova.");
-                // Torna al menù con selezione scelta
-                start();
-            }
+            /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
+            HomePageCLI homePageCLI = new HomePageCLI();
+            homePageCLI.setClientBean(clientBean);
+
+            /* ----- Avvia il metodo start del HomePageCLInterface ----- */
+            homePageCLI.start();
+
         } catch (IncorrectPassword | UserDoesNotExist | EmailIsNotValid e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 
+    /** Non vengono effettuati controlli, si passa direttamente alla schermata di registrazione */
     private void registerChoice() {
         // ----- Passo al RegisterCLInterface -----
         RegistrationCLI newCLI = new RegistrationCLI();
         newCLI.start();
     }
 
+    /** Non vengono effettuati controlli, si passa direttamente alla home page */
     private void guestChoice() {
         System.out.println("Accesso come Guest.");
         HomePageCLI homePageCLI = new HomePageCLI();

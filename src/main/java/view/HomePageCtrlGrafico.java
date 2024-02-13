@@ -65,6 +65,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         /* Metodo pull per ricevere i dati dal dao */
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistsBean = homePageController.retrivePlaylistsApproved();                  // Recupera le playlist approvate
+
         TableManager.setColumnsTableView(columns, nameColumns);   // Aggiorna i parametri della tabella
         TableManager.updateTable(playlistTable,playlistsBean);
         linkColumn.setCellFactory(_ -> new SingleButtonTableCell());
@@ -103,7 +104,8 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
     @FXML
     public void addPlaylistClick(ActionEvent event) {
-        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean);
+        PlaylistBean playlistBean = new PlaylistBean(); // ##############################################
+        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean, playlistBean);
     }
 
     @FXML
@@ -157,17 +159,5 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         System.out.println("GUI home page: playlist trovate " + playlistsBean);
 
-    }
-
-    public void onBackClick(ActionEvent event) {
-        sceneController.goBack(event);
-    }
-
-    @FXML
-    public void onApplyClick(ActionEvent event) {
-        // recupero tutti i tasti
-        // costruisco un playlist bean
-        // chiudo la scena
-        // effettuo la ricerca searchFilter
     }
 }
