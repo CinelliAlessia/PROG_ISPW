@@ -166,14 +166,6 @@
     -fx-background-color: #1DB954; /* Cambia il colore al passaggio del mouse */
 }
 
-.context-menu .menu-item:show-mnemonic {
-    -fx-background-color: #1DB954; /* Cambia il colore durante la visualizzazione del mnemonico */
-}
-
-.context-menu .menu-item:show-mnemonic:hover {
-    -fx-background-color: #147533; /* Cambia il colore al passaggio del mouse durante la visualizzazione del mnemonico */
-}
-
 .context-menu .separator {
     -fx-background-color: #1DB954; /* Colore del separatore */
 }
