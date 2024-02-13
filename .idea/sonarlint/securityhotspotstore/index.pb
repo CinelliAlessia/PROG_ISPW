@@ -113,3 +113,7 @@ h
 8src/main/java/view/firstView/AddPlaylistCtrlGrafico.java,7\6\76dd73df286c360c707767364c649a9ba7462df1
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+m
+=src/main/java/view/firstView/utils/SingleButtonTableCell.java,f\3\f35a738cad6211dac289162bb3d14eba06cd72fa
+d
+4src/main/java/view/firstView/AccountCtrlGrafico.java,2\0\20395140a9d3a5881dfe9f614f68a7ade56cd104

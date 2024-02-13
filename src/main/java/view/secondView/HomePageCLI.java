@@ -172,7 +172,7 @@ public class HomePageCLI<T extends ClientBean>{
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistBean.setPlaylistName(playlistName);
-        List<PlaylistBean> playlistsList = homePageController.searchPlaylistByName(playlistBean);
+        List<PlaylistBean> playlistsList = homePageController.searchPlaylistByFilters(playlistBean);
 
         System.out.println(STR."Playlist che contengono:\{playlistName} nel titolo");
 

@@ -101,6 +101,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
         TableManager.setColumnsTableView(columns, nameColumns);
+        linkColumn.setCellFactory(_ -> new SingleButtonTableCell());
 
         observableList = FXCollections.observableArrayList(userPlaylists);
         playlistTable.setItems(observableList);
@@ -152,7 +153,6 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         observableList.add(playlistBean);
 
         sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean, playlistBean);
-        System.out.println("Sono dopo la riga gotoScene");
     }
 
 

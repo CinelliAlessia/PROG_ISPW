@@ -64,8 +64,8 @@
                     <columns>
                         <TableColumn fx:id="approveColumn" prefWidth="75.0" text="Approved" />
                         <TableColumn fx:id="playlistNameColumn" prefWidth="150.0" text="Title" />
-                        <TableColumn fx:id="linkColumn" prefWidth="200.0" text="Link" />
-                        <TableColumn fx:id="genreColumn" prefWidth="200.0" text="Musical genres" />
+                        <TableColumn fx:id="linkColumn" prefWidth="75.0" text="Link" />
+                        <TableColumn fx:id="genreColumn" prefWidth="250.0" text="Musical genres" />
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

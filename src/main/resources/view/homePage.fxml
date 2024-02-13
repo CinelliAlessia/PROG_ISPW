@@ -42,7 +42,7 @@
                     <TableView fx:id="playlistTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                         <columns>
                             <TableColumn fx:id="playlistNameColumn" prefWidth="150.0" text="Title" />
-                            <TableColumn fx:id="linkColumn" prefWidth="150.0" text="Link" />
+                            <TableColumn fx:id="linkColumn" prefWidth="75.0" text="Link" />
                             <TableColumn fx:id="genreColumn" prefWidth="200.0" text="Musical genres" />
                             <TableColumn fx:id="usernameColumn" prefWidth="150.0" text="Author" />
                         </columns>

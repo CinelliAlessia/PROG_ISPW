@@ -54,7 +54,7 @@ public class AddPlaylistCLI {
         playlistBean.setPlaylistGenre(preferences);
 
         // #################### Devo prendere le emotional da input utente #############################
-        playlistBean.setEmotional(Arrays.asList(0.0, 0.0, 0.0, 0.0));
+        playlistBean.setEmotional(Arrays.asList(0,0,0,0));
 
         try {
             // Invocazione del controller applicativo per inserire la playlist
