@@ -10,6 +10,7 @@ import model.User;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 /*
@@ -20,6 +21,8 @@ Ho utilizzato il metodo parseUser anche nella funzione getUserFromDirectory.
 Ho semplificato la funzione updateGenreUser utilizzando il metodo parseUser per ottenere l'oggetto User dal contenuto del file JSON.
  */
 public class UserDAOJSON implements UserDAO {
+
+    private static final Logger logger = Logger.getLogger(UserDAOJSON.class.getName());
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
 
     public void insertUser(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
@@ -46,7 +49,7 @@ public class UserDAOJSON implements UserDAO {
             String json = new GsonBuilder().setPrettyPrinting().create().toJson(login);
             Files.writeString(userInfoFile, json);
 
-            System.err.println("USERDAO: Utente inserito con successo!");
+            logger.info("USERDAO: Utente inserito con successo!");
         } catch (IOException e) {
             handleDAOException(e);
         }
@@ -61,7 +64,7 @@ public class UserDAOJSON implements UserDAO {
                 String content = Files.readString(userInfoFile);
                 return parseClient(content);
             } else {
-                System.err.println("USERDAO: Utente non trovato");
+                logger.severe("USERDAO: Utente non trovato");
                 throw new UserDoesNotExist();
             }
         } catch (IOException e) {
@@ -147,16 +150,18 @@ public class UserDAOJSON implements UserDAO {
                 // Sovrascrive il file solo con le informazioni aggiornate
                 Files.writeString(userInfoFile, updatedJson);
 
-                System.err.println("USERDAO: Preferenze utente aggiornate con successo!");
+                logger.info("USERDAO: Preferenze utente aggiornate con successo!");
             } else {
-                System.err.println("USERDAO: Utente non trovato o file userInfo.json mancante.");
+                logger.severe("USERDAO: Utente non trovato o file userInfo.json mancante.");
             }
         } catch (IOException e) {
             handleDAOException(e);
         }
     }
 
-
+    public void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+        //TODO
+    }
 
 
     private Client getUserFromDirectory(Path userDirectory) {
@@ -182,6 +187,6 @@ public class UserDAOJSON implements UserDAO {
         return Files.exists(userDirectory);
     }
     private void handleDAOException(Exception e) {
-        e.printStackTrace();
+        logger.severe(e.getMessage());
     }
 }

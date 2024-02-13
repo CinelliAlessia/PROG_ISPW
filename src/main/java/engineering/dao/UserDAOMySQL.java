@@ -11,8 +11,11 @@ import model.*;
 import java.sql.*;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class UserDAOMySQL implements UserDAO {
+
+    private static final Logger logger = Logger.getLogger(UserDAOMySQL.class.getName());
 
     /** Metodo per inserire un User nel database al momento della registrazione
      * viene effettuato il controllo sulla email scelta e sull'username scelto */
@@ -34,7 +37,7 @@ public class UserDAOMySQL implements UserDAO {
             rs.close();
 
             String username = registration.getUsername();
-            rs = QueryLogin.loginUserBUsername(stmt, username);
+            rs = QueryLogin.loginUserByUsername(stmt, username);
             if (rs.next()) {
                 throw new UsernameAlreadyInUse();
             }
@@ -98,9 +101,46 @@ public class UserDAOMySQL implements UserDAO {
         }
     }
 
-    public User retrieveUserByUsername(String username) {
-        // TODO -> LA FACCIO QUANDO SERVE
-        return null;
+    public Client retrieveUserByUsername(String username) throws UserDoesNotExist {
+        Statement stmt = null;
+        Connection conn;
+        ResultSet rs = null;
+
+        String email = "";
+        boolean supervisor = false;
+        List<String> preferences = new ArrayList<>();
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+            rs = QueryLogin.loginUserByUsername(stmt, username);
+
+            if (rs.next()) {
+                username = rs.getString("username");
+                email = rs.getString("email");
+                supervisor = rs.getBoolean("supervisor");
+            } else {
+                throw new UserDoesNotExist();
+            }
+
+            rs = QueryLogin.retrivePrefByEmail(stmt, email);
+
+            if (rs.next()) {
+                preferences = GenreManager.retriveGenre(rs);
+            }
+
+        } catch(SQLException e){
+            handleDAOException(e);
+        } finally {
+            // Chiusura delle risorse
+            closeResources(stmt,rs);
+        }
+
+        if(supervisor){
+            return new Supervisor(username,email,preferences);
+        } else {
+            return new User(username,email,preferences);
+        }
     }
 
     public String getPasswordByEmail(String email) throws UserDoesNotExist{
@@ -146,6 +186,35 @@ public class UserDAOMySQL implements UserDAO {
         }
     }
 
+    public void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse{
+
+        Statement stmt = null;
+        Connection conn;
+        ResultSet rs = null;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+            rs = QueryLogin.searchEmail(stmt, login.getEmail());
+
+            if (rs.next()) {
+                throw new EmailAlreadyInUse();
+            }
+
+            rs = QueryLogin.searchUsername(stmt, login.getUsername());
+
+            if (rs.next()) {
+                throw new UsernameAlreadyInUse();
+            }
+
+        } catch (SQLException e) {
+            handleDAOException(e);
+        } finally {
+            // Chiusura delle risorse
+            closeResources(stmt,rs);
+        }
+    }
+
     /** Metodo utilizzato per chiudere le risorse utilizzate */
     private void closeResources(Statement stmt, ResultSet rs) {
         try {
@@ -161,7 +230,7 @@ public class UserDAOMySQL implements UserDAO {
     }
 
     private void handleDAOException(Exception e) {
-        e.printStackTrace();
+        logger.severe(e.getMessage());
     }
 
 }

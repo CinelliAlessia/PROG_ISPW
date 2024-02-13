@@ -7,9 +7,13 @@ import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import engineering.pattern.observer.PlaylistCollection;
 import model.Playlist;
 
+import java.util.logging.Logger;
+
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class AddPlaylistCtrlApplicativo {
+
+    private static final Logger logger = Logger.getLogger(AddPlaylistCtrlApplicativo.class.getName());
 
     public void insertPlaylist(PlaylistBean pB) throws PlaylistLinkAlreadyInUse {
 
@@ -18,21 +22,17 @@ public class AddPlaylistCtrlApplicativo {
 
         // Crea la Playlist (model), id verrà impostato dal dao
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
-        System.err.println("AddPlaylist applicativo: "+playlist.getEmail()+ " " + playlist.getUsername()+ " " + playlist.getPlaylistName() + " " + playlist.getLink() + " " + playlist.getPlaylistGenre() + " "+playlist.getEmotional());
-        // Id della playlist definito in fase di inserimento dal DAO
 
         // Invio Playlist model al DAO
         if(dao.insertPlaylist(playlist)){
-            System.err.println("ADD APP: Playlist caricata correttamente");
             /* Per pattern Observer */
             PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
-
             if(playlist.getApproved()){ // La notifica all observer solo se la playlist è approvata
                 playlistCollection.addPlaylist(playlist);
             }
         } else {
             //################# Se la playlist non viene caricata Dovrei restituire un eccezione #################àà
-            System.err.println("ADD APP: Playlist non è stata caricata");
+            logger.info("ADD APP: Playlist non è stata caricata");
         }
     }
 

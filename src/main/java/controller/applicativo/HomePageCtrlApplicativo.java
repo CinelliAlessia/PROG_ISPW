@@ -9,10 +9,13 @@ import engineering.pattern.observer.Subject;
 import model.Playlist;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class HomePageCtrlApplicativo {
+
+    private static final Logger logger = Logger.getLogger(HomePageCtrlApplicativo.class.getName());
     public List<PlaylistBean> retrivePlaylistsApproved() {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
@@ -58,16 +61,12 @@ public class HomePageCtrlApplicativo {
         List<Playlist> playlists;
         if(emotionalEmpty(playlist.getEmotional()) && genreEmpty(playlist.getPlaylistGenre())){
             playlists = dao.searchPlaylistTitle(playlist);  // Recupero lista Playlist filtrata solo per titolo della playlist
-            System.out.println("Cerco solo per titolo");
         } else if (!emotionalEmpty(playlist.getEmotional()) && !genreEmpty(playlist.getPlaylistGenre())){
             playlists = dao.searchPlaylistByFilters(playlist);  // Recupero lista Playlist controllando tutti i filtri
-            System.out.println("Cerco con tutti i filtri");
         } else if (emotionalEmpty(playlist.getEmotional())) {
             playlists = dao.searchPlaylistByGenre(playlist);  // Recupero lista Playlist controllando Titolo e Generi musicali
-            System.out.println("Cerco solo per genere");
         } else {
             playlists = dao.searchPlaylistByEmotional(playlist);  // Recupero lista Playlist controllando Titolo ed Emotional
-            System.out.println("Cerco solo per emotional");
         }
 
         try{
@@ -78,7 +77,7 @@ public class HomePageCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            System.err.println("HomePage APP: LinkIsNotValid " + e.getMessage());
+            logger.info("HomePage APP: LinkIsNotValid " + e.getMessage());
         }
         return playlistsBean;
     }

@@ -9,8 +9,12 @@ import view.firstView.utils.GenreManager;
 
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class PlaylistDAOMySQL implements PlaylistDAO {
+
+    private static final Logger logger = Logger.getLogger(PlaylistDAOMySQL.class.getName());
+
 
     /* Stringhe dei campi nel DB my SQL */
     private static final String USERNAME = "username";
@@ -247,7 +251,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     }
 
     private void handleDAOException(Exception e) {
-        e.printStackTrace();
+        logger.severe(e.getMessage());
     }
 
     /** Imposta i campi username, email, link, nome Playlist, approved, Generi musicali ed emotional */

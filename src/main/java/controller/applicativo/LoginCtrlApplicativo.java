@@ -11,14 +11,13 @@ import model.User;
 import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class LoginCtrlApplicativo {
-    // implemento la logica dello use case
 
     /** Il metodo accede allo strato di persistenza per verificare se le credenziali per l'accesso sono valide
      * L'email deve essere registrata
      * La password associata deve essere come quella inserita in fate di login
-     * Il loginBean contiene il campo mail e il campo password*/
-    /** @return un booleano, per verificare la correttezza dell'operazione effettuata
+     * Il loginBean contiene il campo mail e il campo password
      * Effettua una Query per recuperare la password e confrontarla con quella inserita  */
+
     public void verificaCredenziali(LoginBean bean) throws IncorrectPassword, UserDoesNotExist {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
@@ -43,10 +42,8 @@ public class LoginCtrlApplicativo {
             Client client = dao.loadUser(login);
 
             if(client instanceof User){
-                System.err.println("Login APP: Client " + client +" Supervisor: " + client.isSupervisor());
                 return new UserBean(client.getUsername(),client.getEmail(),client.getPreferences());
             } else if(client instanceof Supervisor){
-                System.err.println("Login APP: Client " + client +" Supervisor: " + client.isSupervisor());
                 return new SupervisorBean(client.getUsername(),client.getEmail(),client.getPreferences());
             }
 

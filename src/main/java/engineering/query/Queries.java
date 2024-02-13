@@ -2,8 +2,6 @@ package engineering.query;
 
 public class Queries {
 
-
-
     private Queries(){}
 
     /* ---------- QUERY LOGIN ---------- */
@@ -17,6 +15,8 @@ public class Queries {
     public static final String SELECT_PASSWORD_BY_EMAIL = "SELECT password FROM user WHERE email = '%s'";
     public static final String SELECT_GENRE_USER_QUERY = "SELECT * FROM generi_musicali_user WHERE email = '%s'";
 
+    public static final String SEARCH_USERNAME = "SELECT * FROM user WHERE username = '%s' ";
+    public static final String SEARCH_EMAIL = "SELECT * FROM user WHERE email = '%s' ";
 
     public static final String UPDATE_GENERI_MUSICALI_USER =
             "UPDATE generi_musicali_user SET " +
@@ -34,8 +34,8 @@ public class Queries {
     public static final String SELECT_LINK_QUERY = "SELECT * FROM playlist_utente WHERE link = '%s'";
     public static final String SELECT_PLAYLIST_BY_USER = "SELECT * FROM playlist_utente WHERE username = '%s'"; // Recupero tutto ma non uso tutto
     public static final String SELECT_PLAYLIST_BY_EMAIL = "SELECT * FROM playlist_utente WHERE email = '%s'";
-    public static final String SELECT_SEARCH_BY_GENRE = "SELECT * FROM playlist_utente WHERE namePlaylist LIKE '%s' " +
-            "AND approved = '1' AND Pop = '%d' AND Indie = '%d' AND Classic = '%d' AND Rock = '%d' AND Electronic = '%d' " +
+    public static final String SELECT_SEARCH_BY_GENRE = "SELECT * FROM playlist_utente WHERE namePlaylist LIKE '%s' AND approved = '1' " +
+            "AND Pop = '%d' AND Indie = '%d' AND Classic = '%d' AND Rock = '%d' AND Electronic = '%d' " +
             "AND House = '%d' AND HipHop = '%d' AND Jazz = '%d' AND Acoustic = '%d' AND REB = '%d' AND Country = '%d' AND Alternative = '%d'";
     public static final String SELECT_SEARCH_PLAYLISTS_BY_FILTER = "SELECT * FROM playlist_utente WHERE namePlaylist LIKE '%s' " +
             "AND approved = '1' AND slider1 = '%d' AND slider2 = '%d' AND slider3 = '%d' AND slider4 = '%d' AND Pop = '%d' " +

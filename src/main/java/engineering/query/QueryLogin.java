@@ -1,12 +1,15 @@
 package engineering.query;
 
 import model.Login;
-import model.User;
 
 import java.sql.*;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class QueryLogin {
+
+    private static final Logger logger = Logger.getLogger(QueryLogin.class.getName());
+
     private QueryLogin() {
     }
 
@@ -32,19 +35,15 @@ public class QueryLogin {
             // Poi inserisci i generi musicali nella tabella 'generi_musicali'
             insertGeneriMusicali(stmt, email, user.getPreferences());
         } catch (SQLException e){
-            e.printStackTrace();
+            handleException(e);
         }
 
     }
 
-    /** Inserisce i generi musicali preferiti dall'utente, utilizzata al momento della registrazione dell'utente
-     * FUNZIONA
-     * */
+    /** Inserisce i generi musicali preferiti dall'utente, utilizzata al momento della registrazione dell'utente */
     public static void insertGeneriMusicali(Statement stmt, String userEmail, List<String> generiMusicali) throws SQLException {
         // Costruisci la query di inserimento
         StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_USER, buildGenresQueryString(generiMusicali, userEmail)));
-
-        // Esegui la query
         stmt.executeUpdate(query.toString());
     }
 
@@ -67,11 +66,9 @@ public class QueryLogin {
                     generiMusicali.contains("Alternative") ? 1 : 0,
                     userEmail);
 
-            System.out.println("UPDATE DAO: " +query);
-            // Esegui la query
             stmt.executeUpdate(query);
         } catch (SQLException e) {
-            e.printStackTrace();
+            handleException(e);
         }
     }
 
@@ -97,7 +94,7 @@ public class QueryLogin {
         return stmt.executeQuery(sql);
     }
 
-    public static ResultSet loginUserBUsername(Statement stmt, String username) throws SQLException {
+    public static ResultSet loginUserByUsername(Statement stmt, String username) throws SQLException {
         String sql = String.format(Queries.SELECT_USER_BY_USERNAME, username);
         return stmt.executeQuery(sql);
     }
@@ -113,4 +110,17 @@ public class QueryLogin {
         return stmt.executeQuery(query);
     }
 
+    private static void handleException(Exception e) {
+        logger.severe(e.getMessage());
+    }
+
+    public static ResultSet searchEmail(Statement stmt, String email) throws SQLException {
+        String query = String.format(Queries.SEARCH_EMAIL, email);
+        return stmt.executeQuery(query);
+    }
+
+    public static ResultSet searchUsername(Statement stmt, String username) throws SQLException {
+        String query = String.format(Queries.SEARCH_USERNAME, username);
+        return stmt.executeQuery(query);
+    }
 }

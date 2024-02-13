@@ -13,12 +13,14 @@ public interface UserDAO {
     Client loadUser(Login login) throws UserDoesNotExist;
 
     /** Retrive delle informazioni di un utente dalla persistenza, ottenuta dall'username che abbiamo detto essere unico */
-    Client retrieveUserByUsername(String username);
+    Client retrieveUserByUsername(String username) throws UserDoesNotExist;
 
     /** Ottiene la password associata all'email */
     String getPasswordByEmail(String email) throws UserDoesNotExist;
 
     /** Aggiorna i generi musicali preferiti dall'utente, recuperato tramite email*/
     void updateGenreUser(Client client);
-}
 
+    void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse;
+
+}

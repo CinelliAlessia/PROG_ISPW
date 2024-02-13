@@ -11,8 +11,6 @@ import model.Playlist;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class PendingPlaylistCtrlApplicativo {
 
     public void approvePlaylist(PlaylistBean pB){

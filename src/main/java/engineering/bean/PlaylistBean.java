@@ -19,17 +19,6 @@ public class PlaylistBean {
     private String id;
 
     public PlaylistBean() {
-        /*setEmail("");
-        this.link = "";
-        setPlaylistName("");
-        setUsername("");
-        setApproved(approved);
-
-        List<String> genre = new ArrayList<>();
-        List<Double> emotionalDefault = new ArrayList<>(4);
-
-        setPlaylistGenre(genre);
-        setEmotional(emotionalDefault);*/
     }
 
     public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved) throws LinkIsNotValid {

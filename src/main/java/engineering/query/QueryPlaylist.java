@@ -4,8 +4,11 @@ import model.Playlist;
 
 import java.sql.*;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class QueryPlaylist {
+
+    private static final Logger logger = Logger.getLogger(QueryPlaylist.class.getName());
 
     private QueryPlaylist(){}
 
@@ -31,7 +34,7 @@ public class QueryPlaylist {
             String insertPlaylistStatement = String.format(Queries.INSERT_PLAYLIST_USER, namePlaylist, email, username, link, approved, buildEmotionalQueryString(emotional) ,buildGenresQueryString(playlistGenre));
             stmt.executeUpdate(insertPlaylistStatement);
         } catch (SQLException e){
-            e.fillInStackTrace();
+            handleException(e);
         }
     }
 
@@ -46,7 +49,7 @@ public class QueryPlaylist {
     /** Cerca la parola
      * @param searchTerm passata come argomento */
     public static ResultSet searchPlaylistTitle(Statement stmt, String searchTerm) throws SQLException {
-        String word = "%" + searchTerm + "%";
+        String word = STR."%\{searchTerm}%";
         String sql = String.format(Queries.SELECT_SEARCH_PLAYLIST, word);
         return stmt.executeQuery(sql);
     }
@@ -179,25 +182,6 @@ public class QueryPlaylist {
         return stmt.executeQuery(sql);
     }
 
-    /** Viene utilizzata da insertPlaylist, mantiene l'associazione tra playlist e i suoi generi
-     * tramite un id */
-    public static void insertGeneriMusicali(Statement stmt, List<String> generiMusicali) {
-        try{
-            // Costruisci la query di inserimento
-            StringBuilder query = new StringBuilder(String.format(Queries.INSERT_GENERI_MUSICALI_PLAYLIST, buildGenresQueryString(generiMusicali)));
-
-            // Esegui la query
-            stmt.executeUpdate(query.toString());
-        } catch (SQLException e){
-            e.fillInStackTrace();
-        } finally {
-            // L'utente non dovrebbe registrars
-        }
-    }
-
-
-
-
     /** Genera un unica stringa per i quattro valori di slider */
     private static String buildEmotionalQueryString(List<Integer> emotional) {
         StringBuilder query = new StringBuilder();
@@ -215,7 +199,7 @@ public class QueryPlaylist {
     }
 
     /**Genera una stringa corretta per effettuare la query, impostando correttamente il true o false dei generi musicali
-     * la crea per un insert (0, 1, ...) se bisogna usarla per i search attenzione a " " o ","*/
+     * la crea per un insert (0, 1, ...) se bisogna usarla per i search attenzione a spazi e virgole */
     private static String buildGenresQueryString(List<String> generiMusicali) {
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
         StringBuilder query = new StringBuilder();
@@ -238,6 +222,9 @@ public class QueryPlaylist {
         return query.toString();
     }
 
+    private static void handleException(Exception e) {
+        logger.severe(e.getMessage());
+    }
 
 
 }
