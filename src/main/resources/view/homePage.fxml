@@ -15,6 +15,18 @@
             <!-- Pulsante Account -->
             <Button fx:id="manager" layoutX="14.0" layoutY="19.0" onAction="#onManagerClick" text="Playlist Management" AnchorPane.leftAnchor="15.0" />
 
+            <!-- Il tuo contenuto principale -->
+            <Button fx:id="menu" text="Notice" onAction="#showContextMenu" layoutX="14.0" layoutY="19.0" AnchorPane.leftAnchor="15.0">
+                <contextMenu>
+                    <!-- Definisci gli elementi del menu -->
+                    <ContextMenu fx:id="contextMenu">
+                        <items>
+
+                        </items>
+                    </ContextMenu>
+                </contextMenu>
+            </Button>
+
         </AnchorPane>
     </top>
     

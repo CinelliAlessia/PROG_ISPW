@@ -123,7 +123,7 @@ public class QueryLogin {
         stmt.executeUpdate(query);
     }
 
-    public static ResultSet retrieveNotice(Statement stmt, String username) {
+    public static ResultSet retriveNotice(Statement stmt, String username) {
         try{
             String query = String.format(Queries.SELECT_NOTICE_USER, username);
             return stmt.executeQuery(query);

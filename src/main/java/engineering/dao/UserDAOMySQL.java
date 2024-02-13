@@ -252,7 +252,7 @@ public class UserDAOMySQL implements UserDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            rs = QueryLogin.retrieveNotice(stmt, user.getUsername());
+            rs = QueryLogin.retriveNotice(stmt, user.getUsername());
 
             while (true) {
                 assert rs != null;
