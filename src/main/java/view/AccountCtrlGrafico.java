@@ -148,7 +148,8 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     /** Gestisce il click sul pulsante Aggiungi Playlist */
     @FXML
     public void addPlaylistClick(ActionEvent event) {
-        // Passa alla schermata di caricamento della playlist, passando il bean del cliente
+        // Passa alla schermata di caricamento della playlist, passando il bean del client
+        //TODO Aggiustare sta cosa che se la playlist bean non viene completata, viene visualizzato campo vuoto
         PlaylistBean playlistBean = new PlaylistBean();
         playlistBean.setEmail(clientBean.getEmail());
 

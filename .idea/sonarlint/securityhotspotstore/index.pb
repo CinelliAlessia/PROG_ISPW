@@ -75,8 +75,6 @@ Q
 !src/main/java/view/textPopUp.java,3\9\39697c4d0d6e28c44e92af3b9c4530f564c3a930
 Q
 !src/main/java/view/TextPopUp.java,4\3\4379edea085bc368e46a7e052366a7ca07b0590e
-_
-/src/main/java/engineering/dao/UserDAOJSON3.java,c\e\ce6e35b78660872e2e540dd20cd1b0fd802ff3aa
 b
 2src/main/java/view/PendingPlaylistCtrlGrafico.java,8\a\8a71eadf6e4875869e5fc1cfb3a2459855a28402
 Z
@@ -129,3 +127,9 @@ N
 src/main/java/model/Login.java,0\7\073d7844f3a71ed7ba607c6012c85671667ce218
 ^
 .src/main/java/engineering/bean/NoticeBean.java,a\e\aeb6bd2efce09a52d3cbd19c02cabd527c1eed7b
+]
+-src/main/java/view/view2/RegistrationCLI.java,0\d\0df932f0318c9c400719219396d6f67c89b6ff2b
+V
+&src/main/java/view/view2/LoginCLI.java,5\6\568f87d81d1e4d9dfc75c952d55cb4ea45efb9d0
+Y
+)src/main/java/view/view2/HomePageCLI.java,4\e\4e094cf1593d876a8555cf01144f1175abd33a1a
