@@ -3,7 +3,6 @@ package view.second;
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
-import engineering.dao.ClientDAOMySQL;
 import view.second.utils.GenreManager;
 
 import java.util.List;
@@ -16,8 +15,6 @@ public class AccountCLI {
     private final Scanner scanner = new Scanner(System.in);
     private PlaylistBean playlistBean = new PlaylistBean();
     private ClientBean clientBean;
-
-    private String ciao = "ciao";
 
     public void setClientBean(ClientBean clientBean) {
         this.clientBean = clientBean;
