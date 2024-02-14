@@ -163,7 +163,7 @@
 }
 
 .context-menu .menu-item:hover {
-    -fx-background-color: #1DB954; /* Cambia il colore al passaggio del mouse */
+    -fx-background-color: rgba(29, 185, 84, 0.61); /* Cambia il colore al passaggio del mouse */
 }
 
 .context-menu .separator {
