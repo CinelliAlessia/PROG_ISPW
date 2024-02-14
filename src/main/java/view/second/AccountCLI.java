@@ -3,13 +3,16 @@ package view.second;
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
+import engineering.dao.ClientDAOMySQL;
 import view.second.utils.GenreManager;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class AccountCLI {
+    private static final Logger logger = Logger.getLogger(AccountCLI.class.getName());
     private final Scanner scanner = new Scanner(System.in);
     private PlaylistBean playlistBean = new PlaylistBean();
     private ClientBean clientBean;
@@ -26,7 +29,7 @@ public class AccountCLI {
 
     public void start() {
         while (true) {
-            System.out.println("----- Profilo -----");
+            logger.info("----- Profilo -----");
             displayUserInfo(clientBean);
             // Show Menu //
             System.out.println("1. Carica nuova Playlist");

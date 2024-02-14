@@ -4,9 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="print cambiati">
+    <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="Operazioni rinominate">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/4/04106127bccf0a7f2689ce58279887305f235116" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/7/073d7844f3a71ed7ba607c6012c85671667ce218" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/9/19ed7a5abf79d2a64378fef2ee66d4ad4636eb40" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/b/1b07262e331f04c16b9a11a156dab02251259a18" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/4/248d8316ab0246317542ad00314032b24d16b588" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/9/3900a5d5012d7042bd884de05e553b5694324dc9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/9/492811810e916b0e43ff2ca2d600c382d97f6316" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/9/897a0983d8bd95ae5192eacbd1745de29fc10050" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/b/8bb21e5a57a1a38e2cc9324a262b4c6c3431d61a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/e/8e1ebf0166aec1f7f81589f5763cf23a86e9c01e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/f/8ffc88701a9a261daf08c25c2f3f0ad4bedfa09b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/b/9bafa12ff5b377cf2462c172c1ddb1b5148904d8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/c/9c4c16488564b843fe37e935bb5ac96c3cf7c27b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/1/a19ac4f316cb85c4403156eed7e0c0c2382488f0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/2/a23b3b2e98b3304dca3ade7086651a1c2310b498" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/6/a6a639be8becbe7840021ba8da868f088cc951bc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/c/ac6fd1f140c9aede9a8563cdd3fc4576f6f9c56e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/d/ad4b6617709a02c3df495167ba7181472c2fd41a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/e/aeb6bd2efce09a52d3cbd19c02cabd527c1eed7b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/f/bfded7b637e777f50fe8fcb194e9f89da888e4db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/a/ca2ff503b7190d4c410378271e03c2ebd7b539ab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/a/ea2f7728d43a2d8278b6b788cc330f771bcb83fd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/2/f2b760da586a5d2e9223a440a3e8459b12af51e6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/second/AccountCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/second/AccountCLI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +49,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -69,47 +102,48 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.MainApplication.executor": "Run",
-    "Application.MainApplication2.executor": "Run",
-    "Application.MongoDBConnector.executor": "Run",
-    "Application.StartByMain.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "database.data.extractors.current.export.id": "JSON-Groovy.json.groovy",
-    "database.data.extractors.current.id": "JSON-Groovy.json.groovy",
-    "git-widget-placeholder": "master",
-    "ignore.preview.features.used": "true",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/cinel/Desktop/Università/ISPW/Progetto/PROG_ISPW/src/main/java/view",
-    "last_opened_file_path": "C:/Users/cinel/Desktop/Università/ISPW/Progetti di Altri/ProgettoStucco/ItalianBallerz",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37587237",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "sonarlint",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApplication2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MongoDBConnector.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StartByMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StartByMain2.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.preview.features.used&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/cinel/Desktop/Università/ISPW/Progetto/PROG_ISPW/src/main/java/view&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cinel/Desktop/Università/ISPW/Progetti di Altri/ProgettoStucco/ItalianBallerz&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37587237&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="engineering.exceptions" />
@@ -124,7 +158,7 @@
       <command value="error_field" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.StartByMain">
+  <component name="RunManager" selected="Application.StartByMain2">
     <configuration name="StartByMain" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="start.MainApplication" />
       <module name="spotify" />
@@ -228,82 +262,12 @@
       <workItem from="1707810991916" duration="12696000" />
       <workItem from="1707833653456" duration="9057000" />
       <workItem from="1707843680251" duration="1891000" />
-      <workItem from="1707854286593" duration="3771000" />
-      <workItem from="1707899582582" duration="408000" />
-      <workItem from="1707912302661" duration="159000" />
-      <workItem from="1707916011079" duration="554000" />
-    </task>
-    <task id="LOCAL-00028" summary="Persistenza database funzionante">
-      <option name="closed" value="true" />
-      <created>1706796343615</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1706796343615</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Modifica della struttura del database, caricamento corretto di playlist nel database e bozza di playlist in attesa di approvazione">
-      <option name="closed" value="true" />
-      <created>1706808188377</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1706808188378</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Correzione code smells">
-      <option name="closed" value="true" />
-      <created>1706810339472</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1706810339472</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Modifica">
-      <option name="closed" value="true" />
-      <created>1706819014647</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1706819014647</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Update">
-      <option name="closed" value="true" />
-      <created>1706819174974</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1706819174974</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Aggiunta possibilità di modificare i generi preferiti a run time">
-      <option name="closed" value="true" />
-      <created>1706823535105</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1706823535105</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Code smells risolti">
-      <option name="closed" value="true" />
-      <created>1706825126631</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1706825126631</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Aggiornamento grafiche">
-      <option name="closed" value="true" />
-      <created>1706865700564</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1706865700564</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Inizio implementazione Observer">
-      <option name="closed" value="true" />
-      <created>1706873398689</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1706873398689</updated>
+      <workItem from="1707854286593" duration="11432000" />
+      <workItem from="1707906639958" duration="494000" />
+      <workItem from="1707911598618" duration="2414000" />
+      <workItem from="1707916026894" duration="1150000" />
+      <workItem from="1707917204665" duration="108000" />
+      <workItem from="1707917350380" duration="110000" />
     </task>
     <task id="LOCAL-00037" summary="Risoluzione Sicurezza aggiungendo un connection.properties">
       <option name="closed" value="true" />
@@ -609,23 +573,95 @@
       <option name="project" value="LOCAL" />
       <updated>1707858652012</updated>
     </task>
-    <task id="LOCAL-00075" summary="print cambiati">
+    <task id="LOCAL-00075" summary="&#10;Aggiunta Logger">
       <option name="closed" value="true" />
-      <created>1707912409555</created>
+      <created>1707858831629</created>
       <option name="number" value="00075" />
       <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1707912409555</updated>
+      <updated>1707858831629</updated>
     </task>
-    <task id="LOCAL-00076" summary="print cambiati">
+    <task id="LOCAL-00076" summary="Aggiunto invio notifiche">
       <option name="closed" value="true" />
-      <created>1707916389775</created>
+      <created>1707861470540</created>
       <option name="number" value="00076" />
       <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1707916389777</updated>
+      <updated>1707861470540</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Aggiunto retrive notifiche">
+      <option name="closed" value="true" />
+      <created>1707863446994</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1707863446995</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Aggiunta view per le notifiche">
+      <option name="closed" value="true" />
+      <created>1707866132978</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1707866132978</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Aggiunta view per le notifiche">
+      <option name="closed" value="true" />
+      <created>1707866252775</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1707866252775</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Aggiunta NotificheDAO">
+      <option name="closed" value="true" />
+      <created>1707912139944</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1707912139944</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Operazioni rinominate">
+      <option name="closed" value="true" />
+      <created>1707912942492</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1707912942492</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Operazioni rinominate">
+      <option name="closed" value="true" />
+      <created>1707913062970</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1707913062970</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Operazioni rinominate">
+      <option name="closed" value="true" />
+      <created>1707913094049</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1707913094049</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Operazioni rinominate">
+      <option name="closed" value="true" />
+      <created>1707913127932</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1707913127932</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Operazioni rinominate">
+      <option name="closed" value="true" />
+      <created>1707913337064</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1707913337064</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,10 +680,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Risoluzione code smells, ridotto il riuso di codice" />
-    <MESSAGE value="Aggiunto prova per Schermata supervisore" />
-    <MESSAGE value="Update, modifica delle view &#10;Aggiunta base approvazione playlist" />
-    <MESSAGE value="Aggiunta base approvazione playlist" />
     <MESSAGE value="Update" />
     <MESSAGE value="Update code Smells" />
     <MESSAGE value="approve playlist fatto con json: da migliorare duplicazione codice" />
@@ -668,8 +700,12 @@
     <MESSAGE value="Eliminazione duplicazione" />
     <MESSAGE value="Eliminazione duplicazione&#10;Correzione controllerApplicativo&#10;Aggiunta Logger" />
     <MESSAGE value="&#10;Aggiunta Logger" />
-    <MESSAGE value="print cambiati" />
-    <option name="LAST_COMMIT_MESSAGE" value="print cambiati" />
+    <MESSAGE value="Aggiunto invio notifiche" />
+    <MESSAGE value="Aggiunto retrive notifiche" />
+    <MESSAGE value="Aggiunta view per le notifiche" />
+    <MESSAGE value="Aggiunta NotificheDAO" />
+    <MESSAGE value="Operazioni rinominate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Operazioni rinominate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
