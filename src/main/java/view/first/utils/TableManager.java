@@ -12,8 +12,6 @@ public class TableManager {
     private boolean isUpdatingTableView = true;
     private static final Logger logger = Logger.getLogger(TableManager.class.getName());
 
-
-
     /** Associa a ciascuna colonna i relativi metodi get di PlaylistBean
      * @param columns       è una lista di colonne, contiene le sole colonne semplici (no bottoni)
      * @param nameColumns   è una lista di stringhe, che viene utilizzata per recuperare i dati dai metodi get del PlaylistBean
@@ -35,17 +33,13 @@ public class TableManager {
     public static void updateTable(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlists) {
 
         List<PlaylistBean> currentPlaylists = playlistTable.getItems();     // Ottenere la lista attuale di playlist dalla TableView
-        logger.info(STR."Table Manager update: playlist corrente\{currentPlaylists}");
-        logger.info(STR."Table Manager update: playlist totale nuova\{playlists}");
 
         playlists.removeAll(currentPlaylists);                              // Rimuove le playlist già caricate, cosi da avere una lista di playlist nuove
         // ### Problema se viene rimossa una playlist
-        logger.info(STR."Table Manager update: playlist da aggiungere\{playlists}");
 
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
         playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
     }
-
 
     public ObservableList<PlaylistBean> collegamento(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlistBeanList) {
 
