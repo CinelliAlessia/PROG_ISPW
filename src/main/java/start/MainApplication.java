@@ -59,7 +59,7 @@ public class MainApplication extends Application {
                 logger.severe("Impossibile trovare il file di configurazione.");
             }
         } catch (IOException e) {
-           logger.info(STR."Errore durante la lettura del file di configurazione.\{e.getMessage()}");
+           logger.info("Errore durante la lettura del file di configurazione" + e.getMessage());
         }
         return properties;
     }
