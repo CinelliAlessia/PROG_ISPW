@@ -22,19 +22,13 @@ public class RegistrazioneCtrlGrafico implements Initializable {
     private TextField name;
     @FXML
     private TextField email;
-
     @FXML
     private PasswordField password;
     @FXML
     private PasswordField confPassword;
-
     @FXML
     private Text errorField;
 
-    @FXML
-    private CheckBox pop;
-    @FXML
-    private CheckBox indie;
     @FXML
     private CheckBox classic;
     @FXML
@@ -42,11 +36,11 @@ public class RegistrazioneCtrlGrafico implements Initializable {
     @FXML
     private CheckBox electronic;
     @FXML
+    private CheckBox pop;
+    @FXML
+    private CheckBox indie;
+    @FXML
     private CheckBox house;
-    @FXML
-    private CheckBox hipHop;
-    @FXML
-    private CheckBox jazz;
     @FXML
     private CheckBox acoustic;
     @FXML
@@ -54,13 +48,17 @@ public class RegistrazioneCtrlGrafico implements Initializable {
     @FXML
     private CheckBox country;
     @FXML
+    private CheckBox hipHop;
+    @FXML
+    private CheckBox jazz;
+    @FXML
     private CheckBox alternative;
 
     private List<CheckBox> checkBoxList;
 
     private SceneController sceneController;
-    private static final Logger logger = Logger.getLogger(RegistrazioneCtrlGrafico.class.getName());
 
+    private static final Logger logger = Logger.getLogger(RegistrazioneCtrlGrafico.class.getName());
 
     public void setAttributes(SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni

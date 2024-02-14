@@ -35,21 +35,21 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     @FXML
     private CheckBox pop;
     @FXML
+    private CheckBox jazz;
+    @FXML
+    private CheckBox acoustic;
+    @FXML
     private CheckBox indie;
     @FXML
     private CheckBox classic;
-    @FXML
-    private CheckBox rock;
-    @FXML
-    private CheckBox electronic;
     @FXML
     private CheckBox house;
     @FXML
     private CheckBox hipHop;
     @FXML
-    private CheckBox jazz;
+    private CheckBox rock;
     @FXML
-    private CheckBox acoustic;
+    private CheckBox electronic;
     @FXML
     private CheckBox reb;
     @FXML

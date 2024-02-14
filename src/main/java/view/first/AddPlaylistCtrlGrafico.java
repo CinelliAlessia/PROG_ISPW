@@ -31,12 +31,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
     private TextField title;
     @FXML
     private TextField link;
-    @FXML
-    private CheckBox pop;
-    @FXML
-    private CheckBox indie;
-    @FXML
-    private CheckBox classic;
+
     @FXML
     private CheckBox rock;
     @FXML
@@ -44,22 +39,27 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
     @FXML
     private CheckBox house;
     @FXML
-    private CheckBox hipHop;
+    private CheckBox pop;
     @FXML
-    private CheckBox jazz;
+    private CheckBox indie;
     @FXML
-    private CheckBox acoustic;
+    private CheckBox classic;
     @FXML
     private CheckBox reb;
     @FXML
     private CheckBox country;
     @FXML
     private CheckBox alternative;
+    @FXML
+    private CheckBox hipHop;
+    @FXML
+    private CheckBox jazz;
+    @FXML
+    private CheckBox acoustic;
+    private List<CheckBox> checkBoxList;
 
     private PlaylistBean playlistBean;
     private T clientBean;
-
-    private List<CheckBox> checkBoxList;
     private SceneController sceneController;
 
     private static final Logger logger = Logger.getLogger(AddPlaylistCtrlGrafico.class.getName());

@@ -14,13 +14,13 @@ import java.util.logging.Logger;
 public class FilterCtrlGrafico implements Initializable {
 
     @FXML
-    private Slider happySad;
-    @FXML
-    private Slider danceChill;
-    @FXML
     private Slider electronicAcoustic;
     @FXML
     private Slider speakInstrumental;
+    @FXML
+    private Slider happySad;
+    @FXML
+    private Slider danceChill;
 
     @FXML
     private CheckBox pop;
@@ -29,11 +29,11 @@ public class FilterCtrlGrafico implements Initializable {
     @FXML
     private CheckBox classic;
     @FXML
-    private CheckBox rock;
+    private CheckBox reb;
     @FXML
-    private CheckBox electronic;
+    private CheckBox country;
     @FXML
-    private CheckBox house;
+    private CheckBox alternative;
     @FXML
     private CheckBox hipHop;
     @FXML
@@ -41,14 +41,13 @@ public class FilterCtrlGrafico implements Initializable {
     @FXML
     private CheckBox acoustic;
     @FXML
-    private CheckBox reb;
+    private CheckBox rock;
     @FXML
-    private CheckBox country;
+    private CheckBox electronic;
     @FXML
-    private CheckBox alternative;
+    private CheckBox house;
 
     private PlaylistBean playlistBean;
-
     private List<CheckBox> checkBoxList;
     private SceneController sceneController;
 
