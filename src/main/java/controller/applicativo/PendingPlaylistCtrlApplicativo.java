@@ -71,7 +71,7 @@ public class PendingPlaylistCtrlApplicativo {
     public void sendNotification(NoticeBean noticeBean) {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        UserDAO dao = persistenceType.createUserDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        NoticeDAO dao = persistenceType.createNoticeDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(),noticeBean.getUsernameAuthor());
 

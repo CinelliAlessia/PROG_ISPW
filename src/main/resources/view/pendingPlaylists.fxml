@@ -9,7 +9,7 @@
         <!-- Barra del titolo TopPage -->
         <AnchorPane minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
             <Button layoutX="14.0" layoutY="19.0" onAction="#onBackClick" text="Back" AnchorPane.leftAnchor="15.0" />
-            <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="MENAGER PLAYLIST" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
+            <Label alignment="CENTER" layoutX="570.0" layoutY="40.0" stylesheets="@../styles/title.css" text="MANAGER PLAYLIST" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
         </AnchorPane>
     </top>
 

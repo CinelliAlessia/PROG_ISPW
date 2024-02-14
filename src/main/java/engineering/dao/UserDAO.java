@@ -24,8 +24,4 @@ public interface UserDAO {
     void updateGenreUser(Client client);
 
     void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse;
-
-    void addNotice(Notice notice);
-
-    List<Notice> retrieveNotice(User user);
 }
