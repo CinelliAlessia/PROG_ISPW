@@ -1,0 +1,14 @@
+{
+  "password": "eee",
+  "email": "eee@eee.com",
+  "username": "eee",
+  "preferences": [
+    "Pop",
+    "Indie",
+    "Classic",
+    "Rock",
+    "Electronic",
+    "House"
+  ],
+  "supervisor": false
+}
