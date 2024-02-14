@@ -155,6 +155,7 @@ public class HomePageCLI<T extends ClientBean>{
         // Potresti chiedere all'utente di selezionare i generi, l'approvazione, ecc.
         // Usa il controller applicativo per effettuare la ricerca con il filtro
         // e mostra i risultati all'utente
+        //TODO
     }
 
     private void deleteFilter() {

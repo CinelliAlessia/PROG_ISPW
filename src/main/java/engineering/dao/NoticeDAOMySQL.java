@@ -42,7 +42,7 @@ public class NoticeDAOMySQL implements NoticeDAO{
     }
 
     public void deleteNotice(Notice notice) {
-
+//TODO
     }
 
     public List<Notice> retrieveNotice(User user) {
