@@ -17,6 +17,11 @@ public class QueryNotice {
         stmt.executeUpdate(query);
     }
 
+    public static void removeNotice(Statement stmt, Notice notice) throws SQLException {
+        String query = String.format(Queries.REMOVE_NOTICE_CLIENT, notice.getUsernameAuthor(), notice.getBody());
+        stmt.executeUpdate(query);
+    }
+
     public static ResultSet retriveNotice(Statement stmt, String username) {
         try{
             String query = String.format(Queries.SELECT_NOTICE_USER, username);

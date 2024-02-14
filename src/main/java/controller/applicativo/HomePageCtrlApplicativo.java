@@ -1,11 +1,13 @@
 package controller.applicativo;
 
+import engineering.bean.NoticeBean;
 import engineering.bean.PlaylistBean;
 import engineering.dao.*;
 import engineering.exceptions.LinkIsNotValid;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.PlaylistCollection;
 import engineering.pattern.observer.Subject;
+import model.Notice;
 import model.Playlist;
 
 import java.util.*;
@@ -101,10 +103,16 @@ public class HomePageCtrlApplicativo {
     }
 
 
-
     public void observePlaylistTable(Observer observer){
         Subject playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.attach(observer);
     }
 
+    public void removeNotice(NoticeBean noticeBean) {
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
+        NoticeDAO dao = persistenceType.createNoticeDAO();                   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+
+        Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(), noticeBean.getUsernameAuthor());
+        dao.deleteNotice(notice);
+    }
 }

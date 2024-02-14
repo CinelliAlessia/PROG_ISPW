@@ -63,5 +63,6 @@ public class Queries {
 
     public static final String INSERT_NOTICE_USER = "INSERT INTO notifiche (username, title, body) VALUES ('%s','%s','%s')";
     public static final String SELECT_NOTICE_USER = "SELECT * FROM notifiche WHERE username = '%s'";
+    public static final String REMOVE_NOTICE_CLIENT = "DELETE FROM notifiche WHERE username = '%s' AND body = '%s'" ;
 
 }

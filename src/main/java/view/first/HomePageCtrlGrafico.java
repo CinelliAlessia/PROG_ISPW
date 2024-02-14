@@ -9,8 +9,15 @@ import engineering.pattern.observer.*;
 
 import javafx.event.*;
 import javafx.fxml.*;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
 import model.Playlist;
 import view.first.utils.*;
 
@@ -18,8 +25,15 @@ import java.net.URL;
 import java.util.*;
 import java.util.logging.Logger;
 
-/** Home page controller grafico rappresenta il Concrete Observer */
-public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable, Observer {
+/**
+ * Questa classe rappresenta il controller grafico della home page dell'applicazione,
+ * fungendo da Concrete Observer nel contesto del pattern Observer. Si occupa di gestire
+ * la visualizzazione delle playlist, la gestione delle notifiche e l'interazione
+ * con l'utente tramite una GUI JavaFX.
+ *
+ * @param <T> Tipo generico che estende {@link ClientBean}, rappresenta il tipo di bean utente
+ *            che sarà gestito da questo controller.
+ */public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable, Observer {
 
 
     public ContextMenu contextMenu;
@@ -56,6 +70,13 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     private List<Playlist> playlists = new ArrayList<>(); /** Observer state -> Model ma serve cosi per il pattern */
     private List<PlaylistBean> playlistsBean = new ArrayList<>();
 
+    /**
+     * Inizializza il controller grafico della home page.
+     *
+     * @param location   Il percorso relativo o assoluto dell'oggetto alla fine della risoluzione
+     *                   del URL o {@code null} se l'oggetto non ha un URL associato.
+     * @param resources  Le risorse di localizzazione o {@code null} se l'oggetto non è stato localizzato.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Recupera tutte le playlist
@@ -86,6 +107,10 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         logger.info("GUI HomePage setAttributes: " + clientBean);
     }
 
+    /**
+     * Inizializza i componenti visivi della home page in base allo stato
+     * dell'utente rappresentato dal clientBean.
+     */
     public void initializeField() {
         if(clientBean == null){
             logger.info("GUI HomePage: Accesso come Guest");
@@ -160,24 +185,13 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
     @FXML
     public void showContextMenu(ActionEvent event) {
+        contextMenu.getItems().clear(); // Rimuovi tutti gli elementi dal ContextMenu
 
-        contextMenu.getItems().clear(); // Rimuove tutti gli elementi dal ContextMenu
-
-        System.out.println("BOTTONE PREMUTO");
         UserBean userBean = (UserBean) clientBean;
+        //################################# possibile aggiungere il metodo pull a ogni click del bottone
 
-        // Ottenere la lista di NoticeBean dal tuo clientBean (assumendo che clientBean sia accessibile)
         for (NoticeBean noticeBean : userBean.getNotices()) {
-            System.out.println("BOTTONE PREMUTO -> NOTIFICA");
-
-            // Creare un MenuItem per ciascun NoticeBean
-            MenuItem menuItem = new MenuItem(noticeBean.getTitle() + "\n" + noticeBean.getBody());
-
-            // Aggiungere un gestore di eventi per ciascun MenuItem, se necessario
-            menuItem.setOnAction(e -> handleNoticeSelection(noticeBean));
-
-            // Aggiungi il MenuItem al ContextMenu
-            contextMenu.getItems().add(menuItem);
+            contextMenu.getItems().add(createStyledMenuItem(noticeBean));
         }
 
         // Converti le coordinate locali del menu in coordinate dello schermo
@@ -190,7 +204,56 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
     private void handleNoticeSelection(NoticeBean noticeBean) {
         List<NoticeBean> noticeBeanList = ((UserBean)clientBean).getNotices();
+
+        HomePageCtrlApplicativo homePageCtrlApplicativo = new HomePageCtrlApplicativo();
+        homePageCtrlApplicativo.removeNotice(noticeBean);
         noticeBeanList.remove(noticeBean);
+
         ((UserBean)clientBean).setNotices(noticeBeanList);
     }
+
+    private MenuItem createStyledMenuItem(NoticeBean noticeBean) {
+        // Crea una HBox con larghezza fissa per contenere il testo e il pulsante
+        HBox hbox = new HBox();
+        hbox.setPrefWidth(325); // Imposta la larghezza fissa desiderata
+
+        // Crea un Text per il testo della notifica (supporta il wrapping)
+        Text text = new Text(noticeBean.getTitle() + "\n" + noticeBean.getBody());
+        text.setWrappingWidth(300); // Imposta la larghezza massima prima del wrapping
+
+        // Aggiungi uno spazio vuoto tra il Text e il pulsante
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
+        // Crea un'ImageView per l'immagine del pulsante "delete"
+        ImageView deleteImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/photo/delete.png"))));
+        deleteImageView.setFitWidth(35);  // Imposta la larghezza desiderata dell'immagine
+        deleteImageView.setFitHeight(35); // Imposta l'altezza desiderata dell'immagine
+
+        // Crea un pulsante con l'ImageView
+        Button deleteButton = new Button();
+        deleteButton.setGraphic(deleteImageView);
+        deleteButton.setOnAction(e -> handleNoticeSelection(noticeBean));
+
+        // Rimuovi tutti gli altri stili associati al bottone
+        deleteButton.getStyleClass().clear();
+
+        // Imposta lo stile per il pulsante "delete"
+        deleteButton.setStyle("-fx-background-color: #1DB954; -fx-text-fill: white; -fx-pref-height: 25px; -fx-pref-width: 25px; " +
+                "-fx-min-width: -1; -fx-min-height: -1; -fx-background-radius: 50%; -fx-border-radius: 50%;");
+
+        text.getStyleClass().clear();
+        text.setStyle("-fx-font-size: 16px; -fx-fill: white;");
+
+        // Aggiungi Text, spazio vuoto e pulsante alla HBox
+        hbox.getChildren().addAll(text, spacer, deleteButton);
+        hbox.setAlignment(Pos.CENTER_RIGHT);
+
+        // Crea un MenuItem personalizzato con la HBox
+        MenuItem menuItem = new MenuItem();
+        menuItem.setGraphic(hbox);
+
+        return menuItem;
+    }
+
 }

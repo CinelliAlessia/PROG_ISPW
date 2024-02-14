@@ -41,8 +41,23 @@ public class NoticeDAOMySQL implements NoticeDAO{
     }
 
     public void deleteNotice(Notice notice) {
-//TODO
+        Statement stmt = null;
+        Connection conn;
+
+        try {
+            conn = Connect.getInstance().getDBConnection();
+            stmt = conn.createStatement();
+
+            QueryNotice.removeNotice(stmt, notice);
+
+        } catch (SQLException e) {
+            handleDAOException(e);
+        } finally {
+            // Chiusura delle risorse
+            closeResources(stmt,null);
+        }
     }
+
 
     public List<Notice> retrieveNotice(User user) {
         Statement stmt = null;
