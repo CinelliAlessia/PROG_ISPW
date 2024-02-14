@@ -134,7 +134,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            rs = QueryPlaylist.retrievePlaylistUserByEmail(stmt,email);
+            rs = QueryPlaylist.retrievePlaylistClientByEmail(stmt,email);
 
             playlists = new ArrayList<>(); // Una lista di playlist
 

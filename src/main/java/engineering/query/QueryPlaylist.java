@@ -91,14 +91,14 @@ public class QueryPlaylist {
 
     /** Recupera tutta la playlist_utente, va usata con retriveGenrePlaylist per ottenere
      * i generi musicali delle playlist caricate */
-    public static ResultSet retrivePlaylistUserByUsername(Statement stmt, String username) throws SQLException {
+    public static ResultSet retrivePlaylistClientByUsername(Statement stmt, String username) throws SQLException {
         String sql = String.format(Queries.SELECT_PLAYLIST_BY_USER,username);
         return stmt.executeQuery(sql);
     }
 
     /** Recupera tutta la playlist_utente, va usata con retriveGenrePlaylist per ottenere
      * i generi musicali delle playlist caricate */
-    public static ResultSet retrievePlaylistUserByEmail(Statement stmt, String email) throws SQLException {
+    public static ResultSet retrievePlaylistClientByEmail(Statement stmt, String email) throws SQLException {
         String sql = String.format(Queries.SELECT_PLAYLIST_BY_EMAIL,email);
         return stmt.executeQuery(sql);
     }

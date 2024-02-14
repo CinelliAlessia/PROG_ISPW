@@ -13,15 +13,15 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Logger;
 
-public class UserDAOMySQL implements UserDAO {
+public class ClientDAOMySQL implements ClientDAO {
 
-    private static final Logger logger = Logger.getLogger(UserDAOMySQL.class.getName());
+    private static final Logger logger = Logger.getLogger(ClientDAOMySQL.class.getName());
 
     private static final String USERNAME = "username";
 
     /** Metodo per inserire un User nel database al momento della registrazione
      * viene effettuato il controllo sulla email scelta e sull'username scelto */
-    public void insertUser(Login registration) throws EmailAlreadyInUse, UsernameAlreadyInUse{
+    public void insertClient(Login registration) throws EmailAlreadyInUse, UsernameAlreadyInUse{
 
         Statement stmt = null;
         Connection conn;
@@ -57,7 +57,7 @@ public class UserDAOMySQL implements UserDAO {
         }
     }
 
-    public Client loadUser(Login login) throws UserDoesNotExist{
+    public Client loadClient(Login login) throws UserDoesNotExist{
 
         Statement stmt = null;
         ResultSet resultSet = null;
@@ -106,7 +106,7 @@ public class UserDAOMySQL implements UserDAO {
         }
     }
 
-    public Client retrieveUserByUsername(String username) throws UserDoesNotExist {
+    public Client retrieveClientByUsername(String username) throws UserDoesNotExist {
         Statement stmt = null;
         Connection conn;
         ResultSet rs = null;
@@ -174,7 +174,7 @@ public class UserDAOMySQL implements UserDAO {
         return pw; // Se non trovi una corrispondenza
     }
 
-    public void updateGenreUser(Client client) {
+    public void updateGenreClient(Client client) {
         Statement stmt = null;
         Connection conn;
 

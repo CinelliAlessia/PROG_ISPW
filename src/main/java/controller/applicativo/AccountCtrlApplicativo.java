@@ -40,7 +40,7 @@ public class AccountCtrlApplicativo {
     public void updateGenreUser(ClientBean clientBean){
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        UserDAO dao = persistenceType.createUserDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        ClientDAO dao = persistenceType.createUserDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         Client client;
         if(clientBean.isSupervisor()){
@@ -50,7 +50,7 @@ public class AccountCtrlApplicativo {
         }
 
         // Invio utente model al DAO
-        dao.updateGenreUser(client);
+        dao.updateGenreClient(client);
 
     }
 

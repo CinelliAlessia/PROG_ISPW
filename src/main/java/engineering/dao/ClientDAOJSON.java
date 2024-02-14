@@ -7,7 +7,6 @@ import model.*;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
@@ -18,12 +17,12 @@ Ho semplificato la funzione loadUser utilizzando la funzione parseUser per otten
 Ho utilizzato il metodo parseUser anche nella funzione getUserFromDirectory.
 Ho semplificato la funzione updateGenreUser utilizzando il metodo parseUser per ottenere l'oggetto User dal contenuto del file JSON.
  */
-public class UserDAOJSON implements UserDAO {
+public class ClientDAOJSON implements ClientDAO {
 
-    private static final Logger logger = Logger.getLogger(UserDAOJSON.class.getName());
+    private static final Logger logger = Logger.getLogger(ClientDAOJSON.class.getName());
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
 
-    public void insertUser(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+    public void insertClient(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
         try {
             // Verifica se la cartella persistence esiste, altrimenti la crea
             Path persistenceDirectory = Paths.get(ConfigurationJSON.PERSISTENCE_BASE_DIRECTORY);
@@ -35,7 +34,7 @@ public class UserDAOJSON implements UserDAO {
             if (checkIfUserExistsByEmail(login.getEmail())) {
                 throw new EmailAlreadyInUse();
             }
-            if (retrieveUserByUsername(login.getUsername()) != null) {
+            if (retrieveClientByUsername(login.getUsername()) != null) {
                 throw new UsernameAlreadyInUse();
             }
 
@@ -54,7 +53,7 @@ public class UserDAOJSON implements UserDAO {
     }
 
 
-    public Client loadUser(Login login) throws UserDoesNotExist {
+    public Client loadClient(Login login) throws UserDoesNotExist {
         try {
             Path userInfoFile = Paths.get(BASE_DIRECTORY, login.getEmail(), ConfigurationJSON.USER_INFO_FILE_NAME);
 
@@ -115,7 +114,7 @@ public class UserDAOJSON implements UserDAO {
     }
 
 
-    public Client retrieveUserByUsername(String username) {
+    public Client retrieveClientByUsername(String username) {
         try (Stream<Path> userDirectories = Files.list(Paths.get(BASE_DIRECTORY))) {
             return userDirectories
                     .filter(Files::isDirectory)
@@ -129,7 +128,7 @@ public class UserDAOJSON implements UserDAO {
         }
     }
 
-    public void updateGenreUser(Client client) {
+    public void updateGenreClient(Client client) {
         try {
             Path userInfoFile = Paths.get(BASE_DIRECTORY, client.getEmail(), ConfigurationJSON.USER_INFO_FILE_NAME);
 

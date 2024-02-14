@@ -21,7 +21,7 @@ public class LoginCtrlApplicativo {
     public void verificaCredenziali(LoginBean bean) throws IncorrectPassword, UserDoesNotExist {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        ClientDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         String password = dao.getPasswordByEmail(bean.getEmail());  // ####### se la mail non esiste da errore, trasformiamo in eccezione
 
@@ -34,12 +34,12 @@ public class LoginCtrlApplicativo {
     public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist, InvalidEmailException {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        ClientDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         Login login = new Login(bean.getEmail(), bean.getPassword());           // Creo model Login per comunicare con il dao
 
         try{
-            Client client = dao.loadUser(login);
+            Client client = dao.loadClient(login);
 
 
             if(client instanceof User user){
@@ -69,7 +69,7 @@ public class LoginCtrlApplicativo {
 
     public List<Notice> retriveNotice(User user){
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        UserDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        NoticeDAO dao = persistenceType.createNoticeDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         return dao.retrieveNotice(user);
     }

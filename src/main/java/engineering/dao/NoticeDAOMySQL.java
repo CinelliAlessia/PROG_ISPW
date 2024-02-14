@@ -2,6 +2,7 @@ package engineering.dao;
 
 import engineering.others.Connect;
 import engineering.query.QueryLogin;
+import engineering.query.QueryNotice;
 import model.Notice;
 import model.User;
 
@@ -29,7 +30,7 @@ public class NoticeDAOMySQL implements NoticeDAO{
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            QueryLogin.addNotice(stmt, notice);
+            QueryNotice.addNotice(stmt, notice);
 
         } catch (SQLException e) {
             handleDAOException(e);
@@ -56,7 +57,7 @@ public class NoticeDAOMySQL implements NoticeDAO{
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            rs = QueryLogin.retriveNotice(stmt, user.getUsername());
+            rs = QueryNotice.retriveNotice(stmt, user.getUsername());
 
             while (true) {
                 assert rs != null;

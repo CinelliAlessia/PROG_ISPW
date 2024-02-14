@@ -1,7 +1,6 @@
 package engineering.query;
 
 import model.Login;
-import model.Notice;
 
 import java.sql.*;
 import java.util.List;
@@ -118,25 +117,6 @@ public class QueryLogin {
         return stmt.executeQuery(query);
     }
 
-    public static void addNotice(Statement stmt, Notice notice) throws SQLException {
-        String query = String.format(Queries.INSERT_NOTICE_USER, notice.getUsernameAuthor(), notice.getTitle(), notice.getBody());
-        stmt.executeUpdate(query);
-    }
-
-    public static ResultSet retriveNotice(Statement stmt, String username) {
-        try{
-            String query = String.format(Queries.SELECT_NOTICE_USER, username);
-            return stmt.executeQuery(query);
-        } catch (SQLException e){
-            handleException(e);
-            return null;
-        }
-    }
-
-    private static void handleException(Exception e) {
-        logger.severe(e.getMessage());
-    }
-
     private static String buildGenresQueryString(List<String> generiMusicali, String userEmail) {
         String[] genres = {"Pop", "Indie", "Classic", "Rock", "Electronic", "House", "HipHop", "Jazz", "Acoustic", "REB", "Country", "Alternative"};
         StringBuilder query = new StringBuilder();
@@ -150,4 +130,9 @@ public class QueryLogin {
 
         return query.toString();
     }
+
+    private static void handleException(Exception e) {
+        logger.severe(e.getMessage());
+    }
+
 }

@@ -8,8 +8,8 @@ import java.util.Properties;
 public enum TypesOfPersistenceLayer {
     MYSQL {
         @Override
-        public UserDAO createUserDAO() {
-            return new UserDAOMySQL();
+        public ClientDAO createUserDAO() {
+            return new ClientDAOMySQL();
         }
         @Override
         public PlaylistDAO createPlaylistDAO() {
@@ -23,8 +23,8 @@ public enum TypesOfPersistenceLayer {
     },
     JSON {
         @Override
-        public UserDAO createUserDAO() {
-            return new UserDAOJSON();
+        public ClientDAO createUserDAO() {
+            return new ClientDAOJSON();
         }
         @Override
         public PlaylistDAO createPlaylistDAO() {
@@ -37,7 +37,7 @@ public enum TypesOfPersistenceLayer {
         }
     };
 
-    public abstract UserDAO createUserDAO();
+    public abstract ClientDAO createUserDAO();
     public abstract PlaylistDAO createPlaylistDAO();
     public abstract NoticeDAO createNoticeDAO();
 
