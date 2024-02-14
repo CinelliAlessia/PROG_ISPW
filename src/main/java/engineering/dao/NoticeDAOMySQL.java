@@ -1,7 +1,6 @@
 package engineering.dao;
 
 import engineering.others.Connect;
-import engineering.query.QueryLogin;
 import engineering.query.QueryNotice;
 import model.Notice;
 import model.User;

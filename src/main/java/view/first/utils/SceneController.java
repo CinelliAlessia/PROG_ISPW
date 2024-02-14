@@ -5,16 +5,18 @@ import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
+import view.first.AddPlaylistCtrlGrafico;
 import view.first.FilterCtrlGrafico;
 import view.first.TextPopUp;
 
 import java.io.IOException;
 import java.lang.reflect.*;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class SceneController {
     private final Deque<Scene> sceneStack;
-
+    private static final Logger logger = Logger.getLogger(SceneController.class.getName());
     public SceneController(){
         sceneStack = new LinkedList<>();
     }
@@ -81,7 +83,7 @@ public class SceneController {
             try {
                 Method setAttributes = controller.getClass().getMethod("setAttributes", paramType, SceneController.class);
                 setAttributes.invoke(controller, paramType == ClientBean.class ? clientBean : playlistBean, this);
-                System.out.println("TIPO: " + paramType + " " + SceneController.class);
+                logger.info("TIPO: " + paramType + " " + SceneController.class);
 
                 return; // Esce dal metodo se trova una firma valida
             } catch (NoSuchMethodException ignored) {
@@ -95,7 +97,7 @@ public class SceneController {
         try{
             Method setAttributes = controller.getClass().getMethod("setAttributes", ClientBean.class, PlaylistBean.class, SceneController.class);
             setAttributes.invoke(controller,clientBean, playlistBean, this);
-            System.out.println("TIPO: " + ClientBean.class + " " + PlaylistBean.class + " " + SceneController.class);
+            logger.info("TIPO: " + ClientBean.class + " " + PlaylistBean.class + " " + SceneController.class);
 
             return; // Esce dal metodo se trova una firma valida
 
@@ -108,9 +110,7 @@ public class SceneController {
         try {
             Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
             setAttributes.invoke(controller, this);
-            System.out.println("TIPO: " + SceneController.class);
-
-            return; // Esce dal metodo se trova una firma valida
+            logger.info("TIPO: " + SceneController.class);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             handleSceneLoadError(e);
         }
@@ -183,7 +183,7 @@ public class SceneController {
 
 
     private void handleSceneLoadError(Exception e) {
-        e.printStackTrace();
+        logger.info(e.getMessage());
     }
 
 

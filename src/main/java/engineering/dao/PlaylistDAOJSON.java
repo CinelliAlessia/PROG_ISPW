@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
 
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 public class PlaylistDAOJSON implements PlaylistDAO {
@@ -15,6 +16,9 @@ public class PlaylistDAOJSON implements PlaylistDAO {
      * Questo metodo inserisce la playlist sia sulla cartella del singolo utente
      * Aggiunge inoltre sulle cartelle generali delle playlist approvate e delle playlist in attesa di approvazione
      */
+
+    private static final Logger logger = Logger.getLogger(PlaylistDAOJSON.class.getName());
+
     public boolean insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
         // Costruisco il percorso del file playlist.json per l'utente
         java.nio.file.Path userDirectory = Paths.get(ConfigurationJSON.USER_BASE_DIRECTORY, playlist.getEmail());
@@ -57,11 +61,11 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 }
 
                 Files.copy(playlistPath, allPlaylistsPath, StandardCopyOption.REPLACE_EXISTING);
-                System.err.println("Playlist inserita con successo!");
+                logger.info("Playlist inserita con successo!");
                 result = true;
 
             } else {
-                System.err.println("Una playlist con questo nome esiste già per questo utente.");
+                logger.info("Una playlist con questo nome esiste già per questo utente.");
                 throw new PlaylistLinkAlreadyInUse();
             }
 
@@ -82,7 +86,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (updatedInUserFolder && updatedInPendingFolder) {
             copyAndDeletePlaylist(playlist);
             playlist.setApproved(true);
-            System.err.println(playlist.getPlaylistName() + " " + playlist.getApproved());
+            logger.info(playlist.getPlaylistName() + " " + playlist.getApproved());
             return playlist;
         }
         return null;
@@ -120,14 +124,14 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
                 // Sovrascrivi il file con le informazioni aggiornate
                 Files.writeString(playlistPath, updatedJson);
-                System.err.println(playlist.getPlaylistName() + " " + playlist.getApproved());
+                logger.info(playlist.getPlaylistName() + " " + playlist.getApproved());
                 return true;
             } catch (IOException e) {
                 handleDAOException(e);
                 return false;
             }
         } else {
-            System.err.println("File della playlist non trovato.");
+            logger.info("File della playlist non trovato.");
             return false;
         }
     }
@@ -200,9 +204,9 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         boolean deletedFromGlobalFolder = deletePlaylistFromFolder(allPlaylistsPath);
 
         if (deletedFromUserFolder && deletedFromGlobalFolder) {
-            System.err.println("Playlist eliminata con successo!");
+            logger.info("Playlist eliminata con successo!");
         } else {
-            System.err.println("Errore durante l'eliminazione della playlist.");
+            logger.info("Errore durante l'eliminazione della playlist.");
         }
     }
 
@@ -216,7 +220,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (Files.exists(userDirectory)) {
             playlistList = retrievePlaylistsFromDirectory(userDirectory);
         } else {
-            System.err.println("Utente non trovato!");
+            logger.info("Utente non trovato!");
         }
 
         return playlistList;
@@ -300,15 +304,17 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     }
 
     public List<Playlist> searchPlaylistByGenre(Playlist playlist) {
-        return null;
+        //TODO
+        return Collections.emptyList();
     }
 
     public List<Playlist> searchPlaylistByEmotional(Playlist playlist) {
-        return null;
+        //TODO
+        return Collections.emptyList();
     }
 
     private void handleDAOException(Exception e) {
-        e.printStackTrace();
+        logger.info(e.getMessage());
     }
 
 }
