@@ -18,17 +18,17 @@ import java.util.logging.Logger;
 public class PendingPlaylistCtrlGrafico implements Initializable {
 
     @FXML
-    private TableView<PlaylistBean> playlistTable;
-    @FXML
-    private TableColumn<PlaylistBean, String> playlistNameColumn;
-    @FXML
     private TableColumn<PlaylistBean, List<String>> genreColumn;
     @FXML
     private TableColumn<PlaylistBean, Boolean> approveColumn;
     @FXML
-    private TableColumn<PlaylistBean, String> linkColumn;
+    private TableColumn<PlaylistBean, String> playlistNameColumn;
     @FXML
     private TableColumn<PlaylistBean, Boolean> usernameColumn;
+    @FXML
+    private TableColumn<PlaylistBean, String> linkColumn;
+    @FXML
+    private TableView<PlaylistBean> playlistTable;
 
     private SceneController sceneController;
     private static ObservableList<PlaylistBean> observableList;
