@@ -1,0 +1,13 @@
+
+}
+java:S1450"[Remove the "playlistBean" field and declare it as a local variable in the relevant methods.(¦Á…¥ÿÿÿÿÿ8İ„¿Ú1
+L	java:S106"+Replace this use of System.out by a logger.(ØóŒ¨úÿÿÿÿ8ù„¿Ú1
+L	java:S106"+Replace this use of System.out by a logger.(É˜Ãûÿÿÿÿ8û„¿Ú1
+G	java:S106"+Replace this use of System.out by a logger.(êçá»8ü„¿Ú1
+L	java:S106!"+Replace this use of System.out by a logger.(¥ÚâŸûÿÿÿÿ8ş„¿Ú1
+L	java:S106-"+Replace this use of System.out by a logger.(ı×¿›ûÿÿÿÿ8‚„¿Ú1
+J	java:S1086")Either remove or fill this block of code.(——´şÿÿÿÿ8ˆ„¿Ú1
+G	java:S1068"+Replace this use of System.out by a logger.(¸Ìšñ8‰„¿Ú1
+L	java:S106;"+Replace this use of System.out by a logger.(¶Ãûıÿÿÿÿ8‹„¿Ú1
+R
+java:S1068"0Remove this unused "playlistBean" private field.(¦Á…¥ÿÿÿÿÿ8„¿Ú1

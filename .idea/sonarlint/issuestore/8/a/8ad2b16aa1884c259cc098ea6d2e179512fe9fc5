@@ -1,0 +1,15 @@
+
+L	java:S106<"+Replace this use of System.err by a logger.(’çû‡ùÿÿÿÿ8•¸†ÀÚ1
+L	java:S106@"+Replace this use of System.err by a logger.(Ï·´æşÿÿÿÿ8—¸†ÀÚ1
+G	java:S106U"+Replace this use of System.err by a logger.(…óëç8œ¸†ÀÚ1
+G	java:S106{"+Replace this use of System.err by a logger.(…óëç8¨¸†ÀÚ1
+M	java:S106‚"+Replace this use of System.err by a logger.(ƒÒ¯×úÿÿÿÿ8ª¸†ÀÚ1
+M	java:S106Ë"+Replace this use of System.err by a logger.(Ùó‹ıÿÿÿÿ8»¸†ÀÚ1
+H	java:S106Í"+Replace this use of System.err by a logger.(¹šÏ¡8½¸†ÀÚ1
+H	java:S106Û"+Replace this use of System.err by a logger.(Õêóù8Ä¸†ÀÚ1
+U
+java:S1135ã"2Complete the task associated to this TODO comment.(î÷ç”şÿÿÿÿ8Æ¸†ÀÚ1
+I
+java:S1168¯"+Return an empty collection instead of null.(¥¹ï8Œ¹†ÀÚ1
+I
+java:S1168³"+Return an empty collection instead of null.(¥¹ï8¹†ÀÚ1

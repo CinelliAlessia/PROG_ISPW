@@ -34,7 +34,7 @@ public class Connect {
             try{
                 this.conn = DriverManager.getConnection(jdbc, user, password);
             } catch (SQLException e){
-                logger.severe(STR."Error in Connect.java \{e.getMessage()}");
+                logger.severe("Error in Connect.java" +e.getMessage());
             }
 
         }

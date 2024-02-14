@@ -82,7 +82,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (updatedInUserFolder && updatedInPendingFolder) {
             copyAndDeletePlaylist(playlist);
             playlist.setApproved(true);
-            System.err.println(STR."\{playlist.getPlaylistName()} \{playlist.getApproved()}");
+            System.err.println(playlist.getPlaylistName() + " " + playlist.getApproved());
             return playlist;
         }
         return null;
@@ -183,7 +183,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         boolean deletedFromUserFolder = deletePlaylistFromFolder(playlistPath);
 
         // Nome del file con UUID della playlist
-        String uuidPlaylistFileName = STR."\{playlistFileName}[\{playlist.getId()}]";
+        String uuidPlaylistFileName = playlistFileName + "[" + playlist.getId() + "]";
 
         // Verifica se la playlist è approvata o meno
         Path allPlaylistsPath;

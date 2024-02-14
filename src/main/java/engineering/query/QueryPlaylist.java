@@ -49,7 +49,7 @@ public class QueryPlaylist {
     /** Cerca la parola
      * @param searchTerm passata come argomento */
     public static ResultSet searchPlaylistTitle(Statement stmt, String searchTerm) throws SQLException {
-        String word = STR."%\{searchTerm}%";
+        String word = "%" + searchTerm + "%";
         String sql = String.format(Queries.SELECT_SEARCH_PLAYLIST, word);
         return stmt.executeQuery(sql);
     }
@@ -147,7 +147,7 @@ public class QueryPlaylist {
         genre = genre.replace(" ", "").replace(",", "");
 
         String sql = String.format(Queries.SELECT_SEARCH_BY_GENRE,
-                STR."%\{p.getPlaylistName()}%",
+                "%" + p.getPlaylistName() + "%",
                 (genre.charAt(0) == '1') ? 1 : 0, // Pop
                 (genre.charAt(1) == '1') ? 1 : 0, // Indie
                 (genre.charAt(2) == '1') ? 1 : 0, // Classic
@@ -167,7 +167,7 @@ public class QueryPlaylist {
 
     public static ResultSet searchPlaylistsByEmotional(Statement stmt, Playlist p) throws SQLException {
         String sql = String.format(Queries.SELECT_SEARCH_BY_EMOTIONAL,
-                STR."%\{p.getPlaylistName()}%",
+                "%" + p.getPlaylistName() + "%",
                 p.getEmotional().get(0),
                 p.getEmotional().get(1),
                 p.getEmotional().get(2),
