@@ -96,7 +96,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     public void retrivePlaylist() {
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
         // Recupera le playlist dell'utente
-        userPlaylists = accountCtrlApplicativo.retrivePlaylists(clientBean);
+        userPlaylists = accountCtrlApplicativo.retrievePlaylists(clientBean);
 
         // Imposto la struttura delle colonne della Table View
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);

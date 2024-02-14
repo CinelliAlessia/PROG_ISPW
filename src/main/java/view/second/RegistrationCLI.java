@@ -7,22 +7,19 @@ import view.second.utils.GenreManager;
 import view.second.utils.StringCLI;
 
 import java.util.*;
+import java.util.logging.Logger;
 
-// In questa interfaccia noto che il modo in cui è stato costruito il controller applicativo,
-// mi rende impossibile invocare metodi diversi da loadUser
-// questo rende complicata la gestione di questa interfaccia, che essendo diversa ha bisogno di ulteriori controlli,
-// che purtroppo vengono effettuati solo quando si prova a inserire l'utente.
-// Esempio: non posso verificare se la password è già in uso immediatamente, perché non posseggo il metodo sull'applicativo: searchEmail
 public class RegistrationCLI {
+    private static final Logger logger = Logger.getLogger(RegistrationCLI.class.getName());
     private final String genreListFile = StringCLI.GENERES_FILE_PATH;
     private final Scanner scanner = new Scanner(System.in);
 
     public void start() {
-        System.out.println("// ------- Registrazione ------- //");
-        System.out.print("Nome utente: ");
+        logger.info("// ------- Registrazione ------- //");
+        logger.info("Nome utente: ");
         String username = scanner.next();
 
-        System.out.print("Email: ");
+        logger.info("Email: ");
         String email = scanner.next();
 
         String password = null;
@@ -32,27 +29,27 @@ public class RegistrationCLI {
         // Controllo se le due password sono identiche
         while (retry) {
 
-            System.out.print("Password: ");
+            logger.info("Password: ");
             password = scanner.next();
 
-            System.out.print("Conferma password: ");
+            logger.info("Conferma password: ");
             confirmPassword = scanner.next();
 
             if(!password.equals(confirmPassword)){
-                System.out.println(" ! Le password non coincidono -> Riprova !");
+                logger.info(" ! Le password non coincidono -> Riprova !");
             } else {
                 retry = false;
             }
         }
 
         // Richiedi generi musicali disponibili all'utente
-        System.out.println("Generi musicali disponibili:");
+        logger.info("Generi musicali disponibili:");
         GenreManager genreManager = new GenreManager();
         Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
         genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
-        System.out.print("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
+        logger.info("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
@@ -64,7 +61,7 @@ public class RegistrationCLI {
             // ----- Utilizzo controller applicativo -----
             UserBean userBean = new UserBean(email);
             registrazioneCtrlApp.registerUser(regBean, userBean);
-            System.out.println("Registrazione utente avvenuta con successo!");
+            logger.info("Registrazione utente avvenuta con successo!");
 
             /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
             HomePageCLI<ClientBean> homePageCLI = new HomePageCLI<>();
@@ -74,9 +71,7 @@ public class RegistrationCLI {
             homePageCLI.start();
 
         } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
-            System.out.println(STR."! \{e.getMessage()} !");
+            logger.info(String.format("! %s !", e.getMessage()));
         }
     }
-
 }
-

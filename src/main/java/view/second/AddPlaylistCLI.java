@@ -7,14 +7,18 @@ import engineering.exceptions.LinkIsNotValid;
 import engineering.exceptions.PlaylistLinkAlreadyInUse;
 import view.second.utils.GenreManager;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class AddPlaylistCLI {
+    private static final Logger logger = Logger.getLogger(AddPlaylistCLI.class.getName());
+
     private ClientBean clientBean;
     private final Scanner scanner = new Scanner(System.in);
 
     public void setClientBean(ClientBean bean){
         this.clientBean = bean;
     }
+
     public void start() {
         PlaylistBean playlistBean = new PlaylistBean();
 
@@ -23,17 +27,17 @@ public class AddPlaylistCLI {
         playlistBean.setEmail(clientBean.getEmail());
 
         // Chiedi all'utente di inserire i dati della playlist
-        System.out.print("Inserisci il titolo della playlist: ");
+        logger.info("Inserisci il titolo della playlist: ");
         playlistBean.setPlaylistName(scanner.nextLine());
 
         boolean linkIsValid = false;
         while (!linkIsValid) {
-            System.out.print("Inserisci il link della playlist: ");
+            logger.info("Inserisci il link della playlist: ");
             try {
                 playlistBean.setLink(scanner.nextLine());
                 linkIsValid = true; // Se non viene lanciata l'eccezione, il link è valido e usciamo dal ciclo
             } catch (LinkIsNotValid e) {
-                System.out.println("! Link non valido-> Riprova !");
+                logger.info("! Link non valido-> Riprova !");
             }
         }
 
@@ -43,24 +47,23 @@ public class AddPlaylistCLI {
         genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
-        System.out.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
+        logger.info("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
         playlistBean.setPlaylistGenre(preferences);
 
         // #################### Devo prendere le emotional da input utente #############################
-        playlistBean.setEmotional(Arrays.asList(0,0,0,0));
+        playlistBean.setEmotional(Arrays.asList(0, 0, 0, 0));
 
         try {
             // Invocazione del controller applicativo per inserire la playlist
             AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
             addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-            System.out.println("Playlist aggiunta con successo!");
+            logger.info("Playlist aggiunta con successo!");
         } catch (PlaylistLinkAlreadyInUse e) {
-            System.out.println(" ! Il link relativo playlist è già presente nel sistema !");
-
+            logger.info(" ! Il link relativo playlist è già presente nel sistema !");
         }
     }
 }

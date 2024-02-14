@@ -29,15 +29,15 @@ public class AccountCLI {
             logger.info("----- Profilo -----");
             displayUserInfo(clientBean);
             // Show Menu //
-            System.out.println("1. Carica nuova Playlist");
-            System.out.println("2. Reimposta le tue preferenze musicali");
-            System.out.println("0. Esci");
+            logger.info("1. Carica nuova Playlist");
+            logger.info("2. Reimposta le tue preferenze musicali");
+            logger.info("0. Esci");
 
-            System.out.print("Scegli una opzione: ");
+            logger.info("Scegli una opzione: ");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-
+                    // Implementa la logica per "Carica nuova Playlist"
                     break;
                 case 2:
                     updatePreferences();
@@ -45,7 +45,7 @@ public class AccountCLI {
                 case 0:
                     return;
                 default:
-                    System.out.println("Scelta non disponibile !.");
+                    logger.info("Scelta non disponibile !");
                     break;
             }
         }
@@ -53,27 +53,27 @@ public class AccountCLI {
 
     private void displayUserInfo(ClientBean clientBean) {
         if (clientBean != null) {
-            System.out.println(STR."Username: \{clientBean.getUsername()}");
-            System.out.println(STR."Email: \{clientBean.getEmail()}");
+            logger.info("Username: " + clientBean.getUsername());
+            logger.info("Email: " + clientBean.getEmail());
 
             if (clientBean.getPreferences() != null && !clientBean.getPreferences().isEmpty()) {
-                System.out.println(STR."Generi preferiti: \{String.join(", ", clientBean.getPreferences())}");
+                logger.info("Generi preferiti: " + String.join(", ", clientBean.getPreferences()));
             } else {
-                System.out.println("Nessuna genere preferito impostato.");
+                logger.info("Nessuna genere preferito impostato.");
             }
 
-            System.out.println("Le tue playlist:");
+            logger.info("Le tue playlist:");
             displayUserPlaylists();
         }
     }
 
     private void displayUserPlaylists() {
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
-        List<PlaylistBean> userPlaylists = accountCtrlApplicativo.retrivePlaylists(clientBean);
+        List<PlaylistBean> userPlaylists = accountCtrlApplicativo.retrievePlaylists(clientBean);
         for (PlaylistBean playlist : userPlaylists) {
             String approvalStatus = playlist.getApproved() ? "Approved" : "In attesa";
-            System.out.printf("%s - Titolo: %s, Link: %s%n",
-                    approvalStatus, playlist.getPlaylistName(), playlist.getLink());
+            logger.info(String.format("%s - Titolo: %s, Link: %s%n",
+                    approvalStatus, playlist.getPlaylistName(), playlist.getLink()));
         }
     }
 
@@ -85,11 +85,11 @@ public class AccountCLI {
         Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
 
         // Stampa a schermo i generi musicali disponibili
-        System.out.println("Available Genres:");
+        logger.info("Available Genres:");
         genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di inserire i numeri corrispondenti ai generi che preferisce
-        System.out.println("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
+        logger.info("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
 
         // Estrai i generi selezionati dall'utente
         String genreInput = scanner.next();
@@ -100,7 +100,6 @@ public class AccountCLI {
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
         // Aggiorna le preferenze nel backend
         accountCtrlApplicativo.updateGenreUser(clientBean);
-        System.out.println("Preferenze aggiornate");
+        logger.info("Preferenze aggiornate");
     }
-
 }

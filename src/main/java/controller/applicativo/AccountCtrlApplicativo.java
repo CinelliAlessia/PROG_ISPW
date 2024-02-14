@@ -14,7 +14,7 @@ public class AccountCtrlApplicativo {
 
     /** Recupera tutte le playlist globali by username
      */
-    public List<PlaylistBean> retrivePlaylists(ClientBean clientBean) {
+    public List<PlaylistBean> retrievePlaylists(ClientBean clientBean) {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
