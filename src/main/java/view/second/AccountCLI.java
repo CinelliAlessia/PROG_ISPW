@@ -14,6 +14,8 @@ public class AccountCLI {
     private PlaylistBean playlistBean = new PlaylistBean();
     private ClientBean clientBean;
 
+    private String ciao = "ciao";
+
     public void setClientBean(ClientBean clientBean) {
         this.clientBean = clientBean;
     }
