@@ -5,7 +5,6 @@ import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
-import view.first.AddPlaylistCtrlGrafico;
 import view.first.FilterCtrlGrafico;
 import view.first.TextPopUp;
 
@@ -83,24 +82,19 @@ public class SceneController {
             try {
                 Method setAttributes = controller.getClass().getMethod("setAttributes", paramType, SceneController.class);
                 setAttributes.invoke(controller, paramType == ClientBean.class ? clientBean : playlistBean, this);
-                logger.info("TIPO: " + paramType + " " + SceneController.class);
-
                 return; // Esce dal metodo se trova una firma valida
-            } catch (NoSuchMethodException ignored) {
-                // Ignorato perché cercherà la prossima firma se questa non è presente
             } catch (IllegalAccessException | InvocationTargetException e) {
                 handleSceneLoadError(e);
                 return; // Esce dal metodo in caso di eccezione
+            } catch (NoSuchMethodException ignored) {
+                // Ignorato perché cercherà la prossima firma se questa non è presente
             }
         }
 
         try{
             Method setAttributes = controller.getClass().getMethod("setAttributes", ClientBean.class, PlaylistBean.class, SceneController.class);
             setAttributes.invoke(controller,clientBean, playlistBean, this);
-            logger.info("TIPO: " + ClientBean.class + " " + PlaylistBean.class + " " + SceneController.class);
-
             return; // Esce dal metodo se trova una firma valida
-
         } catch (NoSuchMethodException e) {
             // Ignorato di proposito
         } catch (IllegalAccessException | InvocationTargetException e) {
@@ -110,7 +104,6 @@ public class SceneController {
         try {
             Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
             setAttributes.invoke(controller, this);
-            logger.info("TIPO: " + SceneController.class);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             handleSceneLoadError(e);
         }
@@ -181,11 +174,9 @@ public class SceneController {
         }
     }
 
-
     private void handleSceneLoadError(Exception e) {
         logger.info(e.getMessage());
     }
-
 
 }
 
