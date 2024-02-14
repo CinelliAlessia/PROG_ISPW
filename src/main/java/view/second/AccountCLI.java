@@ -20,7 +20,8 @@ public class AccountCLI {
 
     public void start() {
         while (true) {
-            logger.info("----- Profilo -----");
+            logger.info("\u001B[32m" + "----- Profilo -----" + "\u001B[0m" );
+
             displayUserInfo(clientBean);
             // Show Menu //
             logger.info("1. Carica nuova Playlist");

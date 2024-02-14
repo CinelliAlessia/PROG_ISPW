@@ -3,13 +3,16 @@ package view.second;
 import controller.applicativo.*;
 import engineering.bean.*;
 import engineering.exceptions.*;
+import view.second.utils.CustomLoggerConfig;
 
 import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class LoginCLI {
 
-    private static final Logger logger = Logger.getLogger(LoginCLI.class.getName());
+    private static final Logger logger = CustomLoggerConfig.getLoggerWhite(LoginCLI.class);
+    //private static final Logger logger = Logger.getLogger(LoginCLI.class.getName()); // Quello classico
+
     private final Scanner scanner = new Scanner(System.in);
 
     public void start() {
