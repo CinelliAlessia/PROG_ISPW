@@ -1,4 +1,4 @@
-package view.secondView;
+package view.second;
 
 import controller.applicativo.PendingPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;

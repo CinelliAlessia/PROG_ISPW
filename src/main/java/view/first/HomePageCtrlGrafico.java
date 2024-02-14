@@ -1,4 +1,4 @@
-package view.firstView;
+package view.first;
 
 import controller.applicativo.HomePageCtrlApplicativo;
 
@@ -12,8 +12,7 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 
 import model.Playlist;
-import model.User;
-import view.firstView.utils.*;
+import view.first.utils.*;
 
 import java.net.URL;
 import java.util.*;

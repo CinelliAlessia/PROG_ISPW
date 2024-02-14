@@ -1,13 +1,11 @@
-package view.secondView;
+package view.second;
 
 import controller.applicativo.*;
 import engineering.bean.*;
 import engineering.exceptions.*;
-import view.secondView.utils.GenreManager;
-import view.secondView.utils.StringCLI;
+import view.second.utils.GenreManager;
+import view.second.utils.StringCLI;
 
-import java.io.*;
-import java.lang.reflect.GenericArrayType;
 import java.util.*;
 
 // In questa interfaccia noto che il modo in cui è stato costruito il controller applicativo,

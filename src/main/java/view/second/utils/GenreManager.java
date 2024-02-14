@@ -1,4 +1,4 @@
-package view.secondView.utils;
+package view.second.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

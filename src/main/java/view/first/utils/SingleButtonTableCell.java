@@ -1,4 +1,4 @@
-package view.firstView.utils;
+package view.first.utils;
 
 import engineering.bean.PlaylistBean;
 import javafx.geometry.Pos;

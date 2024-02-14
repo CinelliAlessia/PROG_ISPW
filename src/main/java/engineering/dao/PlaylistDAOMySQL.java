@@ -5,7 +5,7 @@ import engineering.others.*;
 import engineering.query.*;
 
 import model.Playlist;
-import view.firstView.utils.GenreManager;
+import view.first.utils.GenreManager;
 
 import java.sql.*;
 import java.util.*;

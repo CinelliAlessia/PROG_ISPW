@@ -1,4 +1,4 @@
-package view.firstView;
+package view.first;
 
 import controller.applicativo.LoginCtrlApplicativo;
 import engineering.bean.*;
@@ -7,7 +7,7 @@ import engineering.exceptions.*;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import view.firstView.utils.*;
+import view.first.utils.*;
 
 import java.util.logging.Logger;
 

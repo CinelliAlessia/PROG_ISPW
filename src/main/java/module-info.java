@@ -8,17 +8,17 @@ module logic {
     exports start;
     opens start to javafx.fxml;
 
-    exports view.firstView.utils;
-    opens view.firstView.utils to javafx.fxml;
+    exports view.first.utils;
+    opens view.first.utils to javafx.fxml;
 
-    exports view.firstView;
-    opens view.firstView to javafx.fxml;
+    exports view.first;
+    opens view.first to javafx.fxml;
 
-    exports view.secondView;
-    opens view.secondView to javafx.fxml;
+    exports view.second;
+    opens view.second to javafx.fxml;
 
-    exports view.secondView.utils;
-    opens view.secondView.utils to javafx.fxml;
+    exports view.second.utils;
+    opens view.second.utils to javafx.fxml;
 
 
     exports engineering.dao;

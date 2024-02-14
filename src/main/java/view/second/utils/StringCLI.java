@@ -1,4 +1,4 @@
-package view.secondView.utils;
+package view.second.utils;
 
 public class StringCLI {
     private StringCLI(){}
