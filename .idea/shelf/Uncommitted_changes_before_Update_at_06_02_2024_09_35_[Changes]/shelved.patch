@@ -1,0 +1,22 @@
+Index: src/main/resources/persistence/users/alessia@gmail.com/userInfo.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"username\": \"Ale\",\r\n  \"email\": \"alessia@gmail.com\",\r\n  \"password\": \"ale\",\r\n  \"pref\": [\r\n    \"Pop\",\r\n    \"Acoustic\"\r\n  ],\r\n  \"supervisor\": false\r\n}
+===================================================================
+diff --git a/src/main/resources/persistence/users/alessia@gmail.com/userInfo.json b/src/main/resources/persistence/users/alessia@gmail.com/userInfo.json
+--- a/src/main/resources/persistence/users/alessia@gmail.com/userInfo.json	
++++ b/src/main/resources/persistence/users/alessia@gmail.com/userInfo.json	
+@@ -1,10 +1,10 @@
+ {
+-  "username": "Ale",
++  "username": "alessia",
+   "email": "alessia@gmail.com",
+   "password": "ale",
+   "pref": [
+     "Pop",
+-    "Acoustic"
++    "Indie"
+   ],
+   "supervisor": false
+ }
+\ No newline at end of file
