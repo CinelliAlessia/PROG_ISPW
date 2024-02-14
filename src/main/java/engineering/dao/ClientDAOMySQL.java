@@ -221,6 +221,11 @@ public class ClientDAOMySQL implements ClientDAO {
         }
     }
 
+    private void handleDAOException(Exception e) {
+        logger.severe(e.getMessage());
+    }
+
+
     /** Metodo utilizzato per chiudere le risorse utilizzate */
     private void closeResources(Statement stmt, ResultSet rs) {
         try {
@@ -235,8 +240,5 @@ public class ClientDAOMySQL implements ClientDAO {
         }
     }
 
-    private void handleDAOException(Exception e) {
-        logger.severe(e.getMessage());
-    }
 
 }
