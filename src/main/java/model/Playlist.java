@@ -38,6 +38,7 @@ public class Playlist {
         this.id = "";
     }
 
+
     public void setEmotional(List<Integer> emotional) {
         this.emotional = emotional;
     }
@@ -46,6 +47,7 @@ public class Playlist {
         return emotional;
     }
 
+
     public void setLink(String link) {
         this.link = link;
     }
@@ -53,7 +55,6 @@ public class Playlist {
     public String getLink() {
         return link;
     }
-
 
 
     public void setUsername(String username) {
@@ -65,7 +66,6 @@ public class Playlist {
     }
 
 
-
     public void setPlaylistName(String playlistName) {
         this.playlistName = playlistName;
     }
@@ -73,7 +73,6 @@ public class Playlist {
     public String getPlaylistName() {
         return playlistName;
     }
-
 
 
     public void setEmail(String email) {
@@ -85,7 +84,6 @@ public class Playlist {
     }
 
 
-
     public void setPlaylistGenre(List<String> playlistGenre) {
         this.playlistGenre = playlistGenre;
     }
@@ -93,7 +91,6 @@ public class Playlist {
     public List<String> getPlaylistGenre() {
         return playlistGenre;
     }
-
 
 
     public void setId(String id) {

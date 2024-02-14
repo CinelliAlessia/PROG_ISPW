@@ -41,7 +41,6 @@ public class PlaylistBean {
     public void setId(String id) {
         this.id = id;
     }
-
     public void setLink(String link) throws LinkIsNotValid {
         if(isValidLink(link)){
             this.link = link;
@@ -49,64 +48,50 @@ public class PlaylistBean {
             throw new LinkIsNotValid();
         }
     }
-
-    public String getLink() {
-        return link;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
     public void setPlaylistName(String playlistName) {
         this.playlistName = playlistName;
     }
-
-    public String getPlaylistName() {
-        return playlistName;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
     public void setPlaylistGenre(List<String> playlistGenre) {
         this.playlistGenre = playlistGenre;
     }
-
-    public List<String> getPlaylistGenre() {
-        return playlistGenre;
-    }
-
     public void setApproved(boolean approved){
         this.approved = approved;
     }
-
-    public boolean getApproved(){
-        return approved;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-
     public void setEmotional(List<Integer> emotional) {
         this.emotional = emotional;
     }
 
-
+    public String getLink() {
+        return link;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public String getPlaylistName() {
+        return playlistName;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public List<String> getPlaylistGenre() {
+        return playlistGenre;
+    }
+    public boolean getApproved(){
+        return approved;
+    }
+    public String getId() {
+        return id;
+    }
     public List<Integer> getEmotional() {
         return emotional;
     }
+
 
     private boolean isValidLink(String input) {
         UrlValidator urlValidator = new UrlValidator();
