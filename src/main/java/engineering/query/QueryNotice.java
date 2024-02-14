@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.logging.Logger;
 
 public class QueryNotice {
+
+    private QueryNotice(){}
     private static final Logger logger = Logger.getLogger(QueryNotice.class.getName());
 
     public static void addNotice(Statement stmt, Notice notice) throws SQLException {

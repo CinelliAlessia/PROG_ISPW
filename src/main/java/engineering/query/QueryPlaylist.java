@@ -57,8 +57,6 @@ public class QueryPlaylist {
     /** Ritorna una lista di playlist che combaciano con i generi musicali selezionati */
     public static ResultSet searchPlaylistsByFilter(Statement stmt, Playlist playlist) throws SQLException {
 
-        //String emotional = buildEmotionalQueryString(playlist.getEmotional());
-
         if(playlist.getEmotional() == null){
             playlist.setEmotional(List.of(0,0,0,0));
         }
