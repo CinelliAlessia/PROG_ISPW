@@ -26,14 +26,14 @@ public class GenreManager {
             }
         } catch (IOException e) {
             // Gestisci l'eccezione qui senza lanciarla di nuovo
-            System.err.println(STR."Errore durante la lettura del file: \{e.getMessage()}");
+            System.err.println("Errore durante la lettura del file: " + e.getMessage());
         }
         return availableGenres;
     }
 
     public void printGenres(Map<Integer, String> genres) {
         // Stampa i generi musicali disponibili
-        genres.forEach((key, value) -> System.out.println(STR."\{key}: \{value}"));
+        genres.forEach((key, value) -> System.out.println(key + ":" + value));
     }
 
     /** Parse dei generi inseriti dall'utente e controllo di corretto inserimento */
@@ -48,10 +48,10 @@ public class GenreManager {
                 if (availableGenres.containsKey(genreIndex)) {
                     preferences.add(availableGenres.get(genreIndex));
                 } else {
-                    System.out.println(STR."! Numero genere non valido: \{index} !");
+                    System.out.println(" ! Numero genere non valido: " + index+  " !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println(STR." ! Input non valido: \{index} !");
+                System.out.println(" ! Input non valido: " + index + " !");
             }
         }
         return preferences;

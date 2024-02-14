@@ -56,12 +56,12 @@ public class TableManager {
         observableList.addListener((ListChangeListener<PlaylistBean>) change -> {
             while (change.next()) {
                 if (change.wasAdded() && isUpdatingTableView) { ///// non accade mai #########
-                    logger.info(STR."Elementi aggiunti: \{change.getAddedSubList()}");
+                    logger.info("Elementi aggiunti: " + change.getAddedSubList());
                     isUpdatingTableView = false;
                     playlistTable.getItems().addAll(change.getAddedSubList());
                     isUpdatingTableView = true;
                 } else if (change.wasRemoved() && isUpdatingTableView) {
-                    logger.info(STR."Elementi rimossi: \{change.getRemoved()}");
+                    logger.info("Elementi rimossi: " + change.getRemoved());
                     isUpdatingTableView = false;
                     playlistTable.getItems().removeAll(change.getRemoved());
                     isUpdatingTableView = true;

@@ -54,7 +54,7 @@ public class LoginCtrlGrafico {
                 /* --------------- Credenziali corrette se non è scaturita l'eccezione -------------- */
                 ClientBean clientBean = loginCtrlApp.loadUser(loginBean); // Ottengo istanza di clientBean
                 logger.info("GUI Login: Credenziali corrette");
-                logger.info(STR."GUI Login: Client \{clientBean} Supervisor: \{clientBean.isSupervisor()}");
+                logger.info("GUI Login: Client " + clientBean + " Supervisore: " + clientBean.isSupervisor());
 
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean

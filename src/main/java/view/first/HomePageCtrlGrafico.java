@@ -83,7 +83,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         this.sceneController = sceneController;
         initializeField();
 
-        logger.info(STR."GUI HomePage setAttributes: \{clientBean}");
+        logger.info("GUI HomePage setAttributes: " + clientBean);
     }
 
     public void initializeField() {
@@ -96,7 +96,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
             account.setText("Registrati");
 
         } else { // UserBean o SupervisorBean
-            logger.info(STR."GUI HomePage: Accesso come Client, Supervisor: \{clientBean.isSupervisor()}");
+            logger.info("GUI HomePage: Accesso come Client, Supervisor: " + clientBean.isSupervisor());
 
             addButton.setVisible(true);
             manager.setVisible(clientBean.isSupervisor());
@@ -134,7 +134,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         //playlistsBean = homePageController.searchPlaylistByName(filterPlaylist);         // Recupera le playlist cercando per nome
         TableManager.updateTable(playlistTable, playlistsBean);
 
-        logger.info(STR."GUI home page search click: \{filterPlaylist} nome: \{filterPlaylist.getPlaylistName()} genre: \{filterPlaylist.getPlaylistGenre()} emotional: \{filterPlaylist.getEmotional()}");
+        logger.info("GUI home page search click: " + filterPlaylist + "nome: " + filterPlaylist.getPlaylistName() + "genre: " + filterPlaylist.getPlaylistGenre() + "emotional: " + filterPlaylist.getEmotional());
     }
 
     @FXML
@@ -171,7 +171,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
             System.out.println("BOTTONE PREMUTO -> NOTIFICA");
 
             // Creare un MenuItem per ciascun NoticeBean
-            MenuItem menuItem = new MenuItem(STR."\{noticeBean.getTitle()}\n\{noticeBean.getBody()}");
+            MenuItem menuItem = new MenuItem(noticeBean.getTitle() + "\n" + noticeBean.getBody());
 
             // Aggiungere un gestore di eventi per ciascun MenuItem, se necessario
             menuItem.setOnAction(e -> handleNoticeSelection(noticeBean));

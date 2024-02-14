@@ -70,7 +70,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         String body;
 
         if (approve) {
-            logger.info(STR."Approvazione della playlist: \{playlistBean.getPlaylistName()}");
+            logger.info("Approvazione della playlist: " + playlistBean.getPlaylistName());
 
             title = "Approved";
             body = String.format("Your playlist %s is approved!",playlistBean.getPlaylistName());
@@ -78,7 +78,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
             // Approva Playlist
             pendingPlaylistCtrlApplicativo.approvePlaylist(playlistBean);
         } else {
-            logger.info(STR."Rifiuto della playlist: \{playlistBean.getPlaylistName()}");
+            logger.info("Rifiuto della playlist: " + playlistBean.getPlaylistName());
 
             title = "Rejected";
             body = String.format("Your playlist %s is rejected!",playlistBean.getPlaylistName());

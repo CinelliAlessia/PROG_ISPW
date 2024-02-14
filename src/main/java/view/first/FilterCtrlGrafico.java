@@ -92,7 +92,7 @@ public class FilterCtrlGrafico implements Initializable {
         List<String> preferences = playlistBean.getPlaylistGenre();
         List<Integer> emotional = playlistBean.getEmotional();
 
-        logger.info(STR."Filter GUI setData: \{playlistBean.getPlaylistGenre()} \{playlistBean.getEmotional()}");
+        logger.info("Filter GUI setData: " + playlistBean.getPlaylistGenre() + " " + playlistBean.getEmotional());
 
         if(preferences != null){
             GenreManager.setCheckList(preferences,checkBoxList);

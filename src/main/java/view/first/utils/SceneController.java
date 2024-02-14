@@ -99,7 +99,7 @@ public class SceneController {
 
             return; // Esce dal metodo se trova una firma valida
 
-        } catch (NoSuchMethodException _) {
+        } catch (NoSuchMethodException e) {
             // Ignorato di proposito
         } catch (IllegalAccessException | InvocationTargetException e) {
             handleSceneLoadError(e);

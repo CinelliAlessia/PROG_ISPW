@@ -84,7 +84,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         this.clientBean = clientBean;
         this.sceneController = sceneController;
 
-        logger.info(STR."GUI Account setAttributes: \{clientBean}");
+        logger.info("GUI Account setAttributes: " + clientBean);
 
         // Inizializza i dati nella GUI
         showUserInfo();
@@ -123,7 +123,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     public void onSaveClick(ActionEvent event) {
         // Recupera le preferenze aggiornate dalle CheckBox
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
-        System.out.println(STR."GUI ACCOUNT Hai premuto salva \{preferences}");
+        System.out.println("GUI ACCOUNT Hai premuto salva" + preferences);
 
         // Aggiorna le preferenze nel bean del cliente
         clientBean.setPreferences(preferences);

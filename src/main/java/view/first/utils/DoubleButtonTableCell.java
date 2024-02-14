@@ -15,7 +15,7 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
 
     public DoubleButtonTableCell() {
 
-        approveButton.setOnAction(_ -> {
+        approveButton.setOnAction(e -> {
             TableRow<PlaylistBean> tableRow = getTableRow();
             if (tableRow != null) {
                 PlaylistBean playlistBean = tableRow.getItem();
@@ -23,7 +23,7 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
             }
         });
 
-        rejectButton.setOnAction(_ -> {
+        rejectButton.setOnAction(e -> {
             TableRow<PlaylistBean> tableRow = getTableRow();
             if (tableRow != null) {
                 PlaylistBean playlistBean = tableRow.getItem();
@@ -37,7 +37,6 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
 
         rejectButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-pref-height: 25px; -fx-pref-width: 25px; " +
                 "-fx-min-width: -1; -fx-min-height: -1; -fx-background-radius: 50%; -fx-stroke: 50; -fx-border-radius: 50%;");
-
     }
 
     @Override
@@ -56,6 +55,4 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
         buttonBox.getChildren().addAll(buttons);
         return buttonBox;
     }
-
-
 }
