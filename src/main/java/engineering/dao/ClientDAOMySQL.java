@@ -4,7 +4,7 @@ import engineering.exceptions.*;
 import engineering.others.Connect;
 import engineering.query.QueryLogin;
 
-import view.firstView.utils.GenreManager;
+import view.first.utils.GenreManager;
 
 import model.*;
 

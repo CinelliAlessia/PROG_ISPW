@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.firstView.FilterCtrlGrafico">
+<AnchorPane stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.first.FilterCtrlGrafico">
     <VBox alignment="CENTER" spacing="50.0" AnchorPane.bottomAnchor="25.0">
         <opaqueInsets>
             <Insets />
