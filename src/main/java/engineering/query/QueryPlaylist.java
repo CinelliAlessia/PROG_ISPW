@@ -205,9 +205,7 @@ public class QueryPlaylist {
         StringBuilder query = new StringBuilder();
 
         if(generiMusicali == null){
-            for (String _ : genres) {
-                query.append("0, ");
-            }
+            query.append("0, ".repeat(genres.length));
         } else {
             for (String genere : genres) {
                 query.append(generiMusicali.contains(genere) ? "1, " : "0, ");
