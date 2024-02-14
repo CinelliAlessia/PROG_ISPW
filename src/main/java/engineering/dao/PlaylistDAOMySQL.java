@@ -69,7 +69,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     }
 
     /**
-     * @param playlist, utilizzato per il link per poter fare la retrieve
+     * @param playlist, utilizzato per il link per poter fare la retrive
      * @return playlist modificata, non serve creare una nuova istanza.
      */
     public Playlist approvePlaylist(Playlist playlist) {
@@ -97,6 +97,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
         }
         return playlist;
     }
+
     public void deletePlaylist(Playlist playlist) {
         Statement stmt = null;
         ResultSet rs = null;
@@ -163,7 +164,6 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     public List<Playlist> retrieveApprovedPlaylists() {
         return retrievePlaylists(APPROVED,null);
     }
-
     public List<Playlist> searchPlaylistTitle(Playlist playlist) {
         return retrievePlaylists(SEARCH_WORD,playlist);
     }
@@ -173,7 +173,6 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     public List<Playlist> searchPlaylistByEmotional(Playlist playlist) {
         return retrievePlaylists(SEARCH_EMOTIONAL,playlist);
     }
-
     public List<Playlist> searchPlaylistByFilters(Playlist playlistSearch) {
         return retrievePlaylists(SEARCH_FILTER,playlistSearch);
     }

@@ -161,15 +161,6 @@ public class UserDAOJSON implements UserDAO {
         //TODO
     }
 
-    public void addNotice(Notice notice) {
-        //TODO
-    }
-
-    public List<Notice> retrieveNotice(User user) {
-        //TODO
-        return null;
-    }
-
 
     private Client getUserFromDirectory(Path userDirectory) {
         try {

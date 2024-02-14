@@ -32,5 +32,7 @@ Correzione Alessia Filtraggio OK YEE
 
 Tasto indietro
 
+Funzioni retrieve (recuperare) e non retrive (recuperato)
+
 Notifiche 
 

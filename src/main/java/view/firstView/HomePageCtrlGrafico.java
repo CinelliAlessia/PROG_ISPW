@@ -12,6 +12,7 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 
 import model.Playlist;
+import model.User;
 import view.firstView.utils.*;
 
 import java.net.URL;
@@ -21,6 +22,8 @@ import java.util.logging.Logger;
 /** Home page controller grafico rappresenta il Concrete Observer */
 public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable, Observer {
 
+
+    public ContextMenu contextMenu;
     @FXML
     private TextField searchText;
     @FXML
@@ -40,6 +43,8 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     private Button account;
     @FXML
     private Button addButton;
+    public Button menu;
+
     private static final Logger logger = Logger.getLogger(HomePageCtrlApplicativo.class.getName());
 
     private T clientBean;
@@ -85,14 +90,19 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     public void initializeField() {
         if(clientBean == null){
             logger.info("GUI HomePage: Accesso come Guest");
+
+            menu.setVisible(false);
             addButton.setVisible(false);
             manager.setVisible(false);
             account.setText("Registrati");
+
         } else { // UserBean o SupervisorBean
             logger.info(STR."GUI HomePage: Accesso come Client, Supervisor: \{clientBean.isSupervisor()}");
+
             addButton.setVisible(true);
             manager.setVisible(clientBean.isSupervisor());
             account.setText(clientBean.getUsername());
+            menu.setVisible(!clientBean.isSupervisor());
         }
     }
     @FXML
@@ -149,4 +159,39 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     }
 
 
+    @FXML
+    public void showContextMenu(ActionEvent event) {
+
+        contextMenu.getItems().clear(); // Rimuove tutti gli elementi dal ContextMenu
+
+        System.out.println("BOTTONE PREMUTO");
+        UserBean userBean = (UserBean) clientBean;
+
+        // Ottenere la lista di NoticeBean dal tuo clientBean (assumendo che clientBean sia accessibile)
+        for (NoticeBean noticeBean : userBean.getNotices()) {
+            System.out.println("BOTTONE PREMUTO -> NOTIFICA");
+
+            // Creare un MenuItem per ciascun NoticeBean
+            MenuItem menuItem = new MenuItem(STR."\{noticeBean.getTitle()}\n\{noticeBean.getBody()}");
+
+            // Aggiungere un gestore di eventi per ciascun MenuItem, se necessario
+            menuItem.setOnAction(e -> handleNoticeSelection(noticeBean));
+
+            // Aggiungi il MenuItem al ContextMenu
+            contextMenu.getItems().add(menuItem);
+        }
+
+        // Converti le coordinate locali del menu in coordinate dello schermo
+        double screenX = menu.localToScreen(menu.getBoundsInLocal()).getMinX();
+        double screenY = menu.localToScreen(menu.getBoundsInLocal()).getMinY();
+
+        // Mostra il ContextMenu accanto al bottone
+        contextMenu.show(menu, screenX, screenY);
+    }
+
+    private void handleNoticeSelection(NoticeBean noticeBean) {
+        List<NoticeBean> noticeBeanList = ((UserBean)clientBean).getNotices();
+        noticeBeanList.remove(noticeBean);
+        ((UserBean)clientBean).setNotices(noticeBeanList);
+    }
 }

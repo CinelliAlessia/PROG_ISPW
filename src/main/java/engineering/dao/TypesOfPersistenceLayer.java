@@ -15,6 +15,11 @@ public enum TypesOfPersistenceLayer {
         public PlaylistDAO createPlaylistDAO() {
             return new PlaylistDAOMySQL();
         }
+
+        @Override
+        public NoticeDAO createNoticeDAO() {
+            return new NoticeDAOMySQL();
+        }
     },
     JSON {
         @Override
@@ -25,10 +30,16 @@ public enum TypesOfPersistenceLayer {
         public PlaylistDAO createPlaylistDAO() {
             return new PlaylistDAOJSON();
         }
+
+        @Override
+        public NoticeDAO createNoticeDAO() {
+            return new NoticeDAOJSON();
+        }
     };
 
     public abstract UserDAO createUserDAO();
     public abstract PlaylistDAO createPlaylistDAO();
+    public abstract NoticeDAO createNoticeDAO();
 
     /** Recupera dal file config.properties il tipo di persistenza utilizzata,
      * se non è possibile come default viene utilizzato MYSQL */
