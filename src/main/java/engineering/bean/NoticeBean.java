@@ -16,23 +16,19 @@ public class NoticeBean {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
     public void setBody(String body) {
         this.body = body;
     }
-
-    public String getBody() {
-        return body;
-    }
-
     public void setUsernameAuthor(String usernameAuthor) {
         this.usernameAuthor = usernameAuthor;
     }
 
+    public String getTitle() {
+        return title;
+    }
+    public String getBody() {
+        return body;
+    }
     public String getUsernameAuthor() {
         return usernameAuthor;
     }
