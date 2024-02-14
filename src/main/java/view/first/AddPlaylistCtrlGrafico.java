@@ -1,4 +1,4 @@
-package view.firstView;
+package view.first;
 
 import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
@@ -8,7 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 
-import view.firstView.utils.*;
+import view.first.utils.*;
 
 import java.net.URL;
 import java.util.*;

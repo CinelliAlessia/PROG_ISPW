@@ -1,13 +1,9 @@
-package view.secondView;
+package view.second;
 
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.ClientBean;
-import engineering.bean.UserBean;
 import engineering.bean.PlaylistBean;
-import engineering.exceptions.InvalidEmailException;
-import engineering.exceptions.LinkIsNotValid;
-import engineering.exceptions.UsernameAlreadyInUse;
-import view.secondView.utils.GenreManager;
+import view.second.utils.GenreManager;
 
 import java.util.List;
 import java.util.Map;

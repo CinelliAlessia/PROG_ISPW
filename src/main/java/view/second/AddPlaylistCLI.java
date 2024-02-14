@@ -1,11 +1,11 @@
-package view.secondView;
+package view.second;
 
 import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
 import engineering.exceptions.LinkIsNotValid;
 import engineering.exceptions.PlaylistLinkAlreadyInUse;
-import view.secondView.utils.GenreManager;
+import view.second.utils.GenreManager;
 import java.util.*;
 
 public class AddPlaylistCLI {
