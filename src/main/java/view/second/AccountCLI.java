@@ -13,15 +13,9 @@ import java.util.logging.Logger;
 public class AccountCLI {
     private static final Logger logger = Logger.getLogger(AccountCLI.class.getName());
     private final Scanner scanner = new Scanner(System.in);
-    private PlaylistBean playlistBean = new PlaylistBean();
     private ClientBean clientBean;
-
     public void setClientBean(ClientBean clientBean) {
         this.clientBean = clientBean;
-    }
-
-    public void setPlaylistBean(PlaylistBean playlistBean) {
-        this.playlistBean = playlistBean;
     }
 
     public void start() {
@@ -37,7 +31,7 @@ public class AccountCLI {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    // Implementa la logica per "Carica nuova Playlist"
+                    addPlaylist();
                     break;
                 case 2:
                     updatePreferences();
@@ -100,5 +94,11 @@ public class AccountCLI {
         // Aggiorna le preferenze nel backend
         accountCtrlApplicativo.updateGenreUser(clientBean);
         logger.info("Preferenze aggiornate");
+    }
+
+    private void addPlaylist() {
+        AddPlaylistCLI addPlaylistCLI = new AddPlaylistCLI();
+        addPlaylistCLI.setClientBean(clientBean);
+        addPlaylistCLI.start();
     }
 }

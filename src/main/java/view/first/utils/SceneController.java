@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 public class SceneController {
     private final Deque<Scene> sceneStack;
     private static final Logger logger = Logger.getLogger(SceneController.class.getName());
+
+    private static final String SET_ATTRIBUTES = "setAttributes";
     public SceneController(){
         sceneStack = new LinkedList<>();
     }
@@ -80,7 +82,7 @@ public class SceneController {
 
         for (Class<?> paramType : parameterTypes) { // Prova setAttributes(ClientBean, SceneController) e  Prova setAttributes(PlaylistBean, SceneController)
             try {
-                Method setAttributes = controller.getClass().getMethod("setAttributes", paramType, SceneController.class);
+                Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, paramType, SceneController.class);
                 setAttributes.invoke(controller, paramType == ClientBean.class ? clientBean : playlistBean, this);
                 return; // Esce dal metodo se trova una firma valida
             } catch (IllegalAccessException | InvocationTargetException e) {
@@ -92,7 +94,7 @@ public class SceneController {
         }
 
         try{
-            Method setAttributes = controller.getClass().getMethod("setAttributes", ClientBean.class, PlaylistBean.class, SceneController.class);
+            Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, ClientBean.class, PlaylistBean.class, SceneController.class);
             setAttributes.invoke(controller,clientBean, playlistBean, this);
             return; // Esce dal metodo se trova una firma valida
         } catch (NoSuchMethodException e) {
@@ -102,7 +104,7 @@ public class SceneController {
         }
 
         try {
-            Method setAttributes = controller.getClass().getMethod("setAttributes", SceneController.class);
+            Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, SceneController.class);
             setAttributes.invoke(controller, this);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             handleSceneLoadError(e);
@@ -156,10 +158,6 @@ public class SceneController {
             // Stage di partenza
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // Utilizza il controller per chiamare la funzione setPlaylistBean
-            //controller.setPlaylistBean(playlistBean);
-            /* ############################# Questa può essere una funzione ################ */
-            // Nuovo popUp stage
             Stage popupStage = new Stage();
             popupStage.initOwner(stage);
             popupStage.initModality(Modality.APPLICATION_MODAL);

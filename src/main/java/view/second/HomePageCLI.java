@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class HomePageCLI<T extends ClientBean> {
 
     private static final Logger logger = Logger.getLogger(HomePageCLI.class.getName());
-    private final Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
     private PlaylistBean playlistBean = new PlaylistBean();
     private T clientBean;
 
@@ -25,7 +25,7 @@ public class HomePageCLI<T extends ClientBean> {
     }
 
     public void start() {
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
         boolean exit = false;
 
         while (!exit) {

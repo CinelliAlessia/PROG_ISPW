@@ -1,5 +1,7 @@
 package view.second.utils;
 
+import view.second.RegistrationCLI;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,9 +9,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class GenreManager {
     private final String genreListFile = StringCLI.GENERES_FILE_PATH;
+    private static final Logger logger = Logger.getLogger(GenreManager.class.getName());
+
     /** Legge dal file dei generi musicali e genera una hash map (Intero, Stringa) che poi verrà
      * stampata da printGenres() */
     public Map<Integer, String> getAvailableGenres() {
@@ -26,14 +31,14 @@ public class GenreManager {
             }
         } catch (IOException e) {
             // Gestisci l'eccezione qui senza lanciarla di nuovo
-            System.err.println("Errore durante la lettura del file: " + e.getMessage());
+            logger.info("Errore durante la lettura del file: " + e.getMessage());
         }
         return availableGenres;
     }
 
     public void printGenres(Map<Integer, String> genres) {
         // Stampa i generi musicali disponibili
-        genres.forEach((key, value) -> System.out.println(key + ":" + value));
+        genres.forEach((key, value) -> logger.info(key + ":" + value));
     }
 
     /** Parse dei generi inseriti dall'utente e controllo di corretto inserimento */
@@ -48,10 +53,10 @@ public class GenreManager {
                 if (availableGenres.containsKey(genreIndex)) {
                     preferences.add(availableGenres.get(genreIndex));
                 } else {
-                    System.out.println(" ! Numero genere non valido: " + index+  " !");
+                    logger.info(" ! Numero genere non valido: " + index+  " !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println(" ! Input non valido: " + index + " !");
+                logger.info(" ! Input non valido: " + index + " !");
             }
         }
         return preferences;

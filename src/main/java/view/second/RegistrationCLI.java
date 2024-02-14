@@ -4,14 +4,12 @@ import controller.applicativo.*;
 import engineering.bean.*;
 import engineering.exceptions.*;
 import view.second.utils.GenreManager;
-import view.second.utils.StringCLI;
 
 import java.util.*;
 import java.util.logging.Logger;
 
 public class RegistrationCLI {
     private static final Logger logger = Logger.getLogger(RegistrationCLI.class.getName());
-    private final String genreListFile = StringCLI.GENERES_FILE_PATH;
     private final Scanner scanner = new Scanner(System.in);
 
     public void start() {

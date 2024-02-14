@@ -26,7 +26,7 @@ public class ManagePlaylistsCLI {
 
     /** Espone playlist all'utente e attende risposta (accetta o rifiuta) prima di visualizzare la prossima playlist */
     private void handlePlaylist(PlaylistBean playlist, int index) {
-        logger.info("---"+ index +"---");
+        logger.info("---" + index + "---");
         logger.info("Nome: " + playlist.getPlaylistName());
         logger.info("Creatore: " + playlist.getUsername());
         logger.info("Generi: "+ playlist.getPlaylistGenre());
