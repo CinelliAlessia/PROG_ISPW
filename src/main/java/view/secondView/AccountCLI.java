@@ -74,7 +74,7 @@ public class AccountCLI {
         List<PlaylistBean> userPlaylists = accountCtrlApplicativo.retrivePlaylists(clientBean);
         for (PlaylistBean playlist : userPlaylists) {
             String approvalStatus = playlist.getApproved() ? "Approved" : "In attesa";
-            System.out.printf("%s - Playlist: %s, Link: %s%n",
+            System.out.printf("%s - Titolo: %s, Link: %s%n",
                     approvalStatus, playlist.getPlaylistName(), playlist.getLink());
         }
     }
