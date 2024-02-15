@@ -13,10 +13,6 @@ public class CustomLoggerConfig {
         return getLogger(clazz, "\u001B[97m");
     }
 
-    public static Logger getLoggerRed(Class<?> clazz) {
-        return getLogger(clazz, "\u001B[31m");
-    }
-
     private static Logger getLogger(Class<?> clazz, String color) {
         try{
             Logger logger = Logger.getLogger(clazz.getName());
