@@ -1,29 +1,43 @@
 package view.second;
 
 import controller.applicativo.HomePageCtrlApplicativo;
-import engineering.bean.ClientBean;
-import engineering.bean.PlaylistBean;
-import engineering.bean.SupervisorBean;
+import engineering.bean.*;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
+/**
+ * Questa classe gestisce l'interfaccia a riga di comando (CLI) della home page dell'applicazione.
+ *
+ * @param <T> Tipo del bean del cliente (UserBean, SupervisorBean, ecc.).
+ */
 public class HomePageCLI<T extends ClientBean> {
 
-    private static final Logger logger = Logger.getLogger(HomePageCLI.class.getName());
     private Scanner scanner = new Scanner(System.in);
     private PlaylistBean playlistBean = new PlaylistBean();
     private T clientBean;
 
+    /**
+     * Imposta il bean del cliente per l'interfaccia utente.
+     *
+     * @param clientBean Il bean del cliente da impostare.
+     */
     public void setClientBean(T clientBean) {
         this.clientBean = clientBean;
     }
 
+    /**
+     * Imposta il bean della playlist per l'interfaccia utente.
+     *
+     * @param playlistBean Il bean della playlist da impostare.
+     */
     public void setPlaylistBean(PlaylistBean playlistBean) {
         this.playlistBean = playlistBean;
     }
 
+    /**
+     * Avvia l'interfaccia a riga di comando della home page.
+     */
     public void start() {
         scanner = new Scanner(System.in);
         boolean exit = false;
@@ -63,7 +77,7 @@ public class HomePageCLI<T extends ClientBean> {
                 case 7:
                     // Passa al menu approvazione playlist
                     // Verifica per maggiore sicurezza
-                    if (clientBean instanceof SupervisorBean) {
+                    if (clientBean.isSupervisor()) {
                         goToApprovePlaylist();
                     }
                     break;
@@ -71,51 +85,66 @@ public class HomePageCLI<T extends ClientBean> {
                     exit = true; // Esci dal loop e dal programma
                     break;
                 default:
-                    logger.info("Scelta non valida. Riprova.");
+                    System.out.println("Scelta non valida. Riprova.");
             }
         }
     }
 
+    /**
+     * Passa al menu di gestione delle playlist in attesa di approvazione.
+     */
     private void goToApprovePlaylist() {
         ManagePlaylistsCLI manager = new ManagePlaylistsCLI();
         manager.start();
     }
 
+    /**
+     * Passa al menu di registrazione utente.
+     */
     private void goToRegistration() {
         RegistrationCLI registrationCLI = new RegistrationCLI();
         registrationCLI.start();
     }
 
+    /**
+     * Passa al menu dell'account utente.
+     */
     private void account() {
         AccountCLI accountCLI = new AccountCLI();
         accountCLI.setClientBean(clientBean);
         accountCLI.start();
     }
 
+    /**
+     * Stampa il menu principale dell'interfaccia utente.
+     */
     private void printMenu() {
-        logger.info(" ----- Home Page ----- ");
-        logger.info("1. Visualizza tutte le playlist");
+        System.out.println(" ----- Home Page ----- ");
+        System.out.println("1. Visualizza tutte le playlist");
         if (clientBean != null) {
-            logger.info("2. Aggiungi una playlist");
+            System.out.println("2. Aggiungi una playlist");
         } else {
-            logger.info("2. !!! Non puoi aggiungere playlist -> Registrati!!!");
+            System.out.println("2. !!! Non puoi aggiungere playlist -> Registrati!!!");
         }
-        logger.info("3. Applica un filtro di ricerca");
-        logger.info("4. Elimina il filtro di ricerca");
-        logger.info("5. Cerca una playlist per nome");
+        System.out.println("3. Applica un filtro di ricerca");
+        System.out.println("4. Elimina il filtro di ricerca");
+        System.out.println("5. Cerca una playlist per nome");
         if (clientBean != null) {
-            logger.info("6. Visualizza il tuo profilo");
+            System.out.println("6. Visualizza il tuo profilo");
         } else {
-            logger.info("6. !!! Non hai un profilo da visualizzare -> Registrati !!!");
+            System.out.println("6. !!! Non hai un profilo da visualizzare -> Registrati !!!");
         }
 
-        if (clientBean instanceof SupervisorBean) {
-            logger.info("7. Gestisci playlists in attesa di approvazione");
+        if (clientBean != null && clientBean.isSupervisor()) {
+            System.out.println("7. Gestisci playlists in attesa di approvazione");
         }
-        logger.info("0. Esci");
-        logger.info("Scegli un'opzione: ");
+        System.out.println("0. Esci");
+        System.out.println("Scegli un'opzione: ");
     }
 
+    /**
+     * Visualizza tutte le playlist approvate.
+     */
     private void showAllPlaylists() {
         // Utilizza i metodi del controller applicativo per recuperare e stampare le playlist approvate
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
@@ -123,74 +152,84 @@ public class HomePageCLI<T extends ClientBean> {
 
         int playlistNumber = 1;
         for (PlaylistBean playlist : playlistBeans) {
-            logger.info(String.format("%d. Titolo:%s Creatore:%s %s",
-                    playlistNumber, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre()));
+            System.out.printf("%d. Titolo:%s Creatore:%s %s%n",
+                    playlistNumber, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre());
             playlistNumber++;
         }
 
         while (true) {
             // Per copiare il link della playlist, l'utente deve inserire il numero corrispondente
-            logger.info("Inserisci il numero della playlist per ricevere il link (0 per tornare al menu): ");
+            System.out.println("Inserisci il numero della playlist per ricevere il link (0 per tornare al menu): ");
 
             int playlistChoice = scanner.nextInt();
 
             if (playlistChoice > 0 && playlistChoice <= playlistBeans.size()) {
                 PlaylistBean selectedPlaylist = playlistBeans.get(playlistChoice - 1);
-                logger.info(String.format("Link: %s", selectedPlaylist.getLink()));
+                System.out.printf("Link: %s%n", selectedPlaylist.getLink());
             } else if (playlistChoice == 0) {
                 // Torna al menu principale
                 break;
             } else {
-                logger.info("! Scelta non valida ! -> Riprova");
+                System.out.println("! Scelta non valida ! -> Riprova");
             }
         }
     }
 
+    /**
+     * Aggiunge una nuova playlist.
+     */
     private void addPlaylist() {
         AddPlaylistCLI addPlaylistCLI = new AddPlaylistCLI();
         addPlaylistCLI.setClientBean(clientBean);
         addPlaylistCLI.start();
     }
 
+    /**
+     * Applica un filtro di ricerca alle playlist.
+     */
     private void addFilter() {
         // Implementa la logica per applicare un filtro alle playlist
         // Potresti chiedere all'utente di selezionare i generi, l'approvazione, ecc.
         // Usa il controller applicativo per effettuare la ricerca con il filtro
         // e mostra i risultati all'utente
-        //TODO
+        System.out.println("Non è ancora stato implementato.");
     }
 
+    /**
+     * Elimina i filtri di ricerca applicati alle playlist.
+     */
     private void deleteFilter() {
         // Resetta la PlaylistFilter a null o come desideri gestire l'eliminazione dei filtri
         // e mostra un messaggio all'utente
-        logger.info("Filtri eliminati.");
+        System.out.println("Non è ancora stato implementato.");
     }
 
+    /**
+     * Cerca una playlist per nome.
+     */
     private void searchPlaylist() {
-        Scanner scanner = new Scanner(System.in);
-
-        logger.info("\nInserisci il nome della playlist da cercare: ");
+        System.out.println("\nInserisci il nome della playlist da cercare: ");
         String playlistName = scanner.nextLine();
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistBean.setPlaylistName(playlistName);
         List<PlaylistBean> playlistsList = homePageController.searchPlaylistByFilters(playlistBean);
 
-        logger.info(String.format("Playlist che contengono:%s nel titolo", playlistName));
+        System.out.printf("Playlist che contengono:%s nel titolo%n", playlistName);
 
         if (playlistsList.isEmpty()) {
-            logger.info("Nessuna playlist trovata con il nome specificato.");
+            System.out.println("Nessuna playlist trovata con il nome specificato.");
         } else {
             int index = 1;
             for (PlaylistBean playlist : playlistsList) {
-                logger.info(String.format("%d. Nome: %s, Username: %s, Generi: %s, Emozionale: %s",
-                        index, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre(), playlist.getEmotional()));
+                System.out.printf("%d. Nome: %s, Username: %s, Generi: %s, Emozionale: %s%n",
+                        index, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre(), playlist.getEmotional());
                 index++;
             }
 
             int selectedPlaylistIndex;
             while (true) {
-                logger.info("Inserisci il numero corrispondente alla playlist desiderata (inserisci 0 per uscire): ");
+                System.out.println("Inserisci il numero corrispondente alla playlist desiderata (inserisci 0 per uscire): ");
                 selectedPlaylistIndex = scanner.nextInt();
 
                 if (selectedPlaylistIndex == 0) {
@@ -199,9 +238,9 @@ public class HomePageCLI<T extends ClientBean> {
 
                 if (selectedPlaylistIndex >= 1 && selectedPlaylistIndex <= playlistsList.size()) {
                     PlaylistBean selectedPlaylist = playlistsList.get(selectedPlaylistIndex - 1);
-                    logger.info(String.format("Link della playlist selezionata: %s", selectedPlaylist.getLink()));
+                    System.out.printf("Link della playlist selezionata: %s%n", selectedPlaylist.getLink());
                 } else {
-                    logger.info("! Selezione non valida-> Riprova !");
+                    System.out.println("! Selezione non valida-> Riprova !");
                 }
             }
         }

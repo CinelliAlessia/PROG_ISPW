@@ -3,18 +3,19 @@ package view.second;
 import controller.applicativo.*;
 import engineering.bean.*;
 import engineering.exceptions.*;
-import view.second.utils.CustomLoggerConfig;
 
 import java.util.Scanner;
-import java.util.logging.Logger;
 
+/**
+ * Questa classe gestisce l'interfaccia a riga di comando (CLI) per il login dell'applicazione.
+ */
 public class LoginCLI {
-
-    private static final Logger logger = CustomLoggerConfig.getLoggerWhite(LoginCLI.class);
-    //private static final Logger logger = Logger.getLogger(LoginCLI.class.getName()); // Quello classico
 
     private final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Avvia l'interfaccia a riga di comando per il login.
+     */
     public void start() {
         boolean continueRunning = true;
 
@@ -33,40 +34,48 @@ public class LoginCLI {
                     guestChoice();
                     break;
                 case 0:
-                    logger.info("Grazie per aver utilizzato l'applicazione. Arrivederci!");
+                    System.out.println("Grazie per aver utilizzato l'applicazione. Arrivederci!");
                     continueRunning = false;  // Imposta la condizione di uscita
                     break;
                 default:
-                    logger.info("Scelta non valida. Riprova.");
+                    System.out.println("Scelta non valida. Riprova.");
             }
         }
     }
 
-    /** Print del menù iniziale per procedere con l'accesso */
+    /**
+     * Stampa il menu iniziale per il login.
+     */
     private void printMenu() {
-        logger.info("// ------- Seleziona un'opzione: ------- //");
-        logger.info("1: Login");
-        logger.info("2: Registrazione");
-        logger.info("3: Ingresso come Guest");
-        logger.info("0: Esci");
+        System.out.println("// ------- Seleziona un'opzione: ------- //");
+        System.out.println("1: Login");
+        System.out.println("2: Registrazione");
+        System.out.println("3: Ingresso come Guest");
+        System.out.println("0: Esci");
     }
 
-    /** Attesa Bloccante della scelta dell'utente */
+    /**
+     * Ottiene la scelta dell'utente.
+     *
+     * @return La scelta dell'utente.
+     */
     private int getUserChoice() {
-        logger.info("Scelta: ");
+        System.out.println("Scelta: ");
         while (!scanner.hasNextInt()) { // Controllo se il valore inserito dall'utente è un intero
-            logger.info("! Inserisci un numero valido !");
+            System.out.println("! Inserisci un numero valido !");
             scanner.next(); // Consuma il valore errato non utilizzabile
         }
         return scanner.nextInt();
     }
 
-    /** Funzione per accedere alla home page se le credenziali inserite sono corrette */
+    /**
+     * Gestisce la scelta del login.
+     */
     private void loginChoice() {
-        logger.info("Inserisci l'indirizzo email: ");
+        System.out.println("Inserisci l'indirizzo email: ");
         String email = scanner.next();
 
-        logger.info("Inserisci la password: ");
+        System.out.println("Inserisci la password: ");
         String password = scanner.next();
 
         try {
@@ -80,36 +89,32 @@ public class LoginCLI {
             ClientBean clientBean = loginCtrlApp.loadUser(loginBean);
 
             /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
-
-            if (clientBean instanceof UserBean userBean) {
-                HomePageCLI<UserBean> homePageCLI = new HomePageCLI<>();
-                homePageCLI.setClientBean(userBean);
-                /* ----- Avvia il metodo start del HomePageCLInterface ----- */
-                homePageCLI.start();
-            } else if (clientBean instanceof SupervisorBean supervisorBean) {
-                HomePageCLI<SupervisorBean> homePageCLI = new HomePageCLI<>();
-                homePageCLI.setClientBean(supervisorBean);
-                /* ----- Avvia il metodo start del HomePageCLInterface ----- */
-                homePageCLI.start();
-            }
+            HomePageCLI<ClientBean> homePageCLI = new HomePageCLI<>();
+            homePageCLI.setClientBean(clientBean);
+            /* ----- Avvia il metodo start del HomePageCLInterface ----- */
+            homePageCLI.start();
 
         } catch (IncorrectPassword | UserDoesNotExist | InvalidEmailException e) {
-            logger.info(String.format("! %s", e.getMessage()));
+            System.out.printf("! %s%n", e.getMessage());
         }
     }
 
-    /** Non vengono effettuati controlli, si passa direttamente alla schermata di registrazione */
+    /**
+     * Non vengono effettuati controlli, si passa direttamente alla schermata di registrazione.
+     */
     private void registerChoice() {
         // ----- Passo al RegisterCLInterface -----
         RegistrationCLI newCLI = new RegistrationCLI();
         newCLI.start();
     }
 
-    /** Non vengono effettuati controlli, si passa direttamente alla home page */
+    /**
+     * Non vengono effettuati controlli, si passa direttamente alla home page come Guest.
+     */
     private void guestChoice() {
-        logger.info("Accesso come Guest.");
+        System.out.println("Accesso come Guest.");
 
-        //UserBean perché un guest non è sicuramente Supervisor
+        // UserBean perché un guest non è sicuramente Supervisor
         HomePageCLI<UserBean> homePageCLI = new HomePageCLI<>();
         homePageCLI.setClientBean(null);
         homePageCLI.start();

@@ -1,35 +1,45 @@
 package view.second;
 
 import controller.applicativo.AccountCtrlApplicativo;
-import engineering.bean.ClientBean;
-import engineering.bean.PlaylistBean;
+import engineering.bean.*;
 import view.second.utils.GenreManager;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.logging.Logger;
+import java.util.*;
 
+/**
+ * Questa classe gestisce l'interfaccia a riga di comando (CLI) per l'account utente.
+ */
 public class AccountCLI {
-    private static final Logger logger = Logger.getLogger(AccountCLI.class.getName());
+
     private final Scanner scanner = new Scanner(System.in);
     private ClientBean clientBean;
+
+    /**
+     * Imposta il bean del cliente per l'interfaccia utente.
+     *
+     * @param clientBean Il bean del cliente da impostare.
+     */
     public void setClientBean(ClientBean clientBean) {
         this.clientBean = clientBean;
     }
 
+    /**
+     * Avvia l'interfaccia a riga di comando per l'account utente.
+     */
     public void start() {
         while (true) {
-            logger.info("\u001B[32m" + "----- Profilo -----" + "\u001B[0m" );
+            System.out.println("\u001B[32m" + "----- Profilo -----" + "\u001B[0m");
 
             displayUserInfo(clientBean);
-            // Show Menu //
-            logger.info("1. Carica nuova Playlist");
-            logger.info("2. Reimposta le tue preferenze musicali");
-            logger.info("0. Esci");
 
-            logger.info("Scegli una opzione: ");
+            // Mostra il menu
+            System.out.println("1. Carica nuova Playlist");
+            System.out.println("2. Reimposta le tue preferenze musicali");
+            System.out.println("0. Esci");
+
+            System.out.print("Scegli un'opzione: ");
             int choice = scanner.nextInt();
+
             switch (choice) {
                 case 1:
                     addPlaylist();
@@ -40,7 +50,7 @@ public class AccountCLI {
                 case 0:
                     return;
                 default:
-                    logger.info("Scelta non disponibile !");
+                    System.out.println("Scelta non disponibile !");
                     break;
             }
         }
@@ -48,16 +58,16 @@ public class AccountCLI {
 
     private void displayUserInfo(ClientBean clientBean) {
         if (clientBean != null) {
-            logger.info("Username: " + clientBean.getUsername());
-            logger.info("Email: " + clientBean.getEmail());
+            System.out.println("Username: " + clientBean.getUsername());
+            System.out.println("Email: " + clientBean.getEmail());
 
             if (clientBean.getPreferences() != null && !clientBean.getPreferences().isEmpty()) {
-                logger.info("Generi preferiti: " + String.join(", ", clientBean.getPreferences()));
+                System.out.println("Generi preferiti: " + String.join(", ", clientBean.getPreferences()));
             } else {
-                logger.info("Nessuna genere preferito impostato.");
+                System.out.println("Nessun genere preferito impostato.");
             }
 
-            logger.info("Le tue playlist:");
+            System.out.println("Le tue playlist:");
             displayUserPlaylists();
         }
     }
@@ -67,34 +77,26 @@ public class AccountCLI {
         List<PlaylistBean> userPlaylists = accountCtrlApplicativo.retrievePlaylists(clientBean);
         for (PlaylistBean playlist : userPlaylists) {
             String approvalStatus = playlist.getApproved() ? "Approved" : "In attesa";
-            logger.info(approvalStatus + " - Titolo: "+ playlist.getPlaylistName() +", Link: "+playlist.getLink());
+            System.out.println(approvalStatus + " - Titolo: " + playlist.getPlaylistName() + ", Link: " + playlist.getLink());
         }
     }
 
     private void updatePreferences() {
-        // Utilizza la classe GenreManager per gestire gli aggiornamenti delle preferenze musicali
         GenreManager genreManager = new GenreManager();
-
-        // Ottieni i generi musicali disponibili
         Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
 
-        // Stampa a schermo i generi musicali disponibili
-        logger.info("Available Genres:");
+        System.out.println("Generi disponibili:");
         genreManager.printGenres(availableGenres);
 
-        // Richiedi all'utente di inserire i numeri corrispondenti ai generi che preferisce
-        logger.info("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
-
-        // Estrai i generi selezionati dall'utente
+        System.out.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
         String genreInput = scanner.next();
+
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
-        // Aggiorna le preferenze nel bean del cliente (devi avere accesso al bean del cliente)
         clientBean.setPreferences(preferences);
 
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
-        // Aggiorna le preferenze nel backend
         accountCtrlApplicativo.updateGenreUser(clientBean);
-        logger.info("Preferenze aggiornate");
+        System.out.println("Preferenze aggiornate");
     }
 
     private void addPlaylist() {

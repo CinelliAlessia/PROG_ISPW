@@ -5,37 +5,46 @@ import engineering.bean.PlaylistBean;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
+/**
+ * Questa classe gestisce l'interfaccia a riga di comando (CLI) per la gestione delle playlist in attesa di approvazione.
+ */
 public class ManagePlaylistsCLI {
 
-    private static final Logger logger = Logger.getLogger(ManagePlaylistsCLI.class.getName());
     private final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Avvia l'interfaccia a riga di comando per la gestione delle playlist in attesa.
+     */
     public void start() {
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
         List<PlaylistBean> playlistsPending = pendingPlaylistCtrlApplicativo.retrievePlaylists();
-        logger.info("\n----- Gestisci Playlists -----");
+        System.out.println("\n----- Gestisci Playlists -----");
         int index = 0;
         for (PlaylistBean playlist : playlistsPending) {
             index++;
             handlePlaylist(playlist, index);
         }
-        logger.info("--- Non ci sono più playlist da gestire ---");
+        System.out.println("--- Non ci sono più playlist da gestire ---");
     }
 
-    /** Espone playlist all'utente e attende risposta (accetta o rifiuta) prima di visualizzare la prossima playlist */
+    /**
+     * Espone la playlist all'utente e attende la risposta (accetta o rifiuta) prima di visualizzare la prossima playlist.
+     *
+     * @param playlist La playlist da gestire.
+     * @param index    L'indice della playlist.
+     */
     private void handlePlaylist(PlaylistBean playlist, int index) {
-        logger.info("---" + index + "---");
-        logger.info("Nome: " + playlist.getPlaylistName());
-        logger.info("Creatore: " + playlist.getUsername());
-        logger.info("Generi: "+ playlist.getPlaylistGenre());
-        logger.info("Link: "+ playlist.getLink());
+        System.out.println("---" + index + "---");
+        System.out.println("Nome: " + playlist.getPlaylistName());
+        System.out.println("Creatore: " + playlist.getUsername());
+        System.out.println("Generi: " + playlist.getPlaylistGenre());
+        System.out.println("Link: " + playlist.getLink());
 
-        logger.info("\nOpzioni:");
-        logger.info("1. Accetta");
-        logger.info("2. Rifiuta");
-        logger.info("0. Esci");
+        System.out.println("\nOpzioni:");
+        System.out.println("1. Accetta");
+        System.out.println("2. Rifiuta");
+        System.out.println("0. Esci");
 
         int choice = getChoice();
 
@@ -47,31 +56,46 @@ public class ManagePlaylistsCLI {
                 rejectPlaylist(playlist);
                 break;
             case 0:
-                logger.info("Uscita dalla gestione playlist in attesa.");
+                System.out.println("Uscita dalla gestione playlist in attesa.");
                 break;
             default:
-                logger.info("Scelta non valida. Riprova.");
+                System.out.println("Scelta non valida. Riprova.");
                 handlePlaylist(playlist, index);
                 break;
         }
     }
 
+    /**
+     * Ottiene la scelta dell'utente.
+     *
+     * @return La scelta dell'utente.
+     */
     private int getChoice() {
-        logger.info("Inserisci la tua scelta: ");
+        System.out.println("Inserisci la tua scelta: ");
         return scanner.nextInt();
     }
 
+    /**
+     * Accetta la playlist.
+     *
+     * @param playlist La playlist da accettare.
+     */
     private void acceptPlaylist(PlaylistBean playlist) {
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
         pendingPlaylistCtrlApplicativo.approvePlaylist(playlist);
 
-        logger.info("Playlist approvata.");
+        System.out.println("Playlist approvata.");
     }
 
+    /**
+     * Rifiuta la playlist.
+     *
+     * @param playlist La playlist da rifiutare.
+     */
     private void rejectPlaylist(PlaylistBean playlist) {
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
         pendingPlaylistCtrlApplicativo.rejectPlaylist(playlist);
 
-        logger.info("Playlist rifiutata.");
+        System.out.println("Playlist rifiutata.");
     }
 }

@@ -1,24 +1,31 @@
 package view.second;
 
 import controller.applicativo.AddPlaylistCtrlApplicativo;
-import engineering.bean.ClientBean;
-import engineering.bean.PlaylistBean;
-import engineering.exceptions.LinkIsNotValid;
-import engineering.exceptions.PlaylistLinkAlreadyInUse;
+import engineering.bean.*;
+import engineering.exceptions.*;
 import view.second.utils.GenreManager;
+
 import java.util.*;
-import java.util.logging.Logger;
 
+/**
+ * Questa classe gestisce l'interfaccia a riga di comando (CLI) per l'aggiunta di una playlist.
+ */
 public class AddPlaylistCLI {
-    private static final Logger logger = Logger.getLogger(AddPlaylistCLI.class.getName());
-
-    private ClientBean clientBean;
+        private ClientBean clientBean;
     private final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Imposta il bean del cliente per l'interfaccia utente.
+     *
+     * @param bean Il bean del cliente da impostare.
+     */
     public void setClientBean(ClientBean bean){
         this.clientBean = bean;
     }
 
+    /**
+     * Avvia l'interfaccia a riga di comando per l'aggiunta di una playlist.
+     */
     public void start() {
         PlaylistBean playlistBean = new PlaylistBean();
 
@@ -27,17 +34,17 @@ public class AddPlaylistCLI {
         playlistBean.setEmail(clientBean.getEmail());
 
         // Chiedi all'utente di inserire i dati della playlist
-        logger.info("Inserisci il titolo della playlist: ");
+        System.out.println("Inserisci il titolo della playlist: ");
         playlistBean.setPlaylistName(scanner.nextLine());
 
         boolean linkIsValid = false;
         while (!linkIsValid) {
-            logger.info("Inserisci il link della playlist: ");
+            System.out.println("Inserisci il link della playlist: ");
             try {
                 playlistBean.setLink(scanner.nextLine());
                 linkIsValid = true; // Se non viene lanciata l'eccezione, il link è valido e usciamo dal ciclo
             } catch (LinkIsNotValid e) {
-                logger.info("! Link non valido-> Riprova !");
+                System.out.println("! Link non valido-> Riprova !");
             }
         }
 
@@ -47,7 +54,7 @@ public class AddPlaylistCLI {
         genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
-        logger.info("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
+        System.out.println("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
@@ -61,9 +68,9 @@ public class AddPlaylistCLI {
             AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
             addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-            logger.info("Playlist aggiunta con successo!");
+            System.out.println("Playlist aggiunta con successo!");
         } catch (PlaylistLinkAlreadyInUse e) {
-            logger.info(" ! Il link relativo playlist è già presente nel sistema !");
+            System.out.println(" ! Il link relativo playlist è già presente nel sistema !");
         }
     }
 }
