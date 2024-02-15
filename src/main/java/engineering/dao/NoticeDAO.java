@@ -1,5 +1,6 @@
 package engineering.dao;
 
+import model.Client;
 import model.Notice;
 import model.User;
 
@@ -11,5 +12,5 @@ public interface NoticeDAO {
 
     void deleteNotice(Notice notice);
 
-    List<Notice> retrieveNotice(User user);
+    List<Notice> retrieveNotice(Client user);
 }

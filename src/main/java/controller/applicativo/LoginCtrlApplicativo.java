@@ -41,12 +41,11 @@ public class LoginCtrlApplicativo {
         try{
             Client client = dao.loadClient(login);
 
-
-            if(client instanceof User user){
+            if(!client.isSupervisor()){
                 UserBean userBean = new UserBean(client.getUsername(),client.getEmail(),client.getPreferences());
 
                 List<NoticeBean> noticeBeanList = new ArrayList<>();
-                List<Notice> noticeList = retriveNotice(user);
+                List<Notice> noticeList = retriveNotice(client);
 
                 for(Notice notice: noticeList){
                     NoticeBean noticeBean = new NoticeBean(notice.getTitle(),notice.getBody(),notice.getUsernameAuthor());
@@ -55,7 +54,7 @@ public class LoginCtrlApplicativo {
                 userBean.setNotices(noticeBeanList);
                 return userBean;
 
-            } else if(client instanceof Supervisor){
+            } else {
                 return new SupervisorBean(client.getUsername(),client.getEmail(),client.getPreferences());
             }
 
@@ -64,10 +63,9 @@ public class LoginCtrlApplicativo {
         } catch (InvalidEmailException e) {
             throw new InvalidEmailException();
         }
-        return null;
     }
 
-    public List<Notice> retriveNotice(User user){
+    public List<Notice> retriveNotice(Client user){
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
         NoticeDAO dao = persistenceType.createNoticeDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 

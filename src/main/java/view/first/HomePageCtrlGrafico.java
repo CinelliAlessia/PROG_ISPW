@@ -33,7 +33,8 @@ import java.util.logging.Logger;
  *
  * @param <T> Tipo generico che estende {@link ClientBean}, rappresenta il tipo di bean utente
  *            che sarà gestito da questo controller.
- */public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable, Observer {
+ */
+public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable, Observer {
 
 
     public ContextMenu contextMenu;
@@ -219,7 +220,7 @@ import java.util.logging.Logger;
 
         // Crea un Text per il testo della notifica (supporta il wrapping)
         Text text = new Text(noticeBean.getTitle() + "\n" + noticeBean.getBody());
-        text.setWrappingWidth(300); // Imposta la larghezza massima prima del wrapping
+        text.setWrappingWidth(295); // Imposta la larghezza massima prima del wrapping
 
         // Aggiungi uno spazio vuoto tra il Text e il pulsante
         Region spacer = new Region();

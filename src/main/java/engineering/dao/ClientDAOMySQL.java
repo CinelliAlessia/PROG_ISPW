@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 public class ClientDAOMySQL implements ClientDAO {
 
     private static final Logger logger = Logger.getLogger(ClientDAOMySQL.class.getName());
-
     private static final String USERNAME = "username";
 
     /** Metodo per inserire un User nel database al momento della registrazione

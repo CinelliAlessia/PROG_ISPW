@@ -1,7 +1,5 @@
 package engineering.dao;
 
-import controller.applicativo.RegistrazioneCtrlApplicativo;
-
 import java.io.*;
 import java.util.Properties;
 
@@ -46,7 +44,7 @@ public enum TypesOfPersistenceLayer {
     public static TypesOfPersistenceLayer getPreferredPersistenceType() {
         Properties properties = new Properties();
 
-        try (InputStream input = RegistrazioneCtrlApplicativo.class.getClassLoader().getResourceAsStream("config.properties")) {
+        try (InputStream input = TypesOfPersistenceLayer.class.getClassLoader().getResourceAsStream("config.properties")) {
             properties.load(input);
         } catch (IOException e){
             e.fillInStackTrace();

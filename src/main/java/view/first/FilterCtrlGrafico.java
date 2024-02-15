@@ -108,8 +108,6 @@ public class FilterCtrlGrafico implements Initializable {
             electronicAcoustic.setValue(0.0);
             speakInstrumental.setValue(0.0);
         }
-
-
     }
 
     @FXML

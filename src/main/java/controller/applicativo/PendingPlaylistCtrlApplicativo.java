@@ -11,8 +11,11 @@ import model.Playlist;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class PendingPlaylistCtrlApplicativo {
+
+    private static final Logger logger = Logger.getLogger(PendingPlaylistCtrlApplicativo.class.getName());
 
     public void approvePlaylist(PlaylistBean pB){
         PlaylistDAO dao = getDAO();
@@ -48,7 +51,7 @@ public class PendingPlaylistCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            e.fillInStackTrace();
+            logger.severe(e.getMessage());
         }
 
         return playlistsBean;
@@ -63,11 +66,6 @@ public class PendingPlaylistCtrlApplicativo {
         dao.deletePlaylist(playlist);
     }
 
-    private PlaylistDAO getDAO(){
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        return persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-    }
-
     public void sendNotification(NoticeBean noticeBean) {
 
         TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
@@ -76,5 +74,10 @@ public class PendingPlaylistCtrlApplicativo {
         Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(),noticeBean.getUsernameAuthor());
 
         dao.addNotice(notice);
+    }
+
+    private PlaylistDAO getDAO(){
+        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
+        return persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
     }
 }

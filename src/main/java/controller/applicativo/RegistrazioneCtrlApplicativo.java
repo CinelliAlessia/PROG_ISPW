@@ -10,7 +10,6 @@ import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceTyp
 
 public class RegistrazioneCtrlApplicativo {
 
-
     // CLI PROBLEMA: Verificare email e username prima di creare realmente l'utente
 
     /** Query al dao per registrare un utente */
@@ -45,6 +44,5 @@ public class RegistrazioneCtrlApplicativo {
         Login login = new Login(loginBean.getUsername(), loginBean.getEmail());
         dao.tryCredentialExisting(login);
     }
-
 
 }

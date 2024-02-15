@@ -2,6 +2,7 @@ package engineering.dao;
 
 import engineering.others.Connect;
 import engineering.query.QueryNotice;
+import model.Client;
 import model.Notice;
 import model.User;
 
@@ -59,7 +60,7 @@ public class NoticeDAOMySQL implements NoticeDAO{
     }
 
 
-    public List<Notice> retrieveNotice(User user) {
+    public List<Notice> retrieveNotice(Client user) {
         Statement stmt = null;
         Connection conn;
         ResultSet rs = null;
