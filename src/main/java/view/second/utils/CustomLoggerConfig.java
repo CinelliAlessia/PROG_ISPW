@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 public class CustomLoggerConfig {
 
     private CustomLoggerConfig() {
-        // Costruttore privato per evitare l'istanziazione della classe
+        // Private constructor to prevent instantiation of the class
     }
 
     public static Logger getLoggerWhite(Class<?> clazz) {
@@ -24,7 +24,13 @@ public class CustomLoggerConfig {
 
         ConsoleHandler consoleHandler = new ConsoleHandler();
         consoleHandler.setFormatter(new CustomFormatter(color));
-        logger.addHandler(consoleHandler);
+
+        try {
+            logger.addHandler(consoleHandler);
+        } catch (SecurityException e) {
+            // Handle the SecurityException (e.g., log or throw a different exception)
+            e.fillInStackTrace();
+        }
 
         logger.setLevel(Level.INFO);
 
@@ -40,8 +46,6 @@ public class CustomLoggerConfig {
 
         @Override
         public String format(java.util.logging.LogRecord logRecord) {
-            // Personalizza il formato del log come desideri
-            // Usa il colore corrente
             return color + logRecord.getMessage() + "\u001B[0m\n";
         }
     }
