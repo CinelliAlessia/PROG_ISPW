@@ -18,16 +18,14 @@ public class CustomLoggerConfig {
         return getLogger(clazz, "\u001B[31m");
     }
 
-    private static Logger getLogger(Class<?> clazz, String color) throws SecurityException{
+    private static Logger getLogger(Class<?> clazz, String color) {
         Logger logger = Logger.getLogger(clazz.getName());
-        logger.setUseParentHandlers(false); // Rimuovi il gestore predefinito
+        logger.setUseParentHandlers(false);
 
-        // Aggiungi il tuo gestore personalizzato
         ConsoleHandler consoleHandler = new ConsoleHandler();
         consoleHandler.setFormatter(new CustomFormatter(color));
         logger.addHandler(consoleHandler);
 
-        // Imposta il livello di log desiderato (es. INFO, WARNING, SEVERE)
         logger.setLevel(Level.INFO);
 
         return logger;
