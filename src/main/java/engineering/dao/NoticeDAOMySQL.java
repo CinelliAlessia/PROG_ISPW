@@ -2,9 +2,7 @@ package engineering.dao;
 
 import engineering.others.Connect;
 import engineering.query.QueryNotice;
-import model.Client;
-import model.Notice;
-import model.User;
+import model.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

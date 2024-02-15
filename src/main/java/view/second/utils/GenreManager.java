@@ -1,18 +1,10 @@
 package view.second.utils;
 
-import view.second.RegistrationCLI;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class GenreManager {
-    private final String genreListFile = StringCLI.GENERES_FILE_PATH;
     private static final Logger logger = Logger.getLogger(GenreManager.class.getName());
 
     /** Legge dal file dei generi musicali e genera una hash map (Intero, Stringa) che poi verrà
@@ -21,7 +13,7 @@ public class GenreManager {
         // Restituisci una mappa di generi musicali disponibili letti da un file
         Map<Integer, String> availableGenres = new HashMap<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(genreListFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(StringCLI.GENERES_FILE_PATH))) {
             int index = 1;
             String line;
             while ((line = br.readLine()) != null) {
@@ -53,7 +45,7 @@ public class GenreManager {
                 if (availableGenres.containsKey(genreIndex)) {
                     preferences.add(availableGenres.get(genreIndex));
                 } else {
-                    logger.info(" ! Numero genere non valido: " + index+  " !");
+                    logger.info(" ! Numero genere non valido: " + index +  " !");
                 }
             } catch (NumberFormatException e) {
                 logger.info(" ! Input non valido: " + index + " !");

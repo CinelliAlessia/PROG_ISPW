@@ -1,8 +1,6 @@
 package engineering.dao;
 
-import model.Client;
-import model.Notice;
-import model.User;
+import model.*;
 
 import java.util.List;
 

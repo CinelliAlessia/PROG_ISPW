@@ -226,12 +226,6 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         return playlistList;
     }
 
-
-    public List<Playlist> searchPlaylistByFilters(Playlist playlist) {
-        //TODO ###################### DA FARE ###################
-        return Collections.emptyList();
-    }
-
     private List<Playlist> retrievePlaylistsFromDirectory(Path directory) {
         List<Playlist> playlists = new ArrayList<>();
 
@@ -310,6 +304,11 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
     public List<Playlist> searchPlaylistByEmotional(Playlist playlist) {
         //TODO
+        return Collections.emptyList();
+    }
+
+    public List<Playlist> searchPlaylistByFilters(Playlist playlist) {
+        //TODO ###################### DA FARE ###################
         return Collections.emptyList();
     }
 
