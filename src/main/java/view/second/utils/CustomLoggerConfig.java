@@ -1,7 +1,6 @@
 package view.second.utils;
 
 import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CustomLoggerConfig {
@@ -18,16 +17,22 @@ public class CustomLoggerConfig {
         return getLogger(clazz, "\u001B[31m");
     }
 
-    private static Logger getLogger(Class<?> clazz, String color) throws SecurityException {
-        Logger logger = Logger.getLogger(clazz.getName());
-        logger.setUseParentHandlers(false);
+    private static Logger getLogger(Class<?> clazz, String color) {
+        try{
+            Logger logger = Logger.getLogger(clazz.getName());
+            logger.setUseParentHandlers(false); // Rimuovi il gestore predefinito
 
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setFormatter(new CustomFormatter(color));
-        logger.addHandler(consoleHandler);
-        logger.setLevel(Level.INFO);
+            // Aggiungi il tuo gestore personalizzato
+            ConsoleHandler consoleHandler = new ConsoleHandler();
+            consoleHandler.setFormatter(new CustomFormatter(color));
+            logger.addHandler(consoleHandler);
 
-        return logger;
+            return logger;
+        } catch (SecurityException e){
+            e.fillInStackTrace();
+            return null;
+        }
+
     }
 
     static class CustomFormatter extends java.util.logging.Formatter {
