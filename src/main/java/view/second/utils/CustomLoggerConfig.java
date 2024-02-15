@@ -18,7 +18,7 @@ public class CustomLoggerConfig {
         return getLogger(clazz, "\u001B[31m");
     }
 
-    private static Logger getLogger(Class<?> clazz, String color) {
+    private static Logger getLogger(Class<?> clazz, String color) throws SecurityException{
         Logger logger = Logger.getLogger(clazz.getName());
         logger.setUseParentHandlers(false); // Rimuovi il gestore predefinito
 
