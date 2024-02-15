@@ -157,7 +157,16 @@ public class ClientDAOJSON implements ClientDAO {
     }
 
     public void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
-        //TODO
+        try{
+            if(loadClient(login) != null){
+                throw new EmailAlreadyInUse();
+            }
+            if(retrieveClientByUsername(login.getUsername()) != null){
+                throw new UsernameAlreadyInUse();
+            }
+        } catch (UserDoesNotExist e){
+            e.fillInStackTrace();
+        }
     }
 
 

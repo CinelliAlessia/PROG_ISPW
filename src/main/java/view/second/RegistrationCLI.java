@@ -13,16 +13,39 @@ public class RegistrationCLI {
     private final Scanner scanner = new Scanner(System.in);
 
     public void start() {
-        logger.info("// ------- Registrazione ------- //");
-        logger.info("Nome utente: ");
-        String username = scanner.next();
+        RegistrazioneCtrlApplicativo registrazioneCtrlApp = new RegistrazioneCtrlApplicativo();
 
-        logger.info("Email: ");
-        String email = scanner.next();
+        logger.info("// ------- Registrazione ------- //");
+
+        String username;
+        String email = null;
+
+        LoginBean regBean = new LoginBean();
+        boolean retry = true;
+
+        while (retry){
+            try{
+                logger.info("Nome utente: ");
+                username = scanner.next();
+
+                logger.info("Email: ");
+                email = scanner.next();
+
+                regBean.setEmail(email);
+                regBean.setUsername(username);
+
+                registrazioneCtrlApp.tryCredentialExisting(regBean);
+
+                retry = false;
+
+            } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e){
+                logger.severe(e.getMessage());
+            }
+        }
 
         String password = null;
         String confirmPassword;
-        boolean retry = true;
+        retry = true;
 
         // Controllo se le due password sono identiche
         while (retry) {
@@ -39,6 +62,7 @@ public class RegistrationCLI {
                 retry = false;
             }
         }
+        regBean.setPassword(password);
 
         // Richiedi generi musicali disponibili all'utente
         logger.info("Generi musicali disponibili:");
@@ -51,11 +75,9 @@ public class RegistrationCLI {
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
+        regBean.setPreferences(preferences);
 
         try {
-            LoginBean regBean = new LoginBean(username, email, password, preferences);
-            RegistrazioneCtrlApplicativo registrazioneCtrlApp = new RegistrazioneCtrlApplicativo();
-
             // ----- Utilizzo controller applicativo -----
             UserBean userBean = new UserBean(email);
             registrazioneCtrlApp.registerUser(regBean, userBean);
