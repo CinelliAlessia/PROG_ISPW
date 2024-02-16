@@ -57,12 +57,12 @@
 
                <VBox alignment="CENTER" spacing="50.0" AnchorPane.rightAnchor="0.0">
                    <HBox alignment="CENTER" prefWidth="500.0">
-                       <Label alignment="CENTER" prefWidth="130.0" text="Sad" textAlignment="CENTER" />
+                       <Label alignment="CENTER" prefWidth="130.0" text="Sadness" textAlignment="CENTER" />
                        <Slider fx:id="happySad" blockIncrement="1.0" max="3.0" min="-3.0" prefWidth="250.0" />
-                       <Label alignment="CENTER" prefWidth="130.0" text="Happy" />
+                       <Label alignment="CENTER" prefWidth="130.0" text="Happiness" />
                    </HBox>
                    <HBox alignment="CENTER" prefWidth="500.0">
-                       <Label alignment="CENTER" prefWidth="130.0" text="Dance" />
+                       <Label alignment="CENTER" prefWidth="130.0" text="Danceable" />
                        <Slider fx:id="danceChill" blockIncrement="1.0" max="3.0" min="-3.0" prefWidth="250.0" />
                        <Label alignment="CENTER" prefWidth="130.0" text="Chill" />
                    </HBox>
@@ -72,7 +72,7 @@
                        <Label alignment="CENTER" prefWidth="130.0" text="Acoustic" />
                    </HBox>
                    <HBox alignment="CENTER" prefWidth="500.0">
-                       <Label alignment="CENTER" prefWidth="130.0" text="Speak" />
+                       <Label alignment="CENTER" prefWidth="130.0" text="Speechiness" />
                        <Slider fx:id="speakInstrumental" blockIncrement="1.0" max="3.0" min="-3.0" prefWidth="250.0" />
                        <Label alignment="CENTER" prefWidth="130.0" text="Instrumental" />
                    </HBox>
