@@ -1,0 +1,16 @@
+
+^
+java:S25831"CChange this condition so that it does not always evaluate to "true"(Œîïÿÿÿÿÿ
+[
+java:S1854s"@Remove this useless assignment to local variable "urlValidator".(ÄËÑıÿÿÿÿ
+B
+java:S1172r",Remove this unused method parameter "input".(ıŞÃ
+L
+java:S1481s"1Remove this unused "urlValidator" local variable.(ÄËÑıÿÿÿÿ
+Q	java:S125t"<This block of commented-out lines of code should be removed.(½×‘‘
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+M
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ
+S
+java:S1128	"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ

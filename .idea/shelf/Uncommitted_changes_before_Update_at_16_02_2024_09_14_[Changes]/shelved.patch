@@ -1,0 +1,494 @@
+Index: .idea/sonarlint/securityhotspotstore/index.pb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\nY\n)src/main/java/view/second/AccountCLI.java\u0012,d\\3\\d3d0f907a8d911ed794017559ceaf56746cfc0d2\n]\n-src/main/java/view/second/AddPlaylistCLI.java\u0012,6\\e\\6ec169f6d1e5b1a86087498a395d627a5bcf205c\nZ\n*src/main/java/view/second/HomePageCLI.java\u0012,4\\4\\4403fc42e263b5b67ff6d02ad1d414dd0bd63344\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5\u0012,7\\a\\7a784828b5dee0d5ae7dbcea13c51a31c5310688\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/6/0/606584e256ef1794f9f4a05509fa334eec476366\u0012,a\\0\\a0cfe9485106903c6ca59ef8c516f3b8aa7c191c\nw\nG.idea/sonarlint/issuestore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104\u0012,c\\7\\c71e19652f1d9e8da99618090a4cab4c3e9f5653\nw\nG.idea/sonarlint/issuestore/6/0/606584e256ef1794f9f4a05509fa334eec476366\u0012,5\\8\\58f89b7bd693a4d1139fc92ace6e72c12e2ae791\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6\u0012,2\\f\\2f2a3b924cb3a4d17996b18d5f643caeff33f0d9\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68\u0012,7\\8\\7823f6ead7f47283f0116624a6dff0195be59e1c\nw\nG.idea/sonarlint/issuestore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68\u0012,0\\8\\084b5d8573580962cbaa5c32424f6f199b15d8dd\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3\u0012,5\\4\\54cdca142cff1012a3a439e56832f100aa538440\nw\nG.idea/sonarlint/issuestore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d\u0012,1\\4\\143b0b931fbe11d4028625e0598ade4962145b9d\nw\nG.idea/sonarlint/issuestore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a\u0012,0\\8\\085c4f889c4a745e636a5a4c2d42b2e54670b398\nw\nG.idea/sonarlint/issuestore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c\u0012,4\\e\\4e3bde25f39049d33d94a36c5ec0c29bb46349b8\nw\nG.idea/sonarlint/issuestore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a\u0012,7\\0\\7022477b2e6e41944684e721ec58f2c84d0bbeb2\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/3/2/321300f91fc7c404817ccb07b0dfc98b03105a20\u0012,6\\e\\6ea67ef6db1fd1ec7f890ed743000aa0bf761bb3\nw\nG.idea/sonarlint/issuestore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458\u0012,5\\8\\5895849341b84777f3e41ade526f60b75a708786\nw\nG.idea/sonarlint/issuestore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3\u0012,a\\5\\a5826fb745559f07cb2b1cbea9f40fa885315aa6\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/0/7/07548fa9c5a066af6f78e9f766cb10f7f4184898\u0012,f\\4\\f4d6af348399b89e148f105047bc9a653d3e9e6e\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d\u0012,b\\4\\b4fb008fcaa126844727ea750092c74b8d78ecb7\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/8/0/808442a8aed5241150d707c10549e20b9fe243f5\u0012,a\\f\\affe4143fda8fbb48513ade52fafef412958191a\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/7/6/76dd73df286c360c707767364c649a9ba7462df1\u0012,8\\0\\809220a8ed29a2f1b80a34c5503908e8eab1c942\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a\u0012,2\\d\\2deffd41a62bef0aa441d0cfacdd68ab1cdbb95a\nw\nG.idea/sonarlint/issuestore/2/c/2c6b703e45580360a945494086b44cb75adc6108\u0012,a\\5\\a59e654a14953bb9c49ee16586297a77b3af7e7e\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c\u0012,b\\4\\b42eb2e7c7f18d08bf9f8a553762fe516253adf2\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/8/b/8bb21e5a57a1a38e2cc9324a262b4c6c3431d61a\u0012,0\\8\\08a8616d431c2987c9d9393136e06c1220c81b2b\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a\u0012,e\\3\\e3cd799e5d97d354d36a198ce9a58e793c4e3da6\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c\u0012,2\\f\\2f335cd183f3b47b68061d558a839228ab99ae65\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/2/c/2c6b703e45580360a945494086b44cb75adc6108\u0012,0\\4\\0419b5ff1c56a6a60d9dcbe43146de73fedce75d\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458\u0012,1\\1\\119345967e54ca655fb59252f652236270b9fed4\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43\u0012,3\\4\\347334089ccf5641cd108cd391389bbb76c468af\nw\nG.idea/sonarlint/issuestore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c\u0012,8\\b\\8bac527aa204243ad50877a9d0df96483fe5771d\nw\nG.idea/sonarlint/issuestore/8/0/808442a8aed5241150d707c10549e20b9fe243f5\u0012,8\\e\\8eb318d52b10ceb4ac7f39ae6257d0d691e479a1\nw\nG.idea/sonarlint/issuestore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43\u0012,1\\a\\1ad4dc3c97fff4c5ec42994c98fb5505edb766e3\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2\u0012,1\\3\\13164cd86fe3a1fa4bb3cb993a26e058514b99bb\nw\nG.idea/sonarlint/issuestore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2\u0012,2\\c\\2c4be92de976ac8f4092aa43b99956420c13ec5f\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/f/4/f44f130d3e9649299784fead41f968a055d57ed0\u0012,3\\7\\37257998834b9bb9b3a7ea80e83e58270977cefc\nw\nG.idea/sonarlint/issuestore/d/3/d384a707215dff6078c1991fe345ec73a002a462\u0012,0\\a\\0a2a095ca73144cb5d87f7888b1d47ea07a5f3bc\nw\nG.idea/sonarlint/issuestore/6/6/6684108c3a6644d720de46620525164ef4834d95\u0012,5\\6\\568e9b15deef91a5f804a18f845f0276fbe95896\nw\nG.idea/sonarlint/issuestore/1/2/12882c64a17075fc25b2aee30621398d156d16fa\u0012,1\\9\\19985e84fa803cafaf134b9d1b41d1c1ca387aa6\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/a/d/ad4b6617709a02c3df495167ba7181472c2fd41a\u0012,b\\4\\b4a2538433e7e0afc3e753ff68d947d8b160cafe\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/d/3/d384a707215dff6078c1991fe345ec73a002a462\u0012,b\\2\\b26bf7a2ab8c52781f93b63bc2c481dcc49337a3\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/f/d/fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067\u0012,f\\8\\f879b29426833d084cf5240369643b071fc0ebc2\nw\nG.idea/sonarlint/issuestore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792\u0012,1\\e\\1e7b8af6c48ab566482d5dab09ca1938c81b1f23\nw\nG.idea/sonarlint/issuestore/a/c/ac6fd1f140c9aede9a8563cdd3fc4576f6f9c56e\u0012,8\\b\\8b07eceee1ae63c6f048e75c03f7871b290f5cf8\nw\nG.idea/sonarlint/issuestore/a/6/a6a639be8becbe7840021ba8da868f088cc951bc\u0012,1\\5\\150606487f3eb5521d441db0367d0297a293981f\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/1/b/1b07262e331f04c16b9a11a156dab02251259a18\u0012,8\\7\\8762824a24a7472ccf7f4f35f61208ee693b7056\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/9/b/9bafa12ff5b377cf2462c172c1ddb1b5148904d8\u0012,2\\6\\26981d9eb1ac533ea95583bc5c49e9705929b1df\nw\nG.idea/sonarlint/issuestore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c\u0012,9\\1\\9114b2f7845b02304493fd20d629398ff43da93d\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c\u0012,4\\b\\4b01727d718a3849a7a0f90749f4845863910453\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/1/2/12882c64a17075fc25b2aee30621398d156d16fa\u0012,0\\7\\07a9ce36aa4dbb2e4241ce686a74698c171c659f\nw\nG.idea/sonarlint/issuestore/1/b/1b07262e331f04c16b9a11a156dab02251259a18\u0012,a\\b\\abb505bb5161da5f582335234bd8b80fdad22a63\nw\nG.idea/sonarlint/issuestore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688\u0012,5\\a\\5a9b4139d70789a4348255f5f594e34a650b7781\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688\u0012,1\\2\\121a6583de65a9f32e4dea228116c1d17fe78453\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0\u0012,b\\b\\bbf202272a96de5cd6b6828ffdc55fb3ce45289c\nS\n#.idea/sonarlint/issuestore/index.pb\u0012,9\\f\\9fe84ebb15faf917b7def6236dba604453cc61e0\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792\u0012,d\\2\\d219fad0e1b275d6a0acbd1ade82c1f4c3ca1aa4\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/6/6/6684108c3a6644d720de46620525164ef4834d95\u0012,2\\9\\29657e07793e4fea73c32499bd9405b06a4bfcfa\n]\n-.idea/sonarlint/securityhotspotstore/index.pb\u0012,8\\8\\88a9255124c95bdc913197c120a8d560edc59c8e\nw\nG.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e\u0012,a\\e\\ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e\u0012,9\\0\\909762385fc6eb20f922a91c6865741308b57f2c\nw\nG.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0\u0012,f\\0\\f0e0f9cec86fe4b939ae22be5264c758801eb28f\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104\u0012,d\\6\\d6d9bcd7405d055c722f678902f3d4abe3d64ffa\nw\nG.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5\u0012,d\\c\\dca946cea7615629df2da48424cc15803c048189\nw\nG.idea/sonarlint/issuestore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6\u0012,b\\1\\b1ce8910c2d2aeb86f27c1045160f5a1e8673dd4
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/sonarlint/securityhotspotstore/index.pb b/.idea/sonarlint/securityhotspotstore/index.pb
+--- a/.idea/sonarlint/securityhotspotstore/index.pb	(revision c98f198981ab0cdf188e34c107d117e571b5ca11)
++++ b/.idea/sonarlint/securityhotspotstore/index.pb	(date 1708009230517)
+@@ -5,127 +5,27 @@
+ -src/main/java/view/second/AddPlaylistCLI.java,6\e\6ec169f6d1e5b1a86087498a395d627a5bcf205c
+ Z
+ *src/main/java/view/second/HomePageCLI.java,4\4\4403fc42e263b5b67ff6d02ad1d414dd0bd63344
+-�
+-Q.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5,7\a\7a784828b5dee0d5ae7dbcea13c51a31c5310688
+-�
+-Q.idea/sonarlint/securityhotspotstore/6/0/606584e256ef1794f9f4a05509fa334eec476366,a\0\a0cfe9485106903c6ca59ef8c516f3b8aa7c191c
+-w
+-G.idea/sonarlint/issuestore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104,c\7\c71e19652f1d9e8da99618090a4cab4c3e9f5653
+-w
+-G.idea/sonarlint/issuestore/6/0/606584e256ef1794f9f4a05509fa334eec476366,5\8\58f89b7bd693a4d1139fc92ace6e72c12e2ae791
+-�
+-Q.idea/sonarlint/securityhotspotstore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6,2\f\2f2a3b924cb3a4d17996b18d5f643caeff33f0d9
+-�
+-Q.idea/sonarlint/securityhotspotstore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68,7\8\7823f6ead7f47283f0116624a6dff0195be59e1c
+-w
+-G.idea/sonarlint/issuestore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68,0\8\084b5d8573580962cbaa5c32424f6f199b15d8dd
+-�
+-Q.idea/sonarlint/securityhotspotstore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3,5\4\54cdca142cff1012a3a439e56832f100aa538440
+-w
+-G.idea/sonarlint/issuestore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d,1\4\143b0b931fbe11d4028625e0598ade4962145b9d
+-w
+-G.idea/sonarlint/issuestore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a,0\8\085c4f889c4a745e636a5a4c2d42b2e54670b398
+-w
+-G.idea/sonarlint/issuestore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c,4\e\4e3bde25f39049d33d94a36c5ec0c29bb46349b8
+-w
+-G.idea/sonarlint/issuestore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a,7\0\7022477b2e6e41944684e721ec58f2c84d0bbeb2
+-�
+-Q.idea/sonarlint/securityhotspotstore/3/2/321300f91fc7c404817ccb07b0dfc98b03105a20,6\e\6ea67ef6db1fd1ec7f890ed743000aa0bf761bb3
+-w
+-G.idea/sonarlint/issuestore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458,5\8\5895849341b84777f3e41ade526f60b75a708786
+-w
+-G.idea/sonarlint/issuestore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3,a\5\a5826fb745559f07cb2b1cbea9f40fa885315aa6
+-�
+-Q.idea/sonarlint/securityhotspotstore/0/7/07548fa9c5a066af6f78e9f766cb10f7f4184898,f\4\f4d6af348399b89e148f105047bc9a653d3e9e6e
+-�
+-Q.idea/sonarlint/securityhotspotstore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d,b\4\b4fb008fcaa126844727ea750092c74b8d78ecb7
+-�
+-Q.idea/sonarlint/securityhotspotstore/8/0/808442a8aed5241150d707c10549e20b9fe243f5,a\f\affe4143fda8fbb48513ade52fafef412958191a
+-�
+-Q.idea/sonarlint/securityhotspotstore/7/6/76dd73df286c360c707767364c649a9ba7462df1,8\0\809220a8ed29a2f1b80a34c5503908e8eab1c942
+-�
+-Q.idea/sonarlint/securityhotspotstore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a,2\d\2deffd41a62bef0aa441d0cfacdd68ab1cdbb95a
+-w
+-G.idea/sonarlint/issuestore/2/c/2c6b703e45580360a945494086b44cb75adc6108,a\5\a59e654a14953bb9c49ee16586297a77b3af7e7e
+-�
+-Q.idea/sonarlint/securityhotspotstore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c,b\4\b42eb2e7c7f18d08bf9f8a553762fe516253adf2
+-�
+-Q.idea/sonarlint/securityhotspotstore/8/b/8bb21e5a57a1a38e2cc9324a262b4c6c3431d61a,0\8\08a8616d431c2987c9d9393136e06c1220c81b2b
+-�
+-Q.idea/sonarlint/securityhotspotstore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a,e\3\e3cd799e5d97d354d36a198ce9a58e793c4e3da6
+-�
+-Q.idea/sonarlint/securityhotspotstore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c,2\f\2f335cd183f3b47b68061d558a839228ab99ae65
+-�
+-Q.idea/sonarlint/securityhotspotstore/2/c/2c6b703e45580360a945494086b44cb75adc6108,0\4\0419b5ff1c56a6a60d9dcbe43146de73fedce75d
+-�
+-Q.idea/sonarlint/securityhotspotstore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458,1\1\119345967e54ca655fb59252f652236270b9fed4
+-�
+-Q.idea/sonarlint/securityhotspotstore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43,3\4\347334089ccf5641cd108cd391389bbb76c468af
+-w
+-G.idea/sonarlint/issuestore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c,8\b\8bac527aa204243ad50877a9d0df96483fe5771d
+-w
+-G.idea/sonarlint/issuestore/8/0/808442a8aed5241150d707c10549e20b9fe243f5,8\e\8eb318d52b10ceb4ac7f39ae6257d0d691e479a1
+-w
+-G.idea/sonarlint/issuestore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43,1\a\1ad4dc3c97fff4c5ec42994c98fb5505edb766e3
+-�
+-Q.idea/sonarlint/securityhotspotstore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2,1\3\13164cd86fe3a1fa4bb3cb993a26e058514b99bb
+-w
+-G.idea/sonarlint/issuestore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2,2\c\2c4be92de976ac8f4092aa43b99956420c13ec5f
+-�
+-Q.idea/sonarlint/securityhotspotstore/f/4/f44f130d3e9649299784fead41f968a055d57ed0,3\7\37257998834b9bb9b3a7ea80e83e58270977cefc
+-w
+-G.idea/sonarlint/issuestore/d/3/d384a707215dff6078c1991fe345ec73a002a462,0\a\0a2a095ca73144cb5d87f7888b1d47ea07a5f3bc
+-w
+-G.idea/sonarlint/issuestore/6/6/6684108c3a6644d720de46620525164ef4834d95,5\6\568e9b15deef91a5f804a18f845f0276fbe95896
+-w
+-G.idea/sonarlint/issuestore/1/2/12882c64a17075fc25b2aee30621398d156d16fa,1\9\19985e84fa803cafaf134b9d1b41d1c1ca387aa6
+-�
+-Q.idea/sonarlint/securityhotspotstore/a/d/ad4b6617709a02c3df495167ba7181472c2fd41a,b\4\b4a2538433e7e0afc3e753ff68d947d8b160cafe
+-�
+-Q.idea/sonarlint/securityhotspotstore/d/3/d384a707215dff6078c1991fe345ec73a002a462,b\2\b26bf7a2ab8c52781f93b63bc2c481dcc49337a3
+-�
+-Q.idea/sonarlint/securityhotspotstore/f/d/fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067,f\8\f879b29426833d084cf5240369643b071fc0ebc2
+-w
+-G.idea/sonarlint/issuestore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792,1\e\1e7b8af6c48ab566482d5dab09ca1938c81b1f23
+-w
+-G.idea/sonarlint/issuestore/a/c/ac6fd1f140c9aede9a8563cdd3fc4576f6f9c56e,8\b\8b07eceee1ae63c6f048e75c03f7871b290f5cf8
+-w
+-G.idea/sonarlint/issuestore/a/6/a6a639be8becbe7840021ba8da868f088cc951bc,1\5\150606487f3eb5521d441db0367d0297a293981f
+-�
+-Q.idea/sonarlint/securityhotspotstore/1/b/1b07262e331f04c16b9a11a156dab02251259a18,8\7\8762824a24a7472ccf7f4f35f61208ee693b7056
+-�
+-Q.idea/sonarlint/securityhotspotstore/9/b/9bafa12ff5b377cf2462c172c1ddb1b5148904d8,2\6\26981d9eb1ac533ea95583bc5c49e9705929b1df
+-w
+-G.idea/sonarlint/issuestore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c,9\1\9114b2f7845b02304493fd20d629398ff43da93d
+-�
+-Q.idea/sonarlint/securityhotspotstore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c,4\b\4b01727d718a3849a7a0f90749f4845863910453
+-�
+-Q.idea/sonarlint/securityhotspotstore/1/2/12882c64a17075fc25b2aee30621398d156d16fa,0\7\07a9ce36aa4dbb2e4241ce686a74698c171c659f
+-w
+-G.idea/sonarlint/issuestore/1/b/1b07262e331f04c16b9a11a156dab02251259a18,a\b\abb505bb5161da5f582335234bd8b80fdad22a63
+-w
+-G.idea/sonarlint/issuestore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688,5\a\5a9b4139d70789a4348255f5f594e34a650b7781
+-�
+-Q.idea/sonarlint/securityhotspotstore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688,1\2\121a6583de65a9f32e4dea228116c1d17fe78453
+-�
+-Q.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,b\b\bbf202272a96de5cd6b6828ffdc55fb3ce45289c
+-S
+-#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+-�
+-Q.idea/sonarlint/securityhotspotstore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792,d\2\d219fad0e1b275d6a0acbd1ade82c1f4c3ca1aa4
+-�
+-Q.idea/sonarlint/securityhotspotstore/6/6/6684108c3a6644d720de46620525164ef4834d95,2\9\29657e07793e4fea73c32499bd9405b06a4bfcfa
+-]
+--.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+-w
+-G.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e,a\e\ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1
+-�
+-Q.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e,9\0\909762385fc6eb20f922a91c6865741308b57f2c
+-w
+-G.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,f\0\f0e0f9cec86fe4b939ae22be5264c758801eb28f
+-�
+-Q.idea/sonarlint/securityhotspotstore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104,d\6\d6d9bcd7405d055c722f678902f3d4abe3d64ffa
+-w
+-G.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5,d\c\dca946cea7615629df2da48424cc15803c048189
+-w
+-G.idea/sonarlint/issuestore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6,b\1\b1ce8910c2d2aeb86f27c1045160f5a1e8673dd4
+\ No newline at end of file
++7
++pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
++`
++0src/main/java/engineering/dao/ClientDAOJSON.java,c\b\cbeb1feee641362084cc94999d817618f7c0cfe4
++n
++>src/main/java/controller/applicativo/LoginCtrlApplicativo.java,1\9\19ed7a5abf79d2a64378fef2ee66d4ad4636eb40
++\
++,src/main/java/engineering/dao/ClientDAO.java,4\2\425adc07cf6f5564e448be3ceed784c47a42c0fc
++a
++1src/main/java/engineering/dao/ClientDAOMySQL.java,a\f\af359ce8f2f0a4bc6ce4862b94e533c412ce2f39
++a
++1src/main/java/view/second/ManagePlaylistsCLI.java,4\7\474f0454f0062d4135bcc5ffdcb0b2ec99ab2276
++a
++1src/main/java/view/second/utils/GenreManager.java,2\9\293a6600d09e51bc26198b00095dd7d86c4bbf9d
++^
++.src/main/java/view/second/RegistrationCLI.java,b\8\b8456898fc83d88c93a274409d58f97d6769f5a6
++j
++:src/main/java/engineering/dao/TypesOfPersistenceLayer.java,8\7\872b8ee48821e2597ff8685bf1eb976aeb285719
++p
++@src/main/java/controller/applicativo/AccountCtrlApplicativo.java,0\d\0d3c6e4493e278350f4b3245e251fef2d6a9097d
++a
++1src/main/java/view/first/HomePageCtrlGrafico.java,a\e\ae02493400710bde826a7cb385a3580a59bfb1cb
++W
++'src/main/java/view/second/LoginCLI.java,0\9\0998d904620b1cc8213cba7ee1116c46fdd45d66
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5ab3b5b7-0136-4bcd-b52a-626b23fdea42\" name=\"Changes\" comment=\"print cambiati\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/view/second/AccountCLI.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/view/second/AccountCLI.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Enum\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--follow-tags\" />\r\n        <option name=\"title\" value=\"Current Branch\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;mzlala&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"abec164f-27d4-42ac-a43d-09f2629c05d4\" />\r\n        <option name=\"url\" value=\"https://github.com/mzlala/PROG_ISPW.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"KubernetesApiProvider\">{\r\n  &quot;isMigrated&quot;: true\r\n}</component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2ZoVPF9GIOXZOMXQACOzvhMkf5x\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showScratchesAndConsoles\" value=\"false\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"Application.MainApplication.executor\": \"Run\",\r\n    \"Application.MainApplication2.executor\": \"Run\",\r\n    \"Application.MongoDBConnector.executor\": \"Run\",\r\n    \"Application.StartByMain.executor\": \"Run\",\r\n    \"Downloaded.Files.Path.Enabled\": \"false\",\r\n    \"Repository.Attach.Annotations\": \"false\",\r\n    \"Repository.Attach.JavaDocs\": \"false\",\r\n    \"Repository.Attach.Sources\": \"false\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SONARLINT_PRECOMMIT_ANALYSIS\": \"true\",\r\n    \"database.data.extractors.current.export.id\": \"JSON-Groovy.json.groovy\",\r\n    \"database.data.extractors.current.id\": \"JSON-Groovy.json.groovy\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"ignore.preview.features.used\": \"true\",\r\n    \"jdk.selected.JAVA_MODULE\": \"21\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_directory_selection\": \"C:/Users/cinel/Desktop/Università/ISPW/Progetto/PROG_ISPW/src/main/java/view\",\r\n    \"last_opened_file_path\": \"C:/Users/cinel/Desktop/Università/ISPW/Progetti di Altri/ProgettoStucco/ItalianBallerz\",\r\n    \"list.type.of.created.stylesheet\": \"CSS\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.37587237\",\r\n    \"run.code.analysis.last.selected.profile\": \"pProject Default\",\r\n    \"settings.editor.selected.configurable\": \"sonarlint\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"mysql\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"engineering.exceptions\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\andre\\Desktop\\ISPW\\Progetto\\PROG_ISPW\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\cinel\\Desktop\\Università\\ISPW\\Progetto\\PROG_ISPW\\src\\main\\java\\logic\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunAnythingCache\">\r\n    <option name=\"myCommands\">\r\n      <command value=\"error_field\" />\r\n    </option>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.StartByMain\">\r\n    <configuration name=\"StartByMain\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"start.MainApplication\" />\r\n      <module name=\"spotify\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"StartByMain2\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"start.MainApplication2\" />\r\n      <module name=\"spotify\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"PROG_ISPW\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"PROG_ISPW\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.StartByMain\" />\r\n      <item itemvalue=\"Application.StartByMain2\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5ab3b5b7-0136-4bcd-b52a-626b23fdea42\" name=\"Changes\" comment=\"\" />\r\n      <created>1703088395878</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1703088395878</updated>\r\n      <workItem from=\"1703088399448\" duration=\"14000\" />\r\n      <workItem from=\"1703142487444\" duration=\"4686000\" />\r\n      <workItem from=\"1703165322229\" duration=\"2796000\" />\r\n      <workItem from=\"1703171298288\" duration=\"11000\" />\r\n      <workItem from=\"1703174947490\" duration=\"181000\" />\r\n      <workItem from=\"1703175800989\" duration=\"395000\" />\r\n      <workItem from=\"1703954545008\" duration=\"13000\" />\r\n      <workItem from=\"1704726434904\" duration=\"11000\" />\r\n      <workItem from=\"1704752423900\" duration=\"647000\" />\r\n      <workItem from=\"1704787655010\" duration=\"7654000\" />\r\n      <workItem from=\"1706172107942\" duration=\"7567000\" />\r\n      <workItem from=\"1706188118080\" duration=\"6901000\" />\r\n      <workItem from=\"1706196693438\" duration=\"4654000\" />\r\n      <workItem from=\"1706255400628\" duration=\"13376000\" />\r\n      <workItem from=\"1706283660929\" duration=\"2569000\" />\r\n      <workItem from=\"1706350166101\" duration=\"10343000\" />\r\n      <workItem from=\"1706517459267\" duration=\"7516000\" />\r\n      <workItem from=\"1706526250959\" duration=\"4120000\" />\r\n      <workItem from=\"1706535196911\" duration=\"3325000\" />\r\n      <workItem from=\"1706548582802\" duration=\"3054000\" />\r\n      <workItem from=\"1706556718106\" duration=\"9320000\" />\r\n      <workItem from=\"1706600729068\" duration=\"16941000\" />\r\n      <workItem from=\"1706620899009\" duration=\"12289000\" />\r\n      <workItem from=\"1706634398060\" duration=\"2262000\" />\r\n      <workItem from=\"1706639484242\" duration=\"7619000\" />\r\n      <workItem from=\"1706686449597\" duration=\"3137000\" />\r\n      <workItem from=\"1706732648918\" duration=\"7912000\" />\r\n      <workItem from=\"1706794043130\" duration=\"10636000\" />\r\n      <workItem from=\"1706806985445\" duration=\"3138000\" />\r\n      <workItem from=\"1706814706527\" duration=\"4409000\" />\r\n      <workItem from=\"1706820232063\" duration=\"5462000\" />\r\n      <workItem from=\"1706859194520\" duration=\"26889000\" />\r\n      <workItem from=\"1706903176179\" duration=\"10650000\" />\r\n      <workItem from=\"1706914899387\" duration=\"184000\" />\r\n      <workItem from=\"1706970072313\" duration=\"2128000\" />\r\n      <workItem from=\"1707064767443\" duration=\"14000\" />\r\n      <workItem from=\"1707064961308\" duration=\"1665000\" />\r\n      <workItem from=\"1707066647999\" duration=\"2332000\" />\r\n      <workItem from=\"1707072819193\" duration=\"9340000\" />\r\n      <workItem from=\"1707119992525\" duration=\"3007000\" />\r\n      <workItem from=\"1707138653024\" duration=\"3165000\" />\r\n      <workItem from=\"1707141876665\" duration=\"9657000\" />\r\n      <workItem from=\"1707208299461\" duration=\"22380000\" />\r\n      <workItem from=\"1707292048157\" duration=\"2589000\" />\r\n      <workItem from=\"1707316003361\" duration=\"1421000\" />\r\n      <workItem from=\"1707402695071\" duration=\"6535000\" />\r\n      <workItem from=\"1707412740797\" duration=\"3724000\" />\r\n      <workItem from=\"1707428436209\" duration=\"4065000\" />\r\n      <workItem from=\"1707467775442\" duration=\"14823000\" />\r\n      <workItem from=\"1707506570488\" duration=\"8258000\" />\r\n      <workItem from=\"1707601433175\" duration=\"10883000\" />\r\n      <workItem from=\"1707667605090\" duration=\"765000\" />\r\n      <workItem from=\"1707771527823\" duration=\"8085000\" />\r\n      <workItem from=\"1707810991916\" duration=\"12696000\" />\r\n      <workItem from=\"1707833653456\" duration=\"9057000\" />\r\n      <workItem from=\"1707843680251\" duration=\"1891000\" />\r\n      <workItem from=\"1707854286593\" duration=\"3771000\" />\r\n      <workItem from=\"1707899582582\" duration=\"408000\" />\r\n      <workItem from=\"1707912302661\" duration=\"159000\" />\r\n      <workItem from=\"1707916011079\" duration=\"554000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"Persistenza database funzionante\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706796343615</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706796343615</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"Modifica della struttura del database, caricamento corretto di playlist nel database e bozza di playlist in attesa di approvazione\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706808188377</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706808188378</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"Correzione code smells\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706810339472</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706810339472</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"Modifica\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706819014647</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706819014647</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"Update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706819174974</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706819174974</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"Aggiunta possibilità di modificare i generi preferiti a run time\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706823535105</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706823535105</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"Code smells risolti\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706825126631</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706825126631</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"Aggiornamento grafiche\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706865700564</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706865700564</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"Inizio implementazione Observer\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706873398689</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706873398689</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"Risoluzione Sicurezza aggiungendo un connection.properties\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706873447397</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706873447397</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00038\" summary=\"Risoluzione Sicurezza aggiungendo un connection.properties\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706888805424</created>\r\n      <option name=\"number\" value=\"00038\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706888805424</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00039\" summary=\"Update return value\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706888825546</created>\r\n      <option name=\"number\" value=\"00039\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706888825546</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"Aggiornamento e risoluzione code smells\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706888858895</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706888858895</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"Risoluzione code smells\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706889401792</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706889401792</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00042\" summary=\"Risoluzione code smells\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706911257646</created>\r\n      <option name=\"number\" value=\"00042\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00042\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706911257647</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00043\" summary=\"Risoluzione code smells\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706911385031</created>\r\n      <option name=\"number\" value=\"00043\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00043\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706911385031</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00044\" summary=\"Risoluzione code smells, ridotto il riuso di codice\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706912172189</created>\r\n      <option name=\"number\" value=\"00044\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00044\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706912172189</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00045\" summary=\"Risoluzione code smells, ridotto il riuso di codice\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706912497856</created>\r\n      <option name=\"number\" value=\"00045\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00045\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706912497856</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"Update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706915003727</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706915003727</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00047\" summary=\"Update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706971229104</created>\r\n      <option name=\"number\" value=\"00047\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706971229105</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00048\" summary=\"Update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1706972081659</created>\r\n      <option name=\"number\" value=\"00048\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00048\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1706972081659</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00049\" summary=\"Update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707068097167</created>\r\n      <option name=\"number\" value=\"00049\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00049\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707068097167</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00050\" summary=\"Aggiunto prova per Schermata supervisore\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707086267310</created>\r\n      <option name=\"number\" value=\"00050\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00050\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707086267310</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00051\" summary=\"Update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707123347379</created>\r\n      <option name=\"number\" value=\"00051\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00051\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707123347380</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00052\" summary=\"Update, modifica delle view &#10;Aggiunta base approvazione playlist\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707135370028</created>\r\n      <option name=\"number\" value=\"00052\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00052\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707135370029</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00053\" summary=\"Aggiunta base approvazione playlist\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707135452171</created>\r\n      <option name=\"number\" value=\"00053\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00053\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707135452171</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00054\" summary=\"Update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707144341204</created>\r\n      <option name=\"number\" value=\"00054\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00054\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707144341204</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00055\" summary=\"Update code Smells\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707146595737</created>\r\n      <option name=\"number\" value=\"00055\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00055\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707146595737</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00056\" summary=\"approve playlist fatto con json: da migliorare duplicazione codice\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707208469636</created>\r\n      <option name=\"number\" value=\"00056\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00056\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707208469638</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00057\" summary=\"aggiornato playlist dao json\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707215624873</created>\r\n      <option name=\"number\" value=\"00057\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00057\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707215624873</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00058\" summary=\"inizio ricerca playlist tramite la search bar\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707238912084</created>\r\n      <option name=\"number\" value=\"00058\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00058\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707238912084</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00059\" summary=\"Pop up ora utilizzabile per qualunque tipo di avviso. Verificare se UserDAOJSON ha bassa replicazione\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707260173721</created>\r\n      <option name=\"number\" value=\"00059\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00059\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707260173722</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00060\" summary=\"Aggiustato TextPopUp, ora non crea più il duplicato e torna indietro dopo aver premuto ok\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707389497431</created>\r\n      <option name=\"number\" value=\"00060\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00060\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707389497431</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00061\" summary=\"gestione delle eccezioni sul LoginCtrlGrafico\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707412841379</created>\r\n      <option name=\"number\" value=\"00061\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00061\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707412841380</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00062\" summary=\"Tolto tutti i lanci di eccezioni del tipo &quot;IOException&quot; dai controller grafici, ora c'è una funzione per gestire questo errore dentro SceneController che attualmente esegue uno &quot;fill in stack trace&quot;\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707414785386</created>\r\n      <option name=\"number\" value=\"00062\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00062\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707414785386</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00063\" summary=\"Tolto tutti i lanci di eccezioni del tipo &quot;IOException&quot; dai controller grafici, ora c'è una funzione per gestire questo errore dentro SceneController che attualmente esegue uno &quot;fill in stack trace&quot;\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707415013498</created>\r\n      <option name=\"number\" value=\"00063\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00063\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707415013498</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00064\" summary=\"Ho aggiunto il cerca Playlist per nome sul PlaylistDAOJSON (vedi se ti piace)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707416175904</created>\r\n      <option name=\"number\" value=\"00064\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00064\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707416175904</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00065\" summary=\"corretto errore sul PlaylistDAOJSON che restituiva un model nullo\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707432400964</created>\r\n      <option name=\"number\" value=\"00065\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00065\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707432400964</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00066\" summary=\"Aggiunta slider\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707486115511</created>\r\n      <option name=\"number\" value=\"00066\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00066\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707486115511</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00067\" summary=\"Aggiunta slider\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707486684886</created>\r\n      <option name=\"number\" value=\"00067\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00067\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707486684886</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00068\" summary=\"bottone filtri e schermata dei filtri iniziata\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707495421115</created>\r\n      <option name=\"number\" value=\"00068\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00068\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707495421116</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00069\" summary=\"ora funziona il daoJSON (risolto problema immutable list)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707515310373</created>\r\n      <option name=\"number\" value=\"00069\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00069\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707515310374</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00070\" summary=\"introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707811289293</created>\r\n      <option name=\"number\" value=\"00070\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00070\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707811289295</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00071\" summary=\"Aggiunta tasto copia link in account\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707846806432</created>\r\n      <option name=\"number\" value=\"00071\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00071\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707846806432</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00072\" summary=\"Eliminazione duplicazione\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707854837262</created>\r\n      <option name=\"number\" value=\"00072\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00072\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707854837263</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00073\" summary=\"Eliminazione duplicazione&#10;Correzione controllerApplicativo&#10;Aggiunta Logger\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707857885050</created>\r\n      <option name=\"number\" value=\"00073\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00073\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707857885050</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00074\" summary=\"&#10;Aggiunta Logger\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707858652012</created>\r\n      <option name=\"number\" value=\"00074\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00074\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707858652012</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00075\" summary=\"print cambiati\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707912409555</created>\r\n      <option name=\"number\" value=\"00075\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00075\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707912409555</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00076\" summary=\"print cambiati\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1707916389775</created>\r\n      <option name=\"number\" value=\"00076\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00076\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1707916389777</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"77\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Risoluzione code smells, ridotto il riuso di codice\" />\r\n    <MESSAGE value=\"Aggiunto prova per Schermata supervisore\" />\r\n    <MESSAGE value=\"Update, modifica delle view &#10;Aggiunta base approvazione playlist\" />\r\n    <MESSAGE value=\"Aggiunta base approvazione playlist\" />\r\n    <MESSAGE value=\"Update\" />\r\n    <MESSAGE value=\"Update code Smells\" />\r\n    <MESSAGE value=\"approve playlist fatto con json: da migliorare duplicazione codice\" />\r\n    <MESSAGE value=\"aggiornato playlist dao json\" />\r\n    <MESSAGE value=\"aggiornamenti sui pop-up, sto cercando di rendere quel pop-up che abbiamo, generico per altri pop-up, lo chiameremo &quot;simplePopUP&quot;\" />\r\n    <MESSAGE value=\"inizio ricerca playlist tramite la search bar\" />\r\n    <MESSAGE value=\"Pop up ora utilizzabile per qualunque tipo di avviso. Verificare se UserDAOJSON ha bassa replicazione\" />\r\n    <MESSAGE value=\"Aggiustato TextPopUp, ora non crea più il duplicato e torna indietro dopo aver premuto ok\" />\r\n    <MESSAGE value=\"gestione delle eccezioni sul LoginCtrlGrafico\" />\r\n    <MESSAGE value=\"Tolto tutti i lanci di eccezioni del tipo &quot;IOException&quot; dai controller grafici, ora c'è una funzione per gestire questo errore dentro SceneController che attualmente esegue uno &quot;fill in stack trace&quot;\" />\r\n    <MESSAGE value=\"Ho aggiunto il cerca Playlist per nome sul PlaylistDAOJSON (vedi se ti piace)\" />\r\n    <MESSAGE value=\"corretto errore sul PlaylistDAOJSON che restituiva un model nullo\" />\r\n    <MESSAGE value=\"Aggiunta slider\" />\r\n    <MESSAGE value=\"bottone filtri e schermata dei filtri iniziata\" />\r\n    <MESSAGE value=\"ora funziona il daoJSON (risolto problema immutable list)\" />\r\n    <MESSAGE value=\"introdotte view2: LoginCLI, RegistrazioeCLI e HomePageCLI da completare\" />\r\n    <MESSAGE value=\"Aggiunta tasto copia link in account\" />\r\n    <MESSAGE value=\"Eliminazione duplicazione\" />\r\n    <MESSAGE value=\"Eliminazione duplicazione&#10;Correzione controllerApplicativo&#10;Aggiunta Logger\" />\r\n    <MESSAGE value=\"&#10;Aggiunta Logger\" />\r\n    <MESSAGE value=\"print cambiati\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"print cambiati\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.sql.SQLException\" package=\"java.sql\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.UnsupportedOperationException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"4\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision c98f198981ab0cdf188e34c107d117e571b5ca11)
++++ b/.idea/workspace.xml	(date 1708009349350)
+@@ -5,8 +5,17 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5ab3b5b7-0136-4bcd-b52a-626b23fdea42" name="Changes" comment="print cambiati">
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/view/second/AccountCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/second/AccountCLI.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/view/second/HomePageCLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/second/HomePageCLI.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -72,6 +81,7 @@
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+     "ASKED_ADD_EXTERNAL_FILES": "true",
++    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "Application.MainApplication.executor": "Run",
+     "Application.MainApplication2.executor": "Run",
+     "Application.MongoDBConnector.executor": "Run",
+@@ -82,6 +92,7 @@
+     "Repository.Attach.Sources": "false",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+     "database.data.extractors.current.export.id": "JSON-Groovy.json.groovy",
+     "database.data.extractors.current.id": "JSON-Groovy.json.groovy",
+@@ -90,7 +101,7 @@
+     "jdk.selected.JAVA_MODULE": "21",
+     "kotlin-language-version-configured": "true",
+     "last_directory_selection": "C:/Users/cinel/Desktop/Università/ISPW/Progetto/PROG_ISPW/src/main/java/view",
+-    "last_opened_file_path": "C:/Users/cinel/Desktop/Università/ISPW/Progetti di Altri/ProgettoStucco/ItalianBallerz",
++    "last_opened_file_path": "C:/Users/andre/Desktop/ISPW/GoF2",
+     "list.type.of.created.stylesheet": "CSS",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+@@ -101,7 +112,7 @@
+     "project.structure.proportion": "0.15",
+     "project.structure.side.proportion": "0.37587237",
+     "run.code.analysis.last.selected.profile": "pProject Default",
+-    "settings.editor.selected.configurable": "sonarlint",
++    "settings.editor.selected.configurable": "preferences.pluginManager",
+     "vue.rearranger.settings.migration": "true"
+   },
+   "keyToStringList": {
+@@ -231,15 +242,12 @@
+       <workItem from="1707854286593" duration="3771000" />
+       <workItem from="1707899582582" duration="408000" />
+       <workItem from="1707912302661" duration="159000" />
+-      <workItem from="1707916011079" duration="554000" />
+-    </task>
+-    <task id="LOCAL-00028" summary="Persistenza database funzionante">
+-      <option name="closed" value="true" />
+-      <created>1706796343615</created>
+-      <option name="number" value="00028" />
+-      <option name="presentableId" value="LOCAL-00028" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1706796343615</updated>
++      <workItem from="1707916011079" duration="1186000" />
++      <workItem from="1707917224377" duration="111000" />
++      <workItem from="1707917366244" duration="1394000" />
++      <workItem from="1707918922418" duration="800000" />
++      <workItem from="1707921080101" duration="180000" />
++      <workItem from="1708007349171" duration="1993000" />
+     </task>
+     <task id="LOCAL-00029" summary="Modifica della struttura del database, caricamento corretto di playlist nel database e bozza di playlist in attesa di approvazione">
+       <option name="closed" value="true" />
+@@ -625,7 +633,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1707916389777</updated>
+     </task>
+-    <option name="localTasksCounter" value="77" />
++    <task id="LOCAL-00077" summary="print cambiati">
++      <option name="closed" value="true" />
++      <created>1707916639735</created>
++      <option name="number" value="00077" />
++      <option name="presentableId" value="LOCAL-00077" />
++      <option name="project" value="LOCAL" />
++      <updated>1707916639735</updated>
++    </task>
++    <option name="localTasksCounter" value="78" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+Index: src/main/java/view/second/AccountCLI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.second;\r\n\r\nimport controller.applicativo.AccountCtrlApplicativo;\r\nimport engineering.bean.ClientBean;\r\nimport engineering.bean.PlaylistBean;\r\nimport view.second.utils.GenreManager;\r\n\r\nimport java.util.List;\r\nimport java.util.Map;\r\nimport java.util.Scanner;\r\n\r\npublic class AccountCLI {\r\n    private final Scanner scanner = new Scanner(System.in);\r\n    private PlaylistBean playlistBean = new PlaylistBean();\r\n    private ClientBean clientBean;\r\n\r\n    private String ciao = \"ciao\";\r\n\r\n    public void setClientBean(ClientBean clientBean) {\r\n        this.clientBean = clientBean;\r\n    }\r\n\r\n    public void setPlaylistBean(PlaylistBean playlistBean) {\r\n        this.playlistBean = playlistBean;\r\n    }\r\n\r\n    public void start() {\r\n        while (true) {\r\n            System.out.println(\"----- Profilo -----\");\r\n            displayUserInfo(clientBean);\r\n            // Show Menu //\r\n            System.out.println(\"1. Carica nuova Playlist\");\r\n            System.out.println(\"2. Reimposta le tue preferenze musicali\");\r\n            System.out.println(\"0. Esci\");\r\n\r\n            System.out.print(\"Scegli una opzione: \");\r\n            int choice = scanner.nextInt();\r\n            switch (choice) {\r\n                case 1:\r\n\r\n                    break;\r\n                case 2:\r\n                    updatePreferences();\r\n                    break;\r\n                case 0:\r\n                    return;\r\n                default:\r\n                    System.out.println(\"Scelta non disponibile !.\");\r\n                    break;\r\n            }\r\n        }\r\n    }\r\n\r\n    private void displayUserInfo(ClientBean clientBean) {\r\n        if (clientBean != null) {\r\n            System.out.println(STR.\"Username: \\{clientBean.getUsername()}\");\r\n            System.out.println(STR.\"Email: \\{clientBean.getEmail()}\");\r\n\r\n            if (clientBean.getPreferences() != null && !clientBean.getPreferences().isEmpty()) {\r\n                System.out.println(STR.\"Generi preferiti: \\{String.join(\", \", clientBean.getPreferences())}\");\r\n            } else {\r\n                System.out.println(\"Nessuna genere preferito impostato.\");\r\n            }\r\n\r\n            System.out.println(\"Le tue playlist:\");\r\n            displayUserPlaylists();\r\n        }\r\n    }\r\n\r\n    private void displayUserPlaylists() {\r\n        AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();\r\n        List<PlaylistBean> userPlaylists = accountCtrlApplicativo.retrivePlaylists(clientBean);\r\n        for (PlaylistBean playlist : userPlaylists) {\r\n            String approvalStatus = playlist.getApproved() ? \"Approved\" : \"In attesa\";\r\n            System.out.printf(\"%s - Titolo: %s, Link: %s%n\",\r\n                    approvalStatus, playlist.getPlaylistName(), playlist.getLink());\r\n        }\r\n    }\r\n\r\n    private void updatePreferences() {\r\n        // Utilizza la classe GenreManager per gestire gli aggiornamenti delle preferenze musicali\r\n        GenreManager genreManager = new GenreManager();\r\n\r\n        // Ottieni i generi musicali disponibili\r\n        Map<Integer, String> availableGenres = genreManager.getAvailableGenres();\r\n\r\n        // Stampa a schermo i generi musicali disponibili\r\n        System.out.println(\"Available Genres:\");\r\n        genreManager.printGenres(availableGenres);\r\n\r\n        // Richiedi all'utente di inserire i numeri corrispondenti ai generi che preferisce\r\n        System.out.println(\"Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): \");\r\n\r\n        // Estrai i generi selezionati dall'utente\r\n        String genreInput = scanner.next();\r\n        List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);\r\n        // Aggiorna le preferenze nel bean del cliente (devi avere accesso al bean del cliente)\r\n        clientBean.setPreferences(preferences);\r\n\r\n        AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();\r\n        // Aggiorna le preferenze nel backend\r\n        accountCtrlApplicativo.updateGenreUser(clientBean);\r\n        System.out.println(\"Preferenze aggiornate\");\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/second/AccountCLI.java b/src/main/java/view/second/AccountCLI.java
+--- a/src/main/java/view/second/AccountCLI.java	(revision c98f198981ab0cdf188e34c107d117e571b5ca11)
++++ b/src/main/java/view/second/AccountCLI.java	(date 1707918762262)
+@@ -14,8 +14,6 @@
+     private PlaylistBean playlistBean = new PlaylistBean();
+     private ClientBean clientBean;
+ 
+-    private String ciao = "ciao";
+-
+     public void setClientBean(ClientBean clientBean) {
+         this.clientBean = clientBean;
+     }
+@@ -37,7 +35,7 @@
+             int choice = scanner.nextInt();
+             switch (choice) {
+                 case 1:
+-
++                    addPlaylist();
+                     break;
+                 case 2:
+                     updatePreferences();
+@@ -76,7 +74,11 @@
+                     approvalStatus, playlist.getPlaylistName(), playlist.getLink());
+         }
+     }
+-
++    private void addPlaylist() {
++        AddPlaylistCLI addPlaylistCLI = new AddPlaylistCLI();
++        addPlaylistCLI.setClientBean(clientBean);
++        addPlaylistCLI.start();
++    }
+     private void updatePreferences() {
+         // Utilizza la classe GenreManager per gestire gli aggiornamenti delle preferenze musicali
+         GenreManager genreManager = new GenreManager();
+Index: src/main/java/view/second/HomePageCLI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view.second;\r\n\r\nimport controller.applicativo.HomePageCtrlApplicativo;\r\nimport engineering.bean.ClientBean;\r\nimport engineering.bean.PlaylistBean;\r\nimport engineering.bean.SupervisorBean;\r\n\r\nimport java.util.List;\r\nimport java.util.Scanner;\r\n\r\npublic class HomePageCLI<T extends ClientBean>{\r\n\r\n    private final Scanner scanner = new Scanner(System.in);\r\n    private PlaylistBean playlistBean = new PlaylistBean();\r\n    private T clientBean;\r\n    public void setClientBean(T clientBean) {\r\n        this.clientBean = clientBean;\r\n    }\r\n\r\n    public void setPlaylistBean(PlaylistBean playlistBean){\r\n        this.playlistBean = playlistBean;\r\n    }\r\n\r\n    public void start() {\r\n        Scanner scanner = new Scanner(System.in);\r\n        boolean exit = false;\r\n\r\n        while (!exit) {\r\n            printMenu();\r\n\r\n            int choice = scanner.nextInt();\r\n\r\n            switch (choice) {\r\n                case 1:\r\n                    showAllPlaylists();\r\n                    break;\r\n                case 2:\r\n                    // Devo differenziare user e supervisor da guest\r\n                    addPlaylist();\r\n                    break;\r\n                case 3:\r\n                    addFilter();\r\n                    break;\r\n                case 4:\r\n                    deleteFilter();\r\n                    break;\r\n                case 5:\r\n                    searchPlaylist();\r\n                    break;\r\n                case 6:\r\n                    // Passa al menu del profilo utente\r\n                    if(clientBean == null) {\r\n                        // Vai alla registrazione\r\n                        goToRegistration();\r\n                        exit = true;  // Esci dal loop e dal programma\r\n                    }\r\n                    else{\r\n                        account();\r\n                    }\r\n                    break;\r\n                case 7:\r\n                    // Passa al menu approvazione playlist\r\n                    // Verifica per maggiore sicurezza\r\n                    if(clientBean instanceof SupervisorBean) {\r\n                        goToApprovePlaylist();\r\n                    }\r\n                    break;\r\n                case 0:\r\n                    exit = true;  // Esci dal loop e dal programma\r\n                    break;\r\n                default:\r\n                    System.out.println(\"Scelta non valida. Riprova.\");\r\n            }\r\n        }\r\n    }\r\n\r\n    private void goToApprovePlaylist() {\r\n        ManagePlaylistsCLI manager = new ManagePlaylistsCLI();\r\n        manager.start();\r\n    }\r\n\r\n    private void goToRegistration() {\r\n        RegistrationCLI registrationCLI = new RegistrationCLI();\r\n        registrationCLI.start();\r\n    }\r\n\r\n    private void account() {\r\n        AccountCLI accountCLI = new AccountCLI();\r\n        accountCLI.setClientBean(clientBean);\r\n        accountCLI.start();\r\n    }\r\n\r\n    private void printMenu() {\r\n        System.out.println(\" ----- Home Page ----- \");\r\n        System.out.println(\"1. Visualizza tutte le playlist\");\r\n        if (clientBean != null) {\r\n            System.out.println(\"2. Aggiungi una playlist\");\r\n        } else {\r\n            System.out.println(\"2. !!! Non puoi aggiungere playlist -> Registrati!!!\");\r\n        }\r\n        System.out.println(\"3. Applica un filtro di ricerca\");\r\n        System.out.println(\"4. Elimina il filtro di ricerca\");\r\n        System.out.println(\"5. Cerca una playlist per nome\");\r\n        if (clientBean != null) {\r\n            System.out.println(\"6. Visualizza il tuo profilo\");\r\n        } else {\r\n            System.out.println(\"6. !!! Non hai un profilo da visualizzare -> Registrati !!!\");\r\n        }\r\n\r\n        if(clientBean instanceof SupervisorBean){\r\n            System.out.println(\"7. Gestisci playlists in attesa di approvazione\");\r\n        }\r\n        System.out.println(\"0. Esci\");\r\n        System.out.print(\"Scegli un'opzione: \");\r\n    }\r\n\r\n    private void showAllPlaylists() {\r\n        // Utilizza i metodi del controller applicativo per recuperare e stampare le playlist approvate\r\n        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();\r\n        List<PlaylistBean> playlistBeans = homePageController.retrivePlaylistsApproved();\r\n\r\n        int playlistNumber = 1;\r\n        for (PlaylistBean playlist : playlistBeans) {\r\n            System.out.println(STR.\"\\{playlistNumber}. Titolo:\\{playlist.getPlaylistName()} Creatore:\\{playlist.getUsername()} \\{playlist.getPlaylistGenre()}\");\r\n            playlistNumber++;\r\n        }\r\n\r\n        while (true) {\r\n            // Per copiare il link della playlist, l'utente deve inserire il numero corrispondente\r\n\r\n            System.out.print(\"Inserisci il numero della playlist per ricevere il link (0 per tornare al menu): \");\r\n\r\n            int playlistChoice = scanner.nextInt();\r\n\r\n            if (playlistChoice > 0 && playlistChoice <= playlistBeans.size()) {\r\n                PlaylistBean selectedPlaylist = playlistBeans.get(playlistChoice - 1);\r\n                System.out.println(STR.\"Link: \\{selectedPlaylist.getLink()}\");\r\n            } else if (playlistChoice == 0) {\r\n                // Torna al menu principale\r\n                break;\r\n            } else {\r\n                System.out.println(\"! Scelta non valida ! -> Riprova\");\r\n            }\r\n        }\r\n    }\r\n\r\n    private void addPlaylist() {\r\n        AddPlaylistCLI addPlaylistCLI = new AddPlaylistCLI();\r\n        addPlaylistCLI.setClientBean(clientBean);\r\n        addPlaylistCLI.start();\r\n    }\r\n\r\n    private void addFilter() {\r\n        // Implementa la logica per applicare un filtro alle playlist\r\n        // Potresti chiedere all'utente di selezionare i generi, l'approvazione, ecc.\r\n        // Usa il controller applicativo per effettuare la ricerca con il filtro\r\n        // e mostra i risultati all'utente\r\n        //TODO\r\n    }\r\n\r\n    private void deleteFilter() {\r\n        // Resetta la PlaylistFilter a null o come desideri gestire l'eliminazione dei filtri\r\n        // e mostra un messaggio all'utente\r\n        System.out.println(\"Filtri eliminati.\");\r\n    }\r\n\r\n    private void searchPlaylist() {\r\n        Scanner scanner = new Scanner(System.in);\r\n\r\n        System.out.print(\"\\nInserisci il nome della playlist da cercare: \");\r\n        String playlistName = scanner.nextLine();\r\n\r\n        HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();\r\n        playlistBean.setPlaylistName(playlistName);\r\n        List<PlaylistBean> playlistsList = homePageController.searchPlaylistByFilters(playlistBean);\r\n\r\n        System.out.println(STR.\"Playlist che contengono:\\{playlistName} nel titolo\");\r\n\r\n        if (playlistsList.isEmpty()) {\r\n            System.out.println(\"Nessuna playlist trovata con il nome specificato.\");\r\n        } else {\r\n            int index = 1;\r\n            for (PlaylistBean playlist : playlistsList) {\r\n                System.out.println(STR.\"\\{index}. Nome: \\{playlist.getPlaylistName()}, Username: \\{playlist.getUsername()}, Generi: \\{playlist.getPlaylistGenre()}, Emozionale: \\{playlist.getEmotional()}\");\r\n                index++;\r\n            }\r\n\r\n            int selectedPlaylistIndex;\r\n            while (true) {\r\n                System.out.print(\"Inserisci il numero corrispondente alla playlist desiderata (inserisci 0 per uscire): \");\r\n                selectedPlaylistIndex = scanner.nextInt();\r\n\r\n                if (selectedPlaylistIndex == 0) {\r\n                    break; // Esce dal ciclo interno se l'utente inserisce 0\r\n                }\r\n\r\n                if (selectedPlaylistIndex >= 1 && selectedPlaylistIndex <= playlistsList.size()) {\r\n                    PlaylistBean selectedPlaylist = playlistsList.get(selectedPlaylistIndex - 1);\r\n                    System.out.println(STR.\"Link della playlist selezionata: \\{selectedPlaylist.getLink()}\");\r\n                } else {\r\n                    System.out.println(\" ! Selezione non valida-> Riprova !\");\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/second/HomePageCLI.java b/src/main/java/view/second/HomePageCLI.java
+--- a/src/main/java/view/second/HomePageCLI.java	(revision c98f198981ab0cdf188e34c107d117e571b5ca11)
++++ b/src/main/java/view/second/HomePageCLI.java	(date 1708009349099)
+@@ -107,7 +107,7 @@
+             System.out.println("6. !!! Non hai un profilo da visualizzare -> Registrati !!!");
+         }
+ 
+-        if(clientBean instanceof SupervisorBean){
++        if(clientBean.isSupervisor()){
+             System.out.println("7. Gestisci playlists in attesa di approvazione");
+         }
+         System.out.println("0. Esci");
+Index: .idea/sonarlint/issuestore/index.pb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\nY\n)src/main/java/view/second/AccountCLI.java\u0012,d\\3\\d3d0f907a8d911ed794017559ceaf56746cfc0d2\n]\n-src/main/java/view/second/AddPlaylistCLI.java\u0012,6\\e\\6ec169f6d1e5b1a86087498a395d627a5bcf205c\nZ\n*src/main/java/view/second/HomePageCLI.java\u0012,4\\4\\4403fc42e263b5b67ff6d02ad1d414dd0bd63344\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5\u0012,7\\a\\7a784828b5dee0d5ae7dbcea13c51a31c5310688\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/6/0/606584e256ef1794f9f4a05509fa334eec476366\u0012,a\\0\\a0cfe9485106903c6ca59ef8c516f3b8aa7c191c\nw\nG.idea/sonarlint/issuestore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104\u0012,c\\7\\c71e19652f1d9e8da99618090a4cab4c3e9f5653\nw\nG.idea/sonarlint/issuestore/6/0/606584e256ef1794f9f4a05509fa334eec476366\u0012,5\\8\\58f89b7bd693a4d1139fc92ace6e72c12e2ae791\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6\u0012,2\\f\\2f2a3b924cb3a4d17996b18d5f643caeff33f0d9\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68\u0012,7\\8\\7823f6ead7f47283f0116624a6dff0195be59e1c\nw\nG.idea/sonarlint/issuestore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68\u0012,0\\8\\084b5d8573580962cbaa5c32424f6f199b15d8dd\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3\u0012,5\\4\\54cdca142cff1012a3a439e56832f100aa538440\nw\nG.idea/sonarlint/issuestore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d\u0012,1\\4\\143b0b931fbe11d4028625e0598ade4962145b9d\nw\nG.idea/sonarlint/issuestore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a\u0012,0\\8\\085c4f889c4a745e636a5a4c2d42b2e54670b398\nw\nG.idea/sonarlint/issuestore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c\u0012,4\\e\\4e3bde25f39049d33d94a36c5ec0c29bb46349b8\nw\nG.idea/sonarlint/issuestore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a\u0012,7\\0\\7022477b2e6e41944684e721ec58f2c84d0bbeb2\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/3/2/321300f91fc7c404817ccb07b0dfc98b03105a20\u0012,6\\e\\6ea67ef6db1fd1ec7f890ed743000aa0bf761bb3\nw\nG.idea/sonarlint/issuestore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458\u0012,5\\8\\5895849341b84777f3e41ade526f60b75a708786\nw\nG.idea/sonarlint/issuestore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3\u0012,a\\5\\a5826fb745559f07cb2b1cbea9f40fa885315aa6\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/0/7/07548fa9c5a066af6f78e9f766cb10f7f4184898\u0012,f\\4\\f4d6af348399b89e148f105047bc9a653d3e9e6e\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d\u0012,b\\4\\b4fb008fcaa126844727ea750092c74b8d78ecb7\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/8/0/808442a8aed5241150d707c10549e20b9fe243f5\u0012,a\\f\\affe4143fda8fbb48513ade52fafef412958191a\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/7/6/76dd73df286c360c707767364c649a9ba7462df1\u0012,8\\0\\809220a8ed29a2f1b80a34c5503908e8eab1c942\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a\u0012,2\\d\\2deffd41a62bef0aa441d0cfacdd68ab1cdbb95a\nw\nG.idea/sonarlint/issuestore/2/c/2c6b703e45580360a945494086b44cb75adc6108\u0012,a\\5\\a59e654a14953bb9c49ee16586297a77b3af7e7e\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c\u0012,b\\4\\b42eb2e7c7f18d08bf9f8a553762fe516253adf2\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/8/b/8bb21e5a57a1a38e2cc9324a262b4c6c3431d61a\u0012,0\\8\\08a8616d431c2987c9d9393136e06c1220c81b2b\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a\u0012,e\\3\\e3cd799e5d97d354d36a198ce9a58e793c4e3da6\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c\u0012,2\\f\\2f335cd183f3b47b68061d558a839228ab99ae65\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/2/c/2c6b703e45580360a945494086b44cb75adc6108\u0012,0\\4\\0419b5ff1c56a6a60d9dcbe43146de73fedce75d\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458\u0012,1\\1\\119345967e54ca655fb59252f652236270b9fed4\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43\u0012,3\\4\\347334089ccf5641cd108cd391389bbb76c468af\nw\nG.idea/sonarlint/issuestore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c\u0012,8\\b\\8bac527aa204243ad50877a9d0df96483fe5771d\nw\nG.idea/sonarlint/issuestore/8/0/808442a8aed5241150d707c10549e20b9fe243f5\u0012,8\\e\\8eb318d52b10ceb4ac7f39ae6257d0d691e479a1\nw\nG.idea/sonarlint/issuestore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43\u0012,1\\a\\1ad4dc3c97fff4c5ec42994c98fb5505edb766e3\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2\u0012,1\\3\\13164cd86fe3a1fa4bb3cb993a26e058514b99bb\nw\nG.idea/sonarlint/issuestore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2\u0012,2\\c\\2c4be92de976ac8f4092aa43b99956420c13ec5f\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/f/4/f44f130d3e9649299784fead41f968a055d57ed0\u0012,3\\7\\37257998834b9bb9b3a7ea80e83e58270977cefc\nw\nG.idea/sonarlint/issuestore/d/3/d384a707215dff6078c1991fe345ec73a002a462\u0012,0\\a\\0a2a095ca73144cb5d87f7888b1d47ea07a5f3bc\nw\nG.idea/sonarlint/issuestore/6/6/6684108c3a6644d720de46620525164ef4834d95\u0012,5\\6\\568e9b15deef91a5f804a18f845f0276fbe95896\nw\nG.idea/sonarlint/issuestore/1/2/12882c64a17075fc25b2aee30621398d156d16fa\u0012,1\\9\\19985e84fa803cafaf134b9d1b41d1c1ca387aa6\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/a/d/ad4b6617709a02c3df495167ba7181472c2fd41a\u0012,b\\4\\b4a2538433e7e0afc3e753ff68d947d8b160cafe\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/d/3/d384a707215dff6078c1991fe345ec73a002a462\u0012,b\\2\\b26bf7a2ab8c52781f93b63bc2c481dcc49337a3\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/f/d/fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067\u0012,f\\8\\f879b29426833d084cf5240369643b071fc0ebc2\nw\nG.idea/sonarlint/issuestore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792\u0012,1\\e\\1e7b8af6c48ab566482d5dab09ca1938c81b1f23\nw\nG.idea/sonarlint/issuestore/a/c/ac6fd1f140c9aede9a8563cdd3fc4576f6f9c56e\u0012,8\\b\\8b07eceee1ae63c6f048e75c03f7871b290f5cf8\nw\nG.idea/sonarlint/issuestore/a/6/a6a639be8becbe7840021ba8da868f088cc951bc\u0012,1\\5\\150606487f3eb5521d441db0367d0297a293981f\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/1/b/1b07262e331f04c16b9a11a156dab02251259a18\u0012,8\\7\\8762824a24a7472ccf7f4f35f61208ee693b7056\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/9/b/9bafa12ff5b377cf2462c172c1ddb1b5148904d8\u0012,2\\6\\26981d9eb1ac533ea95583bc5c49e9705929b1df\nw\nG.idea/sonarlint/issuestore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c\u0012,9\\1\\9114b2f7845b02304493fd20d629398ff43da93d\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c\u0012,4\\b\\4b01727d718a3849a7a0f90749f4845863910453\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/1/2/12882c64a17075fc25b2aee30621398d156d16fa\u0012,0\\7\\07a9ce36aa4dbb2e4241ce686a74698c171c659f\nw\nG.idea/sonarlint/issuestore/1/b/1b07262e331f04c16b9a11a156dab02251259a18\u0012,a\\b\\abb505bb5161da5f582335234bd8b80fdad22a63\nw\nG.idea/sonarlint/issuestore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688\u0012,5\\a\\5a9b4139d70789a4348255f5f594e34a650b7781\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688\u0012,1\\2\\121a6583de65a9f32e4dea228116c1d17fe78453\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0\u0012,b\\b\\bbf202272a96de5cd6b6828ffdc55fb3ce45289c\nS\n#.idea/sonarlint/issuestore/index.pb\u0012,9\\f\\9fe84ebb15faf917b7def6236dba604453cc61e0\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792\u0012,d\\2\\d219fad0e1b275d6a0acbd1ade82c1f4c3ca1aa4\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/6/6/6684108c3a6644d720de46620525164ef4834d95\u0012,2\\9\\29657e07793e4fea73c32499bd9405b06a4bfcfa\n]\n-.idea/sonarlint/securityhotspotstore/index.pb\u0012,8\\8\\88a9255124c95bdc913197c120a8d560edc59c8e\nw\nG.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e\u0012,a\\e\\ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e\u0012,9\\0\\909762385fc6eb20f922a91c6865741308b57f2c\nw\nG.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0\u0012,f\\0\\f0e0f9cec86fe4b939ae22be5264c758801eb28f\n�\u0001\nQ.idea/sonarlint/securityhotspotstore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104\u0012,d\\6\\d6d9bcd7405d055c722f678902f3d4abe3d64ffa\nw\nG.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5\u0012,d\\c\\dca946cea7615629df2da48424cc15803c048189\nw\nG.idea/sonarlint/issuestore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6\u0012,b\\1\\b1ce8910c2d2aeb86f27c1045160f5a1e8673dd4
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/sonarlint/issuestore/index.pb b/.idea/sonarlint/issuestore/index.pb
+--- a/.idea/sonarlint/issuestore/index.pb	(revision c98f198981ab0cdf188e34c107d117e571b5ca11)
++++ b/.idea/sonarlint/issuestore/index.pb	(date 1708009230516)
+@@ -1,131 +1,31 @@
+ 
+ Y
+ )src/main/java/view/second/AccountCLI.java,d\3\d3d0f907a8d911ed794017559ceaf56746cfc0d2
+-]
+--src/main/java/view/second/AddPlaylistCLI.java,6\e\6ec169f6d1e5b1a86087498a395d627a5bcf205c
+ Z
+ *src/main/java/view/second/HomePageCLI.java,4\4\4403fc42e263b5b67ff6d02ad1d414dd0bd63344
+-�
+-Q.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5,7\a\7a784828b5dee0d5ae7dbcea13c51a31c5310688
+-�
+-Q.idea/sonarlint/securityhotspotstore/6/0/606584e256ef1794f9f4a05509fa334eec476366,a\0\a0cfe9485106903c6ca59ef8c516f3b8aa7c191c
+-w
+-G.idea/sonarlint/issuestore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104,c\7\c71e19652f1d9e8da99618090a4cab4c3e9f5653
+-w
+-G.idea/sonarlint/issuestore/6/0/606584e256ef1794f9f4a05509fa334eec476366,5\8\58f89b7bd693a4d1139fc92ace6e72c12e2ae791
+-�
+-Q.idea/sonarlint/securityhotspotstore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6,2\f\2f2a3b924cb3a4d17996b18d5f643caeff33f0d9
+-�
+-Q.idea/sonarlint/securityhotspotstore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68,7\8\7823f6ead7f47283f0116624a6dff0195be59e1c
+-w
+-G.idea/sonarlint/issuestore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68,0\8\084b5d8573580962cbaa5c32424f6f199b15d8dd
+-�
+-Q.idea/sonarlint/securityhotspotstore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3,5\4\54cdca142cff1012a3a439e56832f100aa538440
+-w
+-G.idea/sonarlint/issuestore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d,1\4\143b0b931fbe11d4028625e0598ade4962145b9d
+-w
+-G.idea/sonarlint/issuestore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a,0\8\085c4f889c4a745e636a5a4c2d42b2e54670b398
+-w
+-G.idea/sonarlint/issuestore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c,4\e\4e3bde25f39049d33d94a36c5ec0c29bb46349b8
+-w
+-G.idea/sonarlint/issuestore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a,7\0\7022477b2e6e41944684e721ec58f2c84d0bbeb2
+-�
+-Q.idea/sonarlint/securityhotspotstore/3/2/321300f91fc7c404817ccb07b0dfc98b03105a20,6\e\6ea67ef6db1fd1ec7f890ed743000aa0bf761bb3
+-w
+-G.idea/sonarlint/issuestore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458,5\8\5895849341b84777f3e41ade526f60b75a708786
+-w
+-G.idea/sonarlint/issuestore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3,a\5\a5826fb745559f07cb2b1cbea9f40fa885315aa6
+-�
+-Q.idea/sonarlint/securityhotspotstore/0/7/07548fa9c5a066af6f78e9f766cb10f7f4184898,f\4\f4d6af348399b89e148f105047bc9a653d3e9e6e
+-�
+-Q.idea/sonarlint/securityhotspotstore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d,b\4\b4fb008fcaa126844727ea750092c74b8d78ecb7
+-�
+-Q.idea/sonarlint/securityhotspotstore/8/0/808442a8aed5241150d707c10549e20b9fe243f5,a\f\affe4143fda8fbb48513ade52fafef412958191a
+-�
+-Q.idea/sonarlint/securityhotspotstore/7/6/76dd73df286c360c707767364c649a9ba7462df1,8\0\809220a8ed29a2f1b80a34c5503908e8eab1c942
+-�
+-Q.idea/sonarlint/securityhotspotstore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a,2\d\2deffd41a62bef0aa441d0cfacdd68ab1cdbb95a
+-w
+-G.idea/sonarlint/issuestore/2/c/2c6b703e45580360a945494086b44cb75adc6108,a\5\a59e654a14953bb9c49ee16586297a77b3af7e7e
+-�
+-Q.idea/sonarlint/securityhotspotstore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c,b\4\b42eb2e7c7f18d08bf9f8a553762fe516253adf2
+-�
+-Q.idea/sonarlint/securityhotspotstore/8/b/8bb21e5a57a1a38e2cc9324a262b4c6c3431d61a,0\8\08a8616d431c2987c9d9393136e06c1220c81b2b
+-�
+-Q.idea/sonarlint/securityhotspotstore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a,e\3\e3cd799e5d97d354d36a198ce9a58e793c4e3da6
+-�
+-Q.idea/sonarlint/securityhotspotstore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c,2\f\2f335cd183f3b47b68061d558a839228ab99ae65
+-�
+-Q.idea/sonarlint/securityhotspotstore/2/c/2c6b703e45580360a945494086b44cb75adc6108,0\4\0419b5ff1c56a6a60d9dcbe43146de73fedce75d
+-�
+-Q.idea/sonarlint/securityhotspotstore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458,1\1\119345967e54ca655fb59252f652236270b9fed4
+-�
+-Q.idea/sonarlint/securityhotspotstore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43,3\4\347334089ccf5641cd108cd391389bbb76c468af
+-w
+-G.idea/sonarlint/issuestore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c,8\b\8bac527aa204243ad50877a9d0df96483fe5771d
+-w
+-G.idea/sonarlint/issuestore/8/0/808442a8aed5241150d707c10549e20b9fe243f5,8\e\8eb318d52b10ceb4ac7f39ae6257d0d691e479a1
+-w
+-G.idea/sonarlint/issuestore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43,1\a\1ad4dc3c97fff4c5ec42994c98fb5505edb766e3
+-�
+-Q.idea/sonarlint/securityhotspotstore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2,1\3\13164cd86fe3a1fa4bb3cb993a26e058514b99bb
+-w
+-G.idea/sonarlint/issuestore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2,2\c\2c4be92de976ac8f4092aa43b99956420c13ec5f
+-�
+-Q.idea/sonarlint/securityhotspotstore/f/4/f44f130d3e9649299784fead41f968a055d57ed0,3\7\37257998834b9bb9b3a7ea80e83e58270977cefc
+-w
+-G.idea/sonarlint/issuestore/d/3/d384a707215dff6078c1991fe345ec73a002a462,0\a\0a2a095ca73144cb5d87f7888b1d47ea07a5f3bc
+-w
+-G.idea/sonarlint/issuestore/6/6/6684108c3a6644d720de46620525164ef4834d95,5\6\568e9b15deef91a5f804a18f845f0276fbe95896
+-w
+-G.idea/sonarlint/issuestore/1/2/12882c64a17075fc25b2aee30621398d156d16fa,1\9\19985e84fa803cafaf134b9d1b41d1c1ca387aa6
+-�
+-Q.idea/sonarlint/securityhotspotstore/a/d/ad4b6617709a02c3df495167ba7181472c2fd41a,b\4\b4a2538433e7e0afc3e753ff68d947d8b160cafe
+-�
+-Q.idea/sonarlint/securityhotspotstore/d/3/d384a707215dff6078c1991fe345ec73a002a462,b\2\b26bf7a2ab8c52781f93b63bc2c481dcc49337a3
+-�
+-Q.idea/sonarlint/securityhotspotstore/f/d/fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067,f\8\f879b29426833d084cf5240369643b071fc0ebc2
+-w
+-G.idea/sonarlint/issuestore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792,1\e\1e7b8af6c48ab566482d5dab09ca1938c81b1f23
+-w
+-G.idea/sonarlint/issuestore/a/c/ac6fd1f140c9aede9a8563cdd3fc4576f6f9c56e,8\b\8b07eceee1ae63c6f048e75c03f7871b290f5cf8
+-w
+-G.idea/sonarlint/issuestore/a/6/a6a639be8becbe7840021ba8da868f088cc951bc,1\5\150606487f3eb5521d441db0367d0297a293981f
+-�
+-Q.idea/sonarlint/securityhotspotstore/1/b/1b07262e331f04c16b9a11a156dab02251259a18,8\7\8762824a24a7472ccf7f4f35f61208ee693b7056
+-�
+-Q.idea/sonarlint/securityhotspotstore/9/b/9bafa12ff5b377cf2462c172c1ddb1b5148904d8,2\6\26981d9eb1ac533ea95583bc5c49e9705929b1df
+-w
+-G.idea/sonarlint/issuestore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c,9\1\9114b2f7845b02304493fd20d629398ff43da93d
+-�
+-Q.idea/sonarlint/securityhotspotstore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c,4\b\4b01727d718a3849a7a0f90749f4845863910453
+-�
+-Q.idea/sonarlint/securityhotspotstore/1/2/12882c64a17075fc25b2aee30621398d156d16fa,0\7\07a9ce36aa4dbb2e4241ce686a74698c171c659f
+-w
+-G.idea/sonarlint/issuestore/1/b/1b07262e331f04c16b9a11a156dab02251259a18,a\b\abb505bb5161da5f582335234bd8b80fdad22a63
+-w
+-G.idea/sonarlint/issuestore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688,5\a\5a9b4139d70789a4348255f5f594e34a650b7781
+-�
+-Q.idea/sonarlint/securityhotspotstore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688,1\2\121a6583de65a9f32e4dea228116c1d17fe78453
+-�
+-Q.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,b\b\bbf202272a96de5cd6b6828ffdc55fb3ce45289c
+-S
+-#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+-�
+-Q.idea/sonarlint/securityhotspotstore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792,d\2\d219fad0e1b275d6a0acbd1ade82c1f4c3ca1aa4
+-�
+-Q.idea/sonarlint/securityhotspotstore/6/6/6684108c3a6644d720de46620525164ef4834d95,2\9\29657e07793e4fea73c32499bd9405b06a4bfcfa
+ ]
+--.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+-w
+-G.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e,a\e\ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1
+-�
+-Q.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e,9\0\909762385fc6eb20f922a91c6865741308b57f2c
+-w
+-G.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0,f\0\f0e0f9cec86fe4b939ae22be5264c758801eb28f
+-�
+-Q.idea/sonarlint/securityhotspotstore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104,d\6\d6d9bcd7405d055c722f678902f3d4abe3d64ffa
+-w
+-G.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5,d\c\dca946cea7615629df2da48424cc15803c048189
+-w
+-G.idea/sonarlint/issuestore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6,b\1\b1ce8910c2d2aeb86f27c1045160f5a1e8673dd4
+\ No newline at end of file
++-src/main/java/view/second/AddPlaylistCLI.java,6\e\6ec169f6d1e5b1a86087498a395d627a5bcf205c
++7
++pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
++`
++0src/main/java/engineering/dao/ClientDAOJSON.java,c\b\cbeb1feee641362084cc94999d817618f7c0cfe4
++n
++>src/main/java/controller/applicativo/LoginCtrlApplicativo.java,1\9\19ed7a5abf79d2a64378fef2ee66d4ad4636eb40
++\
++,src/main/java/engineering/dao/ClientDAO.java,4\2\425adc07cf6f5564e448be3ceed784c47a42c0fc
++a
++1src/main/java/engineering/dao/ClientDAOMySQL.java,a\f\af359ce8f2f0a4bc6ce4862b94e533c412ce2f39
++a
++1src/main/java/view/second/ManagePlaylistsCLI.java,4\7\474f0454f0062d4135bcc5ffdcb0b2ec99ab2276
++a
++1src/main/java/view/second/utils/GenreManager.java,2\9\293a6600d09e51bc26198b00095dd7d86c4bbf9d
++^
++.src/main/java/view/second/RegistrationCLI.java,b\8\b8456898fc83d88c93a274409d58f97d6769f5a6
++j
++:src/main/java/engineering/dao/TypesOfPersistenceLayer.java,8\7\872b8ee48821e2597ff8685bf1eb976aeb285719
++p
++@src/main/java/controller/applicativo/AccountCtrlApplicativo.java,0\d\0d3c6e4493e278350f4b3245e251fef2d6a9097d
++a
++1src/main/java/view/first/HomePageCtrlGrafico.java,a\e\ae02493400710bde826a7cb385a3580a59bfb1cb
++W
++'src/main/java/view/second/LoginCLI.java,0\9\0998d904620b1cc8213cba7ee1116c46fdd45d66
+\ No newline at end of file

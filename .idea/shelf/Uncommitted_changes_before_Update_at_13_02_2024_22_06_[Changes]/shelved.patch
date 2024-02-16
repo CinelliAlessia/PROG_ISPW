@@ -1,0 +1,18 @@
+Index: src/main/resources/config.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># File: config.properties\r\n\r\n# Tipo di persistenza (Selezionabile tra: MYSQL, JSON)\r\npersistence.type=MYSQL\r\n# Tipo di interfaccia (Selezionabile tra 1, 2)\r\ninterface.type=2\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/config.properties b/src/main/resources/config.properties
+--- a/src/main/resources/config.properties	(revision bdf5af2c9c1ba97fb766511cf4f4a1ebd4681d6b)
++++ b/src/main/resources/config.properties	(date 1707835549711)
+@@ -1,6 +1,6 @@
+ # File: config.properties
+ 
+ # Tipo di persistenza (Selezionabile tra: MYSQL, JSON)
+-persistence.type=MYSQL
++persistence.type=JSON
+ # Tipo di interfaccia (Selezionabile tra 1, 2)
+ interface.type=2

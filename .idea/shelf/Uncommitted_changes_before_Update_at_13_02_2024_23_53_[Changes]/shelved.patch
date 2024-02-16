@@ -1,0 +1,353 @@
+Index: src/main/resources/persistence/approvedPlaylists/hosonno[228153ba-176f-4f25-ba9f-1e3b23fdb889].json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/persistence/approvedPlaylists/hosonno[228153ba-176f-4f25-ba9f-1e3b23fdb889].json b/src/main/resources/persistence/approvedPlaylists/hosonno[228153ba-176f-4f25-ba9f-1e3b23fdb889].json
+new file mode 100644
+--- /dev/null	(date 1707864431654)
++++ b/src/main/resources/persistence/approvedPlaylists/hosonno[228153ba-176f-4f25-ba9f-1e3b23fdb889].json	(date 1707864431654)
+@@ -0,0 +1,17 @@
++{
++  "id": "228153ba-176f-4f25-ba9f-1e3b23fdb889",
++  "playlistName": "hosonno",
++  "link": "ninnananna",
++  "username": "eee",
++  "email": "eee@eee.com",
++  "playlistGenre": [
++    "Classic"
++  ],
++  "approved": true,
++  "emotional": [
++    0,
++    0,
++    0,
++    0
++  ]
++}
+\ No newline at end of file
+Index: src/main/resources/config.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># File: config.properties\r\n\r\n# Tipo di persistenza (Selezionabile tra: MYSQL, JSON)\r\npersistence.type=MYSQL\r\n# Tipo di interfaccia (Selezionabile tra 1 grafica, 2 CLI)\r\ninterface.type=1\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/config.properties b/src/main/resources/config.properties
+--- a/src/main/resources/config.properties	(revision fed5156ff531ab4c8c04b076c0e824140835acd1)
++++ b/src/main/resources/config.properties	(date 1707862554534)
+@@ -1,6 +1,6 @@
+ # File: config.properties
+ 
+ # Tipo di persistenza (Selezionabile tra: MYSQL, JSON)
+-persistence.type=MYSQL
++persistence.type=JSON
+ # Tipo di interfaccia (Selezionabile tra 1 grafica, 2 CLI)
+-interface.type=1
++interface.type=2
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1707861909706)
++++ b/.idea/uiDesigner.xml	(date 1707861909706)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/resources/persistence/users/eee@eee.com/hosonno.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/persistence/users/eee@eee.com/hosonno.json b/src/main/resources/persistence/users/eee@eee.com/hosonno.json
+new file mode 100644
+--- /dev/null	(date 1707864431642)
++++ b/src/main/resources/persistence/users/eee@eee.com/hosonno.json	(date 1707864431642)
+@@ -0,0 +1,17 @@
++{
++  "id": "228153ba-176f-4f25-ba9f-1e3b23fdb889",
++  "playlistName": "hosonno",
++  "link": "ninnananna",
++  "username": "eee",
++  "email": "eee@eee.com",
++  "playlistGenre": [
++    "Classic"
++  ],
++  "approved": true,
++  "emotional": [
++    0,
++    0,
++    0,
++    0
++  ]
++}
+\ No newline at end of file
+Index: src/main/resources/persistence/users/eee@eee.com/userInfo.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/persistence/users/eee@eee.com/userInfo.json b/src/main/resources/persistence/users/eee@eee.com/userInfo.json
+new file mode 100644
+--- /dev/null	(date 1707863012398)
++++ b/src/main/resources/persistence/users/eee@eee.com/userInfo.json	(date 1707863012398)
+@@ -0,0 +1,14 @@
++{
++  "password": "eee",
++  "email": "eee@eee.com",
++  "username": "eee",
++  "preferences": [
++    "Pop",
++    "Indie",
++    "Classic",
++    "Rock",
++    "Electronic",
++    "House"
++  ],
++  "supervisor": false
++}
+\ No newline at end of file
+diff --git a/.idea/sonarlint/securityhotspotstore/2/c/2c6b703e45580360a945494086b44cb75adc6108 b/.idea/sonarlint/securityhotspotstore/2/c/2c6b703e45580360a945494086b44cb75adc6108
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/8/0/808442a8aed5241150d707c10549e20b9fe243f5 b/.idea/sonarlint/securityhotspotstore/8/0/808442a8aed5241150d707c10549e20b9fe243f5
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a b/.idea/sonarlint/securityhotspotstore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458 b/.idea/sonarlint/securityhotspotstore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/8/0/808442a8aed5241150d707c10549e20b9fe243f5 b/.idea/sonarlint/issuestore/8/0/808442a8aed5241150d707c10549e20b9fe243f5
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2 b/.idea/sonarlint/securityhotspotstore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/f/4/f44f130d3e9649299784fead41f968a055d57ed0 b/.idea/sonarlint/securityhotspotstore/f/4/f44f130d3e9649299784fead41f968a055d57ed0
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/d/3/d384a707215dff6078c1991fe345ec73a002a462 b/.idea/sonarlint/issuestore/d/3/d384a707215dff6078c1991fe345ec73a002a462
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/f/d/fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067 b/.idea/sonarlint/issuestore/f/d/fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/a/d/ad4b6617709a02c3df495167ba7181472c2fd41a b/.idea/sonarlint/securityhotspotstore/a/d/ad4b6617709a02c3df495167ba7181472c2fd41a
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/d/3/d384a707215dff6078c1991fe345ec73a002a462 b/.idea/sonarlint/securityhotspotstore/d/3/d384a707215dff6078c1991fe345ec73a002a462
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/f/d/fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067 b/.idea/sonarlint/securityhotspotstore/f/d/fda4e8aba5232ec3a1ab7840af0fdd77c8ca7067
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792 b/.idea/sonarlint/issuestore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/a/c/ac6fd1f140c9aede9a8563cdd3fc4576f6f9c56e b/.idea/sonarlint/issuestore/a/c/ac6fd1f140c9aede9a8563cdd3fc4576f6f9c56e
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/a/6/a6a639be8becbe7840021ba8da868f088cc951bc b/.idea/sonarlint/issuestore/a/6/a6a639be8becbe7840021ba8da868f088cc951bc
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/1/b/1b07262e331f04c16b9a11a156dab02251259a18 b/.idea/sonarlint/securityhotspotstore/1/b/1b07262e331f04c16b9a11a156dab02251259a18
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/9/b/9bafa12ff5b377cf2462c172c1ddb1b5148904d8 b/.idea/sonarlint/securityhotspotstore/9/b/9bafa12ff5b377cf2462c172c1ddb1b5148904d8
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c b/.idea/sonarlint/issuestore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c b/.idea/sonarlint/securityhotspotstore/6/9/69518f67e3de5646147537c2216ca01b8fd7032c
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/1/2/12882c64a17075fc25b2aee30621398d156d16fa b/.idea/sonarlint/securityhotspotstore/1/2/12882c64a17075fc25b2aee30621398d156d16fa
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/1/b/1b07262e331f04c16b9a11a156dab02251259a18 b/.idea/sonarlint/issuestore/1/b/1b07262e331f04c16b9a11a156dab02251259a18
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688 b/.idea/sonarlint/issuestore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688 b/.idea/sonarlint/securityhotspotstore/7/a/7a784828b5dee0d5ae7dbcea13c51a31c5310688
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0 b/.idea/sonarlint/securityhotspotstore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792 b/.idea/sonarlint/securityhotspotstore/a/b/ab4bcb0283f1e95d8d2a392952906018924e5792
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/6/6/6684108c3a6644d720de46620525164ef4834d95 b/.idea/sonarlint/securityhotspotstore/6/6/6684108c3a6644d720de46620525164ef4834d95
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e b/.idea/sonarlint/issuestore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e b/.idea/sonarlint/securityhotspotstore/8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0 b/.idea/sonarlint/issuestore/9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104 b/.idea/sonarlint/securityhotspotstore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5 b/.idea/sonarlint/issuestore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6 b/.idea/sonarlint/issuestore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5 b/.idea/sonarlint/securityhotspotstore/8/a/8ad2b16aa1884c259cc098ea6d2e179512fe9fc5
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/6/0/606584e256ef1794f9f4a05509fa334eec476366 b/.idea/sonarlint/securityhotspotstore/6/0/606584e256ef1794f9f4a05509fa334eec476366
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104 b/.idea/sonarlint/issuestore/2/0/20395140a9d3a5881dfe9f614f68a7ade56cd104
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/6/0/606584e256ef1794f9f4a05509fa334eec476366 b/.idea/sonarlint/issuestore/6/0/606584e256ef1794f9f4a05509fa334eec476366
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6 b/.idea/sonarlint/securityhotspotstore/4/f/4fad4a73f0d1a02587d82b1ad33a2caf946490c6
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68 b/.idea/sonarlint/securityhotspotstore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68 b/.idea/sonarlint/issuestore/c/e/ce8d37a78f07b399cf8f897c8c3bf349bf9bca68
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d b/.idea/sonarlint/issuestore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c b/.idea/sonarlint/issuestore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a b/.idea/sonarlint/issuestore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/0/7/07548fa9c5a066af6f78e9f766cb10f7f4184898 b/.idea/sonarlint/securityhotspotstore/0/7/07548fa9c5a066af6f78e9f766cb10f7f4184898
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d b/.idea/sonarlint/securityhotspotstore/0/d/0d3c6e4493e278350f4b3245e251fef2d6a9097d
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/2/c/2c6b703e45580360a945494086b44cb75adc6108 b/.idea/sonarlint/issuestore/2/c/2c6b703e45580360a945494086b44cb75adc6108
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3 b/.idea/sonarlint/securityhotspotstore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a b/.idea/sonarlint/issuestore/5/5/55f88a3f55f55abad2bafe9f6b9b8cf5103ba90a
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/3/2/321300f91fc7c404817ccb07b0dfc98b03105a20 b/.idea/sonarlint/securityhotspotstore/3/2/321300f91fc7c404817ccb07b0dfc98b03105a20
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458 b/.idea/sonarlint/issuestore/5/9/59025358c8e4fd2cfae40aa4ed01ffff404af458
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/7/6/76dd73df286c360c707767364c649a9ba7462df1 b/.idea/sonarlint/securityhotspotstore/7/6/76dd73df286c360c707767364c649a9ba7462df1
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/8/b/8bb21e5a57a1a38e2cc9324a262b4c6c3431d61a b/.idea/sonarlint/securityhotspotstore/8/b/8bb21e5a57a1a38e2cc9324a262b4c6c3431d61a
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c b/.idea/sonarlint/securityhotspotstore/c/b/cb1b1a38a949477efbe745e5d2a25e1166fa8c2c
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3 b/.idea/sonarlint/issuestore/1/7/1787c1655db5fbf23545becaa29c6b08ffc038c3
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a b/.idea/sonarlint/securityhotspotstore/c/3/c3890f70c02c0df3dee5da9abafd21cd4f20745a
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c b/.idea/sonarlint/securityhotspotstore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43 b/.idea/sonarlint/securityhotspotstore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c b/.idea/sonarlint/issuestore/d/e/de92f88c9ec34c6c69100e0545cf994173359c0c
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43 b/.idea/sonarlint/issuestore/6/b/6b34f4e7bf054ad3399fffb16a7cce286a075f43
+new file mode 100644
+diff --git a/.idea/sonarlint/issuestore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2 b/.idea/sonarlint/issuestore/a/9/a971c9edceb9d2116ec8c36bfe49f9acc2c15bb2
+new file mode 100644
