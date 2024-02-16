@@ -34,7 +34,8 @@ import java.util.*;
 public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable, Observer {
 
 
-    public ContextMenu contextMenu;
+    @FXML
+    private ContextMenu contextMenu;
     @FXML
     private TextField searchText;
     @FXML
@@ -54,7 +55,8 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     private Button account;
     @FXML
     private Button addButton;
-    public Button menu;
+    @FXML
+    private Button menu;
 
     private T clientBean;
 
@@ -91,7 +93,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         TableManager.setColumnsTableView(columns, nameColumns);   // Aggiorna i parametri della tabella
         TableManager.updateTable(playlistTable,playlistsBean);
-        linkColumn.setCellFactory(_ -> new SingleButtonTableCell());
+        linkColumn.setCellFactory(button -> new SingleButtonTableCell());
     }
 
     /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare */
