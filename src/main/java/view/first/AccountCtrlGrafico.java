@@ -11,7 +11,6 @@ import view.first.utils.*;
 
 import java.net.URL;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
 
@@ -60,7 +59,6 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
 
     private T clientBean;
     private List<CheckBox> checkBoxList;
-    private List<PlaylistBean> userPlaylists = null;
     private ObservableList<PlaylistBean> observableList;
     private SceneController sceneController;
 
@@ -82,7 +80,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         this.clientBean = clientBean;
         this.sceneController = sceneController;
 
-        CLIPrinter.logPrint("GUI Account setAttributes: " + clientBean);
+        CLIPrinter.logPrint(String.format("GUI Account setAttributes: %s", clientBean));
 
         // Inizializza i dati nella GUI
         showUserInfo();
@@ -95,13 +93,13 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
 
         // Recupera le playlist dell'utente
-        userPlaylists = accountCtrlApplicativo.retrievePlaylists(clientBean);
+        List<PlaylistBean> userPlaylists = accountCtrlApplicativo.retrievePlaylists(clientBean);
 
         // Imposto la struttura delle colonne della Table View
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
         TableManager.setColumnsTableView(columns, nameColumns);
-        linkColumn.setCellFactory(_ -> new SingleButtonTableCell());
+        linkColumn.setCellFactory(button -> new SingleButtonTableCell());
 
         observableList = FXCollections.observableArrayList(userPlaylists);
         playlistTable.setItems(observableList);
@@ -135,13 +133,6 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     @FXML
     public void addPlaylistClick(ActionEvent event) {
         // Passa alla schermata di caricamento della playlist, passando il bean del client
-        //TODO Aggiustare sta cosa che se la playlist bean non viene completata, viene visualizzato campo vuoto
-        PlaylistBean playlistBean = new PlaylistBean();
-        playlistBean.setEmail(clientBean.getEmail());
-
-        observableList.add(playlistBean);
-        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean, playlistBean);
+        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean, observableList);
     }
-
-
 }

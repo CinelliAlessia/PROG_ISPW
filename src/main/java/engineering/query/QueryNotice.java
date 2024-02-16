@@ -3,10 +3,7 @@ package engineering.query;
 import engineering.others.CLIPrinter;
 import model.Notice;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Logger;
+import java.sql.*;
 
 public class QueryNotice {
 

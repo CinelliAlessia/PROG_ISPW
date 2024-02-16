@@ -5,6 +5,7 @@ import engineering.bean.*;
 import engineering.exceptions.*;
 
 import engineering.others.CLIPrinter;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -59,14 +60,16 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
     private CheckBox acoustic;
     private List<CheckBox> checkBoxList;
 
-    private PlaylistBean playlistBean;
+    private ObservableList<PlaylistBean> observableList;
     private T clientBean;
+    private PlaylistBean playlistBean;
     private SceneController sceneController;
 
-    public void setAttributes(T clientBean, SceneController sceneController) {
+    public void setAttributes(T clientBean, ObservableList<PlaylistBean> observableList, SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
         this.clientBean = clientBean;
         this.sceneController = sceneController;
+        this.observableList = observableList;
     }
 
     @Override
@@ -77,7 +80,6 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
 
     @FXML
     public void onBackClick(ActionEvent event) {
-        playlistBean = null;
         sceneController.goBack(event);
     }
 
@@ -128,14 +130,12 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
         } else if(genre.isEmpty()) {
             showError("Inserisci almeno un genere musicale!");
         } else {
-            playlistBean.setEmail(clientBean.getEmail());
-            playlistBean.setUsername(clientBean.getUsername());
-            playlistBean.setPlaylistName(titolo);
-            playlistBean.setLink(linkPlaylist);
-            playlistBean.setPlaylistGenre(genre);
-            playlistBean.setApproved(clientBean.isSupervisor());
-            playlistBean.setEmotional(sliderValues);
+            playlistBean = new PlaylistBean(clientBean.getEmail(), clientBean.getUsername(), titolo, linkPlaylist, genre, clientBean.isSupervisor(), sliderValues);
             playlistBean.setId("");
+
+            if(observableList != null){ // Solo se l'utente ha cliccato add Button da Account
+                observableList.add(playlistBean);
+            }
         }
     }
 

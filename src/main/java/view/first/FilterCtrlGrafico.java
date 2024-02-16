@@ -48,7 +48,6 @@ public class FilterCtrlGrafico implements Initializable {
 
     private PlaylistBean playlistBean;
     private List<CheckBox> checkBoxList;
-    private SceneController sceneController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,9 +56,8 @@ public class FilterCtrlGrafico implements Initializable {
     }
 
     /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare */
-    public void setAttributes(PlaylistBean playlistBean, SceneController sceneController) {
+    public void setAttributes(PlaylistBean playlistBean) {
         // Deve avere un userBean per compilare tutte le informazioni
-        this.sceneController = sceneController;
         this.playlistBean = playlistBean;
         setData();
     }

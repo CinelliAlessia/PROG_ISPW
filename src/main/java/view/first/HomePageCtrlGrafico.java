@@ -136,8 +136,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
     @FXML
     public void addPlaylistClick(ActionEvent event) {
-        PlaylistBean playlistBean = new PlaylistBean(); // ##############################################
-        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean, playlistBean);
+        sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean);
     }
 
     @FXML

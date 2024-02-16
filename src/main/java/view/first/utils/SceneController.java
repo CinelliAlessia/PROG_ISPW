@@ -2,22 +2,142 @@ package view.first.utils;
 
 import engineering.bean.*;
 import engineering.others.CLIPrinter;
+
+import javafx.collections.ObservableList;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
-import view.first.FilterCtrlGrafico;
-import view.first.TextPopUp;
+
+import view.first.*;
 
 import java.io.IOException;
 import java.lang.reflect.*;
 import java.util.*;
 
 public class SceneController {
-    private final Deque<Scene> sceneStack;
-    private static final String SET_ATTRIBUTES = "setAttributes";
     public SceneController(){
         sceneStack = new LinkedList<>();
+    }
+    private final Deque<Scene> sceneStack;
+    private static final String SET_ATTRIBUTES = "setAttributes"; //Funzione esistente in ogni controller grafico
+
+    /** Utilizzato da Home e Account per passare la Playlist ad Add */
+    @FXML
+    public <T> void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean, PlaylistBean playlistBean, ObservableList<PlaylistBean> observableList) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+
+            T controller = loader.getController();
+            setAttributes(controller, clientBean, playlistBean, observableList);
+
+            switchScene(event, root);
+        } catch (IOException e) {
+            handleSceneLoadError(e);
+        }
+    }
+
+    /** Utilizzato da Home e Account per passare la Playlist ad Add */
+    @FXML
+    public void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean,ObservableList<PlaylistBean> observableList) {
+        goToScene(event, fxmlPath, clientBean, null, observableList);
+    }
+
+    @FXML
+    public void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean) {
+        goToScene(event, fxmlPath, clientBean, null, null);
+    }
+
+    @FXML
+    public void goToScene(ActionEvent event, String fxmlPath, PlaylistBean playlistBean) {
+        goToScene(event, fxmlPath, null, playlistBean, null);
+    }
+
+    @FXML
+    public void goToScene(ActionEvent event, String fxmlPath) {
+        goToScene(event, fxmlPath, null, null, null);
+    }
+
+    private void switchScene(ActionEvent event, Parent root) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        sceneStack.push(stage.getScene()); // Push current scene onto stack
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * HomePage: setAttributes(SceneController scene Controller, T clientBean)
+     * Account: setAttributes(SceneController sceneController, T clientBean)
+
+     * Registration: setAttributes(SceneController sceneController)
+     * TextPopUp: setAttributes(SceneController sceneController)
+
+     * AddPlaylist: setAttributes(SceneController sceneController, T clientBean, ObservableList<PlaylistBean> observableList)
+     * Filter: setAttributes(SceneController sceneController, PlaylistBean playlistBean)
+     * */
+    private void setAttributes(Object controller, ClientBean clientBean, PlaylistBean playlistBean, ObservableList<PlaylistBean> observableList) {
+        Class<?>[] parameterTypes = {ClientBean.class, PlaylistBean.class, ObservableList.class};
+
+        for (Class<?> paramType : parameterTypes) {
+            try {
+                // Gestione setAttributes con due parametri
+
+                Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, paramType, SceneController.class);
+
+                // Verifica il tipo di parametro e invoca il metodo corrispondente solo se il parametro non è null
+                if (paramType == ClientBean.class && clientBean != null) {
+                    setAttributes.invoke(controller, clientBean, this);         // Account e HomePage ok
+                } else if (paramType == PlaylistBean.class && playlistBean != null) {
+                    setAttributes.invoke(controller, playlistBean, this);       // Filter
+                }
+                return; // Esci dal metodo se trova una firma valida
+
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                // Gestione dell'errore in caso di problemi con la riflessione
+                handleSceneLoadError(e);
+                return; // Esci dal metodo in caso di eccezione
+            } catch (NoSuchMethodException ignored) {
+                //
+            }
+        }
+
+        // Se non trova alcuna firma valida, gestisci il caso generico con una firma con solo SceneController
+        try {
+            Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, SceneController.class);
+            setAttributes.invoke(controller, this);
+            return;
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            // Gestione dell'errore in caso di problemi con la riflessione
+            handleSceneLoadError(e);
+            return; // Esci dal metodo in caso di eccezione
+        } catch (NoSuchMethodException ignored) {
+            //
+        }
+
+        // Se non trova alcuna firma valida, gestisci il caso generico con una firma (SceneController, T, ObservableList<PlaylistBean>)
+        try {
+            Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, PlaylistBean.class);
+            setAttributes.invoke(controller, playlistBean);
+            return;
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            // Gestione dell'errore in caso di problemi con la riflessione
+            handleSceneLoadError(e);
+            return; // Esci dal metodo in caso di eccezione
+        } catch (NoSuchMethodException ignored) {
+            //
+        }
+
+        // Se non trova alcuna firma valida, gestisci il caso generico con una firma (SceneController, T, ObservableList<PlaylistBean>)
+        try {
+            Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, ClientBean.class, ObservableList.class,  SceneController.class);
+            setAttributes.invoke(controller, clientBean, observableList, this);
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            // Gestione dell'errore in caso di problemi con la riflessione
+            handleSceneLoadError(e);
+        }
     }
 
     @FXML
@@ -35,81 +155,6 @@ public class SceneController {
         sceneStack.push(stage.getScene()); // Push current scene onto stack
     }
 
-    @FXML
-    public <T> void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean, PlaylistBean playlistBean) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Parent root = loader.load();
-
-            T controller = loader.getController();
-            setAttributes(controller, clientBean, playlistBean);
-
-            switchScene(event, root);
-        } catch (IOException e) {
-            handleSceneLoadError(e);
-        }
-    }
-
-    @FXML
-    public void goToScene(ActionEvent event, String fxmlPath, ClientBean clientBean) {
-        goToScene(event, fxmlPath, clientBean, null);
-    }
-
-    @FXML
-    public void goToScene(ActionEvent event, String fxmlPath, PlaylistBean playlistBean) {
-        goToScene(event, fxmlPath, null, playlistBean);
-    }
-
-    @FXML
-    public void goToScene(ActionEvent event, String fxmlPath) {
-        goToScene(event, fxmlPath, null, null);
-    }
-
-    private void switchScene(ActionEvent event, Parent root) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        sceneStack.push(stage.getScene()); // Push current scene onto stack
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-    private void setAttributes(Object controller, ClientBean clientBean, PlaylistBean playlistBean) {
-        Class<?>[] parameterTypes = {ClientBean.class, PlaylistBean.class};
-
-        for (Class<?> paramType : parameterTypes) { // Prova setAttributes(ClientBean, SceneController) e  Prova setAttributes(PlaylistBean, SceneController)
-            try {
-                Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, paramType, SceneController.class);
-                setAttributes.invoke(controller, paramType == ClientBean.class ? clientBean : playlistBean, this);
-                return; // Esce dal metodo se trova una firma valida
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                handleSceneLoadError(e);
-                return; // Esce dal metodo in caso di eccezione
-            } catch (NoSuchMethodException ignored) {
-                // Ignorato perché cercherà la prossima firma se questa non è presente
-            }
-        }
-
-        try{
-            Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, ClientBean.class, PlaylistBean.class, SceneController.class);
-            setAttributes.invoke(controller,clientBean, playlistBean, this);
-            return; // Esce dal metodo se trova una firma valida
-        } catch (NoSuchMethodException e) {
-            // Ignorato di proposito
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            handleSceneLoadError(e);
-        }
-
-        try {
-            Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, SceneController.class);
-            setAttributes.invoke(controller, this);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            handleSceneLoadError(e);
-        }
-
-    }
-
 
     public void textPopUp(ActionEvent event, String text, boolean back) {
         try {
@@ -118,7 +163,7 @@ public class SceneController {
 
             // Ottieni l'istanza del controller
             TextPopUp controller = loader.getController();
-            setAttributes(controller, null,null);
+            setAttributes(controller, null,null, null);
 
             // Utilizza il controller per chiamare la funzione setText
             controller.setText(text);
@@ -151,7 +196,7 @@ public class SceneController {
 
             // Ottieni l'istanza del controller
             FilterCtrlGrafico controller = loader.getController();
-            setAttributes(controller, clientBean,playlistBean);
+            setAttributes(controller, clientBean, playlistBean, null);
 
             // Stage di partenza
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
