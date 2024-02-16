@@ -7,19 +7,9 @@ import model.*;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-/*
-Ho semplificato la verifica dell'esistenza dell'utente all'interno della funzione insertUser usando il metodo userExists.
-Ho unito la creazione della directory e la costruzione del percorso del file userInfo.json all'interno di insertUser.
-Ho semplificato la funzione loadUser utilizzando la funzione parseUser per ottenere l'oggetto User dal contenuto del file JSON.
-Ho utilizzato il metodo parseUser anche nella funzione getUserFromDirectory.
-Ho semplificato la funzione updateGenreUser utilizzando il metodo parseUser per ottenere l'oggetto User dal contenuto del file JSON.
- */
 public class ClientDAOJSON implements ClientDAO {
-
-    private static final Logger logger = Logger.getLogger(ClientDAOJSON.class.getName());
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
 
     public void insertClient(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
@@ -46,7 +36,7 @@ public class ClientDAOJSON implements ClientDAO {
             String json = new GsonBuilder().setPrettyPrinting().create().toJson(login);
             Files.writeString(userInfoFile, json);
 
-            logger.info("ClientDAO: Utente inserito con successo!");
+            CLIPrinter.logPrint("ClientDAO: Utente inserito con successo!");
         } catch (IOException e) {
             handleDAOException(e);
         }
@@ -61,7 +51,7 @@ public class ClientDAOJSON implements ClientDAO {
                 String content = Files.readString(userInfoFile);
                 return parseClient(content);
             } else {
-                logger.severe("ClientDAO: Utente non trovato");
+                CLIPrinter.logPrint("ClientDAO: Utente non trovato");
                 throw new UserDoesNotExist();
             }
         } catch (IOException e) {
@@ -147,9 +137,9 @@ public class ClientDAOJSON implements ClientDAO {
                 // Sovrascrive il file solo con le informazioni aggiornate
                 Files.writeString(userInfoFile, updatedJson);
 
-                logger.info("CLIENTDAO: Preferenze utente aggiornate con successo!");
+                CLIPrinter.logPrint("CLIENTDAO: Preferenze utente aggiornate con successo!");
             } else {
-                logger.severe("CLIENTDAO: Utente non trovato o file userInfo.json mancante.");
+                CLIPrinter.logPrint("CLIENTDAO: Utente non trovato o file userInfo.json mancante.");
             }
         } catch (IOException e) {
             handleDAOException(e);
@@ -193,6 +183,6 @@ public class ClientDAOJSON implements ClientDAO {
         return Files.exists(userDirectory);
     }
     private void handleDAOException(Exception e) {
-        logger.severe(e.getMessage());
+        CLIPrinter.errorPrint(String.format("ClientDAOJSON: %s", e.getMessage()));
     }
 }

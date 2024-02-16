@@ -8,7 +8,7 @@ import java.util.List;
 public interface PlaylistDAO {
 
     /** Inserisce una playlist in persistenza*/
-    boolean insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse;
+    void insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse;
 
     /** Non serve che crea una nuova istanza di Playlist*/
     Playlist approvePlaylist(Playlist playlist);

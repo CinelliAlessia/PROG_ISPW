@@ -1,6 +1,7 @@
 package view.first.utils;
 
 import engineering.bean.*;
+import engineering.others.CLIPrinter;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -11,12 +12,9 @@ import view.first.TextPopUp;
 import java.io.IOException;
 import java.lang.reflect.*;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class SceneController {
     private final Deque<Scene> sceneStack;
-    private static final Logger logger = Logger.getLogger(SceneController.class.getName());
-
     private static final String SET_ATTRIBUTES = "setAttributes";
     public SceneController(){
         sceneStack = new LinkedList<>();
@@ -173,7 +171,7 @@ public class SceneController {
     }
 
     private void handleSceneLoadError(Exception e) {
-        logger.info(e.getMessage());
+        CLIPrinter.errorPrint(String.format("SceneController: %s", e.getMessage()));
     }
 
 }

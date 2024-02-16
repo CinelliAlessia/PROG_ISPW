@@ -1,9 +1,8 @@
 package engineering.pattern.abstract_factory;
 
 import engineering.dao.*;
-import engineering.pattern.abstract_factory.DAOFactory;
 
-public class MySQLDAODAOFactory extends DAOFactory {
+public class MySQLDAOFactory extends DAOFactory {
 
     @Override
     public ClientDAO createClientDAO() {

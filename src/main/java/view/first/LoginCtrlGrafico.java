@@ -4,12 +4,11 @@ import controller.applicativo.LoginCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
 
+import engineering.others.CLIPrinter;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import view.first.utils.*;
-
-import java.util.logging.Logger;
 
 public class LoginCtrlGrafico {
 
@@ -19,9 +18,6 @@ public class LoginCtrlGrafico {
     private PasswordField password;
     @FXML
     private TextField emailField;
-
-    private static final Logger logger = Logger.getLogger(LoginCtrlGrafico.class.getName());
-
     private final SceneController sceneController = new SceneController();
 
     /** Metodo utilizzato per l'accesso all'applicazione
@@ -33,7 +29,7 @@ public class LoginCtrlGrafico {
      * */
     @FXML
     protected void onLoginClick(ActionEvent event) {
-        logger.info("GUI Login: inizio");
+        CLIPrinter.logPrint("GUI Login: inizio");
 
         /* ------ Recupero informazioni dalla schermata di login ------ */
         String email = emailField.getText().trim();
@@ -52,7 +48,7 @@ public class LoginCtrlGrafico {
 
                 /* --------------- Credenziali corrette se non è scaturita l'eccezione -------------- */
                 ClientBean clientBean = loginCtrlApp.loadUser(loginBean); // Ottengo istanza di clientBean
-                logger.info("GUI Login: Credenziali corrette" + clientBean.isSupervisor());
+                CLIPrinter.logPrint(String.format("GUI Login: Credenziali corrette, Supervisor: %b", clientBean.isSupervisor()));
 
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean

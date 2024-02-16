@@ -1,5 +1,6 @@
 package engineering.dao;
 
+import engineering.others.CLIPrinter;
 import engineering.others.Connect;
 import engineering.query.QueryNotice;
 import model.*;
@@ -10,15 +11,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class NoticeDAOMySQL implements NoticeDAO{
-    private static final Logger logger = Logger.getLogger(NoticeDAOMySQL.class.getName());
     private static final String USERNAME = "username";
     private static final String TITLE = "title";
     private static final String BODY = "body";
-
-
 
     public void addNotice(Notice notice) {
         Statement stmt = null;
@@ -108,7 +105,9 @@ public class NoticeDAOMySQL implements NoticeDAO{
         }
     }
 
+    /** Metodo utilizzato per notificare SQLException */
     private void handleDAOException(Exception e) {
-        logger.severe(e.getMessage());
+        CLIPrinter.errorPrint(String.format("NoticeDAOMySQL: %s", e.getMessage()));
     }
+
 }

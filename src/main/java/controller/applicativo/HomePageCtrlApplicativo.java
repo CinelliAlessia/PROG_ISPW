@@ -4,6 +4,7 @@ import engineering.bean.NoticeBean;
 import engineering.bean.PlaylistBean;
 import engineering.dao.*;
 import engineering.exceptions.LinkIsNotValid;
+import engineering.others.CLIPrinter;
 import engineering.pattern.abstract_factory.DAOFactory;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.PlaylistCollection;
@@ -12,11 +13,9 @@ import model.Notice;
 import model.Playlist;
 
 import java.util.*;
-import java.util.logging.Logger;
 
 public class HomePageCtrlApplicativo {
 
-    private static final Logger logger = Logger.getLogger(HomePageCtrlApplicativo.class.getName());
     public List<PlaylistBean> retrivePlaylistsApproved() {
 
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -28,7 +27,9 @@ public class HomePageCtrlApplicativo {
         PlaylistCollection playlistCollection = PlaylistCollection.getInstance();   // Recupero l'istanza del Model Subject
         playlistCollection.setState(playlists);                                     // Imposto lo stato del model Subject SETSTATE NON CHIAMA UPDATE
 
-        // Dato che viene fatto set state, serve fare return di un playlist bean se comunque nel setState verrà fatto update?
+        // Dato che viene fatto set state, serve fare return di un playlist
+        // bean se comunque nel setState verrà fatto update?
+
         try{
             for (Playlist p : playlists){
                 PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
@@ -37,17 +38,14 @@ public class HomePageCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            e.fillInStackTrace();
-        }
-
+            // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
+            CLIPrinter.logPrint(e.getMessage());        }
         return playlistsBean;
     }
 
-
-    /* ############# Dovrebbe essere fuso con il searchPlaylistByName ################ */
     public List<PlaylistBean> searchPlaylistByFilters(PlaylistBean playlistBean) {
 
-        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();  // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean da restituire al Grafico
         Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
@@ -58,12 +56,13 @@ public class HomePageCtrlApplicativo {
         playlist.setEmotional(playlistBean.getEmotional());
 
         List<Playlist> playlists;
+
         if(emotionalEmpty(playlist.getEmotional()) && genreEmpty(playlist.getPlaylistGenre())){
-            playlists = dao.searchPlaylistTitle(playlist);  // Recupero lista Playlist filtrata solo per titolo della playlist
+            playlists = dao.searchPlaylistTitle(playlist);        // Recupero lista Playlist filtrata solo per titolo della playlist
         } else if (!emotionalEmpty(playlist.getEmotional()) && !genreEmpty(playlist.getPlaylistGenre())){
-            playlists = dao.searchPlaylistByFilters(playlist);  // Recupero lista Playlist controllando tutti i filtri
+            playlists = dao.searchPlaylistByFilters(playlist);    // Recupero lista Playlist controllando tutti i filtri
         } else if (emotionalEmpty(playlist.getEmotional())) {
-            playlists = dao.searchPlaylistByGenre(playlist);  // Recupero lista Playlist controllando Titolo e Generi musicali
+            playlists = dao.searchPlaylistByGenre(playlist);      // Recupero lista Playlist controllando Titolo e Generi musicali
         } else {
             playlists = dao.searchPlaylistByEmotional(playlist);  // Recupero lista Playlist controllando Titolo ed Emotional
         }
@@ -76,11 +75,13 @@ public class HomePageCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            logger.info("HomePage APP: LinkIsNotValid" +e.getMessage());
+            // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
+            CLIPrinter.logPrint(String.format("HomePage APP: LinkIsNotValid %s", e.getMessage()));
         }
         return playlistsBean;
     }
 
+    /** Utilizzata per un corretto filtraggio */
     private boolean emotionalEmpty(List<Integer> emotional) {
         if(emotional == null){
             return true;
@@ -95,20 +96,20 @@ public class HomePageCtrlApplicativo {
         return true; // Tutti i valori sono 0
     }
 
+    /** Utilizzata per un corretto filtraggio */
     private boolean genreEmpty(List<String> genre){
         return genre == null || genre.isEmpty();
     }
 
+    public void removeNotice(NoticeBean noticeBean) {
+        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(), noticeBean.getUsernameAuthor());
+        dao.deleteNotice(notice);
+    }
 
+    /** Nel caso in cui non volessimo che la view contattasse il model */
     public void observePlaylistTable(Observer observer){
         Subject playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.attach(observer);
-    }
-
-    public void removeNotice(NoticeBean noticeBean) {
-        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-
-        Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(), noticeBean.getUsernameAuthor());
-        dao.deleteNotice(notice);
     }
 }

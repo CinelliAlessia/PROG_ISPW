@@ -6,10 +6,7 @@ import java.util.List;
 
 public class SupervisorBean extends ClientBean {
 
-    public SupervisorBean(){}
-
-    public SupervisorBean(String email) throws InvalidEmailException {
-        setEmail(email);
+    public SupervisorBean(){
         super.supervisor = true;
     }
 

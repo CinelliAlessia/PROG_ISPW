@@ -4,6 +4,7 @@ import controller.applicativo.HomePageCtrlApplicativo;
 
 import engineering.bean.*;
 import engineering.exceptions.*;
+import engineering.others.CLIPrinter;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.*;
 
@@ -12,19 +13,14 @@ import javafx.fxml.*;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
+import javafx.scene.image.*;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import model.Playlist;
 import view.first.utils.*;
-import view.second.utils.CLIPrinter;
 
 import java.net.URL;
 import java.util.*;
-import java.util.logging.Logger;
 
 /**
  * Questa classe rappresenta il controller grafico della home page dell'applicazione,
@@ -60,8 +56,6 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     private Button addButton;
     public Button menu;
 
-    private static final Logger logger = Logger.getLogger(HomePageCtrlApplicativo.class.getName());
-
     private T clientBean;
 
     private SceneController sceneController;
@@ -82,7 +76,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Recupera tutte le playlist
-        logger.info("GUI Home Page");
+        CLIPrinter.logPrint("GUI Home Page");
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "username", "playlistGenre");
@@ -106,7 +100,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         this.sceneController = sceneController;
         initializeField();
 
-        logger.info("GUI HomePage setAttributes: " + clientBean);
+        CLIPrinter.logPrint(String.format("GUI HomePage setAttributes: %s", clientBean));
     }
 
     /**
@@ -115,7 +109,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
      */
     public void initializeField() {
         if(clientBean == null){
-            logger.info("GUI HomePage: Accesso come Guest");
+            CLIPrinter.logPrint("GUI HomePage: Accesso come Guest");
 
             menu.setVisible(false);
             addButton.setVisible(false);
@@ -123,7 +117,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
             account.setText("Registrati");
 
         } else { // UserBean o SupervisorBean
-            logger.info("GUI HomePage: Accesso come Client, Supervisor: " + clientBean.isSupervisor());
+            CLIPrinter.logPrint(String.format("GUI HomePage: Accesso come Supervisor: %b", clientBean.isSupervisor()));
 
             addButton.setVisible(true);
             manager.setVisible(clientBean.isSupervisor());
@@ -161,7 +155,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         //playlistsBean = homePageController.searchPlaylistByName(filterPlaylist);         // Recupera le playlist cercando per nome
         TableManager.updateTable(playlistTable, playlistsBean);
 
-        logger.info("GUI home page search click: " + filterPlaylist + "nome: " + filterPlaylist.getPlaylistName() + "genre: " + filterPlaylist.getPlaylistGenre() + "emotional: " + filterPlaylist.getEmotional());
+        CLIPrinter.logPrint(String.format("GUI HomePage: search click: %s, nome: %s, genre: %s, emotional: %s", filterPlaylist, filterPlaylist.getPlaylistName(), filterPlaylist.getPlaylistGenre(), filterPlaylist.getEmotional()));
     }
 
     @FXML

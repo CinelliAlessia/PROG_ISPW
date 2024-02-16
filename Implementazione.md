@@ -18,7 +18,7 @@ L'utente può non mettere alcun tipo di genere musicale preferito associato al s
 
 **PROBLEMI:**
 
-Consistenza Italiano Inglese, preferibilmente tutto in inglese. OK
+Consistenza Italiano Inglese, preferibilmente tutto in inglese. SOLO POPUP
 
 Correzione Observable list in account e in pending playlist. OK PENDING NO ACCOUNT
 
@@ -35,4 +35,6 @@ Tasto indietro
 Funzioni retrieve (recuperare) e non retrive (recuperato)
 
 Notifiche 
+
+
 

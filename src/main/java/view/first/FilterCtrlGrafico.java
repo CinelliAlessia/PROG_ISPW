@@ -9,7 +9,6 @@ import view.first.utils.*;
 
 import java.net.URL;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class FilterCtrlGrafico implements Initializable {
 
@@ -51,8 +50,6 @@ public class FilterCtrlGrafico implements Initializable {
     private List<CheckBox> checkBoxList;
     private SceneController sceneController;
 
-    private static final Logger logger = Logger.getLogger(FilterCtrlGrafico.class.getName());
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
@@ -90,8 +87,6 @@ public class FilterCtrlGrafico implements Initializable {
     private void setData(){
         List<String> preferences = playlistBean.getPlaylistGenre();
         List<Integer> emotional = playlistBean.getEmotional();
-
-        logger.info("Filter GUI setData: " + playlistBean.getPlaylistGenre() + " " + playlistBean.getEmotional());
 
         if(preferences != null){
             GenreManager.setCheckList(preferences,checkBoxList);

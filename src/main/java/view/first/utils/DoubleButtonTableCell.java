@@ -19,7 +19,7 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
             TableRow<PlaylistBean> tableRow = getTableRow();
             if (tableRow != null) {
                 PlaylistBean playlistBean = tableRow.getItem();
-                PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean, true, getTableView());
+                PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean, true);
             }
         });
 
@@ -27,7 +27,7 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
             TableRow<PlaylistBean> tableRow = getTableRow();
             if (tableRow != null) {
                 PlaylistBean playlistBean = tableRow.getItem();
-                PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean, false, getTableView());
+                PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean, false);
             }
         });
 

@@ -3,18 +3,16 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
+import engineering.others.CLIPrinter;
 import engineering.pattern.abstract_factory.DAOFactory;
 import model.*;
 
 import java.util.*;
-import java.util.logging.Logger;
 
 public class AccountCtrlApplicativo {
 
-    private static final Logger logger = Logger.getLogger(AccountCtrlApplicativo.class.getName());
-
-
-    /** Recupera tutte le playlist globali by username
+    /**
+     * Recupera tutte le playlist globali by username
      */
     public List<PlaylistBean> retrievePlaylists(ClientBean clientBean) {
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -30,6 +28,7 @@ public class AccountCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
+            // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
             handleDAOException(e);
         }
 
@@ -49,12 +48,12 @@ public class AccountCtrlApplicativo {
 
         // Invio utente model al DAO
         dao.updateGenreClient(client);
-
     }
 
 
     /** Utilizzata per eliminare le playlist
-     * vanno aggiunti dei controlli per capire chi può eliminare */
+     * vanno aggiunti dei controlli per capire chi può eliminare ?
+     * Non è stato implementata l'eliminazione */
     public static Boolean deletePlaylist(PlaylistBean pB){
 
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
@@ -69,8 +68,6 @@ public class AccountCtrlApplicativo {
     }
 
     private void handleDAOException(Exception e) {
-        logger.severe(e.getMessage());
+        CLIPrinter.logPrint(e.getMessage());
     }
-
-
 }

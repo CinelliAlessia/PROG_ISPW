@@ -2,6 +2,7 @@ package view.first;
 
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.*;
+import engineering.others.CLIPrinter;
 import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
@@ -63,9 +64,6 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     private ObservableList<PlaylistBean> observableList;
     private SceneController sceneController;
 
-    private static final Logger logger = Logger.getLogger(AccountCtrlGrafico.class.getName());
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
@@ -84,7 +82,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         this.clientBean = clientBean;
         this.sceneController = sceneController;
 
-        logger.info("GUI Account setAttributes: " + clientBean);
+        CLIPrinter.logPrint("GUI Account setAttributes: " + clientBean);
 
         // Inizializza i dati nella GUI
         showUserInfo();
@@ -95,6 +93,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     /** Recupera tutte le playlist dell'utente */
     public void retrivePlaylist() {
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
+
         // Recupera le playlist dell'utente
         userPlaylists = accountCtrlApplicativo.retrievePlaylists(clientBean);
 
@@ -106,16 +105,6 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
 
         observableList = FXCollections.observableArrayList(userPlaylists);
         playlistTable.setItems(observableList);
-
-        // ######################
-        // Configura e popola la TableView con le colonne appropriate
-        /*
-        List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, approveColumn, genreColumn);
-        List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
-        TableManager.setColumnsTableView(columns, nameColumns);
-        TableManager.updateTable(playlistTable, userPlaylists);
-        */
-        // Aggiungi la colonna con bottoni "Approve" o "Reject" e immagini dinamiche
     }
 
     /** Gestisce il click sul pulsante Salva */
@@ -123,7 +112,6 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
     public void onSaveClick(ActionEvent event) {
         // Recupera le preferenze aggiornate dalle CheckBox
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
-        System.out.println("GUI ACCOUNT Hai premuto salva" + preferences);
 
         // Aggiorna le preferenze nel bean del cliente
         clientBean.setPreferences(preferences);
@@ -152,7 +140,6 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         playlistBean.setEmail(clientBean.getEmail());
 
         observableList.add(playlistBean);
-
         sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean, playlistBean);
     }
 

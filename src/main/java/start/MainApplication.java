@@ -1,20 +1,19 @@
 package start;
 
+import engineering.others.CLIPrinter;
+
 import view.first.utils.FxmlFileName;
+import view.second.LoginCLI;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view.second.LoginCLI;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 public class MainApplication extends Application {
-    private static final Logger logger = Logger.getLogger(MainApplication.class.getName());
-
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -22,7 +21,7 @@ public class MainApplication extends Application {
         Properties properties = loadConfigurationProperties();
 
         // Ottieni il tipo di interfaccia dalle proprietà
-        int interfaceType = Integer.parseInt(properties.getProperty("interface.type"));
+        int interfaceType = Integer.parseInt(properties.getProperty("interface.type","1"));
 
         if (interfaceType == 1) {
             // Interfaccia grafica
@@ -31,7 +30,9 @@ public class MainApplication extends Application {
             // Interfaccia a riga di comando
             startCommandLineInterface();
         } else {
-            logger.info("Tipo di interfaccia specificata nel file di configurazione non valida.");
+            CLIPrinter.errorPrint("Tipo di interfaccia specificata nel file di configurazione non valida: Default interfaccia grafica");
+            // Interfaccia grafica
+            loadGraphicalInterface(stage);
         }
     }
 
@@ -56,10 +57,10 @@ public class MainApplication extends Application {
             if (input != null) {
                 properties.load(input);
             } else {
-                logger.severe("Impossibile trovare il file di configurazione.");
+                CLIPrinter.errorPrint("MainApplication: Impossibile trovare il file di configurazione.");
             }
         } catch (IOException e) {
-           logger.info("Errore durante la lettura del file di configurazione" + e.getMessage());
+           CLIPrinter.errorPrint(String.format("MainApplication: Errore durante la lettura del file di configurazione %s", e.getMessage()));
         }
         return properties;
     }

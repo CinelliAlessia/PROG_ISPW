@@ -3,6 +3,7 @@ package view.second;
 import controller.applicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
+import engineering.others.CLIPrinter;
 import view.second.utils.*;
 
 import java.util.*;

@@ -1,14 +1,12 @@
 package engineering.query;
 
+import engineering.others.CLIPrinter;
 import model.Login;
 
 import java.sql.*;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class QueryLogin {
-
-    private static final Logger logger = Logger.getLogger(QueryLogin.class.getName());
 
     private QueryLogin() {
     }
@@ -131,8 +129,9 @@ public class QueryLogin {
         return query.toString();
     }
 
+    /** Solo SQLException */
     private static void handleException(Exception e) {
-        logger.severe(e.getMessage());
+        CLIPrinter.errorPrint(String.format("QueryLogin: %s", e.getMessage()));
     }
 
 }

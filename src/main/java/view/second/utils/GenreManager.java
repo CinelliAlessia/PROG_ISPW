@@ -1,11 +1,11 @@
 package view.second.utils;
 
+import engineering.others.CLIPrinter;
+
 import java.io.*;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class GenreManager {
-    private static final Logger logger = Logger.getLogger(GenreManager.class.getName());
 
     /** Legge dal file dei generi musicali e genera una hash map (Intero, Stringa) che poi verrà
      * stampata da printGenres() */
@@ -23,14 +23,14 @@ public class GenreManager {
             }
         } catch (IOException e) {
             // Gestisci l'eccezione qui senza lanciarla di nuovo
-            logger.info("Errore durante la lettura del file: " + e.getMessage());
+            CLIPrinter.errorPrint("Errore durante la lettura del file: " + e.getMessage());
         }
         return availableGenres;
     }
 
     public void printGenres(Map<Integer, String> genres) {
         // Stampa i generi musicali disponibili
-        genres.forEach((key, value) -> logger.info(key + ":" + value));
+        genres.forEach((key, value) -> CLIPrinter.println(key + ":" + value));
     }
 
     /** Parse dei generi inseriti dall'utente e controllo di corretto inserimento */
@@ -45,10 +45,10 @@ public class GenreManager {
                 if (availableGenres.containsKey(genreIndex)) {
                     preferences.add(availableGenres.get(genreIndex));
                 } else {
-                    logger.info(" ! Numero genere non valido: " + index +  " !");
+                    CLIPrinter.errorPrint(String.format(" ! Numero genere non valido: %s !",index));
                 }
             } catch (NumberFormatException e) {
-                logger.info(" ! Input non valido: " + index + " !");
+                CLIPrinter.errorPrint(" ! Input non valido: " + index + " !");
             }
         }
         return preferences;

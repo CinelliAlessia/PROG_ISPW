@@ -43,4 +43,6 @@ module logic {
 
     exports model;
     opens model to com.google.gson;
+    exports engineering.pattern.abstract_factory;
+    opens engineering.pattern.abstract_factory to javafx.fxml;
 }

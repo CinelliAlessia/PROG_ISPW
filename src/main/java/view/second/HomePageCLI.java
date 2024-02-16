@@ -2,7 +2,7 @@ package view.second;
 
 import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.*;
-import view.second.utils.CLIPrinter;
+import engineering.others.CLIPrinter;
 
 import java.util.List;
 import java.util.Scanner;

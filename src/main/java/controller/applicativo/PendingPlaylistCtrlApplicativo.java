@@ -3,18 +3,15 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
+import engineering.others.CLIPrinter;
 import engineering.pattern.abstract_factory.DAOFactory;
 import engineering.pattern.observer.PlaylistCollection;
-import model.Notice;
-import model.Playlist;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
+import model.*;
+
+import java.util.*;
 
 public class PendingPlaylistCtrlApplicativo {
-
-    private static final Logger logger = Logger.getLogger(PendingPlaylistCtrlApplicativo.class.getName());
 
     public void approvePlaylist(PlaylistBean pB){
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();
@@ -50,7 +47,7 @@ public class PendingPlaylistCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            logger.severe(e.getMessage());
+            CLIPrinter.logPrint(e.getMessage());
         }
 
         return playlistsBean;

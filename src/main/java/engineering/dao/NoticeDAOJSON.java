@@ -1,21 +1,22 @@
 package engineering.dao;
 
+import engineering.others.CLIPrinter;
 import model.*;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class NoticeDAOJSON implements NoticeDAO{
-    private static final Logger logger = Logger.getLogger(NoticeDAOJSON.class.getName());
 
+    private static final String ERROR_IMPLEMENTATION = "Non è stato implementato in JSON";
     public void addNotice(Notice notice) {
-        logger.info("Non è stato implementato");
+        CLIPrinter.logPrint(ERROR_IMPLEMENTATION);
     }
 
     public void deleteNotice(Notice notice) {
-        logger.info("Non è stato implementato");
+        CLIPrinter.logPrint(ERROR_IMPLEMENTATION);
     }
 
     public List<Notice> retrieveNotice(Client user) {
+        CLIPrinter.logPrint(ERROR_IMPLEMENTATION);
         return Collections.emptyList();
     }
 }

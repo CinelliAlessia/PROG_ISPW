@@ -1,28 +1,25 @@
 package engineering.dao;
 
 import com.google.gson.*;
-import engineering.exceptions.PlaylistLinkAlreadyInUse;
-import engineering.others.ConfigurationJSON;
+import engineering.exceptions.*;
+import engineering.others.*;
 import model.Playlist;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
 
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 public class PlaylistDAOJSON implements PlaylistDAO {
+
     /**
      * Questo metodo inserisce la playlist sia sulla cartella del singolo utente
      * Aggiunge inoltre sulle cartelle generali delle playlist approvate e delle playlist in attesa di approvazione
      */
-
-    private static final Logger logger = Logger.getLogger(PlaylistDAOJSON.class.getName());
-
-    public boolean insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
+    public void insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
         // Costruisco il percorso del file playlist.json per l'utente
         java.nio.file.Path userDirectory = Paths.get(ConfigurationJSON.USER_BASE_DIRECTORY, playlist.getEmail());
-        boolean result = false;
+
         try {
             // Crea la directory utente se non esiste
             Files.createDirectories(userDirectory);
@@ -61,18 +58,15 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 }
 
                 Files.copy(playlistPath, allPlaylistsPath, StandardCopyOption.REPLACE_EXISTING);
-                logger.info("Playlist inserita con successo!");
-                result = true;
+                CLIPrinter.logPrint("PlaylistDAOJSON: Playlist inserita con successo!");
 
             } else {
-                logger.info("Una playlist con questo nome esiste già per questo utente.");
+                CLIPrinter.logPrint("PlaylistDAOJSON: Una playlist con questo nome esiste già per questo utente.");
                 throw new PlaylistLinkAlreadyInUse();
             }
-
         } catch (IOException e) {
             handleDAOException(e);
         }
-        return result;
     }
 
     public Playlist approvePlaylist(Playlist playlist) {
@@ -86,7 +80,6 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (updatedInUserFolder && updatedInPendingFolder) {
             copyAndDeletePlaylist(playlist);
             playlist.setApproved(true);
-            logger.info(playlist.getPlaylistName() + " " + playlist.getApproved());
             return playlist;
         }
         return null;
@@ -106,7 +99,6 @@ public class PlaylistDAOJSON implements PlaylistDAO {
             fileName = formatPlaylistFileName(formatPlaylistFileName(playlist.getPlaylistName()));
             playlistPath = Paths.get(folderPath, playlist.getEmail(), fileName + ConfigurationJSON.FILE_EXTENCTION);
         }
-        //################# Possibile duplicazione da evitare ################################
         if (Files.exists(playlistPath)) {
             try {
                 // Leggi il contenuto del file
@@ -124,14 +116,13 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
                 // Sovrascrivi il file con le informazioni aggiornate
                 Files.writeString(playlistPath, updatedJson);
-                logger.info(playlist.getPlaylistName() + " " + playlist.getApproved());
                 return true;
             } catch (IOException e) {
                 handleDAOException(e);
                 return false;
             }
         } else {
-            logger.info("File della playlist non trovato.");
+            CLIPrinter.errorPrint("PlaylistDAOJSON: File della playlist non trovato.");
             return false;
         }
     }
@@ -204,9 +195,9 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         boolean deletedFromGlobalFolder = deletePlaylistFromFolder(allPlaylistsPath);
 
         if (deletedFromUserFolder && deletedFromGlobalFolder) {
-            logger.info("Playlist eliminata con successo!");
+            CLIPrinter.logPrint("PlaylistDAOJSON: Playlist eliminata con successo!");
         } else {
-            logger.info("Errore durante l'eliminazione della playlist.");
+            CLIPrinter.logPrint("PlaylistDAOJSON: Errore durante l'eliminazione della playlist.");
         }
     }
 
@@ -220,7 +211,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (Files.exists(userDirectory)) {
             playlistList = retrievePlaylistsFromDirectory(userDirectory);
         } else {
-            logger.info("Utente non trovato!");
+            CLIPrinter.errorPrint("PlaylistDAOJSON: Utente non trovato!");
         }
 
         return playlistList;
@@ -243,12 +234,10 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                                 playlists.add(playlist);
                             }
                         } catch (IOException e) {
-                            // Gestisci l'eccezione in modo appropriato
                             handleDAOException(e);
                         }
                     });
         } catch (IOException e) {
-            // Gestisci l'eccezione in modo appropriato
             handleDAOException(e);
         }
 
@@ -312,8 +301,10 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         return Collections.emptyList();
     }
 
+    /** Metodo utilizzato per notificare IOException */
     private void handleDAOException(Exception e) {
-        logger.info(e.getMessage());
+        CLIPrinter.errorPrint(String.format("PlaylistDAOJSON: %s", e.getMessage()));
+
     }
 
 }

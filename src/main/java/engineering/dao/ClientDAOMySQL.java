@@ -1,22 +1,19 @@
 package engineering.dao;
 
 import engineering.exceptions.*;
-import engineering.others.Connect;
+import engineering.others.*;
 import engineering.query.QueryLogin;
 
 import view.first.utils.GenreManager;
 
 import model.*;
-
 import java.sql.*;
-
 import java.util.*;
-import java.util.logging.Logger;
 
 public class ClientDAOMySQL implements ClientDAO {
-
-    private static final Logger logger = Logger.getLogger(ClientDAOMySQL.class.getName());
     private static final String USERNAME = "username";
+    private static final String EMAIL = "email";
+    private static final String SUPERVISOR = "supervisor";
 
     /** Metodo per inserire un User nel database al momento della registrazione
      * viene effettuato il controllo sulla email scelta e sull'username scelto */
@@ -78,8 +75,8 @@ public class ClientDAOMySQL implements ClientDAO {
             assert resultSet != null;
             if (resultSet.next()) {
                 username = resultSet.getString(USERNAME);
-                email = resultSet.getString("email");
-                supervisor = resultSet.getBoolean("supervisor");
+                email = resultSet.getString(EMAIL);
+                supervisor = resultSet.getBoolean(SUPERVISOR);
             } else {
                 throw new UserDoesNotExist();
             }
@@ -122,8 +119,8 @@ public class ClientDAOMySQL implements ClientDAO {
             assert rs != null;
             if (rs.next()) {
                 username = rs.getString(USERNAME);
-                email = rs.getString("email");
-                supervisor = rs.getBoolean("supervisor");
+                email = rs.getString(EMAIL);
+                supervisor = rs.getBoolean(SUPERVISOR);
             } else {
                 throw new UserDoesNotExist();
             }
@@ -137,7 +134,6 @@ public class ClientDAOMySQL implements ClientDAO {
         } catch(SQLException e){
             handleDAOException(e);
         } finally {
-            // Chiusura delle risorse
             closeResources(stmt,rs);
         }
 
@@ -220,8 +216,9 @@ public class ClientDAOMySQL implements ClientDAO {
         }
     }
 
+    /** Metodo utilizzato per notificare SQLException */
     private void handleDAOException(Exception e) {
-        logger.severe(e.getMessage());
+        CLIPrinter.errorPrint(String.format("ClientDAOMySQL: %s", e.getMessage()));
     }
 
 

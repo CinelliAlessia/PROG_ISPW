@@ -3,7 +3,7 @@ package view.second;
 import controller.applicativo.*;
 import engineering.bean.*;
 import engineering.exceptions.*;
-import view.second.utils.CLIPrinter;
+import engineering.others.CLIPrinter;
 
 import java.util.Scanner;
 

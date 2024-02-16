@@ -4,6 +4,7 @@ import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
 
+import engineering.others.CLIPrinter;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -12,7 +13,7 @@ import view.first.utils.*;
 
 import java.net.URL;
 import java.util.*;
-import java.util.logging.Logger;
+
 
 public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializable {
 
@@ -62,14 +63,10 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
     private T clientBean;
     private SceneController sceneController;
 
-    private static final Logger logger = Logger.getLogger(AddPlaylistCtrlGrafico.class.getName());
-
-
-    public void setAttributes(T clientBean, PlaylistBean playlistBean, SceneController sceneController) {
+    public void setAttributes(T clientBean, SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
         this.clientBean = clientBean;
         this.sceneController = sceneController;
-        this.playlistBean = playlistBean;
     }
 
     @Override
@@ -92,6 +89,8 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
             getDate();
 
             if(playlistBean != null){
+                CLIPrinter.logPrint(String.format("GUI AddPlaylist: upload Playlist: %s, nome: %s, genre: %s, emotional: %s", playlistBean, playlistBean.getPlaylistName(), playlistBean.getPlaylistGenre(), playlistBean.getEmotional()));
+
                 // Invocazione metodo controller Applicativo che in teoria è static
                 AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
                 addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
@@ -102,7 +101,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
                 else{
                     sceneController.textPopUp(event,MessageString.ADDED_PENDING_PLAYLIST,true);
                 }
-                logger.info("ADD GUI: PLAYLIST AGGIUNTA");
+                CLIPrinter.logPrint("GUI AddPlaylist: Playlist Aggiunta");
             }
         } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
             showError(e.getMessage());
@@ -110,6 +109,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
     }
 
     private void getDate() throws LinkIsNotValid {
+
         String linkPlaylist = link.getText();
         String titolo = title.getText();
 

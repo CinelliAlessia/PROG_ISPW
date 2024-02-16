@@ -1,16 +1,15 @@
 package view.first.utils;
 
 import engineering.bean.PlaylistBean;
+import engineering.others.CLIPrinter;
 import javafx.collections.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class TableManager {
     private boolean isUpdatingTableView = true;
-    private static final Logger logger = Logger.getLogger(TableManager.class.getName());
 
     /** Associa a ciascuna colonna i relativi metodi get di PlaylistBean
      * @param columns       è una lista di colonne, contiene le sole colonne semplici (no bottoni)
@@ -50,12 +49,12 @@ public class TableManager {
         observableList.addListener((ListChangeListener<PlaylistBean>) change -> {
             while (change.next()) {
                 if (change.wasAdded() && isUpdatingTableView) { ///// non accade mai #########
-                    logger.info("Elementi aggiunti: " + change.getAddedSubList());
+                    CLIPrinter.logPrint(String.format("Elementi aggiunti: %s" , change.getAddedSubList()));
                     isUpdatingTableView = false;
                     playlistTable.getItems().addAll(change.getAddedSubList());
                     isUpdatingTableView = true;
                 } else if (change.wasRemoved() && isUpdatingTableView) {
-                    logger.info("Elementi rimossi: " + change.getRemoved());
+                    CLIPrinter.logPrint(String.format("Elementi rimossi: %s", change.getRemoved()));
                     isUpdatingTableView = false;
                     playlistTable.getItems().removeAll(change.getRemoved());
                     isUpdatingTableView = true;

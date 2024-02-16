@@ -3,7 +3,7 @@ package view.second;
 import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
-import view.second.utils.CLIPrinter;
+import engineering.others.CLIPrinter;
 import view.second.utils.GenreManager;
 
 import java.util.*;
@@ -12,7 +12,7 @@ import java.util.*;
  * Questa classe gestisce l'interfaccia a riga di comando (CLI) per l'aggiunta di una playlist.
  */
 public class AddPlaylistCLI {
-        private ClientBean clientBean;
+    private ClientBean clientBean;
     private final Scanner scanner = new Scanner(System.in);
 
     /**

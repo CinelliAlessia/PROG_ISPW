@@ -20,7 +20,7 @@ public class LoginCtrlApplicativo {
 
         ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        String password = dao.getPasswordByEmail(bean.getEmail());  // ####### se la mail non esiste da errore, trasformiamo in eccezione
+        String password = dao.getPasswordByEmail(bean.getEmail());
 
         if (!password.equals(bean.getPassword())){
             throw new IncorrectPassword();

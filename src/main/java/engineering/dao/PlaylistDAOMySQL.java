@@ -9,12 +9,8 @@ import view.first.utils.GenreManager;
 
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class PlaylistDAOMySQL implements PlaylistDAO {
-
-    private static final Logger logger = Logger.getLogger(PlaylistDAOMySQL.class.getName());
-
 
     /* Stringhe dei campi nel DB my SQL */
     private static final String USERNAME = "username";
@@ -34,12 +30,10 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
 
     /** Inserimento di una playlist in db. Viene prima controllato che non ci sia già il link all'interno del DB, successivamente inserisce */
-    public boolean insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
+    public void insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse {
         Statement stmt = null;
         ResultSet rs = null;
         Connection conn;
-
-        boolean result;
 
         try {
             conn = Connect.getInstance().getDBConnection();
@@ -52,20 +46,17 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
                 throw new PlaylistLinkAlreadyInUse();
             }
 
-            //Devo anche cercare il titolo per il singolo utente prima di caricare
+            //TODO: Devo anche cercare il titolo per il singolo utente prima di caricare
 
             rs.close();
 
             QueryPlaylist.insertPlaylist(stmt, playlist);
 
-            result = true;
         } catch (SQLException e) {
             handleDAOException(e);
-            result = false;
         } finally {
             closeResources(stmt,rs);
         }
-        return result;
     }
 
     /**
@@ -250,7 +241,8 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     }
 
     private void handleDAOException(Exception e) {
-        logger.severe(e.getMessage());
+        CLIPrinter.errorPrint(String.format("PlaylistDAOMySQL: %s", e.getMessage()));
+
     }
 
     /** Imposta i campi username, email, link, nome Playlist, approved, Generi musicali ed emotional */

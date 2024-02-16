@@ -3,7 +3,6 @@ package engineering.others;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class Connect {
 
@@ -12,8 +11,6 @@ public class Connect {
     private String password;
     private static Connect instance = null;
     private Connection conn = null;
-
-    private static final Logger logger = Logger.getLogger(Connect.class.getName());
     private static final String PATH = "src/main/resources/connection.properties";
 
     private Connect() {
@@ -34,7 +31,7 @@ public class Connect {
             try{
                 this.conn = DriverManager.getConnection(jdbc, user, password);
             } catch (SQLException e){
-                logger.severe("Error in Connect.java" +e.getMessage());
+                CLIPrinter.errorPrint(String.format("Error in Connect.java %s", e.getMessage()));
             }
 
         }
@@ -53,7 +50,7 @@ public class Connect {
             password = prop.getProperty("PASSWORD") ;
 
         } catch (IOException e){
-            e.fillInStackTrace();
+            CLIPrinter.errorPrint(e.getMessage());
         }
     }
 

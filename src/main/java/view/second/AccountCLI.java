@@ -3,7 +3,7 @@ package view.second;
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
-import view.second.utils.CLIPrinter;
+import engineering.others.CLIPrinter;
 import view.second.utils.GenreManager;
 
 import java.util.List;

@@ -4,6 +4,7 @@ import controller.applicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
 
+import engineering.others.CLIPrinter;
 import view.first.utils.*;
 
 import javafx.event.ActionEvent;
@@ -13,7 +14,6 @@ import javafx.scene.text.*;
 
 import java.net.URL;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class RegistrazioneCtrlGrafico implements Initializable {
 
@@ -58,8 +58,6 @@ public class RegistrazioneCtrlGrafico implements Initializable {
 
     private SceneController sceneController;
 
-    private static final Logger logger = Logger.getLogger(RegistrazioneCtrlGrafico.class.getName());
-
     public void setAttributes(SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
         this.sceneController = sceneController;
@@ -96,7 +94,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
                 ClientBean clientBean = new UserBean(regBean.getEmail());
                 registrazioneCtrlApplicativo.registerUser(regBean, clientBean);
 
-                logger.info("GUI Registrazione: Utente registrato con successo");
+                CLIPrinter.logPrint("GUI Registrazione: Utente registrato con successo");
 
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);

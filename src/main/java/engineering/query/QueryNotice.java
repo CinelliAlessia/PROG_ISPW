@@ -1,5 +1,6 @@
 package engineering.query;
 
+import engineering.others.CLIPrinter;
 import model.Notice;
 
 import java.sql.ResultSet;
@@ -10,7 +11,6 @@ import java.util.logging.Logger;
 public class QueryNotice {
 
     private QueryNotice(){}
-    private static final Logger logger = Logger.getLogger(QueryNotice.class.getName());
 
     public static void addNotice(Statement stmt, Notice notice) throws SQLException {
         String query = String.format(Queries.INSERT_NOTICE_USER, notice.getUsernameAuthor(), notice.getTitle(), notice.getBody());
@@ -32,8 +32,9 @@ public class QueryNotice {
         }
     }
 
+    /** Solo SQLException */
     private static void handleException(Exception e) {
-        logger.severe(e.getMessage());
+        CLIPrinter.errorPrint(e.getMessage());
     }
 
 }

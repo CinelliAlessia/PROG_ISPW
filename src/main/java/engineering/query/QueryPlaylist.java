@@ -1,14 +1,12 @@
 package engineering.query;
 
+import engineering.others.CLIPrinter;
 import model.Playlist;
 
 import java.sql.*;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class QueryPlaylist {
-
-    private static final Logger logger = Logger.getLogger(QueryPlaylist.class.getName());
 
     private QueryPlaylist(){}
 
@@ -218,8 +216,9 @@ public class QueryPlaylist {
         return query.toString();
     }
 
+    /** Solo SQLException */
     private static void handleException(Exception e) {
-        logger.severe(e.getMessage());
+        CLIPrinter.errorPrint(e.getMessage());
     }
 
 

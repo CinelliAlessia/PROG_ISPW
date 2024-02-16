@@ -37,6 +37,7 @@ public class PlaylistCollection extends Subject {
         notifyObservers();
     }
 
+    /** Non implementato l'eliminazione di una playlist accettata*/
     public void removePlaylist(Playlist playlist) {
         allPlaylists.remove(playlist);
         notifyObservers();
@@ -44,7 +45,7 @@ public class PlaylistCollection extends Subject {
 
     public void setState(List<Playlist> playlists) {
         allPlaylists = playlists;
-        //notifyObservers();
+        //in questo caso non viene fatto notifyObservers() volontariamente
     }
 
     /**
