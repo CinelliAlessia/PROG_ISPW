@@ -20,6 +20,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import model.Playlist;
 import view.first.utils.*;
+import view.second.utils.CLIPrinter;
 
 import java.net.URL;
 import java.util.*;
@@ -84,7 +85,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         logger.info("GUI Home Page");
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
-        List<String> nameColumns = Arrays.asList("playlistName", "link", "username","playlistGenre");
+        List<String> nameColumns = Arrays.asList("playlistName", "link", "username", "playlistGenre");
 
         /* BYPASSIAMO MVC PER PATTERN OBSERVER */
         playlistCollection = PlaylistCollection.getInstance();
@@ -189,10 +190,17 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         contextMenu.getItems().clear(); // Rimuovi tutti gli elementi dal ContextMenu
 
         UserBean userBean = (UserBean) clientBean;
-        //################################# possibile aggiungere il metodo pull a ogni click del bottone
 
-        for (NoticeBean noticeBean : userBean.getNotices()) {
-            contextMenu.getItems().add(createStyledMenuItem(noticeBean));
+        if (userBean.getNotices().isEmpty()) {
+            // Nessuna notifica disponibile
+            MenuItem noNotificationItem = new MenuItem("No notifications available");
+            noNotificationItem.setDisable(true); // Impedisce l'interazione con l'elemento
+            contextMenu.getItems().add(noNotificationItem);
+        } else {
+            // Notifiche disponibili, aggiungi gli elementi del menu
+            for (NoticeBean noticeBean : userBean.getNotices()) {
+                contextMenu.getItems().add(createStyledMenuItem(noticeBean));
+            }
         }
 
         // Converti le coordinate locali del menu in coordinate dello schermo
@@ -202,6 +210,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         // Mostra il ContextMenu accanto al bottone
         contextMenu.show(menu, screenX, screenY);
     }
+
 
     private void handleNoticeSelection(NoticeBean noticeBean) {
         List<NoticeBean> noticeBeanList = ((UserBean)clientBean).getNotices();

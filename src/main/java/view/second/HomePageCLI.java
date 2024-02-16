@@ -2,6 +2,7 @@ package view.second;
 
 import controller.applicativo.HomePageCtrlApplicativo;
 import engineering.bean.*;
+import view.second.utils.CLIPrinter;
 
 import java.util.List;
 import java.util.Scanner;
@@ -85,7 +86,7 @@ public class HomePageCLI<T extends ClientBean> {
                     exit = true; // Esci dal loop e dal programma
                     break;
                 default:
-                    System.out.println("Scelta non valida. Riprova.");
+                    CLIPrinter.errorPrint("Scelta non valida. Riprova.");
             }
         }
     }
@@ -119,27 +120,27 @@ public class HomePageCLI<T extends ClientBean> {
      * Stampa il menu principale dell'interfaccia utente.
      */
     private void printMenu() {
-        System.out.println(" ----- Home Page ----- ");
-        System.out.println("1. Visualizza tutte le playlist");
+        CLIPrinter.println(" ----- Home Page ----- ");
+        CLIPrinter.println("1. Visualizza tutte le playlist");
         if (clientBean != null) {
-            System.out.println("2. Aggiungi una playlist");
+            CLIPrinter.println("2. Aggiungi una playlist");
         } else {
-            System.out.println("2. !!! Non puoi aggiungere playlist -> Registrati!!!");
+            CLIPrinter.println("2. !!! Non puoi aggiungere playlist -> Registrati!!!");
         }
-        System.out.println("3. Applica un filtro di ricerca");
-        System.out.println("4. Elimina il filtro di ricerca");
-        System.out.println("5. Cerca una playlist per nome");
+        CLIPrinter.println("3. Applica un filtro di ricerca");
+        CLIPrinter.println("4. Elimina il filtro di ricerca");
+        CLIPrinter.println("5. Cerca una playlist per nome");
         if (clientBean != null) {
-            System.out.println("6. Visualizza il tuo profilo");
+            CLIPrinter.println("6. Visualizza il tuo profilo");
         } else {
-            System.out.println("6. !!! Non hai un profilo da visualizzare -> Registrati !!!");
+            CLIPrinter.println("6. !!! Non hai un profilo da visualizzare -> Registrati !!!");
         }
 
         if (clientBean != null && clientBean.isSupervisor()) {
-            System.out.println("7. Gestisci playlists in attesa di approvazione");
+            CLIPrinter.println("7. Gestisci playlists in attesa di approvazione");
         }
-        System.out.println("0. Esci");
-        System.out.println("Scegli un'opzione: ");
+        CLIPrinter.println("0. Esci");
+        CLIPrinter.println("Scegli un'opzione: ");
     }
 
     /**
@@ -152,25 +153,25 @@ public class HomePageCLI<T extends ClientBean> {
 
         int playlistNumber = 1;
         for (PlaylistBean playlist : playlistBeans) {
-            System.out.printf("%d. Titolo:%s Creatore:%s %s%n",
-                    playlistNumber, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre());
+            CLIPrinter.println(String.format("%d. Titolo:%s Creatore:%s %s",
+                    playlistNumber, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre()));
             playlistNumber++;
         }
 
         while (true) {
             // Per copiare il link della playlist, l'utente deve inserire il numero corrispondente
-            System.out.println("Inserisci il numero della playlist per ricevere il link (0 per tornare al menu): ");
+            CLIPrinter.println("Inserisci il numero della playlist per ricevere il link (0 per tornare al menu): ");
 
             int playlistChoice = scanner.nextInt();
 
             if (playlistChoice > 0 && playlistChoice <= playlistBeans.size()) {
                 PlaylistBean selectedPlaylist = playlistBeans.get(playlistChoice - 1);
-                System.out.printf("Link: %s%n", selectedPlaylist.getLink());
+                CLIPrinter.println(String.format("Link: %s", selectedPlaylist.getLink()));
             } else if (playlistChoice == 0) {
                 // Torna al menu principale
                 break;
             } else {
-                System.out.println("! Scelta non valida ! -> Riprova");
+                CLIPrinter.errorPrint("! Scelta non valida ! -> Riprova");
             }
         }
     }
@@ -192,7 +193,7 @@ public class HomePageCLI<T extends ClientBean> {
         // Potresti chiedere all'utente di selezionare i generi, l'approvazione, ecc.
         // Usa il controller applicativo per effettuare la ricerca con il filtro
         // e mostra i risultati all'utente
-        System.out.println("Non è ancora stato implementato.");
+        CLIPrinter.errorPrint("Non è ancora stato implementato.");
     }
 
     /**
@@ -201,35 +202,35 @@ public class HomePageCLI<T extends ClientBean> {
     private void deleteFilter() {
         // Resetta la PlaylistFilter a null o come desideri gestire l'eliminazione dei filtri
         // e mostra un messaggio all'utente
-        System.out.println("Non è ancora stato implementato.");
+        CLIPrinter.errorPrint("Non è ancora stato implementato.");
     }
 
     /**
      * Cerca una playlist per nome.
      */
     private void searchPlaylist() {
-        System.out.println("\nInserisci il nome della playlist da cercare: ");
+        CLIPrinter.print("Inserisci il nome della playlist da cercare: ");
         String playlistName = scanner.nextLine();
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistBean.setPlaylistName(playlistName);
         List<PlaylistBean> playlistsList = homePageController.searchPlaylistByFilters(playlistBean);
 
-        System.out.printf("Playlist che contengono:%s nel titolo%n", playlistName);
+        CLIPrinter.println(String.format("Playlist che contengono: \"%s\" nel titolo: ", playlistName));
 
         if (playlistsList.isEmpty()) {
-            System.out.println("Nessuna playlist trovata con il nome specificato.");
+            CLIPrinter.println("Nessuna playlist trovata con il nome specificato.");
         } else {
             int index = 1;
             for (PlaylistBean playlist : playlistsList) {
-                System.out.printf("%d. Nome: %s, Username: %s, Generi: %s, Emozionale: %s%n",
-                        index, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre(), playlist.getEmotional());
+                CLIPrinter.println(String.format("%d. Nome: %s, Username: %s, Generi: %s, Emozionale: %s%n",
+                        index, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre(), playlist.getEmotional()));
                 index++;
             }
 
             int selectedPlaylistIndex;
             while (true) {
-                System.out.println("Inserisci il numero corrispondente alla playlist desiderata (inserisci 0 per uscire): ");
+                CLIPrinter.print("Inserisci il numero corrispondente alla playlist desiderata (inserisci 0 per uscire): ");
                 selectedPlaylistIndex = scanner.nextInt();
 
                 if (selectedPlaylistIndex == 0) {
@@ -238,9 +239,9 @@ public class HomePageCLI<T extends ClientBean> {
 
                 if (selectedPlaylistIndex >= 1 && selectedPlaylistIndex <= playlistsList.size()) {
                     PlaylistBean selectedPlaylist = playlistsList.get(selectedPlaylistIndex - 1);
-                    System.out.printf("Link della playlist selezionata: %s%n", selectedPlaylist.getLink());
+                    CLIPrinter.println(String.format("Link della playlist selezionata: %s", selectedPlaylist.getLink()));
                 } else {
-                    System.out.println("! Selezione non valida-> Riprova !");
+                    CLIPrinter.errorPrint("! Selezione non valida-> Riprova !");
                 }
             }
         }

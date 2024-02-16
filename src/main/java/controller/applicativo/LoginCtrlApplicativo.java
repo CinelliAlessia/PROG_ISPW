@@ -20,7 +20,6 @@ public class LoginCtrlApplicativo {
 
         ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-
         String password = dao.getPasswordByEmail(bean.getEmail());  // ####### se la mail non esiste da errore, trasformiamo in eccezione
 
         if (!password.equals(bean.getPassword())){
@@ -32,7 +31,6 @@ public class LoginCtrlApplicativo {
     public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist, InvalidEmailException {
 
         ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();
-
         Login login = new Login(bean.getEmail(), bean.getPassword());           // Creo model Login per comunicare con il dao
 
         try{
@@ -64,7 +62,6 @@ public class LoginCtrlApplicativo {
 
     public List<Notice> retriveNotice(Client user){
         NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();
-
         return dao.retrieveNotice(user);
     }
 }

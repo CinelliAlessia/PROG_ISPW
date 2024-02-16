@@ -1,10 +1,14 @@
 package view.second;
 
 import controller.applicativo.AccountCtrlApplicativo;
-import engineering.bean.*;
+import engineering.bean.ClientBean;
+import engineering.bean.PlaylistBean;
+import view.second.utils.CLIPrinter;
 import view.second.utils.GenreManager;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Questa classe gestisce l'interfaccia a riga di comando (CLI) per l'account utente.
@@ -28,16 +32,17 @@ public class AccountCLI {
      */
     public void start() {
         while (true) {
-            System.out.println("\u001B[32m" + "----- Profilo -----" + "\u001B[0m");
+            CLIPrinter.println("----- Profilo -----");
 
             displayUserInfo(clientBean);
 
             // Mostra il menu
-            System.out.println("1. Carica nuova Playlist");
-            System.out.println("2. Reimposta le tue preferenze musicali");
-            System.out.println("0. Esci");
+            CLIPrinter.println("1. Carica nuova Playlist");
+            CLIPrinter.println("2. Reimposta le tue preferenze musicali");
+            CLIPrinter.println("0. Esci");
 
-            System.out.print("Scegli un'opzione: ");
+            CLIPrinter.print("Scegli un'opzione: ");
+
             int choice = scanner.nextInt();
 
             switch (choice) {
@@ -50,7 +55,7 @@ public class AccountCLI {
                 case 0:
                     return;
                 default:
-                    System.out.println("Scelta non disponibile !");
+                    CLIPrinter.errorPrint("Scelta non disponibile !");
                     break;
             }
         }
@@ -58,16 +63,16 @@ public class AccountCLI {
 
     private void displayUserInfo(ClientBean clientBean) {
         if (clientBean != null) {
-            System.out.println("Username: " + clientBean.getUsername());
-            System.out.println("Email: " + clientBean.getEmail());
+            CLIPrinter.println(String.format("Username: %s", clientBean.getUsername()));
+            CLIPrinter.println(String.format("Email: %s", clientBean.getEmail()));
 
             if (clientBean.getPreferences() != null && !clientBean.getPreferences().isEmpty()) {
-                System.out.println("Generi preferiti: " + String.join(", ", clientBean.getPreferences()));
+                CLIPrinter.println(String.format("Generi preferiti: %s", String.join(", ", clientBean.getPreferences())));
             } else {
-                System.out.println("Nessun genere preferito impostato.");
+                CLIPrinter.println("Nessun genere preferito impostato.");
             }
 
-            System.out.println("Le tue playlist:");
+            CLIPrinter.println("Le tue playlist:");
             displayUserPlaylists();
         }
     }
@@ -77,7 +82,7 @@ public class AccountCLI {
         List<PlaylistBean> userPlaylists = accountCtrlApplicativo.retrievePlaylists(clientBean);
         for (PlaylistBean playlist : userPlaylists) {
             String approvalStatus = playlist.getApproved() ? "Approved" : "In attesa";
-            System.out.println(approvalStatus + " - Titolo: " + playlist.getPlaylistName() + ", Link: " + playlist.getLink());
+            CLIPrinter.println(String.format(("%s - Titolo: %s, Link: %s"), approvalStatus, playlist.getPlaylistName(), playlist.getLink()));
         }
     }
 
@@ -85,10 +90,10 @@ public class AccountCLI {
         GenreManager genreManager = new GenreManager();
         Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
 
-        System.out.println("Generi disponibili:");
+        CLIPrinter.println("Generi disponibili:");
         genreManager.printGenres(availableGenres);
 
-        System.out.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
+        CLIPrinter.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
@@ -96,7 +101,7 @@ public class AccountCLI {
 
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
         accountCtrlApplicativo.updateGenreUser(clientBean);
-        System.out.println("Preferenze aggiornate");
+        CLIPrinter.println("Preferenze aggiornate");
     }
 
     private void addPlaylist() {

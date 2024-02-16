@@ -1,25 +1,17 @@
 package view.second;
 
 import controller.applicativo.RegistrazioneCtrlApplicativo;
-import engineering.bean.ClientBean;
-import engineering.bean.LoginBean;
-import engineering.bean.UserBean;
-import engineering.exceptions.EmailAlreadyInUse;
-import engineering.exceptions.InvalidEmailException;
-import engineering.exceptions.UsernameAlreadyInUse;
-import view.second.utils.GenreManager;
+import engineering.bean.*;
+import engineering.exceptions.*;
+import view.second.utils.*;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.logging.Logger;
+import java.util.*;
 
 /**
  * Questa classe gestisce l'interfaccia a riga di comando (CLI) per la registrazione di un nuovo utente.
  */
 public class RegistrationCLI {
 
-    private static final Logger logger = Logger.getLogger(RegistrationCLI.class.getName());
     private final Scanner scanner = new Scanner(System.in);
 
     /**
@@ -28,7 +20,7 @@ public class RegistrationCLI {
     public void start() {
         RegistrazioneCtrlApplicativo registrazioneCtrlApp = new RegistrazioneCtrlApplicativo();
 
-        System.out.println("// ------- Registrazione ------- //");
+        CLIPrinter.println("\n// ------- Registrazione ------- //");
 
         String username;
         String email = null;
@@ -38,10 +30,10 @@ public class RegistrationCLI {
 
         while (retry) {
             try {
-                System.out.println("Nome utente: ");
+                CLIPrinter.print("Nome utente: ");
                 username = scanner.next();
 
-                System.out.println("Email: ");
+                CLIPrinter.print("Email: ");
                 email = scanner.next();
 
                 regBean.setEmail(email);
@@ -52,7 +44,7 @@ public class RegistrationCLI {
                 retry = false;
 
             } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
-                logger.severe(e.getMessage());
+                CLIPrinter.errorPrint(e.getMessage());
             }
         }
 
@@ -63,14 +55,14 @@ public class RegistrationCLI {
         // Controllo se le due password sono identiche
         while (retry) {
 
-            System.out.println("Password: ");
+            CLIPrinter.print("Password: ");
             password = scanner.next();
 
-            System.out.println("Conferma password: ");
+            CLIPrinter.print("Conferma password: ");
             confirmPassword = scanner.next();
 
             if (!password.equals(confirmPassword)) {
-                System.out.println(" ! Le password non coincidono -> Riprova !");
+                CLIPrinter.errorPrint(" ! Le password non coincidono -> Riprova !");
             } else {
                 retry = false;
             }
@@ -78,13 +70,13 @@ public class RegistrationCLI {
         regBean.setPassword(password);
 
         // Richiedi generi musicali disponibili all'utente
-        System.out.println("Generi musicali disponibili:");
+        CLIPrinter.println("Generi musicali disponibili:");
         GenreManager genreManager = new GenreManager();
         Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
         genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
-        System.out.println("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
+        CLIPrinter.print("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
@@ -94,7 +86,7 @@ public class RegistrationCLI {
             // ----- Utilizzo controller applicativo -----
             UserBean userBean = new UserBean(email);
             registrazioneCtrlApp.registerUser(regBean, userBean);
-            System.out.println("Registrazione utente avvenuta con successo!");
+            CLIPrinter.println("Registrazione utente avvenuta con successo!");
 
             /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
             HomePageCLI<ClientBean> homePageCLI = new HomePageCLI<>();
@@ -104,7 +96,7 @@ public class RegistrationCLI {
             homePageCLI.start();
 
         } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
-            System.out.println(String.format("! %s !", e.getMessage()));
+            CLIPrinter.errorPrint(String.format("! %s !", e.getMessage()));
         }
     }
 }

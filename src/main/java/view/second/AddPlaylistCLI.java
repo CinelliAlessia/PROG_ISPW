@@ -3,6 +3,7 @@ package view.second;
 import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
+import view.second.utils.CLIPrinter;
 import view.second.utils.GenreManager;
 
 import java.util.*;
@@ -34,17 +35,17 @@ public class AddPlaylistCLI {
         playlistBean.setEmail(clientBean.getEmail());
 
         // Chiedi all'utente di inserire i dati della playlist
-        System.out.println("Inserisci il titolo della playlist: ");
+        CLIPrinter.print("Inserisci il titolo della playlist: ");
         playlistBean.setPlaylistName(scanner.nextLine());
 
         boolean linkIsValid = false;
         while (!linkIsValid) {
-            System.out.println("Inserisci il link della playlist: ");
+            CLIPrinter.print("Inserisci il link della playlist: ");
             try {
                 playlistBean.setLink(scanner.nextLine());
                 linkIsValid = true; // Se non viene lanciata l'eccezione, il link è valido e usciamo dal ciclo
             } catch (LinkIsNotValid e) {
-                System.out.println("! Link non valido-> Riprova !");
+                CLIPrinter.errorPrint("! Link non valido-> Riprova !");
             }
         }
 
@@ -54,7 +55,7 @@ public class AddPlaylistCLI {
         genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
-        System.out.println("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
+        CLIPrinter.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
@@ -68,9 +69,9 @@ public class AddPlaylistCLI {
             AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
             addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
-            System.out.println("Playlist aggiunta con successo!");
+            CLIPrinter.println("Playlist aggiunta con successo!");
         } catch (PlaylistLinkAlreadyInUse e) {
-            System.out.println(" ! Il link relativo playlist è già presente nel sistema !");
+            CLIPrinter.errorPrint(" ! Il link relativo playlist è già presente nel sistema !");
         }
     }
 }
