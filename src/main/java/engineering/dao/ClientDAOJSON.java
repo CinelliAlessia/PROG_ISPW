@@ -46,7 +46,7 @@ public class ClientDAOJSON implements ClientDAO {
             String json = new GsonBuilder().setPrettyPrinting().create().toJson(login);
             Files.writeString(userInfoFile, json);
 
-            logger.info("USERDAO: Utente inserito con successo!");
+            logger.info("ClientDAO: Utente inserito con successo!");
         } catch (IOException e) {
             handleDAOException(e);
         }
@@ -61,7 +61,7 @@ public class ClientDAOJSON implements ClientDAO {
                 String content = Files.readString(userInfoFile);
                 return parseClient(content);
             } else {
-                logger.severe("USERDAO: Utente non trovato");
+                logger.severe("ClientDAO: Utente non trovato");
                 throw new UserDoesNotExist();
             }
         } catch (IOException e) {
@@ -147,9 +147,9 @@ public class ClientDAOJSON implements ClientDAO {
                 // Sovrascrive il file solo con le informazioni aggiornate
                 Files.writeString(userInfoFile, updatedJson);
 
-                logger.info("USERDAO: Preferenze utente aggiornate con successo!");
+                logger.info("CLIENTDAO: Preferenze utente aggiornate con successo!");
             } else {
-                logger.severe("USERDAO: Utente non trovato o file userInfo.json mancante.");
+                logger.severe("CLIENTDAO: Utente non trovato o file userInfo.json mancante.");
             }
         } catch (IOException e) {
             handleDAOException(e);
@@ -165,7 +165,7 @@ public class ClientDAOJSON implements ClientDAO {
                 throw new UsernameAlreadyInUse();
             }
         } catch (UserDoesNotExist e){
-            e.fillInStackTrace();
+            handleDAOException(e);
         }
     }
 

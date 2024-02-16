@@ -3,10 +3,8 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
+import engineering.pattern.abstract_factory.DAOFactory;
 import model.*;
-
-
-import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
 
 public class RegistrazioneCtrlApplicativo {
 
@@ -15,8 +13,7 @@ public class RegistrazioneCtrlApplicativo {
     /** Query al dao per registrare un utente */
     public void registerUser(LoginBean regBean, ClientBean clientBean) throws EmailAlreadyInUse, UsernameAlreadyInUse, InvalidEmailException {
 
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        ClientDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         // Crea l'utente (model) per inviarlo al DAO
         Login registration = new Login(regBean.getUsername(), regBean.getEmail(), regBean.getPassword(), regBean.getPreferences());
@@ -39,8 +36,8 @@ public class RegistrazioneCtrlApplicativo {
     }
 
     public void tryCredentialExisting(LoginBean loginBean) throws EmailAlreadyInUse, UsernameAlreadyInUse {
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        ClientDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+
         Login login = new Login(loginBean.getUsername(), loginBean.getEmail());
         dao.tryCredentialExisting(login);
     }

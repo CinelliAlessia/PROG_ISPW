@@ -3,21 +3,21 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
+import engineering.pattern.abstract_factory.DAOFactory;
 import model.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
+import java.util.*;
+import java.util.logging.Logger;
 
 public class AccountCtrlApplicativo {
+
+    private static final Logger logger = Logger.getLogger(AccountCtrlApplicativo.class.getName());
+
 
     /** Recupera tutte le playlist globali by username
      */
     public List<PlaylistBean> retrievePlaylists(ClientBean clientBean) {
-
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         // Recupero lista Playlist
         List<Playlist> playlists = dao.retrievePlaylistsByEmail(clientBean.getEmail()); //##################### ok che dobbiamo passare una stinga ma non userBean.getEmail
@@ -30,7 +30,7 @@ public class AccountCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            e.fillInStackTrace();
+            handleDAOException(e);
         }
 
         return playlistsBean;
@@ -38,9 +38,7 @@ public class AccountCtrlApplicativo {
 
     /** Utilizzata per aggiornare i generi musicali preferiti dell'utente in caso in cui prema il bottone Salva */
     public void updateGenreUser(ClientBean clientBean){
-
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        ClientDAO dao = persistenceType.createUserDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         Client client;
         if(clientBean.isSupervisor()){
@@ -59,8 +57,7 @@ public class AccountCtrlApplicativo {
      * vanno aggiunti dei controlli per capire chi può eliminare */
     public static Boolean deletePlaylist(PlaylistBean pB){
 
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        PlaylistDAO dao = persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
         playlist.setId(pB.getId());
@@ -70,5 +67,10 @@ public class AccountCtrlApplicativo {
         // Per ora lascio return true
         return true;
     }
+
+    private void handleDAOException(Exception e) {
+        logger.severe(e.getMessage());
+    }
+
 
 }

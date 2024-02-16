@@ -1,10 +1,9 @@
 package controller.applicativo;
 
-import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
-
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
+import engineering.pattern.abstract_factory.DAOFactory;
 import engineering.pattern.observer.PlaylistCollection;
 import model.Notice;
 import model.Playlist;
@@ -18,7 +17,7 @@ public class PendingPlaylistCtrlApplicativo {
     private static final Logger logger = Logger.getLogger(PendingPlaylistCtrlApplicativo.class.getName());
 
     public void approvePlaylist(PlaylistBean pB){
-        PlaylistDAO dao = getDAO();
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();
 
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
         playlist.setId(pB.getId());
@@ -37,7 +36,7 @@ public class PendingPlaylistCtrlApplicativo {
     /** Recupera tutte le playlist globali, sia approvate che non */
     public List<PlaylistBean> retrievePlaylists(){
 
-        PlaylistDAO dao = getDAO();
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();
 
         // Recupero lista Playlist
         List<Playlist> playlists = dao.retrievePendingPlaylists();
@@ -58,7 +57,7 @@ public class PendingPlaylistCtrlApplicativo {
     }
 
     public void rejectPlaylist(PlaylistBean pB) {
-        PlaylistDAO dao = getDAO();
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();
 
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
         playlist.setId(pB.getId());
@@ -68,16 +67,10 @@ public class PendingPlaylistCtrlApplicativo {
 
     public void sendNotification(NoticeBean noticeBean) {
 
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        NoticeDAO dao = persistenceType.createNoticeDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();
 
         Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(),noticeBean.getUsernameAuthor());
 
         dao.addNotice(notice);
-    }
-
-    private PlaylistDAO getDAO(){
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        return persistenceType.createPlaylistDAO();           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
     }
 }

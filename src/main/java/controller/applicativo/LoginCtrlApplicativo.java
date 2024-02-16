@@ -3,12 +3,10 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
+import engineering.pattern.abstract_factory.DAOFactory;
 import model.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
+import java.util.*;
 
 public class LoginCtrlApplicativo {
 
@@ -20,8 +18,8 @@ public class LoginCtrlApplicativo {
 
     public void verificaCredenziali(LoginBean bean) throws IncorrectPassword, UserDoesNotExist {
 
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        ClientDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+
 
         String password = dao.getPasswordByEmail(bean.getEmail());  // ####### se la mail non esiste da errore, trasformiamo in eccezione
 
@@ -33,8 +31,7 @@ public class LoginCtrlApplicativo {
     /** Recupera l'User dalla persistenza e crea una nuova istanza di UserBean */
     public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist, InvalidEmailException {
 
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        ClientDAO dao = persistenceType.createUserDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();
 
         Login login = new Login(bean.getEmail(), bean.getPassword());           // Creo model Login per comunicare con il dao
 
@@ -66,8 +63,7 @@ public class LoginCtrlApplicativo {
     }
 
     public List<Notice> retriveNotice(Client user){
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        NoticeDAO dao = persistenceType.createNoticeDAO();                           // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();
 
         return dao.retrieveNotice(user);
     }

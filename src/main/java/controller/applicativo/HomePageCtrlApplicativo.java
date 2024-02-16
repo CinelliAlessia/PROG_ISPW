@@ -4,6 +4,7 @@ import engineering.bean.NoticeBean;
 import engineering.bean.PlaylistBean;
 import engineering.dao.*;
 import engineering.exceptions.LinkIsNotValid;
+import engineering.pattern.abstract_factory.DAOFactory;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.PlaylistCollection;
 import engineering.pattern.observer.Subject;
@@ -13,15 +14,12 @@ import model.Playlist;
 import java.util.*;
 import java.util.logging.Logger;
 
-import static engineering.dao.TypesOfPersistenceLayer.getPreferredPersistenceType;
-
 public class HomePageCtrlApplicativo {
 
     private static final Logger logger = Logger.getLogger(HomePageCtrlApplicativo.class.getName());
     public List<PlaylistBean> retrivePlaylistsApproved() {
 
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        PlaylistDAO dao = persistenceType.createPlaylistDAO();                   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         List<Playlist> playlists = dao.retrieveApprovedPlaylists();              // Recupero lista Playlist
         List<PlaylistBean> playlistsBean = new ArrayList<>();
@@ -49,8 +47,7 @@ public class HomePageCtrlApplicativo {
     /* ############# Dovrebbe essere fuso con il searchPlaylistByName ################ */
     public List<PlaylistBean> searchPlaylistByFilters(PlaylistBean playlistBean) {
 
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        PlaylistDAO dao = persistenceType.createPlaylistDAO();                   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean da restituire al Grafico
         Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
@@ -109,8 +106,7 @@ public class HomePageCtrlApplicativo {
     }
 
     public void removeNotice(NoticeBean noticeBean) {
-        TypesOfPersistenceLayer persistenceType = getPreferredPersistenceType(); // Prendo il tipo di persistenza impostato nel file di configurazione
-        NoticeDAO dao = persistenceType.createNoticeDAO();                   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(), noticeBean.getUsernameAuthor());
         dao.deleteNotice(notice);
