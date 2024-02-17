@@ -100,6 +100,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         List<String> nameColumns = Arrays.asList("playlistName", "link", "approved", "playlistGenre");
         TableManager.setColumnsTableView(columns, nameColumns);
         linkColumn.setCellFactory(button -> new SingleButtonTableCell());
+        approveColumn.setCellFactory(button -> new ImageButtonTableCell());
 
         observableList = FXCollections.observableArrayList(userPlaylists);
         playlistTable.setItems(observableList);
