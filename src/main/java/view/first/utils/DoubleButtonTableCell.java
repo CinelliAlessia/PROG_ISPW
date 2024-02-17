@@ -13,13 +13,13 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
     private final Button approveButton = new Button("V");
     private final Button rejectButton = new Button("X");
 
-    public DoubleButtonTableCell() {
+    public DoubleButtonTableCell(PendingPlaylistCtrlGrafico pendingPlaylistCtrlGrafico) {
 
         approveButton.setOnAction(e -> {
             TableRow<PlaylistBean> tableRow = getTableRow();
             if (tableRow != null) {
                 PlaylistBean playlistBean = tableRow.getItem();
-                PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean, true);
+                handlePendingButton(pendingPlaylistCtrlGrafico, playlistBean, true);
             }
         });
 
@@ -27,7 +27,7 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
             TableRow<PlaylistBean> tableRow = getTableRow();
             if (tableRow != null) {
                 PlaylistBean playlistBean = tableRow.getItem();
-                PendingPlaylistCtrlGrafico.handlePendingButton(playlistBean, false);
+                handlePendingButton(pendingPlaylistCtrlGrafico, playlistBean, false);
             }
         });
 
@@ -37,6 +37,10 @@ public class DoubleButtonTableCell extends TableCell<PlaylistBean, Boolean> {
 
         rejectButton.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-pref-height: 25px; -fx-pref-width: 25px; " +
                 "-fx-min-width: -1; -fx-min-height: -1; -fx-background-radius: 50%; -fx-stroke: 50; -fx-border-radius: 50%;");
+    }
+
+    public void handlePendingButton(PendingPlaylistCtrlGrafico pendingPlaylistCtrlGrafico, PlaylistBean playlistBean, boolean approve) {
+        pendingPlaylistCtrlGrafico.handlerButton(playlistBean,approve);
     }
 
     @Override

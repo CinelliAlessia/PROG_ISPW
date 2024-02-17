@@ -30,7 +30,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
     private TableView<PlaylistBean> playlistTable;
 
     private SceneController sceneController;
-    private static ObservableList<PlaylistBean> observableList;
+    private ObservableList<PlaylistBean> observableList;
 
     public void setAttributes(SceneController sceneController) {
         // Deve avere un userBean per compilare tutte le informazioni
@@ -50,14 +50,19 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         TableManager.setColumnsTableView(columns, nameColumns);
 
         // Aggiungi la colonna con bottoni "Approve" o "Reject"
-        approveColumn.setCellFactory(button -> new DoubleButtonTableCell());
+        approveColumn.setCellFactory(button -> new DoubleButtonTableCell(this));
 
         TableManager tableManager = new TableManager();
         observableList = tableManager.collegamento(playlistTable,playlistsPending);
     }
 
-    /** Static perché deve essere chiamata da DoubleButtonTableCell, è l'azione che viene compiuta al click del bottone Accept o Reject */
-    public static void handlePendingButton(PlaylistBean playlistBean, boolean approve) {
+    @FXML
+    public void onBackClick(ActionEvent event) {
+        sceneController.goBack(event);
+    }
+
+    /** Public perché deve essere chiamata da DoubleButtonTableCell, è l'azione che viene compiuta al click del bottone Accept o Reject */
+    public void handlerButton(PlaylistBean playlistBean, boolean approve) {
 
         // Logica per gestire l'approvazione o il rifiuto della playlist
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
@@ -87,10 +92,5 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         NoticeBean noticeBean = new NoticeBean(title, body, playlistBean.getUsername());
         pendingPlaylistCtrlApplicativo.sendNotification(noticeBean);
         observableList.remove(playlistBean);
-    }
-
-    @FXML
-    public void onBackClick(ActionEvent event) {
-        sceneController.goBack(event);
     }
 }
