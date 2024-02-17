@@ -35,10 +35,12 @@ public class RegistrazioneCtrlApplicativo {
         userBean.setPreferences(registration.getPreferences());
     }
 
-    public void tryCredentialExisting(LoginBean loginBean) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+    public void tryCredentialExisting(LoginBean regBean) throws EmailAlreadyInUse, UsernameAlreadyInUse {
         ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        Login login = new Login(loginBean.getUsername(), loginBean.getEmail());
+        Login login = new Login();
+        login.setEmail(regBean.getEmail());
+        login.setUsername(regBean.getUsername());
         dao.tryCredentialExisting(login);
     }
 

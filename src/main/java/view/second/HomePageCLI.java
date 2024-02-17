@@ -120,7 +120,7 @@ public class HomePageCLI<T extends ClientBean> {
      * Stampa il menu principale dell'interfaccia utente.
      */
     private void printMenu() {
-        CLIPrinter.println(" ----- Home Page ----- ");
+        CLIPrinter.println("\n ----- Home Page ----- ");
         CLIPrinter.println("1. Visualizza tutte le playlist");
         if (clientBean != null) {
             CLIPrinter.println("2. Aggiungi una playlist");
@@ -153,14 +153,14 @@ public class HomePageCLI<T extends ClientBean> {
 
         int playlistNumber = 1;
         for (PlaylistBean playlist : playlistBeans) {
-            CLIPrinter.println(String.format("%d. Titolo:%s Creatore:%s %s",
+            CLIPrinter.println(String.format("%d. Titolo: %s Creatore: %s Generi della Playlist: %s",
                     playlistNumber, playlist.getPlaylistName(), playlist.getUsername(), playlist.getPlaylistGenre()));
             playlistNumber++;
         }
 
         while (true) {
             // Per copiare il link della playlist, l'utente deve inserire il numero corrispondente
-            CLIPrinter.println("Inserisci il numero della playlist per ricevere il link (0 per tornare al menu): ");
+            CLIPrinter.print("Inserisci il numero della playlist per ricevere il link (0 per tornare al menu): ");
 
             int playlistChoice = scanner.nextInt();
 

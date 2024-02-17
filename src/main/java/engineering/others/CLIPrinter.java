@@ -9,7 +9,7 @@ public class CLIPrinter {
     }
 
     public static void println(String message){
-        System.out.println(message);
+        print(String.format("%s%n", message));
     }
 
     public static void errorPrint(String message){
@@ -20,7 +20,8 @@ public class CLIPrinter {
         String resetColorCode = "\u001B[0m";
 
         // Stampa il testo in rosso per gli errori
-        System.out.println(redColorCode + message + resetColorCode);
+        message = redColorCode + message + resetColorCode;
+        println(message);
     }
 
     public static void logPrint(String message){
@@ -31,6 +32,7 @@ public class CLIPrinter {
         String resetColorCode = "\u001B[0m";
 
         // Stampa il testo in blu per i log
-        System.out.println(blueColorCode + message + resetColorCode);
+        message = blueColorCode + message + resetColorCode;
+        println(message);
     }
 }

@@ -71,7 +71,7 @@ public class RegistrationCLI {
         regBean.setPassword(password);
 
         // Richiedi generi musicali disponibili all'utente
-        CLIPrinter.println("Generi musicali disponibili:");
+        CLIPrinter.println("Generi musicali preferiti:");
         GenreManager genreManager = new GenreManager();
         Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
         genreManager.printGenres(availableGenres);

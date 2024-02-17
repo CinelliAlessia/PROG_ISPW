@@ -23,7 +23,7 @@ public class GenreManager {
             }
         } catch (IOException e) {
             // Gestisci l'eccezione qui senza lanciarla di nuovo
-            CLIPrinter.errorPrint("Errore durante la lettura del file: " + e.getMessage());
+            CLIPrinter.errorPrint(String.format("Errore durante la lettura del file: %s", e.getMessage()));
         }
         return availableGenres;
     }
@@ -39,16 +39,18 @@ public class GenreManager {
 
         String[] genreIndices = genreInput.split(",");
         List<String> preferences = new ArrayList<>();
+
         for (String index : genreIndices) {
             try {
                 int genreIndex = Integer.parseInt(index.trim());
                 if (availableGenres.containsKey(genreIndex)) {
                     preferences.add(availableGenres.get(genreIndex));
                 } else {
-                    CLIPrinter.errorPrint(String.format(" ! Numero genere non valido: %s !",index));
+                    CLIPrinter.errorPrint(String.format(" ! Numero genere non valido: %s !", index));
                 }
             } catch (NumberFormatException e) {
-                CLIPrinter.errorPrint(" ! Input non valido: " + index + " !");
+                CLIPrinter.errorPrint(String.format(" ! Input non valido: %s !", index));
+
             }
         }
         return preferences;

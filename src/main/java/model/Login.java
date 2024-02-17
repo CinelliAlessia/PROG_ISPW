@@ -17,6 +17,10 @@ public class Login extends Client {
         setPassword(password);
     }
 
+    public Login() {
+
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
