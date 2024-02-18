@@ -1,6 +1,6 @@
 package start;
 
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 
 import view.first.utils.FxmlFileName;
 import view.second.LoginCLI;
@@ -30,7 +30,7 @@ public class MainApplication extends Application {
             // Interfaccia a riga di comando
             startCommandLineInterface();
         } else {
-            CLIPrinter.errorPrint("Tipo di interfaccia specificata nel file di configurazione non valida: Default interfaccia grafica");
+            Printer.errorPrint("Tipo di interfaccia specificata nel file di configurazione non valida: Default interfaccia grafica");
             // Interfaccia grafica
             loadGraphicalInterface(stage);
         }
@@ -57,10 +57,10 @@ public class MainApplication extends Application {
             if (input != null) {
                 properties.load(input);
             } else {
-                CLIPrinter.errorPrint("MainApplication: Impossibile trovare il file di configurazione.");
+                Printer.errorPrint("MainApplication: Impossibile trovare il file di configurazione.");
             }
         } catch (IOException e) {
-           CLIPrinter.errorPrint(String.format("MainApplication: Errore durante la lettura del file di configurazione %s", e.getMessage()));
+           Printer.errorPrint(String.format("MainApplication: Errore durante la lettura del file di configurazione %s", e.getMessage()));
         }
         return properties;
     }

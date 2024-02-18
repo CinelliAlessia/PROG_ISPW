@@ -30,7 +30,7 @@ public class AddPlaylistCtrlApplicativo {
 
         } catch (PlaylistLinkAlreadyInUse e){
             //################# Se la playlist non viene caricata Dovrei restituire un eccezione #################àà
-            CLIPrinter.errorPrint("ADD APP: Playlist non è stata caricata");
+            Printer.errorPrint("ADD APP: Playlist non è stata caricata");
 
             throw new PlaylistLinkAlreadyInUse();
         }

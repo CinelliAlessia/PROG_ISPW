@@ -1,7 +1,7 @@
 package view.first.utils;
 
 import engineering.bean.PlaylistBean;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import javafx.collections.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -49,12 +49,12 @@ public class TableManager {
         observableList.addListener((ListChangeListener<PlaylistBean>) change -> {
             while (change.next()) {
                 if (change.wasAdded() && isUpdatingTableView) { ///// non accade mai #########
-                    CLIPrinter.logPrint(String.format("Elementi aggiunti: %s" , change.getAddedSubList()));
+                    Printer.logPrint(String.format("Elementi aggiunti: %s" , change.getAddedSubList()));
                     isUpdatingTableView = false;
                     playlistTable.getItems().addAll(change.getAddedSubList());
                     isUpdatingTableView = true;
                 } else if (change.wasRemoved() && isUpdatingTableView) {
-                    CLIPrinter.logPrint(String.format("Elementi rimossi: %s", change.getRemoved()));
+                    Printer.logPrint(String.format("Elementi rimossi: %s", change.getRemoved()));
                     isUpdatingTableView = false;
                     playlistTable.getItems().removeAll(change.getRemoved());
                     isUpdatingTableView = true;

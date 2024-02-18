@@ -1,8 +1,8 @@
 package engineering.others;
 
-public class CLIPrinter {
+public class Printer {
 
-    private CLIPrinter(){}
+    private Printer(){}
 
     public static void print(String message){
         System.out.print(message);

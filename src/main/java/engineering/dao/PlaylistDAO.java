@@ -26,7 +26,7 @@ public interface PlaylistDAO {
     /** Recupera tutte le playlist, filtrandole per genere  */
     List<Playlist> searchPlaylistByFilters(Playlist playlist);
 
-    List<Playlist> searchPlaylistTitle(Playlist playlist);
+    List<Playlist> searchPlaylistByTitle(Playlist playlist);
 
     List<Playlist> searchPlaylistByGenre(Playlist playlist);
 

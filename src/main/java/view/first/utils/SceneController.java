@@ -1,7 +1,7 @@
 package view.first.utils;
 
 import engineering.bean.*;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 
 import javafx.collections.ObservableList;
 import javafx.event.*;
@@ -216,7 +216,7 @@ public class SceneController {
     }
 
     private void handleSceneLoadError(Exception e) {
-        CLIPrinter.errorPrint(String.format("SceneController: %s", e.getMessage()));
+        Printer.errorPrint(String.format("SceneController: %s", e.getMessage()));
     }
 
 }

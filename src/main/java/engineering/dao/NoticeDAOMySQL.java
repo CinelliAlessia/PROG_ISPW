@@ -1,6 +1,6 @@
 package engineering.dao;
 
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import engineering.others.Connect;
 import engineering.query.QueryNotice;
 import model.*;
@@ -107,7 +107,7 @@ public class NoticeDAOMySQL implements NoticeDAO{
 
     /** Metodo utilizzato per notificare SQLException */
     private void handleDAOException(Exception e) {
-        CLIPrinter.errorPrint(String.format("NoticeDAOMySQL: %s", e.getMessage()));
+        Printer.errorPrint(String.format("NoticeDAOMySQL: %s", e.getMessage()));
     }
 
 }

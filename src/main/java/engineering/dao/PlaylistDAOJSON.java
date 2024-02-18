@@ -58,10 +58,10 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 }
 
                 Files.copy(playlistPath, allPlaylistsPath, StandardCopyOption.REPLACE_EXISTING);
-                CLIPrinter.logPrint("PlaylistDAOJSON: Playlist inserita con successo!");
+                Printer.logPrint("PlaylistDAOJSON: Playlist inserita con successo!");
 
             } else {
-                CLIPrinter.logPrint("PlaylistDAOJSON: Una playlist con questo nome esiste già per questo utente.");
+                Printer.logPrint("PlaylistDAOJSON: Una playlist con questo nome esiste già per questo utente.");
                 throw new PlaylistLinkAlreadyInUse();
             }
         } catch (IOException e) {
@@ -122,7 +122,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 return false;
             }
         } else {
-            CLIPrinter.errorPrint("PlaylistDAOJSON: File della playlist non trovato.");
+            Printer.errorPrint("PlaylistDAOJSON: File della playlist non trovato.");
             return false;
         }
     }
@@ -195,9 +195,9 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         boolean deletedFromGlobalFolder = deletePlaylistFromFolder(allPlaylistsPath);
 
         if (deletedFromUserFolder && deletedFromGlobalFolder) {
-            CLIPrinter.logPrint("PlaylistDAOJSON: Playlist eliminata con successo!");
+            Printer.logPrint("PlaylistDAOJSON: Playlist eliminata con successo!");
         } else {
-            CLIPrinter.logPrint("PlaylistDAOJSON: Errore durante l'eliminazione della playlist.");
+            Printer.logPrint("PlaylistDAOJSON: Errore durante l'eliminazione della playlist.");
         }
     }
 
@@ -211,7 +211,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         if (Files.exists(userDirectory)) {
             playlistList = retrievePlaylistsFromDirectory(userDirectory);
         } else {
-            CLIPrinter.errorPrint("PlaylistDAOJSON: Utente non trovato!");
+            Printer.errorPrint("PlaylistDAOJSON: Utente non trovato!");
         }
 
         return playlistList;
@@ -267,7 +267,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         }
     }
 
-    public List<Playlist> searchPlaylistTitle(Playlist playlist) {
+    public List<Playlist> searchPlaylistByTitle(Playlist playlist) {
         // Estrai il nome della playlist da cercare
         String targetPlaylistName = playlist.getPlaylistName().toLowerCase();
 
@@ -303,7 +303,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
 
     /** Metodo utilizzato per notificare IOException */
     private void handleDAOException(Exception e) {
-        CLIPrinter.errorPrint(String.format("PlaylistDAOJSON: %s", e.getMessage()));
+        Printer.errorPrint(String.format("PlaylistDAOJSON: %s", e.getMessage()));
 
     }
 

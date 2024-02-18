@@ -1,6 +1,6 @@
 package engineering.query;
 
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import model.Login;
 
 import java.sql.*;
@@ -131,7 +131,7 @@ public class QueryLogin {
 
     /** Solo SQLException */
     private static void handleException(Exception e) {
-        CLIPrinter.errorPrint(String.format("QueryLogin: %s", e.getMessage()));
+        Printer.errorPrint(String.format("QueryLogin: %s", e.getMessage()));
     }
 
 }

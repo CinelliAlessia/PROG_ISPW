@@ -4,7 +4,7 @@ import controller.applicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
 
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import view.first.utils.*;
 
 import javafx.event.ActionEvent;
@@ -94,7 +94,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
                 ClientBean clientBean = new UserBean(regBean.getEmail());
                 registrazioneCtrlApplicativo.registerUser(regBean, clientBean);
 
-                CLIPrinter.logPrint("GUI Registrazione: Utente registrato con successo");
+                Printer.logPrint("GUI Registrazione: Utente registrato con successo");
 
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);

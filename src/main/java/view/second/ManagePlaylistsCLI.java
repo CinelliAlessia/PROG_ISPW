@@ -2,7 +2,7 @@ package view.second;
 
 import controller.applicativo.PendingPlaylistCtrlApplicativo;
 import engineering.bean.PlaylistBean;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 
 import java.util.List;
 import java.util.Scanner;
@@ -20,13 +20,13 @@ public class ManagePlaylistsCLI {
     public void start() {
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
         List<PlaylistBean> playlistsPending = pendingPlaylistCtrlApplicativo.retrievePlaylists();
-        CLIPrinter.println("\n----- Gestisci Playlists -----");
+        Printer.println("\n----- Gestisci Playlists -----");
         int index = 0;
         for (PlaylistBean playlist : playlistsPending) {
             index++;
             handlePlaylist(playlist, index);
         }
-        CLIPrinter.println("--- Non ci sono più playlist da gestire ---");
+        Printer.println("--- Non ci sono più playlist da gestire ---");
     }
 
     /**
@@ -36,16 +36,16 @@ public class ManagePlaylistsCLI {
      * @param index    L'indice della playlist.
      */
     private void handlePlaylist(PlaylistBean playlist, int index) {
-        CLIPrinter.println("---" + index + "---");
-        CLIPrinter.println("Nome: " + playlist.getPlaylistName());
-        CLIPrinter.println("Creatore: " + playlist.getUsername());
-        CLIPrinter.println("Generi: " + playlist.getPlaylistGenre());
-        CLIPrinter.println("Link: " + playlist.getLink());
+        Printer.println("---" + index + "---");
+        Printer.println("Nome: " + playlist.getPlaylistName());
+        Printer.println("Creatore: " + playlist.getUsername());
+        Printer.println("Generi: " + playlist.getPlaylistGenre());
+        Printer.println("Link: " + playlist.getLink());
 
-        CLIPrinter.println("\nOpzioni:");
-        CLIPrinter.println("1. Accetta");
-        CLIPrinter.println("2. Rifiuta");
-        CLIPrinter.println("0. Esci");
+        Printer.println("\nOpzioni:");
+        Printer.println("1. Accetta");
+        Printer.println("2. Rifiuta");
+        Printer.println("0. Esci");
 
         int choice = getChoice();
 
@@ -57,10 +57,10 @@ public class ManagePlaylistsCLI {
                 rejectPlaylist(playlist);
                 break;
             case 0:
-                CLIPrinter.println("Uscita dalla gestione playlist in attesa.");
+                Printer.println("Uscita dalla gestione playlist in attesa.");
                 break;
             default:
-                CLIPrinter.errorPrint("Scelta non valida. Riprova.");
+                Printer.errorPrint("Scelta non valida. Riprova.");
                 handlePlaylist(playlist, index);
                 break;
         }
@@ -72,7 +72,7 @@ public class ManagePlaylistsCLI {
      * @return La scelta dell'utente.
      */
     private int getChoice() {
-        CLIPrinter.print("Inserisci la tua scelta: ");
+        Printer.print("Inserisci la tua scelta: ");
         return scanner.nextInt();
     }
 
@@ -85,7 +85,7 @@ public class ManagePlaylistsCLI {
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
         pendingPlaylistCtrlApplicativo.approvePlaylist(playlist);
 
-        CLIPrinter.println("Playlist approvata.");
+        Printer.println("Playlist approvata.");
     }
 
     /**
@@ -97,6 +97,6 @@ public class ManagePlaylistsCLI {
         PendingPlaylistCtrlApplicativo pendingPlaylistCtrlApplicativo = new PendingPlaylistCtrlApplicativo();
         pendingPlaylistCtrlApplicativo.rejectPlaylist(playlist);
 
-        CLIPrinter.println("Playlist rifiutata.");
+        Printer.println("Playlist rifiutata.");
     }
 }

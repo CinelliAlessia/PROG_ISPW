@@ -4,7 +4,7 @@ import controller.applicativo.AddPlaylistCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
 
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
@@ -91,7 +91,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
             getDate();
 
             if(playlistBean != null){
-                CLIPrinter.logPrint(String.format("GUI AddPlaylist: upload Playlist: %s, nome: %s, genre: %s, emotional: %s", playlistBean, playlistBean.getPlaylistName(), playlistBean.getPlaylistGenre(), playlistBean.getEmotional()));
+                Printer.logPrint(String.format("GUI AddPlaylist: upload Playlist: %s, nome: %s, genre: %s, emotional: %s", playlistBean, playlistBean.getPlaylistName(), playlistBean.getPlaylistGenre(), playlistBean.getEmotional()));
 
                 // Invocazione metodo controller Applicativo che in teoria è static
                 AddPlaylistCtrlApplicativo addPlaylistControllerApplicativo = new AddPlaylistCtrlApplicativo();
@@ -103,7 +103,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
                 else{
                     sceneController.textPopUp(event,MessageString.ADDED_PENDING_PLAYLIST,true);
                 }
-                CLIPrinter.logPrint("GUI AddPlaylist: Playlist Aggiunta");
+                Printer.logPrint("GUI AddPlaylist: Playlist Aggiunta");
             }
         } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
             showError(e.getMessage());

@@ -31,7 +31,7 @@ public class Connect {
             try{
                 this.conn = DriverManager.getConnection(jdbc, user, password);
             } catch (SQLException e){
-                CLIPrinter.errorPrint(String.format("Error in Connect.java %s", e.getMessage()));
+                Printer.errorPrint(String.format("Error in Connect.java %s", e.getMessage()));
             }
 
         }
@@ -50,7 +50,7 @@ public class Connect {
             password = prop.getProperty("PASSWORD") ;
 
         } catch (IOException e){
-            CLIPrinter.errorPrint(e.getMessage());
+            Printer.errorPrint(e.getMessage());
         }
     }
 

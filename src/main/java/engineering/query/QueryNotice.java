@@ -1,6 +1,6 @@
 package engineering.query;
 
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import model.Notice;
 
 import java.sql.*;
@@ -31,7 +31,7 @@ public class QueryNotice {
 
     /** Solo SQLException */
     private static void handleException(Exception e) {
-        CLIPrinter.errorPrint(e.getMessage());
+        Printer.errorPrint(e.getMessage());
     }
 
 }

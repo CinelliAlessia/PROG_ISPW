@@ -36,7 +36,7 @@ public class ClientDAOJSON implements ClientDAO {
             String json = new GsonBuilder().setPrettyPrinting().create().toJson(login);
             Files.writeString(userInfoFile, json);
 
-            CLIPrinter.logPrint("ClientDAO: Utente inserito con successo!");
+            Printer.logPrint("ClientDAO: Utente inserito con successo!");
         } catch (IOException e) {
             handleDAOException(e);
         }
@@ -51,7 +51,7 @@ public class ClientDAOJSON implements ClientDAO {
                 String content = Files.readString(userInfoFile);
                 return parseClient(content);
             } else {
-                CLIPrinter.logPrint("ClientDAO: Utente non trovato");
+                Printer.logPrint("ClientDAO: Utente non trovato");
                 throw new UserDoesNotExist();
             }
         } catch (IOException e) {
@@ -137,9 +137,9 @@ public class ClientDAOJSON implements ClientDAO {
                 // Sovrascrive il file solo con le informazioni aggiornate
                 Files.writeString(userInfoFile, updatedJson);
 
-                CLIPrinter.logPrint("CLIENTDAO: Preferenze utente aggiornate con successo!");
+                Printer.logPrint("CLIENTDAO: Preferenze utente aggiornate con successo!");
             } else {
-                CLIPrinter.logPrint("CLIENTDAO: Utente non trovato o file userInfo.json mancante.");
+                Printer.logPrint("CLIENTDAO: Utente non trovato o file userInfo.json mancante.");
             }
         } catch (IOException e) {
             handleDAOException(e);
@@ -183,6 +183,6 @@ public class ClientDAOJSON implements ClientDAO {
         return Files.exists(userDirectory);
     }
     private void handleDAOException(Exception e) {
-        CLIPrinter.errorPrint(String.format("ClientDAOJSON: %s", e.getMessage()));
+        Printer.errorPrint(String.format("ClientDAOJSON: %s", e.getMessage()));
     }
 }

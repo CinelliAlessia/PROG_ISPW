@@ -4,7 +4,7 @@ import engineering.bean.NoticeBean;
 import engineering.bean.PlaylistBean;
 import engineering.dao.*;
 import engineering.exceptions.LinkIsNotValid;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import engineering.pattern.abstract_factory.DAOFactory;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.PlaylistCollection;
@@ -39,7 +39,7 @@ public class HomePageCtrlApplicativo {
             }
         } catch (LinkIsNotValid e){
             // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
-            CLIPrinter.logPrint(e.getMessage());        }
+            Printer.logPrint(e.getMessage());        }
         return playlistsBean;
     }
 
@@ -58,7 +58,7 @@ public class HomePageCtrlApplicativo {
         List<Playlist> playlists;
 
         if(emotionalEmpty(playlist.getEmotional()) && genreEmpty(playlist.getPlaylistGenre())){
-            playlists = dao.searchPlaylistTitle(playlist);        // Recupero lista Playlist filtrata solo per titolo della playlist
+            playlists = dao.searchPlaylistByTitle(playlist);        // Recupero lista Playlist filtrata solo per titolo della playlist
         } else if (!emotionalEmpty(playlist.getEmotional()) && !genreEmpty(playlist.getPlaylistGenre())){
             playlists = dao.searchPlaylistByFilters(playlist);    // Recupero lista Playlist controllando tutti i filtri
         } else if (emotionalEmpty(playlist.getEmotional())) {
@@ -76,7 +76,7 @@ public class HomePageCtrlApplicativo {
             }
         } catch (LinkIsNotValid e){
             // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
-            CLIPrinter.logPrint(String.format("HomePage APP: LinkIsNotValid %s", e.getMessage()));
+            Printer.logPrint(String.format("HomePage APP: LinkIsNotValid %s", e.getMessage()));
         }
         return playlistsBean;
     }

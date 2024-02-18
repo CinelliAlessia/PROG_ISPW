@@ -3,7 +3,7 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import engineering.pattern.abstract_factory.DAOFactory;
 import model.*;
 
@@ -68,6 +68,6 @@ public class AccountCtrlApplicativo {
     }
 
     private void handleDAOException(Exception e) {
-        CLIPrinter.logPrint(e.getMessage());
+        Printer.logPrint(e.getMessage());
     }
 }

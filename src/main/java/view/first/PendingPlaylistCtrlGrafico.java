@@ -1,7 +1,7 @@
 package view.first;
 
 import engineering.bean.NoticeBean;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import javafx.collections.ObservableList;
 import view.first.utils.*;
 
@@ -39,7 +39,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        CLIPrinter.logPrint("GUI PendingPlaylist: Inizio gestione playlist: ");
+        Printer.logPrint("GUI PendingPlaylist: Inizio gestione playlist: ");
 
         // Recupera tutte le playlist pending, metodo pull
         PendingPlaylistCtrlApplicativo allPlaylistController = new PendingPlaylistCtrlApplicativo();
@@ -51,6 +51,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
 
         // Aggiungi la colonna con bottoni "Approve" o "Reject"
         approveColumn.setCellFactory(button -> new DoubleButtonTableCell(this));
+        linkColumn.setCellFactory(button -> new SingleButtonTableCell());
 
         TableManager tableManager = new TableManager();
         observableList = tableManager.collegamento(playlistTable,playlistsPending);
@@ -71,7 +72,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         String body;
 
         if (approve) {
-            CLIPrinter.logPrint(String.format("Approvazione della playlist: %s", playlistBean.getPlaylistName()));
+            Printer.logPrint(String.format("Approvazione della playlist: %s", playlistBean.getPlaylistName()));
 
             title = "Approved";
             body = String.format("Your playlist %s is approved!", playlistBean.getPlaylistName());
@@ -79,7 +80,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
             // Approva Playlist
             pendingPlaylistCtrlApplicativo.approvePlaylist(playlistBean);
         } else {
-            CLIPrinter.logPrint(String.format("Rifiuto della playlist: %s", playlistBean.getPlaylistName()));
+            Printer.logPrint(String.format("Rifiuto della playlist: %s", playlistBean.getPlaylistName()));
 
             title = "Rejected";
             body = String.format("Your playlist %s is rejected!", playlistBean.getPlaylistName());

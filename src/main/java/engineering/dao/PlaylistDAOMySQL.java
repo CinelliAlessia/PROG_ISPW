@@ -155,7 +155,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     public List<Playlist> retrieveApprovedPlaylists() {
         return retrievePlaylists(APPROVED,null);
     }
-    public List<Playlist> searchPlaylistTitle(Playlist playlist) {
+    public List<Playlist> searchPlaylistByTitle(Playlist playlist) {
         return retrievePlaylists(SEARCH_WORD,playlist);
     }
     public List<Playlist> searchPlaylistByGenre(Playlist playlist) {
@@ -241,7 +241,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
     }
 
     private void handleDAOException(Exception e) {
-        CLIPrinter.errorPrint(String.format("PlaylistDAOMySQL: %s", e.getMessage()));
+        Printer.errorPrint(String.format("PlaylistDAOMySQL: %s", e.getMessage()));
 
     }
 

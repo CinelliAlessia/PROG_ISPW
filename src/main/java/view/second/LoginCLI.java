@@ -3,7 +3,7 @@ package view.second;
 import controller.applicativo.*;
 import engineering.bean.*;
 import engineering.exceptions.*;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 
 import java.util.Scanner;
 
@@ -35,11 +35,11 @@ public class LoginCLI {
                     guestChoice();
                     break;
                 case 0:
-                    CLIPrinter.println("Grazie per aver utilizzato l'applicazione. Arrivederci!");
+                    Printer.println("Grazie per aver utilizzato l'applicazione. Arrivederci!");
                     continueRunning = false;  // Imposta la condizione di uscita
                     break;
                 default:
-                    CLIPrinter.errorPrint("Scelta non valida. Riprova.");
+                    Printer.errorPrint("Scelta non valida. Riprova.");
             }
         }
     }
@@ -48,11 +48,11 @@ public class LoginCLI {
      * Stampa il menu iniziale per il login.
      */
     private void printMenu() {
-        CLIPrinter.println("\n// ------- Seleziona un'opzione: ------- //");
-        CLIPrinter.println("1: Login");
-        CLIPrinter.println("2: Registrazione");
-        CLIPrinter.println("3: Ingresso come Guest");
-        CLIPrinter.println("0: Esci");
+        Printer.println("\n// ------- Seleziona un'opzione: ------- //");
+        Printer.println("1: Login");
+        Printer.println("2: Registrazione");
+        Printer.println("3: Ingresso come Guest");
+        Printer.println("0: Esci");
     }
 
     /**
@@ -61,9 +61,9 @@ public class LoginCLI {
      * @return La scelta dell'utente.
      */
     private int getUserChoice() {
-        CLIPrinter.print("Scelta: ");
+        Printer.print("Scelta: ");
         while (!scanner.hasNextInt()) { // Controllo se il valore inserito dall'utente è un intero
-            CLIPrinter.errorPrint("! Inserisci un numero valido !");
+            Printer.errorPrint("! Inserisci un numero valido !");
             scanner.next(); // Consuma il valore errato non utilizzabile
         }
         return scanner.nextInt();
@@ -73,10 +73,10 @@ public class LoginCLI {
      * Gestisce la scelta del login.
      */
     private void loginChoice() {
-        CLIPrinter.print("Inserisci l'indirizzo email: ");
+        Printer.print("Inserisci l'indirizzo email: ");
         String email = scanner.next();
 
-        CLIPrinter.print("Inserisci la password: ");
+        Printer.print("Inserisci la password: ");
         String password = scanner.next();
 
         try {
@@ -96,7 +96,7 @@ public class LoginCLI {
             homePageCLI.start();
 
         } catch (IncorrectPassword | UserDoesNotExist | InvalidEmailException e) {
-            CLIPrinter.errorPrint(String.format("! %s", e.getMessage()));
+            Printer.errorPrint(String.format("! %s", e.getMessage()));
         }
     }
 
@@ -113,7 +113,7 @@ public class LoginCLI {
      * Non vengono effettuati controlli, si passa direttamente alla home page come Guest.
      */
     private void guestChoice() {
-        CLIPrinter.println("Accesso come Guest.");
+        Printer.println("Accesso come Guest.");
 
         // UserBean perché un guest non è sicuramente Supervisor
         HomePageCLI<UserBean> homePageCLI = new HomePageCLI<>();

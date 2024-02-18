@@ -3,7 +3,7 @@ package view.second;
 import controller.applicativo.RegistrazioneCtrlApplicativo;
 import engineering.bean.*;
 import engineering.exceptions.*;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import view.second.utils.*;
 
 import java.util.*;
@@ -21,7 +21,7 @@ public class RegistrationCLI {
     public void start() {
         RegistrazioneCtrlApplicativo registrazioneCtrlApp = new RegistrazioneCtrlApplicativo();
 
-        CLIPrinter.println("\n// ------- Registrazione ------- //");
+        Printer.println("\n// ------- Registrazione ------- //");
 
         String username;
         String email = null;
@@ -31,10 +31,10 @@ public class RegistrationCLI {
 
         while (retry) {
             try {
-                CLIPrinter.print("Nome utente: ");
+                Printer.print("Nome utente: ");
                 username = scanner.next();
 
-                CLIPrinter.print("Email: ");
+                Printer.print("Email: ");
                 email = scanner.next();
 
                 regBean.setEmail(email);
@@ -45,7 +45,7 @@ public class RegistrationCLI {
                 retry = false;
 
             } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
-                CLIPrinter.errorPrint(e.getMessage());
+                Printer.errorPrint(e.getMessage());
             }
         }
 
@@ -56,14 +56,14 @@ public class RegistrationCLI {
         // Controllo se le due password sono identiche
         while (retry) {
 
-            CLIPrinter.print("Password: ");
+            Printer.print("Password: ");
             password = scanner.next();
 
-            CLIPrinter.print("Conferma password: ");
+            Printer.print("Conferma password: ");
             confirmPassword = scanner.next();
 
             if (!password.equals(confirmPassword)) {
-                CLIPrinter.errorPrint(" ! Le password non coincidono -> Riprova !");
+                Printer.errorPrint(" ! Le password non coincidono -> Riprova !");
             } else {
                 retry = false;
             }
@@ -71,13 +71,13 @@ public class RegistrationCLI {
         regBean.setPassword(password);
 
         // Richiedi generi musicali disponibili all'utente
-        CLIPrinter.println("Generi musicali preferiti:");
+        Printer.println("Generi musicali preferiti:");
         GenreManager genreManager = new GenreManager();
         Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
         genreManager.printGenres(availableGenres);
 
         // Richiedi all'utente di selezionare i generi preferiti
-        CLIPrinter.print("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
+        Printer.print("Inserisci i numeri corrispondenti ai generi musicali preferiti (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
@@ -87,7 +87,7 @@ public class RegistrationCLI {
             // ----- Utilizzo controller applicativo -----
             UserBean userBean = new UserBean(email);
             registrazioneCtrlApp.registerUser(regBean, userBean);
-            CLIPrinter.println("Registrazione utente avvenuta con successo!");
+            Printer.println("Registrazione utente avvenuta con successo!");
 
             /* ----- Passaggio al HomePageCLI e imposta il clientBean ----- */
             HomePageCLI<ClientBean> homePageCLI = new HomePageCLI<>();
@@ -97,7 +97,7 @@ public class RegistrationCLI {
             homePageCLI.start();
 
         } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
-            CLIPrinter.errorPrint(String.format("! %s !", e.getMessage()));
+            Printer.errorPrint(String.format("! %s !", e.getMessage()));
         }
     }
 }

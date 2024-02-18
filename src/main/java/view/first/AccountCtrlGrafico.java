@@ -2,7 +2,7 @@ package view.first;
 
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.*;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
@@ -80,7 +80,7 @@ public class AccountCtrlGrafico<T extends ClientBean> implements Initializable {
         this.clientBean = clientBean;
         this.sceneController = sceneController;
 
-        CLIPrinter.logPrint(String.format("GUI Account setAttributes: %s", clientBean));
+        Printer.logPrint(String.format("GUI Account setAttributes: %s", clientBean));
 
         // Inizializza i dati nella GUI
         showUserInfo();

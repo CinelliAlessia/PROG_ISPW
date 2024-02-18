@@ -218,7 +218,7 @@ public class ClientDAOMySQL implements ClientDAO {
 
     /** Metodo utilizzato per notificare SQLException */
     private void handleDAOException(Exception e) {
-        CLIPrinter.errorPrint(String.format("ClientDAOMySQL: %s", e.getMessage()));
+        Printer.errorPrint(String.format("ClientDAOMySQL: %s", e.getMessage()));
     }
 
 

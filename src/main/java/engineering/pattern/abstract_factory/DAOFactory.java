@@ -1,7 +1,7 @@
 package engineering.pattern.abstract_factory;
 
 import engineering.dao.*;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,7 +22,7 @@ public abstract class DAOFactory {
             try (InputStream input = DAOFactory.class.getClassLoader().getResourceAsStream("config.properties")) {
                 properties.load(input);
             } catch (IOException e){
-                CLIPrinter.errorPrint(e.getMessage());
+                Printer.errorPrint(e.getMessage());
             }
 
             String persistenceType = properties.getProperty("persistence.type", "MYSQL");

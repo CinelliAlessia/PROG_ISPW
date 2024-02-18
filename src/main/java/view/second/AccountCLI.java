@@ -3,7 +3,7 @@ package view.second;
 import controller.applicativo.AccountCtrlApplicativo;
 import engineering.bean.ClientBean;
 import engineering.bean.PlaylistBean;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import view.second.utils.GenreManager;
 
 import java.util.List;
@@ -32,16 +32,16 @@ public class AccountCLI {
      */
     public void start() {
         while (true) {
-            CLIPrinter.println("----- Profilo -----");
+            Printer.println("----- Profilo -----");
 
             displayUserInfo(clientBean);
 
             // Mostra il menu
-            CLIPrinter.println("1. Carica nuova Playlist");
-            CLIPrinter.println("2. Reimposta le tue preferenze musicali");
-            CLIPrinter.println("0. Esci");
+            Printer.println("1. Carica nuova Playlist");
+            Printer.println("2. Reimposta le tue preferenze musicali");
+            Printer.println("0. Esci");
 
-            CLIPrinter.print("Scegli un'opzione: ");
+            Printer.print("Scegli un'opzione: ");
 
             int choice = scanner.nextInt();
 
@@ -55,7 +55,7 @@ public class AccountCLI {
                 case 0:
                     return;
                 default:
-                    CLIPrinter.errorPrint("Scelta non disponibile !");
+                    Printer.errorPrint("Scelta non disponibile !");
                     break;
             }
         }
@@ -63,16 +63,16 @@ public class AccountCLI {
 
     private void displayUserInfo(ClientBean clientBean) {
         if (clientBean != null) {
-            CLIPrinter.println(String.format("Username: %s", clientBean.getUsername()));
-            CLIPrinter.println(String.format("Email: %s", clientBean.getEmail()));
+            Printer.println(String.format("Username: %s", clientBean.getUsername()));
+            Printer.println(String.format("Email: %s", clientBean.getEmail()));
 
             if (clientBean.getPreferences() != null && !clientBean.getPreferences().isEmpty()) {
-                CLIPrinter.println(String.format("Generi preferiti: %s", String.join(", ", clientBean.getPreferences())));
+                Printer.println(String.format("Generi preferiti: %s", String.join(", ", clientBean.getPreferences())));
             } else {
-                CLIPrinter.println("Nessun genere preferito impostato.");
+                Printer.println("Nessun genere preferito impostato.");
             }
 
-            CLIPrinter.println("Le tue playlist:");
+            Printer.println("Le tue playlist:");
             displayUserPlaylists();
         }
     }
@@ -82,7 +82,7 @@ public class AccountCLI {
         List<PlaylistBean> userPlaylists = accountCtrlApplicativo.retrievePlaylists(clientBean);
         for (PlaylistBean playlist : userPlaylists) {
             String approvalStatus = playlist.getApproved() ? "Approved" : "In attesa";
-            CLIPrinter.println(String.format(("%s - Titolo: %s, Link: %s"), approvalStatus, playlist.getPlaylistName(), playlist.getLink()));
+            Printer.println(String.format(("%s - Titolo: %s, Link: %s"), approvalStatus, playlist.getPlaylistName(), playlist.getLink()));
         }
     }
 
@@ -90,10 +90,10 @@ public class AccountCLI {
         GenreManager genreManager = new GenreManager();
         Map<Integer, String> availableGenres = genreManager.getAvailableGenres();
 
-        CLIPrinter.println("Generi disponibili:");
+        Printer.println("Generi disponibili:");
         genreManager.printGenres(availableGenres);
 
-        CLIPrinter.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
+        Printer.print("Inserisci i numeri corrispondenti ai generi musicali contenuti nella Playlist (separati da virgola): ");
         String genreInput = scanner.next();
 
         List<String> preferences = genreManager.extractGenres(availableGenres, genreInput);
@@ -101,7 +101,7 @@ public class AccountCLI {
 
         AccountCtrlApplicativo accountCtrlApplicativo = new AccountCtrlApplicativo();
         accountCtrlApplicativo.updateGenreUser(clientBean);
-        CLIPrinter.println("Preferenze aggiornate");
+        Printer.println("Preferenze aggiornate");
     }
 
     private void addPlaylist() {

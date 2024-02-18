@@ -3,7 +3,7 @@ package controller.applicativo;
 import engineering.bean.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
-import engineering.others.CLIPrinter;
+import engineering.others.Printer;
 import engineering.pattern.abstract_factory.DAOFactory;
 import engineering.pattern.observer.PlaylistCollection;
 
@@ -47,7 +47,7 @@ public class PendingPlaylistCtrlApplicativo {
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValid e){
-            CLIPrinter.logPrint(e.getMessage());
+            Printer.logPrint(e.getMessage());
         }
 
         return playlistsBean;
