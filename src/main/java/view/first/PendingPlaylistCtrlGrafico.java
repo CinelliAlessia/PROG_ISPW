@@ -90,7 +90,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
 
         }
 
-        NoticeBean noticeBean = new NoticeBean(title, body, playlistBean.getUsername());
+        NoticeBean noticeBean = new NoticeBean(title, body, playlistBean.getEmail());
         pendingPlaylistCtrlApplicativo.sendNotification(noticeBean);
         observableList.remove(playlistBean);
     }

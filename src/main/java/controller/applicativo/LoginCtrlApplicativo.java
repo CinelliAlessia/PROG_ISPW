@@ -43,7 +43,7 @@ public class LoginCtrlApplicativo {
                 List<Notice> noticeList = retriveNotice(client);
 
                 for(Notice notice: noticeList){
-                    NoticeBean noticeBean = new NoticeBean(notice.getTitle(),notice.getBody(),notice.getUsernameAuthor());
+                    NoticeBean noticeBean = new NoticeBean(notice.getTitle(),notice.getBody(),notice.getEmail());
                     noticeBeanList.add(noticeBean);
                 }
                 userBean.setNotices(noticeBeanList);

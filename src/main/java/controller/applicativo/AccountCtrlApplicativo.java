@@ -51,13 +51,11 @@ public class AccountCtrlApplicativo {
         dao.updateGenreClient(client);
     }
 
-
-    /** Utilizzata per eliminare le playlist
-     * vanno aggiunti dei controlli per capire chi può eliminare ?
-     * Non è stato implementata l'eliminazione */
+    /** Utilizzata per permettere all'autore di eliminare le playlist
+     * Non è stato implementata l'eliminazione nel front-end, ma si nel back-end */
     public Boolean deletePlaylist(PlaylistBean pB){
 
-        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO(); // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
         playlist.setId(pB.getId());

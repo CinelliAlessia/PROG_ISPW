@@ -64,7 +64,7 @@ public class PendingPlaylistCtrlApplicativo {
 
         NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();
 
-        Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(),noticeBean.getUsernameAuthor());
+        Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(),noticeBean.getEmail());
 
         dao.addNotice(notice);
     }

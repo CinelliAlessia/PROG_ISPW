@@ -5,12 +5,12 @@ public class NoticeBean {
     private String title;
     private String body;
 
-    private String usernameAuthor;
+    private String email;
 
-    public NoticeBean(String title, String body,String usernameAuthor){
+    public NoticeBean(String title, String body,String email){
         setTitle(title);
         setBody(body);
-        setUsernameAuthor(usernameAuthor);
+        setEmail(email);
     }
 
     public void setTitle(String title) {
@@ -19,8 +19,8 @@ public class NoticeBean {
     public void setBody(String body) {
         this.body = body;
     }
-    public void setUsernameAuthor(String usernameAuthor) {
-        this.usernameAuthor = usernameAuthor;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTitle() {
@@ -29,7 +29,7 @@ public class NoticeBean {
     public String getBody() {
         return body;
     }
-    public String getUsernameAuthor() {
-        return usernameAuthor;
+    public String getEmail() {
+        return email;
     }
 }

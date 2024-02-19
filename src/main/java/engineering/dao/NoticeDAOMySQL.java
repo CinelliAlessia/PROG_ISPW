@@ -65,7 +65,7 @@ public class NoticeDAOMySQL implements NoticeDAO{
             conn = Connect.getInstance().getDBConnection();
             stmt = conn.createStatement();
 
-            rs = QueryNotice.retriveNotice(stmt, user.getUsername());
+            rs = QueryNotice.retriveNotice(stmt, user.getEmail());
 
             while (true) {
                 assert rs != null;
@@ -73,7 +73,7 @@ public class NoticeDAOMySQL implements NoticeDAO{
 
                 String title = rs.getString("title");
                 String body = rs.getString("body");
-                String author = rs.getString("username");
+                String author = rs.getString("email");
 
                 Notice notice = new Notice(title,body,author);
                 noticeList.add(notice);
