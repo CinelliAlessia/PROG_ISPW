@@ -11,7 +11,7 @@ public class Connect {
     private String password;
     private static Connect instance = null;
     private Connection conn = null;
-    private static final String PATH = "src/logic/resources/connection.properties";
+    private static final String PATH = "src/main/resources/connection.properties";
 
     private Connect() {
     }

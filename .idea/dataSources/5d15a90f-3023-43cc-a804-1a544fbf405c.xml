@@ -1013,7 +1013,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <schema id="294" parent="1" name="user">
-      <LastIntrospectionLocalTimestamp>2024-02-13.22:25:11</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-02-19.13:10:49</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <user id="295" parent="1" name="mysql.infoschema">
@@ -1117,7 +1117,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DasType>varchar(512)|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="319" parent="300" name="username">
+    <column id="319" parent="300" name="email">
       <DasType>varchar(45)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
@@ -1127,16 +1127,16 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>3</Position>
     </column>
     <foreign-key id="321" parent="300" name="fk_notifiche_user1">
-      <ColNames>username</ColNames>
-      <RefColNames>username</RefColNames>
+      <ColNames>email</ColNames>
+      <RefColNames>email</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
     <index id="322" parent="300" name="fk_notifiche_user1">
-      <ColNames>username</ColNames>
+      <ColNames>email</ColNames>
       <Type>btree</Type>
     </index>
     <column id="323" parent="301" name="id">
-      <AutoIncrement>75</AutoIncrement>
+      <AutoIncrement>102</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
