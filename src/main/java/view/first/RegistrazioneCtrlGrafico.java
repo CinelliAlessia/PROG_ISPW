@@ -118,9 +118,9 @@ public class RegistrazioneCtrlGrafico implements Initializable {
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
 
         if (username.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userConfPw.isEmpty()) {
-            showError("CAMPI VUOTI");
+            showError("The fields are empty");
         } else if (!verificaPassword(userPassword, userConfPw)) {
-            showError("LE PASSWORD NON CORRISPONDONO");
+            showError("Passwords do not match");
         } else {
             try{
                 loginBean.setUsername(username);
