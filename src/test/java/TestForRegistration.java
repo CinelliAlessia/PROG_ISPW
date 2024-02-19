@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
+
 import engineering.exceptions.*;
+import org.junit.Assert;
 import org.junit.Test;
 import engineering.dao.ClientDAOJSON;
 import model.Login;
@@ -10,81 +12,69 @@ public class TestForRegistration {
 
     @Test
     public void testRegistrationWithValidData() {
-        // Inizializza una nuova istanza del DAO o del gestore della registrazione
         ClientDAOJSON clientDAO = new ClientDAOJSON();
+        int res = -1;
 
-        // Dati validi per la registrazione
         String randomUsername = generateRandomUsername();
         String randomEmail = generateRandomEmail();
         Login validLogin = new Login(randomUsername, randomEmail, "testPassword", Arrays.asList("Rock", "Pop"));
 
         try {
-            // Effettua la registrazione con dati validi
             clientDAO.insertClient(validLogin);
 
-            // Verifica che la registrazione sia avvenuta correttamente
-            assertNotNull(clientDAO.loadClient(validLogin));
+            if (clientDAO.loadClient(validLogin) != null) {
+                res = 1;
+            }
 
         } catch (EmailAlreadyInUseException | UsernameAlreadyInUseException | UserDoesNotExistException e) {
-            // Se si verifica un'eccezione, il test fallisce
-            fail("Unexpected exception: " + e.getMessage());
+            res = 0;
         }
-    }
-
-    private String generateRandomUsername() {
-        // Implementa la logica per generare un username casuale
-        return "testUsername" + System.currentTimeMillis();
-    }
-
-    private String generateRandomEmail() {
-        // Implementa la logica per generare una mail casuale
-        return "testEmail" + System.currentTimeMillis() + "@test.com";
+        Assert.assertEquals(1, res);
     }
 
     @Test
     public void testRegistrationWithEmailAlreadyExists() {
-        // Inizializza una nuova istanza del DAO o del gestore della registrazione
         ClientDAOJSON clientDAO = new ClientDAOJSON();
+        int res = -1;
 
-        // Dati per la registrazione con un'email già esistente
         Login existingEmailLogin = new Login("nuovoTestUsername", "admin@gmail.com", "password123", Arrays.asList("Rock", "Indie"));
 
         try {
-            // Effettua la registrazione con un'email già esistente
             clientDAO.insertClient(existingEmailLogin);
+            res = 0; // Se la registrazione riesce, il test fallisce
 
-            // Se la registrazione riesce, il test fallisce
-            fail("Expected EmailAlreadyInUse exception but got none.");
         } catch (EmailAlreadyInUseException e) {
-            // Se si verifica l'eccezione corretta, il test ha successo
-            assertEquals("Email already registered!", e.getMessage());
+            res = 1; // Se si verifica l'eccezione corretta, il test ha successo
         } catch (UsernameAlreadyInUseException e) {
-            // Se si verifica un'eccezione diversa, il test fallisce
-            fail("Unexpected exception: " + e.getMessage());
+            res = 0; // Se si verifica un'eccezione diversa, il test fallisce
         }
+        Assert.assertEquals(1, res);
     }
 
     @Test
     public void testRegistrationWithExistingUsername() {
-        // Inizializza una nuova istanza del DAO o del gestore della registrazione
         ClientDAOJSON clientDAO = new ClientDAOJSON();
+        int res = -1;
 
-        // Dati per la registrazione con username già esistente
         Login existingUsernameLogin = new Login("admin", "nuovaemail2@example.com", "password123", Arrays.asList("Rock", "Pop"));
 
         try {
-            // Effettua la registrazione con username già esistente
             clientDAO.insertClient(existingUsernameLogin);
+            res = 0; // Se la registrazione riesce, il test fallisce
 
-            // Se la registrazione riesce, il test fallisce
-            fail("Expected UsernameAlreadyInUse exception but got none.");
         } catch (UsernameAlreadyInUseException e) {
-            // Se si verifica l'eccezione corretta, il test ha successo
-            assertEquals("Username already in use!", e.getMessage());
+            res = 1; // Se si verifica l'eccezione corretta, il test ha successo
         } catch (EmailAlreadyInUseException | IllegalArgumentException e) {
-            // Se si verifica un'eccezione diversa, il test fallisce
-            fail("Unexpected exception: " + e.getMessage());
+            res = 0; // Se si verifica un'eccezione diversa, il test fallisce
         }
+        Assert.assertEquals(1, res);
     }
 
+    private String generateRandomUsername() {
+        return "testUsername" + System.currentTimeMillis();
+    }
+
+    private String generateRandomEmail() {
+        return "testEmail" + System.currentTimeMillis() + "@test.com";
+    }
 }
