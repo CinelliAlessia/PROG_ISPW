@@ -59,7 +59,7 @@
                <ImageView fitHeight="160.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                    <Image url="@../photo/spotify.png" />
                </ImageView>
-               <Button fx:id="guest" ellipsisString="" mnemonicParsing="false" onAction="#onGuestClick" text="Enter as a Guest" textAlignment="CENTER" textOverrun="CLIP">
+               <Button ellipsisString="" mnemonicParsing="false" onAction="#onGuestClick" text="Enter as a Guest" textAlignment="CENTER" textOverrun="CLIP">
                    <VBox.margin>
                        <Insets />
                    </VBox.margin>
