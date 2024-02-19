@@ -1,0 +1,12 @@
+[
+  {
+    "email": "admin@gmail.com",
+    "title": "Approved",
+    "body": "Your playlist p1 is approved!"
+  },
+  {
+    "email": "admin@gmail.com",
+    "title": "Rejected",
+    "body": "Your playlist p2 is rejected!"
+  }
+]

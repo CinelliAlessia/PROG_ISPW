@@ -1,0 +1,10 @@
+{
+  "password": "testPassword",
+  "email": "testEmail1708373399469@test.com",
+  "username": "testUsername1708373399460",
+  "preferences": [
+    "Rock",
+    "Pop"
+  ],
+  "supervisor": false
+}

@@ -1,0 +1,17 @@
+{
+  "id": "a10b97f1-3bef-4baf-babc-64834b6c196d",
+  "playlistName": "p1",
+  "link": "https://chat.openai.com/c/e2cd8b05-4884-4ef5-b9eb-3b26b2ff5304",
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "playlistGenre": [
+    "Country"
+  ],
+  "approved": true,
+  "emotional": [
+    -3,
+    0,
+    0,
+    0
+  ]
+}

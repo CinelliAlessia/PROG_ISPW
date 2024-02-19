@@ -1,0 +1,9 @@
+{
+  "password": "aaa",
+  "email": "admin@gmail.com",
+  "username": "admin",
+  "preferences": [
+    "Jazz"
+  ],
+  "supervisor": false
+}
