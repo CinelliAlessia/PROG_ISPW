@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class ClientDAOJSON implements ClientDAO {
     private static final String BASE_DIRECTORY = ConfigurationJSON.USER_BASE_DIRECTORY;
 
-    public void insertClient(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+    public void insertClient(Login login) throws EmailAlreadyInUseException, UsernameAlreadyInUseException {
         try {
             // Verifica se la cartella persistence esiste, altrimenti la crea
             Path persistenceDirectory = Paths.get(ConfigurationJSON.PERSISTENCE_BASE_DIRECTORY);
@@ -22,10 +22,10 @@ public class ClientDAOJSON implements ClientDAO {
 
             // Verifica se l'utente esiste già per email o username
             if (checkIfUserExistsByEmail(login.getEmail())) {
-                throw new EmailAlreadyInUse();
+                throw new EmailAlreadyInUseException();
             }
             if (retrieveClientByUsername(login.getUsername()) != null) {
-                throw new UsernameAlreadyInUse();
+                throw new UsernameAlreadyInUseException();
             }
 
             // Crea la directory dell'utente e il file di informazioni
@@ -43,7 +43,7 @@ public class ClientDAOJSON implements ClientDAO {
     }
 
 
-    public Client loadClient(Login login) throws UserDoesNotExist {
+    public Client loadClient(Login login) throws UserDoesNotExistException {
         try {
             Path userInfoFile = Paths.get(BASE_DIRECTORY, login.getEmail(), ConfigurationJSON.USER_INFO_FILE_NAME);
 
@@ -52,7 +52,7 @@ public class ClientDAOJSON implements ClientDAO {
                 return parseClient(content);
             } else {
                 Printer.logPrint("ClientDAO: Utente non trovato");
-                throw new UserDoesNotExist();
+                throw new UserDoesNotExistException();
             }
         } catch (IOException e) {
             handleDAOException(e);
@@ -83,12 +83,12 @@ public class ClientDAOJSON implements ClientDAO {
     }
 
 
-    public String getPasswordByEmail(String email) throws UserDoesNotExist {
+    public String getPasswordByEmail(String email) throws UserDoesNotExistException {
         try {
             Path userInfoFile = Paths.get(BASE_DIRECTORY, email, ConfigurationJSON.USER_INFO_FILE_NAME);
 
             if (!Files.exists(userInfoFile)) {
-                throw new UserDoesNotExist(); // Lanciare l'eccezione se il file non esiste
+                throw new UserDoesNotExistException(); // Lanciare l'eccezione se il file non esiste
             }
 
             String content = Files.readString(userInfoFile);
@@ -146,15 +146,15 @@ public class ClientDAOJSON implements ClientDAO {
         }
     }
 
-    public void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+    public void tryCredentialExisting(Login login) throws EmailAlreadyInUseException, UsernameAlreadyInUseException {
         try{
             if(loadClient(login) != null){
-                throw new EmailAlreadyInUse();
+                throw new EmailAlreadyInUseException();
             }
             if(retrieveClientByUsername(login.getUsername()) != null){
-                throw new UsernameAlreadyInUse();
+                throw new UsernameAlreadyInUseException();
             }
-        } catch (UserDoesNotExist e){
+        } catch (UserDoesNotExistException e){
             handleDAOException(e);
         }
     }

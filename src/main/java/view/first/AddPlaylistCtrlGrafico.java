@@ -105,12 +105,12 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
                 }
                 Printer.logPrint("GUI AddPlaylist: Playlist Aggiunta");
             }
-        } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid | PlaylistNameAlreadyInUse e){
+        } catch (PlaylistLinkAlreadyInUseException | LinkIsNotValidException | PlaylistNameAlreadyInUseException e){
             showError(e.getMessage());
         }
     }
 
-    private void getDate() throws LinkIsNotValid {
+    private void getDate() throws LinkIsNotValidException {
 
         String linkPlaylist = link.getText();
         String titolo = title.getText();

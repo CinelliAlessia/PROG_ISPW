@@ -121,7 +121,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
             if(!filterApplied){ // Se i filtri non sono applicati allora aggiorna la tabella altrimenti no
                 TableManager.updateTable(playlistTable, playlistsBean);
             }
-        } catch (LinkIsNotValid e){
+        } catch (LinkIsNotValidException e){
             Printer.errorPrint(e.getMessage());
         }
     }

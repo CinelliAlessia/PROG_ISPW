@@ -11,7 +11,7 @@ import model.Playlist;
 
 public class AddPlaylistCtrlApplicativo {
 
-    public void insertPlaylist(PlaylistBean pB) throws PlaylistLinkAlreadyInUse, PlaylistNameAlreadyInUse {
+    public void insertPlaylist(PlaylistBean pB) throws PlaylistLinkAlreadyInUseException, PlaylistNameAlreadyInUseException {
 
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
@@ -27,12 +27,12 @@ public class AddPlaylistCtrlApplicativo {
                 PlaylistCollection.getInstance().addPlaylist(playlist);
             }
 
-        } catch (PlaylistLinkAlreadyInUse e){
+        } catch (PlaylistLinkAlreadyInUseException e){
             Printer.errorPrint("ADD APP: Playlist non è stata caricata");
-            throw new PlaylistLinkAlreadyInUse();
-        } catch (PlaylistNameAlreadyInUse e) {
+            throw new PlaylistLinkAlreadyInUseException();
+        } catch (PlaylistNameAlreadyInUseException e) {
             Printer.errorPrint("ADD APP: Playlist non è stata caricata");
-            throw new PlaylistNameAlreadyInUse();
+            throw new PlaylistNameAlreadyInUseException();
         }
     }
 

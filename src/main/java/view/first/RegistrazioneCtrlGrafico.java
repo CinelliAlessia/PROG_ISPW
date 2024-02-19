@@ -99,7 +99,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);
 
-            } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
+            } catch (EmailAlreadyInUseException | UsernameAlreadyInUseException | InvalidEmailException e) {
                 showError(e.getMessage());
             }
         }

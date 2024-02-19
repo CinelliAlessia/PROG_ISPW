@@ -95,8 +95,12 @@ public class LoginCLI {
             /* ----- Avvia il metodo start del HomePageCLInterface ----- */
             homePageCLI.start();
 
-        } catch (IncorrectPassword | UserDoesNotExist | InvalidEmailException e) {
-            Printer.errorPrint(String.format("! %s", e.getMessage()));
+        }  catch (IncorrectPasswordException e) {
+            Printer.errorPrint("! Password errata. !");
+        } catch (UserDoesNotExistException e) {
+            Printer.errorPrint("! Utente non trovato. !");
+        } catch (InvalidEmailException e) {
+            Printer.errorPrint("! Email non valida. !");
         }
     }
 

@@ -44,8 +44,12 @@ public class RegistrationCLI {
 
                 retry = false;
 
-            } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
-                Printer.errorPrint(e.getMessage());
+            } catch (EmailAlreadyInUseException e) {
+                Printer.errorPrint("L'indirizzo email è già in uso. Scegliere un altro.");
+            } catch (UsernameAlreadyInUseException e) {
+                Printer.errorPrint("Il nome utente è già in uso. Scegliere un altro.");
+            } catch (InvalidEmailException e) {
+                Printer.errorPrint("L'indirizzo email fornito non è valido. Verificare e riprovare.");
             }
         }
 
@@ -96,8 +100,12 @@ public class RegistrationCLI {
             /* ----- Avvia il metodo start del HomePageCLInterface ----- */
             homePageCLI.start();
 
-        } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
-            Printer.errorPrint(String.format("! %s !", e.getMessage()));
+        } catch (EmailAlreadyInUseException e) {
+            Printer.errorPrint("L'indirizzo email è già in uso. Scegliere un altro.");
+        } catch (UsernameAlreadyInUseException e) {
+            Printer.errorPrint("Il nome utente è già in uso. Scegliere un altro.");
+        } catch (InvalidEmailException e) {
+            Printer.errorPrint("L'indirizzo email fornito non è valido. Verificare e riprovare.");
         }
     }
 }

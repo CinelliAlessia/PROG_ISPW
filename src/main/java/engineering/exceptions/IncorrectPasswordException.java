@@ -2,11 +2,11 @@ package engineering.exceptions;
 
 import java.io.Serial;
 
-public class IncorrectPassword extends Exception {
+public class IncorrectPasswordException extends Exception {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public IncorrectPassword() {
+    public IncorrectPasswordException() {
         super("Incorrect password!");
     }
 }

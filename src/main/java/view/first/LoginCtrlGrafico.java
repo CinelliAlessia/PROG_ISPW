@@ -53,7 +53,7 @@ public class LoginCtrlGrafico {
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean
 
-            } catch (IncorrectPassword | UserDoesNotExist | InvalidEmailException e){
+            } catch (IncorrectPasswordException | UserDoesNotExistException | InvalidEmailException e){
                 showError(e.getMessage());
             }
         }

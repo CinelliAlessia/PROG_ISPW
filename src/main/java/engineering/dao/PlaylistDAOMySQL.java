@@ -30,7 +30,7 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
 
 
     /** Inserimento di una playlist in db. Viene prima controllato che non ci sia già il link all'interno del DB, successivamente inserisce */
-    public void insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse, PlaylistNameAlreadyInUse {
+    public void insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUseException, PlaylistNameAlreadyInUseException {
         Statement stmt = null;
         ResultSet rs = null;
         Connection conn;
@@ -44,14 +44,14 @@ public class PlaylistDAOMySQL implements PlaylistDAO {
             rs = QueryPlaylist.searchPlaylistLink(stmt, playlistLink);
 
             if (rs.next()) {
-                throw new PlaylistLinkAlreadyInUse();
+                throw new PlaylistLinkAlreadyInUseException();
             }
 
             /* Controllo se il titolo è univoco per l'utente */
             rs = QueryPlaylist.searchPlaylistTitleByUsername(stmt, playlist.getPlaylistName(), playlist.getUsername());
 
             if (rs.next()) {
-                throw new PlaylistNameAlreadyInUse();
+                throw new PlaylistNameAlreadyInUseException();
             }
             rs.close();
 
