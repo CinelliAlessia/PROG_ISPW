@@ -72,6 +72,8 @@ public class AddPlaylistCLI {
             Printer.println("Playlist aggiunta con successo!");
         } catch (PlaylistLinkAlreadyInUse e) {
             Printer.errorPrint(" ! Il link relativo playlist è già presente nel sistema !");
+        } catch (PlaylistNameAlreadyInUse e) {
+            Printer.errorPrint(" ! Hai  già usato questo titolo !");
         }
     }
 }

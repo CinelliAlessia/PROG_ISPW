@@ -51,6 +51,10 @@ public class QueryPlaylist {
         String sql = String.format(Queries.SELECT_SEARCH_PLAYLIST, word);
         return stmt.executeQuery(sql);
     }
+    public static ResultSet searchPlaylistTitleByUsername(Statement stmt, String title, String username) throws SQLException {
+        String sql = String.format(Queries.SELECT_TITLE_PLAYLIST_BY_USERNAME, title, username);
+        return stmt.executeQuery(sql);
+    }
 
     /** Ritorna una lista di playlist che combaciano con i generi musicali selezionati */
     public static ResultSet searchPlaylistsByFilter(Statement stmt, Playlist playlist) throws SQLException {

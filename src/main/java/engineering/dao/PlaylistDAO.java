@@ -1,6 +1,7 @@
 package engineering.dao;
 
 import engineering.exceptions.PlaylistLinkAlreadyInUse;
+import engineering.exceptions.PlaylistNameAlreadyInUse;
 import model.Playlist;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public interface PlaylistDAO {
 
     /** Inserisce una playlist in persistenza*/
-    void insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse;
+    void insertPlaylist(Playlist playlist) throws PlaylistLinkAlreadyInUse, PlaylistNameAlreadyInUse;
 
     /** Non serve che crea una nuova istanza di Playlist*/
     Playlist approvePlaylist(Playlist playlist);
