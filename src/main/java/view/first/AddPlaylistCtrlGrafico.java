@@ -105,12 +105,12 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
                 }
                 Printer.logPrint("GUI AddPlaylist: Playlist Aggiunta");
             }
-        } catch (PlaylistLinkAlreadyInUse | LinkIsNotValid e){
+        } catch (PlaylistLinkAlreadyInUseException | LinkIsNotValidException | PlaylistNameAlreadyInUseException e){
             showError(e.getMessage());
         }
     }
 
-    private void getDate() throws LinkIsNotValid {
+    private void getDate() throws LinkIsNotValidException {
 
         String linkPlaylist = link.getText();
         String titolo = title.getText();
@@ -134,8 +134,8 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
             playlistBean.setId("");
 
             // Utilizzato esclusivamente per aggiornare la tabella nell'account utente
-            if(observableList != null){ // Solo se l'utente ha cliccato add Button da Account
-                observableList.add(playlistBean);
+            if(observableList != null){ // è null solo se l'utente ha cliccato add Button da Home Page
+                observableList.add(playlistBean); //Aggiungi
             }
         }
     }

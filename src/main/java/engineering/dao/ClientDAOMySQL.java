@@ -17,7 +17,7 @@ public class ClientDAOMySQL implements ClientDAO {
 
     /** Metodo per inserire un User nel database al momento della registrazione
      * viene effettuato il controllo sulla email scelta e sull'username scelto */
-    public void insertClient(Login registration) throws EmailAlreadyInUse, UsernameAlreadyInUse{
+    public void insertClient(Login registration) throws EmailAlreadyInUseException, UsernameAlreadyInUseException {
 
         Statement stmt = null;
         Connection conn;
@@ -31,7 +31,7 @@ public class ClientDAOMySQL implements ClientDAO {
             rs = QueryLogin.loginUser(stmt, email);
             assert rs != null;
             if (rs.next()) {
-                throw new EmailAlreadyInUse();
+                throw new EmailAlreadyInUseException();
             }
             rs.close();
 
@@ -39,7 +39,7 @@ public class ClientDAOMySQL implements ClientDAO {
             rs = QueryLogin.loginUserByUsername(stmt, username);
             assert rs != null;
             if (rs.next()) {
-                throw new UsernameAlreadyInUse();
+                throw new UsernameAlreadyInUseException();
             }
             rs.close();
 
@@ -53,7 +53,7 @@ public class ClientDAOMySQL implements ClientDAO {
         }
     }
 
-    public Client loadClient(Login login) throws UserDoesNotExist{
+    public Client loadClient(Login login) throws UserDoesNotExistException {
 
         Statement stmt = null;
         ResultSet resultSet = null;
@@ -78,7 +78,7 @@ public class ClientDAOMySQL implements ClientDAO {
                 email = resultSet.getString(EMAIL);
                 supervisor = resultSet.getBoolean(SUPERVISOR);
             } else {
-                throw new UserDoesNotExist();
+                throw new UserDoesNotExistException();
             }
 
             resultSet = QueryLogin.retrivePrefByEmail(stmt, login.getEmail());
@@ -102,7 +102,7 @@ public class ClientDAOMySQL implements ClientDAO {
         }
     }
 
-    public Client retrieveClientByUsername(String username) throws UserDoesNotExist {
+    public Client retrieveClientByUsername(String username) throws UserDoesNotExistException {
         Statement stmt = null;
         Connection conn;
         ResultSet rs = null;
@@ -122,7 +122,7 @@ public class ClientDAOMySQL implements ClientDAO {
                 email = rs.getString(EMAIL);
                 supervisor = rs.getBoolean(SUPERVISOR);
             } else {
-                throw new UserDoesNotExist();
+                throw new UserDoesNotExistException();
             }
 
             rs = QueryLogin.retrivePrefByEmail(stmt, email);
@@ -144,7 +144,7 @@ public class ClientDAOMySQL implements ClientDAO {
         }
     }
 
-    public String getPasswordByEmail(String email) throws UserDoesNotExist{
+    public String getPasswordByEmail(String email) throws UserDoesNotExistException {
         Statement stmt = null;
         Connection conn;
         String pw = null;
@@ -158,7 +158,7 @@ public class ClientDAOMySQL implements ClientDAO {
             if (rs.next()) {
                 pw = rs.getString("password");
             } else {
-                throw new UserDoesNotExist();
+                throw new UserDoesNotExistException();
             }
         } catch (SQLException e) {
             handleDAOException(e);
@@ -187,7 +187,7 @@ public class ClientDAOMySQL implements ClientDAO {
         }
     }
 
-    public void tryCredentialExisting(Login login) throws EmailAlreadyInUse, UsernameAlreadyInUse{
+    public void tryCredentialExisting(Login login) throws EmailAlreadyInUseException, UsernameAlreadyInUseException {
 
         Statement stmt = null;
         Connection conn;
@@ -199,13 +199,13 @@ public class ClientDAOMySQL implements ClientDAO {
             rs = QueryLogin.searchEmail(stmt, login.getEmail());
 
             if (rs.next()) {
-                throw new EmailAlreadyInUse();
+                throw new EmailAlreadyInUseException();
             }
 
             rs = QueryLogin.searchUsername(stmt, login.getUsername());
 
             if (rs.next()) {
-                throw new UsernameAlreadyInUse();
+                throw new UsernameAlreadyInUseException();
             }
 
         } catch (SQLException e) {

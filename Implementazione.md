@@ -20,21 +20,13 @@ L'utente può non mettere alcun tipo di genere musicale preferito associato al s
 
 Consistenza Italiano Inglese, preferibilmente tutto in inglese. SOLO POPUP
 
-Correzione Observable list in account e in pending playlist. OK PENDING NO ACCOUNT
-
 Cambiare nome funzioni, da Usar a Client 
 
-Seconda interfaccia OK CLI
-
-Parte intera superiore Emotional OK INT
-
-Correzione Alessia Filtraggio OK YEE
-
-Tasto indietro
+Seconda interfaccia OK CLI Correzione italiano eccezioni
 
 Funzioni retrieve (recuperare) e non retrive (recuperato)
 
-Notifiche 
+Andrea filtri ed elimina notifica
 
 
 

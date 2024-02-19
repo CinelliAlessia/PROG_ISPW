@@ -44,7 +44,7 @@ public class AddPlaylistCLI {
             try {
                 playlistBean.setLink(scanner.nextLine());
                 linkIsValid = true; // Se non viene lanciata l'eccezione, il link è valido e usciamo dal ciclo
-            } catch (LinkIsNotValid e) {
+            } catch (LinkIsNotValidException e) {
                 Printer.errorPrint("! Link non valido-> Riprova !");
             }
         }
@@ -70,8 +70,10 @@ public class AddPlaylistCLI {
             addPlaylistControllerApplicativo.insertPlaylist(playlistBean);
 
             Printer.println("Playlist aggiunta con successo!");
-        } catch (PlaylistLinkAlreadyInUse e) {
+        } catch (PlaylistLinkAlreadyInUseException e) {
             Printer.errorPrint(" ! Il link relativo playlist è già presente nel sistema !");
+        } catch (PlaylistNameAlreadyInUseException e) {
+            Printer.errorPrint(" ! Hai  già usato questo titolo !");
         }
     }
 }

@@ -45,14 +45,20 @@ public class FilterCtrlGrafico implements Initializable {
     private CheckBox electronic;
     @FXML
     private CheckBox house;
+    boolean applyFilter = false;
 
     private PlaylistBean playlistBean;
     private List<CheckBox> checkBoxList;
+    private HomePageCtrlGrafico<?> homeController;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         checkBoxList = Arrays.asList(pop, indie, classic, rock, electronic, house, hipHop, jazz,
                 acoustic, reb, country, alternative);
+    }
+
+    public void setHomeInstance(HomePageCtrlGrafico<?> homeController){
+        this.homeController = homeController;
     }
 
     /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare */
@@ -76,6 +82,10 @@ public class FilterCtrlGrafico implements Initializable {
 
         playlistBean.setPlaylistGenre(genre);
         playlistBean.setEmotional(sliderValues);
+
+        applyFilter = !checkEmptyFields();
+        homeController.setFilterApplied(applyFilter);
+        homeController.onSearchPlaylistClick();
 
         // Chiudi il popup
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -103,6 +113,14 @@ public class FilterCtrlGrafico implements Initializable {
         }
     }
 
+    private boolean checkEmptyFields() {
+        return happySad.getValue() == 0.0 &&
+                danceChill.getValue() == 0.0 &&
+                electronicAcoustic.getValue() == 0.0 &&
+                speakInstrumental.getValue() == 0.0 &&
+                checkBoxList.stream().noneMatch(CheckBox::isSelected);
+    }
+
     @FXML
     public void onResetClick() {
         List<String> genre = new ArrayList<>();
@@ -113,5 +131,6 @@ public class FilterCtrlGrafico implements Initializable {
         playlistBean.setPlaylistGenre(genre);
 
         setData();
+        applyFilter = false;
     }
 }

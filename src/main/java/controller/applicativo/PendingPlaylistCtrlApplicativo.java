@@ -44,7 +44,7 @@ public class PendingPlaylistCtrlApplicativo {
 
                 playlistsBean.add(pB);
             }
-        } catch (LinkIsNotValid e){
+        } catch (LinkIsNotValidException e){
             Printer.logPrint(e.getMessage());
         }
 

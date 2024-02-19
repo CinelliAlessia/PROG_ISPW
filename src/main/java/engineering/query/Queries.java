@@ -2,6 +2,7 @@ package engineering.query;
 
 public class Queries {
 
+
     private Queries(){}
 
     /* ---------- QUERY LOGIN ---------- */
@@ -43,6 +44,7 @@ public class Queries {
             "AND Jazz = '%d' AND Acoustic = '%d' AND REB = '%d' AND Country = '%d' AND Alternative = '%d'";
     public static final String SELECT_SEARCH_BY_EMOTIONAL = "SELECT * FROM playlist_utente WHERE namePlaylist LIKE '%s' " +
             "AND approved = '1' AND slider1 = '%d' AND slider2 = '%d' AND slider3 = '%d' AND slider4 = '%d'";
+    public static final String SELECT_TITLE_PLAYLIST_BY_USERNAME = "SELECT * FROM playlist_utente WHERE namePlaylist = '%s' AND username = '%s'";
 
     public static final String SELECT_ALL_PLAYLIST = "SELECT * FROM playlist_utente"; // Recupero tutto ma non uso tutto
     public static final String SELECT_PENDING_PLAYLISTS = "SELECT * FROM playlist_utente WHERE approved = '%d'";

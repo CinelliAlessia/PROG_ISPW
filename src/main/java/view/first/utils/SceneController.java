@@ -189,13 +189,14 @@ public class SceneController {
         }
     }
 
-    public void goToFilterPopUp(ActionEvent event, ClientBean clientBean, PlaylistBean playlistBean) {
+    public void goToFilterPopUp(ActionEvent event, ClientBean clientBean, PlaylistBean playlistBean, HomePageCtrlGrafico<?> istanza) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlFileName.POP_UP_FXML_FILTER));
             Parent root = loader.load();
 
             // Ottieni l'istanza del controller
             FilterCtrlGrafico controller = loader.getController();
+            controller.setHomeInstance(istanza);
             setAttributes(controller, clientBean, playlistBean, null);
 
             // Stage di partenza

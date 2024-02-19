@@ -3,7 +3,7 @@ package controller.applicativo;
 import engineering.bean.NoticeBean;
 import engineering.bean.PlaylistBean;
 import engineering.dao.*;
-import engineering.exceptions.LinkIsNotValid;
+import engineering.exceptions.LinkIsNotValidException;
 import engineering.others.Printer;
 import engineering.pattern.abstract_factory.DAOFactory;
 import engineering.pattern.observer.Observer;
@@ -37,7 +37,7 @@ public class HomePageCtrlApplicativo {
 
                 playlistsBean.add(pB);
             }
-        } catch (LinkIsNotValid e){
+        } catch (LinkIsNotValidException e){
             // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
             Printer.logPrint(String.format("HomePage APP: LinkIsNotValid %s", e.getMessage()));
         }
@@ -75,7 +75,7 @@ public class HomePageCtrlApplicativo {
 
                 playlistsBean.add(pB);
             }
-        } catch (LinkIsNotValid e){
+        } catch (LinkIsNotValidException e){
             // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
             Printer.logPrint(String.format("HomePage APP: LinkIsNotValid %s", e.getMessage()));
         }

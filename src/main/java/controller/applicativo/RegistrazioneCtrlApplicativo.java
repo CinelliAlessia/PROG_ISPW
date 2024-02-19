@@ -11,7 +11,7 @@ public class RegistrazioneCtrlApplicativo {
     // CLI PROBLEMA: Verificare email e username prima di creare realmente l'utente
 
     /** Query al dao per registrare un utente */
-    public void registerUser(LoginBean regBean, ClientBean clientBean) throws EmailAlreadyInUse, UsernameAlreadyInUse, InvalidEmailException {
+    public void registerUser(LoginBean regBean, ClientBean clientBean) throws EmailAlreadyInUseException, UsernameAlreadyInUseException, InvalidEmailException {
 
         ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
@@ -20,10 +20,10 @@ public class RegistrazioneCtrlApplicativo {
 
         try{
             dao.insertClient(registration);
-        } catch (EmailAlreadyInUse e){
-            throw new EmailAlreadyInUse();
-        } catch (UsernameAlreadyInUse e){
-            throw new UsernameAlreadyInUse();
+        } catch (EmailAlreadyInUseException e){
+            throw new EmailAlreadyInUseException();
+        } catch (UsernameAlreadyInUseException e){
+            throw new UsernameAlreadyInUseException();
         }
 
         /* SIAMO SICURI CHE L'UTENTE CHE SI REGISTRA SIA UN UserBean
@@ -35,7 +35,7 @@ public class RegistrazioneCtrlApplicativo {
         userBean.setPreferences(registration.getPreferences());
     }
 
-    public void tryCredentialExisting(LoginBean regBean) throws EmailAlreadyInUse, UsernameAlreadyInUse {
+    public void tryCredentialExisting(LoginBean regBean) throws EmailAlreadyInUseException, UsernameAlreadyInUseException {
         ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         Login login = new Login();

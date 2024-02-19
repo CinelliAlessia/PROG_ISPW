@@ -28,7 +28,7 @@ public class AccountCtrlApplicativo {
                 pB.setId(p.getId());
                 playlistsBean.add(pB);
             }
-        } catch (LinkIsNotValid e){
+        } catch (LinkIsNotValidException e){
             // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
             handleDAOException(e);
         }

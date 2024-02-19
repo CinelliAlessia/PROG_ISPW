@@ -1,6 +1,6 @@
 package engineering.bean;
 
-import engineering.exceptions.LinkIsNotValid;
+import engineering.exceptions.LinkIsNotValidException;
 import org.apache.commons.validator.routines.UrlValidator;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class PlaylistBean {
     public PlaylistBean() {
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved) throws LinkIsNotValid {
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved) throws LinkIsNotValidException {
         setEmail(email);
         setLink(link);
         setPlaylistName(playlistName);
@@ -27,12 +27,12 @@ public class PlaylistBean {
         setApproved(approved);
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) throws LinkIsNotValid {
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, String id) throws LinkIsNotValidException {
         this(email,username,playlistName,link, playlistGenre, approved);
         setId(id);
     }
 
-    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Integer> emotional) throws LinkIsNotValid {
+    public PlaylistBean(String email, String username, String playlistName, String link, List<String> playlistGenre, boolean approved, List<Integer> emotional) throws LinkIsNotValidException {
         this(email,username,playlistName,link, playlistGenre, approved);
         setEmotional(emotional);
     }
@@ -41,11 +41,11 @@ public class PlaylistBean {
     public void setId(String id) {
         this.id = id;
     }
-    public void setLink(String link) throws LinkIsNotValid {
+    public void setLink(String link) throws LinkIsNotValidException {
         if(isValidLink(link)){
             this.link = link;
         } else {
-            throw new LinkIsNotValid();
+            throw new LinkIsNotValidException();
         }
     }
     public void setUsername(String username) {

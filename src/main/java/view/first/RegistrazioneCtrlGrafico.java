@@ -86,7 +86,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
         LoginBean regBean = new LoginBean();
         getData(regBean);
 
-        if (!regBean.getEmail().isEmpty()) {
+        if (regBean.getEmail() != null && !regBean.getEmail().isEmpty()) {
 
             RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo();
 
@@ -99,7 +99,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);
 
-            } catch (EmailAlreadyInUse | UsernameAlreadyInUse | InvalidEmailException e) {
+            } catch (EmailAlreadyInUseException | UsernameAlreadyInUseException | InvalidEmailException e) {
                 showError(e.getMessage());
             }
         }
@@ -118,9 +118,9 @@ public class RegistrazioneCtrlGrafico implements Initializable {
         List<String> preferences = GenreManager.retrieveCheckList(checkBoxList);
 
         if (username.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userConfPw.isEmpty()) {
-            showError("CAMPI VUOTI");
+            showError("The fields are empty");
         } else if (!verificaPassword(userPassword, userConfPw)) {
-            showError("LE PASSWORD NON CORRISPONDONO");
+            showError("Passwords do not match");
         } else {
             try{
                 loginBean.setUsername(username);

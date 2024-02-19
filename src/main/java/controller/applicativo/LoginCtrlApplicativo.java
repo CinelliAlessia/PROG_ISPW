@@ -16,19 +16,19 @@ public class LoginCtrlApplicativo {
      * Il loginBean contiene il campo mail e il campo password
      * Effettua una Query per recuperare la password e confrontarla con quella inserita  */
 
-    public void verificaCredenziali(LoginBean bean) throws IncorrectPassword, UserDoesNotExist {
+    public void verificaCredenziali(LoginBean bean) throws IncorrectPasswordException, UserDoesNotExistException {
 
         ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         String password = dao.getPasswordByEmail(bean.getEmail());
 
         if (!password.equals(bean.getPassword())){
-            throw new IncorrectPassword();
+            throw new IncorrectPasswordException();
         }
     }
 
     /** Recupera l'User dalla persistenza e crea una nuova istanza di UserBean */
-    public ClientBean loadUser(LoginBean bean) throws UserDoesNotExist, InvalidEmailException {
+    public ClientBean loadUser(LoginBean bean) throws UserDoesNotExistException, InvalidEmailException {
 
         ClientDAO dao = DAOFactory.getDAOFactory().createClientDAO();
         Login login = new Login(bean.getEmail(), bean.getPassword());           // Creo model Login per comunicare con il dao
@@ -53,8 +53,8 @@ public class LoginCtrlApplicativo {
                 return new SupervisorBean(client.getUsername(),client.getEmail(),client.getPreferences());
             }
 
-        } catch (UserDoesNotExist e){
-            throw new UserDoesNotExist();
+        } catch (UserDoesNotExistException e){
+            throw new UserDoesNotExistException();
         } catch (InvalidEmailException e) {
             throw new InvalidEmailException();
         }
