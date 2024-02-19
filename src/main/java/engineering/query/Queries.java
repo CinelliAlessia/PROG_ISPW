@@ -2,8 +2,6 @@ package engineering.query;
 
 public class Queries {
 
-
-
     private Queries(){}
 
     /* ---------- QUERY LOGIN ---------- */
