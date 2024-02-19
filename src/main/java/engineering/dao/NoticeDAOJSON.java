@@ -4,7 +4,7 @@ import engineering.others.Printer;
 import model.*;
 import java.util.*;
 
-public class NoticeDAOJSON implements NoticeDAO{
+public class NoticeDAOJSON implements NoticeDAO {
 
     private static final String ERROR_IMPLEMENTATION = "Non è stato implementato in JSON";
     public void addNotice(Notice notice) {

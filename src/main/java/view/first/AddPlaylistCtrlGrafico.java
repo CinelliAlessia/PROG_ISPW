@@ -133,6 +133,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
             playlistBean = new PlaylistBean(clientBean.getEmail(), clientBean.getUsername(), titolo, linkPlaylist, genre, clientBean.isSupervisor(), sliderValues);
             playlistBean.setId("");
 
+            // Utilizzato esclusivamente per aggiornare la tabella nell'account utente
             if(observableList != null){ // Solo se l'utente ha cliccato add Button da Account
                 observableList.add(playlistBean);
             }

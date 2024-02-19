@@ -23,9 +23,8 @@ public class AddPlaylistCtrlApplicativo {
             dao.insertPlaylist(playlist);
 
             /* Per pattern Observer !!! */
-            PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
             if(playlist.getApproved()){ // La notifica all observer solo se la playlist è approvata -> Se è caricata da un supervisore
-                playlistCollection.addPlaylist(playlist);
+                PlaylistCollection.getInstance().addPlaylist(playlist);
             }
 
         } catch (PlaylistLinkAlreadyInUse e){

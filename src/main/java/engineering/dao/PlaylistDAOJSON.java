@@ -12,6 +12,8 @@ import java.util.stream.Stream;
 
 public class PlaylistDAOJSON implements PlaylistDAO {
 
+    private static final String ERROR_IMPLEMENTATION = "Non è stato implementato in JSON";
+
     /**
      * Questo metodo inserisce la playlist sia sulla cartella del singolo utente
      * Aggiunge inoltre sulle cartelle generali delle playlist approvate e delle playlist in attesa di approvazione
@@ -155,8 +157,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
      */
     private boolean deletePlaylistFromFolder(java.nio.file.Path playlistPath) {
         try {
-            Files.deleteIfExists(playlistPath);
-            return true; // Ritorna true se l'eliminazione ha avuto successo
+            return Files.deleteIfExists(playlistPath); // Ritorna true se l'eliminazione ha avuto successo
         } catch (IOException e) {
             handleDAOException(e);
             return false; // Ritorna false se si verifica un'eccezione durante l'eliminazione
@@ -287,24 +288,22 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     }
 
     public List<Playlist> searchPlaylistByGenre(Playlist playlist) {
-        //TODO
+        Printer.logPrint(ERROR_IMPLEMENTATION);
         return Collections.emptyList();
     }
 
     public List<Playlist> searchPlaylistByEmotional(Playlist playlist) {
-        //TODO
+        Printer.errorPrint(ERROR_IMPLEMENTATION);
         return Collections.emptyList();
     }
 
     public List<Playlist> searchPlaylistByFilters(Playlist playlist) {
-        //TODO ###################### DA FARE ###################
         return Collections.emptyList();
     }
 
     /** Metodo utilizzato per notificare IOException */
     private void handleDAOException(Exception e) {
         Printer.errorPrint(String.format("PlaylistDAOJSON: %s", e.getMessage()));
-
     }
 
 }

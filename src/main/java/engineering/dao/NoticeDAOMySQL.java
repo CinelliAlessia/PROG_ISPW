@@ -13,9 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoticeDAOMySQL implements NoticeDAO{
-    private static final String USERNAME = "username";
-    private static final String TITLE = "title";
-    private static final String BODY = "body";
+
 
     public void addNotice(Notice notice) {
         Statement stmt = null;
@@ -73,9 +71,9 @@ public class NoticeDAOMySQL implements NoticeDAO{
                 assert rs != null;
                 if (!rs.next()) break;
 
-                String title = rs.getString(TITLE);
-                String body = rs.getString(BODY);
-                String author = rs.getString(USERNAME);
+                String title = rs.getString("title");
+                String body = rs.getString("body");
+                String author = rs.getString("username");
 
                 Notice notice = new Notice(title,body,author);
                 noticeList.add(notice);
