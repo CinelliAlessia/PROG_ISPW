@@ -86,7 +86,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
         LoginBean regBean = new LoginBean();
         getData(regBean);
 
-        if (!regBean.getEmail().isEmpty()) {
+        if (regBean.getEmail() != null && !regBean.getEmail().isEmpty()) {
 
             RegistrazioneCtrlApplicativo registrazioneCtrlApplicativo = new RegistrazioneCtrlApplicativo();
 

@@ -8,6 +8,11 @@
     -fx-border-radius: 20;
 }
 
+#errorField, #errorLabel {
+    -fx-font-size: 16px;
+    -fx-text-fill: red;
+}
+
 /* ----- BOTTONI ----- */
 
 
