@@ -1,4 +1,5 @@
 module logic {
+
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;
@@ -40,9 +41,9 @@ module logic {
     exports controller.applicativo;
     opens controller.applicativo to javafx.fxml;
 
-
     exports model;
     opens model to com.google.gson;
+
     exports engineering.pattern.abstract_factory;
     opens engineering.pattern.abstract_factory to javafx.fxml;
 }

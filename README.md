@@ -1,39 +1,43 @@
-# Prog_ISPW
+# Prog_ISPW - Gestore di Playlist Musicali
 
-**Nome del Progetto**: Gestore di Playlist Musicali
+## Descrizione del Progetto
+Il progetto "Gestore di Playlist Musicali" è un'applicazione web che consente agli utenti di esplorare, condividere e scoprire nuove playlist musicali. L'autenticazione degli utenti offre funzionalità personalizzate, mentre la modalità Guest permette una visione limitata. L'app include una gestione completa delle playlist, filtri avanzati, moderazione amministrativa e un ruolo speciale per i supervisori.
 
-**Descrizione del Progetto**:
-Il progetto consiste nello sviluppo di un'applicazione web dedicata alla gestione e fruizione di playlist musicali. Gli utenti hanno la possibilità di navigare attraverso un database di playlist, ulteriormente arricchibile dagli stessi utenti mediante l'aggiunta di nuove liste musicali. L'interazione con l'app richiede l'autenticazione degli utenti, offrendo funzionalità personalizzate.
+## Caratteristiche Principali
 
-**Caratteristiche Principali**:
+1. **Autenticazione Utente**
+   - Registrazione e accesso utente.
+   - Accesso come Guest per visione limitata.
 
-1. **Autenticazione Utente**:
-    - Registrazione e accesso utente per l'interazione personalizzata con l'app.
+2. **Gestione delle Playlist**
+   - Visualizzazione, ricerca ed esportazione di playlist esistenti.
+   - Aggiunta di nuove playlist al database.
 
-2. **Gestione delle Playlist**:
-    - Visualizzazione, ricerca e salvataggio di playlist esistenti.
-    - Possibilità di aggiungere nuove playlist al database.
+3. **Filtri e Consigli Personalizzati**
+   - Filtraggio per genere musicale, tonalità emotiva e nome della playlist.
 
-3. **Filtri e Consigli Personalizzati**:
-    - Filtraggio delle playlist per genere musicale, tonalità emotiva, ecc.
-    - Generazione di consigli personalizzati basati sulle preferenze dell'utente.
+4. **Gestione del Profilo Utente**
+   - Modifica delle informazioni personali e preferenze utente.
 
-4. **Interazione Sociale**:
-    - Possibilità per gli utenti di mettere like pubblici alle playlist.
-    - Funzionalità di commenti e interazione sociale.
+5. **Moderazione Amministrativa**
+   - Approvazione delle nuove playlist attraverso il sistema di moderazione.
 
-5. **Gestione del Profilo Utente**:
-    - Modifica delle informazioni personali e delle preferenze utente.
+6. **Supervisore**
+   - Utente speciale con privilegi:
+      - Caricamento immediato di playlist senza approvazione.
+      - Approvazione o rifiuto delle playlist degli utenti.
+      - Notifiche automatiche all'autore delle decisioni sulla sua playlist.
 
-6. **Moderazione Amministrativa**:
-    - Sistema di moderazione per valutare e approvare le nuove playlist aggiunte dagli utenti.
+7. **Guest**
+   - Accesso limitato alla home page solo per visualizzare le playlist.
 
-**Tecnologie Coinvolte**:
-- Linguaggio di programmazione: Include Java per il backend e tecnologie web come CSS per il frontend.
-- Framework: Potrebbe utilizzare JavaFX per l'interfaccia utente o altri framework web per lo sviluppo dell'interfaccia utente.
-- Database: Un sistema di gestione di database come MySQL per la memorizzazione delle informazioni sulle playlist e sugli utenti.
+## Persistenza
+L'applicazione implementa due tipi di persistenza: JSON e MySQL, offrendo flessibilità nella gestione dei dati.
 
-**Considerazioni Aggiuntive**:
-- L'applicazione dovrebbe garantire la sicurezza delle informazioni utente.
-- Implementare un sistema di notifiche o feedback per migliorare l'esperienza dell'utente.
-- Documentare chiaramente le politiche sulla privacy e le condizioni d'uso dell'app.
+## Tecnologie Coinvolte
+- **Backend**: Java per la logica del server.
+- **Frontend**: JavaFX per l'interfaccia utente.
+- **Database**: MySQL per memorizzare informazioni su playlist e utenti.
+- **Persistenza**: Implementata tramite JSON e MySQL.
+
+L'app fornisce un'esperienza completa di gestione delle playlist, con funzionalità avanzate e una struttura flessibile per la persistenza dei dati.
