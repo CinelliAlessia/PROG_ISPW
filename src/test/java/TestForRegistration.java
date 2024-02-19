@@ -1,10 +1,7 @@
 import static org.junit.Assert.*;
-
-import engineering.exceptions.UserDoesNotExist;
+import engineering.exceptions.*;
 import org.junit.Test;
 import engineering.dao.ClientDAOJSON;
-import engineering.exceptions.EmailAlreadyInUse;
-import engineering.exceptions.UsernameAlreadyInUse;
 import model.Login;
 
 import java.util.Arrays;
@@ -28,7 +25,7 @@ public class TestForRegistration {
             // Verifica che la registrazione sia avvenuta correttamente
             assertNotNull(clientDAO.loadClient(validLogin));
 
-        } catch (EmailAlreadyInUse | UsernameAlreadyInUse | UserDoesNotExist e) {
+        } catch (EmailAlreadyInUseException | UsernameAlreadyInUseException | UserDoesNotExistException e) {
             // Se si verifica un'eccezione, il test fallisce
             fail("Unexpected exception: " + e.getMessage());
         }
@@ -58,10 +55,10 @@ public class TestForRegistration {
 
             // Se la registrazione riesce, il test fallisce
             fail("Expected EmailAlreadyInUse exception but got none.");
-        } catch (EmailAlreadyInUse e) {
+        } catch (EmailAlreadyInUseException e) {
             // Se si verifica l'eccezione corretta, il test ha successo
             assertEquals("Email already registered!", e.getMessage());
-        } catch (UsernameAlreadyInUse e) {
+        } catch (UsernameAlreadyInUseException e) {
             // Se si verifica un'eccezione diversa, il test fallisce
             fail("Unexpected exception: " + e.getMessage());
         }
@@ -81,10 +78,10 @@ public class TestForRegistration {
 
             // Se la registrazione riesce, il test fallisce
             fail("Expected UsernameAlreadyInUse exception but got none.");
-        } catch (UsernameAlreadyInUse e) {
+        } catch (UsernameAlreadyInUseException e) {
             // Se si verifica l'eccezione corretta, il test ha successo
             assertEquals("Username already in use!", e.getMessage());
-        } catch (EmailAlreadyInUse | IllegalArgumentException e) {
+        } catch (EmailAlreadyInUseException | IllegalArgumentException e) {
             // Se si verifica un'eccezione diversa, il test fallisce
             fail("Unexpected exception: " + e.getMessage());
         }
