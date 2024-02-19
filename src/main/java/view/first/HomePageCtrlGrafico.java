@@ -33,13 +33,13 @@ import java.util.*;
  */
 public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable, Observer {
 
-
     @FXML
     private ContextMenu contextMenu;
     @FXML
     private TextField searchText;
     @FXML
     private TableView<PlaylistBean> playlistTable;
+
     @FXML
     private TableColumn<PlaylistBean, String> playlistNameColumn;
     @FXML
@@ -59,7 +59,6 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     private Button menu;
 
     private T clientBean;
-
     private SceneController sceneController;
     private final PlaylistBean filterPlaylist = new PlaylistBean(); // Contiene gli attributi secondo i quali filtrare le playlists
 
@@ -105,11 +104,25 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         Printer.logPrint(String.format("GUI HomePage setAttributes: %s", clientBean));
     }
 
+    /** UTILIZZATA PER IL PATTERN OBSERVER */
+    @Override
+    public void update() {
+        try{
+            playlists = playlistCollection.getState();
+            for(Playlist p: playlists){
+                playlistsBean.add(new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional()));
+            }
+            TableManager.updateTable(playlistTable, playlistsBean);
+        } catch (LinkIsNotValid e){
+            Printer.errorPrint(e.getMessage());
+        }
+    }
+
     /**
      * Inizializza i componenti visivi della home page in base allo stato
      * dell'utente rappresentato dal clientBean.
      */
-    public void initializeField() {
+    private void initializeField() {
         if(clientBean == null){
             Printer.logPrint("GUI HomePage: Accesso come Guest");
 
@@ -119,7 +132,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
             account.setText("Registrati");
 
         } else { // UserBean o SupervisorBean
-            Printer.logPrint(String.format("GUI HomePage: Accesso come Supervisor: %b", clientBean.isSupervisor()));
+                Printer.logPrint(String.format("GUI HomePage: Accesso come Supervisor: %b", clientBean.isSupervisor()));
 
             addButton.setVisible(true);
             manager.setVisible(clientBean.isSupervisor());
@@ -137,51 +150,33 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     }
 
     @FXML
-    public void addPlaylistClick(ActionEvent event) {
+    protected void onAddPlaylistClick(ActionEvent event) {
         sceneController.goToScene(event, FxmlFileName.UPLOAD_PLAYLIST_FXML, clientBean);
     }
 
     @FXML
-    public void onManagerClick(ActionEvent event) {
+    protected void onManagerClick(ActionEvent event) {
         sceneController.goToScene(event, FxmlFileName.MANAGER_PLAYLIST_FXML);
     }
 
     @FXML
-    public void onSearchPlaylistClick() {
+    protected void onSearchPlaylistClick() {
         filterPlaylist.setPlaylistName(searchText.getText());
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistsBean = homePageController.searchPlaylistByFilters(filterPlaylist);        // Recupera le playlist approvate
-
-        //playlistsBean = homePageController.searchPlaylistByName(filterPlaylist);         // Recupera le playlist cercando per nome
         TableManager.updateTable(playlistTable, playlistsBean);
 
         Printer.logPrint(String.format("GUI HomePage: search click: %s, nome: %s, genre: %s, emotional: %s", filterPlaylist, filterPlaylist.getPlaylistName(), filterPlaylist.getPlaylistGenre(), filterPlaylist.getEmotional()));
     }
 
     @FXML
-    public void onFilterClick(ActionEvent event) {
+    protected void onFilterClick(ActionEvent event) {
         sceneController.goToFilterPopUp(event, clientBean, filterPlaylist);
     }
 
-
-    /** UTILIZZATA PER IL PATTERN OBSERVER */
-    @Override
-    public void update() {
-        try{
-            playlists = playlistCollection.getState();
-            for(Playlist p: playlists){
-                playlistsBean.add(new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional()));
-            }
-            TableManager.updateTable(playlistTable, playlistsBean);
-        } catch (LinkIsNotValid e){
-            e.fillInStackTrace();
-        }
-    }
-
-
     @FXML
-    public void showContextMenu(ActionEvent event) {
+    protected void showContextMenu() {
         contextMenu.getItems().clear(); // Rimuovi tutti gli elementi dal ContextMenu
 
         UserBean userBean = (UserBean) clientBean;
@@ -205,7 +200,6 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         // Mostra il ContextMenu accanto al bottone
         contextMenu.show(menu, screenX, screenY);
     }
-
 
     private void handleNoticeSelection(NoticeBean noticeBean) {
         List<NoticeBean> noticeBeanList = ((UserBean)clientBean).getNotices();
@@ -260,5 +254,6 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         return menuItem;
     }
+
 
 }

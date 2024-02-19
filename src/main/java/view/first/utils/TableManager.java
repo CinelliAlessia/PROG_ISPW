@@ -40,7 +40,7 @@ public class TableManager {
         playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
     }
 
-    public ObservableList<PlaylistBean> collegamento(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlistBeanList) {
+    public ObservableList<PlaylistBean> handler(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlistBeanList) {
 
         ObservableList<PlaylistBean> observableList = FXCollections.observableList(playlistBeanList);
         playlistTable.setItems(observableList);

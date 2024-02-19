@@ -268,7 +268,7 @@ public class PlaylistDAOJSON implements PlaylistDAO {
         }
     }
 
-    public List<Playlist> searchPlaylistByTitle(Playlist playlist) {
+        public List<Playlist> searchPlaylistByTitle(Playlist playlist) {
         // Estrai il nome della playlist da cercare
         String targetPlaylistName = playlist.getPlaylistName().toLowerCase();
 

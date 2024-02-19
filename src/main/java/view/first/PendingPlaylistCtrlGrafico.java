@@ -54,7 +54,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         linkColumn.setCellFactory(button -> new SingleButtonTableCell());
 
         TableManager tableManager = new TableManager();
-        observableList = tableManager.collegamento(playlistTable,playlistsPending);
+        observableList = tableManager.handler(playlistTable,playlistsPending);
     }
 
     @FXML
