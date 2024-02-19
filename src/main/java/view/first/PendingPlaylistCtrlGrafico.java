@@ -92,6 +92,8 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
 
         NoticeBean noticeBean = new NoticeBean(title, body, playlistBean.getEmail());
         pendingPlaylistCtrlApplicativo.sendNotification(noticeBean);
+        Printer.print("INVIO: ");
+        Printer.print(String.valueOf(noticeBean));
         observableList.remove(playlistBean);
     }
 }

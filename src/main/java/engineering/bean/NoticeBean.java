@@ -4,7 +4,6 @@ public class NoticeBean {
 
     private String title;
     private String body;
-
     private String email;
 
     public NoticeBean(String title, String body,String email){

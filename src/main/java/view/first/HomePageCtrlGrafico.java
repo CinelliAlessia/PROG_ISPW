@@ -201,9 +201,9 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         contextMenu.show(menu, screenX, screenY);
     }
 
+    /** Nel caso viene premuto il pulsante elimina */
     private void handleNoticeSelection(NoticeBean noticeBean) {
         List<NoticeBean> noticeBeanList = ((UserBean)clientBean).getNotices();
-
         HomePageCtrlApplicativo homePageCtrlApplicativo = new HomePageCtrlApplicativo();
         homePageCtrlApplicativo.removeNotice(noticeBean);
         noticeBeanList.remove(noticeBean);

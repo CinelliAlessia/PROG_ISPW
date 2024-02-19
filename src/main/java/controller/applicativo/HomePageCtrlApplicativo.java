@@ -104,7 +104,7 @@ public class HomePageCtrlApplicativo {
 
     public void removeNotice(NoticeBean noticeBean) {
         NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-        Notice notice = new Notice(noticeBean.getTitle(),noticeBean.getBody(), noticeBean.getEmail());
+        Notice notice = new Notice(noticeBean.getTitle(), noticeBean.getBody(), noticeBean.getEmail());
         dao.deleteNotice(notice);
     }
 
