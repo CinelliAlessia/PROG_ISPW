@@ -58,6 +58,8 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     @FXML
     private Button menu;
 
+    private boolean filterApplied = false;
+
     private T clientBean;
     private SceneController sceneController;
     private final PlaylistBean filterPlaylist = new PlaylistBean(); // Contiene gli attributi secondo i quali filtrare le playlists
@@ -104,6 +106,10 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         Printer.logPrint(String.format("GUI HomePage setAttributes: %s", clientBean));
     }
 
+    public void setFilterApplied(boolean applyFilter) {
+        this.filterApplied = applyFilter;
+    }
+
     /** UTILIZZATA PER IL PATTERN OBSERVER */
     @Override
     public void update() {
@@ -112,7 +118,9 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
             for(Playlist p: playlists){
                 playlistsBean.add(new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional()));
             }
-            TableManager.updateTable(playlistTable, playlistsBean);
+            if(!filterApplied){ // Se i filtri non sono applicati allora aggiorna la tabella altrimenti no
+                TableManager.updateTable(playlistTable, playlistsBean);
+            }
         } catch (LinkIsNotValid e){
             Printer.errorPrint(e.getMessage());
         }
@@ -161,6 +169,10 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
     @FXML
     protected void onSearchPlaylistClick() {
+        if(!Objects.equals(searchText.getText(), "")){
+            this.filterApplied = true;
+        }
+
         filterPlaylist.setPlaylistName(searchText.getText());
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
@@ -172,7 +184,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
     @FXML
     protected void onFilterClick(ActionEvent event) {
-        sceneController.goToFilterPopUp(event, clientBean, filterPlaylist);
+        sceneController.goToFilterPopUp(event, clientBean, filterPlaylist,this);
     }
 
     @FXML
@@ -254,6 +266,5 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         return menuItem;
     }
-
 
 }

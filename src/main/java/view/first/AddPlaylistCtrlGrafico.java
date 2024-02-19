@@ -134,8 +134,8 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
             playlistBean.setId("");
 
             // Utilizzato esclusivamente per aggiornare la tabella nell'account utente
-            if(observableList != null){ // Solo se l'utente ha cliccato add Button da Account
-                observableList.add(playlistBean);
+            if(observableList != null){ // è null solo se l'utente ha cliccato add Button da Home Page
+                observableList.add(playlistBean); //Aggiungi
             }
         }
     }
