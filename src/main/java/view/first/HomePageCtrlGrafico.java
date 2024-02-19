@@ -132,7 +132,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
             account.setText("Registrati");
 
         } else { // UserBean o SupervisorBean
-                Printer.logPrint(String.format("GUI HomePage: Accesso come Supervisor: %b", clientBean.isSupervisor()));
+            Printer.logPrint(String.format("GUI HomePage: Accesso come Supervisor: %b", clientBean.isSupervisor()));
 
             addButton.setVisible(true);
             manager.setVisible(clientBean.isSupervisor());

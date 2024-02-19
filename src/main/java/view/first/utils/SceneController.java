@@ -88,7 +88,7 @@ public class SceneController {
                 Method setAttributes = controller.getClass().getMethod(SET_ATTRIBUTES, paramType, SceneController.class);
 
                 // Verifica il tipo di parametro e invoca il metodo corrispondente solo se il parametro non è null
-                if (paramType == ClientBean.class && clientBean != null) {
+                if (paramType == ClientBean.class) {
                     setAttributes.invoke(controller, clientBean, this);         // Account e HomePage ok
                 } else if (paramType == PlaylistBean.class && playlistBean != null) {
                     setAttributes.invoke(controller, playlistBean, this);       // Filter
