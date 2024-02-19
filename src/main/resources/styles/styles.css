@@ -18,7 +18,7 @@
 
 .button {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
-    -fx-text-fill: white; /* Colore del testo bianco */
+    -fx-text-fill: white; /* Colore del testo bianco */+
     -fx-alignment: center;
     -fx-font-size: 16px;
     -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
@@ -51,8 +51,6 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center; /* Posiziona l'immagine al centro */
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 5,0,0,1 ); /* Aggiunge un'ombra */
-    -fx-cursor: hand; /* Cambia il cursore al passaggio del mouse ########## */
-    -fx-opacity: 0.9; /* Opacità del pulsante */
 }
 
 #addButton {
@@ -179,3 +177,27 @@
     -fx-text-fill: #1DB954; /* Colore del testo dell'acceleratore */
 }
 
+/* Grid pane in account */
+
+#gridAccount {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-background-color: #2c2c2c; /* Colore di sfondo più scuro */
+    -fx-border-color: #1DB954; /* Colore del bordo */
+    -fx-border-width: 1.5; /* Spessore del bordo */
+    -fx-padding: 20; /* Spazio interno */
+}
+
+.large-label {
+    -fx-font-size: 18px; /* Dimensione del carattere aumentata */
+    -fx-text-fill: white; /* Colore del testo bianco */
+}
+
+#usernameText, #emailText {
+    -fx-text-fill: white; /* Colore del testo bianco */
+    -fx-font-size: 20px; /* Dimensione del carattere per le label specifiche */
+}
+
+#gridAccount .row-constraints {
+    -fx-alignment: CENTER; /* Allinea al centro all'interno delle righe */
+}
