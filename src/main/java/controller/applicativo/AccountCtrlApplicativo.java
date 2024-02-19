@@ -5,6 +5,7 @@ import engineering.dao.*;
 import engineering.exceptions.*;
 import engineering.others.Printer;
 import engineering.pattern.abstract_factory.DAOFactory;
+import engineering.pattern.observer.PlaylistCollection;
 import model.*;
 
 import java.util.*;
@@ -54,7 +55,7 @@ public class AccountCtrlApplicativo {
     /** Utilizzata per eliminare le playlist
      * vanno aggiunti dei controlli per capire chi può eliminare ?
      * Non è stato implementata l'eliminazione */
-    public static Boolean deletePlaylist(PlaylistBean pB){
+    public Boolean deletePlaylist(PlaylistBean pB){
 
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
@@ -63,7 +64,10 @@ public class AccountCtrlApplicativo {
 
         dao.deletePlaylist(playlist);
 
-        // Per ora lascio return true
+        if(playlist.getApproved()) {
+            /* OBSERVER -> ADD PER FAR AGGIORNARE LA HOME PAGE */
+            PlaylistCollection.getInstance().removePlaylist(playlist);
+        }
         return true;
     }
 

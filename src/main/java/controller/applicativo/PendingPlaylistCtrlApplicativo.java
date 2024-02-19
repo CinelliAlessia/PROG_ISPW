@@ -21,13 +21,11 @@ public class PendingPlaylistCtrlApplicativo {
 
         // Istanza di playlist ha ancora il parametro approved a false
         Playlist playlistApproved = dao.approvePlaylist(playlist);
-
-        /* OBSERVER -> ADD PER FAR AGGIORNARE LA HOME PAGE*/
-        PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
-        playlistCollection.addPlaylist(playlist); // Lancio metodo con approved = false ######################
-
-        // ############ Imposto approved a true sul bean (?) ############
         pB.setApproved(playlistApproved.getApproved());
+
+        /* OBSERVER -> ADD PER FAR AGGIORNARE LA HOME PAGE */
+        PlaylistCollection playlistCollection = PlaylistCollection.getInstance();
+        playlistCollection.addPlaylist(playlist);
     }
 
     /** Recupera tutte le playlist globali, sia approvate che non */

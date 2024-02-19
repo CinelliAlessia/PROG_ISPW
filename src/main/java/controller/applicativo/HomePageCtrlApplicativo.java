@@ -18,12 +18,12 @@ public class HomePageCtrlApplicativo {
 
     public List<PlaylistBean> retrivePlaylistsApproved() {
 
-        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
         List<Playlist> playlists = dao.retrieveApprovedPlaylists();              // Recupero lista Playlist
         List<PlaylistBean> playlistsBean = new ArrayList<>();
 
-        /* BYPASSIAMO MVC PER PATTERN OBSERVER */
+        /* OBSERVER */
         PlaylistCollection playlistCollection = PlaylistCollection.getInstance();   // Recupero l'istanza del Model Subject
         playlistCollection.setState(playlists);                                     // Imposto lo stato del model Subject SETSTATE NON CHIAMA UPDATE
 
@@ -39,7 +39,8 @@ public class HomePageCtrlApplicativo {
             }
         } catch (LinkIsNotValid e){
             // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
-            Printer.logPrint(e.getMessage());        }
+            Printer.logPrint(String.format("HomePage APP: LinkIsNotValid %s", e.getMessage()));
+        }
         return playlistsBean;
     }
 
