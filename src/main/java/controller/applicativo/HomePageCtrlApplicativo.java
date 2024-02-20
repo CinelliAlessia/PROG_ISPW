@@ -19,9 +19,7 @@ public class HomePageCtrlApplicativo {
     public List<PlaylistBean> retrivePlaylistsApproved() {
 
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-
         List<Playlist> playlists = dao.retrieveApprovedPlaylists();              // Recupero lista Playlist
-        List<PlaylistBean> playlistsBean = new ArrayList<>();
 
         /* OBSERVER */
         PlaylistCollection playlistCollection = PlaylistCollection.getInstance();   // Recupero l'istanza del Model Subject
@@ -30,25 +28,13 @@ public class HomePageCtrlApplicativo {
         // Dato che viene fatto set state, serve fare return di un playlist
         // bean se comunque nel setState verrà fatto update?
 
-        try{
-            for (Playlist p : playlists){
-                PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
-                pB.setId(p.getId());
-
-                playlistsBean.add(pB);
-            }
-        } catch (LinkIsNotValidException e){
-            // Non la valuto perché è un retrieve da persistenza, dove è stata caricata correttamente
-            Printer.logPrint(String.format("HomePage APP: LinkIsNotValid %s", e.getMessage()));
-        }
-        return playlistsBean;
+        return getPlaylistsBean(playlists);
     }
 
     public List<PlaylistBean> searchPlaylistByFilters(PlaylistBean playlistBean) {
 
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();  // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
 
-        List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean da restituire al Grafico
         Playlist playlist = new Playlist();                             // Creo la entity da passare al DAO
 
         /* Popolo la playlist da cercare con solo le informazioni di cui l'utente è interessato */
@@ -68,11 +54,22 @@ public class HomePageCtrlApplicativo {
             playlists = dao.searchPlaylistByEmotional(playlist);  // Recupero lista Playlist controllando Titolo ed Emotional
         }
 
-        try{
+        return getPlaylistsBean(playlists);
+    }
+
+    /** Nel caso in cui non volessimo che la view contattasse il model per fare attach */
+    public void observePlaylistTable(Observer observer){
+        Subject playlistCollection = PlaylistCollection.getInstance();
+        playlistCollection.attach(observer);
+    }
+
+    public List<PlaylistBean> getPlaylistsBean(List<Playlist> playlists){
+        List<PlaylistBean> playlistsBean = new ArrayList<>();           // Creo una lista di playlistBean da restituire al Grafico
+
+        try {
             for (Playlist p : playlists){
                 PlaylistBean pB = new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional());
                 pB.setId(p.getId());
-
                 playlistsBean.add(pB);
             }
         } catch (LinkIsNotValidException e){
@@ -80,6 +77,29 @@ public class HomePageCtrlApplicativo {
             Printer.logPrint(String.format("HomePage APP: LinkIsNotValid %s", e.getMessage()));
         }
         return playlistsBean;
+    }
+
+    public void deleteSelectedPlaylist(PlaylistBean playlistBean) {
+        Playlist playlist = new Playlist(playlistBean.getEmail(), playlistBean.getUsername(), playlistBean.getPlaylistName(), playlistBean.getLink(), playlistBean.getPlaylistGenre(), playlistBean.getApproved());
+
+        if (playlist.getApproved()){
+            PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();
+            dao.deletePlaylist(playlist);
+
+            /* OBSERVER -> REMOVE PER FAR AGGIORNARE LA HOME PAGE */
+            PlaylistCollection.getInstance().removePlaylist(playlist);
+        }
+    }
+
+    public void removeNotice(NoticeBean noticeBean) {
+        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        Notice notice = new Notice(noticeBean.getTitle(), noticeBean.getBody(), noticeBean.getEmail());
+        dao.deleteNotice(notice);
+    }
+
+    /** Utilizzata per un corretto filtraggio */
+    private boolean genreEmpty(List<String> genre){
+        return genre == null || genre.isEmpty();
     }
 
     /** Utilizzata per un corretto filtraggio */
@@ -97,20 +117,4 @@ public class HomePageCtrlApplicativo {
         return true; // Tutti i valori sono 0
     }
 
-    /** Utilizzata per un corretto filtraggio */
-    private boolean genreEmpty(List<String> genre){
-        return genre == null || genre.isEmpty();
-    }
-
-    public void removeNotice(NoticeBean noticeBean) {
-        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-        Notice notice = new Notice(noticeBean.getTitle(), noticeBean.getBody(), noticeBean.getEmail());
-        dao.deleteNotice(notice);
-    }
-
-    /** Nel caso in cui non volessimo che la view contattasse il model */
-    public void observePlaylistTable(Observer observer){
-        Subject playlistCollection = PlaylistCollection.getInstance();
-        playlistCollection.attach(observer);
-    }
 }

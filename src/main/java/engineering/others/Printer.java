@@ -4,14 +4,17 @@ public class Printer {
 
     private Printer(){}
 
+    /** Stampa in bianco e non va a capo */
     public static void print(String message){
         System.out.print(message);
     }
 
+    /** Stampa in bianco e va a capo */
     public static void println(String message){
         print(String.format("%s%n", message));
     }
 
+    /** Stampa in rosso e va a capo */
     public static void errorPrint(String message){
         // Sequenza di escape ANSI per il colore rosso
         String redColorCode = "\u001B[31m";
@@ -24,6 +27,7 @@ public class Printer {
         println(message);
     }
 
+    /** Stampa in blu e va a capo */
     public static void logPrint(String message){
         // Sequenza di escape ANSI per il colore blu
         String blueColorCode = "\u001B[34m";
