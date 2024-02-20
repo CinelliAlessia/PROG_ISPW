@@ -105,4 +105,17 @@ public class HomePageCtrlApplicativo {
         return playlistsBean;
     }
 
+    public void deleteSelectedPlaylist(PlaylistBean playlistBean) {
+        Playlist playlist = new Playlist(playlistBean.getEmail(), playlistBean.getUsername(), playlistBean.getPlaylistName(), playlistBean.getLink(), playlistBean.getPlaylistGenre(), playlistBean.getApproved());
+
+        if (playlist.getApproved()){
+            PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();
+            dao.deletePlaylist(playlist);
+
+            /* OBSERVER */
+            PlaylistCollection playlistCollection = PlaylistCollection.getInstance();   // Recupero l'istanza del Model Subject
+            playlistCollection.removePlaylist(playlist);                                // Rimuove una playlist dalla home page
+
+        }
+    }
 }
