@@ -10,7 +10,7 @@ public class Playlist {
     private String email;
     private List<String> playlistGenre;
     private boolean approved;
-    List<Integer> emotional = List.of(0,0,0,0);
+    private List<Integer> emotional = List.of(0,0,0,0);
 
     public Playlist(){
         this.approved = false;
@@ -100,7 +100,6 @@ public class Playlist {
     public String getId() {
         return id;
     }
-
 
 
     public void setApproved(boolean approved){
