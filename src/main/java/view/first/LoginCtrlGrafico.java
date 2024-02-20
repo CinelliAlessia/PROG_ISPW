@@ -29,7 +29,7 @@ public class LoginCtrlGrafico {
      * */
     @FXML
     protected void onLoginClick(ActionEvent event) {
-        Printer.logPrint("GUI Login: inizio");
+        Printer.logPrint("GUI Login: Start");
 
         /* ------ Recupero informazioni dalla schermata di login ------ */
         String email = emailField.getText().trim();
@@ -37,7 +37,7 @@ public class LoginCtrlGrafico {
 
         /* ------ Verifica dei parametri inseriti (validità sintattica) ------ */
         if (email.isEmpty() || pass.isEmpty()) {
-            showError("Ci sono dei campi vuoti!");
+            showError("There are empty fields!");
         } else {
             /* ------ Creo il bean e imposto i parametri ------ */
             try{
@@ -48,7 +48,7 @@ public class LoginCtrlGrafico {
 
                 /* --------------- Credenziali corrette se non è scaturita l'eccezione -------------- */
                 ClientBean clientBean = loginCtrlApp.loadUser(loginBean); // Ottengo istanza di clientBean
-                Printer.logPrint(String.format("GUI Login: Credenziali corrette, Supervisor: %b", clientBean.isSupervisor()));
+                Printer.logPrint(String.format("GUI Login: Valid credentials, Supervisor: %b", clientBean.isSupervisor()));
 
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean); // Lascio alla homePage GUI la responsabilità di differenziare tra UserBean e SupervisorBean

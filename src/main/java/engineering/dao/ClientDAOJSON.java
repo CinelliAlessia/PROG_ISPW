@@ -159,7 +159,6 @@ public class ClientDAOJSON implements ClientDAO {
         }
     }
 
-
     private Client getUserFromDirectory(Path userDirectory) {
         try {
             Path userFilePath = userDirectory.resolve(ConfigurationJSON.USER_INFO_FILE_NAME);

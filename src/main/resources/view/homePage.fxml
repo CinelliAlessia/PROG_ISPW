@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.first.HomePageCtrlGrafico">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.first.HomePageCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
@@ -13,10 +13,10 @@
             <!-- Pulsante Account -->
             <Button fx:id="account" layoutX="14.0" layoutY="19.0" onAction="#onAccountClick" text="Account" AnchorPane.rightAnchor="15.0" />
             <!-- Pulsante Account -->
-            <Button fx:id="manager" layoutX="14.0" layoutY="19.0" onAction="#onManagerClick" text="Playlist Management" AnchorPane.leftAnchor="15.0" />
+            <Button fx:id="manager" layoutX="14.0" layoutY="19.0" onAction="#onManagerClick" text="Manage Playlists" AnchorPane.leftAnchor="15.0" />
 
             <!-- Il tuo contenuto principale -->
-            <Button fx:id="menu" text="Notice" onAction="#showContextMenu" layoutX="14.0" layoutY="19.0" AnchorPane.leftAnchor="15.0">
+            <Button fx:id="menu" layoutX="14.0" layoutY="19.0" onAction="#showContextMenu" text="Notication" AnchorPane.leftAnchor="15.0">
                 <contextMenu>
                     <!-- Definisci gli elementi del menu -->
                     <ContextMenu fx:id="contextMenu">

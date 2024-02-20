@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml" fx:controller="view.first.AddPlaylistCtrlGrafico">
+<BorderPane prefHeight="640.0" prefWidth="1024.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.first.AddPlaylistCtrlGrafico">
 
     <top>
         <!-- Barra del titolo TopPage -->
@@ -16,8 +16,8 @@
 
     <bottom>
         <AnchorPane BorderPane.alignment="BOTTOM_CENTER">
-            <!-- Bottone Salva -->
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="452.0" onAction="#onUploadClick" text="Carica Playlist" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.bottomAnchor="35.0" />
+            <!-- Bottone Carica -->
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="452.0" onAction="#onUploadClick" text="Upload Playlist" textAlignment="CENTER" textOverrun="CLIP" AnchorPane.bottomAnchor="35.0" />
         </AnchorPane>
     </bottom>
    <center>

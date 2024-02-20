@@ -103,7 +103,7 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
                 else{
                     sceneController.textPopUp(event,MessageString.ADDED_PENDING_PLAYLIST,true);
                 }
-                Printer.logPrint("GUI AddPlaylist: Playlist Aggiunta");
+                Printer.logPrint("GUI AddPlaylist: Playlist Added");
             }
         } catch (PlaylistLinkAlreadyInUseException | LinkIsNotValidException | PlaylistNameAlreadyInUseException e){
             showError(e.getMessage());
@@ -126,9 +126,9 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
 
         //Controllo sui campi vuoti
         if( linkPlaylist.isEmpty() || titolo.isEmpty() ){
-            showError("I campi sono vuoti!");
+            showError("There are empty fields!");
         } else if(genre.isEmpty()) {
-            showError("Inserisci almeno un genere musicale!");
+            showError("Please enter at least one music genre!");
         } else {
             playlistBean = new PlaylistBean(clientBean.getEmail(), clientBean.getUsername(), titolo, linkPlaylist, genre, clientBean.isSupervisor(), sliderValues);
             playlistBean.setId("");

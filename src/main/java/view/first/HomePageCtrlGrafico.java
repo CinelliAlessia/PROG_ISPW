@@ -132,7 +132,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
      */
     private void initializeField() {
         if(clientBean == null){
-            Printer.logPrint("GUI HomePage: Accesso come Guest");
+            Printer.logPrint("GUI HomePage: Entered as a Guest");
 
             menu.setVisible(false);
             addButton.setVisible(false);
@@ -140,7 +140,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
             account.setText("Registrati");
 
         } else { // UserBean o SupervisorBean
-            Printer.logPrint(String.format("GUI HomePage: Accesso come Supervisor: %b", clientBean.isSupervisor()));
+            Printer.logPrint(String.format("GUI HomePage: Entered as Supervisor: %b", clientBean.isSupervisor()));
 
             addButton.setVisible(true);
             manager.setVisible(clientBean.isSupervisor());
@@ -179,7 +179,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         playlistsBean = homePageController.searchPlaylistByFilters(filterPlaylist);        // Recupera le playlist approvate
         TableManager.updateTable(playlistTable, playlistsBean);
 
-        Printer.logPrint(String.format("GUI HomePage: search click: %s, nome: %s, genre: %s, emotional: %s", filterPlaylist, filterPlaylist.getPlaylistName(), filterPlaylist.getPlaylistGenre(), filterPlaylist.getEmotional()));
+        Printer.logPrint(String.format("GUI HomePage: search clicked: %s, nome: %s, genre: %s, emotional: %s", filterPlaylist, filterPlaylist.getPlaylistName(), filterPlaylist.getPlaylistGenre(), filterPlaylist.getEmotional()));
     }
 
     @FXML
@@ -193,7 +193,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         UserBean userBean = (UserBean) clientBean;
 
-        if (userBean.getNotices().isEmpty()) {
+        if (userBean.getNotices() == null || userBean.getNotices().isEmpty()) {
             // Nessuna notifica disponibile
             MenuItem noNotificationItem = new MenuItem("No notifications available");
             noNotificationItem.setDisable(true); // Impedisce l'interazione con l'elemento

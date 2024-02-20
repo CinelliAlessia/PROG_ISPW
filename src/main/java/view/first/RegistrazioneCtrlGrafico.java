@@ -94,7 +94,7 @@ public class RegistrazioneCtrlGrafico implements Initializable {
                 ClientBean clientBean = new UserBean(regBean.getEmail());
                 registrazioneCtrlApplicativo.registerUser(regBean, clientBean);
 
-                Printer.logPrint("GUI Registrazione: Utente registrato con successo");
+                Printer.logPrint("GUI Registration: User registered successfully");
 
                 /* --------------- Mostro la home page -------------- */
                 sceneController.goToScene(event, FxmlFileName.HOME_PAGE_FXML, clientBean);

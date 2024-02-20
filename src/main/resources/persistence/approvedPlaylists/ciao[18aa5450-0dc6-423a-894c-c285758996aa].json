@@ -1,0 +1,17 @@
+{
+  "id": "18aa5450-0dc6-423a-894c-c285758996aa",
+  "playlistName": "ciao",
+  "link": "https://chat.openai.com/c/e2cd8b05-4884-4ef5-b9eb-3b26b2ff5304",
+  "username": "aaa",
+  "email": "aaa@aaa.com",
+  "playlistGenre": [
+    "Rock"
+  ],
+  "approved": true,
+  "emotional": [
+    -2,
+    0,
+    0,
+    0
+  ]
+}

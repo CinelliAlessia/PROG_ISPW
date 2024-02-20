@@ -43,5 +43,4 @@ public class RegistrazioneCtrlApplicativo {
         login.setUsername(regBean.getUsername());
         dao.tryCredentialExisting(login);
     }
-
 }

@@ -72,7 +72,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
         String body;
 
         if (approve) {
-            Printer.logPrint(String.format("Approvazione della playlist: %s", playlistBean.getPlaylistName()));
+            Printer.logPrint(String.format("Approving playlist: %s", playlistBean.getPlaylistName()));
 
             title = "Approved";
             body = String.format("Your playlist %s is approved!", playlistBean.getPlaylistName());
@@ -80,7 +80,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
             // Approva Playlist
             pendingPlaylistCtrlApplicativo.approvePlaylist(playlistBean);
         } else {
-            Printer.logPrint(String.format("Rifiuto della playlist: %s", playlistBean.getPlaylistName()));
+            Printer.logPrint(String.format("Rejecting playlist: %s", playlistBean.getPlaylistName()));
 
             title = "Rejected";
             body = String.format("Your playlist %s is rejected!", playlistBean.getPlaylistName());
@@ -92,7 +92,7 @@ public class PendingPlaylistCtrlGrafico implements Initializable {
 
         NoticeBean noticeBean = new NoticeBean(title, body, playlistBean.getEmail());
         pendingPlaylistCtrlApplicativo.sendNotification(noticeBean);
-        Printer.print("INVIO: ");
+        Printer.print("Sending: ");
         Printer.print(String.valueOf(noticeBean));
         observableList.remove(playlistBean);
     }

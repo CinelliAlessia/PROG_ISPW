@@ -3,7 +3,8 @@
   "email": "admin@gmail.com",
   "username": "admin",
   "preferences": [
+    "Classic",
     "Jazz"
   ],
-  "supervisor": false
+  "supervisor": true
 }
