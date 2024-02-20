@@ -189,10 +189,6 @@ public class HomePageCLI<T extends ClientBean> {
      * Applica un filtro di ricerca alle playlist.
      */
     private void addFilter() {
-        // Implementa la logica per applicare un filtro alle playlist
-        // Potresti chiedere all'utente di selezionare i generi, l'approvazione, ecc.
-        // Usa il controller applicativo per effettuare la ricerca con il filtro
-        // e mostra i risultati all'utente
         Printer.errorPrint("Non è ancora stato implementato.");
     }
 
@@ -200,8 +196,6 @@ public class HomePageCLI<T extends ClientBean> {
      * Elimina i filtri di ricerca applicati alle playlist.
      */
     private void deleteFilter() {
-        // Resetta la PlaylistFilter a null o come desideri gestire l'eliminazione dei filtri
-        // e mostra un messaggio all'utente
         Printer.errorPrint("Non è ancora stato implementato.");
     }
 

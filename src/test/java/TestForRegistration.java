@@ -33,7 +33,7 @@ public class TestForRegistration {
     @Test
     public void testRegistrationWithEmailAlreadyExists() {
         ClientDAOJSON clientDAO = new ClientDAOJSON();
-        int res = -1;
+        int res;
 
         Login existingEmailLogin = new Login("nuovoTestUsername", "admin@gmail.com", "password123", Arrays.asList("Rock", "Indie"));
 
@@ -52,9 +52,9 @@ public class TestForRegistration {
     @Test
     public void testRegistrationWithExistingUsername() {
         ClientDAOJSON clientDAO = new ClientDAOJSON();
-        int res = -1;
+        int res;
 
-        Login existingUsernameLogin = new Login("admin", "nuovaemail2@example.com", "password123", Arrays.asList("Rock", "Pop"));
+        Login existingUsernameLogin = new Login("admin", "testEmail@example.com", "password123", Arrays.asList("Rock", "Pop"));
 
         try {
             clientDAO.insertClient(existingUsernameLogin);
