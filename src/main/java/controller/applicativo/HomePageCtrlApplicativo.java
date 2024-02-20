@@ -57,33 +57,7 @@ public class HomePageCtrlApplicativo {
         return getPlaylistsBean(playlists);
     }
 
-    /** Utilizzata per un corretto filtraggio */
-    private boolean emotionalEmpty(List<Integer> emotional) {
-        if(emotional == null){
-            return true;
-        }
-
-        for (Integer value : emotional) {
-            if (value != 0) {
-                return false; // Se anche un solo valore non è 0, restituisci false
-            }
-        }
-
-        return true; // Tutti i valori sono 0
-    }
-
-    /** Utilizzata per un corretto filtraggio */
-    private boolean genreEmpty(List<String> genre){
-        return genre == null || genre.isEmpty();
-    }
-
-    public void removeNotice(NoticeBean noticeBean) {
-        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-        Notice notice = new Notice(noticeBean.getTitle(), noticeBean.getBody(), noticeBean.getEmail());
-        dao.deleteNotice(notice);
-    }
-
-    /** Nel caso in cui non volessimo che la view contattasse il model */
+    /** Nel caso in cui non volessimo che la view contattasse il model per fare attach */
     public void observePlaylistTable(Observer observer){
         Subject playlistCollection = PlaylistCollection.getInstance();
         playlistCollection.attach(observer);
@@ -112,10 +86,35 @@ public class HomePageCtrlApplicativo {
             PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();
             dao.deletePlaylist(playlist);
 
-            /* OBSERVER */
-            PlaylistCollection playlistCollection = PlaylistCollection.getInstance();   // Recupero l'istanza del Model Subject
-            playlistCollection.removePlaylist(playlist);                                // Rimuove una playlist dalla home page
-
+            /* OBSERVER -> REMOVE PER FAR AGGIORNARE LA HOME PAGE */
+            PlaylistCollection.getInstance().removePlaylist(playlist);
         }
     }
+
+    public void removeNotice(NoticeBean noticeBean) {
+        NoticeDAO dao = DAOFactory.getDAOFactory().createNoticeDAO();   // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        Notice notice = new Notice(noticeBean.getTitle(), noticeBean.getBody(), noticeBean.getEmail());
+        dao.deleteNotice(notice);
+    }
+
+    /** Utilizzata per un corretto filtraggio */
+    private boolean genreEmpty(List<String> genre){
+        return genre == null || genre.isEmpty();
+    }
+
+    /** Utilizzata per un corretto filtraggio */
+    private boolean emotionalEmpty(List<Integer> emotional) {
+        if(emotional == null){
+            return true;
+        }
+
+        for (Integer value : emotional) {
+            if (value != 0) {
+                return false; // Se anche un solo valore non è 0, restituisci false
+            }
+        }
+
+        return true; // Tutti i valori sono 0
+    }
+
 }

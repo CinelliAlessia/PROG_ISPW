@@ -63,7 +63,7 @@ public class AccountCtrlApplicativo {
         dao.deletePlaylist(playlist);
 
         if(playlist.getApproved()) {
-            /* OBSERVER -> ADD PER FAR AGGIORNARE LA HOME PAGE */
+            /* OBSERVER -> REMOVE PER FAR AGGIORNARE LA HOME PAGE */
             PlaylistCollection.getInstance().removePlaylist(playlist);
         }
         return true;
