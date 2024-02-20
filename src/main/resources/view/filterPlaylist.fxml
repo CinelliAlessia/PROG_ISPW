@@ -63,7 +63,7 @@
             </VBox>
         </HBox>
         <HBox alignment="CENTER" spacing="125.0">
-            <Button  alignment="CENTER" contentDisplay="CENTER" onAction="#onResetClick" text="Remove Filters"
+            <Button  alignment="CENTER" contentDisplay="CENTER" onAction="#onResetClick" text="Reset Filters"
                      textAlignment="CENTER" textOverrun="CLIP" />
             <Button alignment="CENTER" contentDisplay="CENTER" onAction="#onApplyClick" text="Apply Filters"
                     textAlignment="CENTER" textOverrun="CLIP"/>

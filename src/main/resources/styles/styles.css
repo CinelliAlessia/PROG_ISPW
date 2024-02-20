@@ -18,7 +18,7 @@
 
 .button {
     -fx-background-color: #1DB954; /* Colore di sfondo verde -fx-background-color: #4CAF50; */
-    -fx-text-fill: white; /* Colore del testo bianco */+
+    -fx-text-fill: white; /* Colore del testo bianco */
     -fx-alignment: center;
     -fx-font-size: 16px;
     -fx-font-weight: bold; /* Imposta il grassetto per il testo del bottone */
