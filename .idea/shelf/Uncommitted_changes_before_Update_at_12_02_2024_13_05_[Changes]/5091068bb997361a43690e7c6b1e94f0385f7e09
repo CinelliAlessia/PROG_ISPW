@@ -1,8 +1,0 @@
-
-¡
-java:S14504"^Remove the "sceneController" field and declare it as a local variable in the relevant methods.(·Øç´8ã‰ˆåÙ1J$1b659e5c-54bd-46c9-b83a-a519146b72ee
-8
-java:S2326"T is not used in the class.(Çñ¤±8·—µéÙ1
-m	java:S106\"+Replace this use of System.out by a logger.(ä¼Ž™8€þ´éÙ1J$96698dbc-00db-472b-a54f-ed9e89414d7d
-v
-java:S10684"3Remove this unused "sceneController" private field.(·Øç´8ú‰ˆåÙ1J$adf4e90d-ac66-47ae-84f9-e2f7316c1f95

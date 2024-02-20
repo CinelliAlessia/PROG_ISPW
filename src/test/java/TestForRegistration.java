@@ -1,5 +1,3 @@
-import static org.junit.Assert.*;
-
 import engineering.exceptions.*;
 import org.junit.Assert;
 import org.junit.Test;

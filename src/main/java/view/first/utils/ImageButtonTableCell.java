@@ -34,7 +34,7 @@ public class ImageButtonTableCell extends TableCell<PlaylistBean, Boolean> {
                 if (Boolean.TRUE.equals(item)) {
                     imageView.setImage(new Image(Objects.requireNonNull(getClass().getResource("/photo/green_dot.png")).toExternalForm()));
                 } else {
-                    imageView.setImage(new Image(Objects.requireNonNull(getClass().getResource("/photo/red_dot.png")).toExternalForm()));
+                    imageView.setImage(new Image(Objects.requireNonNull(getClass().getResource("/photo/orange_dot.png")).toExternalForm()));
                 }
                 setGraphic(imageView);
             }
