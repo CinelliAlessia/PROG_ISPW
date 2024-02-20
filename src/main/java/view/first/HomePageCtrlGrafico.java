@@ -113,16 +113,16 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     /** UTILIZZATA PER IL PATTERN OBSERVER */
     @Override
     public void update() {
-        try{
-            playlists = playlistCollection.getState();
-            for(Playlist p: playlists){
-                playlistsBean.add(new PlaylistBean(p.getEmail(),p.getUsername(),p.getPlaylistName(),p.getLink(),p.getPlaylistGenre(),p.getApproved(),p.getEmotional()));
-            }
-            if(!filterApplied){ // Se i filtri non sono applicati allora aggiorna la tabella altrimenti no
-                TableManager.updateTable(playlistTable, playlistsBean);
-            }
-        } catch (LinkIsNotValidException e){
-            Printer.errorPrint(e.getMessage());
+        playlists = playlistCollection.getState();
+
+        /* Ricevo una lista di Playlist (model) la invio all'applicativo per una traduzione da model a bean
+        * Potevo anche far fare il getState() all'applicativo in una funzione apposita */
+
+        HomePageCtrlApplicativo homePageCtrlApplicativo = new HomePageCtrlApplicativo();
+        homePageCtrlApplicativo.getPlaylistsBean(playlists);
+
+        if(!filterApplied){ // Se i filtri non sono applicati allora aggiorna la tabella altrimenti no
+            TableManager.updateTable(playlistTable, playlistsBean);
         }
     }
 
@@ -168,7 +168,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     }
 
     @FXML
-    protected void onSearchPlaylistClick() {
+    public void onSearchPlaylistClick() {
         if(!Objects.equals(searchText.getText(), "")){
             this.filterApplied = true;
         }
