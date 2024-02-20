@@ -50,11 +50,6 @@ public class SceneController {
     }
 
     @FXML
-    public void goToScene(ActionEvent event, String fxmlPath, PlaylistBean playlistBean) {
-        goToScene(event, fxmlPath, null, playlistBean, null);
-    }
-
-    @FXML
     public void goToScene(ActionEvent event, String fxmlPath) {
         goToScene(event, fxmlPath, null, null, null);
     }
