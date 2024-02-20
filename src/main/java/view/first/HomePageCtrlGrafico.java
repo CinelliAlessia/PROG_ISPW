@@ -3,7 +3,6 @@ package view.first;
 import controller.applicativo.HomePageCtrlApplicativo;
 
 import engineering.bean.*;
-import engineering.exceptions.*;
 import engineering.others.Printer;
 import engineering.pattern.observer.Observer;
 import engineering.pattern.observer.*;
@@ -193,7 +192,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         UserBean userBean = (UserBean) clientBean;
 
-        if (userBean.getNotices().isEmpty()) {
+        if (userBean.getNotices() == null || userBean.getNotices().isEmpty()) {
             // Nessuna notifica disponibile
             MenuItem noNotificationItem = new MenuItem("No notifications available");
             noNotificationItem.setDisable(true); // Impedisce l'interazione con l'elemento
@@ -266,5 +265,4 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         return menuItem;
     }
-
 }
