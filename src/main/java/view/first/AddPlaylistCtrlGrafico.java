@@ -126,9 +126,9 @@ public class AddPlaylistCtrlGrafico<T extends ClientBean> implements Initializab
 
         //Controllo sui campi vuoti
         if( linkPlaylist.isEmpty() || titolo.isEmpty() ){
-            showError("I campi sono vuoti!");
+            showError("The fields are empty!");
         } else if(genre.isEmpty()) {
-            showError("Inserisci almeno un genere musicale!");
+            showError("Enter at least one musical genre!");
         } else {
             playlistBean = new PlaylistBean(clientBean.getEmail(), clientBean.getUsername(), titolo, linkPlaylist, genre, clientBean.isSupervisor(), sliderValues);
             playlistBean.setId("");

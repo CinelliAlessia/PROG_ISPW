@@ -1,7 +1,6 @@
 package controller.applicativo;
 
 import engineering.bean.*;
-import engineering.others.*;
 import engineering.dao.*;
 import engineering.exceptions.*;
 import engineering.pattern.observer.PlaylistCollection;
@@ -18,8 +17,8 @@ public class AddPlaylistCtrlApplicativo {
         // Crea la Playlist (model), id verrà impostato dal dao
         Playlist playlist = new Playlist(pB.getEmail(), pB.getUsername(), pB.getPlaylistName(), pB.getLink(), pB.getPlaylistGenre(), pB.getApproved(), pB.getEmotional());
 
-        // Invio Playlist model al DAO
-        try{
+
+        try{    // Invio Playlist model al DAO
             dao.insertPlaylist(playlist);
 
             /* Per pattern Observer !!! */
@@ -28,12 +27,9 @@ public class AddPlaylistCtrlApplicativo {
             }
 
         } catch (PlaylistLinkAlreadyInUseException e){
-            Printer.errorPrint("ADD APP: Playlist non è stata caricata");
             throw new PlaylistLinkAlreadyInUseException();
         } catch (PlaylistNameAlreadyInUseException e) {
-            Printer.errorPrint("ADD APP: Playlist non è stata caricata");
             throw new PlaylistNameAlreadyInUseException();
         }
     }
-
 }
