@@ -6,8 +6,18 @@ import model.Login;
 
 import java.util.Arrays;
 
+
+/**
+ * Studente: Andrea Tozzi
+ * Matricola: 0350270
+ */
+
+
 public class TestForRegistration {
 
+    /**
+     * Testo che l'inserimento di un utente avvenga con successo se tutti i valori sono validi (email e username generati random)
+    */
     @Test
     public void testRegistrationWithValidData() {
         ClientDAOJSON clientDAO = new ClientDAOJSON();
@@ -30,12 +40,16 @@ public class TestForRegistration {
         Assert.assertEquals(1, res);
     }
 
+    /**
+     * Testo che l'inserimento restituisca l'eccezione "EmailAlreadyInUseException" se provo a registrare un utente con una
+     * email già in uso, in questo caso admin@gmail.com (Un supervisore già presente nel file system)
+     */
     @Test
     public void testRegistrationWithEmailAlreadyExists() {
         ClientDAOJSON clientDAO = new ClientDAOJSON();
         int res;
 
-        Login existingEmailLogin = new Login("nuovoTestUsername", "admin@gmail.com", "password123", Arrays.asList("Rock", "Indie"));
+        Login existingEmailLogin = new Login("nuovoTestUsername1616", "admin@gmail.com", "password123", Arrays.asList("Rock", "Indie"));
 
         try {
             clientDAO.insertClient(existingEmailLogin);
@@ -49,6 +63,11 @@ public class TestForRegistration {
         Assert.assertEquals(1, res);
     }
 
+    /**
+     * Testo che l'inserimento restituisca l'eccezione "UsernameAlreadyInUseException" se provo a registrare un utente con un
+     * nome utente già in uso, in questo caso admin(Un supervisore già presente nel file system).
+     * La mail invece viene generata random
+     */
     @Test
     public void testRegistrationWithExistingUsername() {
         ClientDAOJSON clientDAO = new ClientDAOJSON();
