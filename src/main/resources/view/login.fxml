@@ -57,7 +57,7 @@
            </BorderPane.margin>
            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" spacing="25.0" AnchorPane.bottomAnchor="15.200000000000017">
                <ImageView fitHeight="160.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                   <Image url="@../photo/spotify.png" />
+                   <Image url="@../photo/music.png" />
                </ImageView>
                <Button ellipsisString="" mnemonicParsing="false" onAction="#onGuestClick" text="Enter as a Guest" textAlignment="CENTER" textOverrun="CLIP">
                    <VBox.margin>

@@ -13,7 +13,6 @@ public class MainApplication2 extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(FxmlFileName.LOGIN_FXML));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Access Login");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
@@ -22,7 +21,6 @@ public class MainApplication2 extends Application {
         Stage stage2 = new Stage();
         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource(FxmlFileName.LOGIN_FXML));
         Scene scene2 = new Scene(fxmlLoader2.load());
-        stage2.setTitle("Access Login");
         stage2.setResizable(false);
         stage2.setScene(scene2);
         stage2.show();

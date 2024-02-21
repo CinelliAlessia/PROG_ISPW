@@ -39,7 +39,6 @@ public class MainApplication extends Application {
     private void loadGraphicalInterface(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(FxmlFileName.LOGIN_FXML));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
