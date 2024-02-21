@@ -8,10 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /** Test di Alessia Cinelli */
 public class TestGestionePlaylist {
@@ -44,7 +41,7 @@ public class TestGestionePlaylist {
             // Inserisci la playlist
             playlistDAO.insertPlaylist(playlist);
 
-            // Recupera la playlist appena inserita
+            // Recupera le playlist dell'utente test
             List<Playlist> retrievedPlaylists = playlistDAO.retrievePlaylistsByEmail(EMAIL);
 
             // Assert sul numero di playlist attese (1)
@@ -85,11 +82,16 @@ public class TestGestionePlaylist {
 
             // Assicurati che la playlist sia stata eliminata
             retrievedPlaylists = playlistDAO.retrievePlaylistsByEmail(EMAIL);
-            Assert.assertEquals(0, retrievedPlaylists.size());
+
+            for(Playlist p: retrievedPlaylists){
+                if(Objects.equals(p.getLink(), playlist.getLink())){
+                    Assert.assertEquals(0, retrievedPlaylists.size());
+                }
+            }
 
         } catch (PlaylistLinkAlreadyInUseException | PlaylistNameAlreadyInUseException e) {
             // Se ci sono eccezioni, il test fallirà
-            Assert.fail(String.format("Errore durante l'inserimento o l'eliminazione della playlist: %s", e.getMessage()));
+            Assert.fail(String.format("Errore durante l'inserimento della playlist: %s", e.getMessage()));
         }
     }
 
@@ -98,6 +100,7 @@ public class TestGestionePlaylist {
     @Test
     public void testRicercaPlaylistPerGenere() {
         insertUser(); // L'utente della playlist deve esistere
+
         // Inserisce un numero casuale di playlist di test (da 1 a 10) nel sistema con la stessa lista di playlist
         List<String> genres_random = popolaGeneriCasuali();
         List<Playlist> playlistInserted = inserisciPlaylistCasuali(genres_random);
@@ -111,7 +114,7 @@ public class TestGestionePlaylist {
 
         List<Playlist> risultatoRicerca = playlistDAO.searchPlaylistByGenre(playlistFiltrata);
 
-        // Assicurati che il risultato contenga solo playlist con il genere specificato
+        // Mi assicuro che il risultato contenga solo playlist con il genere specificato
         for (Playlist playlist : risultatoRicerca) {
             Assert.assertEquals(genres_random, playlist.getPlaylistGenre());
         }
