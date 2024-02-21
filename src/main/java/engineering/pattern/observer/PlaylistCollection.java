@@ -46,18 +46,6 @@ public class PlaylistCollection extends Subject {
         notifyObservers();
     }
 
-    public void setState(List<Playlist> playlists) {
-        allPlaylists = playlists;
-
-        // In questo caso non viene fatto notifyObservers() volontariamente
-        // perché nessuna istanza di ConcreteObserver modificherà mai lo stato
-        // e quindi non andrebbero notificati gli altri Observer
-
-        // setState viene effettuato esclusivamente a ogni ingresso nella applicazione
-        // (in initialize nella HomePageCtrlGrafico) dopo aver fatto richiesta in persistenza (modello Pull)
-        // e dato che in add e remove Playlist viene fatto notify observer, tutte le altre istanze iscritte sono aggiornate
-    }
-
     /**
      * Metodo getState() in teoria utilizzato dai subscribers una volta notificati di dover svolgere un update() ?
      *

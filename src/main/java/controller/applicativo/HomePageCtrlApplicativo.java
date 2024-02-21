@@ -19,14 +19,7 @@ public class HomePageCtrlApplicativo {
     public List<PlaylistBean> retrivePlaylistsApproved() {
 
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();        // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
-        List<Playlist> playlists = dao.retrieveApprovedPlaylists();              // Recupero lista Playlist
-
-        /* OBSERVER */
-        PlaylistCollection playlistCollection = PlaylistCollection.getInstance();   // Recupero l'istanza del Model Subject
-        playlistCollection.setState(playlists);                                     // Imposto lo stato del model Subject SETSTATE NON CHIAMA UPDATE
-
-        // Dato che viene fatto set state, serve fare return di un playlist
-        // bean se comunque nel setState verrà fatto update?
+        List<Playlist> playlists = dao.retrieveApprovedPlaylists();              // Recupero lista Playlist approvate
 
         return getPlaylistsBean(playlists);
     }

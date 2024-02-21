@@ -34,7 +34,6 @@ public class TableManager {
         List<PlaylistBean> currentPlaylists = playlistTable.getItems();     // Ottenere la lista attuale di playlist dalla TableView
 
         playlists.removeAll(currentPlaylists);                              // Rimuove le playlist già caricate, cosi da avere una lista di playlist nuove
-        // ### Problema se viene rimossa una playlist
 
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
         playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
@@ -49,9 +48,9 @@ public class TableManager {
         List<PlaylistBean> currentPlaylists = playlistTable.getItems();     // Ottenere la lista attuale di playlist dalla TableView
 
         playlists.removeAll(currentPlaylists);                              // Rimuove le playlist già caricate, cosi da avere una lista di playlist nuove
-        // ### Problema se viene rimossa una playlist
+        currentPlaylists.addAll(playlists);
 
-        ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(playlists);
+        ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(currentPlaylists);
         playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
     }
 
