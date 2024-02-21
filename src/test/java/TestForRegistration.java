@@ -4,7 +4,9 @@ import org.junit.Test;
 import engineering.dao.ClientDAOJSON;
 import model.Login;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -14,6 +16,9 @@ import java.util.Arrays;
 
 
 public class TestForRegistration {
+    private final String USERNAME = "testUser";
+    private final String EMAIL = "testUser@gmail.com";
+    private final List<String> GENRES_USER = new ArrayList<>(List.of("Jazz", "Classic"));
 
     /**
      * Testo che l'inserimento di un utente avvenga con successo se tutti i valori sono validi (email e username generati random)
@@ -48,8 +53,13 @@ public class TestForRegistration {
     public void testRegistrationWithEmailAlreadyExists() {
         ClientDAOJSON clientDAO = new ClientDAOJSON();
         int res;
+        try {
+            clientDAO.insertClient(new Login(USERNAME, EMAIL, USERNAME, GENRES_USER));
+        } catch (UsernameAlreadyInUseException | EmailAlreadyInUseException e) {
+            e.fillInStackTrace(); // Ignoro
+        }
 
-        Login existingEmailLogin = new Login("nuovoTestUsername1616", "admin@gmail.com", "password123", Arrays.asList("Rock", "Indie"));
+        Login existingEmailLogin = new Login("nuovoTestUsername1616", EMAIL, "password123", GENRES_USER);
 
         try {
             clientDAO.insertClient(existingEmailLogin);
@@ -72,8 +82,13 @@ public class TestForRegistration {
     public void testRegistrationWithExistingUsername() {
         ClientDAOJSON clientDAO = new ClientDAOJSON();
         int res;
+        try {
+            clientDAO.insertClient(new Login(USERNAME, EMAIL, USERNAME, GENRES_USER));
+        } catch (UsernameAlreadyInUseException | EmailAlreadyInUseException e) {
+            e.fillInStackTrace(); // Ignoro
+        }
 
-        Login existingUsernameLogin = new Login("admin", "testEmail@example.com", "password123", Arrays.asList("Rock", "Pop"));
+        Login existingUsernameLogin = new Login(USERNAME, "testEmail@example.com", USERNAME, GENRES_USER);
 
         try {
             clientDAO.insertClient(existingUsernameLogin);
