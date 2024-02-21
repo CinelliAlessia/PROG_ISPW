@@ -16,7 +16,7 @@
             <Button fx:id="manager" layoutX="14.0" layoutY="19.0" onAction="#onManagerClick" text="Manage Playlists" AnchorPane.leftAnchor="15.0" />
 
             <!-- Il tuo contenuto principale -->
-            <Button fx:id="menu" layoutX="14.0" layoutY="19.0" onAction="#showContextMenu" text="Notication" AnchorPane.leftAnchor="15.0">
+            <Button fx:id="menu" layoutX="14.0" layoutY="19.0" onAction="#showContextMenu" text="Notifications" AnchorPane.leftAnchor="15.0">
                 <contextMenu>
                     <!-- Definisci gli elementi del menu -->
                     <ContextMenu fx:id="contextMenu">

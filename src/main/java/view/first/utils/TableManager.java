@@ -44,15 +44,15 @@ public class TableManager {
      * @param playlists     è la lista delle playlist da rappresentare
      */
     public static void addInTable(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlists) {
+        List<PlaylistBean> currentPlaylists = playlistTable.getItems(); // Ottenere la lista attuale di playlist dalla TableView
 
-        List<PlaylistBean> currentPlaylists = playlistTable.getItems();     // Ottenere la lista attuale di playlist dalla TableView
-
-        playlists.removeAll(currentPlaylists);                              // Rimuove le playlist già caricate, cosi da avere una lista di playlist nuove
+        playlists.removeIf(playlist -> currentPlaylists.stream().anyMatch(currentPlaylist -> currentPlaylist.getLink().equals(playlist.getLink())));
         currentPlaylists.addAll(playlists);
 
         ObservableList<PlaylistBean> playlistData = FXCollections.observableArrayList(currentPlaylists);
-        playlistTable.setItems(playlistData);                               // Aggiornare la TableView con la lista aggiornata di playlist
+        playlistTable.setItems(playlistData); // Aggiornare la TableView con la lista aggiornata di playlist
     }
+
 
     public ObservableList<PlaylistBean> handler(TableView<PlaylistBean> playlistTable, List<PlaylistBean> playlistBeanList) {
 
