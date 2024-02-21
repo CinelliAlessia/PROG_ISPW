@@ -82,6 +82,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         List<TableColumn<PlaylistBean, ?>> columns = Arrays.asList(playlistNameColumn, linkColumn, usernameColumn, genreColumn);
         List<String> nameColumns = Arrays.asList("playlistName", "link", "username", "playlistGenre");
+        linkColumn.setCellFactory(button -> new SingleButtonTableCell());
 
         /* BYPASSIAMO MVC PER PATTERN OBSERVER */
         playlistCollection = PlaylistCollection.getInstance();
@@ -92,8 +93,7 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
         playlistsBean = homePageController.retrivePlaylistsApproved(); // Recupera le playlist approvate
 
         TableManager.setColumnsTableView(columns, nameColumns);   // Aggiorna i parametri della tabella
-        TableManager.updateTable(playlistTable,playlistsBean);
-        linkColumn.setCellFactory(button -> new SingleButtonTableCell());
+        TableManager.updateTable(playlistTable, playlistsBean);
     }
 
     /** Viene utilizzata da sceneController per impostare lo userBean e l'istanza di Scene controller da utilizzare */
@@ -112,16 +112,15 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
     /** UTILIZZATA PER IL PATTERN OBSERVER */
     @Override
     public void update() {
-        playlists = playlistCollection.getState();
-
         /* Ricevo una lista di Playlist (model) la invio all'applicativo per una traduzione da model a bean
         * Potevo anche far fare il getState() all'applicativo in una funzione apposita */
+        playlists = playlistCollection.getState();
 
         HomePageCtrlApplicativo homePageCtrlApplicativo = new HomePageCtrlApplicativo();
-        homePageCtrlApplicativo.getPlaylistsBean(playlists);
+        playlistsBean = homePageCtrlApplicativo.getPlaylistsBean(playlists);
 
         if(!filterApplied){ // Se i filtri non sono applicati allora aggiorna la tabella altrimenti no
-            TableManager.updateTable(playlistTable, playlistsBean);
+            TableManager.addInTable(playlistTable, playlistsBean);
         }
     }
 
@@ -176,8 +175,8 @@ public class HomePageCtrlGrafico<T extends ClientBean> implements Initializable,
 
         HomePageCtrlApplicativo homePageController = new HomePageCtrlApplicativo();
         playlistsBean = homePageController.searchPlaylistByFilters(filterPlaylist);        // Recupera le playlist approvate
-        TableManager.updateTable(playlistTable, playlistsBean);
 
+        TableManager.updateTable(playlistTable, playlistsBean);
         Printer.logPrint(String.format("GUI HomePage: search clicked: %s, nome: %s, genre: %s, emotional: %s", filterPlaylist, filterPlaylist.getPlaylistName(), filterPlaylist.getPlaylistGenre(), filterPlaylist.getEmotional()));
     }
 
