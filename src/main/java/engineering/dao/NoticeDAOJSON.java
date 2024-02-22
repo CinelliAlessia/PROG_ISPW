@@ -25,19 +25,15 @@ public class NoticeDAOJSON implements NoticeDAO {
 
     public void addNotice(Notice notice) {
         try {
-            String userEmail = notice.getEmail();  // Assuming getUsernameAuthor() returns user email
+            String userEmail = notice.getEmail();
 
-            // Check if the user directory exists, create it if not
             Path userDirectory = Paths.get(BASE_DIRECTORY, userEmail);
 
             Path noticesFile = userDirectory.resolve(FILE_NAME);
-            // Load existing notices or create a new list
             List<Notice> notices = loadNotices(noticesFile);
 
-            // Add the new notice
             notices.add(notice);
 
-            // Save the updated notices list
             saveNotices(notices, noticesFile);
 
         } catch (IOException e) {
@@ -57,7 +53,7 @@ public class NoticeDAOJSON implements NoticeDAO {
     }
 
     private void saveNotices(List<Notice> notices, Path noticesFile) throws IOException {
-        // Serializza la lista di notifiche in formato JSON e scrivi nel file
+        // Serializza la lista di notifiche in formato JSON e scrive nel file
         String json = new GsonBuilder().setPrettyPrinting().create().toJson(notices);
         Files.writeString(noticesFile, json);
     }

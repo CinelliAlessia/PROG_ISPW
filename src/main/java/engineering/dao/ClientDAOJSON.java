@@ -99,7 +99,7 @@ public class ClientDAOJSON implements ClientDAO {
 
         } catch (IOException e) {
             handleDAOException(e);
-            return ""; // Restituisci una stringa vuota in caso di eccezione
+            return ""; // Restituisce una stringa vuota in caso di eccezione
         }
     }
 
@@ -175,7 +175,7 @@ public class ClientDAOJSON implements ClientDAO {
     }
 
     private boolean checkIfUserExistsByEmail(String userEmail) {
-        // Costruisci il percorso della directory dell'utente basandoti sulla mail come nome utente
+        // Costruito il percorso della directory dell'utente basandosi sulla mail come nome utente
         Path userDirectory = Paths.get(BASE_DIRECTORY, userEmail);
 
         // Verifica se la directory dell'utente esiste

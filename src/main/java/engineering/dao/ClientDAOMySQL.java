@@ -236,5 +236,4 @@ public class ClientDAOMySQL implements ClientDAO {
         }
     }
 
-
 }

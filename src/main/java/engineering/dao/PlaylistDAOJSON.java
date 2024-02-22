@@ -106,14 +106,14 @@ public class PlaylistDAOJSON implements PlaylistDAO {
                 // Leggi il contenuto del file
                 String content = Files.readString(playlistPath);
 
-                // ########## Usa Gson per de-serializzare il contenuto JSON e ottenere la playlist
+                // Usa Gson per de-serializzare il contenuto JSON e ottenere la playlist
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 Playlist updatedPlaylist = gson.fromJson(content, Playlist.class);
 
                 // Aggiorna lo stato "approved"
                 updatedPlaylist.setApproved(true);
 
-                // ########### Converti l'oggetto Playlist aggiornato in JSON
+                // Converti l'oggetto Playlist aggiornato in JSON
                 String updatedJson = gson.toJson(updatedPlaylist);
 
                 // Sovrascrivi il file con le informazioni aggiornate
@@ -130,12 +130,12 @@ public class PlaylistDAOJSON implements PlaylistDAO {
     }
 
     private String addUuidToPlaylistFileName(String playlistName, String uuid) {
-        // Sostituisci gli spazi con underscore, convergi tutto in minuscolo e aggiungi UUID tra parentesi quadre
+        // Sostituisce gli spazi con underscore, convergi tutto in minuscolo e aggiungi UUID tra parentesi quadre
         return formatPlaylistFileName(playlistName) + "[" + uuid + "]";
     }
 
     private String formatPlaylistFileName(String playlistName) {
-        // Sostituisci gli spazi con underscore e convergi tutto in minuscolo
+        // Sostituisce gli spazi con underscore e convergi tutto in minuscolo
         return playlistName.replace(" ", "_").toLowerCase();
     }
 

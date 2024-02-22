@@ -17,9 +17,10 @@ public class AccountCtrlApplicativo {
      */
     public List<PlaylistBean> retrievePlaylists(ClientBean clientBean) {
         PlaylistDAO dao = DAOFactory.getDAOFactory().createPlaylistDAO();         // Crea l'istanza corretta del DAO (Impostata nel file di configurazione)
+        String email = clientBean.getEmail();
 
         // Recupero lista Playlist
-        List<Playlist> playlists = dao.retrievePlaylistsByEmail(clientBean.getEmail()); //##################### ok che dobbiamo passare una stinga ma non userBean.getEmail
+        List<Playlist> playlists = dao.retrievePlaylistsByEmail(email);
 
         ArrayList<PlaylistBean> playlistsBean = new ArrayList<>();
         try {

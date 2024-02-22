@@ -8,8 +8,6 @@ import model.*;
 
 public class RegistrazioneCtrlApplicativo {
 
-    // CLI PROBLEMA: Verificare email e username prima di creare realmente l'utente
-
     /** Query al dao per registrare un utente */
     public void registerUser(LoginBean regBean, ClientBean clientBean) throws EmailAlreadyInUseException, UsernameAlreadyInUseException, InvalidEmailException {
 
