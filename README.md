@@ -38,7 +38,6 @@ L'applicazione implementa due tipi di persistenza: JSON e MySQL, offrendo flessi
 ## Tecnologie Coinvolte
 - **Versione SDK 21.0.1**
 - **Versione IntelliJ IDEA 2023.3.1**
-- 
 - **Backend**: Java per la logica del server.
 - **Frontend**: JavaFX per l'interfaccia utente.
 - **Database**: MySQL per memorizzare informazioni su playlist e utenti.
